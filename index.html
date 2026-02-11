@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
     <meta charset="UTF-8">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,201 +49,529 @@
       "operatingSystem": "Web"
     }
     </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b', // Deep background
+                            900: '#18181b', // Card background
+                            850: '#202023', // Lighter card
+                        },
+                        blue: {
+                            500: '#3b82f6', // Primary Accent
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7', // Audit/AI Accent
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981', // Success
+                        },
+                        rose: {
+                            500: '#f43f5e', // Danger
+                        },
+                        teal: {
+                            400: '#2dd4bf', // Analyst Text Color
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: "Courier New", Courier, monospace;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Mobile Stacking Utility */
+        /* Ensures text is always on top on mobile, even if image is left on desktop */
+        .mobile-stack-text-top {
             display: flex;
-            justify-content: center;
+            flex-direction: column-reverse; /* Puts image (bottom in HTML) at top? No, we need Text First. */
         }
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
-        h2 { color: #79c0ff; margin-top: 40px; }
-        p { margin-bottom: 20px; }
-        .feature-list {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        ul { list-style-type: " > "; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 ratio */
-            height: 0;
-            overflow: hidden;
-            border: 1px solid #30363d;
-            margin-bottom: 40px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .form-container {
-            background-color: #0d1117;
-            border: 2px dashed #30363d;
-            padding: 10px;
-            margin-top: 40px;
-        }
-        a { color: #58a6ff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .footer {
-            margin-top: 60px;
-            font-size: 0.8em;
-            color: #8b949e;
-            text-align: center;
-            border-top: 1px solid #30363d;
-            padding-top: 20px;
+        @media (min-width: 768px) {
+            .desktop-row { flex-direction: row; }
+            .desktop-row-reverse { flex-direction: row-reverse; }
         }
     </style>
 </head>
-<body>
 
-<div class="container">
-    <h1>SIGNALDECK (BETA)</h1>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
 
-    <p>
-        <strong>1. Yes, it’s another trading journal.</strong><br>
-        You’ve seen a hundred of these, and most are just glorified tax software. They show you what happened, but they don't tell you <em>why</em> your behavior is shifting. I built SignalDeck because I was tired of Excel lying to me. Most journals treat a win as a win, but they miss the "Strategic Drift"—the invisible gap where your execution starts decaying before the drawdown actually hits.
-    </p>
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="http://signal-deck-ui.s3-website-us-east-1.amazonaws.com/images/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck Logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
 
-    <p>
-        <strong>2. I built this for my own desk.</strong><br>
-        This wasn't a "startup idea." I’m a trader and a dev who needed a better way to audit my own discipline. I use this every single day to catch my own slumps before they get expensive. I’m opening it up for beta now because I’ve hit a wall on my own and I want to see how other serious traders break it so I can make it even more robust.
-    </p>
+                <div>
+                    <a href="#beta" class="inline-flex items-center px-4 py-2 border border-blue-500/30 text-sm font-medium rounded-md text-blue-400 hover:bg-blue-500/10 transition-colors duration-200">
+                        Request Beta Access
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <p>
-        <strong>3. I didn't spend a dime on marketing.</strong><br>
-        You’ve probably noticed this site is just plain text. I didn’t waste money on a marketing team to try and trick you into a subscription. I spent that time building the Health & Sync manager, the AI audit layer, and the duration-vs-R logic. I’d rather have an ugly site with a powerful engine than a pretty site that tells me nothing useful.
-    </p>
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
+                Stop Guessing Why You’re Losing.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Start Auditing Your Edge.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400">
+                SignalDeck exposes the "Risk Leakage" between your strategy and your execution. Forensic-grade analytics for traders who treat the market like a professional sport.
+            </p>
+            
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#beta" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta
+                </a>
+            </div>
 
-    <p>
-        <strong>4. I’m losing money on this (happily).</strong><br>
-        I’ll probably never turn a profit here. Between server costs and AI API calls, I’m paying over a hundred bucks a month just to keep the lights on. I’m fine with that if it means I get to build the ultimate audit tool. In exchange for your feedback, beta testers get free access for life, obtaining Founding Member status. If for some reason this blows up and I'm charging crazy monthly prices for it - you'll continue to use it for free. If this never grows outside of some beta testers - fine. I'll continue to keep it online and use it myself with you alongside me.
-    </p>
-
-    <h2>DEMO VIDEO</h2>
-    <div class="video-container">
-        <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/u9T8rODuyUQ?rel=0" 
-            title="SignalDeck Demo Video" 
-            frameborder="0"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <h2>COMPLETE METRICS LIST</h2>
-    <div class="feature-list">
-        <p>Every metric calculated automatically:</p>
-        <ul>
-            <li><strong>Win Rate Velocity</strong> - Rolling trend indicator for early warning</li>
-            <li><strong>Expectancy Momentum</strong> - Edge decay detection</li>
-            <li><strong>SQN Score</strong> - System Quality Number</li>
-            <li><strong>Kelly Criterion</strong> - Optimal position sizing</li>
-            <li><strong>Profit Factor</strong> - Gross wins/losses ratio</li>
-            <li><strong>R-Multiple Analysis</strong> - Risk-adjusted returns tracking</li>
-            <li><strong>MFE/MAE</strong> - Maximum Favorable/Adverse Excursion</li>
-            <li><strong>Execution Delta</strong> - Signal vs Fill gap analysis</li>
-            <li><strong>Duration vs R-Multiple</strong> - Time-based performance scatter plots</li>
-            <li><strong>Current vs Max Drawdown</strong> - Real-time risk monitoring</li>
-            <li><strong>Pessimistic Est. Max DD</strong> - Forward-looking risk assessment</li>
-            <li><strong>Average Win/Loss</strong> - Payoff ratio tracking</li>
-            <li><strong>Consecutive W/L Streaks</strong> - Pattern detection</li>
-            <li><strong>Break-even Pricing</strong> - Fee-adjusted entry calculations</li>
-            <li><strong>And More!</strong> - I'm actively working with Quants and people smarter than myself to add additional metrics as this product grows.</li>
-        </ul>
-    </div>
-
-    <h2>KEY FEATURES</h2>
-    <div class="feature-list">
-        <ul>
-            <li><strong>AI Forensic Layer:</strong> Use Gemini 1.5 Flash to audit your journal notes against your raw execution data. Ask it to "Review my stop loss discipline" to find the behavioral gaps where your strategy and execution diverge.</li>
-            <li><strong>Regime Detection:</strong> Track <strong>Win Rate Velocity</strong> and <strong>Expectancy Momentum</strong> on a rolling 20-trade basis. These act as early warning systems, flagging strategy decay before it hits your equity curve.</li>
-            <li><strong>Risk & Expectancy Metrics:</strong> Comprehensive tracking of <strong>SQN Score</strong>, <strong>Kelly Criterion</strong>, and <strong>Profit Factor</strong> to ensure your system has a measurable edge.</li>
-            <li><strong>Execution Auditing:</strong> Automatic calculation of <strong>Execution Delta</strong> (Signal vs. Fill) and <strong>Duration vs. R-Multiple</strong> scatter-plots to find your "Negative Expectancy Zone"—the exact minute where winners turn into losers.</li>
-            <li><strong>Advanced Drawdown Analysis:</strong> Real-time monitoring of <strong>Current vs. Max Drawdown</strong> and <strong>Pessimistic Est. Max DD</strong> to flag when a strategy is likely broken.</li>
-            <li><strong>Institutional Grade Metrics:</strong> Access <strong>MFE/MAE (Maximum Favorable/Adverse Excursion)</strong>, <strong>R-Multiple Trends</strong>, and other institutional-grade metrics that other journals simply don't have.</li>
-            <li><strong>Health & Sync Manager:</strong> Live monitoring of data feed health to ensure your metrics are never based on stale or desynced data.</li>
-            <li><strong>Advanced Reporting:</strong> Download your entire trade history that includes every metric I can think of adding to the database. This helps for internal review or use of LLM or Machine Learning auditing as your strategies grow.</li>
-            <li><strong>Concierge Backfill:</strong> If you can provide a csv dump of your past trades in your broker(s) - most allow this - I'll upload into your database and backfill your data with no charge.</li>
-            <li><strong>And More!</strong> - I'm actively working with Quants and people smarter than myself to add additional features as this product grows.</li>
-        </ul>
-    </div>
-
-    <h2>WHO IS THIS FOR?</h2>
-    <div class="feature-list">
-        <p><strong>✓ For you if:</strong></p>
-        <ul>
-            <li>You've had a "great month" followed by a catastrophic week and want to know what changed</li>
-            <li>You're tired of journals that just show P&L without explaining behavioral decay</li>
-            <li>You want to catch discipline slumps before they destroy your account</li>
-            <li>You need institutional-grade metrics, not just win rate and profit factor</li>
-        </ul>
-        <p><strong>✗ Not for you if:</strong></p>
-        <ul>
-            <li>You're just tire-kicking and not serious about improvement</li>
-            <li>You want pretty charts but don't care about the "why" behind losses</li>
-            <li>You're looking for a tax reporting tool (this is a performance audit tool)</li>
-        </ul>
-    </div>
-
-    <h2>FREQUENTLY ASKED QUESTIONS</h2>
-    <div class="feature-list">
-        <p><strong>Q: What trading styles does this support?</strong><br>
-        A: All styles—day trading, swing trading, position trading, algorithmic, discretionary. If you track trades with entry/exit prices, this works.</p>
+            
+            <div class="w-full mt-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
+    
+    <div class="bg-zinc-900 p-6 relative min-h-[300px] border-r border-zinc-800">
+        <h3 class="font-mono text-xs text-zinc-500 uppercase mb-4">Equity Curve [30 Days]</h3>
         
-        <p><strong>Q: Do I need coding knowledge?</strong><br>
-        A: No. The interface is for traders, not developers. If you want to export data for custom analysis, the CSV export gives you everything.</p>
-        
-        <p><strong>Q: Will I really get free access forever?</strong><br>
-        A: Yes. Beta testers get Founding Member status. Even if pricing changes to $100/month, you keep free access.</p>
-        
-        <p><strong>Q: Can I import historical trades?</strong><br>
-        A: Yes. Export a CSV from your broker and I'll personally backfill it. Most brokers allow historical exports going back years.</p>
-        
-        <p><strong>Q: What's the AI actually doing?</strong><br>
-        A: It analyzes YOUR journal notes against YOUR trade data to find specific behavioral patterns. It's not generic advice.</p>
-        
-        <p><strong>Q: How much cash you making from this bro?</strong><br>
-        A: Bish please. I ain't here making nothing. Best believe this 'un.</p>
+        <div class="absolute bottom-0 left-0 right-0 top-12 px-6 pb-6 flex items-end">
+            <svg class="w-full h-48 overflow-visible" preserveAspectRatio="none">
+                <path d="M0,150 C50,140 100,80 150,50" fill="none" stroke="#10b981" stroke-width="2" />
+                <path d="M150,50 L200,120 L250,110" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4 2" />
+                <path d="M250,110 C300,100 350,60 400,40" fill="none" stroke="#3b82f6" stroke-width="2" />
+                
+                <circle cx="200" cy="120" r="6" fill="#f43f5e" class="animate-pulse">
+                    <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+            
+            <div class="absolute top-[45%] left-[45%] bg-rose-500/10 border border-rose-500/50 text-rose-500 text-[10px] font-mono px-2 py-1 rounded">
+                Risk Leakage detected
+            </div>
+        </div>
     </div>
 
-    <h2>BETA SIGNUP</h2>
-    <p>Fill out the form below or visit <a href="https://forms.gle/1TeTFFr72ypX5LkT8" title="Beta Signup Google Form" target="_blank">here</a> if something goofy is going on with the form embed</p>
-    <div style="width: 100%; max-width: 800px; margin: 0 auto; border: 2px dashed #30363d; padding: 10px;">
-        <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdA0b2mKPaysw6BEK5AhbJeu6Gz7VnoBgG9EYyvDwyl2od_kQ/viewform?embedded=true" 
-            width="100%" 
-            height="800" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0">
-            Loading…
-        </iframe>
-    </div>
-
-    <h2>Contact</h2>
-    <p>Zach Smith LinkedIn <a href="https://www.linkedin.com/in/zachisit/" target="_blank" title="Zach Smith LinkedIn Profile">here</a></p>
-
-    <div class="footer">
-        SignalDeck v0.1-beta | Built for traders by a trader. | No trackers. No BS.
+    <div class="bg-zinc-950 p-6 flex flex-col font-mono text-sm relative">
+        <div class="flex items-center gap-2 mb-6 border-b border-zinc-800 pb-2">
+            <div class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
+            <span class="text-zinc-400 text-xs">ANALYST_FEED</span>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="bg-zinc-900 border border-zinc-800 p-3 rounded-lg rounded-tl-none">
+                <span class="text-purple-400 font-bold block mb-1 text-xs">@Analyst_AI:</span>
+                <p class="text-zinc-300 text-xs leading-relaxed">
+                    I'm flagging the drawdown on <span class="text-white font-bold">Oct 14th</span> (marked in red). 
+                </p>
+            </div>
+            <div class="bg-zinc-900 border border-zinc-800 p-3 rounded-lg rounded-tl-none border-l-2 border-l-rose-500">
+                <span class="text-rose-400 font-bold block mb-1 text-xs">INSIGHT:</span>
+                <p class="text-zinc-300 text-xs leading-relaxed">
+                    You took 4 trades during the "Lunch Lull" (12pm-1pm). 
+                    <br><br>
+                    <span class="text-zinc-500">></span> This creates a <span class="text-white">-12% drag</span> on your curve.
+                    <br>
+                    <span class="text-zinc-500">></span> Recommendation: <span class="text-emerald-400">Lock terminal until 1:30 PM.</span>
+                </p>
+            </div>
+        </div>
+        
+        <div class="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50"></div>
     </div>
 </div>
+            
+        </div>
+    </section>
 
+    <section class="py-24 border-t border-zinc-800 bg-zinc-900/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                
+                <div class="p-6 border border-zinc-800 rounded-lg bg-zinc-950 hover:border-zinc-700 transition-colors">
+                    <h3 class="text-sm font-mono text-zinc-500 mb-2">RISK LEAKAGE</h3>
+                    <p class="text-3xl font-mono font-bold text-white mb-2">$4,200</p>
+                    <p class="text-sm text-zinc-400">Money lost to hesitation and poor fills. This isn't the market's fault - it's yours.</p>
+                </div>
+
+                <div class="p-6 border border-zinc-800 rounded-lg bg-zinc-950 hover:border-zinc-700 transition-colors">
+                    <h3 class="text-sm font-mono text-zinc-500 mb-2">WIN RATE VELOCITY</h3>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                        <span class="text-3xl font-mono font-bold text-white">42%</span>
+                        <span class="text-xs font-mono text-rose-500 bg-rose-500/10 px-1 rounded">-3.4%</span>
+                    </div>
+                    <p class="text-sm text-zinc-400">Are you actually improving, or just riding a lucky variance streak?</p>
+                </div>
+
+                <div class="p-6 border border-zinc-800 rounded-lg bg-zinc-950 hover:border-zinc-700 transition-colors">
+                    <h3 class="text-sm font-mono text-zinc-500 mb-2">PSYCH FRICTION</h3>
+                    <p class="text-3xl font-mono font-bold text-white mb-2">HIGH</p>
+                    <p class="text-sm text-zinc-400">Correlation detected between "FOMO" tags and 2R+ drawdowns.</p>
+                </div>
+
+                <div class="p-6 border border-zinc-800 rounded-lg bg-zinc-950 hover:border-zinc-700 transition-colors">
+                    <h3 class="text-sm font-mono text-zinc-500 mb-2">SQN SCORE</h3>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                        <span class="text-3xl font-mono font-bold text-white">2.8</span>
+                        <span class="text-[10px] font-mono font-bold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase tracking-wider">STABLE</span>
+                    </div>
+                    <p class="text-sm text-zinc-400">The System Quality Number - Tells you if your system is statistically tradable or just a fluke. Anything above 2.0 is a professional edge.</p>
+                </div>
+
+                <div class="p-6 border border-zinc-800 rounded-lg bg-zinc-950 hover:border-zinc-700 transition-colors">
+                    <h3 class="text-sm font-mono text-zinc-500 mb-2">EXPECTANCY</h3>
+                    <p class="text-3xl font-mono font-bold text-blue-400 mb-2">0.84R</p>
+                    <p class="text-sm text-zinc-400">For every dollar you risk, this is what your system returns - on average. This is the only number that actually matters.</p>
+                </div>
+
+                <div class="p-6 border border-zinc-800 rounded-lg bg-zinc-950 hover:border-zinc-700 transition-colors">
+                    <h3 class="text-sm font-mono text-zinc-500 mb-2">OPPORTUNITY COST</h3>
+                    <p class="text-3xl font-mono font-bold text-zinc-500 mb-2">$1,150</p>
+                    <p class="text-sm text-zinc-400">Profit left on the table from missed signals. Your strategy found the entries - you just didn't take them.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4">The AI Forensic Analyst</h2>
+                    <p class="text-lg text-zinc-400 mb-8">
+                        A chat interface that actually reads your journal. It doesn't give advice; it gives you an audit.
+                    </p>
+                    <ul class="space-y-4 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">></span>
+                            "Why do I always fail my 2R targets on Tuesdays?"
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">></span>
+                            "Review my stop-loss discipline for the last 50 trades."
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mt-10 lg:mt-0 relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg blur opacity-20"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-lg p-4 shadow-2xl h-96 flex flex-col font-mono text-sm">
+                        <div class="flex items-center justify-between border-b border-zinc-800 pb-2 mb-4">
+                            <span class="text-zinc-500">analyst_daemon_v1.2</span>
+                            <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        </div>
+                        <div class="flex-1 overflow-y-auto" id="chat-window">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-zinc-800 bg-zinc-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16">
+            <h2 class="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-4">Infrastructure</h2>
+            <h3 class="text-3xl font-bold text-white mb-4">The Professional Stack.</h3>
+            <p class="text-zinc-400 max-w-2xl">Stop managing a journal. Start running a laboratory with institutional-grade tools built for forward-testing and edge discovery.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-blue-500/50 transition-all group">
+                <div class="text-blue-500 font-mono text-xl mb-6">01 // THE RUNS</div>
+                <h4 class="text-white font-bold mb-3 text-lg">Morning Scanner</h4>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-6">Automated scanning of 5,000+ stocks at 6am EST. Work with our team to implement your custom strategy and identify signals before the bell.</p>
+                <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Status - Operational</div>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-purple-500/50 transition-all">
+                <div class="text-purple-500 font-mono text-xl mb-6">02 // CONTEXT</div>
+                <h4 class="text-white font-bold mb-3 text-lg">Execution Indicators</h4>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-6">We snapshot RSI, MACD, and SMA values at the exact minute of your entry. Review every trade with the full technical context of the market at that second.</p>
+                <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Data - Per-Minute Precision</div>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-emerald-500/50 transition-all">
+                <div class="text-emerald-500 font-mono text-xl mb-6">03 // VISUALS</div>
+                <h4 class="text-white font-bold mb-3 text-lg">TradingView Bridge</h4>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-6">Seamless integration for individual position review. Jump from forensic metrics directly to a live chart to visualize your edge where you actually trade.</p>
+                <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Sync - 1:1 Mapping</div>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-blue-500/50 transition-all">
+                <div class="text-blue-500 font-mono text-xl mb-6">04 // DATA</div>
+                <h4 class="text-white font-bold mb-3 text-lg">Concierge Backfill</h4>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-6">Don't start from zero. Our team handles the heavy lifting of uploading your messy broker history so your AI Analyst is dangerous on day one.</p>
+                <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Service - White Glove</div>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-700 transition-all">
+                <div class="text-zinc-500 font-mono text-xl mb-6">05 // SPEED</div>
+                <h4 class="text-white font-bold mb-3 text-lg">Power User Hotkeys</h4>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-6">Built for speed. Navigate audits, filter campaigns, and tag positions with minimal mouse clicks. Optimized for the high-frequency workflow.</p>
+                <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">UI - Keyboard First</div>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-purple-500/50 transition-all">
+                <div class="text-purple-500 font-mono text-xl mb-6">06 // ML READY</div>
+                <h4 class="text-white font-bold mb-3 text-lg">Machine Learning Export</h4>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-6">More than buy/sell orders. Export full forensic datasets to CSV for LLM auditing or ongoing Machine Learning simulation and strategy tweaking.</p>
+                <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Output - Forensic CSV</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section class="py-24 border-t border-zinc-800 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+            
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl overflow-hidden">
+                        <div class="flex items-center gap-2 border-b border-zinc-800 pb-4 mb-4">
+                            <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">Analyst_Live_Feed</span>
+                        </div>
+                        <div class="space-y-4 font-mono text-xs md:text-sm">
+                            <div class="flex justify-end">
+                                <div class="bg-blue-600/20 border border-blue-500/30 text-blue-100 px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%]">
+                                    Why did I bleed profit on Tuesday?
+                                </div>
+                            </div>
+                            <div class="flex justify-start">
+                                <div class="bg-zinc-800 border border-zinc-700 text-zinc-300 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[90%] shadow-lg">
+                                    <span class="text-purple-400 font-bold block mb-1">@Analyst:</span>
+                                    You paid a <span class="text-rose-400">$420 'Fear Tax'</span> on 3 entries. You waited 14s avg after the signal, causing 6 ticks of slippage per trade.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold text-white mb-4">Talk to your data - literally.</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Stop digging through spreadsheets. Ask the Analyst why you’re missing targets or what 'Fear Tax' you're paying on Tuesdays. It’s like having a quant sitting next to you - without the ego.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2 order-2 md:order-1">
+                    <h3 class="text-3xl font-bold text-white mb-4">Audit your edge - not just your PnL.</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Win rate is a vanity metric. We track Risk Leakage and SQN to show you if your strategy is actually robust or if you're just getting lucky. Know your breaking point before the market finds it.
+                    </p>
+                </div>
+
+                <div class="w-full md:w-1/2 order-1 md:order-2 grid grid-cols-2 gap-4">
+                    <div class="col-span-1 bg-zinc-900 border border-zinc-800 p-4 rounded-xl flex flex-col justify-between h-40">
+                        <span class="text-xs font-mono text-zinc-500 uppercase">System Quality (SQN)</span>
+                        <div class="text-center">
+                            <span class="text-4xl font-mono font-bold text-emerald-400">2.84</span>
+                            <span class="block text-xs text-emerald-500/70 mt-1">EXCELLENT</span>
+                        </div>
+                        <div class="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full w-[75%]"></div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 bg-zinc-900 border border-zinc-800 p-4 rounded-xl flex flex-col justify-between h-40">
+                        <span class="text-xs font-mono text-zinc-500 uppercase">Risk Leakage</span>
+                        <div class="flex items-end justify-between h-20 gap-1 px-2">
+                            <div class="w-full bg-zinc-700 h-[80%] rounded-t-sm opacity-50 relative group">
+                                <div class="absolute -top-4 left-0 text-[10px] text-zinc-500 opacity-0 group-hover:opacity-100">Ideal</div>
+                            </div>
+                            <div class="w-full bg-rose-500 h-[20%] rounded-t-sm relative group">
+                                <div class="absolute -top-6 left-0 text-[10px] text-rose-500 font-bold opacity-0 group-hover:opacity-100">-$210</div>
+                            </div>
+                            <div class="w-full bg-rose-500 h-[15%] rounded-t-sm"></div>
+                            <div class="w-full bg-blue-500 h-[60%] rounded-t-sm relative group">
+                                <div class="absolute -top-4 left-0 text-[10px] text-blue-400 opacity-0 group-hover:opacity-100">Realized</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2 bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-5 h-64">
+                        <div class="col-span-2 bg-zinc-950 p-4 border-r border-zinc-800 font-mono text-[10px] text-zinc-500 leading-relaxed overflow-hidden">
+                            <span class="text-purple-400">"strategy_id"</span>: <span class="text-emerald-400">"REV_02"</span>,<br>
+                            <span class="text-purple-400">"entry_rsi"</span>: <span class="text-blue-400">72.4</span>,<br>
+                            <span class="text-purple-400">"psych_tag"</span>: <span class="text-rose-400">"FOMO"</span>,<br>
+                            <span class="text-purple-400">"mae_ticks"</span>: <span class="text-blue-400">12</span>,<br>
+                            <span class="text-purple-400">"time_hold"</span>: <span class="text-blue-400">440s</span>,<br>
+                            <span class="text-zinc-700">...</span>
+                        </div>
+                        <div class="col-span-3 bg-zinc-900 p-4 relative">
+                            <span class="absolute top-3 right-3 text-[10px] font-mono text-zinc-500 border border-zinc-700 px-1 rounded">SIMULATION_READY</span>
+                            <div class="absolute bottom-0 left-0 right-0 h-full flex items-end px-4 pb-4 opacity-80">
+                                <svg class="absolute bottom-4 left-4 right-4 h-32 w-full text-zinc-700" fill="none" stroke="currentColor" stroke-width="1"><path d="M0,120 C40,100 80,110 120,80 C160,50 200,90 240,40" /></svg>
+                                <svg class="absolute bottom-4 left-4 right-4 h-32 w-full text-zinc-700" fill="none" stroke="currentColor" stroke-width="1"><path d="M0,120 C50,115 100,125 150,100 C200,80 220,60 240,20" /></svg>
+                                <svg class="absolute bottom-4 left-4 right-4 h-32 w-full text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" fill="none" stroke="currentColor" stroke-width="2"><path d="M0,120 C30,110 60,80 90,90 C120,100 150,60 180,50 C210,40 240,10 270,5" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold text-white mb-4">ML - ready data on tap.</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Your journal is a proprietary training set. Export clean, forensic-grade CSVs formatted for LLMs or Monte Carlo simulations. Built for the lab - not just the ledger.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We’re looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it’s about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you’ll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+            
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8" 
+                target="_blank" 
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+            
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational | <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank">Twitter</a> | <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank">Youtube</a> | <a href="www.linkedin.com/in/zachisit" target="_blank" title="Zach Smith LinkedIn">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- DELETE THE CHART.JS SECTION THAT WAS CAUSING THE ERROR ---
+        
+        // 2. ADVANCED TYPEWRITER SCRIPT (Forensic Scenarios)
+        const chatWindow = document.getElementById('chat-window');
+        
+        // Configuration
+        const scenarios = [
+            {
+                user: "Yo - check my trades from this month where I tagged 'Hesitation'. What’s the actual damage?",
+                analyst: "I just ran the numbers - it's not pretty. When you hesitate, your average fill is about 4 ticks worse than the signal price. That 'Entry Friction' has cost you roughly $1,240 this month alone. If you had just hit the button on the signal, your win rate would be 58% instead of 52%. You’re essentially paying a 'fear tax' that’s eating your entire edge. Stop overthinking the entry - the math says the signal is fine, it's your finger that's broken."
+            },
+            {
+                user: "Why do I keep getting chopped up on Tuesday afternoons?",
+                analyst: "I looked at your Tuesday data - specifically that 2 PM window. Your 'Expectancy Velocity' drops off a cliff there. It looks like you’re taking 'Revenge' tags right after the morning session closes. My advice? Lock the terminal at 1 PM on Tuesdays. You’ve given back 30% of your total weekly gains in that single two-hour window over the last three weeks. You aren't trading a system then - you're just gambling with your morning profits."
+            },
+            {
+                user: "Give me a quick audit on my stop-loss discipline for this campaign.",
+                analyst: "You've moved your stop to breakeven way too early in 4 out of your last 10 trades. In 3 of those cases, the price ended up hitting your original profit target after wicking you out. You're trying to feel 'safe' too soon - and it’s costing you about 1.2R per trade in lost potential. Either trust your stop or lower your position size so you don't feel the need to micromanage the trade. Right now - you're suffocating your winners."
+            }
+        ];
+
+        let scenarioIndex = 0;
+        const typingSpeed = 20; 
+        const pauseBetweenUserAndAnalyst = 800;
+        const pauseBetweenScenarios = 5000;
+
+        function clearChat() {
+            chatWindow.innerHTML = '';
+        }
+
+        async function typeText(element, text, className) {
+            // Create container for this line
+            const lineContainer = document.createElement('div');
+            lineContainer.className = "mb-4 leading-relaxed";
+            
+            // Create label (User or Analyst)
+            const labelSpan = document.createElement('span');
+            if (className === 'user') {
+                labelSpan.className = "text-blue-400 font-bold mr-2";
+                labelSpan.textContent = "User:";
+            } else {
+                labelSpan.className = "text-purple-400 font-bold mr-2";
+                labelSpan.textContent = "Analyst:";
+            }
+            lineContainer.appendChild(labelSpan);
+
+            // Create text span
+            const textSpan = document.createElement('span');
+            textSpan.className = className === 'user' ? "text-zinc-300" : "text-teal-400"; 
+            lineContainer.appendChild(textSpan);
+            
+            // Add cursor
+            const cursor = document.createElement('span');
+            cursor.className = "cursor-blink text-purple-500 ml-1";
+            cursor.textContent = "_";
+            lineContainer.appendChild(cursor);
+
+            element.appendChild(lineContainer); // Fixed: ensure we append to the passed element (chatWindow)
+            
+            // Auto scroll to bottom
+            element.scrollTop = element.scrollHeight;
+
+            // Typing loop
+            for (let i = 0; i < text.length; i++) {
+                textSpan.textContent += text.charAt(i);
+                // Scroll on every char to keep focus
+                element.scrollTop = element.scrollHeight;
+                await new Promise(r => setTimeout(r, typingSpeed));
+            }
+            
+            // Remove cursor from this line when done
+            cursor.remove();
+        }
+
+        async function runScenario() {
+            const currentScenario = scenarios[scenarioIndex];
+            
+            // Type User Query
+            await typeText(chatWindow, currentScenario.user, 'user');
+            
+            // Wait
+            await new Promise(r => setTimeout(r, pauseBetweenUserAndAnalyst));
+            
+            // Type Analyst Response
+            await typeText(chatWindow, currentScenario.analyst, 'analyst');
+            
+            // Wait before clearing
+            await new Promise(r => setTimeout(r, pauseBetweenScenarios));
+            
+            // Clear and Loop
+            clearChat();
+            scenarioIndex = (scenarioIndex + 1) % scenarios.length;
+            runScenario();
+        }
+
+        // Start the loop
+        setTimeout(runScenario, 1000);
+    </script>
 </body>
 </html>

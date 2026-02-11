@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Notes | SignalDeck - Forensic Trading Engine Updates</title>
+    <meta name="description" content="Track the evolution of SignalDeck. See the latest features including Polygon.io indicator tracking, execution quality analysis, and real-time dashboard upgrades.">
+    <meta name="keywords" content="SignalDeck updates, trading journal changelog, new features, feature roadmap, trading software updates, execution analysis">
+    <meta name="author" content="SignalDeck">
+    <link rel="canonical" href="https://zachisit.github.io/signaldeck/release-history.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zachisit.github.io/signaldeck/release-history.html">
+    <meta property="og:title" content="SignalDeck Release Notes - See What's New">
+    <meta property="og:description" content="See how the Forensic Engine is evolving. Latest update: Polygon.io Indicators, Execution Quality Engine, and Security Hardening.">
+    <meta property="og:image" content="https://zachisit.github.io/signaldeck_marketing/assets/og-image.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://zachisit.github.io/signaldeck/release-history.html">
+    <meta property="twitter:title" content="SignalDeck Release Notes - See What's New">
+    <meta property="twitter:description" content="See how the Forensic Engine is evolving. Latest update: Polygon.io Indicators, Execution Quality Engine, and Security Hardening.">
+    <meta name="twitter:image" content="https://zachisit.github.io/signaldeck_marketing/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "SignalDeck Release Notes",
+      "description": "Changelog and release history for the SignalDeck trading journal application.",
+      "url": "https://zachisit.github.io/signaldeck/release-history.html",
+      "isPartOf": {
+        "@type": "SoftwareApplication",
+        "name": "SignalDeck",
+        "applicationCategory": "FinanceApplication"
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 900: '#1e3a8a' },
+                        purple: { 500: '#a855f7' },
+                        emerald: { 500: '#10b981' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck Logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-zinc-800 text-zinc-400 border border-zinc-700 uppercase tracking-wide">Changelog</span>
+            </div>
+            <a href="index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold text-white mb-4">Release History</h1>
+            <p class="text-zinc-400 text-lg">Track the evolution of the Forensic Performance Engine.</p>
+        </div>
+
+        <div class="relative border-l border-zinc-800 ml-4 space-y-16">
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.11-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Feb 10, 2026 7:56 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Major Features</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Polygon Indicator Tracking</strong> - Capture exact market conditions at entry/exit with SMA, EMA, RSI, and MACD indicators.</li>
+                            <li><strong class="text-zinc-200">Search by Trade ID</strong> - Find trades by ID or symbol in one search box.</li>
+                            <li><strong class="text-zinc-200">Fixed Performance Widgets</strong> - Tag and Signal widgets now show ALL entries with proper horizontal axes.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Security & Performance</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Chat endpoint hardened against prompt injection.</li>
+                            <li>Bounded context limits (30-50 trades max).</li>
+                            <li>Optimized DOM caching in pagination (11 fewer lookups per update).</li>
+                            <li>Auto-timestamps on trade edits (no more manual updates).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">UX Improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>CLOSED status badge in post-close modal.</li>
+                            <li>Modal tabs scroll to top on switch.</li>
+                            <li>Better chat error handling when API fails.</li>
+                            <li>Distance to target price shown in post-close summary.</li>
+                            <li>Entry/exit indicator data visible in all trade modals.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">What This Means For You</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Better Analysis</strong> - See exactly what the market looked like when you entered/exited trades with RSI, MACD, moving averages.</li>
+                            <li><strong class="text-zinc-200">Complete Picture</strong> - Performance widgets now show every tag/signal, even ones with 0R.</li>
+                            <li><strong class="text-zinc-200">Faster Workflows</strong> - Type a trade ID to jump straight to it, no more scrolling.</li>
+                            <li><strong class="text-zinc-200">More Reliable</strong> - Chat won't break on API quota issues, better error messages.</li>
+                            <li><strong class="text-zinc-200">Cleaner Data</strong> - Trade edits auto-timestamp, post-close modal shows full context.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-mono text-xs uppercase mb-2 tracking-wider">What's New in Detail</h4>
+                        <ul class="font-mono text-xs space-y-2">
+                            <li>> Time-based entry/exit tracking (optional HH:MM fields in trade forms)</li>
+                            <li>> SMA 20/50/200, EMA 9/12/26, RSI 14, MACD tracked at exact times</li>
+                            <li>> Worker automatically backfills indicators for existing trades with times</li>
+                            <li>> Search box accepts both symbols (AAPL) and IDs (#1234)</li>
+                            <li>> Tag/Signal charts fixed to display all entries with proper scaling</li>
+                            <li>> Modal UX polish - status badges, scroll behavior, target distance</li>
+                            <li>> 39 new automated tests ensure reliability</li>
+                            <li>> Demo data generator updated with realistic indicator values</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.10-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Feb 10, 2026 8:36 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Major Features</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <strong class="text-zinc-200 block mb-1">Trade Efficiency Analytics</strong>
+                                <ul class="list-disc list-outside pl-5 space-y-1">
+                                    <li>New Trade Efficiency scatter plot visualizing MAE vs MFE in R-multiples.</li>
+                                    <li>Click any point to drill down into trade details.</li>
+                                    <li>45-degree breakeven efficiency line helps identify optimal exits.</li>
+                                    <li>Automatic MFE/MAE calculation when closing trades (no more manual backfill!).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-zinc-200 block mb-1">Performance Insights Dashboard</strong>
+                                <ul class="list-disc list-outside pl-5 space-y-1">
+                                    <li>Performance by Signal widget - track which signals are delivering results.</li>
+                                    <li>Performance by Tag reorganized into cleaner 2-column layout.</li>
+                                    <li>Horizontal bar charts with green/red coloring for instant assessment.</li>
+                                    <li>Sorted by total R-multiples to highlight best and worst performers.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-zinc-200 block mb-1">Execution Quality Engine</strong>
+                                <ul class="list-disc list-outside pl-5 space-y-1">
+                                    <li>Round-trip slippage tracking - see total friction from entry to exit.</li>
+                                    <li>Entry/Exit slippage visualization with 4 separate widgets.</li>
+                                    <li>Trade Close Summary Modal - instant performance feedback on closure.</li>
+                                    <li>Side-aware calculations (Long vs Short) for accurate metrics.</li>
+                                    <li>Fixed "Risk Leakage" using weighted sums (corrected 9.85% → ~1.5%).</li>
+                                    <li>Price Improvement and Limit Penetration tracking.</li>
+                                    <li>Polygon.io integration for automatic OHLC data fetching.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-zinc-200 block mb-1">CSV Export Enhancements</strong>
+                                <ul class="list-disc list-outside pl-5 space-y-1">
+                                    <li>Added 16 missing fields - execution metrics, order details, fees, MFE/MAE.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Bug Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Resolved reports bug related to grade logic.</li>
+                            <li>Fixed frontend graph rendering for entry slippage.</li>
+                            <li>Added null safety checks to prevent dashboard crashes.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">UI/UX</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Side-aware conditional formatting (red for unfavorable fills).</li>
+                            <li>"Intended Stop" capture in Close Trade modal.</li>
+                            <li>Enhanced Trade Details modal with Execution Metrics section.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.9-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Feb 3, 2026 9:10 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release hardens platform security by enforcing strict CORS policies, sanitizing inputs against injection attacks, and validating financial data integrity. Simultaneously, it improves system stability and performance through new database connection pooling, optimized dashboard indexes, and a migration to native date types.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Security Hardening</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Critical Patches</strong> - Fixed CORS credential hijacking, CSV/SQL injection, and DoS vectors.</li>
+                            <li><strong class="text-zinc-200">Input Validation</strong> - Enforced strict limits on financial data (no negative prices) and timestamps (no future dates).</li>
+                            <li><strong class="text-zinc-200">Internal Access</strong> - Whitelisted internal scanners and audit workers from rate limiting to prevent task failures.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Infrastructure & Speed</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Database Stability</strong> - Implemented QueuePool (20 persistent connections) to eliminate "Too Many Connections" crashes.</li>
+                            <li><strong class="text-zinc-200">Dashboard Optimization</strong> - Added 5 composite indexes for instant filtering and fixed N+1 query bottlenecks.</li>
+                            <li><strong class="text-zinc-200">Memory Safety</strong> - Capped analytics to the recent 5,000 trades to prevent OOM errors.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Bug Fixes & Frontend</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Data Integrity</strong> - Migrated to native SQL Dates and timezone-aware storage to resolve sorting and DST bugs.</li>
+                            <li><strong class="text-zinc-200">UI Stability</strong> - Fixed Chart.js memory leaks and resolved race conditions in the Trade Detail modal.</li>
+                            <li><strong class="text-zinc-200">Compatibility</strong> - Updated local automation scripts to respect new API rate limits.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.8-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 30, 2026 8:23 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>We’ve pushed a significant update focused on real-time performance, directional trading support, and deep-risk analytics. Here is what’s new:</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Major Features</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Real-Time Dashboard (WebSockets)</strong> - We have replaced the old 5-minute polling system with a WebSocket broadcast. Dashboard updates are now instant - no more waiting or manual refreshes.</li>
+                            <li><strong class="text-zinc-200">Full Long/Short Support</strong> - You can now filter the entire dashboard, trade history, and discipline charts by "Side" (Long vs. Short). P&L math and Tag Performance now accurately reflect directional filters.</li>
+                            <li><strong class="text-zinc-200">Monte Carlo Risk Metric</strong> - Added "Pessimistic Estimated Max Drawdown" to the dashboard. Idea taken from r/algotrading conversation. This runs 10,000 simulations of your trade history to estimate your 95th percentile tail risk. Includes an "Early Warning" pulse if your current drawdown exceeds the estimate.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Quality of Life & UI</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Scanner Bulk Copy</strong> - Added a "Copy All" button to scanner run details. This copies tickers in bracketed format [ABC,XYZ] for instant import into TradingView watchlists or LLM logic.</li>
+                            <li><strong class="text-zinc-200">Journaling Layout</strong> - The Journal Entry field in the New Trade form is now a full-width row, giving you much more space to write.</li>
+                            <li><strong class="text-zinc-200">Manual Stop Utility</strong> - Added a copy button next to the Manual Override field for quick external use.</li>
+                            <li><strong class="text-zinc-200">Table List Cleanup</strong> - Cleaned up multiple tags breaking the table layout.</li>
+                            <li><strong class="text-zinc-200">"Unsaved Changes" Fix</strong> - Fixed a race condition where saving a trade (Ctrl+Enter) would sometimes falsely trigger the "Unsaved Changes" warning upon closing the modal.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Technical & Stability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Database Scalability</strong> - Upgraded note storage to LONGTEXT to prevent crashes when trade notes exceed 64kb.</li>
+                            <li><strong class="text-zinc-200">Audit Performance</strong> - Optimized the Trade Audit API to prevent database lag and added batch_id tracking for better logging.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.7-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 27, 2026 1:43 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This update transitions SignalDeck to a professional-grade execution platform with full support for short positions and significant workflow improvements.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Full Short Selling Support</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Directional Math</strong> - Short trades now calculate profit correctly (price drops = gains). We’ve overhauled the math engine across the API and Dashboard.</li>
+                            <li><strong class="text-zinc-200">Trade Side Tracking</strong> - All trades now track position "Side" (LONG/SHORT).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">5-State Trade Status Display</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>We’ve implemented descriptive status badges to differentiate how trades are exited - OPEN | CLOSED | STOPPED OUT | NEVER FILLED | CANCELLED</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Automated Risk Management</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">1.5R Break-Even</strong> - The 1.5R target is now auto-calculated on trade creation. It remains anchored to your initial risk, giving you a fixed target regardless of how you manage the stop later.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Productivity & UX Polish</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Hotkeys</strong> - Press E to enter Edit Mode in the modal; Ctrl + Enter to Save.</li>
+                            <li><strong class="text-zinc-200">Search Fixed</strong> - Eliminated the "Search Jump" bug; typing and editing ticker symbols is now seamless.</li>
+                            <li><strong class="text-zinc-200">Robust Filters</strong> - Your saved filters are now verified against the database on startup to prevent "empty screen" bugs from deleted strategies or tags.</li>
+                            <li><strong class="text-zinc-200">Precision Math</strong> - Fixed floating-point "drift" errors (e.g., no more $0.300000000004).</li>
+                            <li><strong class="text-zinc-200">Smart Alerts</strong> - "Unsaved Changes" alerts now only trigger when you actually have unsaved work in the journal or post-mortem.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Mobile & Sync</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Mobile Menu</strong> - Overhauled with faster, state-driven logic for a smoother experience.</li>
+                            <li><strong class="text-zinc-200">Audit Sync</strong> - Manual data refreshes now immediately update the "Market Data" timer.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.6-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 22, 2026 5:03 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release is a massive "under-the-hood" overhaul. While we’ve added some great new features, the primary focus of v1.0.6 was hardening security, improving app stability, and preventing data loss.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">New Features & Enhancements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Strategy Deployment Tracking</strong> - Added a "Date Deployed" column to the table and a date picker to the Strategy Details modal.</li>
+                            <li><strong class="text-zinc-200">"Dirty Form" Protection</strong> - The app now detects unsaved changes in the Trade Details modal and prevents accidental data loss if you try to close without saving.</li>
+                            <li><strong class="text-zinc-200">Clipboard Data</strong> - Copying execution data now includes the Original Stop for better external journaling.</li>
+                            <li><strong class="text-zinc-200">Connectivity Alerts</strong> - Added offline/online listeners to instantly warn you if your internet connection drops.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Security & AI</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">AI Hardening</strong> - Patched a vulnerability regarding Indirect Prompt Injection. The AI now strictly separates user notes from system instructions.</li>
+                            <li><strong class="text-zinc-200">XSS & CSV Protection</strong> - Fixed a cross-site scripting (XSS) vector in the Trades Table and added sanitization to CSV exports to prevent Excel Formula Injection.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stability & Core Refactors</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">"Zombie Chart" Fix</strong> - Implemented a "Clean-Slate" policy for charts. Switching views now synchronously destroys old charts, fixing visual glitches where old data would persist.</li>
+                            <li><strong class="text-zinc-200">Math Fixes</strong> - Resolved the "Division by Zero" crash ("Infinite R") when Entry Price equals Stop Price.</li>
+                            <li><strong class="text-zinc-200">Performance</strong> - Switched the UI engine to a Lazy Proxy selector. This reduces memory leaks and ensures the app stays fast even after long sessions.</li>
+                            <li><strong class="text-zinc-200">CSV Exports</strong> - Fixed the pagination bug - exports now correctly fetch up to 10,000 records based on your current filters.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Bug Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Fixed background tab sync drift.</li>
+                            <li>Fixed "null" strings appearing in price columns.</li>
+                            <li>Fixed race conditions when searching for parent trades.</li>
+                            <li>Empty fee inputs now save as null rather than 0.0 to keep average fee stats accurate.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.5-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 16, 2026 8:20 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This update resolves critical dashboard bugs and adds superuser capabilities, ensuring accurate stats across all strategies and seamless screen navigation.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Bug Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Dashboard Stats Accuracy</strong> - Fixed bug where dashboard showed zero trades for certain strategies despite trades existing in the database. Stats now correctly handle JOIN operations with tags/signals.</li>
+                            <li><strong class="text-zinc-200">Superuser Support</strong> - Superusers can now view dashboard statistics for all users' strategies, matching the behavior of the trades list.</li>
+                            <li><strong class="text-zinc-200">Screen Switching</strong> - Resolved issue where navigating between Dashboard and Trades History showed stale data with incorrect filters.</li>
+                            <li><strong class="text-zinc-200">Empty State Logic</strong> - Fixed false "No Trades" screen appearing when data exists. Added fallback verification and warning messages.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Time Display</strong> - Market Data timestamp now shows readable format (e.g., "14h 00m ago" instead of "840m ago").</li>
+                            <li><strong class="text-zinc-200">Error Handling</strong> - Added comprehensive logging and graceful degradation when backend inconsistencies occur.</li>
+                            <li><strong class="text-zinc-200">Data Verification</strong> - Dashboard now cross-checks stats with trades list to prevent incorrect empty states.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Technical</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Fixed SQLAlchemy subquery scope issues preventing discipline stats calculation.</li>
+                            <li>Improved query performance by eliminating duplicate row generation from JOINs.</li>
+                            <li>Enhanced frontend-backend discrepancy detection with automatic recovery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.4-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 16, 2026 7:37 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This update focuses on System Reliability and Customization, featuring strategy protection, health monitoring, and a cleaner UI.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">New Features</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Dynamic Audit Protection</strong> - New toggle in Strategy settings. When enabled, the Audit Worker updates prices but never auto-closes trades.</li>
+                            <li><strong class="text-zinc-200">API Health Monitor</strong> - Added a persistent offline banner. The app auto-recovers and syncs data once the server returns online.</li>
+                            <li><strong class="text-zinc-200">Mini-Pagination</strong> - Faster navigation via a compact bar added to the Trade History header.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">No Loading Flash</strong> - New sequence removes the "No Trades Found" flicker during initial data load.</li>
+                            <li><strong class="text-zinc-200">Filter Persistence</strong> - Fixed bug where refreshing the browser ignored active filter states.</li>
+                            <li><strong class="text-zinc-200">ID Shortcuts</strong> - Added hover-to-copy buttons for Trade and Run IDs in modals.</li>
+                            <li><strong class="text-zinc-200">UI & Labeling</strong> - Removed deprecated header buttons and renamed status to "Market Data".</li>
+                            <li><strong class="text-zinc-200">Backend Stability</strong> - Fixed route nesting and updated Strategy API for dynamic updates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.3-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 14, 2026 9:52 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This update is all about Speed and User Experience. We've significantly optimized how the application loads data and added quality-of-life features for power users.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">New Features</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Smart Data Loading</strong> - We've optimized the initialization process. The app now intelligently checks your profile first - if you have no trade history, we skip the heavy data fetching entirely. This means instant load times for new users and less bandwidth usage for everyone.</li>
+                            <li><strong class="text-zinc-200">Improved "Zero Data" Experience</strong> - No more staring at broken charts or empty grids! Added dedicated Empty State screens to the Dashboard and Trade History. If you have no trades (or your filters hide them all), the app now guides you on how to get started.</li>
+                            <li><strong class="text-zinc-200">Trade Detail Hotkeys</strong> - Power users rejoice! When viewing a Trade Details popup, you can now use keyboard shortcuts to navigate tabs - 1 → Overview, 2 → Journal / Notes, 3 → Post Mortem.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Auto-Sync Fixed</strong> - Fixed a bug where the app was "too polite" and refused to auto-refresh market data because it incorrectly thought a popup was open. Background syncing is now much more reliable.</li>
+                            <li><strong class="text-zinc-200">UI Polish</strong> - Fixed the "New Data Available" warning banner (it was missing its yellow background color). Removed excess padding on the Trade Details popup tabs for a cleaner look. Increased the default size of the "New Note" text area for easier typing.</li>
+                            <li><strong class="text-zinc-200">Scroll Logic</strong> - Fixed an issue where logging in would sometimes leave you scrolled halfway down the page. You now start at the top, every time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.2-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 13, 2026 9:51 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>We've just deployed a significant update focused on data integrity and automation. No more guessing if your dashboard is up to date!</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">New Features</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Live Market Data Sync</strong> - The dashboard now intelligently detects when our backend audit worker completes a scan. When new price data or stop-loss hits are found, your dashboard will automatically refresh in the background without you needing to reload the page.</li>
+                            <li><strong class="text-zinc-200">Data Freshness Indicator</strong> - Added a "Last Updated" status light in the Trade History header. Green: Data is fresh (< 1 hour). Yellow: Data is aging (< 4 hours). Red: Data is stale (> 4 hours).</li>
+                            <li><strong class="text-zinc-200">Broker Fee Tracking</strong> - You can now record Buy Fees and Sell Fees (Commissions) for every trade. Added fields to the "New Trade" and "Close Trade" popups. Added a "Broker Fees" section to the Trade Details view (editable).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Audit Logging</strong> - Backend now persists every scanner run to the database, ensuring a permanent audit trail of price updates and automated stops.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative pb-1">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.1-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Jan 12, 2026 10:41 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This patch focuses on cross-platform consistency, brand unification, and critical bug fixes for our S3 deployment.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">UI & Branding</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The Great Cat Migration</strong> - We have officially retired the generic robot emojis. The SignalDeck Cat Logo is now unified across the Favicon, AI Chat Analyst, Post-Mortem suite, and Login screen.</li>
+                            <li><strong class="text-zinc-200">Enhanced Chat UI</strong> - Increased the default width of the AI Analyst window. This provides significantly better readability for long technical trade audits and mentor critiques.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">System Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">HTTP Copy Support</strong> - Fixed a critical bug where the "Copy Ticker" and "Copy Journal" buttons failed when accessed via the S3 HTTP website endpoint.</li>
+                            <li><strong class="text-zinc-200">Technical</strong> - Implemented a legacy fallback for navigator.clipboard to ensure copy logic works perfectly in "insecure" (HTTP) browser contexts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We’re looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it’s about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you’ll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+            
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8" 
+                target="_blank" 
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+            
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="release_history.html" title="Release History">Release History</a> | <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank">Twitter</a> | <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank">Youtube</a> | <a href="www.linkedin.com/in/zachisit" target="_blank" title="Zach Smith LinkedIn">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

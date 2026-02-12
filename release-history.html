@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -93,8 +92,54 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.11-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.12-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Feb 12, 2026 2:30 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Major Features</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">New "Post-Trade" Experience</strong> - Completely overhauled the trade close modal. Now features a soft-styled chart with entry/exit points, clear P&L positioning, visible broker fees, and a new execution rating system (Excellent/Good/Weak).</li>
+                            <li><strong class="text-zinc-200">Mobile Polish</strong> - Squashed 9 layout bugs for mobile/tablet users. Fixed filter bar, chat chips, and chart sizing for smaller screens.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Security & Stability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Hardening</strong> - Centralized sanitization to block CSV injection and 12 new types of "prompt injection" attacks (DAN mode, jailbreaks, [INST] tokens).</li>
+                            <li><strong class="text-zinc-200">Auth Audit</strong> - Enforced strict ownership checks on every API endpoint to prevent cross-user data leaks.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Performance & Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Dashboard Speed</strong> - Refactored the stats service and optimized SQL to handle large datasets without choking.</li>
+                            <li><strong class="text-zinc-200">MySQL Fix</strong> - Patched a production-specific crash regarding DISTINCT queries.</li>
+                            <li><strong class="text-zinc-200">Batch Updates</strong> - Failed trades in a batch update now report specific errors instead of silently failing.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-mono text-xs uppercase mb-2 tracking-wider">What's New in Detail</h4>
+                        <ul class="font-mono text-xs space-y-2">
+                            <li>> Post-trade modal: added chart, realized P&L, fees, and rating input</li>
+                            <li>> Security: added checks for [INST] tokens and XML role tags</li>
+                            <li>> API: Stats.py refactored from 711 lines to 298 lines</li>
+                            <li>> API: Added 41 new security tests (CSV + Prompt Injection)</li>
+                            <li>> UI: Fixed text sizing consistency in trade details modal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.11-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Feb 10, 2026 7:56 PM</span>
                 </div>
                 
@@ -126,31 +171,6 @@
                             <li>Better chat error handling when API fails.</li>
                             <li>Distance to target price shown in post-close summary.</li>
                             <li>Entry/exit indicator data visible in all trade modals.</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="text-white font-bold mb-2">What This Means For You</h4>
-                        <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Better Analysis</strong> - See exactly what the market looked like when you entered/exited trades with RSI, MACD, moving averages.</li>
-                            <li><strong class="text-zinc-200">Complete Picture</strong> - Performance widgets now show every tag/signal, even ones with 0R.</li>
-                            <li><strong class="text-zinc-200">Faster Workflows</strong> - Type a trade ID to jump straight to it, no more scrolling.</li>
-                            <li><strong class="text-zinc-200">More Reliable</strong> - Chat won't break on API quota issues, better error messages.</li>
-                            <li><strong class="text-zinc-200">Cleaner Data</strong> - Trade edits auto-timestamp, post-close modal shows full context.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
-                        <h4 class="text-blue-400 font-mono text-xs uppercase mb-2 tracking-wider">What's New in Detail</h4>
-                        <ul class="font-mono text-xs space-y-2">
-                            <li>> Time-based entry/exit tracking (optional HH:MM fields in trade forms)</li>
-                            <li>> SMA 20/50/200, EMA 9/12/26, RSI 14, MACD tracked at exact times</li>
-                            <li>> Worker automatically backfills indicators for existing trades with times</li>
-                            <li>> Search box accepts both symbols (AAPL) and IDs (#1234)</li>
-                            <li>> Tag/Signal charts fixed to display all entries with proper scaling</li>
-                            <li>> Modal UX polish - status badges, scroll behavior, target distance</li>
-                            <li>> 39 new automated tests ensure reliability</li>
-                            <li>> Demo data generator updated with realistic indicator values</li>
                         </ul>
                     </div>
                 </div>

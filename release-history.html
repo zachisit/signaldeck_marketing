@@ -92,8 +92,46 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.12-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.13-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Feb 17, 2026 1:00 PM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The "Redis Rigging" update is officially live on production, moving our dashboard from a 16s crawl to near-instant delivery.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Performance & Infrastructure</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">70x Speed Increase</strong> - Implemented a "Stale-While-Revalidate" caching layer. Dashboard and stats now serve from Redis in ~0.06s instead of blocking on the database.</li>
+                            <li><strong class="text-zinc-200">Infrastructure Hardening</strong> - Added Redis connection pooling with 500ms timeouts and a 512MB RAM cap to ensure server stability under heavy load.</li>
+                            <li><strong class="text-zinc-200">Live Telemetry</strong> - Upgraded <code>/health</code> to report real-time cache stats, including active keys and memory usage.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">New Features & Refactors</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Share Screenshot</strong> - Generate public share links for trade summaries, hosted on our custom domain via S3.</li>
+                            <li><strong class="text-zinc-200">Database Cleanup</strong> - Completely removed the deprecated Trade Grade feature to simplify the scanner ingestion pipeline.</li>
+                            <li><strong class="text-zinc-200">Smart Auditing</strong> - Fixed race conditions during strategy creation and automated risk unit backfilling for closed trades.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">GUI Polish</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Fixed Unrealized P/L color coding and exit date formats.</li>
+                            <li>Optimized form inputs to disable during submission to prevent duplicate data.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.12-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Feb 12, 2026 2:30 PM</span>
                 </div>
                 
@@ -543,7 +581,7 @@
                     <div>
                         <h4 class="text-white font-bold mb-2">New Features</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Live Market Data Sync</strong> - The dashboard now intelligently detects when our backend audit worker completes a scan. When new price data or stop-loss hits are found, your dashboard will automatically refresh in the background without you needing to reload the page.</li>
+                            <li><strong class="text-zinc-200">Live Market Data Sync</strong> - The dashboard now intelligently detects when our backend audit worker completes a scan. When price updates or stop-loss hits are found, your dashboard will automatically refresh in the background without you needing to reload the page.</li>
                             <li><strong class="text-zinc-200">Data Freshness Indicator</strong> - Added a "Last Updated" status light in the Trade History header. Green: Data is fresh (< 1 hour). Yellow: Data is aging (< 4 hours). Red: Data is stale (> 4 hours).</li>
                             <li><strong class="text-zinc-200">Broker Fee Tracking</strong> - You can now record Buy Fees and Sell Fees (Commissions) for every trade. Added fields to the "New Trade" and "Close Trade" popups. Added a "Broker Fees" section to the Trade Details view (editable).</li>
                         </ul>

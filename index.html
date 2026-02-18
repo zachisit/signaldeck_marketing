@@ -143,7 +143,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
                 Stop Guessing Why You’re Losing.<br>
-                <span class="inline-block" style="background: linear-gradient(to right, #60a5fa, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                <span style="background: linear-gradient(to right, #60a5fa, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent;">
                     Start Auditing Your Edge.
                 </span>
             </h1>
@@ -360,29 +360,18 @@
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full md:w-1/2 relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                    <div class="relative bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="relative bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl overflow-hidden min-h-[200px]">
                         <div class="flex items-center gap-2 border-b border-zinc-800 pb-4 mb-4">
                             <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                             <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">Analyst_Live_Feed</span>
                         </div>
-                        <div class="space-y-4 font-mono text-xs md:text-sm">
-                            <div class="flex justify-end">
-                                <div class="bg-blue-600/20 border border-blue-500/30 text-blue-100 px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%]">
-                                    Why did I bleed profit on Tuesday?
-                                </div>
+                        <div id="talk-data-anim" class="space-y-4 font-mono text-xs md:text-sm">
                             </div>
-                            <div class="flex justify-start">
-                                <div class="bg-zinc-800 border border-zinc-700 text-zinc-300 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[90%] shadow-lg">
-                                    <span class="text-purple-400 font-bold block mb-1">@Analyst:</span>
-                                    You paid a <span class="text-rose-400">$420 'Fear Tax'</span> on 3 entries. You waited 14s avg after the signal, causing 6 ticks of slippage per trade.
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <div class="w-full md:w-1/2">
-                    <h3 class="text-3xl font-bold text-white mb-4">Talk to your data - literally.</h3>
+                    <h3 class="text-3xl font-bold text-white mb-4">Talk to your data - literally</h3>
                     <p class="text-zinc-400 text-lg leading-relaxed">
                         Stop digging through spreadsheets. Ask the Analyst why you’re missing targets or what 'Fear Tax' you're paying on Tuesdays. It’s like having a quant sitting next to you - without the ego.
                     </p>
@@ -391,36 +380,33 @@
 
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full md:w-1/2 order-2 md:order-1">
-                    <h3 class="text-3xl font-bold text-white mb-4">Audit your edge - not just your PnL.</h3>
+                    <h3 class="text-3xl font-bold text-white mb-4">Audit your edge - not just your P&L</h3>
                     <p class="text-zinc-400 text-lg leading-relaxed">
                         Win rate is a vanity metric. We track Risk Leakage and SQN to show you if your strategy is actually robust or if you're just getting lucky. Know your breaking point before the market finds it.
                     </p>
                 </div>
 
-                <div class="w-full md:w-1/2 order-1 md:order-2 grid grid-cols-2 gap-4">
+                <div class="w-full md:w-1/2 order-1 md:order-2 grid grid-cols-2 gap-4" id="audit-edge-anim">
                     <div class="col-span-1 bg-zinc-900 border border-zinc-800 p-4 rounded-xl flex flex-col justify-between h-40">
                         <span class="text-xs font-mono text-zinc-500 uppercase">System Quality (SQN)</span>
                         <div class="text-center">
-                            <span class="text-4xl font-mono font-bold text-emerald-400">2.84</span>
-                            <span class="block text-xs text-emerald-500/70 mt-1">EXCELLENT</span>
+                            <span id="sqn-number" class="text-4xl font-mono font-bold text-emerald-400">0.00</span>
+                            <span id="sqn-label" class="block text-xs text-emerald-500/70 mt-1 opacity-0 transition-opacity duration-1000">EXCELLENT</span>
                         </div>
                         <div class="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full w-[75%]"></div>
+                            <div id="sqn-bar" class="bg-emerald-500 h-full w-0 transition-all duration-1000 ease-out"></div>
                         </div>
                     </div>
+
                     <div class="col-span-1 bg-zinc-900 border border-zinc-800 p-4 rounded-xl flex flex-col justify-between h-40">
                         <span class="text-xs font-mono text-zinc-500 uppercase">Risk Leakage</span>
                         <div class="flex items-end justify-between h-20 gap-1 px-2">
-                            <div class="w-full bg-zinc-700 h-[80%] rounded-t-sm opacity-50 relative group">
-                                <div class="absolute -top-4 left-0 text-[10px] text-zinc-500 opacity-0 group-hover:opacity-100">Ideal</div>
+                            <div class="w-full bg-zinc-700 h-0 rounded-t-sm opacity-50 relative group transition-all duration-1000 delay-100" id="risk-bar-1" style="height: 0%"></div>
+                            <div class="w-full bg-rose-500 h-0 rounded-t-sm relative group transition-all duration-1000 delay-300" id="risk-bar-2" style="height: 0%">
+                                <div class="absolute -top-6 left-0 text-[10px] text-rose-500 font-bold opacity-0 transition-opacity delay-1000" id="risk-text">-$210</div>
                             </div>
-                            <div class="w-full bg-rose-500 h-[20%] rounded-t-sm relative group">
-                                <div class="absolute -top-6 left-0 text-[10px] text-rose-500 font-bold opacity-0 group-hover:opacity-100">-$210</div>
-                            </div>
-                            <div class="w-full bg-rose-500 h-[15%] rounded-t-sm"></div>
-                            <div class="w-full bg-blue-500 h-[60%] rounded-t-sm relative group">
-                                <div class="absolute -top-4 left-0 text-[10px] text-blue-400 opacity-0 group-hover:opacity-100">Realized</div>
-                            </div>
+                            <div class="w-full bg-rose-500 h-0 rounded-t-sm transition-all duration-1000 delay-200" id="risk-bar-3" style="height: 0%"></div>
+                            <div class="w-full bg-blue-500 h-0 rounded-t-sm relative group transition-all duration-1000 delay-500" id="risk-bar-4" style="height: 0%"></div>
                         </div>
                     </div>
                 </div>
@@ -429,14 +415,8 @@
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full md:w-1/2 bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
                     <div class="grid grid-cols-5 h-64">
-                        <div class="col-span-2 bg-zinc-950 p-4 border-r border-zinc-800 font-mono text-[10px] text-zinc-500 leading-relaxed overflow-hidden">
-                            <span class="text-purple-400">"strategy_id"</span>: <span class="text-emerald-400">"REV_02"</span>,<br>
-                            <span class="text-purple-400">"entry_rsi"</span>: <span class="text-blue-400">72.4</span>,<br>
-                            <span class="text-purple-400">"psych_tag"</span>: <span class="text-rose-400">"FOMO"</span>,<br>
-                            <span class="text-purple-400">"mae_ticks"</span>: <span class="text-blue-400">12</span>,<br>
-                            <span class="text-purple-400">"time_hold"</span>: <span class="text-blue-400">440s</span>,<br>
-                            <span class="text-zinc-700">...</span>
-                        </div>
+                        <div id="ml-data-anim" class="col-span-2 bg-zinc-950 p-4 border-r border-zinc-800 font-mono text-[10px] text-zinc-500 leading-relaxed overflow-hidden">
+                            </div>
                         <div class="col-span-3 bg-zinc-900 p-4 relative">
                             <span class="absolute top-3 right-3 text-[10px] font-mono text-zinc-500 border border-zinc-700 px-1 rounded">SIMULATION_READY</span>
                             <div class="absolute bottom-0 left-0 right-0 h-full flex items-end px-4 pb-4 opacity-80">
@@ -449,13 +429,41 @@
                 </div>
 
                 <div class="w-full md:w-1/2">
-                    <h3 class="text-3xl font-bold text-white mb-4">ML - ready data on tap.</h3>
+                    <h3 class="text-3xl font-bold text-white mb-4">ML ready data on tap</h3>
                     <p class="text-zinc-400 text-lg leading-relaxed">
                         Your journal is a proprietary training set. Export clean, forensic-grade CSVs formatted for LLMs or Monte Carlo simulations. Built for the lab - not just the ledger.
                     </p>
                 </div>
             </div>
 
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold text-white mb-4">Always on auditing</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Step away from standard charting alerts and bring the notifications into your journal ecosystem. Set unlimited triggers on the basics like break-even and stop levels - or behavioral caps like max trades per day and exceeding your ideal dollar risk. It’s about being tapped on the shoulder when you're breaking your own rules before the drawdown gets expensive.
+                    </p>
+                </div>
+
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur opacity-20"></div>
+                    
+                    <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl h-80 flex flex-col">
+                        
+                        <div class="bg-zinc-950 px-4 py-3 border-b border-zinc-800 flex justify-between items-center z-10">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Live_Sentinel_Feed</span>
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-600">v2.4.0</span>
+                        </div>
+
+                        <div id="alert-feed-container" class="flex-1 p-4 space-y-3 overflow-hidden relative">
+                            </div>
+
+                        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-zinc-900 to-transparent pointer-events-none z-10"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -480,102 +488,6 @@
         </div>
     </footer>
 
-    <script>        
-        // 2. ADVANCED TYPEWRITER SCRIPT (Forensic Scenarios)
-        const chatWindow = document.getElementById('chat-window');
-        
-        // Configuration
-        const scenarios = [
-            {
-                user: "Yo - check my trades from this month where I tagged 'Hesitation'. What’s the actual damage?",
-                analyst: "I just ran the numbers - it's not pretty. When you hesitate, your average fill is about 4 ticks worse than the signal price. That 'Entry Friction' has cost you roughly $1,240 this month alone. If you had just hit the button on the signal, your win rate would be 58% instead of 52%. You’re essentially paying a 'fear tax' that’s eating your entire edge. Stop overthinking the entry - the math says the signal is fine, it's your finger that's broken."
-            },
-            {
-                user: "Why do I keep getting chopped up on Tuesday afternoons?",
-                analyst: "I looked at your Tuesday data - specifically that 2 PM window. Your 'Expectancy Velocity' drops off a cliff there. It looks like you’re taking 'Revenge' tags right after the morning session closes. My advice? Lock the terminal at 1 PM on Tuesdays. You’ve given back 30% of your total weekly gains in that single two-hour window over the last three weeks. You aren't trading a system then - you're just gambling with your morning profits."
-            },
-            {
-                user: "Give me a quick audit on my stop-loss discipline for this campaign.",
-                analyst: "You've moved your stop to breakeven way too early in 4 out of your last 10 trades. In 3 of those cases, the price ended up hitting your original profit target after wicking you out. You're trying to feel 'safe' too soon - and it’s costing you about 1.2R per trade in lost potential. Either trust your stop or lower your position size so you don't feel the need to micromanage the trade. Right now - you're suffocating your winners."
-            }
-        ];
-
-        let scenarioIndex = 0;
-        const typingSpeed = 20; 
-        const pauseBetweenUserAndAnalyst = 800;
-        const pauseBetweenScenarios = 5000;
-
-        function clearChat() {
-            chatWindow.innerHTML = '';
-        }
-
-        async function typeText(element, text, className) {
-            // Create container for this line
-            const lineContainer = document.createElement('div');
-            lineContainer.className = "mb-4 leading-relaxed";
-            
-            // Create label (User or Analyst)
-            const labelSpan = document.createElement('span');
-            if (className === 'user') {
-                labelSpan.className = "text-blue-400 font-bold mr-2";
-                labelSpan.textContent = "User:";
-            } else {
-                labelSpan.className = "text-purple-400 font-bold mr-2";
-                labelSpan.textContent = "Analyst:";
-            }
-            lineContainer.appendChild(labelSpan);
-
-            // Create text span
-            const textSpan = document.createElement('span');
-            textSpan.className = className === 'user' ? "text-zinc-300" : "text-teal-400"; 
-            lineContainer.appendChild(textSpan);
-            
-            // Add cursor
-            const cursor = document.createElement('span');
-            cursor.className = "cursor-blink text-purple-500 ml-1";
-            cursor.textContent = "_";
-            lineContainer.appendChild(cursor);
-
-            element.appendChild(lineContainer); // Fixed: ensure we append to the passed element (chatWindow)
-            
-            // Auto scroll to bottom
-            element.scrollTop = element.scrollHeight;
-
-            // Typing loop
-            for (let i = 0; i < text.length; i++) {
-                textSpan.textContent += text.charAt(i);
-                // Scroll on every char to keep focus
-                element.scrollTop = element.scrollHeight;
-                await new Promise(r => setTimeout(r, typingSpeed));
-            }
-            
-            // Remove cursor from this line when done
-            cursor.remove();
-        }
-
-        async function runScenario() {
-            const currentScenario = scenarios[scenarioIndex];
-            
-            // Type User Query
-            await typeText(chatWindow, currentScenario.user, 'user');
-            
-            // Wait
-            await new Promise(r => setTimeout(r, pauseBetweenUserAndAnalyst));
-            
-            // Type Analyst Response
-            await typeText(chatWindow, currentScenario.analyst, 'analyst');
-            
-            // Wait before clearing
-            await new Promise(r => setTimeout(r, pauseBetweenScenarios));
-            
-            // Clear and Loop
-            clearChat();
-            scenarioIndex = (scenarioIndex + 1) % scenarios.length;
-            runScenario();
-        }
-
-        // Start the loop
-        setTimeout(runScenario, 1000);
-    </script>
+    <script src="yup.js"></script>
 </body>
 </html>

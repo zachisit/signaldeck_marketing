@@ -92,8 +92,48 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.13-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.14-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Feb 24, 2026</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The "Alert & Automation" update introduces institutional-grade notification logic and real-time risk monitoring to the SignalDeck engine.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Notifications & Alerts</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Real-Time WebSocket Delivery</strong> - Added a live notification system with audio alerts and toast warnings that trigger the moment price hits your targets.</li>
+                            <li><strong class="text-zinc-200">System Alert Monitor</strong> - Refactored the Notifications screen into a dual-table layout featuring real-time proximity tracking (distance to target) for all active monitors.</li>
+                            <li><strong class="text-zinc-200">Trade Automation</strong> - Opt-in to auto-set Stop Loss and 1.5R Breakeven alerts immediately upon trade creation.</li>
+                            <li><strong class="text-zinc-200">Smart Management</strong> - Triggered alerts now show a "Days Old" calculation, and you can "Mark as Managed" to cleanly clear them from your active view.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Risk & Account Engine</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Account-Level Guardrails</strong> - Set global alerts for daily loss limits and max trades per day to protect your capital across the entire portfolio.</li>
+                            <li><strong class="text-zinc-200">Overnight Risk Logic</strong> - The risk manager now includes unrealized P&L from overnight holds to ensure your daily limits account for all open exposure.</li>
+                            <li><strong class="text-zinc-200">Market-Aware Daemon</strong> - The audit worker now respects market hours and holidays, utilizing a non-blocking sleep loop to preserve resources during off-hours.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Workflow & Infrastructure</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Broker Management</strong> - Full CRUD support for managing multiple broker accounts and associating them with specific trades.</li>
+                            <li><strong class="text-zinc-200">Stamped Change Audits</strong> - Every trade edit is now tagged by its source (GUI vs. Audit Worker) for complete forensic transparency.</li>
+                            <li><strong class="text-zinc-200">Instant Pricing</strong> - Automatic Polygon.io price fetching on trade creation for immediate unrealized P&L calculation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-xl font-bold text-white">v1.0.13-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Feb 17, 2026 1:00 PM</span>
                 </div>
                 
@@ -346,7 +386,7 @@
                         <h4 class="text-white font-bold mb-2">Quality of Life & UI</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">Scanner Bulk Copy</strong> - Added a "Copy All" button to scanner run details. This copies tickers in bracketed format [ABC,XYZ] for instant import into TradingView watchlists or LLM logic.</li>
-                            <li><strong class="text-zinc-200">Journaling Layout</strong> - The Journal Entry field in the New Trade form is now a full-width row, giving you much more space to write.</li>
+                            <li><strong class="text-zinc-200">Journaling Layout</strong> - The Journal Entry field in the New Trade form is fixed as a full-width row, giving you much more space to write.</li>
                             <li><strong class="text-zinc-200">Manual Stop Utility</strong> - Added a copy button next to the Manual Override field for quick external use.</li>
                             <li><strong class="text-zinc-200">Table List Cleanup</strong> - Cleaned up multiple tags breaking the table layout.</li>
                             <li><strong class="text-zinc-200">"Unsaved Changes" Fix</strong> - Fixed a race condition where saving a trade (Ctrl+Enter) would sometimes falsely trigger the "Unsaved Changes" warning upon closing the modal.</li>

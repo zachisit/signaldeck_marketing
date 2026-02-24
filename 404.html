@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | SignalDeck</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 900: '#1e3a8a' },
+                        purple: { 500: '#a855f7' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e', 400: '#fb7185' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500 selection:text-white min-h-screen flex flex-col">
+
+    <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <img src="img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck Logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                </a>
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-rose-900/50 text-rose-200 border border-rose-700/50 uppercase tracking-wide">Error</span>
+            </div>
+            <a href="index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center py-16 px-4">
+        <div class="max-w-xl w-full text-center">
+            
+            <h1 class="text-8xl md:text-9xl font-bold font-mono text-zinc-900 mb-8 tracking-tighter">404</h1>
+            
+            <div class="bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-xl shadow-2xl relative overflow-hidden mb-10 text-left">
+                <div class="absolute -inset-1 bg-gradient-to-r from-rose-500/10 to-purple-500/10 blur opacity-50 pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex items-center gap-2 border-b border-zinc-800 pb-4 mb-5">
+                        <div class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></div>
+                        <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">Analyst_System_Log</span>
+                    </div>
+                    
+                    <div class="space-y-4 font-mono text-sm">
+                        <p class="text-zinc-300 leading-relaxed">
+                            <span class="text-rose-400 font-bold">@Analyst:</span> I'm flagging a massive gap in the data. The page you are looking for doesn't exist on our servers. 
+                        </p>
+                        <p class="text-zinc-400 leading-relaxed border-l-2 border-zinc-700 pl-4 py-1">
+                            > ERROR CODE: 404 NOT FOUND<br>
+                            > ROOT CAUSE: Bad link, typo, or deleted resource.<br>
+                            > RECOMMENDATION: <span class="text-emerald-400">Cut the loss and route back to the index.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html" class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-all shadow-lg shadow-blue-900/20">
+                Return to Dashboard
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-8">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational - mostly.
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="release-history.html" title="Release History" class="hover:text-zinc-400 transition-colors">Release History</a> | 
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" class="hover:text-zinc-400 transition-colors">Twitter</a> | 
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" class="hover:text-zinc-400 transition-colors">Youtube</a> | 
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" title="Zach Smith LinkedIn" class="hover:text-zinc-400 transition-colors">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

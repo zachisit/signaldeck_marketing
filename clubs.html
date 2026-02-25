@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SignalDeck - Institutional Trade Auditing for University Funds</title>
+    <meta name="description" content="Professionalize your student-managed investment fund with an institutional trade audit engine. Track SQN, Expectancy, and identify alpha leakage. Free access for university clubs.">
+    <meta name="keywords" content="university investment club software, student managed investment fund, SMIF software, institutional trading journal, trade audit engine, quantitative trading metrics, SQN score, alpha leakage, student fund performance">
+    <meta name="author" content="SignalDeck">
+    
+    <link rel="canonical" href="https://sgnldk.com/signaldeck/clubs.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/signaldeck/clubs.html">
+    <meta property="og:title" content="SignalDeck - Institutional Auditing for University Funds">
+    <meta property="og:description" content="Equip your student-run fund with the same forensic audit tech used by private family offices. Stop tracking the past and start modeling the future.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/signaldeck/clubs.html">
+    <meta property="twitter:title" content="SignalDeck - Institutional Auditing for University Funds">
+    <meta property="twitter:description" content="Equip your student-run fund with the same forensic audit tech used by private family offices. Stop tracking the past and start modeling the future.">
+    <meta name="twitter:image" content="https://sgnldk.com/signaldeck_marketing/assets/og-image.png">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "AI-powered trading journal with institutional-grade performance metrics",
+      "operatingSystem": "Web"
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b', // Deep background
+                            900: '#18181b', // Card background
+                            850: '#202023', // Lighter card
+                        },
+                        blue: {
+                            500: '#3b82f6', // Primary Accent
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7', // Audit/AI Accent
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981', // Success
+                        },
+                        rose: {
+                            500: '#f43f5e', // Danger
+                        },
+                        teal: {
+                            400: '#2dd4bf', // Analyst Text Color
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Mobile Stacking Utility */
+        /* Ensures text is always on top on mobile, even if image is left on desktop */
+        .mobile-stack-text-top {
+            display: flex;
+            flex-direction: column-reverse; /* Puts image (bottom in HTML) at top? No, we need Text First. */
+        }
+        @media (min-width: 768px) {
+            .desktop-row { flex-direction: row; }
+            .desktop-row-reverse { flex-direction: row-reverse; }
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck Logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+
+                <div>
+                    <a href="index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Institutional Auditing for <span class="text-blue-500">University Funds.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
+                Professionalize your fund with institutional audit tools that bridge the gap between backtesting and live execution. We are whitelisting select university programs for access to private family office tech.
+            </p>
+            <div class="mt-10">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScMjtnuxCqlytXkRB8eO9V28nRPO5tlukeMffg5ZJAdCVgF8Q/viewform" 
+                onclick="gtag('event', 'club_application_click', {'button_location': 'hero_section'});"
+                class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Apply for Club Access
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-rose-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl overflow-hidden">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                <span class="text-xs font-mono text-zinc-400">EQUITY_CURVE_AUDIT</span>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-500">LIVE_SYNC</span>
+                        </div>
+
+                        <div class="relative w-full aspect-[5/3] bg-zinc-950 rounded border border-zinc-800/50 overflow-hidden">
+                            <div class="absolute inset-0" style="background-image: linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px); background-size: 20px 20px; opacity: 0.2;"></div>
+                            
+                            <svg viewBox="0 0 500 300" class="w-full h-full absolute inset-0 preserve-3d">
+                                <defs>
+                                    <linearGradient id="blue-fade" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"></stop>
+                                        <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"></stop>
+                                    </linearGradient>
+                                    <linearGradient id="rose-fade" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.2"></stop>
+                                        <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.01"></stop>
+                                    </linearGradient>
+                                </defs>
+
+                                <rect x="210" y="20" width="130" height="260" fill="url(#rose-fade)" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 4" opacity="0.8"></rect>
+                                
+                                <path d="M 0 220 C 60 220, 100 80, 160 80 C 200 80, 230 240, 280 240 C 330 240, 380 60, 450 60 C 480 60, 500 50, 500 50 L 500 300 L 0 300 Z" fill="url(#blue-fade)"></path>
+                                
+                                <path d="M 0 220 C 60 220, 100 80, 160 80 C 200 80, 230 240, 280 240 C 330 240, 380 60, 450 60 C 480 60, 500 50, 500 50" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                
+                                <circle cx="160" cy="80" r="4" fill="#10b981" stroke="#09090b" stroke-width="2"></circle>
+                                <circle cx="280" cy="240" r="5" fill="#f43f5e" stroke="#09090b" stroke-width="2">
+                                    <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="450" cy="60" r="4" fill="#10b981" stroke="#09090b" stroke-width="2"></circle>
+                            </svg>
+
+                            <div class="absolute top-8 left-[45%] translate-x-[-15%]">
+                                <div class="bg-rose-500/10 border border-rose-500/50 backdrop-blur-md px-3 py-1.5 rounded-md flex flex-col gap-1 shadow-lg shadow-rose-900/20">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></div>
+                                        <span class="text-[10px] font-mono font-bold text-rose-400 tracking-wider">DRIFT DETECTED</span>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-zinc-300">Stop-loss ignored (-3.2R)</span>
+                                </div>
+                                <div class="w-px h-16 bg-gradient-to-b from-rose-500/50 to-transparent ml-6"></div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-3 gap-4 pt-4 border-t border-zinc-800/50">
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-500 mb-1">TOTAL RETURN</div>
+                                <div class="text-sm font-mono text-emerald-400">+14.2%</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-rose-500 mb-1">MAX DRAWDOWN</div>
+                                <div class="text-sm font-mono text-white">-8.4%</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-500 mb-1">SQN SCORE</div>
+                                <div class="text-sm font-mono text-white">2.84</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Stop Tracking the Past.<br>
+                        <span class="text-blue-500">Start Modeling the Future.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Most trading journals are just glorified spreadsheets - backward-looking records of what you already lost. SignalDeck is built for what comes next.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        By leveraging quant-level metrics and AI-driven behavioral analysis, we allow you to look forward as your strategy engages live markets. It isn’t just a digital log; it’s an engine designed to help you understand the "why" behind your edge and ensure your model remains robust as market regimes shift.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-col-reverse md:flex-row">
+                
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Built for the Career Trader,<br>
+                        <span class="text-emerald-500">Not the Casino.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        This is for the trader who treats the screen like an office. We’ve replaced YOLO logic with rigorous institutional data - track your R:R distributions, rolling max drawdowns, and Monte Carlo metrics with absolute precision.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        By capturing technical data at the exact minute of execution, we provide the high-fidelity dataset you need to grow. Export your history for custom machine learning or advanced LLM analysis to find the technical edge that takes you to the next level.
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    
+                    <div class="relative bg-[#0d1117] rounded-xl border border-zinc-800 shadow-2xl overflow-hidden font-mono text-sm">
+                        <div class="bg-zinc-900/80 px-4 py-3 flex items-center gap-2 border-b border-zinc-800">
+                            <div class="flex gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                            </div>
+                            <span class="ml-4 text-xs text-zinc-500">export_metrics.json</span>
+                        </div>
+                        
+                        <div class="p-6 text-zinc-300 leading-relaxed">
+                            <div><span class="text-zinc-500">{</span></div>
+                            <div class="pl-4">
+                                <span class="text-blue-400">"audit_id"</span><span class="text-zinc-400">:</span> <span class="text-emerald-300">"TRD-2023-884"</span><span class="text-zinc-400">,</span>
+                            </div>
+                            <div class="pl-4 mt-2 text-zinc-500">// Institutional Metrics Block</div>
+                            <div class="pl-4">
+                                <span class="text-blue-400">"quant_data"</span><span class="text-zinc-400">:</span> <span class="text-zinc-500">{</span>
+                            </div>
+                            <div class="pl-8">
+                                <span class="text-blue-400">"SQN_score"</span><span class="text-zinc-400">:</span> <span class="text-purple-400">3.42</span><span class="text-zinc-400">,</span>
+                            </div>
+                            <div class="pl-8">
+                                <span class="text-blue-400">"expectancy_R"</span><span class="text-zinc-400">:</span> <span class="text-purple-400">1.24</span><span class="text-zinc-400">,</span>
+                            </div>
+                            <div class="pl-8">
+                                <span class="text-blue-400">"max_drawdown_pct"</span><span class="text-zinc-400">:</span> <span class="text-purple-400">-4.5</span><span class="text-zinc-400">,</span>
+                            </div>
+                            <div class="pl-8">
+                                <span class="text-blue-400">"monte_carlo_survival"</span><span class="text-zinc-400">:</span> <span class="text-purple-400">0.99</span>
+                            </div>
+                            <div class="pl-4"><span class="text-zinc-500">},</span></div>
+                            <div class="pl-4 mt-2">
+                                <span class="text-blue-400">"ai_behavioral_grade"</span><span class="text-zinc-400">:</span> <span class="text-emerald-300">"A+"</span>
+                            </div>
+                            <div><span class="text-zinc-500">}</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-950">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-white mb-12 text-center">Quant-Level Infrastructure</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="p-8 border border-zinc-800 bg-zinc-900/20 rounded-xl hover:border-blue-500/50 transition-colors group">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:animate-pulse"></div>
+                        Forensic Post-Mortems
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Every closed trade triggers a deep post-mortem. Manually audit the execution, or use our AI to automatically review the tape, grade the result, and verify model alignment.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-zinc-800 bg-zinc-900/20 rounded-xl hover:border-blue-500/50 transition-colors group">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:animate-pulse"></div>
+                        Market Data Precision
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        We capture the exact state of the market when you execute. Core indicators and breadth metrics are snapshotted to the minute, creating a high-fidelity dataset for review or machine learning.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-zinc-800 bg-zinc-900/20 rounded-xl hover:border-blue-500/50 transition-colors group">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-pulse"></div>
+                        Talk to Your Journal
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Query your dataset naturally. Stop digging through CSVs to find out why you bleed profit on Tuesdays or cut winners early - just ask your journal and get instant answers.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-zinc-800 bg-zinc-900/20 rounded-xl hover:border-blue-500/50 transition-colors group">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-rose-500 group-hover:animate-pulse"></div>
+                        Forward Test Models
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Work with our family office team to forward-test your club's proprietary models. Implement your logic and identify signals pre-market to ensure your edge holds up live.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-zinc-800 bg-zinc-900/20 rounded-xl hover:border-blue-500/50 transition-colors group">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-yellow-500 group-hover:animate-pulse"></div>
+                        Strategic Drift Detection
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        The biggest threat to a fund is a rogue trader. Our engine flags when an execution deviates from the core strategy, catching emotional sizing or ignored stops before they hit the P&L.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-zinc-800 bg-zinc-900/20 rounded-xl hover:border-blue-500/50 transition-colors group">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 group-hover:animate-pulse"></div>
+                        Institutional Metric Tracking
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Retail cares about win rate. Professionals care about Expectancy. Track rolling max drawdowns, SQN, and Monte Carlo survival metrics to know exactly how robust your edge is.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-16 bg-zinc-900/10">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="aspect-video w-full rounded-xl border border-zinc-800 bg-zinc-950 overflow-hidden shadow-2xl">
+                <div class="flex items-center justify-center h-full text-zinc-600 font-mono text-sm">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/u9T8rODuyUQ?si=xH0loJWHN-5di-Dy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-sm text-zinc-500 font-mono italic">
+                A quick walkthrough of the SignalDeck forensic audit layer.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">More Than Just Software</h2>
+            <p class="text-zinc-400 mb-8 leading-relaxed">
+                We aren't just looking for users - we're looking for partners. Clubs in our pilot program work directly with our engineering team on new feature development. It’s a ground-floor seat in a private incubator that looks incredible on a quant resume.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScMjtnuxCqlytXkRB8eO9V28nRPO5tlukeMffg5ZJAdCVgF8Q/viewform"
+            onclick="gtag('event', 'club_application_click', {'button_location': 'bottom_section'});"
+            class="inline-block px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all">
+                Claim Club Access
+            </a>
+        </div>
+    </section>
+
+</div>
+    
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">           
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="release-history.html" title="Release History">Release History</a> | <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank">Twitter</a> | <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank">Youtube</a> | <a href="www.linkedin.com/in/zachisit" target="_blank" title="Zach Smith LinkedIn">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="yup.js"></script>
+</body>
+</html>

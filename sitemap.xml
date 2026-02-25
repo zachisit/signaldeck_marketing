@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sgnldk.com/</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/clubs.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/jobs/</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/jobs/quantitative-strategy-associate-internship.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/jobs/product-and-growth-intern-crypto.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/release-history.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>0.60</priority>
+  </url>
+</urlset>

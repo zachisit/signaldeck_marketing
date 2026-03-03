@@ -94,9 +94,49 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.14-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.15-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
-                    <span class="text-sm font-mono text-zinc-500">Feb 24, 2026</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 3, 2026 10:01 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The "Sentinels & Stability" update overhauls the notification management system and adds granular control over trade automation.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Alert Management</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Dismiss All Alerts</strong> - Clear the "Recently Triggered Alerts" table in one click with a new confirmation modal.</li>
+                            <li><strong class="text-zinc-200">Enhanced Alert Actions</strong> - Dedicated action column to jump straight to TradingView charts or trade details from notifications.</li>
+                            <li><strong class="text-zinc-200">Zombie Alert Cleanup</strong> - Active alerts are now automatically deactivated as soon as a trade is closed via batch update.</li>
+                            <li><strong class="text-zinc-200">Precision Stop Syncing</strong> - Switched to ID-based matching for stop alerts to eliminate de-syncs caused by decimal rounding errors.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Risk & Automation</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Independent Settings</strong> - Separate controls for auto-creating Stop Loss and Breakeven alerts are now available in User Settings.</li>
+                            <li><strong class="text-zinc-200">Daily Reset Logic</strong> - Account-level risk alerts now reset to inactive at the start of each trading day and map to the correct accounts.</li>
+                            <li><strong class="text-zinc-200">Admin Privacy</strong> - Superusers now only see their own alerts by default in the UI to keep the workspace clean.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stability & UI</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Notifications Stability</strong> - Fixed a bug causing unexpected logouts when visiting the Notifications page.</li>
+                            <li><strong class="text-zinc-200">UI Refinements</strong> - Added clock icons to live price displays and updated record count text for better clarity.</li>
+                            <li><strong class="text-zinc-200">Under the Hood</strong> - Added 16 new system tests and resolved 404 errors in the alert audit worker.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.14-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Feb 24, 2026 11:31 AM</span>
                 </div>
                 
                 <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">

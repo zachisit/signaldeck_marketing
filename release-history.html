@@ -93,8 +93,57 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.16-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.17-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 10, 2026 10:09 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release introduces the highly anticipated redesign of the New Trade modal, expands the media pipeline to support side-by-side entry and exit screenshots, and implements robust live-rate calculations for non-USD Forex pairs. It also ships a suite of UX refinements, including step-by-step toast processing and price-aware alert guards.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">New Trade Screen Redesign</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Layout Overhaul</strong> - Refactored the modal into a modern 3-column grid (Sizing &amp; Entry, Risk &amp; Target, Context &amp; Logic) with a full-width bottom row for the journal and screenshot dropzone.</li>
+                            <li><strong class="text-zinc-200">Native Asset Toggle</strong> - Replaced the clunky JS dropdown with fast native HTML toggle buttons for Stock/Forex.</li>
+                            <li><strong class="text-zinc-200">Isolated Submission Logic</strong> - Payload creation splits into two independent branches, ensuring zero cross-contamination of asset-specific fields.</li>
+                            <li><strong class="text-zinc-200">Required Field Validation</strong> - Built 17 new backend tests to enforce API constraints, while dynamically toggling HTML required attributes in the UI so hidden fields don't block submission.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Exit Screenshots &amp; Media Pipeline</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Context-Aware Storage</strong> - Added a new <code>context</code> column to the TradeScreenshot database model and updated the API to accept context via Form data.</li>
+                            <li><strong class="text-zinc-200">Close Trade Integration</strong> - Added a drag-and-drop zone to the Close Trade flow. The screenshot POST request runs concurrently with the trade closure so it won't block the summary modal if the upload fails.</li>
+                            <li><strong class="text-zinc-200">Split Gallery View</strong> - Redesigned the Trade Details media section into a two-column layout showing "Entry" and "Exit" screenshots side-by-side with clickable thumbnails.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Live Forex Calculations</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Real-Time Rate Cache</strong> - Added a live rate cache to fetch and store real-time exchange rates from Polygon.</li>
+                            <li><strong class="text-zinc-200">Accurate Economics</strong> - Rebuilt forex calculation logic to use correct formulas for Pip Value, Risk, and Margin, accurately converting base/quote currencies to USD.</li>
+                            <li><strong class="text-zinc-200">Testing Coverage</strong> - Added 44 new tests to independently verify the pure math helpers and rate-routing logic.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">UX Enhancements &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Progressive Toasts</strong> - Upgraded the create/close trade flows to use step-by-step persistent toast notifications, preventing the app from feeling frozen during complex background tasks.</li>
+                            <li><strong class="text-zinc-200">Price-Based Alert Guards</strong> - Fixed a bug where Quick-Add alert buttons would stay disabled improperly. The UI now checks for active alerts using a strict mathematical price match instead of matching string names.</li>
+                            <li><strong class="text-zinc-200">Days Held Metric</strong> - Added a new "Days Held" calculation to the Trade Details modal.</li>
+                            <li><strong class="text-zinc-200">Infrastructure &amp; UI</strong> - Cleaned up legacy development IPs, defaulting the base URL to production, and shipped initial structural HTML mockups for the upcoming Alpha Pod Teams dashboard.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.16-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 9, 2026 7:50 AM</span>
                 </div>
                 

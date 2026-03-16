@@ -93,8 +93,55 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.18-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.19-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 16, 2026 09:24 AM</span>
+                </div>
+                
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release cleans up a massive amount of technical debt while shipping major quality-of-life updates to the UI, including true image previews for trade screenshots, a mandatory Trading Style classification, and robust backend fixes for Forex math.</p>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Image Upload Previews &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">True Image Previews</strong> - Swapped text-only filenames for full-width thumbnail previews directly within the dropzones for both new and closed trades.</li>
+                            <li><strong class="text-zinc-200">Modal Reset Hotfix</strong> - Resolved a critical scope bug that caused the close-trade modal to freeze when resetting the screenshot preview.</li>
+                            <li><strong class="text-zinc-200">Format &amp; Memory Safety</strong> - Enforced strict PNG/JPEG format validation and added object URL revocation to prevent memory leaks during screenshot replacements.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Forex Math &amp; Modal Overhaul</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Target &amp; Risk Computations</strong> - The engine now accurately derives risk units and break-even targets server-side using pip stops (handling both standard and JPY pairs).</li>
+                            <li><strong class="text-zinc-200">Auto Pip Value</strong> - Pip values are now calculated and saved automatically during trade creation for USD-quoted and USD-base pairs.</li>
+                            <li><strong class="text-zinc-200">Unified Layout</strong> - Merged Session, Lot Size, and Pip Value cleanly into the Execution &amp; Entry section, replacing dollar distances with native pip targets.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Taxonomy &amp; Team Dashboards</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Trading Styles</strong> - Added a mandatory "Trading Style" classification (Scalping, Day Trading, Swing, Position) to lay the groundwork for strategy analytics.</li>
+                            <li><strong class="text-zinc-200">Leaderboard Cleanup</strong> - Team members without qualifying closed trades in the rolling window are now excluded from the leaderboard entirely.</li>
+                            <li><strong class="text-zinc-200">Feed Sorting</strong> - Updated the team activity feed to strictly sort by last edited time for an accurate real-time log.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Technical Debt &amp; Docs</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Legacy Cleanup</strong> - Permanently removed the deprecated 4GB legacy notes column across the API and worker.</li>
+                            <li><strong class="text-zinc-200">Router Patches</strong> - Fixed a URL prefix mismatch that was breaking frontend market data polling.</li>
+                            <li><strong class="text-zinc-200">Documentation</strong> - Pushed an 800-line overhaul mapping out the architecture, request lifecycles, and system gotchas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.18-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 11, 2026 10:10 AM</span>
                 </div>
                 

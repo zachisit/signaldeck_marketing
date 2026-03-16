@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SignalDeck - Institutional Trade Auditing for Forex</title>
+    <meta name="description" content="Professionalize your forex trading with a native audit engine. Track pip values, leverage, group metrics, and execution quality.">
+    <meta name="keywords" content="forex trading journal, institutional forex auditing, pip tracking, forex team metrics, quantitative trading metrics">
+    <meta name="author" content="SignalDeck">
+    
+    <link rel="canonical" href="https://sgnldk.com/forex/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/forex/">
+    <meta property="og:title" content="SignalDeck - Institutional Auditing for Forex Traders">
+    <meta property="og:description" content="A trading journal built natively for the currency markets. Stop tracking the past and start modeling the future.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/forex/">
+    <meta property="twitter:title" content="SignalDeck - Institutional Auditing for Forex Traders">
+    <meta property="twitter:description" content="A trading journal built natively for the currency markets. Stop tracking the past and start modeling the future.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Native forex trading journal with institutional-grade performance metrics",
+      "operatingSystem": "Web"
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .mobile-stack-text-top {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        @media (min-width: 768px) {
+            .desktop-row { flex-direction: row; }
+            .desktop-row-reverse { flex-direction: row-reverse; }
+        }
+
+        /* Candlestick animation for the mock UI */
+        .candle { transition: height 0.5s ease-in-out; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png" 
+                    class="h-6 w-6 object-contain" 
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div>
+                    <a href="../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Institutional Auditing for <span class="text-blue-500">Forex Traders.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
+                We didn't just shoehorn forex into a stock journal. We built a native currency layer complete with pip-level precision, dynamic team metrics, and side-by-side execution charts.
+            </p>
+            <div class="mt-10">
+                <a href="https://forms.gle/1TeTFFr72ypX5LkT8" 
+                onclick="gtag('event', 'forex_beta_click', {'button_location': 'hero_section'});"
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Apply for Beta Access
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-emerald-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl overflow-hidden">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                                <span class="text-xs font-mono text-zinc-400">TEAM_METRICS_SYNC</span>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-500">POD_ALPHA</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="h-8 w-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-400 border border-zinc-700">LD</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-white">London Breakout Pod</div>
+                                        <div class="text-[10px] font-mono text-zinc-500">8 Members Active</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm font-mono text-emerald-400">+12.4R</div>
+                                    <div class="text-[10px] font-mono text-zinc-500">This Week</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-zinc-900/50 border border-zinc-800/50 p-4 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="h-8 w-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-400 border border-zinc-700">AM</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-zinc-300">Alex M. <span class="text-[10px] bg-rose-500/10 text-rose-400 border border-rose-500/20 px-1.5 py-0.5 rounded ml-2">Short EUR/USD</span></div>
+                                        <div class="text-[10px] font-mono text-zinc-500 mt-1">Entry: 1.08452 - Target: 1.08200</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Trade With Your Pod.<br>
+                        <span class="text-blue-500">Track Collective Edge.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Trading in a silo is a fast track to stagnation. We built Borg so you can connect with your group, follow their executions, and view metrics at the pod level.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        See how your personal edge holds up against the collective. Compare your execution quality, slippage, and R-multiples side-by-side with traders executing the exact same setups. It's an accountability mirror built directly into your journal.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-col-reverse md:flex-row">
+                
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Visual Trade History.<br>
+                        <span class="text-emerald-500">Context is Everything.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        A spreadsheet can tell you what you lost, but it can't show you why. We built a dedicated media pipeline so you can drop your entry and exit screenshots directly into the post-mortem.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        We link these images directly to the execution data. When you review a trade three months from now, you aren't just looking at numbers - you're seeing the exact market structure, indicator alignment, and chart context you were looking at when you pulled the trigger.
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    
+                    <div class="relative bg-zinc-950 rounded-xl border border-zinc-800 shadow-2xl overflow-hidden p-3">
+                        <div class="grid grid-cols-2 gap-3 h-56">
+                            
+                            <div class="relative bg-[#0d1117] rounded-lg border border-zinc-700/50 overflow-hidden group/img flex flex-col justify-end p-4">
+                                <span class="absolute top-2 left-2 bg-zinc-950/90 text-blue-400 text-[10px] font-bold px-2 py-1 rounded border border-blue-500/30 font-mono z-10 shadow-lg">ENTRY</span>
+                                
+                                <div class="flex items-end justify-between w-full h-32 gap-1">
+                                    <div class="w-1/5 h-[40%] bg-emerald-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[140%] bg-emerald-500/80 left-1/2 -translate-x-1/2 -top-[20%]"></div></div>
+                                    <div class="w-1/5 h-[30%] bg-rose-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[180%] bg-rose-500/80 left-1/2 -translate-x-1/2 -top-[40%]"></div></div>
+                                    <div class="w-1/5 h-[20%] bg-rose-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[150%] bg-rose-500/80 left-1/2 -translate-x-1/2 -top-[20%]"></div></div>
+                                    
+                                    <div class="w-1/5 h-[60%] bg-emerald-500 rounded-sm relative shadow-[0_0_12px_rgba(16,185,129,0.4)]">
+                                        <div class="absolute w-[2px] h-[130%] bg-emerald-500 left-1/2 -translate-x-1/2 -top-[15%]"></div>
+                                        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-blue-400 animate-bounce">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                                        </div>
+                                    </div>
+                                    <div class="w-1/5 h-[45%] bg-emerald-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[120%] bg-emerald-500/80 left-1/2 -translate-x-1/2 -top-[10%]"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="relative bg-[#0d1117] rounded-lg border border-zinc-700/50 overflow-hidden group/img flex flex-col justify-end p-4">
+                                <span class="absolute top-2 left-2 bg-zinc-950/90 text-emerald-400 text-[10px] font-bold px-2 py-1 rounded border border-emerald-500/30 font-mono z-10 shadow-lg">EXIT</span>
+                                
+                                <div class="flex items-end justify-between w-full h-32 gap-1">
+                                    <div class="w-1/5 h-[45%] bg-emerald-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[120%] bg-emerald-500/80 left-1/2 -translate-x-1/2 -top-[10%]"></div></div>
+                                    <div class="w-1/5 h-[70%] bg-emerald-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[130%] bg-emerald-500/80 left-1/2 -translate-x-1/2 -top-[15%]"></div></div>
+                                    <div class="w-1/5 h-[85%] bg-emerald-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[120%] bg-emerald-500/80 left-1/2 -translate-x-1/2 -top-[10%]"></div></div>
+                                    
+                                    <div class="w-1/5 h-[65%] bg-rose-500 rounded-sm relative shadow-[0_0_12px_rgba(244,63,94,0.4)]">
+                                        <div class="absolute w-[2px] h-[140%] bg-rose-500 left-1/2 -translate-x-1/2 -top-[20%]"></div>
+                                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-emerald-400 animate-bounce">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                                        </div>
+                                    </div>
+                                    <div class="w-1/5 h-[50%] bg-rose-500/80 rounded-sm relative"><div class="absolute w-[1px] h-[120%] bg-rose-500/80 left-1/2 -translate-x-1/2 -top-[10%]"></div></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl overflow-hidden">
+                        <div class="flex justify-between items-center mb-4 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                                <span class="text-xs font-mono text-zinc-400">ACTIVE_FILTERS</span>
+                            </div>
+                            <span class="text-[10px] text-zinc-600 font-mono">14 TRADES MATCH</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 text-xs font-mono text-white bg-blue-500/20 border border-blue-500/30 rounded flex items-center gap-2 transition-colors hover:bg-blue-500/30">EUR/USD <span class="text-blue-400 hover:text-white cursor-pointer">&times;</span></span>
+                            <span class="px-2 py-1 text-xs font-mono text-white bg-purple-500/20 border border-purple-500/30 rounded flex items-center gap-2 transition-colors hover:bg-purple-500/30">LONDON_SESSION <span class="text-purple-400 hover:text-white cursor-pointer">&times;</span></span>
+                            <span class="px-2 py-1 text-xs font-mono text-white bg-emerald-500/20 border border-emerald-500/30 rounded flex items-center gap-2 transition-colors hover:bg-emerald-500/30">LONG_ONLY <span class="text-emerald-400 hover:text-white cursor-pointer">&times;</span></span>
+                        </div>
+
+                        <div class="bg-zinc-900 border border-zinc-800 rounded p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-bold text-zinc-300">Filtered Expectancy</span>
+                                <span class="text-emerald-400 font-mono font-bold">+1.8R</span>
+                            </div>
+                            <div class="w-full bg-zinc-950 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 w-[85%] h-full"></div>
+                            </div>
+                            <div class="mt-4 flex justify-between text-[10px] font-mono text-zinc-500">
+                                <span>WIN RATE: 64%</span>
+                                <span>PROFIT FACTOR: 2.1</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Dynamic Trade Filtering.<br>
+                        <span class="text-purple-500">Find Your True Edge.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Stop guessing which pairs and setups actually make you money. Our filtering engine lets you slice your trade history by session, setup type, pair, and duration.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Isolate the noise. Quickly identify if your London breakout strategy is dragging down your New York reversal plays, and adjust your sizing accordingly. When you can filter your entire dashboard in milliseconds, you stop trading blind.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-white mb-4 text-center">Built for the Currency Markets</h3>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">The mechanics of a forex trade are fundamentally different from equities. We built a native environment designed to handle leverage, precise pip math, and cross-border currency conversions instantly.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="relative z-10">
+                        <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            Native Forex Math
+                        </h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                            We don't force you to log shares and cents. Our forms dynamically toggle to support lot sizes and pips based on the pair you are trading.
+                        </p>
+                        <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-zinc-400 font-mono text-xs">Lot Size</span>
+                                <span class="text-white font-mono font-bold bg-zinc-900 px-2 py-1 rounded border border-zinc-700">5.0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-zinc-400 font-mono text-xs">Stop Loss</span>
+                                <span class="text-white font-mono font-bold bg-zinc-900 px-2 py-1 rounded border border-zinc-700">12.5 Pips</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-emerald-500/10"></div>
+                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2 relative z-10">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        5-Decimal Precision
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6 relative z-10">
+                        No more rounding errors breaking your stop loss logic. We calculate targets and pip distance with extreme precision natively in the backend.
+                    </p>
+                    <div class="mt-auto bg-zinc-950 rounded-lg border border-zinc-800 p-4 flex flex-col items-center justify-center relative z-10 shadow-inner">
+                        <span class="text-xs font-mono text-zinc-500 mb-2 tracking-widest">EUR/USD</span>
+                        <div class="text-3xl font-mono font-bold text-white tracking-wider">
+                            1.0845<span class="text-emerald-400 bg-emerald-500/10 px-1 rounded">2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-purple-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-purple-500/10"></div>
+                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2 relative z-10">
+                        <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                        Smart Session Tracking
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6 relative z-10">
+                        Stop tagging your trades manually. We automatically tag market sessions and capture the DXY value at the exact minute of your entry.
+                    </p>
+                    <div class="mt-auto flex flex-col gap-2 relative z-10">
+                        <span class="px-2 py-1.5 text-[10px] font-mono font-bold text-zinc-300 bg-zinc-950 rounded border border-zinc-800 inline-block text-center">🇬🇧 LONDON - 🇺🇸 NEW YORK</span>
+                        <span class="px-2 py-1.5 text-[10px] font-mono font-bold text-purple-400 bg-purple-500/10 rounded border border-purple-500/20 inline-block text-center">DXY: 104.25</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-rose-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-rose-500/10"></div>
+                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2 relative z-10">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                        Directional Analytics
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6 relative z-10">
+                        Filter the entire dashboard and historical charts by Side. Everything from Expectancy to Profit Factor accurately reflects the direction you played.
+                    </p>
+                    <div class="flex items-center gap-4 mt-auto relative z-10">
+                        <div class="flex-1 bg-zinc-950 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 w-3/4 h-full"></div>
+                        </div>
+                        <span class="text-xs font-mono text-blue-400 font-bold">LONG</span>
+                        <div class="flex-1 bg-zinc-950 h-2 rounded-full overflow-hidden flex justify-end">
+                            <div class="bg-rose-500 w-1/2 h-full"></div>
+                        </div>
+                        <span class="text-xs font-mono text-rose-400 font-bold">SHORT</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-yellow-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-yellow-500/10"></div>
+                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2 relative z-10">
+                        <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                        Execution Slippage
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6 relative z-10">
+                        Stop guessing what a bad fill costs you. We track round-trip slippage from entry to exit, highlighting the exact friction dragging down your P&L.
+                    </p>
+                    <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded p-4 relative z-10 shadow-inner">
+                        <div class="flex justify-between text-[10px] font-mono text-zinc-400 mb-2">
+                            <span>Expected Entry</span>
+                            <span class="text-yellow-400">Actual Fill</span>
+                        </div>
+                        <div class="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden flex">
+                            <div class="bg-zinc-500 w-1/2 h-full border-r-2 border-zinc-950"></div>
+                            <div class="bg-yellow-500 w-1/4 h-full"></div>
+                        </div>
+                        <div class="text-right text-[10px] font-mono text-yellow-500 mt-2">-1.2 Pips Slippage</div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-cyan-500/10"></div>
+                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2 relative z-10">
+                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                        Efficiency Metrics
+                    </h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6 relative z-10">
+                        Visual scatter plots of MAE vs MFE (Maximum Favorable Excursion) help you identify exactly where you are leaving pips on the table.
+                    </p>
+                    <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded p-4 relative z-10 shadow-inner">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-zinc-500 font-mono text-[10px]">MAE (Risk)</span>
+                            <span class="text-emerald-500 font-mono text-[10px]">MFE (Reward)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-zinc-300 font-mono font-bold">-0.4R</span>
+                            <div class="w-12 h-[1px] bg-zinc-700 mx-2"></div>
+                            <span class="text-emerald-400 font-mono font-bold">+2.8R</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+    
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We’re looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it’s about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you’ll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+            
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+            
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" title="Release History">Release History</a> - 
+                <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> - 
+                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> - 
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> - 
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../yup.js"></script>
+</body>
+</html>

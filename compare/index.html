@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignalDeck vs TraderSync vs Edgewonk | Trading Journal Comparison 2026</title>
+    <meta name="description" content="Compare SignalDeck to TraderSync, Edgewonk, TradeZella, Tradervue, and TradesViz. See which trading journal has native R-value tracking, SQN scoring, structured post mortems, and AI analysis.">
+    <meta name="keywords" content="SignalDeck vs TraderSync, SignalDeck vs Edgewonk, trading journal comparison, best R-value trading journal, SQN trading journal, trade journal comparison 2026">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/compare/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/compare/">
+    <meta property="og:title" content="SignalDeck vs TraderSync vs Edgewonk | Trading Journal Comparison 2026">
+    <meta property="og:description" content="Compare SignalDeck to TraderSync, Edgewonk, TradeZella, Tradervue, and TradesViz. See which trading journal has native R-value tracking, SQN scoring, structured post mortems, and AI analysis.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/compare/">
+    <meta property="twitter:title" content="SignalDeck vs TraderSync vs Edgewonk | Trading Journal Comparison 2026">
+    <meta property="twitter:description" content="Compare SignalDeck to TraderSync, Edgewonk, TradeZella, Tradervue, and TradesViz. See which trading journal has native R-value tracking, SQN scoring, structured post mortems, and AI analysis.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does SignalDeck compare to TraderSync?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck is built around R-value as its core organizing principle — every metric, from expectancy to SQN scoring, flows from risk-normalized returns. TraderSync offers R-multiple as one metric among hundreds in a feature-heavy interface. SignalDeck also includes a structured Post Mortem protocol that TraderSync lacks, and is currently free during beta vs TraderSync's $30–$80/month pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SignalDeck better than Edgewonk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck offers real-time analytics, an AI journal analyst, and a modern web-based UX compared to Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck also includes native forex pip math, SQN scoring, and a structured post mortem workflow that Edgewonk does not offer. During beta, SignalDeck is free versus Edgewonk's ~$14/month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What features is SignalDeck missing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The main gap is broker auto-import. Competitors like TraderSync and Edgewonk support 200–700+ broker integrations for automatic trade import. SignalDeck currently requires manual entry or CSV import. Broker API integrations are on the roadmap. Trade replay is also not currently available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't SignalDeck have broker auto-import yet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We prioritized analytical depth over data ingestion. Manual logging reinforces trade discipline — you review every entry before it enters your journal. CSV import is fully supported, and broker API integrations are actively on our development roadmap."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-white transition-colors">Compare</a>
+                    <a href="../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                SignalDeck vs The Competition
+            </h1>
+            <p class="mt-4 max-w-3xl mx-auto text-xl text-zinc-400 font-mono">
+                See how SignalDeck compares to TraderSync, Edgewonk, TradeZella, Tradervue, and TradesViz on the metrics that actually matter.
+            </p>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="overflow-x-auto">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm" style="min-width: 800px;">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Feature</th>
+                            <th class="px-4 py-3 text-center font-bold text-blue-400 bg-blue-500/10">SignalDeck</th>
+                            <th class="px-4 py-3 text-center">TraderSync</th>
+                            <th class="px-4 py-3 text-center">Edgewonk</th>
+                            <th class="px-4 py-3 text-center">TradeZella</th>
+                            <th class="px-4 py-3 text-center">Tradervue</th>
+                            <th class="px-4 py-3 text-center">TradesViz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Monthly Price</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold font-mono">Free (Beta)</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$80</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">~$14</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$50</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$50</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">$15–$30</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">R-Value Native</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Core Design</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Partial</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">SQN Score</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Kelly Criterion</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Monte Carlo Drawdown</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Structured Post Mortem</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">AI Journal Analyst</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (Cypher)</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Execution Quality (MAE/MFE)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Basic</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Basic</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Entry Slippage Tracking</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Behavioral Tags</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Basic</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Social Trading (Borg)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Forex Support</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Broker Auto-Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-yellow-500">⚠️ Coming Soon</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (700+)</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (200+)</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (80+)</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (200+)</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">CSV Import/Export</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Chart Screenshots</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Trade Replay</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why SignalDeck -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Why SignalDeck?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                            R-Value Is the Framework, Not a Feature
+                        </h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Every competitor treats R-multiple as one metric in a sea of 600. We built the entire system around it — equity curves, cumulative R-curves, expectancy momentum, SQN scoring, and Kelly Criterion all flow from a single coherent risk-normalized framework.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-purple-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-purple-500/10"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-purple-500 flex-shrink-0"></span>
+                            The Post Mortem Protocol
+                        </h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            No competitor offers a structured self-review workflow. Our 5-step protocol (Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback) turns every closed trade into a training session.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-emerald-500/10"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                            Concierge Onboarding
+                        </h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            We don't just give you a login. We onboard you into our Discord, help migrate your first trades, and ship features you request — often within 48 hours. Try getting that from a company with 200,000 users.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Common Questions</h2>
+
+            <div class="space-y-6">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How does SignalDeck compare to TraderSync?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck is built around R-value as its core organizing principle — every metric, from expectancy to SQN scoring, flows from risk-normalized returns. TraderSync offers R-multiple as one metric among hundreds in a feature-heavy interface. SignalDeck also includes a structured Post Mortem protocol that TraderSync lacks, and is currently free during beta vs TraderSync's $30–$80/month pricing.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Is SignalDeck better than Edgewonk?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck offers real-time analytics, an AI journal analyst, and a modern web-based UX compared to Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck also includes native forex pip math, SQN scoring, and a structured post mortem workflow that Edgewonk does not offer. During beta, SignalDeck is free versus Edgewonk's ~$14/month.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What features is SignalDeck missing?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">The main gap is broker auto-import. Competitors like TraderSync and Edgewonk support 200–700+ broker integrations for automatic trade import. SignalDeck currently requires manual entry or CSV import. Broker API integrations are on the roadmap. Trade replay is also not currently available.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Why doesn't SignalDeck have broker auto-import yet?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">We prioritized analytical depth over data ingestion. Manual logging reinforces trade discipline — you review every entry before it enters your journal. CSV import is fully supported, and broker API integrations are actively on our development roadmap.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We're looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it's about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you'll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" title="Release History">Release History</a> |
+                <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="https://discord.gg/uBeunMmt" target="_blank" rel="noopener noreferrer" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../yup.js"></script>
+</body>
+</html>

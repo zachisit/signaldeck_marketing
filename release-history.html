@@ -93,8 +93,64 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.19-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.20-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 17, 2026 1:46PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release ships CFD and index instrument support for Vantage Markets traders, a new Entry Checklist feature for pre-trade discipline tracking, psychological and emotional scale inputs, and a series of trade audit worker reliability fixes.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">CFD & Index Instrument Support</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Gold & Silver (XAUUSD / XAGUSD)</strong> - CFD metals traders on Vantage Markets can now log and track Gold and Silver trades. The platform correctly routes these to Polygon's forex endpoint using the <code class="font-mono text-xs bg-zinc-800 px-1 rounded">C:XAUUSD</code> format automatically.</li>
+                            <li><strong class="text-zinc-200">NASDAQ 100 (NAS100)</strong> - Index CFD traders can now log NAS100 trades. The platform maps this to Polygon's indices endpoint (<code class="font-mono text-xs bg-zinc-800 px-1 rounded">I:NDX</code>) for accurate price data and stop monitoring.</li>
+                            <li><strong class="text-zinc-200">Additional Index CFDs</strong> - US500, US30, GER40 and other common broker CFD tickers are now recognised and correctly handled throughout the platform.</li>
+                            <li><strong class="text-zinc-200">Broker Ticker Input</strong> - You enter tickers the way your broker shows them. The platform handles the translation to the correct data source automatically — no manual formatting required.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Entry Checklist</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Build Your Checklist</strong> - New <strong>Checklist</strong> item in the nav. Create your personal pre-trade checklist items with a name and description — things like "Trend confirmed on HTF", "R:R minimum 1:2", or "No major news within 1hr".</li>
+                            <li><strong class="text-zinc-200">Attach to Trades</strong> - When logging a new trade, select which checklist items were met at entry. Multiple items can be attached to each trade.</li>
+                            <li><strong class="text-zinc-200">Visible in Trade Detail</strong> - Attached checklist items are displayed in the trade detail modal. In edit mode, toggle items on or off directly from the modal.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Psychological & Emotional Scales</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Psychological Confidence (1–10)</strong> - Rate your mental clarity and focus going into a trade. 1 = distracted or anxious, 10 = fully focused and clear-headed. Displayed on the trade detail alongside Setup Confidence.</li>
+                            <li><strong class="text-zinc-200">Emotional Scale (1–10)</strong> - Rate your emotional state at entry. 1 = fearful, revenge-trading, or euphoric. 10 = calm, neutral, and disciplined.</li>
+                            <li><strong class="text-zinc-200">Colour-Coded Sliders</strong> - Both fields use the same slider pattern as Setup Confidence — faded until touched, then colour-coded green (7–10), yellow (4–6), or red (1–3).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Forex Trade Detail Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Entry & Exit Time</strong> - Fixed a bug where entry time and exit time were displaying as N/A on all forex trades.</li>
+                            <li><strong class="text-zinc-200">Session Formatting</strong> - Sessions like "New_York" now display correctly as "New York".</li>
+                            <li><strong class="text-zinc-200">Field Visibility</strong> - Shares row correctly hidden for forex trades. Pip value row hidden for CFD instruments where it isn't applicable. Run ID row hidden when no run is linked.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Audit Worker Reliability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">CFD Price Monitoring</strong> - The audit worker now correctly fetches live prices for Gold (XAUUSD) and NAS100 trades using the right Polygon endpoints. Previously these were silently failing every cycle.</li>
+                            <li><strong class="text-zinc-200">Batch Update Fix</strong> - Fixed a bug where forex stop-loss trades were failing to batch update due to a missing trade ID in the payload, causing silent data loss on every affected cycle.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.19-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 16, 2026 09:24 AM</span>
                 </div>
                 

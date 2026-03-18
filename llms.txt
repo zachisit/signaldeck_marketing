@@ -23,6 +23,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Behavioral tagging system for tracking psychology (FOMO, hesitation, revenge trading)
 - Threaded, timestamped trade journal with full history per trade (not just a single notes field)
 - Unlimited chart screenshots with dedicated entry and exit slots for visual trade documentation
+- Automated forward testing: morning scanner runs custom strategies against 5,000+ live stocks before market open to identify signals
 - Borg: social trading layer with anonymous leaderboards and live trade feeds
 - Concierge onboarding: users join Discord and get personal setup assistance
 

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignalDeck - Professional R-Value Trading Journal for Stocks</title>
+    <meta name="description" content="Track your stock trades with R-Multiple analytics, SQN scoring, Kelly Criterion sizing, and structured Post Mortems. Professional-grade journaling for swing traders and day traders.">
+    <meta name="keywords" content="stock trading journal, R-value trading, R-multiple tracker, SQN score, swing trading journal, day trading journal, equity curve tracker, trade post mortem, trading analytics">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/stocks/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/stocks/">
+    <meta property="og:title" content="SignalDeck - Professional R-Value Trading Journal for Stocks">
+    <meta property="og:description" content="Track your stock trades with R-Multiple analytics, SQN scoring, Kelly Criterion sizing, and structured Post Mortems. Professional-grade journaling for swing traders and day traders.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/stocks/">
+    <meta property="twitter:title" content="SignalDeck - Professional R-Value Trading Journal for Stocks">
+    <meta property="twitter:description" content="Track your stock trades with R-Multiple analytics, SQN scoring, Kelly Criterion sizing, and structured Post Mortems. Professional-grade journaling for swing traders and day traders.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Professional R-value stock trading journal with SQN scoring, execution quality analysis, and structured trade reviews",
+      "operatingSystem": "Web"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is R-Multiple in trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R-Multiple measures your return relative to risk. If you risk $100 and profit $250, that's a 2.5R trade. SignalDeck uses R as the organizing principle for all analytics — not just one number in a dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an SQN score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The System Quality Number measures the statistical reliability of your trading system. Below 1.6 is poor, 2.0–3.0 is good, above 3.0 is excellent. SignalDeck calculates this automatically from your trade history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SignalDeck support day trading and swing trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck tracks trading style per trade (Day Trading, Scalping, Swing, Position) and lets you filter all analytics by style so you can see which timeframe produces the best R-multiples."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Professional-Grade Journaling for<br>
+                <span class="text-blue-500">Stock Traders.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
+                If you're tracking R-multiples in a spreadsheet and wondering why your equity curve is flat, SignalDeck was built for you. Not another trade log — a performance laboratory.
+            </p>
+            <div class="mt-10">
+                <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                onclick="gtag('event', 'stocks_beta_click', {'button_location': 'hero_section'});"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Apply for Beta Access
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Your Edge, Quantified -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Mock Dashboard Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                                <span class="text-xs font-mono text-zinc-500">STRATEGY HEALTH CHECK</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">SQN Score</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-lg font-mono font-bold text-emerald-400">3.1</span>
+                                    <span class="text-[10px] font-bold font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase tracking-wider">EXCELLENT</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">Expectancy</span>
+                                <span class="text-lg font-mono font-bold text-blue-400">0.92R</span>
+                            </div>
+
+                            <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-mono text-zinc-400">Win Rate</span>
+                                    <span class="text-lg font-mono font-bold text-white">48%</span>
+                                </div>
+                                <p class="text-[10px] text-zinc-500 font-mono">Doesn't matter — your R makes up for it</p>
+                            </div>
+
+                            <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-mono text-zinc-400">Kelly Criterion</span>
+                                    <span class="text-lg font-mono font-bold text-purple-400">6.2%</span>
+                                </div>
+                                <p class="text-[10px] text-zinc-500 font-mono">Optimal risk per trade</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Your Edge, Quantified.<br>
+                        <span class="text-blue-500">Every metric answers one question:</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Win rate is a vanity metric. A 40% win rate with 3R average winners prints money. A 70% win rate with 0.5R average winners bleeds capital. SignalDeck normalizes everything by risk so you can see what actually matters — your expectancy per unit of risk, not just your batting average.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        SQN scoring tells you if your system is statistically tradable. Kelly Criterion sizes your positions based on YOUR data, not a textbook formula. Monte Carlo simulation shows you the worst drawdown you should expect at 95% confidence.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Post Mortem Protocol -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        The Post Mortem Protocol.<br>
+                        <span class="text-emerald-500">Learn from every trade.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Every competitor lets you tag a trade as "win" or "loss" and move on. We built a structured 5-step diagnostic that forces you to understand WHY. Was it a good win (process + profit) or a bad win (gambling + luck)? Was it a good loss (process + stop hit) or a bad loss (broken rules)?
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Setup Diagnosis. Management Diagnosis. Final Verdict. Training Gap identification. Mentor Feedback. When you review 50 Post Mortems and see that 80% of your bad losses come from "Chased Extension / Bad Location" — that changes your trading forever.
+                    </p>
+                </div>
+
+                <!-- Mock Post Mortem Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 border-l-2 border-l-emerald-500 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-400">POST MORTEM: AAPL</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-zinc-400">Setup Quality:</span>
+                                <span class="text-sm font-bold font-mono text-emerald-400">A+</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-zinc-900 pt-4">
+                                <span class="text-sm text-zinc-400">Stop Management:</span>
+                                <span class="text-sm font-bold font-mono text-emerald-400">Held Thesis Stop ✓</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-zinc-900 pt-4">
+                                <span class="text-sm text-zinc-400">Verdict:</span>
+                                <span class="text-sm font-bold text-emerald-400">🟢 Good Win</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-zinc-900 pt-4">
+                                <span class="text-sm text-zinc-400">Training Gap:</span>
+                                <span class="text-sm font-bold font-mono text-emerald-400">Perfect Execution</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Execution Under the Microscope -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Mock Execution Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500/10 to-emerald-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-400">EXECUTION QUALITY</span>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-mono text-zinc-400">Entry Slippage</span>
+                                    <span class="text-xs font-mono text-yellow-500">-$0.12 (0.08%)</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-yellow-500 h-full rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-mono text-zinc-400">Exit Slippage</span>
+                                    <span class="text-xs font-mono text-emerald-400">-$0.04 (0.03%)</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-emerald-500 h-full rounded-full" style="width: 10%"></div>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-zinc-800 pt-4">
+                                <p class="text-sm text-zinc-400 mb-1">Total Friction Cost: <span class="text-white font-mono">$0.16/share</span></p>
+                                <p class="text-xs font-mono text-blue-400">Limit Alpha: +$0.22 saved by limit orders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Execution Under the Microscope.<br>
+                        <span class="text-yellow-500">Every fill matters.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Most traders have no idea what their fills actually cost them. We measure entry slippage (the gap between your intended price and actual fill), exit slippage (how much your stop moved on execution), and limit alpha (the price improvement you gain from limit orders vs market orders).
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Over 100 trades, a $0.15 average slippage on a $50 stock is $15/trade in invisible friction. On 100 shares, that's $1,500 you never see leave — until your equity curve tells the story. We make it visible.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Strategy Decay Detection -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Detect Strategy Decay<br>
+                        <span class="text-rose-500">Before the drawdown.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Markets change. Strategies that worked in a trending market break in a range. SignalDeck tracks your rolling 20-trade win rate, expectancy momentum (last 20 trades vs all-time average), and win rate velocity. When these diverge, you know your edge is eroding — before the account tells you.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Combined with our equity curve and cumulative R-curve, you have a cockpit-level view of your system's health. Not retrospective analysis — real-time diagnostics.
+                    </p>
+                </div>
+
+                <!-- Mock Decay Chart Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-rose-500/10 to-zinc-800/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-4 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-400">STRATEGY DECAY</span>
+                        </div>
+
+                        <!-- SVG Chart -->
+                        <div class="mb-4">
+                            <svg class="w-full h-32" viewBox="0 0 300 100" preserveAspectRatio="none">
+                                <!-- All-time average: flat-ish line -->
+                                <path d="M0,40 C60,38 120,42 180,39 C220,37 260,41 300,40" fill="none" stroke="#71717a" stroke-width="1.5" stroke-dasharray="4 2"/>
+                                <!-- Rolling 20-trade: declining -->
+                                <path d="M0,38 C40,40 80,50 120,60 C160,72 220,82 300,90" fill="none" stroke="#f43f5e" stroke-width="2"/>
+                                <!-- Annotation dot on decline -->
+                                <circle cx="220" cy="82" r="4" fill="#f43f5e" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                            </svg>
+                        </div>
+
+                        <div class="border-t border-zinc-800 pt-4 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-mono text-zinc-500">Expectancy Momentum</span>
+                                <span class="text-sm font-bold font-mono text-rose-500">-0.4R</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-mono text-zinc-500">Win Rate Velocity</span>
+                                <span class="text-sm font-bold font-mono text-rose-400">-8.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Who This Is For -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-8 md:p-12 overflow-hidden relative group">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-1000"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-all duration-1000"></div>
+
+                <div class="relative z-10">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase tracking-widest mb-6">Who This Is For</span>
+                    <h2 class="text-3xl font-bold text-white mb-8">Built for traders who take this seriously.</h2>
+
+                    <div class="space-y-4 mb-10 max-w-2xl">
+                        <p class="text-zinc-400 leading-relaxed">
+                            You track R-multiples — or you want to start. You know win rate alone doesn't tell you if your system works.
+                        </p>
+                        <p class="text-zinc-400 leading-relaxed">
+                            You're past the "tips and alerts" phase. You want to diagnose your own execution, not follow someone else's.
+                        </p>
+                        <p class="text-zinc-400 leading-relaxed">
+                            You're currently using a spreadsheet, or you're paying $30+/month for a journal that treats R-value as an afterthought. You want a tool built by a trader, for traders, with a release cycle that actually listens.
+                        </p>
+                    </div>
+
+                    <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                        onclick="gtag('event', 'stocks_beta_click', {'button_location': 'who_this_is_for'});"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta — Free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We're looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it's about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you'll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" title="Release History">Release History</a> |
+                <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="https://discord.gg/uBeunMmt" target="_blank" rel="noopener noreferrer" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../yup.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+# SignalDeck
+
+## About
+SignalDeck is a professional-grade trade journaling platform built around R-Multiple (R-value) methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, execution quality analysis (MAE/MFE), structured Post Mortem trade reviews, behavioral tagging, an AI Journal Analyst chatbot, and a social trading layer (Borg) with leaderboards.
+
+## Key Facts
+- Category: SaaS, Trading Journal, FinTech
+- Stage: Beta (free access)
+- Founded: 2025
+- Asset Classes: Common Stock, Forex (native), Crypto (coming soon)
+- URL: https://sgnldk.com
+- App: https://app.sgnldk.com
+- Pricing: Free during beta. Planned: Free tier ($0, 20 trades), Pro ($19/mo), Team ($29/mo)
+
+## What Makes SignalDeck Different
+- R-Multiple is the organizing principle of the entire system, not one metric among hundreds
+- SQN (System Quality Number) scoring tells traders if their edge is statistically real
+- Kelly Criterion position sizing derived from the trader's own R-data
+- Monte Carlo simulation estimates worst-case drawdown at 95th percentile confidence
+- Structured 5-step Post Mortem protocol for every closed trade (Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback)
+- Execution quality analysis: entry slippage, exit slippage, limit alpha, MAE vs MFE scatter plots
+- AI Journal Analyst chatbot that reads the trader's own journal data
+- Behavioral tagging system for tracking psychology (FOMO, hesitation, revenge trading)
+- Threaded, timestamped trade journal with full history per trade (not just a single notes field)
+- Unlimited chart screenshots with dedicated entry and exit slots for visual trade documentation
+- Borg: social trading layer with anonymous leaderboards and live trade feeds
+- Concierge onboarding: users join Discord and get personal setup assistance
+
+## Competitors
+- TraderSync ($30-80/mo): AI coaching (Cypher), 700+ broker imports, no native R-value framework
+- Edgewonk (~$14/mo): Psychology-focused, Edge Finder algorithm, dated UX, no real-time analytics
+- TradeZella ($30-50/mo): Community features, no R-value framework, no structured post mortem
+- Tradervue ($30-50/mo): Industry standard, 80+ broker imports, legacy UX, no psychology analytics
+- TradesViz ($15-30/mo): Feature-rich, AI Q&A, free tier, no R-value framework
+
+## Pages
+
+### Homepage
+- URL: https://sgnldk.com
+- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), AI Analyst preview, feature cards, university program
+
+### Common Stock
+- URL: https://sgnldk.com/stocks/
+- Content: How SignalDeck serves equity/stock traders with R-value analytics, execution quality tracking, and strategy decay detection
+
+### Forex
+- URL: https://sgnldk.com/forex/
+- Content: Native forex support with pip-level precision, lot sizes, session tracking, DXY context, swap fees, and team metrics (Borg)
+
+### Plans
+- URL: https://sgnldk.com/plans/
+- Content: Free, Pro, and Team pricing tiers with feature comparison. All free during beta.
+
+### Compare
+- URL: https://sgnldk.com/compare/
+- Content: Feature-by-feature comparison of SignalDeck vs TraderSync vs Edgewonk vs TradeZella vs Tradervue vs TradesViz
+
+### University Clubs
+- URL: https://sgnldk.com/clubs.html
+- Content: Free access program for student-managed investment funds
+
+### Jobs
+- URL: https://sgnldk.com/jobs/
+- Content: Open internship positions (Software Engineering, Product & Growth for Forex and Crypto, Quantitative Strategy)
+
+### Release History
+- URL: https://sgnldk.com/release-history.html
+- Content: Changelog of product updates

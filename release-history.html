@@ -97,8 +97,57 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.20-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.21-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 19, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release ships a full visual redesign of the trade details modal, unlimited multi-file screenshot uploads, and a series of audit worker reliability fixes. The modal redesign is the largest frontend change to date.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Trade Details Modal — Full Redesign</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">3-Column Layout</strong> - The Overview tab is now a persistent 3-column grid. Col 1 covers execution details (entry, exit, fees, slippage). Col 2 covers P&amp;L and risk (live position for open trades, final P&amp;L hero card for closed, stops, breakeven, price target). Col 3 covers context and psychology (stock indicators, confidence scales, admin info).</li>
+                            <li><strong class="text-zinc-200">Always-Visible Header</strong> - Symbol, strategy, tag pills, and entry checklist pills now live in the modal header — visible at all times without having to click into the Overview tab.</li>
+                            <li><strong class="text-zinc-200">Live P/L Card</strong> - Open trades show a live position card with current price, unrealized P/L, and distance to stop. Closed trades show a colour-coded Final P/L hero card (amount, %, and R-multiple).</li>
+                            <li><strong class="text-zinc-200">Edit Mode</strong> - Entering edit mode gives the modal a blue ring and header tint, and dims the tabs — matching the approved mockup. All fields editable inline without leaving the modal.</li>
+                            <li><strong class="text-zinc-200">Close Trade Modal</strong> - Also redesigned to match the new design language.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Unlimited Screenshot Uploads</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Multiple Files</strong> - Both the New Trade form and Close Trade modal now accept multiple screenshot files at once. Drop a batch, or pick them individually.</li>
+                            <li><strong class="text-zinc-200">Preview Grid</strong> - Each selected file shows as a thumbnail with a hover &times; button to remove it before uploading.</li>
+                            <li><strong class="text-zinc-200">Per-File Toasts</strong> - Uploads happen sequentially with individual progress notifications so you always know what's happening.</li>
+                            <li><strong class="text-zinc-200">Delete from Modal</strong> - Hover any screenshot thumbnail in the trade detail to reveal a delete button. Removes from S3, database, and the view instantly — no page reload.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Audit Worker Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Batch Update Fix</strong> - A missing trade ID in the forex stop-loss payload was causing every batch containing a stopped-out forex trade to fail silently. Fixed — all trades now update correctly.</li>
+                            <li><strong class="text-zinc-200">CFD Price Monitoring</strong> - NAS100 and XAUUSD stop monitoring now works correctly after the CFD routing fixes were extended to the worker's daily bars logic.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Copy Button Improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Smart Visibility</strong> - Copy buttons next to N/A fields are now hidden automatically rather than copying useless placeholder text.</li>
+                            <li><strong class="text-zinc-200">Trailing Zeros</strong> - Price values copied to clipboard now preserve trailing zeros (e.g. <code class="font-mono text-xs bg-zinc-800 px-1 rounded">2.00</code> instead of <code class="font-mono text-xs bg-zinc-800 px-1 rounded">2</code>).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.20-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 17, 2026 1:46PM</span>
                 </div>
 

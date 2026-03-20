@@ -97,8 +97,56 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.21-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.22-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 20, 2026 2:18PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release ships a full Calendar View screen — the largest feature addition to date. Browse your trading activity by month, drill into daily journal notes, review post mortems, and track streaks and best-day stats. The nav is also streamlined with a Setup dropdown, and the calendar is now your default landing screen after login.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Calendar View</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Monthly Calendar Grid</strong> - A new Calendar screen shows every trading day at a glance. Each day cell displays Journal, Post Mortem, and P&L badges so you can see your activity density without opening a single trade.</li>
+                            <li><strong class="text-zinc-200">Journal Modal</strong> - Click any Journal badge to open a day-level modal listing every trade note you wrote that day, with the symbol, entry date, and a View Trade button that opens the full trade details on top.</li>
+                            <li><strong class="text-zinc-200">Summary Strip</strong> - Six stat cards sit below the grid: Total P&L, Win Rate, Avg P&L, Streak, Days Traded, and Best Day — all computed for the month in view.</li>
+                            <li><strong class="text-zinc-200">Today Button</strong> - Jump back to the current month instantly. The button dims automatically when you're already there.</li>
+                            <li><strong class="text-zinc-200">Empty State</strong> - Months with no activity show a contextual message instead of a blank grid, with different copy for past vs. current months.</li>
+                            <li><strong class="text-zinc-200">Default Screen</strong> - The Calendar is now your landing screen after login instead of the Dashboard.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Mobile Responsive Calendar</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Dot Mode</strong> - On screens under 768px, badge pills are replaced with a compact dot strip (blue = journal, purple = post mortem, green/red = P&L) so each day cell stays readable on a small screen.</li>
+                            <li><strong class="text-zinc-200">Tap to Open</strong> - Tapping a day on mobile opens the journal modal if you have notes that day, otherwise the post mortem modal. A debounced resize listener re-renders automatically when you cross the breakpoint.</li>
+                            <li><strong class="text-zinc-200">Responsive Summary Strip</strong> - The six stat cards reflow to 2 columns on mobile, 3 on tablet, and the full 6-column layout on desktop.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Nav — Setup Dropdown</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Cleaner Navigation</strong> - Strategies, Tags, Checklist, and Signals have been moved out of the top-level nav and consolidated into a Setup dropdown (sliders icon), keeping the main bar focused on screens you visit daily.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Escape Key Priority</strong> - Fixed a bug where pressing Escape with the trade details modal open on top of the calendar modal would close the calendar first. It now correctly closes the topmost modal first, every time.</li>
+                            <li><strong class="text-zinc-200">No More Dashboard Flash</strong> - Removed hardcoded active state on the Dashboard nav button that caused a brief flash of the wrong screen before JavaScript finished loading.</li>
+                            <li><strong class="text-zinc-200">Execution Indicators Restyled</strong> - The Execution Indicators section in the trade details modal has been visually updated to match the modal's design language, with a purple section header and tighter label/value typography.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.21-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 19, 2026 11:43AM</span>
                 </div>
 

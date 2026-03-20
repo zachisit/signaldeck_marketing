@@ -67,3 +67,11 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 ### Release History
 - URL: https://sgnldk.com/release-history.html
 - Content: Changelog of product updates
+
+### Blog
+- URL: https://sgnldk.com/blog/
+- Content: Articles on R-Multiple tracking, SQN scoring, trade post mortems, execution quality, and trading psychology
+
+### Blog: How to Calculate Your Trading SQN Score
+- URL: https://sgnldk.com/blog/how-to-calculate-sqn-score/
+- Content: Step-by-step guide to calculating the System Quality Number (SQN) from trade data, including formula, benchmarks, worked example, and comparison to win rate

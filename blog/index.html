@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignalDeck Blog | R-Value Trading, SQN Scoring, and Trade Psychology</title>
+    <meta name="description" content="Articles on R-Multiple tracking, SQN scoring, trade post mortems, execution quality, and the psychology of professional trading. Written by traders, for traders.">
+    <meta name="keywords" content="trading blog, R-value trading, SQN score, trade journal blog, trading psychology, R-multiple, expectancy trading">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/blog/">
+    <meta property="og:title" content="SignalDeck Blog | R-Value Trading, SQN Scoring, and Trade Psychology">
+    <meta property="og:description" content="Articles on R-Multiple tracking, SQN scoring, trade post mortems, execution quality, and the psychology of professional trading. Written by traders, for traders.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/">
+    <meta property="twitter:title" content="SignalDeck Blog | R-Value Trading, SQN Scoring, and Trade Psychology">
+    <meta property="twitter:description" content="Articles on R-Multiple tracking, SQN scoring, trade post mortems, execution quality, and the psychology of professional trading. Written by traders, for traders.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Professional R-value trading journal with SQN scoring, execution quality analysis, and structured trade reviews",
+      "operatingSystem": "Web"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+                The SignalDeck Blog
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-2xl">
+                R-value frameworks, execution analysis, and the metrics that separate professional traders from everyone else.
+            </p>
+        </div>
+    </section>
+
+    <!-- Post List -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-6 space-y-4">
+
+            <a href="how-to-calculate-sqn-score/" class="block group">
+                <article class="p-6 bg-zinc-900/40 border border-zinc-800 rounded-xl hover:border-blue-500/30 transition-all">
+                    <div class="flex items-center gap-3 mb-3">
+                        <time datetime="2026-03-20" class="text-xs font-mono text-zinc-500">2026-03-20</time>
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Analytics</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors mb-2">
+                        How to Calculate Your Trading System Quality Number (SQN)
+                    </h2>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        The SQN score tells you whether your trading system is statistically tradable or just a fluke. Here's how to calculate it from your own trade data, what the benchmarks mean, and how SignalDeck automates it.
+                    </p>
+                </article>
+            </a>
+
+            <!-- Add new posts here. Most recent first. Copy the <a> block above and update href, date, tag, title, and excerpt. -->
+
+            <div class="block">
+                <article class="p-6 bg-zinc-900/40 border border-zinc-800 rounded-xl opacity-40">
+                    <div class="flex items-center gap-3 mb-3">
+                        <time class="text-xs font-mono text-zinc-500">Coming Soon</time>
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">R-Value</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-2">
+                        Why Your Win Rate Is Lying to You (And What to Track Instead)
+                    </h2>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Win rate is the most cited — and most misleading — metric in retail trading. Here's what professional traders measure instead, and why R-multiples change everything.
+                    </p>
+                </article>
+            </div>
+
+            <div class="block">
+                <article class="p-6 bg-zinc-900/40 border border-zinc-800 rounded-xl opacity-40">
+                    <div class="flex items-center gap-3 mb-3">
+                        <time class="text-xs font-mono text-zinc-500">Coming Soon</time>
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Process</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-2">
+                        The Complete Trade Post Mortem Template
+                    </h2>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        A structured framework for reviewing every closed trade — not just winners and losers, but process quality, management decisions, training gaps, and what to do differently next time.
+                    </p>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We're looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it's about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you'll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" title="Release History">Release History</a> |
+                <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="https://discord.gg/uBeunMmt" target="_blank" rel="noopener noreferrer" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../yup.js"></script>
+</body>
+</html>

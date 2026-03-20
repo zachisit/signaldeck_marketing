@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How to Calculate Your Trading SQN Score | SignalDeck</title>
+    <meta name="description" content="Learn how to calculate the System Quality Number (SQN) from your trade history. Understand the benchmarks, what your score means, and how to use it to evaluate if your trading system is statistically viable.">
+    <meta name="keywords" content="SQN score, System Quality Number, trading system quality, Van Tharp SQN, how to calculate SQN, trading expectancy, R-multiple SQN">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/how-to-calculate-sqn-score/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/how-to-calculate-sqn-score/">
+    <meta property="og:title" content="How to Calculate Your Trading SQN Score | SignalDeck">
+    <meta property="og:description" content="Learn how to calculate the System Quality Number (SQN) from your trade history. Understand the benchmarks, what your score means, and how to use it to evaluate if your trading system is statistically viable.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/how-to-calculate-sqn-score/">
+    <meta property="twitter:title" content="How to Calculate Your Trading SQN Score | SignalDeck">
+    <meta property="twitter:description" content="Learn how to calculate the System Quality Number (SQN) from your trade history. Understand the benchmarks, what your score means, and how to use it to evaluate if your trading system is statistically viable.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Calculate Your Trading System Quality Number (SQN)",
+        "description": "Learn how to calculate the System Quality Number from your trade history and understand what the benchmarks mean.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-03-20",
+        "dateModified": "2026-03-20"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a good SQN score for trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An SQN below 1.6 indicates a poor system that is difficult to trade profitably. 1.6 to 2.0 is average. 2.0 to 3.0 is good and indicates a tradable edge. Above 3.0 is excellent and suggests a robust, high-quality system."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many trades do I need to calculate SQN?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Van Tharp recommends a minimum of 30 trades for a statistically meaningful SQN calculation. Fewer than 30 trades produces an unreliable score. 100 or more trades gives the most accurate picture of your system's true quality."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the SQN formula?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SQN equals the square root of the number of trades, multiplied by the average R-multiple of all trades, divided by the standard deviation of R-multiples. In notation: SQN = sqrt(N) × (Mean R / StdDev R). The result is capped at sqrt(N) to prevent inflated scores from large sample sizes."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-03-20" class="text-xs font-mono text-zinc-500">March 20, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Analytics</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                How to Calculate Your Trading System Quality Number (SQN)
+            </h1>
+            <p class="text-lg text-zinc-400">
+                The SQN score tells you whether your trading system is statistically tradable or just a fluke. Here's how to calculate it, what the benchmarks mean, and why it matters more than win rate.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- Introduction -->
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Most traders obsess over win rate. But win rate without context is meaningless — a 70% win rate with tiny winners and huge losers is a losing system. The System Quality Number (SQN), developed by Van Tharp, solves this by measuring the quality and consistency of your trading system in a single number.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SQN combines your average R-multiple (return per unit of risk) with the consistency of those returns across your sample. A high SQN means your edge is both real and reliable. A low SQN means you're either not profitable or your results are too erratic to trust.
+            </p>
+
+            <!-- What Is R-Multiple -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Is R-Multiple?</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                R-Multiple is the ratio of a trade's profit or loss to the initial risk taken on that trade. If you risk $100 and make $200, that's a 2R trade. If you risk $100 and lose $50, that's -0.5R. R normalizes all trades to a common risk unit, making it possible to compare a $50 trade to a $5,000 trade on equal footing. Without R-normalization, a large nominal winner can mask a terrible system, and a string of small nominal losses can hide a structurally sound one.
+            </p>
+
+            <!-- The SQN Formula -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The SQN Formula</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The formula is straightforward once you have your R-multiples recorded:
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-6">
+                SQN = &radic;N &times; (Mean R / StdDev R)
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Where:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">N</span> = the total number of closed trades in your sample</li>
+                <li><span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">Mean R</span> = the average R-multiple across all trades (your expectancy per trade)</li>
+                <li><span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">StdDev R</span> = the standard deviation of all R-multiples (how consistent your results are)</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Van Tharp caps the final SQN at <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">&radic;N</span> to prevent inflated scores from very large sample sizes. Without this cap, a system with 10,000 trades would score artificially high just because of volume, not because of edge quality.
+            </p>
+
+            <!-- SQN Benchmarks -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">SQN Benchmarks</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Van Tharp established the following benchmarks for interpreting your SQN score:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">SQN Range</th>
+                            <th class="px-4 py-3 text-left font-semibold">Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Below 1.6</td>
+                            <td class="px-4 py-3 text-rose-400">Poor — difficult to trade profitably</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">1.6 – 2.0</td>
+                            <td class="px-4 py-3 text-yellow-400">Average — marginal edge</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">2.0 – 3.0</td>
+                            <td class="px-4 py-3 text-blue-400">Good — tradable, reliable system</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">3.0 – 5.0</td>
+                            <td class="px-4 py-3 text-emerald-400">Excellent — strong, consistent edge</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">5.0+</td>
+                            <td class="px-4 py-3 text-emerald-300 font-semibold">Superb — rare, institutional-quality</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- A Worked Example -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A Worked Example</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Suppose you have 40 closed trades with an average R-multiple of 0.8R and a standard deviation of 1.5R. Here's the calculation step by step:
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-6">
+N        = 40
+Mean R   = 0.8
+StdDev R = 1.5
+
+SQN = &radic;40 &times; (0.8 / 1.5)
+    = 6.32 &times; 0.533
+    = 3.37  &rarr;  Excellent
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A score of 3.37 falls in the "Excellent" bracket, meaning your system has a statistically robust edge. Your average winner-to-loser ratio is healthy, and the consistency of your results (low enough standard deviation relative to the mean) confirms this isn't a lucky streak — it's a repeatable process. This is the kind of score that justifies scaling position size and trusting the system during inevitable losing streaks.
+            </p>
+
+            <!-- Why SQN Matters More Than Win Rate -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why SQN Matters More Than Win Rate</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Consider two systems side by side. System A has a 45% win rate — most traders would write it off. But its average winner is 3R and its average loser is -1R. That gives it strong positive expectancy and, with consistent execution, would score in the "Good" to "Excellent" SQN range. System B has a 75% win rate — most traders would love it. But its average winner is only 0.3R while its average loser is -2R. The math is ugly: negative expectancy, terrible SQN, and a guaranteed path to ruin at scale.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SQN captures both the magnitude of your edge (mean R) and its reliability (standard deviation of R). Win rate captures neither. A system can have a high win rate and lose money, or a low win rate and print money — win rate alone tells you nothing about long-term viability. SQN does.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "Win rate is a vanity metric. Expectancy is the only number that actually matters." — Van Tharp
+            </blockquote>
+
+            <!-- How SignalDeck Calculates SQN Automatically -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Calculates SQN Automatically</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck calculates your SQN in real-time from your closed trades — no spreadsheets, no manual formulas. It updates as you log new trades and you can filter by strategy, tag, date range, or asset class to see which parts of your system are statistically sound and which are noise. If your "Breakout" strategy has an SQN of 3.1 but your "Mean Reversion" strategy sits at 1.4, you know exactly where to focus — and where to stop risking capital. <a href="https://forms.gle/1TeTFFr72ypX5LkT8" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Try it free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is a good SQN score for trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">An SQN below 1.6 indicates a poor system that is difficult to trade profitably. 1.6 to 2.0 is average. 2.0 to 3.0 is good and indicates a tradable edge. Above 3.0 is excellent and suggests a robust, high-quality system.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How many trades do I need to calculate SQN?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Van Tharp recommends a minimum of 30 trades for a statistically meaningful SQN calculation. Fewer than 30 trades produces an unreliable score. 100 or more trades gives the most accurate picture of your system's true quality.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the SQN formula?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">SQN equals the square root of the number of trades, multiplied by the average R-multiple of all trades, divided by the standard deviation of R-multiples. In notation: SQN = sqrt(N) &times; (Mean R / StdDev R). The result is capped at sqrt(N) to prevent inflated scores from large sample sizes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Stop calculating SQN by hand.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck computes your SQN, expectancy, Kelly Criterion, and 15+ other metrics automatically from your trade journal. Free during beta.</p>
+                <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="gtag('event', 'blog_cta_click', {'article': 'sqn-score'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta — Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We're looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it's about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you'll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="https://discord.gg/uBeunMmt" target="_blank" rel="noopener noreferrer" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../yup.js"></script>
+</body>
+</html>

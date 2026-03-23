@@ -452,13 +452,139 @@
 
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full md:w-1/2">
-                    <h3 class="text-3xl font-bold text-white mb-4">Always on auditing</h3>
+                    <h3 class="text-3xl font-bold text-white mb-4">See every trading day at a glance</h3>
                     <p class="text-zinc-400 text-lg leading-relaxed">
-                        Step away from standard charting alerts and bring the notifications into your journal ecosystem. Set unlimited triggers on the basics like break-even and stop levels - or behavioral caps like max trades per day and exceeding your ideal dollar risk. It’s about being tapped on the shoulder when you're breaking your own rules before the drawdown gets expensive.
+                        The Accountability Calendar turns your month into a visual audit trail. Every trading day shows your P&L, journal entries, and post-mortem completion at a glance - so you can spot patterns in your discipline before they cost you.
                     </p>
+                    <ul class="mt-6 space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            Journal entries and post-mortem badges per day
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            Monthly P&L, win rate, streak, and best-day stats
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            Tap any day to review notes and trade records
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl p-5 shadow-2xl">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">March 2026</span>
+                            <div class="flex gap-1">
+                                <div class="w-5 h-5 rounded bg-zinc-800 flex items-center justify-center text-zinc-500 text-[10px]">‹</div>
+                                <div class="w-5 h-5 rounded bg-zinc-800 flex items-center justify-center text-zinc-500 text-[10px]">›</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 mb-1 text-center">
+                            <span class="text-[9px] font-mono text-zinc-600">M</span>
+                            <span class="text-[9px] font-mono text-zinc-600">T</span>
+                            <span class="text-[9px] font-mono text-zinc-600">W</span>
+                            <span class="text-[9px] font-mono text-zinc-600">T</span>
+                            <span class="text-[9px] font-mono text-zinc-600">F</span>
+                            <span class="text-[9px] font-mono text-zinc-600">S</span>
+                            <span class="text-[9px] font-mono text-zinc-600">S</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-mono">
+                            <!-- Week 1 -->
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600">
+                                <span>24</span>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600">
+                                <span>25</span>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600">
+                                <span>26</span>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600">
+                                <span>27</span>
+                            </div>
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>28</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div><div class="w-1 h-1 rounded-full bg-purple-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>29</span></div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>30</span></div>
+                            <!-- Week 2 -->
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>3</span></div>
+                            <div class="h-10 rounded bg-rose-500/10 border border-rose-500/20 flex flex-col items-center justify-center gap-0.5 text-rose-400">
+                                <span>4</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>5</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div><div class="w-1 h-1 rounded-full bg-purple-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>6</span></div>
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>7</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div><div class="w-1 h-1 rounded-full bg-purple-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>8</span></div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>9</span></div>
+                            <!-- Week 3 -->
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>10</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-rose-500/10 border border-rose-500/20 flex flex-col items-center justify-center gap-0.5 text-rose-400">
+                                <span>11</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div><div class="w-1 h-1 rounded-full bg-purple-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>12</span></div>
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>13</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div><div class="w-1 h-1 rounded-full bg-purple-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>14</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>15</span></div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>16</span></div>
+                            <!-- Week 4 - partial, today highlight -->
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-600"><span>17</span></div>
+                            <div class="h-10 rounded bg-rose-500/10 border border-rose-500/20 flex flex-col items-center justify-center gap-0.5 text-rose-400">
+                                <span>18</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+                                <span>19</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div><div class="w-1 h-1 rounded-full bg-purple-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded ring-1 ring-blue-500/60 bg-blue-500/10 flex flex-col items-center justify-center gap-0.5 text-blue-300 font-bold">
+                                <span>20</span>
+                                <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-blue-400"></div></div>
+                            </div>
+                            <div class="h-10 rounded bg-zinc-800/40 flex flex-col items-center justify-center gap-0.5 text-zinc-700"><span>21</span></div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-700"><span>22</span></div>
+                            <div class="h-10 rounded bg-zinc-800/20 flex flex-col items-center justify-center gap-0.5 text-zinc-700"><span>23</span></div>
+                        </div>
+                        <div class="mt-4 flex items-center gap-4 text-[9px] font-mono text-zinc-600">
+                            <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"></span> Journal</span>
+                            <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-purple-400 inline-block"></span> Post Mortem</span>
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded inline-block bg-emerald-500/20 border border-emerald-500/30"></span> Green Day</span>
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded inline-block bg-rose-500/20 border border-rose-500/30"></span> Red Day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2 order-2">
+                    <h3 class="text-3xl font-bold text-white mb-4">Always on auditing</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Step away from standard charting alerts and bring the notifications into your journal ecosystem. Set unlimited triggers on the basics like break-even and stop levels - or behavioral caps like max trades per day and exceeding your ideal dollar risk. It’s about being tapped on the shoulder when you’re breaking your own rules before the drawdown gets expensive.
+                    </p>
+                </div>
+
+                <div class="w-full md:w-1/2 relative group order-1">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur opacity-20"></div>
                     
                     <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl h-80 flex flex-col">
@@ -477,6 +603,108 @@
                         <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-zinc-900 to-transparent pointer-events-none z-10"></div>
                     </div>
                 </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold text-white mb-4">Your verified trading record - publicly shareable</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Every SignalDeck account gets a public profile at <span class="font-mono text-blue-400 text-base">my.sgnldk.com/u/username</span>. Share your equity curve, R-multiples, win rate, and trade history with anyone - no screenshots, no cherry-picking. Verifiable proof of your edge, built from live trade data.
+                    </p>
+                    <ul class="mt-6 space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">></span>
+                            Filterable by 1W, 1M, 3M, 6M, YTD, or all-time
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">></span>
+                            Equity curve, monthly P&L, profit factor, avg R-multiple
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">></span>
+                            Control visibility - hide dollar amounts, keep ratios public
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl p-5 shadow-2xl">
+                        <!-- Profile header -->
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">S</div>
+                                <div>
+                                    <p class="text-white font-semibold text-sm">Sludge</p>
+                                    <p class="text-zinc-600 text-[10px] font-mono">my.sgnldk.com/u/sludge</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
+                                <span class="text-[10px] font-mono text-zinc-500">Live</span>
+                            </div>
+                        </div>
+                        <!-- Period tabs -->
+                        <div class="flex items-center gap-1 mb-4">
+                            <span class="text-[9px] font-mono text-zinc-600 mr-1">Period:</span>
+                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">1W</span>
+                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">1M</span>
+                            <span class="px-2 py-1 text-[9px] rounded text-white bg-blue-500 font-bold">3M</span>
+                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">6M</span>
+                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">ALL</span>
+                        </div>
+                        <!-- Stats grid -->
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <div class="bg-zinc-950 rounded-lg p-2.5">
+                                <p class="text-[9px] font-mono text-zinc-500 mb-1">Win Rate</p>
+                                <p class="text-lg font-bold font-mono text-white">58.3%</p>
+                            </div>
+                            <div class="bg-zinc-950 rounded-lg p-2.5">
+                                <p class="text-[9px] font-mono text-zinc-500 mb-1">Avg R-Multiple</p>
+                                <p class="text-lg font-bold font-mono text-blue-400">+0.91R</p>
+                            </div>
+                            <div class="bg-zinc-950 rounded-lg p-2.5">
+                                <p class="text-[9px] font-mono text-zinc-500 mb-1">Profit Factor</p>
+                                <p class="text-lg font-bold font-mono text-emerald-400">2.14</p>
+                            </div>
+                        </div>
+                        <!-- Streak dots -->
+                        <div class="bg-zinc-950 rounded-lg p-3 mb-3">
+                            <p class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-2">Last 20 trades</p>
+                            <div class="flex gap-1 flex-wrap">
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-sm border border-blue-500 bg-blue-900/30 inline-block"></span>
+                            </div>
+                        </div>
+                        <!-- Mini equity curve -->
+                        <div class="bg-zinc-950 rounded-lg p-3">
+                            <p class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-2">Equity Curve</p>
+                            <svg class="w-full h-12 overflow-visible" preserveAspectRatio="none">
+                                <path d="M0,40 C30,36 60,28 90,22 C120,16 150,26 180,18 C210,10 240,4 280,2" fill="none" stroke="#10b981" stroke-width="1.5"/>
+                                <path d="M0,40 C30,36 60,28 90,22 C120,16 150,26 180,18 C210,10 240,4 280,2 L280,48 L0,48 Z" fill="rgba(16,185,129,0.06)"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

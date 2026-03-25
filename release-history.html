@@ -97,8 +97,65 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.22-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.23-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 25, 2026 9:20AM</span>
+                </div>
+ 
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The biggest release to date. Public shareable trading profiles, funding account tracking, freeform daily notes with a monthly notes list, multiple screenshot reordering, and a set of reliability fixes under the hood.</p>
+ 
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Public Trading Profiles</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Your Own URL</strong> — Set a username in Settings and get a shareable public profile at <code class="font-mono text-xs bg-zinc-800 px-1 rounded">my.sgnldk.com/u/yourname</code>. Fully opt-in — profiles are off by default and only go live when you enable them.</li>
+                            <li><strong class="text-zinc-200">Period Selector</strong> — Visitors can filter your stats by 1W, 1M, 3M, 6M, YTD, or ALL. The equity curve, monthly P&amp;L chart, holdings table, and recent trades all update for the selected window.</li>
+                            <li><strong class="text-zinc-200">Privacy Control</strong> — A single toggle hides raw dollar P&amp;L while still showing win rate, percentages, and R-multiples. Share your edge without exposing your account size.</li>
+                            <li><strong class="text-zinc-200">Strategy Filter</strong> — Choose which strategies appear on your public profile. Leave it open or restrict it to specific setups.</li>
+                            <li><strong class="text-zinc-200">Copy Link</strong> — A one-click copy button appears in Settings once your profile is live.</li>
+                        </ul>
+                    </div>
+ 
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Funding Accounts</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Account Tracking</strong> — Log which funding account each trade was placed in — prop firm accounts, personal accounts, or any other structure. Add and manage accounts in Settings, then assign from the New Trade form.</li>
+                            <li><strong class="text-zinc-200">Protected Deletion</strong> — Deleting a funding account is blocked server-side if any trades reference it, so you can't accidentally orphan your history.</li>
+                        </ul>
+                    </div>
+ 
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Daily Notes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Freeform Day-Level Journal</strong> — Write a note for any trading day that isn't attached to a specific trade. Market conditions, mindset, pre-session plan — whatever you need to capture about the session as a whole.</li>
+                            <li><strong class="text-zinc-200">Grey Badge on Calendar</strong> — Days with a daily note show a Daily Note badge alongside the existing Journal and Post Mortem badges. Click to read or edit.</li>
+                            <li><strong class="text-zinc-200">Compose on Hover</strong> — Hovering any past weekday without a note shows a faint "+ Add daily note" prompt. Click the cell (anywhere outside a badge) to open the compose modal.</li>
+                            <li><strong class="text-zinc-200">Monthly Notes List</strong> — A chronological list of every daily note for the current month appears below the calendar grid. Each row shows the day, weekday label, and a two-line preview, with individual Copy buttons and a Copy All that formats the full month cleanly for pasting into a doc or sharing with a mentor.</li>
+                        </ul>
+                    </div>
+ 
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Screenshot Reordering</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Drag to Reorder</strong> — When attaching multiple screenshots to a trade, left and right arrow buttons on each thumbnail let you reorder them before uploading. First and last arrows hide automatically so the controls are never confusing.</li>
+                            <li><strong class="text-zinc-200">Fullscreen Preview</strong> — A "view" link under each thumbnail opens the image at full size before you commit to uploading.</li>
+                        </ul>
+                    </div>
+ 
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Equity Curve Date Guard</strong> — A single trade with a corrupted <code class="font-mono text-xs bg-zinc-800 px-1 rounded">exit_date</code> (e.g. year 0003) could previously compress your entire equity curve into an invisible sliver on the chart. All trades with dates before 2000-01-01 are now excluded from time-series charts.</li>
+                            <li><strong class="text-zinc-200">S3 Upload Uniqueness</strong> — Screenshot S3 keys now include a UUID suffix, preventing rapid back-to-back uploads in the same second from silently overwriting each other.</li>
+                            <li><strong class="text-zinc-200">Audit Worker — Instrument Scheduling</strong> — Stock and forex trade processing are now gated independently. Stock trades are skipped outside regular market hours (9:30 AM–4:15 PM ET) even when the forex session is active.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.22-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 20, 2026 2:18PM</span>
                 </div>
 

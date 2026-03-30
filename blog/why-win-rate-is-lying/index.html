@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Why Your Win Rate Is Lying to You (And What to Track Instead) | SignalDeck</title>
+    <meta name="description" content="Win rate is the most dangerous vanity metric in trading. Learn why a 40% win rate can be more profitable than 75%, what R-multiple and expectancy actually measure, and how to evaluate your trading system honestly.">
+    <meta name="keywords" content="win rate trading, R-multiple, trading expectancy, why win rate doesnt matter, R-value trading, profit factor, risk reward ratio, trading system evaluation">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/why-win-rate-is-lying/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/why-win-rate-is-lying/">
+    <meta property="og:title" content="Why Your Win Rate Is Lying to You (And What to Track Instead) | SignalDeck">
+    <meta property="og:description" content="Win rate is the most dangerous vanity metric in trading. Learn why a 40% win rate can be more profitable than 75%, what R-multiple and expectancy actually measure, and how to evaluate your trading system honestly.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/why-win-rate-is-lying/">
+    <meta property="twitter:title" content="Why Your Win Rate Is Lying to You (And What to Track Instead) | SignalDeck">
+    <meta property="twitter:description" content="Win rate is the most dangerous vanity metric in trading. Learn why a 40% win rate can be more profitable than 75%, what R-multiple and expectancy actually measure, and how to evaluate your trading system honestly.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why Your Win Rate Is Lying to You (And What to Track Instead)",
+        "description": "Win rate is the most dangerous vanity metric in trading. Learn why R-multiple and expectancy are what actually matter.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-03-30",
+        "dateModified": "2026-03-30"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does win rate matter in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Win rate alone is nearly meaningless. A trader with a 40% win rate can be highly profitable if their average winner is 3x their average loser. Conversely, a 75% win rate system can lose money if losers are disproportionately large. What matters is expectancy: the combination of win rate, average win size, and average loss size expressed in risk units (R-multiples)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good expectancy in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A positive expectancy means your system makes money over time. Anything above 0.0R is technically profitable. An expectancy of 0.3R to 0.5R per trade is solid for most retail systems. Above 0.5R per trade is strong. The best way to evaluate expectancy is alongside your SQN score, which measures both the magnitude and consistency of your edge."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What should I track instead of win rate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Track R-multiple (return per unit of risk), expectancy (average R per trade), profit factor (gross profit divided by gross loss), and SQN score (system quality number). Together these metrics tell you whether your edge is real, how large it is, and whether it is consistent enough to trust with real capital."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is R-multiple in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "R-multiple measures a trade's return relative to the initial risk. If you risk $100 and make $300, that is a 3R trade. If you risk $100 and lose $60, that is a -0.6R trade. R normalizes every trade to a common unit of risk, allowing you to compare trades of any size on equal footing."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-03-30" class="text-xs font-mono text-zinc-500">March 30, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">R-Value</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Why Your Win Rate Is Lying to You (And What to Track Instead)
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Win rate is the most cited — and most misleading — metric in retail trading. Here's why a 40% win rate can outperform a 75% win rate, and the four metrics that actually tell you if your system works.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- The Win Rate Trap -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Win Rate Trap</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Every trading community, every Discord, every FinTwit flex starts with the same number: win rate. "I'm running 72% this month." It sounds impressive. It feels like proof. And it tells you almost nothing about whether that trader is actually making money.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Here's why: win rate measures frequency, not magnitude. It counts how often you win, but completely ignores how much you win when you're right and how much you lose when you're wrong. A trader who wins 8 out of 10 trades but gives back all the profits on the 2 losers has a beautiful win rate and a broken system. A trader who wins 4 out of 10 trades but lets winners run to 3R while cutting losers at -1R has a "terrible" win rate and a deeply profitable system.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This isn't a theoretical edge case. It's how the majority of successful trend-following and momentum strategies actually work. Low win rate, high payoff ratio. The math works. The psychology is where most traders break.
+            </p>
+
+            <!-- Two Systems, One Lesson -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Two Systems, One Lesson</h2>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Metric</th>
+                            <th class="px-4 py-3 text-left font-semibold">System A (The "Loser")</th>
+                            <th class="px-4 py-3 text-left font-semibold">System B (The "Winner")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Win Rate</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">40%</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">78%</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Average Winner</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+2.8R</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+0.4R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Average Loser</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-1.0R</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-1.8R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Expectancy</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+0.52R per trade</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-0.08R per trade</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Profit Factor</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">1.87</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">0.87</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">After 100 trades</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+52R (profitable)</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-8R (losing money)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                System A looks bad on a Discord screenshot. 40% win rate, "losing more often than winning." But every dollar risked returns 52 cents on average over time. System B looks incredible in a group chat. Nearly 80% winners. But the losses are catastrophic relative to the wins, and after 100 trades, the account is underwater. The win rate was a mask. Expectancy was the truth.
+            </p>
+
+            <!-- The Four Metrics That Actually Matter -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Four Metrics That Actually Matter</h2>
+
+            <!-- 1. R-Multiple -->
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">1. R-Multiple (Return Per Unit of Risk)</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                R-Multiple is the foundation. It measures each trade's return relative to the risk you took. If you risk $200 and make $600, that's a 3R trade. If you risk $200 and lose $120, that's -0.6R. By normalizing everything to R, you can compare trades across different position sizes, different stocks, different asset classes — all on equal footing. Without R, you're comparing apples to freight trains.
+            </p>
+
+            <!-- 2. Expectancy -->
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">2. Expectancy (Average R Per Trade)</h3>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Expectancy is what your system pays you, on average, for every trade you take. The formula:
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
+Expectancy = (Win Rate × Avg Win in R) + (Loss Rate × Avg Loss in R)
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Using System A from above: <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">(0.40 × 2.8) + (0.60 × -1.0) = 1.12 - 0.60 = +0.52R</span>. Every trade you place in System A is worth 0.52R in expected value. Over 200 trades, that's +104R. This is the number that determines whether your system deserves capital.
+            </p>
+
+            <!-- 3. Profit Factor -->
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">3. Profit Factor</h3>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Profit Factor = Gross Profit / Gross Loss. It's the simplest ratio for answering the question: "For every dollar I lose, how many dollars do I make back?"
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Profit Factor</th>
+                            <th class="px-4 py-3 text-left font-semibold">Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Below 1.0</td>
+                            <td class="px-4 py-3 text-rose-400">Losing system</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">1.0 – 1.5</td>
+                            <td class="px-4 py-3 text-yellow-400">Marginal — barely covering losses</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">1.5 – 2.0</td>
+                            <td class="px-4 py-3 text-blue-400">Solid — healthy edge</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">2.0 – 3.0</td>
+                            <td class="px-4 py-3 text-emerald-400">Strong — well-managed system</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Above 3.0</td>
+                            <td class="px-4 py-3 text-emerald-300 font-semibold">Excellent — rare and robust</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A profit factor of 1.0 means you break even. Anything below 1.0 and you're paying the market to take your trades. Most consistently profitable retail traders land between 1.5 and 2.5.
+            </p>
+
+            <!-- 4. SQN Score -->
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">4. SQN Score (System Quality Number)</h3>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                SQN takes expectancy one step further by measuring not just the average return, but the consistency of that return. A system with 0.5R expectancy but wildly erratic results (some trades at +8R, others at -4R) will have a lower SQN than a system with the same expectancy but tighter, more predictable outcomes.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                We wrote a full breakdown of <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">how to calculate SQN and what the benchmarks mean</a>.
+            </p>
+
+            <!-- The Psychology Problem -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Psychology Problem</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is where the article gets real. The reason win rate persists as the dominant metric isn't mathematical — it's psychological. Humans are loss-averse. A 40% win rate means 6 out of every 10 trades are losers. That feels terrible. It triggers doubt, revenge trading, and premature system abandonment. Most traders quit a profitable system because they can't tolerate the losing streaks that a low-win-rate, high-R system produces.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is exactly why journaling matters. When you can open your dashboard and see that your expectancy is +0.52R, your SQN is 2.8, and your profit factor is 1.87 — even during a streak of 5 consecutive losers — you have the data to override the emotion. The numbers say the system works. The journal proves it. Without that proof, you're trading on faith, and faith runs out around the third consecutive red day.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "The hardest part of trading isn't finding a system. It's trusting a system during a drawdown. That trust comes from data, not feelings."
+            </blockquote>
+
+            <!-- How SignalDeck Tracks What Matters -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Tracks What Matters</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck was built around this exact philosophy. Win rate is visible on the dashboard — but it's contextual, not central. The metrics that sit front and center are expectancy (average R per trade), SQN score, profit factor, cumulative R-curve, and Kelly Criterion position sizing. Every chart, every filter, every Post Mortem is normalized by risk. The question the dashboard answers isn't "am I winning?" — it's "is my edge real?" <a href="https://forms.gle/1TeTFFr72ypX5LkT8" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">See your real metrics — free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">Does win rate matter in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Win rate alone is nearly meaningless. A trader with a 40% win rate can be highly profitable if their average winner is 3x their average loser. Conversely, a 75% win rate system can lose money if losers are disproportionately large. What matters is expectancy: the combination of win rate, average win size, and average loss size expressed in risk units (R-multiples).</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is a good expectancy in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">A positive expectancy means your system makes money over time. Anything above 0.0R is technically profitable. An expectancy of 0.3R to 0.5R per trade is solid for most retail systems. Above 0.5R per trade is strong. The best way to evaluate expectancy is alongside your SQN score, which measures both the magnitude and consistency of your edge.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What should I track instead of win rate?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Track R-multiple (return per unit of risk), expectancy (average R per trade), profit factor (gross profit divided by gross loss), and SQN score (system quality number). Together these metrics tell you whether your edge is real, how large it is, and whether it is consistent enough to trust with real capital.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is R-multiple in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">R-multiple measures a trade's return relative to the initial risk. If you risk $100 and make $300, that is a 3R trade. If you risk $100 and lose $60, that is a -0.6R trade. R normalizes every trade to a common unit of risk, allowing you to compare trades of any size on equal footing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Stop obsessing over win rate.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck shows you the metrics that actually predict profitability — expectancy, R-multiples, SQN score, and profit factor. Calculated automatically from your journal. Free during beta.</p>
+                <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="gtag('event', 'blog_cta_click', {'article': 'win-rate-lying'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta — Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="https://discord.gg/uBeunMmt" target="_blank" rel="noopener noreferrer" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../yup.js"></script>
+</body>
+</html>

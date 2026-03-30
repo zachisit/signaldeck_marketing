@@ -75,3 +75,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 ### Blog: How to Calculate Your Trading SQN Score
 - URL: https://sgnldk.com/blog/how-to-calculate-sqn-score/
 - Content: Step-by-step guide to calculating the System Quality Number (SQN) from trade data, including formula, benchmarks, worked example, and comparison to win rate
+
+### Blog: Why Your Win Rate Is Lying to You
+- URL: https://sgnldk.com/blog/why-win-rate-is-lying/
+- Content: Why win rate is a misleading vanity metric, how R-multiple and expectancy provide honest system evaluation, two-system comparison showing a 40% win rate outperforming 78%, and the four metrics professional traders track instead

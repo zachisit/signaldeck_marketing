@@ -97,8 +97,98 @@
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.23-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.24-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Mar 31, 2026 1:52PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A major release across every part of the platform. The forex trade entry form has been substantially improved, alerts gain a new pip-based trigger type, the app now supports full browser history navigation, and the Settings page has been redesigned with a sticky sidebar. A large wave of forex display fixes, audit worker reliability improvements, and public profile corrections round out the release.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Forex Trade Entry — Major Improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">LONG / SHORT Selection</strong> — Forex trades can now be entered as either LONG or SHORT from the New Trade form. Previously the direction was hardcoded to LONG.</li>
+                            <li><strong class="text-zinc-200">Entry Date &amp; Time</strong> — Dedicated date and time fields for forex trades, with no market-hours restriction — forex is 24/5 and the form now reflects that.</li>
+                            <li><strong class="text-zinc-200">Stop Price &amp; Target Price</strong> — The forex form now shows Stop Price and Target Price as actual price fields instead of raw pip numbers. The pip distance is calculated and saved automatically behind the scenes. Stop and target sit side-by-side for a cleaner layout.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">PIP_DISTANCE Alerts</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Pip-Based Alert Triggers</strong> — A new alert type for forex trades. Set a pip distance and the alert fires the moment your trade reaches that many pips of profit from entry. Works for both LONG and SHORT. No need to manually calculate a target price first.</li>
+                            <li><strong class="text-zinc-200">Alongside Existing Price Alerts</strong> — PIP_DISTANCE appears alongside the existing PRICE alert type as a selectable option on the alert form for forex trades.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Browser History &amp; URL Navigation</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Back &amp; Forward Buttons Work</strong> — The app now uses real browser history. Navigate between screens and use the browser back/forward buttons just like any website.</li>
+                            <li><strong class="text-zinc-200">Bookmarkable Screens</strong> — Every screen has a clean URL path — bookmark your Dashboard, Trades list, Calendar, or any other screen and it reopens directly.</li>
+                            <li><strong class="text-zinc-200">Trade Deep Links</strong> — Link directly to a specific trade. Opening the link takes you straight to that trade's detail modal.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Settings Page Redesign</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Sticky Sidebar Navigation</strong> — A left sidebar stays fixed as you scroll through Settings, with the active section highlighted automatically. Click any link to jump directly to that section.</li>
+                            <li><strong class="text-zinc-200">Account Info at the Top</strong> — Your display name, username, email, and member-since date are now shown at the very top of the Settings page for quick reference.</li>
+                            <li><strong class="text-zinc-200">Default Instrument Type</strong> — Set your preferred default instrument (Stock or Forex) in Trade Preferences. The New Trade form opens to your preference every time.</li>
+                            <li><strong class="text-zinc-200">Profile Strategy Filter — Pill Select</strong> — The public profile strategy filter has been replaced with a cleaner pill/tag multiselect, with Select All / Deselect All toggle.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Quick-Add in New Trade Form</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Create a Strategy On the Fly</strong> — A "+ New Strategy" link below the strategy dropdown opens a mini-modal to create a strategy inline — name, description, and date. No need to navigate to Settings first.</li>
+                            <li><strong class="text-zinc-200">Create a Tag On the Fly</strong> — Same idea for tags. A "+ New Tag" button opens a mini-modal with a name field and 12-colour picker. The new tag is created and auto-selected instantly.</li>
+                            <li><strong class="text-zinc-200">Tag Descriptions</strong> — Tags now support an optional description field, available when creating from the quick-add modal or the Settings > Tags screen.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Closed Trade Improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">View Summary on Any Closed Trade</strong> — A "View Summary" button now appears on any closed trade's detail modal. Click it to open the full post-trade analysis — P&amp;L breakdown, slippage bars, thesis capture — at any time, not just immediately after closing.</li>
+                            <li><strong class="text-zinc-200">Thesis Capture % Fixed</strong> — The "Captured" percentage in the Thesis section was incorrectly showing 100% on losing trades. It now correctly reflects how much of the intended move from entry to target you actually captured.</li>
+                            <li><strong class="text-zinc-200">Forex Close Modal Precision</strong> — Exit price, stop price, and the estimated outcome card in the close modal now display full forex decimal precision instead of rounding to 2 decimal places.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Forex Display Precision</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Full Precision Throughout</strong> — Forex prices now display correctly at up to 5 decimal places across the trade detail modal, close modal, and clipboard copy buttons. Previously many fields were rounding to 2 decimal places (e.g. showing $1.09 instead of 1.08523).</li>
+                            <li><strong class="text-zinc-200">Increment Arrows Fixed</strong> — Clicking the up/down arrows on forex price input fields now increments by one pip (0.0001) instead of one cent (0.01).</li>
+                            <li><strong class="text-zinc-200">Unrealized P&amp;L for Open Forex</strong> — Open forex trades now show a live unrealized P&amp;L and risk unit in the trade detail, calculated from the current price. Previously these showed as zero.</li>
+                            <li><strong class="text-zinc-200">Forex P&amp;L Percentage</strong> — Small forex moves now display correctly (e.g. 0.001% instead of 0.00%) so single-pip moves are no longer invisible in the P&amp;L column.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">TradingView Links Fixed for Forex</strong> — Chart links on forex trades now open the correct chart in TradingView. The Polygon symbol format was being passed through unchanged, resulting in broken links.</li>
+                            <li><strong class="text-zinc-200">Screenshots Open Fullscreen</strong> — Clicking a trade screenshot now opens it in a fullscreen viewer overlay instead of opening a new browser tab.</li>
+                            <li><strong class="text-zinc-200">Toast Notifications Always Visible</strong> — Success and error toast messages are now always visible even when modals are open. Previously they could appear behind an open modal.</li>
+                            <li><strong class="text-zinc-200">Null P&amp;L Shown in Gray</strong> — When live price data isn't available, unrealized P&amp;L now shows in gray rather than green, so the absence of data isn't mistaken for a profit.</li>
+                            <li><strong class="text-zinc-200">Signal Column Removed from Trade List</strong> — The Signal column has been removed from the trades table to reduce clutter. Signal is still accessible inside the trade detail modal and via the Setup menu.</li>
+                            <li><strong class="text-zinc-200">Public Profile Strategy Filter Fixes</strong> — Several bugs in the public profile strategy filter have been fixed. Deselecting all strategies now correctly hides all trades instead of showing everything.</li>
+                            <li><strong class="text-zinc-200">Audit Worker — Risk Alerts Fixed</strong> — Daily trade count and daily P&amp;L limits in risk alerts were silently broken and not evaluating correctly. Both are now fixed and firing as expected.</li>
+                            <li><strong class="text-zinc-200">Audit Worker — Price Updates for All Users</strong> — Live price updates from the audit worker are now saved for all users, not just the primary scanner account.</li>
+                            <li><strong class="text-zinc-200">Editable Entry Date</strong> — The entry date on a trade is now editable from the trade detail modal. Changing it automatically re-fetches the Polygon technical indicators for the new date.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.23-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 25, 2026 9:20AM</span>
                 </div>
  

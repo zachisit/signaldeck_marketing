@@ -1,7 +1,7 @@
 # SignalDeck
 
 ## About
-SignalDeck is a professional-grade trade journaling platform built around R-Multiple (R-value) methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, execution quality analysis (MAE/MFE), structured Post Mortem trade reviews, behavioral tagging, an AI Journal Analyst chatbot, and a social trading layer (Borg) with leaderboards.
+SignalDeck is a professional-grade trade journaling platform built around R-Multiple (R-value) methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, execution quality analysis (MAE/MFE), structured Post Mortem trade reviews, behavioral tagging, and a social trading layer (Borg) with leaderboards.
 
 ## Key Facts
 - Category: SaaS, Trading Journal, FinTech
@@ -19,7 +19,6 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Monte Carlo simulation estimates worst-case drawdown at 95th percentile confidence
 - Structured 5-step Post Mortem protocol for every closed trade (Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback)
 - Execution quality analysis: entry slippage, exit slippage, limit alpha, MAE vs MFE scatter plots
-- AI Journal Analyst chatbot that reads the trader's own journal data
 - Behavioral tagging system for tracking psychology (FOMO, hesitation, revenge trading)
 - Threaded, timestamped trade journal with full history per trade (not just a single notes field)
 - Unlimited chart screenshots with dedicated entry and exit slots for visual trade documentation
@@ -38,7 +37,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 
 ### Homepage
 - URL: https://sgnldk.com
-- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), AI Analyst preview, feature cards, university program
+- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), feature cards, university program
 
 ### Common Stock
 - URL: https://sgnldk.com/stocks/

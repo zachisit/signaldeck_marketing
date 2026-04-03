@@ -163,54 +163,78 @@
 
             
             <div class="w-full mt-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
-    
-    <div class="bg-zinc-900 p-6 relative min-h-[300px] border-r border-zinc-800" role="img" aria-label="Interactive equity curve chart showing a green winning streak, a red risk leakage event, and a blue recovery.">
+
+    <!-- Left: Equity Curve (keeping mostly as-is with pattern markers) -->
+    <div class="bg-zinc-900 p-6 relative min-h-[300px] border-r border-zinc-800" role="img" aria-label="Interactive equity curve chart showing performance analysis with automated pattern detection.">
         <h3 class="font-mono text-xs text-zinc-500 uppercase mb-4">Equity Curve [30 Days]</h3>
-        
+
         <div class="absolute bottom-0 left-0 right-0 top-12 px-6 pb-6 flex items-end">
             <svg class="w-full h-48 overflow-visible" preserveAspectRatio="none">
                 <path d="M0,150 C50,140 100,80 150,50" fill="none" stroke="#10b981" stroke-width="2" />
                 <path d="M150,50 L200,120 L250,110" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4 2" />
                 <path d="M250,110 C300,100 350,60 400,40" fill="none" stroke="#3b82f6" stroke-width="2" />
-                
+
+                <!-- Pattern marker -->
                 <circle cx="200" cy="120" r="6" fill="#f43f5e" class="animate-pulse">
                     <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite" />
                     <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
                 </circle>
             </svg>
-            
-            <div class="absolute top-[45%] left-[45%] bg-rose-500/10 border border-rose-500/50 text-rose-500 text-[10px] font-mono px-2 py-1 rounded">
-                Risk Leakage detected
+
+            <div class="absolute top-[45%] left-[45%] bg-rose-500/10 border border-rose-500/50 text-rose-500 text-[10px] font-mono px-2 py-1 rounded whitespace-nowrap">
+                Behavioral pattern detected
             </div>
         </div>
     </div>
 
-    <div class="bg-zinc-950 p-6 flex flex-col font-mono text-sm relative" aria-label="Live AI analyst feed displaying forensic trading insights and risk recommendations.">
-        <div class="flex items-center gap-2 mb-6 border-b border-zinc-800 pb-2">
-            <div class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
-            <span class="text-zinc-400 text-xs">ANALYST_FEED</span>
+    <!-- Right: Compact Pattern Dashboard (Real Metrics) -->
+    <div class="bg-zinc-950 p-6 flex flex-col font-mono text-sm relative" aria-label="Automated pattern detection showing behavioral insights from your trade journal.">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
+                <span class="text-zinc-400 text-xs">PATTERN_SCAN</span>
+            </div>
+            <span class="text-zinc-600 text-[10px]">LAST 30D</span>
         </div>
-        
-        <div class="space-y-4">
-            <div class="bg-zinc-900 border border-zinc-800 p-3 rounded-lg rounded-tl-none">
-                <span class="text-purple-400 font-bold block mb-1 text-xs">@Analyst_AI:</span>
-                <p class="text-zinc-300 text-xs leading-relaxed">
-                    I'm flagging the drawdown on <span class="text-white font-bold">Oct 14th</span> (marked in red). 
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="bg-zinc-900/50 border border-rose-500/30 rounded p-3">
+                <div class="text-[10px] text-zinc-500 mb-1">FOMO ENTRIES</div>
+                <div class="text-rose-400 font-bold text-lg">-1.2R</div>
+                <div class="text-zinc-600 text-[10px] mt-1">8 trades tagged</div>
+            </div>
+
+            <div class="bg-zinc-900/50 border border-amber-500/30 rounded p-3">
+                <div class="text-[10px] text-zinc-500 mb-1">AVG SLIPPAGE</div>
+                <div class="text-amber-400 font-bold text-lg">-0.18%</div>
+                <div class="text-zinc-600 text-[10px] mt-1">Entry execution</div>
+            </div>
+
+            <div class="bg-zinc-900/50 border border-blue-500/30 rounded p-3">
+                <div class="text-[10px] text-zinc-500 mb-1">POOR SETUPS</div>
+                <div class="text-blue-400 font-bold text-lg">-0.4R</div>
+                <div class="text-zinc-600 text-[10px] mt-1">Post Mortem avg</div>
+            </div>
+
+            <div class="bg-zinc-900/50 border border-emerald-500/30 rounded p-3">
+                <div class="text-[10px] text-zinc-500 mb-1">A+ SETUPS</div>
+                <div class="text-emerald-400 font-bold text-lg">+2.1R</div>
+                <div class="text-zinc-600 text-[10px] mt-1">Post Mortem avg</div>
+            </div>
+        </div>
+
+        <!-- Bottom insight bar -->
+        <div class="bg-rose-500/5 border border-rose-500/20 rounded px-3 py-2">
+            <div class="flex items-start gap-2">
+                <span class="text-rose-400 text-[10px] font-bold mt-0.5">⚠</span>
+                <p class="text-zinc-400 text-[10px] leading-relaxed">
+                    FOMO-tagged trades cost <span class="text-white font-bold">-9.6R</span> this month
                 </p>
             </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-3 rounded-lg rounded-tl-none border-l-2 border-l-rose-500">
-                <span class="text-rose-400 font-bold block mb-1 text-xs">INSIGHT:</span>
-                <p class="text-zinc-300 text-xs leading-relaxed">
-                    You took 4 trades during the "Lunch Lull" (12pm-1pm). 
-                    <br><br>
-                    <span class="text-zinc-500">></span> This creates a <span class="text-white">-12% drag</span> on your curve.
-                    <br>
-                    <span class="text-zinc-500">></span> Recommendation: <span class="text-emerald-400">Lock terminal until 1:30 PM.</span>
-                </p>
-            </div>
         </div>
-        
-        <div class="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50"></div>
+
+        <div class="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-amber-500 to-transparent opacity-50"></div>
     </div>
 </div>
             

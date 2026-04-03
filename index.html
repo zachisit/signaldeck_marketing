@@ -305,31 +305,73 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-white mb-4">The AI Journal Analyst</h2>
+                    <h2 class="text-3xl font-bold text-white mb-4">Structured Post Mortem Protocol</h2>
                     <p class="text-lg text-zinc-400 mb-8">
-                        A chat interface that actually reads your journal. Ask it why you're missing targets, where your discipline breaks down, and which setups make you money.
+                        Every closed trade gets a mandatory 5-step forensic review. No shortcuts. No skipped trades. This is where amateurs become professionals — one trade at a time.
                     </p>
-                    <ul class="space-y-4 font-mono text-sm text-zinc-400">
+                    <ul class="space-y-3 text-sm text-zinc-400">
                         <li class="flex items-start">
-                            <span class="text-purple-500 mr-2">></span>
-                            "Why do I always fail my 2R targets on Tuesdays?"
+                            <span class="text-blue-400 mr-3 font-mono">01</span>
+                            <span><span class="text-white font-semibold">Setup Diagnosis</span> — Was the signal valid or forced?</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-purple-500 mr-2">></span>
-                            "Review my stop-loss discipline for the last 50 trades."
+                            <span class="text-blue-400 mr-3 font-mono">02</span>
+                            <span><span class="text-white font-semibold">Management</span> — Did you follow the plan or improvise?</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-mono">03</span>
+                            <span><span class="text-white font-semibold">Verdict</span> — Process win, process loss, or violation?</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-mono">04</span>
+                            <span><span class="text-white font-semibold">Training Gap</span> — What skill needs work?</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-mono">05</span>
+                            <span><span class="text-white font-semibold">Action</span> — One specific thing to do differently next time</span>
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="mt-10 lg:mt-0 relative">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg blur opacity-20"></div>
-                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-lg p-4 shadow-2xl h-96 flex flex-col font-mono text-sm">
-                        <div class="flex items-center justify-between border-b border-zinc-800 pb-2 mb-4">
-                            <span class="text-zinc-500">analyst_daemon_v1.2</span>
-                            <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-20"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-lg p-6 shadow-2xl">
+                        <div class="flex items-center gap-2 border-b border-zinc-800 pb-3 mb-4">
+                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            <span class="text-xs font-mono text-zinc-500 uppercase">Post Mortem — $AAPL</span>
                         </div>
-                        <div class="flex-1 overflow-y-auto" id="chat-window">
+                        <div class="space-y-4 text-sm">
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Setup Quality</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-emerald-400 font-bold">A+</span>
+                                    <span class="text-zinc-500">—</span>
+                                    <span class="text-zinc-400">Valid breakout, high volume</span>
+                                </div>
                             </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Management</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-rose-400 font-bold">D</span>
+                                    <span class="text-zinc-500">—</span>
+                                    <span class="text-zinc-400">Exited early, left 1.8R on table</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Verdict</div>
+                                <div class="px-3 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 font-mono text-xs inline-block">
+                                    Process Violation
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Training Gap</div>
+                                <div class="text-zinc-400">Position sizing anxiety under profit</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Action</div>
+                                <div class="text-white">Review Kelly % before next trade to rebuild trust in math</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

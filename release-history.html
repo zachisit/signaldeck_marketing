@@ -94,11 +94,107 @@
         </div>
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
+
+            <!-- v1.0.27 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.27-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 7, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Two focused feature releases: profile notes now broadcast to the Borg Live Trade Feed, and the public profile page gains a full advanced analytics dashboard with eight new metric widgets and four new charts.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Borg Feed Note</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Notes in the Live Feed</strong> — The profile note you write when closing a trade now appears directly on the trade card in the Borg Live Trade Feed. Team members can see your thinking alongside the R-multiple and status badge — no need to click into the trade detail.</li>
+                            <li><strong class="text-zinc-200">Long Notes Truncated Cleanly</strong> — Notes longer than two lines are clamped with CSS <code>line-clamp-2</code> so the feed card stays compact. The full note is always accessible from the trade detail modal.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Public Profile — Advanced Analytics Dashboard</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">8 Advanced Metric Widgets</strong> — A new two-row widget strip above the CTA shows Avg. R (Closed), SQN Score, Kelly Criterion %, Risk Leakage, Limit Alpha, Expectancy Momentum, Win Rate Velocity, and Entry Friction — all period-aware and updating with every filter change.</li>
+                            <li><strong class="text-zinc-200">Cumulative R-Multiple Curve</strong> — The equity curve is now paired 50/50 with a cumulative R-multiple curve, showing the shape of your edge independent of dollar size.</li>
+                            <li><strong class="text-zinc-200">Strategy Decay Chart</strong> — Monthly P&amp;L is now paired with a rolling 20-trade win rate line chart. The amber line against a 50% reference makes edge erosion immediately visible.</li>
+                            <li><strong class="text-zinc-200">Realized R-Multiple Over Time</strong> — A mixed bar + rolling 5-trade average line chart showing each closed trade's R-multiple in sequence. Green bars for wins, red for losses.</li>
+                            <li><strong class="text-zinc-200">Duration vs. Result Scatter</strong> — Each trade plotted by hold time (X axis, days) against R-multiple (Y axis), colored by win/loss. Reveals whether longer or shorter holds produce better outcomes for your style.</li>
+                            <li><strong class="text-zinc-200">Server-Side Computation</strong> — SQN Score (<code>mean(R) / stdev(R) × √n</code>), Kelly Criterion (full Kelly formula), Win Rate Velocity (first vs. second half of period), and Expectancy Momentum are all computed in the API and returned alongside existing stats. No client-side estimation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.26 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.26-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Apr 6, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A broad release covering CSV trade import, Borg feed improvements, public profile upgrades, and a full local Docker E2E stack so the test suite no longer touches production.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">CSV Trade Import</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Broker Presets</strong> — Import trades directly from Schwab, TD Ameritrade, IBKR, MetaTrader, Vanguard, and a Generic CSV format. Column mapping is handled automatically per preset — no manual field matching required.</li>
+                            <li><strong class="text-zinc-200">Preview &amp; Validation</strong> — A preview step shows parsed trades before they're saved, with per-row validation errors clearly flagged. Duplicate detection via skip-duplicates mode.</li>
+                            <li><strong class="text-zinc-200">Pair Mode</strong> — Brokers that export separate open and close rows (rather than one completed trade row) are handled via pair mode, which stitches matching rows into a single closed trade.</li>
+                            <li><strong class="text-zinc-200">Default Side</strong> — Set a default direction (LONG or SHORT) for brokers that don't include side in their export format.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Borg Live Trade Feed — Status Badges</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Open / Closed Badges</strong> — Each trade card in the Borg Live Trade Feed now shows a green Open or gray Closed badge, so you can see at a glance which positions are still active without opening the detail modal.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Public Profile — Trade Thinking Notes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Profile Note on Close</strong> — A new optional "Profile Note" field on the close trade modal lets you capture a post-trade reflection at the moment of closing. The note is separate from your private trade notes.</li>
+                            <li><strong class="text-zinc-200">Trade Thinking Section</strong> — Up to five of your most recent profile notes appear in a dedicated "Trade Thinking" card section on your public profile, with symbol, direction, and close date for context.</li>
+                            <li><strong class="text-zinc-200">Team Memberships Shown</strong> — Your Borg team name(s) now appear on your public profile below the display name. Multiple teams display with a separator dot.</li>
+                            <li><strong class="text-zinc-200">Holdings &amp; Trades Grid</strong> — Current Holdings and Recent Closed Trades are now displayed side by side in a 50/50 grid instead of stacked vertically, making better use of wide screens.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Local E2E Docker Stack</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">No More Production Hits</strong> — Playwright E2E tests now run against a local Docker stack (MySQL + Redis + FastAPI). Tests create, mutate, and delete real data without touching the live database.</li>
+                            <li><strong class="text-zinc-200">Auto-Teardown</strong> — The Docker stack spins up before the test run and is automatically torn down with volumes wiped when tests complete.</li>
+                            <li><strong class="text-zinc-200">API URL Auto-Detection</strong> — The SPA detects when it's served from localhost and routes all API calls to <code>localhost:8000</code> automatically — no manual config needed per environment.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Worker: RTH-Only Bars</strong> — The audit worker now uses regular-trading-hours-only price bars for stock alert evaluation, preventing pre/post-market prices from triggering alerts incorrectly.</li>
+                            <li><strong class="text-zinc-200">Alert Guard on Closed Trades</strong> — Creating an alert on an already-closed trade is now blocked at the API level, preventing orphaned alerts.</li>
+                            <li><strong class="text-zinc-200">Intraday Chart Timezone Fix</strong> — Intraday bars on the trade lifecycle chart were using millisecond timestamps incorrectly, causing bars to appear at wrong times. Fixed to use ISO date strings.</li>
+                            <li><strong class="text-zinc-200">Borg Team Switching</strong> — Fixed several issues with Borg team switching: stale team names, stat cards not updating, and the team dropdown closing unexpectedly after navigation.</li>
+                            <li><strong class="text-zinc-200">Worker: Skip Key in Summary</strong> — The audit worker summary object now always includes a <code>skipped</code> key even when both markets are inactive, preventing downstream key errors.</li>
+                            <li><strong class="text-zinc-200">Google Auth Guard</strong> — The Google OAuth endpoint now returns a clean error if <code>GOOGLE_CLIENT_ID</code> is not configured, instead of crashing with an unhandled exception.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.25 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.25-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Apr 2, 2026 8:40PM</span>
                 </div>
 

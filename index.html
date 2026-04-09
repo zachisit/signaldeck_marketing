@@ -15,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>SignalDeck - AI Trading Journal | Institutional Metrics for Serious Traders</title>
-    <meta name="description" content="Forensic trading journal using AI and institutional metrics like Win-Rate Velocity and Expectancy Momentum. Audit your discipline before drawdowns hit. Free lifetime access for beta testers.">
+    <title>SignalDeck - Trading Journal &amp; Strategy Backtester | Institutional Metrics for Serious Traders</title>
+    <meta name="description" content="The only trading journal with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization built in. R-value analytics, a structured Post Mortem protocol, and a full strategy backtester. Audit your edge before drawdowns hit. Free lifetime access for beta testers.">
     <meta name="keywords" content="trading journal, AI trading journal, win rate velocity, expectancy momentum, trade discipline, SQN score, Kelly criterion, day trading journal, swing trading journal, trading analytics, risk management">
     <meta name="author" content="SignalDeck">
     <link rel="canonical" href="https://sgnldk.com">
@@ -430,6 +430,34 @@
                     <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Output - Forensic CSV</div>
                 </div>
 
+                <div class="p-8 bg-zinc-950 border border-blue-500/30 rounded-xl hover:border-blue-400/60 transition-all relative md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="text-blue-400 font-mono text-xl">07 // BACKTEST</div>
+                        <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-blue-500 text-white uppercase tracking-widest">New</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                        <div>
+                            <h4 class="text-white font-bold mb-3 text-lg">Strategy Backtester</h4>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Test any of 7 built-in strategies against up to 5 years of historical data. Walk-Forward Analysis detects overfitting before you go live. Monte Carlo simulation models your worst-case drawdown across 1,000 paths. Grid-search optimizer finds your best parameters. Then link the backtest to your journal strategy and compare theory against your actual execution — all in the same platform.</p>
+                            <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Engine — Bar-by-Bar Simulation · Async Worker</div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">SMA Crossover</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">RSI Mean Reversion</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">EMA Crossover</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Bollinger Bands</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">MACD</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Walk-Forward Analysis</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Monte Carlo (1000 paths)</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Grid-Search Optimizer</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Benchmark Overlay</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Journal Equity Link</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Kelly / Fixed-Risk Sizing</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Trailing Stops</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -654,20 +682,24 @@
                 <div class="w-full md:w-1/2">
                     <h3 class="text-3xl font-bold text-white mb-4">Your verified trading record - publicly shareable</h3>
                     <p class="text-zinc-400 text-lg leading-relaxed">
-                        Every SignalDeck account gets a public profile at <span class="font-mono text-blue-400 text-base">my.sgnldk.com/u/username</span>. Share your equity curve, R-multiples, win rate, and trade history with anyone - no screenshots, no cherry-picking. Verifiable proof of your edge, built from live trade data.
+                        Every SignalDeck account gets a public profile at <span class="font-mono text-blue-400 text-base">my.sgnldk.com/u/username</span>. Share your equity curve, R-multiples, win rate, strategy decay, trade thinking notes, and post-mortem reviews with anyone - no screenshots, no cherry-picking. Verifiable proof of your edge, built from live trade data.
                     </p>
                     <ul class="mt-6 space-y-3 font-mono text-sm text-zinc-400">
                         <li class="flex items-start">
                             <span class="text-purple-500 mr-2">></span>
-                            Filterable by 1W, 1M, 3M, 6M, YTD, or all-time
+                            11 stats: Net P&L, profit factor, avg R, max drawdown, avg hold, and more
                         </li>
                         <li class="flex items-start">
                             <span class="text-purple-500 mr-2">></span>
-                            Equity curve, monthly P&L, profit factor, avg R-multiple
+                            Equity curve, cumulative R, monthly P&L, strategy decay, notes &amp; post-mortem timelines
                         </li>
                         <li class="flex items-start">
                             <span class="text-purple-500 mr-2">></span>
-                            Control visibility - hide dollar amounts, keep ratios public
+                            Filterable 1W → ALL · Current holdings · Recent trade thinking cards
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">></span>
+                            Privacy toggle — hide dollar amounts, keep ratios public
                         </li>
                     </ul>
                 </div>
@@ -676,45 +708,72 @@
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                     <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl p-5 shadow-2xl">
                         <!-- Profile header -->
-                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
-                            <div class="flex items-center gap-3">
+                        <div class="flex items-start justify-between mb-4 pb-3 border-b border-zinc-800 gap-3">
+                            <div class="flex items-center gap-3 min-w-0">
                                 <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">S</div>
-                                <div>
-                                    <p class="text-white font-semibold text-sm">Sludge</p>
-                                    <p class="text-zinc-600 text-[10px] font-mono">my.sgnldk.com/u/sludge</p>
+                                <div class="min-w-0">
+                                    <div class="flex items-center gap-1.5">
+                                        <p class="text-white font-semibold text-sm truncate">Sludge</p>
+                                        <span class="relative flex h-2 w-2 flex-shrink-0"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
+                                    </div>
+                                    <p class="text-zinc-600 text-[10px] font-mono truncate">my.sgnldk.com/u/sludge</p>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-1.5">
-                                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
-                                <span class="text-[10px] font-mono text-zinc-500">Live</span>
+                            <div class="text-right flex-shrink-0">
+                                <p class="text-[9px] font-mono text-zinc-600 uppercase">Tracking since</p>
+                                <p class="text-[10px] font-mono text-zinc-400">Feb 2026</p>
                             </div>
                         </div>
                         <!-- Period tabs -->
                         <div class="flex items-center gap-1 mb-4">
                             <span class="text-[9px] font-mono text-zinc-600 mr-1">Period:</span>
-                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">1W</span>
-                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">1M</span>
-                            <span class="px-2 py-1 text-[9px] rounded text-white bg-blue-500 font-bold">3M</span>
-                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">6M</span>
-                            <span class="px-2 py-1 text-[9px] rounded text-zinc-400 bg-zinc-800">ALL</span>
+                            <span class="px-1.5 py-0.5 text-[9px] rounded text-zinc-400 bg-zinc-800">1W</span>
+                            <span class="px-1.5 py-0.5 text-[9px] rounded text-zinc-400 bg-zinc-800">1M</span>
+                            <span class="px-1.5 py-0.5 text-[9px] rounded text-zinc-400 bg-zinc-800">3M</span>
+                            <span class="px-1.5 py-0.5 text-[9px] rounded text-zinc-400 bg-zinc-800">6M</span>
+                            <span class="px-1.5 py-0.5 text-[9px] rounded text-zinc-400 bg-zinc-800">YTD</span>
+                            <span class="px-1.5 py-0.5 text-[9px] rounded text-white bg-blue-500 font-bold">ALL</span>
                         </div>
-                        <!-- Stats grid -->
-                        <div class="grid grid-cols-3 gap-2 mb-4">
-                            <div class="bg-zinc-950 rounded-lg p-2.5">
-                                <p class="text-[9px] font-mono text-zinc-500 mb-1">Win Rate</p>
-                                <p class="text-lg font-bold font-mono text-white">58.3%</p>
+                        <!-- Primary stats grid -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
+                            <div class="bg-zinc-950 rounded-lg p-2 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-500 mb-0.5">Net P&amp;L</p>
+                                <p class="text-sm font-bold font-mono text-emerald-400 truncate">+$12.4k</p>
                             </div>
-                            <div class="bg-zinc-950 rounded-lg p-2.5">
-                                <p class="text-[9px] font-mono text-zinc-500 mb-1">Avg R-Multiple</p>
-                                <p class="text-lg font-bold font-mono text-blue-400">+0.91R</p>
+                            <div class="bg-zinc-950 rounded-lg p-2 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-500 mb-0.5">Win Rate</p>
+                                <p class="text-sm font-bold font-mono text-white truncate">58.3%</p>
                             </div>
-                            <div class="bg-zinc-950 rounded-lg p-2.5">
-                                <p class="text-[9px] font-mono text-zinc-500 mb-1">Profit Factor</p>
-                                <p class="text-lg font-bold font-mono text-emerald-400">2.14</p>
+                            <div class="bg-zinc-950 rounded-lg p-2 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-500 mb-0.5">Avg R</p>
+                                <p class="text-sm font-bold font-mono text-blue-400 truncate">+0.91R</p>
+                            </div>
+                            <div class="bg-zinc-950 rounded-lg p-2 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-500 mb-0.5">Profit F.</p>
+                                <p class="text-sm font-bold font-mono text-emerald-400 truncate">2.14</p>
+                            </div>
+                        </div>
+                        <!-- Secondary stats row -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-3">
+                            <div class="bg-zinc-950/50 rounded p-1.5 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-600 mb-0.5">Avg Win</p>
+                                <p class="text-[11px] font-bold font-mono text-emerald-400 truncate">+$284</p>
+                            </div>
+                            <div class="bg-zinc-950/50 rounded p-1.5 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-600 mb-0.5">Avg Loss</p>
+                                <p class="text-[11px] font-bold font-mono text-rose-400 truncate">-$146</p>
+                            </div>
+                            <div class="bg-zinc-950/50 rounded p-1.5 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-600 mb-0.5">Max DD</p>
+                                <p class="text-[11px] font-bold font-mono text-amber-400 truncate">-8.2%</p>
+                            </div>
+                            <div class="bg-zinc-950/50 rounded p-1.5 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-600 mb-0.5">Avg Hold</p>
+                                <p class="text-[11px] font-bold font-mono text-white truncate">3.4d</p>
                             </div>
                         </div>
                         <!-- Streak dots -->
-                        <div class="bg-zinc-950 rounded-lg p-3 mb-3">
+                        <div class="bg-zinc-950 rounded-lg p-2.5 mb-3">
                             <p class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-2">Last 20 trades</p>
                             <div class="flex gap-1 flex-wrap">
                                 <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span>
@@ -739,18 +798,115 @@
                                 <span class="w-2.5 h-2.5 rounded-sm border border-blue-500 bg-blue-900/30 inline-block"></span>
                             </div>
                         </div>
-                        <!-- Mini equity curve -->
-                        <div class="bg-zinc-950 rounded-lg p-3">
-                            <p class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-2">Equity Curve</p>
-                            <svg class="w-full h-12 overflow-visible" preserveAspectRatio="none">
-                                <path d="M0,40 C30,36 60,28 90,22 C120,16 150,26 180,18 C210,10 240,4 280,2" fill="none" stroke="#10b981" stroke-width="1.5"/>
-                                <path d="M0,40 C30,36 60,28 90,22 C120,16 150,26 180,18 C210,10 240,4 280,2 L280,48 L0,48 Z" fill="rgba(16,185,129,0.06)"/>
-                            </svg>
+                        <!-- Twin mini charts: Equity + Cumulative R -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-zinc-950 rounded-lg p-2.5 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-600 uppercase tracking-wider mb-1">Equity Curve</p>
+                                <svg class="w-full h-10 block" viewBox="0 0 280 42" preserveAspectRatio="none">
+                                    <path d="M0,35 C30,32 60,24 90,18 C120,14 150,22 180,14 C210,8 240,4 280,2" fill="none" stroke="#10b981" stroke-width="1.5"/>
+                                    <path d="M0,35 C30,32 60,24 90,18 C120,14 150,22 180,14 C210,8 240,4 280,2 L280,42 L0,42 Z" fill="rgba(16,185,129,0.06)"/>
+                                </svg>
+                            </div>
+                            <div class="bg-zinc-950 rounded-lg p-2.5 min-w-0">
+                                <p class="text-[8px] font-mono text-zinc-600 uppercase tracking-wider mb-1">Cumulative R</p>
+                                <svg class="w-full h-10 block" viewBox="0 0 280 42" preserveAspectRatio="none">
+                                    <path d="M0,38 C30,34 50,30 80,22 C110,28 140,16 170,18 C200,12 240,8 280,4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+                                    <path d="M0,38 C30,34 50,30 80,22 C110,28 140,16 170,18 C200,12 240,8 280,4 L280,42 L0,42 Z" fill="rgba(96,165,250,0.06)"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full md:w-1/2 order-2 md:order-1">
+                    <div class="inline-flex items-center gap-2 mb-4">
+                        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-blue-400">New Feature</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Backtest before you risk a dollar</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        Run any of 7 built-in strategies against up to 5 years of historical data. Walk-Forward Analysis catches overfitting before you go live. Monte Carlo simulation runs 1,000 paths to model your worst-case drawdown at the 5th percentile. Then link the backtest directly to your journal strategy — and see exactly where your live execution diverges from theory.
+                    </p>
+                    <ul class="mt-6 space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            Walk-Forward Analysis — IS vs OOS split, overfit verdict
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            1,000-path Monte Carlo — P5 drawdown, probability of profit
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            Grid-search optimizer — up to 500 parameter combinations
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">></span>
+                            Journal overlay — backtest equity curve vs your real trades
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/2 order-1 md:order-2 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl p-5 shadow-2xl font-mono text-xs">
+                        <!-- Header -->
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                <span class="text-zinc-500 uppercase tracking-wider text-[10px]">Backtest — SMA 20/50 · SPY · 3Y</span>
+                            </div>
+                            <span class="text-emerald-400 font-bold text-[10px]">COMPLETE</span>
+                        </div>
+                        <!-- Metrics -->
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <div class="bg-zinc-950 rounded-lg p-2.5">
+                                <div class="text-[9px] text-zinc-500 mb-0.5 uppercase">Return</div>
+                                <div class="text-emerald-400 font-bold text-base">+142%</div>
+                            </div>
+                            <div class="bg-zinc-950 rounded-lg p-2.5">
+                                <div class="text-[9px] text-zinc-500 mb-0.5 uppercase">Sharpe</div>
+                                <div class="text-blue-400 font-bold text-base">1.84</div>
+                            </div>
+                            <div class="bg-zinc-950 rounded-lg p-2.5">
+                                <div class="text-[9px] text-zinc-500 mb-0.5 uppercase">Max DD</div>
+                                <div class="text-rose-400 font-bold text-base">-18%</div>
+                            </div>
+                        </div>
+                        <!-- Equity curve -->
+                        <div class="bg-zinc-950 rounded-lg p-3 mb-3">
+                            <div class="text-[9px] text-zinc-600 uppercase tracking-wider mb-2">Equity Curve</div>
+                            <svg class="w-full h-16 block" viewBox="0 0 280 64" preserveAspectRatio="none">
+                                <!-- MC bands -->
+                                <path d="M0,55 C40,52 80,45 120,35 C160,25 200,30 240,15 C260,10 270,8 280,5 L280,58 C260,62 220,65 180,62 C140,59 100,58 60,60 C40,61 20,60 0,58 Z" fill="rgba(59,130,246,0.08)" stroke="none"/>
+                                <!-- Main equity curve -->
+                                <path d="M0,55 C40,50 80,38 120,28 C160,18 200,22 240,10 C260,6 270,4 280,2" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+                                <!-- Benchmark -->
+                                <path d="M0,55 C50,52 100,48 150,42 C200,36 240,30 280,22" fill="none" stroke="#52525b" stroke-width="1" stroke-dasharray="3 2"/>
+                            </svg>
+                            <div class="flex items-center gap-4 mt-1 text-[9px] text-zinc-600">
+                                <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-blue-500 inline-block"></span> Strategy</span>
+                                <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-zinc-600 inline-block" style="border-top: 1px dashed #52525b; background: none;"></span> Buy &amp; Hold</span>
+                            </div>
+                        </div>
+                        <!-- WFA + MC row -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-2.5">
+                                <div class="text-[9px] text-zinc-500 uppercase mb-0.5">Walk-Forward</div>
+                                <div class="text-emerald-400 font-bold text-[11px]">✓ Pass — Not Overfitted</div>
+                            </div>
+                            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-2.5">
+                                <div class="text-[9px] text-zinc-500 uppercase mb-0.5">MC P5 Drawdown</div>
+                                <div class="text-rose-400 font-bold text-[11px]">-24.1% worst case</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 

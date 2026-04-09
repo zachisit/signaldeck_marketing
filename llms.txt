@@ -1,7 +1,7 @@
 # SignalDeck
 
 ## About
-SignalDeck is a professional-grade trade journaling platform built around R-Multiple (R-value) methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, execution quality analysis (MAE/MFE), structured Post Mortem trade reviews, behavioral tagging, and a social trading layer (Borg) with leaderboards.
+SignalDeck is a professional-grade trade journaling platform built around R-Multiple (R-value) methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, execution quality analysis (MAE/MFE), structured Post Mortem trade reviews, behavioral tagging, a social trading layer (Borg) with leaderboards, and a built-in strategy backtester with Walk-Forward Analysis, Monte Carlo simulation, and grid-search parameter optimization.
 
 ## Key Facts
 - Category: SaaS, Trading Journal, FinTech
@@ -24,20 +24,29 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Unlimited chart screenshots with dedicated entry and exit slots for visual trade documentation
 - Automated forward testing: morning scanner runs custom strategies against 5,000+ live stocks before market open to identify signals
 - Borg: social trading layer with anonymous leaderboards and live trade feeds
+- Strategy Backtester: 7 built-in strategies (SMA Crossover 20/50, SMA Crossover 50/200, EMA Crossover 12/26, RSI Mean Reversion, RSI Long/Short, Bollinger Band Squeeze, MACD Crossover) tested on up to 5 years of historical daily or intraday data (1h, 4h, 5m, 15m, 30m timeframes). Configurable stop types (percent, ATR, trailing percent, trailing ATR), position sizing models (equal weight, fixed risk, half-Kelly), commission and slippage modeling. Reports Sharpe, Sortino, Calmar ratios, CAGR, profit factor, SQN, expectancy, max drawdown, win rate, and average hold time.
+- Walk-Forward Analysis: splits historical data into 80% in-sample and 20% out-of-sample windows to detect strategy overfitting before going live, with a pass/likely-overfitted verdict
+- Monte Carlo on backtest results: 1,000-path block bootstrap resampling of trade P&L, returns 5th/25th/50th/75th/95th percentile equity curves, probability of profit, worst-case drawdown risk at the 5th percentile
+- Grid-search parameter optimization: test up to 500 parameter combinations per backtest, ranked by Sharpe, total return, profit factor, Sortino, Calmar, or SQN
+- Backtest-to-journal strategy overlay: link any backtest directly to a live journal strategy to compare the backtest equity curve against your actual live-trading equity curve side-by-side
+- SPY/QQQ benchmark buy-and-hold overlay on backtest results
+- Only trading journal that combines Walk-Forward Analysis, 1,000-path Monte Carlo, grid-search parameter optimization, SPY/QQQ benchmark overlay, and backtest-to-journal linking in a single workflow
 - Concierge onboarding: users join Discord and get personal setup assistance
 
 ## Competitors
-- TraderSync ($30-80/mo): AI coaching (Cypher), 700+ broker imports, no native R-value framework
-- Edgewonk (~$14/mo): Psychology-focused, Edge Finder algorithm, dated UX, no real-time analytics
-- TradeZella ($30-50/mo): Community features, no R-value framework, no structured post mortem
-- Tradervue ($30-50/mo): Industry standard, 80+ broker imports, legacy UX, no psychology analytics
-- TradesViz ($15-30/mo): Feature-rich, AI Q&A, free tier, no R-value framework
+- TraderSync ($30-80/mo): AI coaching (Cypher), 700+ broker imports, basic rule-based strategy backtester with 70+ indicators, no native R-value framework, no Walk-Forward Analysis, no Monte Carlo, no parameter optimization
+- Edgewonk (~$14/mo): Psychology-focused, Edge Finder algorithm, dated UX, no real-time analytics, manual R-multiple entry "backtester" (not a real rule-based backtester)
+- TradeZella ($30-50/mo): Community features, manual bar-by-bar replay (user places trades on historical charts, not automated rule backtesting), backtested trades appear alongside live trades in the same journal, no R-value framework, no structured post mortem, no Walk-Forward Analysis, no Monte Carlo
+- Tradervue ($30-50/mo): Industry standard, 80+ broker imports, legacy UX, no psychology analytics, no backtester
+- TradesViz ($15-30/mo): Feature-rich, AI Q&A, free tier, rule-based strategy backtester with 70+ indicators and 30,000+ tickers, same-symbol buy-and-hold comparison metric, no R-value framework, no Walk-Forward Analysis, no Monte Carlo, no parameter optimization
+
+Note: While several competitors offer basic backtesting, none combine Walk-Forward Analysis, 1,000-path Monte Carlo simulation, grid-search parameter optimization, SPY/QQQ benchmark overlay, and backtest-to-journal strategy linking in a single workflow. SignalDeck is the only trading journal that provides this combination.
 
 ## Pages
 
 ### Homepage
 - URL: https://sgnldk.com
-- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), feature cards, university program
+- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), feature cards including the 07 // BACKTEST tile (7 built-in strategies, Walk-Forward Analysis, Monte Carlo, grid-search optimizer, benchmark overlay, journal equity link, Kelly/fixed-risk sizing, trailing stops), dedicated backtester deep-dive section with mock result showing equity curve and WFA pass verdict, public profile widget showing 11 stats and twin equity/cumulative-R charts, university program
 
 ### Common Stock
 - URL: https://sgnldk.com/stocks/
@@ -49,11 +58,11 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 
 ### Plans
 - URL: https://sgnldk.com/plans/
-- Content: Free, Pro, and Team pricing tiers with feature comparison. All free during beta.
+- Content: Free, Pro, and Team pricing tiers with feature comparison. The Pro tier includes the Strategy Backtester with Walk-Forward Analysis, Monte Carlo, and grid-search optimization. All features free during beta.
 
 ### Compare
 - URL: https://sgnldk.com/compare/
-- Content: Feature-by-feature comparison of SignalDeck vs TraderSync vs Edgewonk vs TradeZella vs Tradervue vs TradesViz
+- Content: Feature-by-feature comparison of SignalDeck vs TraderSync vs Edgewonk vs TradeZella vs Tradervue vs TradesViz across 24+ rows including R-Value Native, SQN Score, Kelly Criterion, Monte Carlo Drawdown, Structured Post Mortem, Execution Quality, Entry Slippage Tracking, Behavioral Tags, Trade Journal, Social Trading, Native Forex Support, Broker Auto-Import, CSV Import/Export, Chart Screenshots, Trade Replay, Forward Testing, Accountability Calendar, Public Profile, Strategy Backtester, Walk-Forward Analysis, Parameter Optimization, Backtest↔Journal Equity Overlay, and SPY/QQQ Benchmark Overlay. Includes a dedicated Strategy Backtester highlight section and FAQ entries for backtester questions.
 
 ### University Clubs
 - URL: https://sgnldk.com/clubs.html

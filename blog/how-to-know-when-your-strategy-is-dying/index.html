@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How to Know When Your Trading Strategy Is Dying | SignalDeck</title>
+    <meta name="description" content="Your strategy worked last quarter. Now it's bleeding. Learn the four data signals that separate a normal drawdown from real edge decay — and the exact steps to take before it kills your account.">
+    <meta name="keywords" content="trading strategy decay, strategy stopped working, drawdown vs broken strategy, rolling win rate, SQN score decline, when to stop trading a strategy, strategy edge erosion">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/">
+    <meta property="og:title" content="How to Know When Your Trading Strategy Is Dying | SignalDeck">
+    <meta property="og:description" content="Your strategy worked last quarter. Now it's bleeding. Learn the four data signals that separate a normal drawdown from real edge decay — and the exact steps to take before it kills your account.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/">
+    <meta property="twitter:title" content="How to Know When Your Trading Strategy Is Dying | SignalDeck">
+    <meta property="twitter:description" content="Your strategy worked last quarter. Now it's bleeding. Learn the four data signals that separate a normal drawdown from real edge decay — and the exact steps to take before it kills your account.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Know When Your Trading Strategy Is Dying",
+        "description": "Learn the four data signals that separate a normal drawdown from real edge decay, and the exact steps to take before a dying strategy destroys your account.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-04-13",
+        "dateModified": "2026-04-13"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I know if my trading strategy is no longer working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The four most reliable signals are: a rolling 30-trade win rate that has declined more than 15 percentage points below your historical baseline over at least two consecutive windows; an SQN score that has fallen below 1.6 from a previously healthy level; average losing trades growing larger in R-multiple terms (e.g. -1.0R average becoming -1.4R); and a realized R-multiple curve that shows winners consistently underperforming your historical average. Any one signal warrants attention. Two or more warrant cutting position size immediately."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is strategy decay in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Strategy decay is the gradual erosion of a trading system's statistical edge over time. It happens because market microstructure changes, correlations shift, volatility regimes change, or a trade setup becomes widely known and arbitraged away. Unlike a normal drawdown — which is temporary and occurs within a structurally sound system — decay represents a permanent or semi-permanent reduction in edge. The distinction matters enormously: quitting during a normal drawdown destroys long-term returns, while staying in a decaying system destroys capital."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many trades does it take to know if a strategy is dead?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need a minimum of 30 trades in the evaluation window to get a statistically meaningful signal, and ideally 50 or more. Fewer than 30 trades produces too much noise to distinguish decay from variance. The right approach is a rolling window: calculate your SQN and win rate over your most recent 30 to 50 closed trades and compare it to the same metrics over your full historical sample. A sustained divergence across multiple rolling windows is evidence of decay. A single bad window is almost always variance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a drawdown and a broken strategy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A drawdown is a temporary equity decline within a system that still has positive expectancy. Your SQN is still healthy, your rolling win rate is near its historical baseline, and your average loss is clean and close to -1R. A broken strategy has structural damage: SQN is falling across multiple measurement windows, rolling win rate is trending down (not just noisy), and your average realized R-multiple on winners is shrinking. The key diagnostic is trend direction over time, not the depth of a single losing streak."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-04-13" class="text-xs font-mono text-zinc-500">April 13, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Strategy</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                How to Know When Your Trading Strategy Is Dying (Before It Kills Your Account)
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Your strategy worked last quarter. Now it's bleeding. Is it a normal drawdown — or is the edge gone? Here's how to tell the difference, and the exact steps to take before a dying strategy takes your account with it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- The Sunk Cost Problem -->
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Every trader has been here. Six weeks ago the system was humming — entries clean, losses cutting fast, winners running. Now it's four consecutive red weeks and the setup that used to be obvious looks wrong every time you take it. The journal says the P&L is down 18R from the peak. And yet you keep taking the trades, because it worked before, and because you spent nine months building it, and because you're sure the market is just being difficult.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                That last sentence is where accounts go to die. The question of whether your strategy is in a normal drawdown or actively decaying is one of the most important questions in systematic trading — and almost nobody answers it with data. They answer it with hope.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This article gives you the four signals that separate temporary variance from structural decay, a framework for measuring them, and the decision protocol for what to do when the signals start flashing.
+            </p>
+
+            <!-- Normal Drawdown vs. Real Decay -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Normal Drawdown vs. Real Decay</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The fundamental distinction is whether the underlying edge still exists. A drawdown is a period of losses inside a system that is still structurally sound. Every profitable strategy ever built has drawdowns. A trend-following system with 40% win rate and 0.5R expectancy will produce 8-trade losing streaks with some regularity just from normal variance. That's not decay. That's the cost of admission.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Decay is different. It means the statistical edge that produced your positive expectancy historically has diminished or disappeared. Markets repriced the setup. Volatility regimes changed and your stop distances no longer work. The correlation you were exploiting was arbitraged away. Whatever the cause, the mean R-multiple of the system is now lower than it was when you built confidence in it — and the loss might be permanent, not cyclical.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The table below captures the practical difference between the two:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Signal</th>
+                            <th class="px-4 py-3 text-left font-semibold">Normal Drawdown</th>
+                            <th class="px-4 py-3 text-left font-semibold">Strategy Decay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">SQN score</td>
+                            <td class="px-4 py-3 text-emerald-400">Still above 2.0 on rolling window</td>
+                            <td class="px-4 py-3 text-rose-400">Trending below 1.6 across multiple windows</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Rolling win rate</td>
+                            <td class="px-4 py-3 text-emerald-400">Noisy but near historical baseline</td>
+                            <td class="px-4 py-3 text-rose-400">Sustained downtrend over 2+ windows</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Average loss size</td>
+                            <td class="px-4 py-3 text-emerald-400">Clean — near -1.0R as designed</td>
+                            <td class="px-4 py-3 text-rose-400">Growing — losses running past stop</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Average winner</td>
+                            <td class="px-4 py-3 text-emerald-400">Consistent with historical R-multiple</td>
+                            <td class="px-4 py-3 text-rose-400">Shrinking — winners exiting early or reversing</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Equity curve vs. 20-trade avg</td>
+                            <td class="px-4 py-3 text-emerald-400">Below average but has recovered before</td>
+                            <td class="px-4 py-3 text-rose-400">Persistently below with no recovery attempt</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Expectancy trend</td>
+                            <td class="px-4 py-3 text-emerald-400">Positive, maybe weakly positive</td>
+                            <td class="px-4 py-3 text-rose-400">Approaching zero or negative</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The hard part is that both scenarios feel identical from the inside. Six consecutive losers in a perfectly healthy system and six consecutive losers in a dying one produce the same emotional state. The difference is entirely in the data — which is why most traders who quit during a normal drawdown or keep trading through decay make the same mistake: they're making the call on feeling, not measurement.
+            </p>
+
+            <!-- The Four Signals of Strategy Decay -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Four Signals of Strategy Decay</h2>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">1. Rolling Win Rate Trending Down</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Not one bad month — a sustained trend. Calculate your win rate over your most recent 30 closed trades and compare it to your full historical average. Now do the same for the 30 trades before that. If the trend line is pointing down across two or more consecutive windows, and the gap from your historical baseline is greater than 10–15 percentage points, that's signal, not noise. One bad window is variance. A directional trend over 60+ trades is structural.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">2. SQN Falling Below Its Floor</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Every healthy system has a normal SQN range — the band it operates in during normal market conditions. If your system historically ran between 2.5 and 3.2 and your rolling 50-trade SQN is now 1.4 and falling, something has broken. The SQN is the single most diagnostic number here because it captures both the magnitude of your edge (mean R) and its consistency (standard deviation of R) simultaneously. A win rate decline could be explained by a bad setup cluster. An SQN decline that deep means both average performance and consistency have degraded. That's the signature of decay, not variance. Read our <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">full breakdown of SQN benchmarks</a> if you're not yet calculating it from your journal.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">3. Losses Running Larger Than Designed</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This one is underappreciated. If you designed your system around -1R average losses and your recent 30-trade average loss is -1.5R, that's a 50% bleed on every losing trade above what the system modeled. This isn't a market problem — it's a signal that either volatility has increased enough to push price through your stop before you can exit, or you're giving trades "a little more room" under pressure. Either way, your risk model is now wrong. A system with -1.5R average losses instead of -1.0R needs a higher win rate and larger winners just to break even, let alone remain profitable. If the winners haven't grown to compensate, the expectancy math has flipped.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">4. Winners Shrinking in R-Multiple Terms</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Your system used to produce average winners of +2.2R. Now they're averaging +1.4R. The losers are the same but the winners are smaller — meaning market conditions have changed such that your targets are no longer being reached before reversal. This is often the earliest sign of regime change. When the market that your strategy was calibrated for (trending, volatile, range-bound) shifts, the winners compress first. Losses stay at -1R because your stop discipline holds. But the move from entry to target that used to reliably complete now reverses at 60% of the way there. Watch the average winner more closely than the average loser.
+            </p>
+
+            <!-- The Two Mistakes -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Two Mistakes That Destroy Accounts</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                There are two ways to get this wrong, and they're mirror images of each other.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                <strong class="text-white">Mistake 1: Quitting during a normal drawdown.</strong> Five consecutive losers inside a system with SQN 2.8, positive expectancy, and clean -1R losses. Every metric is green. The system is working as designed — you're just experiencing a losing streak that the math predicts will happen multiple times per year. The trader who abandons here locks in the loss and then watches the strategy recover without them. This is the single most common way retail traders fail to compound: they keep switching systems at the worst possible moment, right at the bottom of a drawdown.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <strong class="text-white">Mistake 2: Staying in a dying system.</strong> Six months of declining SQN, rolling win rate 20 percentage points below baseline, average losses growing, winners shrinking. The account is down 40R from peak. The trader keeps trading at full size because "it'll come back." It doesn't. The edge is gone. Every additional trade at full size is lighting money on fire. The inability to distinguish this from Mistake 1 is what turns a 20R drawdown into an account that needs to be rebuilt from scratch.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "The most expensive thing in trading isn't a bad trade. It's a dead strategy you kept feeding capital to because it used to work."
+            </blockquote>
+
+            <!-- The Decision Protocol -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Decision Protocol: What to Do When the Signals Appear</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                When you start seeing decay signals, there's a five-step process that gives you the data to make a real decision instead of an emotional one:
+            </p>
+
+            <div class="space-y-4 mb-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">Step 1</span>
+                        <div>
+                            <p class="text-white font-semibold mb-1">Measure the rolling window</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Calculate your win rate and SQN over your most recent 30 closed trades. Compare to the same metrics over your full history. Write the numbers down. This is your baseline for the next four weeks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">Step 2</span>
+                        <div>
+                            <p class="text-white font-semibold mb-1">Diagnose the loss type</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Filter your recent losses and check average loss magnitude in R. If losses are clean and close to -1R, you have a frequency problem (win rate down). If losses are running larger than -1R, you have a structural problem (stops not holding, volatility mismatch). These have different root causes and different fixes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">Step 3</span>
+                        <div>
+                            <p class="text-white font-semibold mb-1">Cut position size in half — do not stop trading</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Stopping entirely removes your ability to collect data. Halving size limits drawdown while keeping the sample running. You need the next 20–30 trades to determine whether this is decay or variance. At half size, a continued decline is survivable. A recovery confirms it was variance and you can scale back up.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">Step 4</span>
+                        <div>
+                            <p class="text-white font-semibold mb-1">Re-measure after 20 more trades</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Recalculate the rolling window. If SQN is recovering and rolling win rate is returning toward baseline: variance. Resume full size. If SQN continues to fall and losses remain dirty: structural decay. The edge is gone for now.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">Step 5</span>
+                        <div>
+                            <p class="text-white font-semibold mb-1">If confirmed decay: pause and rebuild, don't quit</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Decay doesn't mean the strategy is worthless forever. It means the current market regime doesn't fit it. Stop trading it at size, run it in simulation mode on paper, and monitor the metrics. When the rolling SQN recovers above 2.0 in paper trades over 30+ samples, re-engage at minimum size and verify before scaling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Sample Size Problem -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why You Need 30+ Trades Before You Decide Anything</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is the most underappreciated constraint in all of retail trading. With 10 trades, you cannot statistically distinguish a dying strategy from a healthy one in a bad week. The noise swamps the signal. A system with a true win rate of 55% will produce a 10-trade sample with a win rate below 30% roughly 5% of the time — just from variance. That's one in twenty 10-trade windows, and it would look identical to a system that has genuinely decayed to 30% win rate.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The minimum thresholds for each signal:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Metric</th>
+                            <th class="px-4 py-3 text-left font-semibold">Minimum trades for signal</th>
+                            <th class="px-4 py-3 text-left font-semibold">Reliable at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Rolling win rate</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">20 trades</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">30+ trades</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">SQN score</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">30 trades</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">50+ trades</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Average loss in R</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">15 losing trades</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">25+ losing trades</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Average winner in R</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">15 winning trades</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">25+ winning trades</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Decay confirmation</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">2 consecutive windows</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">3 consecutive windows</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The practical implication: if you trade 3 times a week and your rolling window is 30 trades, that's 10 weeks of data per measurement. You can't make a confident decay call in 2 weeks. This is uncomfortable — 10 weeks of pain before a definitive answer — which is why the position size cut in Step 3 matters so much. You're buying time to collect the data without destroying the account in the meantime.
+            </p>
+
+            <!-- How SignalDeck Surfaces Decay -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Surfaces Decay Automatically</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The metrics above — rolling win rate, SQN trajectory, average R by outcome — are exactly what SignalDeck was built to compute automatically from your trade journal. The Strategy Decay Chart shows a rolling 20-trade win rate line against a 50% reference, making the trend direction immediately visible. The Realized R-Multiple Over Time chart shows each closed trade's R in sequence with a rolling 5-trade average line, so you can see at a glance whether winners are compressing. The SQN widget updates with every new closed trade and can be filtered to a single strategy.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The goal isn't to automate the decision — it's to make sure you're confronting the data instead of avoiding it. Most traders in a drawdown stop looking at their journal. The charts feel accusatory. But the data is the only thing standing between you and making the same mistake in both directions. <a href="https://forms.gle/1TeTFFr72ypX5LkT8" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Track your edge in real time — free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I know if my trading strategy is no longer working?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The four most reliable signals are: a rolling 30-trade win rate that has declined more than 15 percentage points below your historical baseline over at least two consecutive windows; an SQN score that has fallen below 1.6 from a previously healthy level; average losing trades growing larger in R-multiple terms (e.g. -1.0R average becoming -1.4R); and a realized R-multiple curve showing winners consistently underperforming your historical average. Any one signal warrants attention. Two or more warrant cutting position size immediately.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is strategy decay in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Strategy decay is the gradual erosion of a trading system's statistical edge over time. It happens because market microstructure changes, correlations shift, volatility regimes change, or a setup becomes widely known and arbitraged away. Unlike a normal drawdown — which is temporary and occurs within a structurally sound system — decay represents a permanent or semi-permanent reduction in edge. The distinction matters enormously: quitting during a normal drawdown destroys long-term returns, while staying in a decaying system destroys capital.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How many trades does it take to know if a strategy is dead?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">You need a minimum of 30 trades in the evaluation window to get a statistically meaningful signal, and ideally 50 or more. The right approach is a rolling window: calculate your SQN and win rate over your most recent 30 to 50 closed trades and compare it to the same metrics over your full historical sample. A sustained divergence across multiple rolling windows is evidence of decay. A single bad window is almost always variance.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the difference between a drawdown and a broken strategy?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">A drawdown is a temporary equity decline within a system that still has positive expectancy. Your SQN is still healthy, your rolling win rate is near its historical baseline, and your average loss is clean and close to -1R. A broken strategy has structural damage: SQN is falling across multiple measurement windows, rolling win rate is trending down (not just noisy), and your average realized R-multiple on winners is shrinking. The key diagnostic is trend direction over time, not the depth of a single losing streak.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Stop guessing. Start measuring.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck computes your rolling win rate, SQN score, realized R-multiples, and strategy decay chart automatically from your trade journal. See the signals before they become damage. Free during beta.</p>
+                <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="gtag('event', 'blog_cta_click', {'article': 'strategy-dying'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta — Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="https://discord.gg/uBeunMmt" target="_blank" rel="noopener noreferrer" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../yup.js"></script>
+</body>
+</html>

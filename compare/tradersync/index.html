@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignalDeck vs TraderSync 2026 | Backtester + R-Value vs AI Coaching</title>
+    <meta name="description" content="SignalDeck vs TraderSync compared feature-by-feature. SignalDeck has Walk-Forward Analysis, Monte Carlo simulation, and R-Multiple as its core framework. TraderSync has 700+ broker imports and AI coaching. See which fits your trading style.">
+    <meta name="keywords" content="SignalDeck vs TraderSync, TraderSync alternative, trading journal comparison 2026, best trading journal backtester, R-value trading journal, Walk-Forward Analysis trading journal, TraderSync review, SignalDeck review">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/compare/tradersync/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/compare/tradersync/">
+    <meta property="og:title" content="SignalDeck vs TraderSync 2026 | Backtester + R-Value vs AI Coaching">
+    <meta property="og:description" content="SignalDeck vs TraderSync compared feature-by-feature. Walk-Forward Analysis, Monte Carlo, and R-Multiple vs AI coaching and 700+ broker imports.">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/compare/tradersync/">
+    <meta property="twitter:title" content="SignalDeck vs TraderSync 2026 | Backtester + R-Value vs AI Coaching">
+    <meta property="twitter:description" content="SignalDeck vs TraderSync compared feature-by-feature. Walk-Forward Analysis, Monte Carlo, and R-Multiple vs AI coaching and 700+ broker imports.">
+    <meta property="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does SignalDeck or TraderSync have better backtesting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck has a significantly more sophisticated backtesting workflow. It includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, and grid-search parameter optimization (up to 500 combinations) — none of which TraderSync offers. TraderSync has a basic rule-based backtester with 70+ indicators but no Walk-Forward Analysis, no Monte Carlo, and no parameter optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does TraderSync have R-Multiple tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TraderSync includes R-multiple as one metric among many in its analytics dashboard. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN score, Kelly Criterion, equity curves, and Post Mortem reviews) flows from risk-normalized R-value. The difference is between a metric and a framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does SignalDeck not have broker auto-import like TraderSync?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TraderSync supports 700+ broker integrations for automatic trade import. SignalDeck requires manual entry or CSV import. We prioritized analytical depth over data ingestion — manual logging reinforces trade discipline and ensures every trade is reviewed before entering your journal. Broker API integrations are on our development roadmap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does TraderSync's AI coaching compare to SignalDeck?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TraderSync includes Cypher, an AI coaching tool that provides feedback based on your trading patterns. SignalDeck takes a different approach: instead of AI-generated coaching, it gives you quantitative frameworks (SQN scoring, R-Multiple, Kelly Criterion, Post Mortem protocol) to diagnose your own performance. The philosophy is that data-driven self-diagnosis builds more durable trading discipline than AI advice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is cheaper, SignalDeck or TraderSync?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck is free during beta with all features unlocked, including the strategy backtester. TraderSync is $30–$80 per month depending on the plan. Active SignalDeck beta testers who provide feedback receive Founder Status, which includes lifetime free access after beta ends."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://sgnldk.com/compare/" },
+        { "@type": "ListItem", "position": 3, "name": "SignalDeck vs TraderSync", "item": "https://sgnldk.com/compare/tradersync/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        yellow: { 500: '#eab308' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-20 pb-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">Comparison — 2026</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                SignalDeck vs TraderSync
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
+                Two very different philosophies. TraderSync optimizes for ease — broker imports and AI coaching. SignalDeck optimizes for depth — R-Multiple as a framework and the most rigorous backtesting workflow in any trading journal.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm font-mono">
+                <span class="px-3 py-1 rounded-full border border-blue-500/30 text-blue-400 bg-blue-500/5">SignalDeck: Free (Beta)</span>
+                <span class="px-3 py-1 rounded-full border border-zinc-700 text-zinc-400">TraderSync: $30–$80/mo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick verdict -->
+    <section class="py-12 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-500/5 border border-blue-500/20 rounded-lg p-6">
+                    <p class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">Choose SignalDeck if...</p>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want backtesting with Walk-Forward Analysis and Monte Carlo</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> R-Multiple is how you think about risk — not just one metric</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want a structured 5-step Post Mortem on every trade</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You need SQN scoring to validate your statistical edge</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You're looking for free beta access with all features unlocked</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-6">
+                    <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Choose TraderSync if...</p>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> Auto-importing from 700+ brokers is non-negotiable for you</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You want AI coaching (Cypher) to give you trade feedback</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You prefer a feature-heavy all-in-one dashboard</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You don't log every trade manually</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature comparison table -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Feature Comparison</h2>
+            <div class="overflow-x-auto rounded-lg border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Feature</th>
+                            <th class="px-4 py-3 text-center font-bold text-blue-400 bg-blue-500/10">SignalDeck</th>
+                            <th class="px-4 py-3 text-center">TraderSync</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t-2 border-blue-500/30">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-blue-400 bg-blue-500/5 font-bold">⚡ Strategy Backtester</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Strategy Backtester</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Full Engine</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Rule-Based</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Walk-Forward Analysis</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Overfit Detection</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Monte Carlo Simulation</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ 1,000 paths</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Parameter Optimization</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Grid Search (500 combos)</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Backtest ↔ Journal Overlay</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Strategy Link</td>
+                            <td class="px-4 py-3 text-center text-zinc-500 text-sm">⚠️ Export Only</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">SPY/QQQ Benchmark Overlay</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t-2 border-zinc-700">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-zinc-400 bg-zinc-900 font-bold">R-Value Analytics</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">R-Value Native Framework</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Core Design</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Partial</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">SQN Score</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Kelly Criterion Sizing</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Structured Post Mortem</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ 5-Step Protocol</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Execution Quality (MAE/MFE)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Basic</td>
+                        </tr>
+
+                        <tr class="border-t-2 border-zinc-700">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-zinc-400 bg-zinc-900 font-bold">Platform</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">AI Coaching</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ Cypher AI</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Broker Auto-Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-yellow-500">⚠️ Coming Soon</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ 700+ brokers</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">CSV Import/Export</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Forex Support</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Crypto Support</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Behavioral Tags</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Monthly Price</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold font-mono">Free (Beta)</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$80</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 text-center text-xs text-zinc-600 font-mono">
+                → <a href="../index.html" class="hover:text-zinc-400 transition-colors">View full comparison with all 6 competitors</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Key differentiator callout -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">The Backtesting Gap</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">TraderSync has a rule-based backtester. So does TradesViz. But neither can tell you whether your strategy parameters are overfitted to historical data. That's the problem Walk-Forward Analysis solves.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-5 text-center">
+                    <p class="text-xs font-mono text-zinc-500 uppercase mb-2">TraderSync</p>
+                    <p class="text-2xl font-bold text-zinc-300 mb-1">Backtest</p>
+                    <p class="text-sm text-zinc-500">Rule-based. No overfitting check. No Monte Carlo.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-5 text-center">
+                    <p class="text-xs font-mono text-zinc-500 uppercase mb-2">Most Journals</p>
+                    <p class="text-2xl font-bold text-zinc-300 mb-1">No Backtest</p>
+                    <p class="text-sm text-zinc-500">Edgewonk, Tradervue, and others have no rule-based backtester at all.</p>
+                </div>
+                <div class="bg-blue-500/5 border border-blue-500/20 rounded-lg p-5 text-center">
+                    <p class="text-xs font-mono text-blue-400 uppercase mb-2">SignalDeck</p>
+                    <p class="text-2xl font-bold text-white mb-1">Full Workflow</p>
+                    <p class="text-sm text-zinc-400">Backtest → Walk-Forward → Monte Carlo → Grid Search → Journal Overlay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Does SignalDeck or TraderSync have better backtesting?</h3>
+                    <p class="text-zinc-400 text-sm">SignalDeck has a significantly more sophisticated backtesting workflow. It includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, and grid-search parameter optimization — none of which TraderSync offers. TraderSync has a basic rule-based backtester with 70+ indicators but no Walk-Forward Analysis, no Monte Carlo, and no parameter optimization.</p>
+                </div>
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Does TraderSync have R-Multiple tracking?</h3>
+                    <p class="text-zinc-400 text-sm">TraderSync includes R-multiple as one metric among many. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN score, Kelly Criterion, equity curves, Post Mortem reviews) flows from risk-normalized R-value. The difference is between a metric and a framework.</p>
+                </div>
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Why doesn't SignalDeck have broker auto-import like TraderSync?</h3>
+                    <p class="text-zinc-400 text-sm">TraderSync supports 700+ broker integrations. SignalDeck requires manual entry or CSV import. We prioritized analytical depth — manual logging reinforces trade discipline. Broker API integrations are on the roadmap.</p>
+                </div>
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Which is cheaper, SignalDeck or TraderSync?</h3>
+                    <p class="text-zinc-400 text-sm">SignalDeck is free during beta with all features unlocked. TraderSync is $30–$80/month. Active SignalDeck beta testers receive Founder Status with lifetime free access after beta ends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Try SignalDeck Free.</h2>
+            <p class="text-zinc-400 mb-8">All features unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework — no subscription required. Active beta testers receive lifetime free access.</p>
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors">
+                Beta Signup Here
+            </a>
+            <p class="mt-12 text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="../../discord.html">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../yup.js"></script>
+</body>
+</html>

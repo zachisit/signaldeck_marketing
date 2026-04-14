@@ -45,6 +45,22 @@
         },
         {
           "@type": "Question",
+          "name": "What is Walk-Forward Analysis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Walk-Forward Analysis splits your historical data into an in-sample window (80%) used to optimize strategy parameters, and an out-of-sample window (20%) used to validate whether those parameters hold on unseen data. If performance collapses on the out-of-sample window, the strategy is likely curve-fitted to past data and will not perform live. SignalDeck returns a Pass or Likely Overfitted verdict for each backtest. This is the only reliable way to detect overfitting before you risk real capital."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Monte Carlo simulation in backtesting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Monte Carlo simulation reruns your backtest trade sequence 1,000 times in randomized order using block bootstrap resampling. This produces a range of possible equity curves and drawdown scenarios — not just the single path your historical data happened to produce. SignalDeck reports 5th, 25th, 50th, 75th, and 95th percentile outcomes, giving you a realistic worst-case drawdown estimate at 95% confidence before you trade live."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is SignalDeck really free during beta?",
           "acceptedAnswer": {
             "@type": "Answer",

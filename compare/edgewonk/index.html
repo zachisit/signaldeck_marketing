@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignalDeck vs Edgewonk 2026 | Modern Web Journal vs Desktop Spreadsheet</title>
+    <meta name="description" content="SignalDeck vs Edgewonk compared. SignalDeck is a real-time web journal with Walk-Forward Analysis, Monte Carlo, and a rule-based backtester. Edgewonk is a desktop-first psychology journal with manual R-entry and no real backtesting.">
+    <meta name="keywords" content="SignalDeck vs Edgewonk, Edgewonk alternative, trading journal comparison 2026, Edgewonk review, best trading journal backtester, R-value trading journal, Walk-Forward Analysis trading journal, Edgewonk vs SignalDeck">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/compare/edgewonk/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/compare/edgewonk/">
+    <meta property="og:title" content="SignalDeck vs Edgewonk 2026 | Modern Web Journal vs Desktop Spreadsheet">
+    <meta property="og:description" content="SignalDeck vs Edgewonk compared. Real-time web analytics and a true rule-based backtester vs desktop-first psychology journaling with manual R-entry.">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/compare/edgewonk/">
+    <meta property="twitter:title" content="SignalDeck vs Edgewonk 2026 | Modern Web Journal vs Desktop Spreadsheet">
+    <meta property="twitter:description" content="SignalDeck vs Edgewonk compared. Real-time web analytics and a true rule-based backtester vs desktop-first psychology journaling with manual R-entry.">
+    <meta property="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Edgewonk have a strategy backtester?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Edgewonk has a 'backtester' that requires you to manually enter your R-multiple for each trade — it does not actually execute rules against historical price data. SignalDeck has a true rule-based strategy backtester that runs 7 built-in strategies against up to 5 years of historical OHLCV data, with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SignalDeck compare to Edgewonk for R-Multiple tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Edgewonk lets you manually enter R-multiples and tracks them in a spreadsheet-style interface. SignalDeck calculates R-multiples automatically from your entry, stop, and exit prices and uses R as the organizing principle for every metric — equity curves, expectancy, SQN scoring, Kelly Criterion, and Post Mortem reviews all flow from risk-normalized R-value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SignalDeck or Edgewonk better for psychology tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both platforms support psychology and behavioral tagging. Edgewonk has a strong psychology focus with its Diary feature and mental state tracking. SignalDeck adds a structured 5-step Post Mortem protocol (Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback) that goes beyond free-text psychology notes into a systematic review process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is cheaper, SignalDeck or Edgewonk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck is free during beta with all features unlocked including the strategy backtester. Edgewonk is approximately $14/month. Active SignalDeck beta testers who provide feedback receive Founder Status with lifetime free access after beta ends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Edgewonk have real-time analytics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Edgewonk is primarily a desktop application with a spreadsheet-inspired interface. It does not offer real-time market data integration or live price tracking. SignalDeck is a web-based platform with real-time Polygon.io data integration, live price polling, and automatic P&L updates."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://sgnldk.com/compare/" },
+        { "@type": "ListItem", "position": 3, "name": "SignalDeck vs Edgewonk", "item": "https://sgnldk.com/compare/edgewonk/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        yellow: { 500: '#eab308' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-20 pb-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">Comparison — 2026</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                SignalDeck vs Edgewonk
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
+                Edgewonk built its reputation on psychology journaling. SignalDeck was built to quantify your edge — with a real backtester, real-time analytics, and R-Multiple as the organizing principle of everything.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm font-mono">
+                <span class="px-3 py-1 rounded-full border border-blue-500/30 text-blue-400 bg-blue-500/5">SignalDeck: Free (Beta)</span>
+                <span class="px-3 py-1 rounded-full border border-zinc-700 text-zinc-400">Edgewonk: ~$14/mo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick verdict -->
+    <section class="py-12 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-500/5 border border-blue-500/20 rounded-lg p-6">
+                    <p class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">Choose SignalDeck if...</p>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want a real rule-based backtester, not manual R-entry</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You need Walk-Forward Analysis to detect strategy overfitting</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want real-time analytics in a modern web interface</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade forex or crypto and need native pip/leverage support</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want SQN scoring and Kelly Criterion sizing built in</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-6">
+                    <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Choose Edgewonk if...</p>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> Psychology journaling is your primary focus</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You prefer a desktop-based, offline-first tool</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You're already using their Edge Finder algorithm</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need 200+ broker auto-imports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature comparison table -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Feature Comparison</h2>
+            <div class="overflow-x-auto rounded-lg border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Feature</th>
+                            <th class="px-4 py-3 text-center font-bold text-blue-400 bg-blue-500/10">SignalDeck</th>
+                            <th class="px-4 py-3 text-center">Edgewonk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t-2 border-blue-500/30">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-blue-400 bg-blue-500/5 font-bold">⚡ Strategy Backtester</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Strategy Backtester</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Full Engine</td>
+                            <td class="px-4 py-3 text-center text-zinc-500 text-sm">⚠️ Manual R-entry only</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Walk-Forward Analysis</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Overfit Detection</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Monte Carlo Simulation</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ 1,000 paths</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Parameter Optimization</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Grid Search (500 combos)</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-blue-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Backtest ↔ Journal Overlay</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/10 text-emerald-500 font-bold">✅ Strategy Link</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
+                        <tr class="border-t-2 border-zinc-700">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-zinc-400 bg-zinc-900 font-bold">R-Value Analytics</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">R-Value Native Framework</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Core Design</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">SQN Score</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Kelly Criterion Sizing</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Structured Post Mortem</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ 5-Step Protocol</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Execution Quality (MAE/MFE)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Real-Time Analytics</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Live Polygon data</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌ Desktop/offline</td>
+                        </tr>
+
+                        <tr class="border-t-2 border-zinc-700">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-zinc-400 bg-zinc-900 font-bold">Platform</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Psychology / Behavioral Tags</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ Diary + Mental Journal</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Broker Auto-Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-yellow-500">⚠️ Coming Soon</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ 200+ brokers</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">CSV Import/Export</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Forex Support</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Crypto Support</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅</td>
+                            <td class="px-4 py-3 text-center text-rose-500 font-bold">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Monthly Price</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold font-mono">Free (Beta)</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">~$14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 text-center text-xs text-zinc-600 font-mono">
+                → <a href="../index.html" class="hover:text-zinc-400 transition-colors">View full comparison with all 6 competitors</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Backtester callout -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">The "Backtester" Problem</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-8">Edgewonk's backtester asks you to manually input R-multiples for each historical trade. That is not backtesting — it is retrospective journaling. A real backtester executes strategy rules against historical price data without human input. SignalDeck does the latter.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <p class="text-xs font-mono text-zinc-500 uppercase mb-3">Edgewonk "Backtester"</p>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-zinc-600">•</span> You manually enter each trade's R-multiple</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-600">•</span> No price data, no rules, no automation</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-600">•</span> Can't tell you if your parameters are overfitted</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-600">•</span> No Walk-Forward Analysis, no Monte Carlo</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-500/5 border border-blue-500/20 rounded-lg p-5">
+                    <p class="text-xs font-mono text-blue-400 uppercase mb-3">SignalDeck Backtester</p>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li class="flex items-start gap-2"><span class="text-emerald-500">✓</span> Executes strategy rules against historical OHLCV data</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500">✓</span> Walk-Forward Analysis detects overfitting automatically</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500">✓</span> 1,000-path Monte Carlo for worst-case drawdown</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500">✓</span> Grid-search finds optimal parameters across 500 combos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Does Edgewonk have a strategy backtester?</h3>
+                    <p class="text-zinc-400 text-sm">Edgewonk has a feature called a backtester that requires you to manually enter R-multiples for historical trades — it does not execute rules against historical price data. SignalDeck has a true rule-based backtester with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization.</p>
+                </div>
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">How does SignalDeck compare to Edgewonk for R-Multiple tracking?</h3>
+                    <p class="text-zinc-400 text-sm">Edgewonk lets you manually enter R-multiples in a spreadsheet-style interface. SignalDeck calculates R-multiples automatically from entry, stop, and exit prices and uses R as the core organizing principle — every metric flows from risk-normalized R-value, including SQN, Kelly Criterion, equity curves, and Post Mortems.</p>
+                </div>
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Is SignalDeck or Edgewonk better for psychology tracking?</h3>
+                    <p class="text-zinc-400 text-sm">Edgewonk has a strong psychology focus with Diary and mental state tracking. SignalDeck adds a structured 5-step Post Mortem protocol that goes beyond free-text psychology notes into a systematic review process (Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback).</p>
+                </div>
+                <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Does Edgewonk support crypto?</h3>
+                    <p class="text-zinc-400 text-sm">Edgewonk does not natively support crypto. SignalDeck supports crypto natively with 24/7 market logging, multi-exchange tagging (Binance, Coinbase, Kraken, Bybit), spot and leverage journaling, and the full R-value analytics framework.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Try SignalDeck Free.</h2>
+            <p class="text-zinc-400 mb-8">All features unlocked during beta. A real backtester with Walk-Forward Analysis, R-Multiple framework, and structured Post Mortems — no subscription required. Active beta testers receive lifetime free access.</p>
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors">
+                Beta Signup Here
+            </a>
+            <p class="mt-12 text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="../../discord.html">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../yup.js"></script>
+</body>
+</html>

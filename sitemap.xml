@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sgnldk.com/</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>1.00</priority>
   </url>
 
@@ -14,19 +14,19 @@
 
   <url>
     <loc>https://sgnldk.com/clubs.html</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.90</priority>
   </url>
-  
+
   <url>
     <loc>https://sgnldk.com/forex/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/jobs/</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -74,14 +74,26 @@
 
   <url>
     <loc>https://sgnldk.com/plans/</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/compare/</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/compare/tradersync/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/compare/edgewonk/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.85</priority>
   </url>
 
   <url>
@@ -98,13 +110,13 @@
 
   <url>
     <loc>https://sgnldk.com/blog/how-to-calculate-sqn-score/</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/why-win-rate-is-lying/</loc>
-    <lastmod>2026-03-30</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.80</priority>
   </url>
 </urlset>

@@ -46,6 +46,46 @@
       "operatingSystem": "Web"
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does SignalDeck support pip tracking for forex trades?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck tracks pip values natively for all forex pairs. Every trade records entry and exit in pips, calculates pip-level slippage, and converts P&L to dollars using your lot size and account currency. You never need to do the math manually."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SignalDeck support forex lot sizes and leverage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck accepts standard, mini, and micro lot sizes and factors leverage into your risk and R-multiple calculations. Position sizing via Kelly Criterion is fully lot-size aware, so your recommended size is always expressed in lots, not abstract units."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Borg and how does it work for forex teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Borg is SignalDeck's social trading layer. For forex teams, it aggregates individual trader metrics into a shared leaderboard — SQN, expectancy, win rate, and R-multiple — so fund managers and prop firm leads can benchmark performance across the team anonymously or by name."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track swap fees and session context in SignalDeck?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck lets you log swap fees on overnight forex positions and tag trades by session (London, New York, Tokyo, Sydney). This lets you analyze whether your edge holds across sessions and whether swap costs are eroding your R-multiple on multi-day holds."
+          }
+        }
+      ]
+    }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

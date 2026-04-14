@@ -103,12 +103,6 @@
   </url>
 
   <url>
-    <loc>https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
     <loc>https://sgnldk.com/blog/how-to-calculate-sqn-score/</loc>
     <lastmod>2026-04-14</lastmod>
     <priority>0.80</priority>
@@ -116,6 +110,12 @@
 
   <url>
     <loc>https://sgnldk.com/blog/why-win-rate-is-lying/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/</loc>
     <lastmod>2026-04-14</lastmod>
     <priority>0.80</priority>
   </url>

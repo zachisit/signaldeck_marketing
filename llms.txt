@@ -7,7 +7,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Category: SaaS, Trading Journal, FinTech
 - Stage: Beta (free access)
 - Founded: 2025
-- Asset Classes: Common Stock, Forex (native), Crypto (coming soon)
+- Asset Classes: Common Stock, Forex (native), Crypto (native)
 - URL: https://sgnldk.com
 - App: https://app.sgnldk.com
 - Pricing: Free during beta. Planned: Free tier ($0, 20 trades), Pro ($19/mo), Team ($29/mo)
@@ -55,6 +55,10 @@ Note: While several competitors offer basic backtesting, none combine Walk-Forwa
 ### Forex
 - URL: https://sgnldk.com/forex/
 - Content: Native forex support with pip-level precision, lot sizes, session tracking, DXY context, swap fees, and team metrics (Borg)
+
+### Crypto
+- URL: https://sgnldk.com/crypto/
+- Content: Native crypto support with 24/7 market logging (no market-hours restrictions), multi-exchange tagging (Binance, Coinbase, Kraken, Bybit), spot and leverage journaling, fractional position sizes, and the full R-value analytics framework (SQN, expectancy, Kelly Criterion, Post Mortem protocol)
 
 ### Plans
 - URL: https://sgnldk.com/plans/

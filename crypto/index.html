@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignalDeck - Professional R-Value Trading Journal for Crypto</title>
+    <meta name="description" content="Track your crypto trades with R-Multiple analytics, SQN scoring, 24/7 market support, and structured Post Mortems. Multi-exchange journaling for serious BTC, ETH, and altcoin traders.">
+    <meta name="keywords" content="crypto trading journal, bitcoin trading journal, R-value crypto, R-multiple crypto, SQN score crypto, BTC ETH trading analytics, crypto trade tracker, multi-exchange journal, crypto day trading journal">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/crypto/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/crypto/">
+    <meta property="og:title" content="SignalDeck - Professional R-Value Trading Journal for Crypto">
+    <meta property="og:description" content="Track your crypto trades with R-Multiple analytics, SQN scoring, 24/7 market support, and structured Post Mortems. Multi-exchange journaling for BTC, ETH, and altcoin traders.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/crypto/">
+    <meta property="twitter:title" content="SignalDeck - Professional R-Value Trading Journal for Crypto">
+    <meta property="twitter:description" content="Track your crypto trades with R-Multiple analytics, SQN scoring, 24/7 market support, and structured Post Mortems. Multi-exchange journaling for BTC, ETH, and altcoin traders.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Professional R-value crypto trading journal with SQN scoring, 24/7 market support, multi-exchange tracking, and structured trade reviews",
+      "operatingSystem": "Web"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I use R-Multiple tracking for crypto trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. R-Multiple works identically for crypto. If you risk $200 on a BTC trade and make $600, that is a 3R trade regardless of the asset. In fact, crypto's extreme volatility makes disciplined R-tracking even more important — a single oversized loss can erase weeks of gains without a risk-normalized framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SignalDeck support 24/7 crypto trading hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There are no market-hours restrictions for crypto trades. Log a Sunday BTC entry or a 3AM altcoin scalp — SignalDeck treats the full 24/7 schedule as native, with no forced trading window or session constraints."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track trades from multiple exchanges in one journal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Each trade can be tagged with an exchange (Binance, Coinbase, Kraken, Bybit, and others). You can then filter your dashboard, SQN score, and R-multiple analytics by exchange to see which venue produces the best fills and where your edge is strongest."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        orange: {
+                            500: '#f97316',
+                            400: '#fb923c',
+                            600: '#ea6f10',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-orange-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-orange-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Professional-Grade Journaling for<br>
+                <span class="text-orange-500">Crypto Traders.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
+                Crypto doesn't need a simpler journal — it needs a more disciplined one. 24/7 markets, fractional positions, multiple exchanges. One framework to quantify your edge across all of it.
+            </p>
+            <div class="mt-10">
+                <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                onclick="gtag('event', 'crypto_beta_click', {'button_location': 'hero_section'});"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-orange-900/20">
+                    Apply for Beta Access
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: R-Value in a Volatile Market -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Mock Dashboard Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-orange-600/10 to-purple-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+                                <span class="text-xs font-mono text-zinc-500">STRATEGY HEALTH CHECK</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">SQN Score</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-lg font-mono font-bold text-emerald-400">2.8</span>
+                                    <span class="text-[10px] font-bold font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase tracking-wider">GOOD</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">Expectancy</span>
+                                <span class="text-lg font-mono font-bold text-orange-400">0.74R</span>
+                            </div>
+
+                            <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-mono text-zinc-400">Win Rate</span>
+                                    <span class="text-lg font-mono font-bold text-white">52%</span>
+                                </div>
+                                <p class="text-[10px] text-zinc-500 font-mono">Volatile market — R-framework is your anchor</p>
+                            </div>
+
+                            <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-mono text-zinc-400">Kelly Criterion</span>
+                                    <span class="text-lg font-mono font-bold text-purple-400">8.1%</span>
+                                </div>
+                                <p class="text-[10px] text-zinc-500 font-mono">Optimal risk per trade from your data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        R-Value in a Volatile Market.<br>
+                        <span class="text-orange-500">The framework matters more, not less.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Crypto's volatility doesn't change the math — it amplifies the consequences of ignoring it. An oversized BTC position can turn a 5% adverse move into a catastrophic loss. R-Multiple tracking forces you to define risk before every entry and hold it there.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        SQN tells you whether your system has a statistically real edge or whether you've been lucky in a bull market. Kelly Criterion sizes your positions from your own win rate and average R — not a generic 1% rule someone posted on Twitter.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 24/7 Native Support -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        24/7 Markets.<br>
+                        <span class="text-emerald-500">No artificial restrictions.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Crypto doesn't stop on Friday afternoon. Saturday BTC breakout, Sunday ETH reversal, 3AM altcoin scalp — every trade logs cleanly with no market-hours gate, no forced session constraints, and no missing data for off-hours entries.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        The calendar view shows your full 7-day trading week. The daily notes system lets you log pre-session context for any day of the week. Filters by day-of-week and time-of-day work across the full 24/7 schedule so you can find your real edge window.
+                    </p>
+                </div>
+
+                <!-- Mock 24/7 Trade Log Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/10 to-orange-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-400">TRADE LOG — LAST 7 DAYS</span>
+                            <span class="text-xs font-mono text-emerald-400">+6.1R</span>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex items-center justify-between py-2 border-b border-zinc-900">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-zinc-600 w-24">Sun 02:14AM</span>
+                                    <span class="text-white font-bold">BTC/USD</span>
+                                    <span class="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded">LONG</span>
+                                </div>
+                                <span class="text-emerald-400 font-bold">+2.3R</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-zinc-900">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-zinc-600 w-24">Mon 09:45AM</span>
+                                    <span class="text-white font-bold">ETH/USD</span>
+                                    <span class="text-[10px] text-rose-400 bg-rose-500/10 border border-rose-500/20 px-1.5 py-0.5 rounded">SHORT</span>
+                                </div>
+                                <span class="text-rose-400 font-bold">-1.0R</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-zinc-900">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-zinc-600 w-24">Wed 11:22PM</span>
+                                    <span class="text-white font-bold">SOL/USD</span>
+                                    <span class="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded">LONG</span>
+                                </div>
+                                <span class="text-emerald-400 font-bold">+1.8R</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-zinc-600 w-24">Sat 06:03AM</span>
+                                    <span class="text-white font-bold">BTC/USD</span>
+                                    <span class="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded">LONG</span>
+                                </div>
+                                <span class="text-emerald-400 font-bold">+3.0R</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Spot & Leverage -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Mock Position Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-orange-500/10 to-rose-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-400">POSITION DETAIL — BTC/USD</span>
+                            <span class="text-[10px] font-mono text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded">3× LEVERAGE</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-mono text-zinc-400">Position Size</span>
+                                <span class="text-sm font-mono text-white">0.45 BTC</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-zinc-900 pt-3">
+                                <span class="text-xs font-mono text-zinc-400">Entry Price</span>
+                                <span class="text-sm font-mono text-white">$65,420</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-zinc-900 pt-3">
+                                <span class="text-xs font-mono text-zinc-400">Stop Price</span>
+                                <span class="text-sm font-mono text-rose-400">$63,200 → -1.0R</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-zinc-900 pt-3">
+                                <span class="text-xs font-mono text-zinc-400">Target</span>
+                                <span class="text-sm font-mono text-emerald-400">$71,060 → +2.5R</span>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 mt-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-mono text-zinc-400">Unrealized P&L</span>
+                                    <span class="text-lg font-mono font-bold text-emerald-400">+1.2R</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Spot &amp; Leverage.<br>
+                        <span class="text-orange-500">Same framework, both modes.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Whether you're buying spot BTC or trading a leveraged perpetual, SignalDeck logs the position in R-terms. Leverage multiplies P&amp;L but it doesn't change the risk framework — if you defined your risk as 1R before entry, that number is what matters regardless of notional size.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Log fractional coin amounts. Tag by exchange. Log your leverage factor alongside the entry. The Post Mortem will ask the same questions it asks for any trade: was the setup sound, was the stop held, was the management disciplined?
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Multi-Exchange Filtering -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Multi-Exchange Analytics.<br>
+                        <span class="text-purple-500">Find your best venue.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Different exchanges mean different fees, different liquidity, and different fill quality. If your Binance BTC trades consistently outperform your Coinbase ones, the data should tell you. Tag every trade by exchange and let the filter engine slice the analytics.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Filter your SQN score, expectancy, and R-multiple chart by exchange, by coin, by strategy, or any combination. Stop guessing which part of your crypto playbook is actually working.
+                    </p>
+                </div>
+
+                <!-- Mock Exchange Filter Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600/10 to-orange-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl overflow-hidden">
+                        <div class="flex justify-between items-center mb-4 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                                <span class="text-xs font-mono text-zinc-400">ACTIVE_FILTERS</span>
+                            </div>
+                            <span class="text-[10px] text-zinc-600 font-mono">22 TRADES MATCH</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 text-xs font-mono text-white bg-orange-500/20 border border-orange-500/30 rounded flex items-center gap-2 transition-colors hover:bg-orange-500/30">BINANCE <span class="text-orange-400 hover:text-white cursor-pointer">&times;</span></span>
+                            <span class="px-2 py-1 text-xs font-mono text-white bg-blue-500/20 border border-blue-500/30 rounded flex items-center gap-2 transition-colors hover:bg-blue-500/30">BTC/USD <span class="text-blue-400 hover:text-white cursor-pointer">&times;</span></span>
+                            <span class="px-2 py-1 text-xs font-mono text-white bg-emerald-500/20 border border-emerald-500/30 rounded flex items-center gap-2 transition-colors hover:bg-emerald-500/30">LONG_ONLY <span class="text-emerald-400 hover:text-white cursor-pointer">&times;</span></span>
+                        </div>
+
+                        <div class="bg-zinc-900 border border-zinc-800 rounded p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-bold text-zinc-300">Filtered Expectancy</span>
+                                <span class="text-orange-400 font-mono font-bold">+1.4R</span>
+                            </div>
+                            <div class="w-full bg-zinc-950 h-2 rounded-full overflow-hidden">
+                                <div class="bg-orange-500 w-[70%] h-full"></div>
+                            </div>
+                            <div class="mt-4 flex justify-between text-[10px] font-mono text-zinc-500">
+                                <span>WIN RATE: 58%</span>
+                                <span>PROFIT FACTOR: 2.4</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Post Mortem Protocol -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Post Mortems for Crypto.<br>
+                        <span class="text-emerald-500">Process, not just outcome.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Crypto markets move fast. FOMO is louder. The urge to size up after a big win — or revenge trade after a liquidation — is constant. The Post Mortem protocol is designed specifically to short-circuit those patterns.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        After every closed trade: Setup Diagnosis, Management Diagnosis, Final Verdict, Training Gap, Mentor Feedback. When you run 50 Post Mortems and see "FOMO entry" or "Didn't wait for confirmation" appearing in 60% of your bad losses — that changes your behavior permanently. No coaching session can do what your own data does.
+                    </p>
+                </div>
+
+                <!-- Mock Post Mortem Card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-emerald-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 border-l-2 border-l-rose-500 rounded-xl p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-400">POST MORTEM: ETH/USD</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-zinc-400">Setup Quality:</span>
+                                <span class="text-sm font-bold font-mono text-yellow-400">B</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-zinc-900 pt-4">
+                                <span class="text-sm text-zinc-400">Stop Management:</span>
+                                <span class="text-sm font-bold font-mono text-rose-400">Moved Stop ✗</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-zinc-900 pt-4">
+                                <span class="text-sm text-zinc-400">Verdict:</span>
+                                <span class="text-sm font-bold text-rose-400">🔴 Bad Loss</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-zinc-900 pt-4">
+                                <span class="text-sm text-zinc-400">Training Gap:</span>
+                                <span class="text-sm font-bold font-mono text-rose-400">FOMO / Stop Discipline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Who This Is For -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-8 md:p-12 overflow-hidden relative group">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl group-hover:bg-orange-600/20 transition-all duration-1000"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-all duration-1000"></div>
+
+                <div class="relative z-10">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/30 uppercase tracking-widest mb-6">Who This Is For</span>
+                    <h2 class="text-3xl font-bold text-white mb-8">Built for crypto traders who want the edge, not just the chart.</h2>
+
+                    <div class="space-y-4 mb-10 max-w-2xl">
+                        <p class="text-zinc-400 leading-relaxed">
+                            You trade BTC, ETH, or alts with real size. You've survived at least one cycle and you know that sizing discipline matters more in crypto than anywhere else.
+                        </p>
+                        <p class="text-zinc-400 leading-relaxed">
+                            You're past the "100x altcoin" phase. You want to measure your actual edge — not your account balance during a bull run. Because a bull run makes everyone look like a genius.
+                        </p>
+                        <p class="text-zinc-400 leading-relaxed">
+                            You're currently tracking trades in a spreadsheet or not tracking them at all. You want a framework that tells you whether your system works independently of market conditions — before the next bear market finds out for you.
+                        </p>
+                    </div>
+
+                    <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                        onclick="gtag('event', 'crypto_beta_click', {'button_location': 'who_this_is_for'});"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-orange-900/20">
+                        Join the Beta — Free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">We're looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it's about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you'll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+
+            <a href="https://forms.gle/1TeTFFr72ypX5LkT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Beta Signup Here
+                </a>
+
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" title="Release History">Release History</a> |
+                <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../yup.js"></script>
+</body>
+</html>

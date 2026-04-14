@@ -106,29 +106,50 @@
                 </div>
 
                 <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
-                    <p>A focused bug-fix release across three areas: Borg session-switch stale state, a login redirect issue on logout, and a referral count miscalculation.</p>
+                    <p>The largest auth and onboarding release to date. SignalDeck now supports Google sign-in, a guided 3-step onboarding flow for new accounts, full email-based password reset, and a referral program — all shipped alongside a clean-up of Borg session-switch edge cases.</p>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Borg — Session-Switch Fixes</h4>
+                        <h4 class="text-white font-bold mb-2">Google OAuth</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Nav Flash on Re-Login</strong> — When User A (with Borg teams) logged out and User B logged in without a hard refresh, the Borg nav buttons briefly appeared before bootstrap completed. Fixed by explicitly hiding both nav-borg-btn and mobile-nav-borg-btn inside <code>showAuthScreen()</code> on every logout.</li>
-                            <li><strong class="text-zinc-200">Stale Teams During Bootstrap</strong> — <code>appState.userMemberships</code> was only cleared inside the bootstrap response handler, leaving stale data readable during the async fetch window. Memberships are now reset immediately after auth succeeds, before any bootstrap call.</li>
-                            <li><strong class="text-zinc-200">Team Switcher Not Hidden on Logout</strong> — <code>showAuthScreen()</code> was hiding the Borg nav button but not the team-switcher container. If the previous user had multiple teams the switcher stayed visible on the next login. Both containers are now hidden on every logout.</li>
-                            <li><strong class="text-zinc-200">No-Team Users on Session Switch</strong> — When switching from a user with teams to one without, the Borg nav buttons were never explicitly hidden and <code>userMemberships</code> was never cleared. A new else branch handles this path.</li>
+                            <li><strong class="text-zinc-200">Sign in with Google</strong> — New and existing accounts can now authenticate with their Google account. No password required. The sign-in button on the login screen triggers a Google ID token flow; SignalDeck verifies the token server-side and returns a standard JWT bearer — the rest of the app is unchanged.</li>
+                            <li><strong class="text-zinc-200">Confirmation Step Before Account Creation</strong> — If Google authentication would create a new account, SignalDeck shows your name and email for confirmation before committing. No surprise accounts from mis-taps.</li>
+                            <li><strong class="text-zinc-200">Google-Only Accounts Stay Google-Only</strong> — Accounts created via Google sign-in cannot request a password reset email. The forgot-password form returns a generic response for those addresses to prevent account enumeration.</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Auth</h4>
+                        <h4 class="text-white font-bold mb-2">Password Reset</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Login Always Opens Calendar</strong> — If you logged out while on a non-default screen (e.g. <code>/referrals</code>), the URL stayed in the browser and the next login would route straight back to that screen instead of Calendar. The URL is now reset to <code>/</code> on logout so login always starts fresh on Calendar.</li>
+                            <li><strong class="text-zinc-200">Email-Based Reset via Mailjet</strong> — Standard accounts can now recover access through a time-limited reset link sent to the registered email address. Tokens are single-use and expire after a configurable TTL.</li>
+                            <li><strong class="text-zinc-200">Session Revocation on Reset</strong> — Resetting your password immediately invalidates all existing sessions. If your account was accessed elsewhere, a password reset locks it back down.</li>
+                            <li><strong class="text-zinc-200">Silent Token Refresh</strong> — Mid-session token expiry is now handled transparently. If your JWT is close to expiry the app refreshes it in the background — no unexpected logouts during long sessions.</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Referrals</h4>
+                        <h4 class="text-white font-bold mb-2">3-Step Onboarding</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Referral Count Always Showed 0</strong> — MySQL's <code>IN()</code> matches referral codes case-insensitively, so referred users appeared in the itemized list — but the Python dictionary used the raw DB value as a key. A user who registered with a lowercase code (e.g. <code>lorem</code>) would be found in the list but counted as 0 because the lookup key was <code>LOREM</code>. Codes are now normalized to uppercase on both read and write.</li>
+                            <li><strong class="text-zinc-200">Username</strong> — New accounts pick a public username during registration. Availability is checked in real time as you type so you never hit a conflict at submit.</li>
+                            <li><strong class="text-zinc-200">Risk Guard-Rails</strong> — Step 2 lets you set your account size, daily loss limit, maximum open trades at once, default instrument type (Stocks, Forex / CFD, or Crypto), and preferred trading style. SignalDeck uses these to surface warnings when you approach your own limits.</li>
+                            <li><strong class="text-zinc-200">Accountability Email</strong> — Step 3 lets you opt in to a weekly accountability digest sent to a nominated email address — useful for coaches, prop firm oversight, or just keeping yourself honest.</li>
+                            <li><strong class="text-zinc-200">Existing Accounts Unaffected</strong> — Users who registered before this release are defaulted to <code>onboarding_complete = true</code> and land directly in the app as normal. No forced re-onboarding on deploy.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Referral Program</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Referral Codes</strong> — Every account can generate shareable referral codes from the new Referrals screen under the user menu. Codes are case-insensitive and can be deactivated at any time.</li>
+                            <li><strong class="text-zinc-200">Referral Dashboard</strong> — The Referrals screen shows how many accounts have registered using each of your codes, with a per-code breakdown and lifetime total.</li>
+                            <li><strong class="text-zinc-200">Code Captured at Registration</strong> — If a new user registers with a referral code in the URL, it is stored on their account automatically. No manual entry required.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Borg Session-Switch Fixes</strong> — Several edge cases where logging out and back in as a different user left stale Borg nav state visible have been resolved. The team switcher, nav buttons, and membership data are all cleared immediately on logout before any bootstrap call fires.</li>
+                            <li><strong class="text-zinc-200">Login Always Opens Calendar</strong> — Logging out from a non-default screen (e.g. the Referrals page) no longer routes the next login back to that same screen. The URL is reset on logout so every new session starts on Calendar.</li>
                         </ul>
                     </div>
                 </div>

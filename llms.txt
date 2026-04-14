@@ -87,3 +87,11 @@ Note: While several competitors offer basic backtesting, none combine Walk-Forwa
 ### Blog: Why Your Win Rate Is Lying to You
 - URL: https://sgnldk.com/blog/why-win-rate-is-lying/
 - Content: Why win rate is a misleading vanity metric, how R-multiple and expectancy provide honest system evaluation, two-system comparison showing a 40% win rate outperforming 78%, and the four metrics professional traders track instead
+
+### Blog: How to Know When Your Trading Strategy Is Dying
+- URL: https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/
+- Content: Four data signals that separate a normal drawdown from real edge decay (rolling win rate trend, SQN floor breach, loss magnitude creep, winner compression), a five-step decision protocol for responding to decay signals, and why sample size matters before making any strategy verdict
+
+### Discord Community
+- URL: https://sgnldk.com/discord.html
+- Content: SignalDeck Discord landing page. Benefits include 1:1 onboarding for every new beta tester, direct access to the founder and staff, feature requests that ship within 48 hours, same-day support triage, and a channel preview showing #general, #feedback, #support, #trade-talk, #release-notes, and #founder-office-hours. Community is intentionally small (under 100 members). Active beta testers receive Founder Status with lifetime free access to the platform.

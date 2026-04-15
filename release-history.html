@@ -140,12 +140,41 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.29 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.29-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 14, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Crypto is now a first-class instrument type. BTC/USD, ETH/USD, and other pairs join stocks, forex, and CFDs — with live price updates and full indicator tracking from Polygon's crypto feed. Password reset also gets a UX polish pass.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Crypto Trading</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Crypto as a First-Class Instrument</strong> — BTC/USD, ETH/USD, and 8 other pairs can now be logged as crypto trades. The audit worker pulls live prices from Polygon's crypto feed and evaluates alerts the same way it does for stocks and forex.</li>
+                            <li><strong class="text-zinc-200">Indicator Backfill</strong> — All 8 Polygon indicators (RSI, MACD, EMA, Bollinger Bands, etc.) now populate correctly for crypto trades. A routing bug that silently misfiled crypto tickers as forex pairs has been resolved.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Password Reset UX</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Show / Hide Password Toggle</strong> — The reset-password form now has a visibility toggle so you can confirm what you're typing before submitting.</li>
+                            <li><strong class="text-zinc-200">Clean Confirmation State</strong> — After a successful reset the form is replaced with a confirmation message. No stale fields left behind and no ambiguity about whether it worked.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.28 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.28-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Apr 13, 2026 2:48PM</span>
                 </div>
 
@@ -1472,9 +1501,9 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
-            <p class="text-zinc-400 mb-8">We’re looking for <strong>ten active traders</strong> to join as beta testers for SignalDeck. This isn't just about finding bugs - it’s about partnering with serious operators to refine the forensic tools and institutional-grade scanners we're building. In exchange for your time and feedback, you’ll receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform. Help us bridge the gap between "just another journal" and a true performance engine.</p>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We’re building this alongside serious traders — partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we’re shipping. Active beta testers who send feedback receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform.</p>
             
-            <a href="https://forms.gle/1TeTFFr72ypX5LkT8" 
+            <a href="https://app.sgnldk.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"

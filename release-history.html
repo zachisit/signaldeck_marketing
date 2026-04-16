@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-04-14",
+      "dateModified": "2026-04-16",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,13 +140,76 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.30 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.30-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 16, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The biggest feature addition to date. A full strategy backtesting engine with seven built-in strategies, a custom rule builder, parameter optimizer, notebooks, and deep analytics — all powered by Polygon data.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Strategy Backtester</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Run Backtests</strong> — Pick a strategy, a date range, and one or more symbols. The engine simulates every trade and produces an equity curve, drawdown chart, monthly returns heatmap, and a full trade log.</li>
+                            <li><strong class="text-zinc-200">7 Built-In Strategies</strong> — SMA Crossover, EMA Crossover, RSI Mean Reversion (long-only and long/short), MACD, Bollinger Bands, and Mean Reversion — all configurable with custom parameters.</li>
+                            <li><strong class="text-zinc-200">Short Selling</strong> — Strategies can go short. P&amp;L, entry/exit logic, and all metrics are fully side-aware.</li>
+                            <li><strong class="text-zinc-200">Stop Types</strong> — None, percent, ATR, trailing percent, and trailing ATR. Stops are evaluated bar-by-bar during the simulation.</li>
+                            <li><strong class="text-zinc-200">Position Sizing</strong> — Fixed size, percent of equity, or risk-based (Kelly criterion, volatility targeting).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Custom Rule Builder</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Build Your Own Strategy</strong> — Define entry and exit rules using a visual rule builder. Combine indicator comparisons, crossovers, and logical operators (AND/OR) into a rule tree.</li>
+                            <li><strong class="text-zinc-200">Save &amp; Reuse</strong> — Custom strategies are saved to your account and can be loaded into any future backtest.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Monte Carlo, WFA &amp; Benchmark</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Monte Carlo Simulation</strong> — Randomised trade-sequence resampling with confidence intervals to stress-test your edge.</li>
+                            <li><strong class="text-zinc-200">Walk-Forward Analysis</strong> — Rolling in-sample/out-of-sample window validation to detect overfitting.</li>
+                            <li><strong class="text-zinc-200">SPY Benchmark</strong> — Overlay a buy-and-hold SPY equity curve against your strategy and compute alpha, beta, and correlation.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Parameter Optimizer</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Grid Search</strong> — Define parameter ranges and the optimizer tests every combination, ranking results by Sharpe ratio, profit factor, or total return.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Notebooks</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Save &amp; Compare Runs</strong> — Save any backtest result to a notebook with an optional annotation. Load a saved run back into the backtester UI to review charts and metrics.</li>
+                            <li><strong class="text-zinc-200">Journal Overlay</strong> — Link your real trades to a backtest run and compare plan vs. execution side by side.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Extended Metrics</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">New Metric Cards</strong> — Kelly criterion, average win/loss, payoff ratio, max consecutive wins and losses, longest win/loss streak, and per-trade MFE/MAE.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.29 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.29-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
-                    <span class="text-sm font-mono text-zinc-500">Apr 14, 2026 4:24PM</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 16, 2026</span>
                 </div>
 
                 <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
@@ -592,7 +655,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">Escape Key Priority</strong> - Fixed a bug where pressing Escape with the trade details modal open on top of the calendar modal would close the calendar first. It now correctly closes the topmost modal first, every time.</li>
                             <li><strong class="text-zinc-200">No More Dashboard Flash</strong> - Removed hardcoded active state on the Dashboard nav button that caused a brief flash of the wrong screen before JavaScript finished loading.</li>
@@ -651,7 +714,7 @@
             </div>
 
             <div class="pl-8 relative">
-                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.20-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Mar 17, 2026 1:46PM</span>
@@ -661,7 +724,7 @@
                     <p>This release ships CFD and index instrument support for Vantage Markets traders, a new Entry Checklist feature for pre-trade discipline tracking, psychological and emotional scale inputs, and a series of trade audit worker reliability fixes.</p>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">CFD & Index Instrument Support</h4>
+                        <h4 class="text-white font-bold mb-2">CFD &amp; Index Instrument Support</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">Gold & Silver (XAUUSD / XAGUSD)</strong> - CFD metals traders on Vantage Markets can now log and track Gold and Silver trades. The platform correctly routes these to Polygon's forex endpoint using the <code class="font-mono text-xs bg-zinc-800 px-1 rounded">C:XAUUSD</code> format automatically.</li>
                             <li><strong class="text-zinc-200">NASDAQ 100 (NAS100)</strong> - Index CFD traders can now log NAS100 trades. The platform maps this to Polygon's indices endpoint (<code class="font-mono text-xs bg-zinc-800 px-1 rounded">I:NDX</code>) for accurate price data and stop monitoring.</li>
@@ -680,7 +743,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Psychological & Emotional Scales</h4>
+                        <h4 class="text-white font-bold mb-2">Psychological &amp; Emotional Scales</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">Psychological Confidence (1–10)</strong> - Rate your mental clarity and focus going into a trade. 1 = distracted or anxious, 10 = fully focused and clear-headed. Displayed on the trade detail alongside Setup Confidence.</li>
                             <li><strong class="text-zinc-200">Emotional Scale (1–10)</strong> - Rate your emotional state at entry. 1 = fearful, revenge-trading, or euphoric. 10 = calm, neutral, and disciplined.</li>
@@ -691,7 +754,7 @@
                     <div>
                         <h4 class="text-white font-bold mb-2">Forex Trade Detail Fixes</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Entry & Exit Time</strong> - Fixed a bug where entry time and exit time were displaying as N/A on all forex trades.</li>
+                            <li><strong class="text-zinc-200">Entry &amp; Exit Time</strong> - Fixed a bug where entry time and exit time were displaying as N/A on all forex trades.</li>
                             <li><strong class="text-zinc-200">Session Formatting</strong> - Sessions like "New_York" now display correctly as "New York".</li>
                             <li><strong class="text-zinc-200">Field Visibility</strong> - Shares row correctly hidden for forex trades. Pip value row hidden for CFD instruments where it isn't applicable. Run ID row hidden when no run is linked.</li>
                         </ul>
@@ -854,29 +917,29 @@
                     <div>
                         <h4 class="text-white font-bold mb-2">Forex Core</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">New Asset Class</strong> - Full support for lot sizes, pip values, and leverage calculations[cite: 694].</li>
-                            <li><strong class="text-zinc-200">Smart Search</strong> - Currency pair resolution that handles Polygon's prefixing (e.g., "EURUSD" to "C:EURUSD") and substring matching[cite: 1240, 1241].</li>
-                            <li><strong class="text-zinc-200">Session & DXY Tracking</strong> - Automatic market session tagging (London, NY, Asia) and DXY capture at entry for deep confluence analysis[cite: 703, 746].</li>
+                            <li><strong class="text-zinc-200">New Asset Class</strong> - Full support for lot sizes, pip values, and leverage calculations.</li>
+                            <li><strong class="text-zinc-200">Smart Search</strong> - Currency pair resolution that handles Polygon's prefixing (e.g., "EURUSD" to "C:EURUSD") and substring matching.</li>
+                            <li><strong class="text-zinc-200">Session &amp; DXY Tracking</strong> - Automatic market session tagging (London, NY, Asia) and DXY capture at entry for deep confluence analysis.</li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 class="text-white font-bold mb-2">UI & Dashboard</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Global Filter Bar</strong> - New functional dashboard filter to instantly toggle views between All, Stocks, and Forex trades[cite: 1146, 1240].</li>
-                            <li><strong class="text-zinc-200">Dynamic Forms</strong> - Reactive "New Trade" forms that toggle fields between "Shares/Cents" and "Lots/Pips" based on your symbol[cite: 659].</li>
-                            <li><strong class="text-zinc-200">Emerald UI</strong> - Redesigned "Trade Closed" summary with performance tracking, slippage progress bars, and emerald-themed styling[cite: 824, 892].</li>
-                            <li><strong class="text-zinc-200">Visual Badges</strong> - FX and EQ indicators throughout the table and detail modals for clear asset distinction[cite: 622, 638].</li>
+                            <li><strong class="text-zinc-200">Global Filter Bar</strong> - New functional dashboard filter to instantly toggle views between All, Stocks, and Forex trades.</li>
+                            <li><strong class="text-zinc-200">Dynamic Forms</strong> - Reactive "New Trade" forms that toggle fields between "Shares/Cents" and "Lots/Pips" based on your symbol.</li>
+                            <li><strong class="text-zinc-200">Emerald UI</strong> - Redesigned "Trade Closed" summary with performance tracking, slippage progress bars, and emerald-themed styling.</li>
+                            <li><strong class="text-zinc-200">Visual Badges</strong> - FX and EQ indicators throughout the table and detail modals for clear asset distinction.</li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 class="text-white font-bold mb-2">Intelligence & Reliability</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li><strong class="text-zinc-200">Self-Healing Metrics</strong> - Centralized financial logic that auto-recalculates 1.5R break-even points and pips with 5-decimal precision for FX[cite: 1162, 1165].</li>
-                            <li><strong class="text-zinc-200">Direction-Aware Stops</strong> - Upgraded stop-breach detection that monitors Lows for LONGs and Highs for SHORTs, preventing false triggers during favorable gaps[cite: 775, 785].</li>
-                            <li><strong class="text-zinc-200">Live Monitoring</strong> - Real-time bid/ask/midpoint polling every 15 seconds for all open FX positions[cite: 370, 380].</li>
-                            <li><strong class="text-zinc-200">Standardized Performance</strong> - Profit Factor calculations now prioritize R-multiples to provide a consistent success metric across mixed portfolios[cite: 1262].</li>
+                            <li><strong class="text-zinc-200">Self-Healing Metrics</strong> - Centralized financial logic that auto-recalculates 1.5R break-even points and pips with 5-decimal precision for FX.</li>
+                            <li><strong class="text-zinc-200">Direction-Aware Stops</strong> - Upgraded stop-breach detection that monitors Lows for LONGs and Highs for SHORTs, preventing false triggers during favorable gaps.</li>
+                            <li><strong class="text-zinc-200">Live Monitoring</strong> - Real-time bid/ask/midpoint polling every 15 seconds for all open FX positions.</li>
+                            <li><strong class="text-zinc-200">Standardized Performance</strong> - Profit Factor calculations now prioritize R-multiples to provide a consistent success metric across mixed portfolios.</li>
                         </ul>
                     </div>
                 </div>
@@ -1397,7 +1460,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">No Loading Flash</strong> - New sequence removes the "No Trades Found" flicker during initial data load.</li>
                             <li><strong class="text-zinc-200">Filter Persistence</strong> - Fixed bug where refreshing the browser ignored active filter states.</li>
@@ -1429,7 +1492,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">Auto-Sync Fixed</strong> - Fixed a bug where the app was "too polite" and refused to auto-refresh market data because it incorrectly thought a popup was open. Background syncing is now much more reliable.</li>
                             <li><strong class="text-zinc-200">UI Polish</strong> - Fixed the "New Data Available" warning banner (it was missing its yellow background color). Removed excess padding on the Trade Details popup tabs for a cleaner look. Increased the default size of the "New Note" text area for easier typing.</li>
@@ -1459,7 +1522,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold mb-2">Improvements & Fixes</h4>
+                        <h4 class="text-white font-bold mb-2">Improvements &amp; Fixes</h4>
                         <ul class="list-disc list-outside pl-5 space-y-1">
                             <li><strong class="text-zinc-200">Audit Logging</strong> - Backend now persists every scanner run to the database, ensuring a permanent audit trail of price updates and automated stops.</li>
                         </ul>

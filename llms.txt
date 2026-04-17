@@ -171,6 +171,10 @@ A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spread
 - URL: https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/
 - Content: Four data signals that separate a normal drawdown from real edge decay (rolling win rate trend, SQN floor breach, loss magnitude creep, winner compression), a five-step decision protocol for responding to decay signals, and why sample size matters before making any strategy verdict
 
+### Brand Ambassador — PAP€RWORK (@gr3fter)
+- URL: https://sgnldk.com/gr3fter/
+- Content: Brand ambassador landing page for @gr3fter (PAP€RWORK), a CFD and index trader who trades NQ (NAS100) and Gold (XAUUSD) using logic, price action, and patience-based entries. Page highlights SignalDeck's native support for gr3fter's instruments (XAUUSD, NAS100, FX), the Post Mortem protocol mapped to their "sit on your hands" discipline philosophy, SQN edge validation, and prop firm challenge tracking. Referral code: PAPERWORK. Targets CFD traders, Gold/NQ traders, and prop firm traders who follow gr3fter on X.
+
 ### Discord Community
 - URL: https://sgnldk.com/discord.html
 - Content: SignalDeck Discord landing page. Benefits include 1:1 onboarding for every new beta tester, direct access to the founder and staff, feature requests that ship within 48 hours, same-day support triage, and a channel preview showing #general, #feedback, #support, #trade-talk, #release-notes, and #founder-office-hours. Community is intentionally small (under 100 members). Active beta testers receive Founder Status with lifetime free access to the platform.

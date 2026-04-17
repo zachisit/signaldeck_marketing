@@ -170,7 +170,7 @@
 
     <section id="about" class="sr-only" aria-hidden="false">
         <h2>What is SignalDeck?</h2>
-        <p>SignalDeck is a professional-grade trading journal and strategy backtester for serious retail traders. Unlike general-purpose trading journals, SignalDeck uses R-Multiple (risk-normalized return) as the organizing principle for every metric — equity curves, expectancy, SQN scoring, Kelly Criterion position sizing, and Post Mortem reviews all flow from a single risk framework. It supports stocks, forex, and crypto natively. The built-in strategy backtester includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for worst-case drawdown modeling, and grid-search parameter optimization — a combination no other trading journal offers. SignalDeck is currently in beta and free to use.</p>
+        <p>SignalDeck is a professional-grade trading journal and strategy backtester for serious retail traders. Unlike general-purpose trading journals, SignalDeck uses R-Multiple (risk-normalized return) as the organizing principle for every metric — equity curves, expectancy, SQN scoring, Kelly Criterion position sizing, and Post Mortem reviews all flow from a single risk framework. It supports stocks, forex, CFD, and crypto natively. The built-in strategy backtester includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for worst-case drawdown modeling, and grid-search parameter optimization — a combination no other trading journal offers. SignalDeck is currently in beta and free to use.</p>
     </section>
 
     <section class="relative pt-20 pb-32 overflow-hidden">
@@ -946,10 +946,10 @@
             <div class="text-center mb-16">
                 <h2 class="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-4">Asset Classes</h2>
                 <h3 class="text-3xl font-bold text-white mb-4">One Journal. Every Market.</h3>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Each asset class gets native support — not a bolted-on afterthought. Dedicated execution layers for equities, forex, and crypto.</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Each asset class gets native support — not a bolted-on afterthought. Dedicated execution layers for equities, forex, CFD, and crypto.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <!-- Common Stock Card -->
                 <a href="stocks/index.html" class="group p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-blue-500/50 transition-all relative overflow-hidden">
@@ -970,6 +970,17 @@
                         <h4 class="text-white font-bold text-lg mb-3">Forex</h4>
                         <p class="text-sm text-zinc-400 leading-relaxed mb-6">Native pip-level precision, lot sizes, session detection, DXY context, swap fees, and team metrics. Built from scratch for currency traders.</p>
                         <span class="text-xs font-mono text-emerald-400 group-hover:text-emerald-300 transition-colors">Explore →</span>
+                    </div>
+                </a>
+
+                <!-- CFD & Indices Card -->
+                <a href="cfd/index.html" class="group p-8 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-amber-500/50 transition-all relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-amber-500/10"></div>
+                    <div class="relative z-10">
+                        <div class="text-amber-500 font-mono text-xl mb-4">⚡</div>
+                        <h4 class="text-white font-bold text-lg mb-3">CFD &amp; Indices</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">Gold, Silver, NAS100, GER40, US500 — enter broker tickers directly. Live price monitoring, R-value analytics, and post mortems for leveraged instrument traders.</p>
+                        <span class="text-xs font-mono text-amber-400 group-hover:text-amber-300 transition-colors">Explore →</span>
                     </div>
                 </a>
 

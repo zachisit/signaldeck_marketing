@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fixed-R Position Sizing: Why Most Traders Risk Too Much on Every Trade | SignalDeck</title>
+    <meta name="description" content="Sizing by dollars is arbitrary. Fixed-R position sizing ties every trade to a consistent percentage of your account — the formula, why it makes your journal meaningful, and how it protects you during drawdowns.">
+    <meta name="keywords" content="fixed r position sizing, trading position size calculator, how to size a trade, risk per trade percentage, Kelly criterion trading, R multiple position sizing, stop loss position size formula, trade journal R value">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/fixed-r-position-sizing/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/fixed-r-position-sizing/">
+    <meta property="og:title" content="Fixed-R Position Sizing: Why Most Traders Risk Too Much on Every Trade | SignalDeck">
+    <meta property="og:description" content="Sizing by dollars is arbitrary. Fixed-R position sizing ties every trade to a consistent percentage of your account — the formula, why it makes your journal meaningful, and how it protects you during drawdowns.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/fixed-r-position-sizing/">
+    <meta property="twitter:title" content="Fixed-R Position Sizing: Why Most Traders Risk Too Much on Every Trade | SignalDeck">
+    <meta property="twitter:description" content="Sizing by dollars is arbitrary. Fixed-R position sizing ties every trade to a consistent percentage of your account — the formula, why it makes your journal meaningful, and how it protects you during drawdowns.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Fixed-R Position Sizing: Why Most Traders Risk Too Much on Every Trade",
+        "description": "Sizing by dollars is arbitrary. Fixed-R position sizing ties every trade to a consistent percentage of your account — the formula, why it makes your journal meaningful, and how it protects you during drawdowns.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-04-22",
+        "dateModified": "2026-04-22"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Fixed-R position sizing?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fixed-R position sizing means risking a consistent percentage of your account equity on every trade, defining that percentage as 1R. Position size is derived by dividing your dollar risk by the stop distance on each specific trade. The result is a system where risk is controlled structurally — every trade outcome is expressed in comparable units of risk and your journal data becomes genuinely meaningful."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What percentage of my account should I risk per trade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For most retail traders, 0.5% to 2% per trade is the practical range. At 1%, a 10-trade losing streak costs roughly 9.6% of your account (compounding down). At 2%, the same streak costs approximately 18.3%. The right number depends on your system's SQN score and expected drawdown depth — a higher-SQN system can tolerate slightly more risk per trade."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate position size from a stop loss?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The formula is: Position Size = (Account × Risk%) / Stop Distance. If your account is $15,000, you risk 1% ($150), and your stop is $0.60 per share, your position size is $150 / $0.60 = 250 shares. For forex, substitute pip value for stop distance: dollar risk / (pip distance × pip value) = lot size."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between Fixed-R and Kelly Criterion?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fixed-R is a structural rule — risk a fixed percentage per trade regardless of your current edge estimate. Kelly Criterion is a mathematical optimization — it derives the ideal risk fraction from your actual win rate and average R. Kelly requires sufficient trade history to be reliable (ideally 100+ trades). Fixed-R works from day one. Most serious traders start with Fixed-R, build the journal data, and use Kelly to refine the percentage once they have enough trades to trust the input."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does position sizing matter for trade journaling?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When every trade risks a different arbitrary dollar amount, your journal entries are incomparable. A $300 win on a 20-share position and a $300 win on 500 shares look identical in dollar terms but represent completely different risk-adjusted outcomes. Fixed-R normalizes everything to R-multiples, making expectancy, SQN score, and equity curves mathematically honest instead of just numbers on inconsistent data."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Fixed-R Position Sizing", "item": "https://sgnldk.com/blog/fixed-r-position-sizing/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Breadcrumb -->
+    <div class="max-w-3xl mx-auto px-6 pt-8">
+        <nav class="flex items-center gap-2 text-xs font-mono text-zinc-500">
+            <a href="../../index.html" class="hover:text-zinc-300 transition-colors">Home</a>
+            <span>/</span>
+            <a href="../index.html" class="hover:text-zinc-300 transition-colors">Blog</a>
+            <span>/</span>
+            <span class="text-zinc-400">Fixed-R Position Sizing</span>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="relative pt-10 pb-12 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-04-22" class="text-xs font-mono text-zinc-500">April 22, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Position Sizing</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Why Most Traders Risk Too Much on Every Trade (And How Fixed-R Position Sizing Fixes It)
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Sizing by dollars feels deliberate. It isn't. Here's why every dollar-based position size is an arbitrary guess, what Fixed-R actually means, and why getting this right is the foundation everything else in your journal is built on.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- The Arbitrary Dollar Trap -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Arbitrary Dollar Trap</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Ask most retail traders how they size their positions and you'll hear some version of: "I risk $200 per trade" or "I always put $5,000 into a setup." The number feels deliberate. It isn't.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A $200 risk on a $4,000 account is 5% exposure — dangerously high, one bad week from meaningful damage. The same $200 on a $40,000 account is 0.5% — completely reasonable. The dollar amount is identical. The risk profile is unrecognizable. When you size by dollars instead of account fraction, you're not controlling risk. You're labeling it.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is why position sizing is the most underrated variable in trading. Most traders spend months refining entries while sizing every trade by feel — perfecting the setup while leaving the most consequential decision to instinct. The entry accounts for maybe 20% of long-run outcome. The sizing accounts for the other 80%.
+            </p>
+
+            <!-- What Fixed-R Actually Means -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Fixed-R Actually Means</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Fixed-R position sizing solves this with one rule: risk a consistent percentage of current account equity on every trade. That percentage — typically 0.5% to 2% depending on your system — defines 1R. Not the dollar amount, not the share count. The fraction.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">The mechanics:</p>
+            <ol class="list-decimal list-inside space-y-2 text-zinc-300 mb-6 pl-2">
+                <li>Define your risk percentage (e.g., 1%)</li>
+                <li>Multiply by current account equity → that dollar amount is 1R</li>
+                <li>Identify your stop loss distance for this specific trade</li>
+                <li>Divide dollar risk by stop distance → that's your position size</li>
+            </ol>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Position size becomes a derived output, not an input. You never guess how many shares to buy. The formula tells you exactly how many shares puts 1R at risk given this specific stop.
+            </p>
+
+            <!-- The Formula -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Formula</h2>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-6">
+Position Size = (Account × Risk%) ÷ Stop Distance
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">Worked example:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Input</th>
+                            <th class="px-4 py-3 text-left font-semibold">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Account size</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$12,500</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Risk per trade</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">1% → $125 (this is 1R)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Entry price</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$48.20</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Stop loss</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$47.45</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Stop distance</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$0.75/share</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-semibold">Position size</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400 font-semibold">$125 ÷ $0.75 = 167 shares</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Change the stop and the formula adjusts automatically. A tighter stop on the same setup means more shares. A wider stop means fewer. The risk stays locked at $125. The position adapts to fit it. This is the opposite of how most traders work — they decide shares first and let the stop determine how much they're actually risking.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                For forex traders, the formula is the same with pip value substituted for stop distance: <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">Lot Size = Dollar Risk / (Pip Distance × Pip Value)</span>. A 20-pip stop on EURUSD with a $100 risk target gives you the lot size directly — no guessing.
+            </p>
+
+            <!-- Why This Makes Your Journal Meaningful -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why This Makes Your Journal Meaningful</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Without Fixed-R, your trade journal is a collection of incomparable numbers. A +$400 win on a 500-share position and a +$400 win on a 50-share position look identical in P&amp;L terms. They're not. The first might be a 0.8R result. The second could be a 4R exceptional outcome. You can't know which without normalizing by risk — and without knowing which, your expectancy calculation is noise.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">Compare what your journal looks like with and without Fixed-R:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Trade</th>
+                            <th class="px-4 py-3 text-left font-semibold">Shares</th>
+                            <th class="px-4 py-3 text-left font-semibold">P&L</th>
+                            <th class="px-4 py-3 text-left font-semibold">Without Fixed-R</th>
+                            <th class="px-4 py-3 text-left font-semibold">With Fixed-R</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Jan 8</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">500</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+$320</td>
+                            <td class="px-4 py-3 text-zinc-500 italic">unknown R</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+1.1R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Feb 3</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">80</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+$320</td>
+                            <td class="px-4 py-3 text-zinc-500 italic">unknown R</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+3.8R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Mar 17</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">1,200</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-$180</td>
+                            <td class="px-4 py-3 text-zinc-500 italic">unknown R</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-0.6R</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The January and February trades produced identical dollar gains but completely different risk-adjusted results. The February trade on 80 shares wasn't a small win — it was a 3.8R exceptional outcome. Without Fixed-R, that signal disappears into the noise. With Fixed-R, your journal tells you which setups actually perform.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                With Fixed-R, every trade in your journal speaks the same language. A +2.3R result in March and a +2.3R result in October are directly comparable — regardless of position size, account balance at the time, or market conditions. Your expectancy is real. Your SQN score means something. Your equity curve is honest.
+            </p>
+
+            <!-- What Happens During a Drawdown -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Happens During a Drawdown</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is where Fixed-R pays its most important dividend. When your account shrinks during a losing run, your dollar risk per trade automatically shrinks with it. You never bet the same absolute dollar amount into a weakened account.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">Trace both approaches through 6 consecutive losses on a $10,000 account, risking $100 per trade (fixed dollar) versus 1% per trade (Fixed-R):</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">After Loss</th>
+                            <th class="px-4 py-3 text-left font-semibold">Fixed $100/trade</th>
+                            <th class="px-4 py-3 text-left font-semibold">Fixed 1% of Equity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Start</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$10,000</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$10,000</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Loss 1</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,900</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,900</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Loss 2</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,800</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,801</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Loss 3</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,700</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,703</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Loss 4</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,600</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,606</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Loss 5</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,500</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,510</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Loss 6</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$9,400</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">$9,415</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-800/50">
+                            <td class="px-4 py-3 text-zinc-300 font-semibold">Total drawdown</td>
+                            <td class="px-4 py-3 font-mono text-rose-400 font-semibold">-$600 (6.0%)</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400 font-semibold">-$585 (5.85%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The numbers look similar here — but stretch this to 20 consecutive losses and the gap compounds dramatically. At 20 losses, Fixed-Dollar has lost exactly 20% of the starting account. Fixed-R (1% compounding down) has lost 18.2%. More importantly: every subsequent Fixed-R trade risks 1% of whatever the account is now, not 1% of the original starting value. The system scales down automatically. Survival is structural, not willpower.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "Fixed-R doesn't just protect your account during a drawdown. It protects your psychology. When you know each loss is exactly 1R, you can stay analytical instead of emotional."
+            </blockquote>
+
+            <!-- The Kelly Criterion -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Kelly Criterion: Fixed-R's Optimization Layer</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Fixed-R answers "how much should I risk?" with a conservative, consistent answer. The Kelly Criterion adds a second layer: given your specific edge, what's the mathematically optimal risk fraction to maximize long-run account growth?
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">Kelly is derived from your actual R-data:</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
+Kelly % = Win Rate - (Loss Rate / Reward:Risk Ratio)
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                For a system with 45% win rate and an average 2:1 reward-to-risk: <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">0.45 - (0.55 / 2) = 0.45 - 0.275 = 17.5%</span>. Full Kelly says risk 17.5% per trade — which is catastrophically aggressive. Most practitioners use half-Kelly (8.75% here) or quarter-Kelly, capturing most of the growth benefit while dramatically reducing variance.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The catch: Kelly requires accurate input data. A system with 30 trades has a noisy estimate. With 300 trades, it's meaningful. This is why Fixed-R comes first — you build the journal, accumulate clean R-normalized data, and eventually let Kelly refine the percentage when you have enough trades to trust the inputs. Kelly is the destination. Fixed-R is how you get there with your account intact.
+            </p>
+
+            <!-- How SignalDeck Automates This -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Automates This</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck calculates Kelly Criterion from your live trade history and surfaces it as a position size recommendation — lot sizes for forex, share quantities for equities and CFDs. As your trade history grows, the Kelly recommendation updates in real time. No spreadsheet formulas, no manual recalculation.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                More importantly: because every trade in SignalDeck is logged with entry price, stop, and position size, R-Multiple is calculated automatically. You don't have to normalize your data after the fact — the journal is normalized from the first entry. Expectancy, SQN score, profit factor, and the cumulative R-curve all flow from the same risk-adjusted foundation. The metrics mean what they're supposed to mean because the sizing is what it's supposed to be. <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Start journaling with automatic R-calculation — free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is Fixed-R position sizing?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Fixed-R position sizing means risking a consistent percentage of your account equity on every trade, defining that percentage as 1R. Position size is derived by dividing your dollar risk by the stop distance on each specific trade. The result is a system where risk is controlled structurally — every trade outcome is expressed in comparable units of risk and your journal data becomes genuinely meaningful.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What percentage of my account should I risk per trade?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">For most retail traders, 0.5% to 2% per trade is the practical range. At 1%, a 10-trade losing streak costs roughly 9.6% of your account (compounding down). At 2%, the same streak costs approximately 18.3%. The right number depends on your system's SQN score and expected drawdown depth — a higher-SQN system can tolerate slightly more risk per trade.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I calculate position size from a stop loss?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The formula is: Position Size = (Account × Risk%) / Stop Distance. If your account is $15,000, you risk 1% ($150), and your stop is $0.60 per share, your position size is $150 / $0.60 = 250 shares. For forex, substitute pip value for stop distance: dollar risk / (pip distance × pip value) = lot size.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the difference between Fixed-R and Kelly Criterion?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Fixed-R is a structural rule — risk a fixed percentage per trade regardless of your current edge estimate. Kelly Criterion is a mathematical optimization — it derives the ideal risk fraction from your actual win rate and average R. Kelly requires sufficient trade history to be reliable (ideally 100+ trades). Fixed-R works from day one. Most serious traders start with Fixed-R, build the journal data, and use Kelly to refine the percentage once they have enough trades to trust the input.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why does position sizing matter for trade journaling?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">When every trade risks a different arbitrary dollar amount, your journal entries are incomparable. A $300 win on a 20-share position and a $300 win on 500 shares look identical in P&amp;L terms but represent completely different risk-adjusted outcomes. Fixed-R normalizes everything to R-multiples, making expectancy, SQN score, and equity curves mathematically honest instead of just numbers on inconsistent data.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../why-win-rate-is-lying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Win Rate Is Lying to You (And What to Track Instead)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 30, 2026</p>
+                    </a>
+                    <a href="../how-to-calculate-sqn-score/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Calculate Your Trading System Quality Number (SQN)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 20, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Stop guessing your position size.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck calculates R-Multiple automatically from your entry, stop, and position size — and derives your Kelly Criterion sizing from your live trade history. The math is handled. Free during beta.</p>
+                <a href="https://app.sgnldk.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="gtag('event', 'blog_cta_click', {'article': 'fixed-r-position-sizing'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta — Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

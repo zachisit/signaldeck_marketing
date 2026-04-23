@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome to SignalDeck — New User Onboarding</title>
+    <meta name="description" content="Get up to speed with SignalDeck in minutes. Watch the walkthrough, learn the Discord channels, and start journaling.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .loom-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .loom-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+        .step-number {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+
+    <!-- Nav -->
+    <nav class="border-b border-zinc-800/60 bg-zinc-950">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="flex items-center gap-3 h-14">
+                <img src="../img/signaldeck_logo_nav.png" class="h-5 w-5 object-contain" alt="SignalDeck">
+                <span class="text-white font-bold tracking-tight">SignalDeck</span>
+                <span class="ml-1 px-2 py-0.5 rounded text-[10px] font-bold bg-blue-900/50 text-blue-300 border border-blue-700/40 font-mono uppercase tracking-wide">Beta</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 py-14">
+
+        <!-- Header -->
+        <div class="mb-12">
+            <p class="text-xs font-mono text-blue-400 uppercase tracking-[0.2em] mb-3">New User Onboarding</p>
+            <h1 class="text-4xl font-bold text-white tracking-tight mb-4">
+                Welcome. Let's get you<br>up to speed.
+            </h1>
+            <p class="text-zinc-400 leading-relaxed max-w-xl">
+                You've got free lifetime access during beta. Here's everything you need to know to get the most out of it — takes about 5 minutes.
+            </p>
+        </div>
+
+        <!-- Step 1: Video -->
+        <section class="mb-14">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="step-number bg-blue-600 text-white">1</div>
+                <h2 class="text-lg font-bold text-white">Watch the platform walkthrough</h2>
+            </div>
+
+            <div class="border border-zinc-800 rounded-xl overflow-hidden shadow-2xl shadow-black/40">
+                <div class="loom-wrapper">
+                    <iframe
+                        src="https://www.loom.com/embed/3dbe561a289242b8a4bce37148b18ee2"
+                        allowfullscreen
+                        allow="autoplay; fullscreen"
+                        title="SignalDeck — New User Walkthrough">
+                    </iframe>
+                </div>
+            </div>
+
+            <p class="mt-3 text-xs text-zinc-600 font-mono text-center">New users: watch this to get up to speed as quickly as possible</p>
+        </section>
+
+        <!-- Step 2: The Deal -->
+        <section class="mb-14">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="step-number bg-emerald-600 text-white">2</div>
+                <h2 class="text-lg font-bold text-white">Understand the deal</h2>
+            </div>
+
+            <div class="bg-zinc-900/60 border border-emerald-500/25 rounded-xl p-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-lg">⚡</span>
+                    <span class="font-mono font-bold text-emerald-400 text-sm tracking-wider uppercase">The Deal (Read This)</span>
+                </div>
+                <p class="text-zinc-300 leading-relaxed mb-4">
+                    You have <strong class="text-white">"Free for Life"</strong> access in exchange for active feedback during this phase. I need to know what breaks and what features are useless.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3 bg-zinc-950/60 rounded-lg px-4 py-3">
+                        <span class="text-base mt-0.5">🐛</span>
+                        <div>
+                            <span class="text-white font-semibold text-sm">If it breaks</span>
+                            <p class="text-zinc-400 text-sm mt-0.5">Post in <span class="font-mono text-zinc-200 bg-zinc-800 px-1.5 py-0.5 rounded text-xs">#bug-reports</span>. Screenshots help.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 bg-zinc-950/60 rounded-lg px-4 py-3">
+                        <span class="text-base mt-0.5">💡</span>
+                        <div>
+                            <span class="text-white font-semibold text-sm">If it's annoying or confusing</span>
+                            <p class="text-zinc-400 text-sm mt-0.5">Post in <span class="font-mono text-zinc-200 bg-zinc-800 px-1.5 py-0.5 rounded text-xs">#feature-requests</span>.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 bg-zinc-950/60 rounded-lg px-4 py-3">
+                        <span class="text-base mt-0.5">📈</span>
+                        <div>
+                            <span class="text-white font-semibold text-sm">If you just want to talk markets</span>
+                            <p class="text-zinc-400 text-sm mt-0.5">Use <span class="font-mono text-zinc-200 bg-zinc-800 px-1.5 py-0.5 rounded text-xs">#general</span>.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 bg-zinc-950/60 rounded-lg px-4 py-3">
+                        <span class="text-base mt-0.5">🔧</span>
+                        <div>
+                            <span class="text-white font-semibold text-sm">Peek inside the Dev Dungeon</span>
+                            <p class="text-zinc-400 text-sm mt-0.5">See what's actively being built in <span class="font-mono text-zinc-200 bg-zinc-800 px-1.5 py-0.5 rounded text-xs">#live-dev-dungeon</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Join Discord -->
+        <section class="mb-14">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="step-number bg-indigo-600 text-white">3</div>
+                <h2 class="text-lg font-bold text-white">Join the Discord</h2>
+            </div>
+
+            <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                <div>
+                    <p class="text-white font-semibold mb-1">SignalDeck Beta Community</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">
+                        Small, intentional group. Direct access to the founder. Feature requests that actually ship within 48 hours.
+                    </p>
+                </div>
+                <a href="https://sgnldk.com/discord.html"
+                   onclick="gtag('event', 'onboarding_discord_click');"
+                   target="_blank" rel="noopener noreferrer"
+                   class="flex-shrink-0 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg transition-colors text-sm">
+                    Join Discord
+                </a>
+            </div>
+        </section>
+
+        <!-- Step 4: Open the app -->
+        <section class="mb-6">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="step-number bg-amber-600 text-white">4</div>
+                <h2 class="text-lg font-bold text-white">Open the app and log your first trade</h2>
+            </div>
+
+            <div class="bg-zinc-900/60 border border-amber-500/20 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                <div>
+                    <p class="text-white font-semibold mb-1">app.sgnldk.com</p>
+                    <p class="text-zinc-400 text-sm">Log a trade, run a post mortem, check your SQN. That's the loop.</p>
+                </div>
+                <a href="https://app.sgnldk.com"
+                   onclick="gtag('event', 'onboarding_app_click');"
+                   target="_blank" rel="noopener noreferrer"
+                   class="flex-shrink-0 px-6 py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors text-sm">
+                    Open App
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-zinc-800/50 bg-zinc-950 py-8 mt-6">
+        <div class="max-w-3xl mx-auto px-6 text-center text-xs text-zinc-600 font-mono">
+            <span>&copy; 2026 SignalDeck &mdash; Free during beta</span>
+        </div>
+    </footer>
+
+</body>
+</html>

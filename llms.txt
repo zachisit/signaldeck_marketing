@@ -176,7 +176,7 @@ A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spread
 - Content: Why dollar-based position sizing is arbitrary and context-free, how Fixed-R ties every trade to a consistent percentage of account equity (defining 1R), the formula (Position Size = Account × Risk% ÷ Stop Distance) with a worked stock and forex example, a comparison table showing how the same P&L means completely different things without risk normalization, a 6-trade drawdown comparison showing Fixed-R vs fixed-dollar account decay, the relationship between Fixed-R and Kelly Criterion (Fixed-R first, Kelly as the optimization layer once 100+ trades exist), and how SignalDeck calculates R-Multiple automatically and derives Kelly sizing from live trade history
 
 ### Brand Ambassador — PAP€RWORK (@gr3fter)
-- URL: https://sgnldk.com/gr3fter/
+- URL: https://sgnldk.com/brand_ambassadors/paperwork/
 - Content: Brand ambassador landing page for @gr3fter (PAP€RWORK), a CFD and index trader who trades NQ (NAS100) and Gold (XAUUSD) using logic, price action, and patience-based entries. Page highlights SignalDeck's native support for gr3fter's instruments (XAUUSD, NAS100, FX), the Post Mortem protocol mapped to their "sit on your hands" discipline philosophy, SQN edge validation, and prop firm challenge tracking. Referral code: PAPERWORK. Targets CFD traders, Gold/NQ traders, and prop firm traders who follow gr3fter on X.
 
 ### Discord Community

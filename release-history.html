@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-04-21",
+      "dateModified": "2026-04-23",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,95 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.34 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.34-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 23, 2026 3:29PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Backend rewrite and a couple of UI updates. The audit worker now enforces stop-losses correctly for all scanner strategies — scanner paper trades close when they should, at the right price, on the right date.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Audit Worker — Stop Enforcement</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Real ATR Stops</strong> — Stop distances are now calculated using a proper 14-period Wilder ATR, matching the scanner's own exit logic exactly. The old approximation was routinely off.</li>
+                            <li><strong class="text-zinc-200">Spring Low Stops</strong> — VSA strategies (Stopping Volume, Shakeout Trap, No Supply, Pocket Pivot, and others) now close when price breaks below the signal bar's low. Previously these trades had no automatic stop at all.</li>
+                            <li><strong class="text-zinc-200">Signal Reversal Exits</strong> — When the scanner flips from a buy to a sell signal, open trades on that strategy close immediately — no more waiting for a manual close.</li>
+                            <li><strong class="text-zinc-200">Trailing Stops</strong> — ATR trailing stop strategies ratchet the stop up daily as the trade moves in your favour. Stop never moves down.</li>
+                            <li><strong class="text-zinc-200">End-of-Day Exits</strong> — Intraday strategies close at the Day 0 market close price automatically.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">UI</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Avatar in Nav</strong> — Your profile picture now shows in the top-right navigation button.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Screenshot Uploads</strong> — Fixed a bug causing screenshots to silently fail on upload in some server environments.</li>
+                            <li><strong class="text-zinc-200">Calendar Share Button</strong> — The share button now works correctly when viewing the current (empty) month.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.33 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.33-Beta</h2>
+                    <span class="text-sm font-mono text-zinc-500">Apr 21, 2026 2:17PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Biggest release in a while. Calendar gets a full v2 overhaul with nine new features, public profiles gain two new stat sections, and a fix pass covers crypto routing, alert nudges, and session stability.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Calendar v2</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Month / Week / Year Views</strong> — Toggle between a monthly grid, a weekly breakdown, and a full-year heatmap showing your trading activity at a glance.</li>
+                            <li><strong class="text-zinc-200">Instrument Filter</strong> — Filter the calendar down to Stocks, Forex, or Crypto with one tap. All is the default.</li>
+                            <li><strong class="text-zinc-200">Monthly Goals</strong> — Set a P&amp;L target for the month and track progress with a live progress bar in the summary strip.</li>
+                            <li><strong class="text-zinc-200">Summary Strip Upgrades</strong> — Prior-month comparison deltas on every summary card, a new Worst Day widget, and the Borg team streak leaderboard — all in the 7-widget strip.</li>
+                            <li><strong class="text-zinc-200">Share Button</strong> — Copy your monthly stats summary to the clipboard in one click.</li>
+                            <li><strong class="text-zinc-200">Year Heatmap on Public Profiles</strong> — Your trading activity heatmap is now visible on your public profile page.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Public Profile Stats</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Trading Consistency Score</strong> — A new score card on public profiles showing how consistently you traded over the past period.</li>
+                            <li><strong class="text-zinc-200">Last 20 Trades Dot Grid</strong> — A compact 10×2 grid of your most recent trades, colour-coded green / red / blue for win / loss / breakeven at a glance.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes &amp; Polish</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Spinner</strong> — Page load spinner replaced with the animated SignalDeck logo.</li>
+                            <li><strong class="text-zinc-200">Alert Nudge</strong> — The nudge banner no longer appears on trades that already have alerts configured.</li>
+                            <li><strong class="text-zinc-200">Crypto Prices</strong> — BTCUSD, ETHUSD, and similar symbols now route to the correct price feed instead of falling through to the forex path.</li>
+                            <li><strong class="text-zinc-200">Fractional Crypto Quantities</strong> — Entering quantities like 0.25 BTC no longer triggers browser validation errors.</li>
+                            <li><strong class="text-zinc-200">Session Stability</strong> — Auth expiry on alerts, strategies, and team screens now redirects cleanly. Corrupted filter state in local storage is caught and cleared on load.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.32 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.32-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Apr 21, 2026 8:07AM</span>
                 </div>
 

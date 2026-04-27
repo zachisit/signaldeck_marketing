@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-04-23",
+      "dateModified": "2026-04-27",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,57 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.38 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.38-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 27, 2026 11:28AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Trade deletion is now safe and reversible, plus a new referral stats view and a post-mortem nudge that keeps review discipline front of mind.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Soft Delete</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Nothing is lost permanently</strong> — Deleted trades are now soft-deleted (hidden, not gone). The row is preserved for recovery while disappearing from your view immediately.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Referral User Progress</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Stats at a glance</strong> — Click any row in your Referrals table to open a breakdown for that user: total P&amp;L, win rate, average R-multiple, and their best and worst trades.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Post-Mortem Nudge</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Built-in review reminder</strong> — Closed trades without a post mortem now show an amber prompt across every tab of the trade detail, with a direct link to write the review.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Exit Slippage</strong> — No longer shows a value when your exit price was at or better than your stop. Favorable execution now correctly records no slippage.</li>
+                            <li><strong class="text-zinc-200">Calendar Refresh</strong> — Post-mortem counts and P&amp;L totals update immediately after saving a review, closing a trade, or deleting one.</li>
+                            <li><strong class="text-zinc-200">Close Trade Form</strong> — Exit price and exit reason fields now have a prominent orange border so they're impossible to miss. P&amp;L preview appears above the screenshot upload. Exit price no longer pre-fills from the previous trade.</li>
+                            <li><strong class="text-zinc-200">Same-Day Duration</strong> — Trades opened and closed the same day now show hours and minutes instead of "0 days".</li>
+                            <li><strong class="text-zinc-200">Confidence Sliders</strong> — Setup Confidence, Psychological Confidence, and Emotional Scale sliders now reset cleanly when you return to the New Trade screen.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.37 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.37-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Apr 24, 2026 2:36PM</span>
                 </div>
 

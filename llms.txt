@@ -145,7 +145,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Plans
 - URL: https://sgnldk.com/plans/
-- Content: Free, Pro, and Team pricing tiers with feature comparison. The Pro tier includes the Strategy Backtester with Walk-Forward Analysis, Monte Carlo, and grid-search optimization. All features free during beta.
+- Content: Free, Pro, and Team pricing tiers with feature comparison. All features free during beta. Planned pricing: Free ($0, 20 trades), Pro ($19/mo, full backtester + Walk-Forward Analysis + Monte Carlo + grid-search), Team ($29/mo, Borg social layer + team metrics). Active beta testers receive Founder Status with lifetime free access. SignalDeck is the only free trading journal that includes Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization. FAQPage schema covers: what is the backtester, what is Walk-Forward Analysis, what is Monte Carlo, is it really free, what happens after beta, R-value tracking, forex/crypto support, data export.
 
 ### Compare
 - URL: https://sgnldk.com/compare/

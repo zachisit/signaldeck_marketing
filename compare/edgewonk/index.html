@@ -91,6 +91,47 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does Edgewonk have a strategy backtester?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Edgewonk has a feature called a backtester that requires you to manually enter R-multiples for historical trades — it does not execute rules against historical price data. SignalDeck has a true rule-based backtester with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does SignalDeck compare to Edgewonk for R-Multiple tracking?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Edgewonk lets you manually enter R-multiples in a spreadsheet-style interface. SignalDeck calculates R-multiples automatically from entry, stop, and exit prices and uses R as the core organizing principle — every metric flows from risk-normalized R-value, including SQN, Kelly Criterion, equity curves, and Post Mortems."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is SignalDeck or Edgewonk better for psychology tracking?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Edgewonk has a strong psychology focus with Diary and mental state tracking. SignalDeck adds a structured 5-step Post Mortem protocol (Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback) that goes beyond free-text psychology notes into a systematic review process, with behavioral tags tied to R-multiples so psychology becomes measurable data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Edgewonk support crypto?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Edgewonk does not natively support crypto. SignalDeck supports crypto natively with 24/7 market logging, multi-exchange tagging (Binance, Coinbase, Kraken, Bybit), spot and leverage journaling, and the full R-value analytics framework."
+                }
+            }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">

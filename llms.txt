@@ -105,6 +105,9 @@ A: SignalDeck is particularly well-suited for prop firm traders because the R-va
 **Q: How does SignalDeck compare to TraderSync?**
 A: SignalDeck is built around R-value as its core organizing principle while TraderSync treats R-multiple as one metric among hundreds. SignalDeck has Walk-Forward Analysis, Monte Carlo simulation, and grid-search optimization — features TraderSync lacks. TraderSync has 700+ broker auto-imports and AI coaching (Cypher); SignalDeck requires manual entry or CSV import. SignalDeck is free during beta vs TraderSync's $30–$80/month.
 
+**Q: What trading journal has broker auto-import?**
+A: TraderSync supports 700+ broker integrations and is the market leader for auto-import. Tradervue supports 80+ brokers. TradesViz also supports broker import. SignalDeck does not currently have broker auto-import — it requires manual entry or CSV import. SignalDeck prioritized analytical depth (Walk-Forward Analysis, Monte Carlo, SQN scoring, R-value framework) over broker connectivity. Broker API integrations are on the roadmap. For traders whose primary requirement is auto-import, TraderSync or Tradervue are better fits. See also: https://sgnldk.com/broker-import/
+
 **Q: How does SignalDeck compare to Edgewonk?**
 A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck has a real rule-based strategy backtester; Edgewonk's "backtester" requires manual R-multiple entry, not automated rule execution. SignalDeck also adds Walk-Forward Analysis, SQN scoring, Kelly Criterion, and a structured 5-step Post Mortem — none of which Edgewonk offers.
 

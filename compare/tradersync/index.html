@@ -91,6 +91,47 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck or TraderSync have better backtesting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck has a significantly more sophisticated backtesting workflow. It includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, and grid-search parameter optimization — none of which TraderSync offers. TraderSync has a basic rule-based backtester with 70+ indicators but no Walk-Forward Analysis, no Monte Carlo, and no parameter optimization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does TraderSync have R-Multiple tracking?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "TraderSync includes R-multiple as one metric among many. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN score, Kelly Criterion, equity curves, Post Mortem reviews) flows from risk-normalized R-value. The difference is between a metric and a framework."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why doesn't SignalDeck have broker auto-import like TraderSync?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "TraderSync supports 700+ broker integrations. SignalDeck requires manual entry or CSV import. We prioritized analytical depth — manual logging reinforces trade discipline. Broker API integrations are on the roadmap."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which is cheaper, SignalDeck or TraderSync?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck is free during beta with all features unlocked. TraderSync is $30–$80/month. Active SignalDeck beta testers receive Founder Status with lifetime free access after beta ends."
+                }
+            }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">

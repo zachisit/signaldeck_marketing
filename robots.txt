@@ -2,6 +2,10 @@ User-agent: *
 Allow: /
 Sitemap: https://sgnldk.com/sitemap.xml
 
+# LLM context files
+# https://sgnldk.com/llms.txt
+# https://sgnldk.com/llms-full.txt
+
 # AI Crawlers
 User-agent: GPTBot
 Allow: /

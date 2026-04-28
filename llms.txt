@@ -105,6 +105,15 @@ A: SignalDeck is built around R-value as its core organizing principle while Tra
 **Q: How does SignalDeck compare to Edgewonk?**
 A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck has a real rule-based strategy backtester; Edgewonk's "backtester" requires manual R-multiple entry, not automated rule execution. SignalDeck also adds Walk-Forward Analysis, SQN scoring, Kelly Criterion, and a structured 5-step Post Mortem — none of which Edgewonk offers.
 
+**Q: How does SignalDeck compare to TradeZella?**
+A: TradeZella offers community features and a manual bar-by-bar trade replay (the user places trades on historical charts by hand — not automated rule backtesting). Its backtested trades appear alongside live trades in the same journal, which conflates simulated and real performance. SignalDeck has a fully automated rule-based strategy backtester with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization — none of which TradeZella offers. SignalDeck also has a native R-value framework, structured Post Mortem protocol, and SQN scoring. TradeZella has broker auto-import; SignalDeck requires manual or CSV entry.
+
+**Q: How does SignalDeck compare to Tradervue?**
+A: Tradervue is the industry standard for broker auto-import (80+ brokers) and has a large established user base, but its UX is legacy and it has no psychology analytics, no backtester, no R-value framework, no SQN scoring, and no structured post mortem. SignalDeck is free during beta vs Tradervue's $30–$50/month. SignalDeck wins on analytics depth across every dimension except broker import volume.
+
+**Q: How does SignalDeck compare to TradesViz?**
+A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy backtester with 70+ indicators and 30,000+ tickers. It includes a same-symbol buy-and-hold comparison metric. However, TradesViz has no R-value framework as an organizing principle, no Walk-Forward Analysis, no Monte Carlo simulation, and no grid-search parameter optimization. SignalDeck's backtesting workflow (Walk-Forward Analysis + 1,000-path Monte Carlo + grid-search + SPY/QQQ benchmark + backtest-to-journal equity overlay) is more complete than TradesViz despite TradesViz having more indicators and tickers.
+
 ## Pages
 
 ### Homepage
@@ -165,11 +174,11 @@ A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spread
 
 ### Blog: How to Calculate Your Trading SQN Score
 - URL: https://sgnldk.com/blog/how-to-calculate-sqn-score/
-- Content: Step-by-step guide to calculating the System Quality Number (SQN) from trade data, including formula, benchmarks, worked example, and comparison to win rate
+- Content: Explains what R-Multiple is and why it normalizes trade results across different sizes, the full SQN formula (SQN = sqrt(N) × Mean R / StdDev R) with Van Tharp's sqrt(N) cap to prevent inflation from large samples, the five benchmark bands (below 1.6 = poor, 1.6–2.0 = average, 2.0–3.0 = good, 3.0–5.0 = excellent, 5.0+ = superb), a worked example (40 trades, mean R 0.8, StdDev 1.5 → SQN 3.37 "Excellent"), a side-by-side comparison showing why SQN beats win rate (System A 45% win rate with 3R winners scores excellent; System B 75% win rate with -2R losers scores poor), the minimum 30-trade requirement for a statistically meaningful result, and how SignalDeck calculates SQN in real time filterable by strategy, tag, date range, and asset class. FAQ covers: what is a good SQN score, how many trades needed, the formula.
 
 ### Blog: Why Your Win Rate Is Lying to You
 - URL: https://sgnldk.com/blog/why-win-rate-is-lying/
-- Content: Why win rate is a misleading vanity metric, how R-multiple and expectancy provide honest system evaluation, two-system comparison showing a 40% win rate outperforming 78%, and the four metrics professional traders track instead
+- Content: Explains why win rate measures frequency not magnitude and is nearly meaningless without context, a two-system comparison table (System A: 40% win rate, +2.8R avg winner, -1R avg loser, +0.52R expectancy, profit factor 1.87 — profitable; System B: 78% win rate, +0.4R avg winner, -1.8R avg loser, -0.08R expectancy, profit factor 0.87 — losing money), the four metrics that actually predict profitability (R-Multiple, Expectancy formula (Win Rate × Avg Win R) + (Loss Rate × Avg Loss R), Profit Factor with benchmark table from below 1.0 to above 3.0, and SQN Score), the psychology problem (why loss-averse traders abandon profitable low-win-rate systems during drawdowns), how data from a trade journal overrides emotional decision-making, and how SignalDeck centers expectancy/SQN/profit factor rather than win rate. FAQ covers: does win rate matter, what is a good expectancy, what to track instead of win rate, what is R-multiple.
 
 ### Blog: How to Know When Your Trading Strategy Is Dying
 - URL: https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/

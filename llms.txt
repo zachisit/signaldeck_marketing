@@ -135,6 +135,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com/crypto/
 - Content: Native crypto support with 24/7 market logging (no market-hours restrictions), multi-exchange tagging (Binance, Coinbase, Kraken, Bybit), spot and leverage journaling, fractional position sizes, and the full R-value analytics framework (SQN, expectancy, Kelly Criterion, Post Mortem protocol)
 
+### Prop Firm Traders
+- URL: https://sgnldk.com/prop-firm/
+- Content: Dedicated landing page targeting prop firm challenge and funded account traders. Covers: R-Multiple framework mirrors prop firm risk rules (daily loss limits, max drawdown rules align with 1R-per-trade sizing), native instrument support for NAS100/XAUUSD/GER40/US500/US30/forex, live stop monitoring on open positions, challenge vs funded account phase comparison using strategy/broker tags, SQN edge validation before scaling on funded capital, 5-step Post Mortem protocol for identifying recurring discipline errors. FAQ includes: best trading journal for prop firm traders, does it work for challenge accounts, how R-value helps prop traders, which instruments are supported. Targets FTMO, MyForexFunds, and similar prop firm participants.
+
 ### CFD & Indices
 - URL: https://sgnldk.com/cfd/
 - Content: Native CFD support for Gold (XAUUSD), Silver (XAGUSD), NAS100, US500, US30, GER40, and other common broker CFD tickers. Traders enter instruments exactly as their broker displays them — SignalDeck automatically routes each ticker to the correct live price feed (Gold → Polygon forex endpoint, NAS100 → NDX index feed, etc.) with no manual configuration. Features: live stop monitoring for open CFD positions, R-Multiple analytics for leveraged instruments, SQN scoring, Kelly Criterion lot sizing, strategy decay detection, and structured 5-step Post Mortem reviews. Targets prop firm traders on challenges and funded accounts, Gold/metals traders, and index CFD traders who have been underserved by stock-centric journals.

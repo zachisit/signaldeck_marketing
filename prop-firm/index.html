@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Best Trading Journal for Prop Firm Traders | SignalDeck</title>
+    <meta name="description" content="The trading journal built for prop firm challenges and funded accounts. R-value framework enforces the same discipline prop firms demand. Native NAS100, XAUUSD, GER40, and US500 support. Live stop monitoring. Free during beta.">
+    <meta name="keywords" content="prop firm trading journal, prop firm challenge journal, funded account trading journal, best trading journal prop firm, FTMO journal, MyForexFunds journal, NAS100 prop firm, XAUUSD prop firm journal, prop trader analytics, R-value prop firm">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/prop-firm/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/prop-firm/">
+    <meta property="og:title" content="Best Trading Journal for Prop Firm Traders | SignalDeck">
+    <meta property="og:description" content="The trading journal built for prop firm challenges and funded accounts. R-value framework, live stop monitoring, native CFD support, and SQN edge validation. Free during beta.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/prop-firm/">
+    <meta property="twitter:title" content="Best Trading Journal for Prop Firm Traders | SignalDeck">
+    <meta property="twitter:description" content="The trading journal built for prop firm challenges and funded accounts. R-value framework, live stop monitoring, native CFD support, and SQN edge validation. Free during beta.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SignalDeck",
+        "url": "https://app.sgnldk.com",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Professional trading journal for prop firm traders. R-value framework, live stop monitoring, native NAS100/XAUUSD/GER40/US500 support, SQN edge scoring, and structured Post Mortem reviews for challenge and funded account traders.",
+        "operatingSystem": "Web"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the best trading journal for prop firm traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck is built around R-Multiple as its core organizing principle — the same risk framework that prop firm rules are designed around. Daily loss limits and max drawdown rules become natural guardrails when every trade is sized in R. SignalDeck natively supports CFD instruments common in prop firm challenges (NAS100, XAUUSD, GER40, US500) with live stop monitoring, SQN scoring, and structured Post Mortem reviews. Free during beta."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck work for prop firm challenge accounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SignalDeck is used by prop firm traders on both challenge and funded accounts. The R-value framework tracks your risk per trade as a consistent fraction of your account, mirrors how prop firm daily loss limits work, and the SQN score tells you whether your edge is statistically real before you commit to scaling on a funded account."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which prop firm instruments does SignalDeck support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck natively supports NAS100, XAUUSD (Gold), GER40, US500, US30, and other common broker CFD tickers. Enter tickers exactly as your broker displays them — no formatting required. Live stop monitoring tracks open positions in real time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does R-value help prop firm traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prop firm rules — daily loss limits, max drawdown limits, consistency requirements — are all risk-based rules. R-Multiple thinking enforces the same discipline structurally. When every trade is sized as a fixed fraction of your account (1R), you can never accidentally risk 3% on a high-conviction trade and breach your daily limit in one position. The framework and the rules align by design."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I track both my challenge and funded account in SignalDeck?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Use SignalDeck's strategy and broker tags to separate challenge account trades from funded account trades. Compare SQN scores between phases to see whether your edge held up under real funded-account pressure, or whether you traded differently once real capital was involved."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981', 400: '#34d399' },
+                        rose: { 500: '#f43f5e' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-emerald-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Built for prop firm traders
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                The Trading Journal That Thinks<br>
+                <span class="text-emerald-400">Like a Prop Firm Risk Desk.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400">
+                Prop firm rules are risk-based rules. So is SignalDeck. R-value tracking, live stop monitoring, and SQN edge scoring — built for traders on challenges and funded accounts.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://app.sgnldk.com"
+                    onclick="gtag('event', 'prop_firm_beta_click', {'button_location': 'hero'});"
+                    target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
+                    Start Free — Beta Access
+                </a>
+                <a href="../cfd/index.html"
+                    class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
+                    View CFD Instruments
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: The R-Framework Mirrors Prop Firm Rules -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <!-- Mock risk card -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950/80 border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex items-center justify-between mb-5 pb-4 border-b border-zinc-800/50">
+                            <span class="text-xs font-mono text-zinc-500">Challenge Account · Day 14</span>
+                            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">ON TRACK</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">Today's R-Loss</span>
+                                <span class="text-lg font-mono font-bold text-rose-400">-0.8R</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">Max Daily Limit</span>
+                                <span class="text-lg font-mono font-bold text-zinc-300">-2.0R</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">Remaining Headroom</span>
+                                <span class="text-lg font-mono font-bold text-emerald-400">1.2R</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-3">
+                                <span class="text-xs font-mono text-zinc-400">SQN Score (System)</span>
+                                <span class="text-lg font-mono font-bold text-blue-400">2.6</span>
+                            </div>
+                            <div class="bg-zinc-900/50 border border-zinc-800/50 rounded-lg px-4 py-2">
+                                <p class="text-[10px] font-mono text-zinc-500">Good — edge is statistically real. Trust the system.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Prop Firm Rules Are Risk Rules.<br>
+                        <span class="text-emerald-400">R-value enforces them structurally.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        A 5% daily loss limit isn't a number you monitor manually — it's a structural constraint your position sizing must respect before every entry. When every trade is sized as a fixed fraction of your account (1R), you can't accidentally blow through your daily limit on a single high-conviction trade. The framework and the rule align by design.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        SQN scoring tells you whether your edge is statistically real before you scale it on a funded account. A 2.0+ SQN means your system earns its capital. Below 1.6, you're not ready — and funding it doesn't fix that.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Native Instrument Support -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-bold text-white mb-4">Every Instrument Prop Firms Trade. Natively.</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Enter tickers exactly as your broker shows them. No translation, no workarounds.</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">NAS100</div>
+                    <div class="text-xs font-mono text-zinc-500">Nasdaq 100</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">XAUUSD</div>
+                    <div class="text-xs font-mono text-zinc-500">Gold</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">GER40</div>
+                    <div class="text-xs font-mono text-zinc-500">DAX 40</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">US500</div>
+                    <div class="text-xs font-mono text-zinc-500">S&amp;P 500</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">US30</div>
+                    <div class="text-xs font-mono text-zinc-500">Dow Jones</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">Forex</div>
+                    <div class="text-xs font-mono text-zinc-500">All major pairs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Challenge vs Funded -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Track Challenge and Funded<br>
+                        <span class="text-emerald-400">Accounts Side by Side.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Most traders trade differently under real funded-account pressure than they did during the challenge. Strategy tags and broker filters let you separate your challenge trades from your funded account trades and compare SQN scores between phases.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        If your SQN drops when real capital is on the line, you've identified a psychology problem before it becomes an account breach. The journal makes the pattern visible. The Post Mortem protocol gives you a structured process to fix it.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <span>Tag trades by challenge phase, funded phase, or broker account</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <span>Compare SQN and expectancy across phases to detect behavioral drift</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <span>5-step Post Mortem on every closed trade to identify recurring discipline errors</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <span>Live stop monitoring on open positions — real-time alerts before a breach</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-emerald-500/20 transition-colors">
+                        <div class="text-emerald-400 text-2xl mb-3">R</div>
+                        <h3 class="text-white font-semibold text-sm mb-2">R-Multiple Tracking</h3>
+                        <p class="text-zinc-500 text-xs leading-relaxed">Every trade normalized to your initial risk. Comparable across all instruments and account sizes.</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-emerald-500/20 transition-colors">
+                        <div class="text-blue-400 text-2xl mb-3">SQN</div>
+                        <h3 class="text-white font-semibold text-sm mb-2">Edge Validation</h3>
+                        <p class="text-zinc-500 text-xs leading-relaxed">Know whether your system has a statistically real edge before scaling it on a funded account.</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-emerald-500/20 transition-colors">
+                        <div class="text-amber-400 text-2xl mb-3">⏱</div>
+                        <h3 class="text-white font-semibold text-sm mb-2">Live Stop Monitoring</h3>
+                        <p class="text-zinc-500 text-xs leading-relaxed">Real-time position monitoring with stop-level alerts on open CFD and forex trades.</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-emerald-500/20 transition-colors">
+                        <div class="text-purple-400 text-2xl mb-3">PM</div>
+                        <h3 class="text-white font-semibold text-sm mb-2">Post Mortem Protocol</h3>
+                        <p class="text-zinc-500 text-xs leading-relaxed">5-step structured review on every closed trade. Identify the discipline errors before they repeat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is the best trading journal for prop firm traders?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck is built around R-Multiple as its core organizing principle — the same risk framework that prop firm rules are designed around. Daily loss limits and max drawdown rules become natural guardrails when every trade is sized in R. SignalDeck natively supports CFD instruments common in prop firm challenges (NAS100, XAUUSD, GER40, US500) with live stop monitoring, SQN scoring, and structured Post Mortem reviews. Free during beta.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck work for prop firm challenge accounts?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. SignalDeck is used by prop firm traders on both challenge and funded accounts. The R-value framework tracks your risk per trade as a consistent fraction of your account, mirrors how prop firm daily loss limits work, and the SQN score tells you whether your edge is statistically real before you scale on a funded account.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How does R-value help prop firm traders specifically?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Prop firm rules — daily loss limits, max drawdown limits, consistency requirements — are all risk-based rules. R-Multiple thinking enforces the same discipline structurally. When every trade is sized as a fixed fraction of your account (1R), you can never accidentally risk 3% on a high-conviction trade and breach your daily limit in one position. The framework and the rules align by design.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Can I track both challenge and funded account trades?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. Use strategy and broker tags to separate challenge account trades from funded account trades. Compare SQN scores between phases to see whether your edge held up under real funded-account pressure, or whether you traded differently once real capital was involved.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Which prop firm instruments does SignalDeck support?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">NAS100, XAUUSD (Gold), GER40, US500, US30, Silver (XAGUSD), and all major forex pairs. Enter tickers exactly as your broker displays them — no manual translation required. SignalDeck routes each instrument to the correct live price feed automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Start journaling your prop firm trades.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">Free during beta. Every feature included — R-value tracking, SQN scoring, live stop monitoring, Post Mortem protocol, and native CFD instrument support.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="gtag('event', 'prop_firm_beta_click', {'button_location': 'cta'});"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
+                Join the Beta — Free
+            </a>
+            <p class="mt-4 text-xs text-zinc-600 font-mono">Active beta testers receive Founder Status — free for life.</p>
+        </div>
+    </section>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> |
+                <a href="../discord.html" class="hover:text-zinc-400">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

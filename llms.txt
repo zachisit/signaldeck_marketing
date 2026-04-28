@@ -69,6 +69,9 @@ Note: While several competitors offer basic backtesting, none combine Walk-Forwa
 
 ## Frequently Asked Questions
 
+**Q: What is the best trading journal for day traders?**
+A: SignalDeck is well-suited for day traders because of its execution quality analysis (entry slippage, exit slippage, limit alpha, MAE vs MFE scatter plots per symbol and strategy), real-time SQN scoring that updates as trades close intraday, and a strategy backtester that supports intraday timeframes (5m, 15m, 30m, 1h, 4h). The R-value framework is particularly useful for day traders who need to normalize results across varying position sizes and intraday volatility. Behavioral tagging (FOMO, hesitation, revenge trading) helps identify psychological patterns that recur at specific times of day. Free during beta.
+
 **Q: What trading journal has Walk-Forward Analysis?**
 A: SignalDeck is the only trading journal with Walk-Forward Analysis built in. It splits historical backtest data into 80% in-sample and 20% out-of-sample windows and returns a Pass or Likely Overfitted verdict.
 

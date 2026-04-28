@@ -160,6 +160,22 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com/jobs/
 - Content: Open positions (Software Engineering, Product & Growth for Forex and Crypto, Quantitative Strategy, Social Media Manager)
 
+### Jobs: Software Engineering Intern (Full Stack)
+- URL: https://sgnldk.com/jobs/software-engineering-intern-full-stack.html
+- Content: Full-stack internship role. Maintain FastAPI backend and Vanilla JS frontend, finalize the Forex execution layer, and lead architecture for the Crypto tracking layer. Agentic workflows (Claude Code) encouraged. Requires Python/FastAPI, Vanilla JS DOM familiarity, Docker, MariaDB, and GitLab CI/CD. Remote, 20 hrs/week, unpaid with technical mentorship from a Systems Architect with 20 years experience in distributed systems.
+
+### Jobs: Product & Growth Intern (Forex)
+- URL: https://sgnldk.com/jobs/product-and-growth-intern-forex.html
+- Content: Hybrid GTM and QA internship for the Forex launch. 50% go-to-market: map the forex ecosystem on X/Twitter, Instagram, and LinkedIn; source leads across prop firm participants and forex influencers; write human-to-human outreach. 50% product QA: test pip calculations, swap rates, leverage logic in the app. Requires forex literacy (pips, lot sizes, leverage, macro narrative). Remote, 20 hrs/week, unpaid.
+
+### Jobs: Product & Growth Intern (Crypto)
+- URL: https://sgnldk.com/jobs/product-and-growth-intern-crypto.html
+- Content: Hybrid GTM and QA internship for the Crypto launch. 50% go-to-market: map the crypto ecosystem, source leads across spot and perps traders, influencers, and community participants. 50% product QA: test crypto-specific features (spot vs perps, funding rates, fractional sizing). Requires crypto market literacy. Remote, 20 hrs/week, unpaid.
+
+### Jobs: Quantitative Strategy Associate Internship
+- URL: https://sgnldk.com/jobs/quantitative-strategy-associate-internship.html
+- Content: Quant strategy internship for a private family office. Review live common stock models for performance gaps and mathematical drift, lead research and foundational modeling for new Forex and Crypto strategy arms, and use proprietary backtesting infrastructure to forward-test models before live deployment. Requires quantitative finance background, Python or R, and statistical knowledge. Remote, 20 hrs/week, unpaid.
+
 ### Jobs: Social Media Manager
 - URL: https://sgnldk.com/jobs/social-media-manager.html
 - Content: Pre-seed startup social media role. Work 1:1 with the founder to build a custom content strategy from zero, generate first MRR, and own daily execution on X/Twitter. Unpaid, remote, 1–3 months depending on fit. Targets action-oriented, results-driven candidates who want to turn a pre-seed content playbook into a portfolio case study.
@@ -170,7 +186,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Blog
 - URL: https://sgnldk.com/blog/
-- Content: Articles on R-Multiple tracking, SQN scoring, trade post mortems, execution quality, and trading psychology
+- Content: Five published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, and Monte Carlo simulation for drawdown stress-testing. Topics target serious retail traders who want institutional analytics applied to their own trade data.
 
 ### Blog: How to Calculate Your Trading SQN Score
 - URL: https://sgnldk.com/blog/how-to-calculate-sqn-score/

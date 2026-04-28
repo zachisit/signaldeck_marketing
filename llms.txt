@@ -149,7 +149,11 @@ A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spread
 
 ### Jobs
 - URL: https://sgnldk.com/jobs/
-- Content: Open internship positions (Software Engineering, Product & Growth for Forex and Crypto, Quantitative Strategy)
+- Content: Open positions (Software Engineering, Product & Growth for Forex and Crypto, Quantitative Strategy, Social Media Manager)
+
+### Jobs: Social Media Manager
+- URL: https://sgnldk.com/jobs/social-media-manager.html
+- Content: Pre-seed startup social media role. Work 1:1 with the founder to build a custom content strategy from zero, generate first MRR, and own daily execution on X/Twitter. Unpaid, remote, 1–3 months depending on fit. Targets action-oriented, results-driven candidates who want to turn a pre-seed content playbook into a portfolio case study.
 
 ### Release History
 - URL: https://sgnldk.com/release-history.html

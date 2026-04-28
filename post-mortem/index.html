@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How to Review a Losing Trade: The 5-Step Post Mortem Protocol | SignalDeck</title>
+    <meta name="description" content="A structured 5-step framework for reviewing every closed trade — winners and losers. Setup Diagnosis, Management Diagnosis, Verdict, Training Gap, Mentor Feedback. Built into SignalDeck. Free during beta.">
+    <meta name="keywords" content="how to review a losing trade, trade post mortem, trade review framework, trading post mortem template, how to analyze a bad trade, trade journal review process, structured trade review, post mortem trading protocol">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/post-mortem/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/post-mortem/">
+    <meta property="og:title" content="How to Review a Losing Trade: The 5-Step Post Mortem Protocol | SignalDeck">
+    <meta property="og:description" content="A structured 5-step framework for reviewing every closed trade. Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback. Built into SignalDeck.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/post-mortem/">
+    <meta property="twitter:title" content="How to Review a Losing Trade: The 5-Step Post Mortem Protocol | SignalDeck">
+    <meta property="twitter:description" content="A structured 5-step framework for reviewing every closed trade. Built into SignalDeck. Free during beta.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you review a losing trade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A structured trade review should cover five areas: (1) Setup Diagnosis — was the setup valid according to your rules? (2) Management Diagnosis — did you manage the trade according to plan once it was on? (3) Verdict — was this a good process trade or a bad process trade, regardless of outcome? (4) Training Gap — what specific skill or discipline needs improvement? (5) Mentor Feedback — what would a more experienced trader say about this trade? SignalDeck has this 5-step Post Mortem protocol built in for every closed trade."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a trade post mortem?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A trade post mortem is a structured review of a closed trade that goes beyond P&L. It examines whether the trade followed your rules (setup quality), whether you managed it correctly once it was on (management quality), and what you can learn from it regardless of outcome. Good process on a losing trade is a different result than bad process on a winning trade — and most traders never make this distinction."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should you review winning trades too?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes — and this is where most traders miss critical information. A winning trade with bad process (random entry, oversized position, lucky exit) teaches the wrong lessons and often leads to repeating mistakes at larger size. A losing trade with good process confirms your rules work and that the loss was variance, not error. The Post Mortem verdict separates outcome from process, which is the only distinction that matters for long-run improvement."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-16 border-b border-zinc-900 text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-mono mb-6">
+                Structured Trade Review
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                How to Review a Losing Trade.<br><span class="text-purple-400">The 5-Step Post Mortem Protocol.</span>
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
+                Most traders look at a red trade and ask "what went wrong?" The right question is: "was the process correct?" Outcome and process are not the same thing — and confusing them is what keeps most traders stuck.
+            </p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','post_mortem_beta_click',{'button_location':'hero'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-purple-900/20">
+                Start Free — Beta Access
+            </a>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-6">Why Most Trade Reviews Are Useless</h2>
+            <p class="text-zinc-400 leading-relaxed mb-6">The typical trade review goes like this: look at the chart, see where you entered and exited, feel bad if it's red, feel good if it's green, move on. This teaches you nothing because it confuses outcome with process.</p>
+            <p class="text-zinc-400 leading-relaxed mb-6">A losing trade can be the result of a correct, disciplined process — the setup was valid, the management was sound, the loss was pure variance. A winning trade can be the product of a broken process — you sized too large, held through a violation of your rules, and got bailed out by luck. Reviewing only the P&L treats both as if they're the same thing.</p>
+            <p class="text-zinc-400 leading-relaxed">The Post Mortem protocol separates the outcome from the process. That's the only review worth doing.</p>
+        </div>
+    </section>
+
+    <!-- The 5 Steps -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">The 5-Step Post Mortem Protocol</h2>
+            <p class="text-zinc-400 text-center mb-14 max-w-2xl mx-auto">Required for every closed trade in SignalDeck. Not a free-text notes field — a structured diagnostic sequence.</p>
+            <div class="space-y-4">
+                <div class="flex gap-6 bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-purple-500/20 transition-colors">
+                    <div class="text-3xl font-bold font-mono text-purple-400 opacity-60 w-10 shrink-0">01</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">Setup Diagnosis</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Was the setup valid according to your rules at the time of entry? This is judged at the moment you entered — not with hindsight. A valid setup that lost is different from an invalid setup that won. You are diagnosing the entry decision, not the outcome.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-purple-500/20 transition-colors">
+                    <div class="text-3xl font-bold font-mono text-purple-400 opacity-60 w-10 shrink-0">02</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">Management Diagnosis</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Once the trade was on, did you manage it according to plan? Did you move your stop early? Exit before your target? Add to a losing position? Management errors are separate from setup errors — and often more expensive over time because they override the edge you spent months building.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-purple-500/20 transition-colors">
+                    <div class="text-3xl font-bold font-mono text-purple-400 opacity-60 w-10 shrink-0">03</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">Verdict</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Was this a good process trade or a bad process trade? This verdict is independent of P&L. A good process loss is a signal to keep trading the system. A bad process win is a warning to examine whether you got lucky. The verdict drives the learning, not the dollar sign.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-purple-500/20 transition-colors">
+                    <div class="text-3xl font-bold font-mono text-purple-400 opacity-60 w-10 shrink-0">04</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">Training Gap</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">What specific skill, habit, or knowledge needs work? Not "be more disciplined" — that's too vague. "I need to stop entering before the 8:30 data release" or "I need to pre-mark my stop before entering, not after." Specific, actionable, one thing at a time.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-purple-500/20 transition-colors">
+                    <div class="text-3xl font-bold font-mono text-purple-400 opacity-60 w-10 shrink-0">05</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">Mentor Feedback</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">What would a more experienced, emotionally detached version of you say about this trade? This step forces you to step outside the emotional reaction to the P&L and evaluate your decisions from a third-person perspective. It's the closest thing to having a trading coach in the room with you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How do you review a losing trade?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Go through the 5 steps: Setup Diagnosis (was the entry valid?), Management Diagnosis (did you manage it to plan?), Verdict (good process or bad process?), Training Gap (what specific improvement is needed?), Mentor Feedback (what would a rational, experienced trader say?). The goal is to separate the loss from your process quality — they are not always the same thing.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Should you review winning trades too?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. A winning trade on bad process teaches the wrong lessons and often leads to repeating the mistake at larger size. A losing trade on good process confirms your rules work and the loss was variance. The Verdict step makes this distinction explicit on every trade.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How long should a trade post mortem take?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">3–5 minutes per trade is enough if you're using a structured protocol. Free-text journaling takes longer and produces less consistent data. SignalDeck's Post Mortem is a fixed 5-step form — it forces you to answer the right questions quickly and produces structured data you can analyze across your entire trade history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Start reviewing trades the right way.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">The 5-step Post Mortem protocol is built into every closed trade in SignalDeck. Free during beta.</p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','post_mortem_beta_click',{'button_location':'cta'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-purple-900/20">
+                Join the Beta — Free
+            </a>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a></p>
+            <p class="mt-1"><a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+        </div>
+    </footer>
+</body>
+</html>

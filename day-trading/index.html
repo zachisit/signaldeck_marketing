@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Best Trading Journal for Day Traders | SignalDeck</title>
+    <meta name="description" content="The trading journal built for day traders. Intraday backtesting (5m/15m/30m/1h/4h), execution quality analysis (entry slippage, MAE/MFE), behavioral tagging, and real-time SQN scoring per strategy. Free during beta.">
+    <meta name="keywords" content="best trading journal for day traders, day trading journal, intraday trading journal, day trader analytics, execution quality day trading, trade journal day trader, SQN day trading, R-value day trading journal">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/day-trading/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/day-trading/">
+    <meta property="og:title" content="Best Trading Journal for Day Traders | SignalDeck">
+    <meta property="og:description" content="Intraday backtesting, execution quality analysis, behavioral tagging, and real-time SQN scoring for day traders. Free during beta.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/day-trading/">
+    <meta property="twitter:title" content="Best Trading Journal for Day Traders | SignalDeck">
+    <meta property="twitter:description" content="Intraday backtesting, execution quality analysis, behavioral tagging, and real-time SQN scoring for day traders. Free during beta.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the best trading journal for day traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck is built for day traders who want institutional-grade analytics on their intraday performance. Key features: intraday backtesting on 5m, 15m, 30m, 1h, and 4h timeframes; execution quality analysis measuring entry slippage and exit slippage per trade; MAE/MFE scatter plots to identify where you're leaving money on the table; behavioral tagging for FOMO, hesitation, and revenge trading; and real-time SQN scoring per strategy updated as trades close. Free during beta."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck support intraday backtesting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SignalDeck's strategy backtester supports intraday timeframes including 5-minute, 15-minute, 30-minute, 1-hour, and 4-hour bars — in addition to daily data up to 5 years. Walk-Forward Analysis and Monte Carlo simulation apply at all timeframes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is execution quality analysis for day traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Execution quality analysis measures the difference between your intended entry/exit and your actual fill. Entry slippage tells you how much you're paying above the intended price on market orders. Exit slippage shows how much you're giving back at close. Limit alpha measures the edge you capture by using limit orders. MAE (Maximum Adverse Excursion) and MFE (Maximum Favorable Excursion) show you how far trades moved against and in your favor before closing — identifying whether you're exiting too early or holding losers too long."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does behavioral tagging help day traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Behavioral tags let you mark the psychological driver behind each trade — FOMO, hesitation, revenge trading, overconfidence, or following the plan. Over time, the journal shows you which tags correlate with negative R-multiples, which times of day produce your worst behavioral trades, and whether specific market conditions trigger predictable mistakes. This turns psychology from a vague problem into a measurable, trackable pattern."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-16 border-b border-zinc-900 text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                Built for intraday traders
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                The Trading Journal Built<br><span class="text-blue-400">for Day Traders.</span>
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
+                Intraday backtesting on 5m through 4h bars. Execution quality analysis on every fill. Behavioral tagging that shows you exactly when and why you break your rules.
+            </p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','day_trading_beta_click',{'button_location':'hero'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                Start Free — Beta Access
+            </a>
+        </div>
+    </section>
+
+    <!-- Feature: Intraday Backtester -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Backtest Your Strategy on<br><span class="text-blue-400">Intraday Timeframes.</span></h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">Most trading journals have no backtester at all. SignalDeck's runs on 5-minute, 15-minute, 30-minute, 1-hour, and 4-hour bars — with Walk-Forward Analysis to detect overfitting and 1,000-path Monte Carlo to show you the worst-case drawdown your system is capable of before you risk real intraday capital.</p>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">✓</span><span>5m, 15m, 30m, 1h, 4h, and daily timeframes</span></li>
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">✓</span><span>Walk-Forward Analysis — Pass or Overfitted verdict per backtest</span></li>
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">✓</span><span>1,000-path Monte Carlo — 5th percentile worst-case drawdown</span></li>
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">✓</span><span>Grid-search parameter optimization across up to 500 combinations</span></li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-5 pb-4 border-b border-zinc-800/50">
+                        <span class="text-xs font-mono text-zinc-500">Backtest · NQ Breakout · 15m</span>
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">PASS ✓</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span class="text-zinc-500 font-mono">SQN Score</span><span class="text-blue-400 font-mono font-bold">2.8</span></div>
+                        <div class="flex justify-between"><span class="text-zinc-500 font-mono">Expectancy</span><span class="text-emerald-400 font-mono font-bold">+0.41R</span></div>
+                        <div class="flex justify-between"><span class="text-zinc-500 font-mono">Max Drawdown (actual)</span><span class="text-rose-400 font-mono">-6.2R</span></div>
+                        <div class="flex justify-between border-t border-zinc-800 pt-3"><span class="text-zinc-500 font-mono">5th pct drawdown (Monte Carlo)</span><span class="text-rose-400 font-mono font-bold">-11.4R</span></div>
+                        <div class="flex justify-between"><span class="text-zinc-500 font-mono">Prob. of Profit</span><span class="text-emerald-400 font-mono font-bold">91.2%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature: Execution Quality -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-bold text-white mb-4">Know Exactly Where Your Fills Are Costing You.</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Day traders live and die by execution. SignalDeck measures it on every single trade.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-blue-500/20 transition-colors">
+                    <div class="text-blue-400 font-mono text-sm font-bold mb-2">Entry Slippage</div>
+                    <p class="text-zinc-500 text-xs leading-relaxed">The difference between your intended entry and your actual fill. Identifies whether your market orders are costing you edge at open.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-blue-500/20 transition-colors">
+                    <div class="text-blue-400 font-mono text-sm font-bold mb-2">Exit Slippage</div>
+                    <p class="text-zinc-500 text-xs leading-relaxed">How much you're giving back on exit. High exit slippage on winning trades means your actual R is lower than planned.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-blue-500/20 transition-colors">
+                    <div class="text-blue-400 font-mono text-sm font-bold mb-2">MAE (Adverse Excursion)</div>
+                    <p class="text-zinc-500 text-xs leading-relaxed">How far a trade moved against you before turning profitable. Reveals whether your stops are too tight or your entries too early.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-blue-500/20 transition-colors">
+                    <div class="text-blue-400 font-mono text-sm font-bold mb-2">MFE (Favorable Excursion)</div>
+                    <p class="text-zinc-500 text-xs leading-relaxed">The maximum profit available on each trade before you exited. If MFE consistently exceeds your actual exit, you're leaving R on the table.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature: Behavioral Tagging -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <div class="text-xs font-mono text-zinc-500 mb-5 pb-4 border-b border-zinc-800/50">Psychology Tags · Last 30 Days</div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-zinc-300">FOMO</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 h-1.5 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full bg-rose-500 rounded-full" style="width:68%"></div></div>
+                                <span class="text-xs font-mono text-rose-400">Avg -0.8R</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-zinc-300">Hesitation</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 h-1.5 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full bg-yellow-500 rounded-full" style="width:40%"></div></div>
+                                <span class="text-xs font-mono text-yellow-400">Avg -0.3R</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-zinc-300">Revenge Trade</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 h-1.5 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full bg-rose-500 rounded-full" style="width:85%"></div></div>
+                                <span class="text-xs font-mono text-rose-400">Avg -1.4R</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-zinc-300">Following the Plan</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 h-1.5 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width:55%"></div></div>
+                                <span class="text-xs font-mono text-emerald-400">Avg +0.6R</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Turn Psychology from a<br><span class="text-blue-400">Vague Problem into Data.</span></h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">Every day trader knows they FOMO into trades. Most can't quantify how much it costs them. Tag each trade with its psychological driver and the journal shows you exactly which behaviors are draining your R over time — and at which times of day they appear most often.</p>
+                    <p class="text-zinc-400 leading-relaxed">When your FOMO trades average -0.8R and your plan-following trades average +0.6R, the fix is obvious. The data forces the conversation you've been avoiding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is the best trading journal for day traders?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck offers intraday backtesting (5m–4h timeframes), execution quality analysis (entry/exit slippage, MAE/MFE), behavioral tagging, and real-time SQN scoring per strategy. Free during beta.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck support intraday backtesting?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — 5m, 15m, 30m, 1h, and 4h timeframes. Walk-Forward Analysis and Monte Carlo simulation apply at all timeframes. No other trading journal combines intraday backtesting with Walk-Forward Analysis and Monte Carlo.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is execution quality analysis?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Entry slippage, exit slippage, limit alpha, and MAE/MFE scatter plots measured per trade, per strategy, and per symbol. Tells you whether your fills are costing you R and where you're leaving money on the table.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How does behavioral tagging work?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Tag each trade with its psychological driver (FOMO, hesitation, revenge trading, plan-following). SignalDeck shows you the average R-multiple per tag so you can quantify exactly what each psychological pattern costs you over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Stop guessing. Start measuring.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">Every feature included free during beta. Intraday backtester, execution quality analysis, behavioral tagging, SQN scoring — all of it.</p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','day_trading_beta_click',{'button_location':'cta'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                Join the Beta — Free
+            </a>
+            <p class="mt-4 text-xs text-zinc-600 font-mono">Active beta testers receive Founder Status — free for life.</p>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a></p>
+            <p class="mt-1"><a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+        </div>
+    </footer>
+</body>
+</html>

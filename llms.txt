@@ -135,6 +135,30 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com/crypto/
 - Content: Native crypto support with 24/7 market logging (no market-hours restrictions), multi-exchange tagging (Binance, Coinbase, Kraken, Bybit), spot and leverage journaling, fractional position sizes, and the full R-value analytics framework (SQN, expectancy, Kelly Criterion, Post Mortem protocol)
 
+### Day Traders
+- URL: https://sgnldk.com/day-trading/
+- Content: Landing page targeting day traders. Covers intraday backtesting (5m/15m/30m/1h/4h timeframes) with Walk-Forward Analysis and Monte Carlo, execution quality analysis (entry slippage, exit slippage, MAE/MFE scatter plots per trade), behavioral tagging with average R-multiple per psychology tag (FOMO/hesitation/revenge trading/plan-following), and real-time SQN scoring per strategy. FAQ: best trading journal for day traders, intraday backtesting, execution quality analysis, behavioral tagging.
+
+### Post Mortem Protocol
+- URL: https://sgnldk.com/post-mortem/
+- Content: Landing page targeting "how to review a losing trade" query. Explains the difference between reviewing P&L (outcome) vs reviewing process quality, and presents the 5-step Post Mortem protocol built into SignalDeck: (1) Setup Diagnosis — was the entry valid at time of trade?, (2) Management Diagnosis — was the trade managed to plan?, (3) Verdict — good process or bad process regardless of outcome?, (4) Training Gap — what specific skill needs improvement?, (5) Mentor Feedback — third-person rational assessment. FAQ: how to review a losing trade, what is a trade post mortem, should you review winning trades.
+
+### Broker Import
+- URL: https://sgnldk.com/broker-import/
+- Content: Counter-positioning page targeting "trading journal with broker import" query. Honest disclosure that SignalDeck does not have broker auto-import (manual entry or CSV only, API integrations on roadmap). Explains the core tradeoff: broker auto-import captures P&L and execution data but misses the stop loss (required for R-Multiple) and psychological context. Comparison table of auto-import vs manual logging across 8 dimensions. Recommends TraderSync (700+ brokers) and Tradervue (80+ brokers) for users whose primary requirement is auto-import. Guides R-value-focused traders toward SignalDeck. FAQ: does SignalDeck have broker import, which journals have auto-import, why broker import doesn't support R-Multiple.
+
+### Psychology Journal
+- URL: https://sgnldk.com/psychology/
+- Content: Landing page targeting "trading psychology journal" query. Covers behavioral tagging system (FOMO, hesitation, revenge trading, overconfidence, following the plan) with average R-multiple per tag displayed over time, the 5-step Post Mortem protocol as a structured psychology review, and how SignalDeck differs from Edgewonk (data-driven R-tagged behavioral analytics vs diary-style emotion logging). FAQ: what is a trading psychology journal, how behavioral tagging works, how it differs from Edgewonk.
+
+### Position Sizing Calculator
+- URL: https://sgnldk.com/position-sizing/
+- Content: Interactive position size calculator for stocks, forex, and CFD traders with working JavaScript. Three modes: Stocks (shares = dollar risk ÷ stop distance), Forex (lot size = dollar risk ÷ (pip distance × pip value)), CFD (contracts = dollar risk ÷ point distance). Explains Fixed-R position sizing formula, links to the Fixed-R blog article, explains how SignalDeck automates R-Multiple calculation and derives Kelly Criterion sizing from live trade history. FAQ: how to calculate position size from stop loss, what percentage to risk per trade, what is Fixed-R, when to use Kelly Criterion.
+
+### Trade Replay
+- URL: https://sgnldk.com/trade-replay/
+- Content: Counter-positioning page targeting "trade replay software" query. Honest about what replay does well (pattern recognition practice, risk-free screen time, interactive historical testing) and what it doesn't tell you (why real trades succeeded/failed, process quality vs outcome, behavioral drivers, specific training gaps). Compares trade replay vs Post Mortem analysis by trader development stage. Recommends TradeZella for replay. Guides traders with real trade history toward SignalDeck's Post Mortem protocol. FAQ: what is trade replay software, which journals have replay, is replay or post mortem better.
+
 ### Prop Firm Traders
 - URL: https://sgnldk.com/prop-firm/
 - Content: Dedicated landing page targeting prop firm challenge and funded account traders. Covers: R-Multiple framework mirrors prop firm risk rules (daily loss limits, max drawdown rules align with 1R-per-trade sizing), native instrument support for NAS100/XAUUSD/GER40/US500/US30/forex, live stop monitoring on open positions, challenge vs funded account phase comparison using strategy/broker tags, SQN edge validation before scaling on funded capital, 5-step Post Mortem protocol for identifying recurring discipline errors. FAQ includes: best trading journal for prop firm traders, does it work for challenge accounts, how R-value helps prop traders, which instruments are supported. Targets FTMO, MyForexFunds, and similar prop firm participants.

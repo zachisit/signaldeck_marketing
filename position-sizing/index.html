@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Position Size Calculator for Traders | Stocks, Forex &amp; CFD | SignalDeck</title>
+    <meta name="description" content="Free position size calculator for stocks, forex, and CFD traders. Enter your account size, risk percentage, and stop distance — get your exact position size instantly. Built on Fixed-R methodology.">
+    <meta name="keywords" content="position size calculator, trading position size calculator, forex position size calculator, stock position size calculator, CFD position size calculator, how to calculate position size, stop loss position size, risk per trade calculator, lot size calculator forex">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/position-sizing/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/position-sizing/">
+    <meta property="og:title" content="Position Size Calculator for Traders | Stocks, Forex &amp; CFD | SignalDeck">
+    <meta property="og:description" content="Free position size calculator for stocks, forex, and CFD. Enter account size, risk %, stop distance — get exact position size instantly.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/position-sizing/">
+    <meta property="twitter:title" content="Position Size Calculator | SignalDeck">
+    <meta property="twitter:description" content="Free position size calculator for stocks, forex, and CFD traders. Fixed-R methodology — risk a consistent percentage on every trade.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you calculate position size from a stop loss?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Position Size = (Account Size × Risk%) ÷ Stop Distance. Example: $10,000 account, 1% risk ($100), stop distance $0.50/share → 100 ÷ 0.50 = 200 shares. For forex: Lot Size = Dollar Risk ÷ (Pip Distance × Pip Value). The calculator on this page handles both calculations automatically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What percentage of my account should I risk per trade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most serious retail traders risk between 0.5% and 2% per trade. At 1% risk with a 10-trade losing streak, your account loses approximately 9.6% (compounding). At 2%, the same streak costs 18.3%. The right percentage depends on your strategy's SQN score — higher SQN systems can tolerate slightly more risk per trade."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Fixed-R position sizing?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fixed-R position sizing means risking a consistent percentage of your current account equity on every trade. The position size is derived from your stop distance — not chosen arbitrarily. This ensures that a 10-trade losing streak always costs the same fraction of your account regardless of market conditions, and that position size automatically scales down during drawdowns."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Kelly Criterion differ from Fixed-R?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fixed-R is a structural rule — risk a fixed percentage per trade regardless of your edge estimate. Kelly Criterion is a mathematical optimization that derives the ideal risk fraction from your actual win rate and average R. Kelly requires 100+ trades of clean data to be reliable. Start with Fixed-R, build your journal, then let Kelly refine the percentage when you have enough data."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                        emerald: { 500: '#10b981', 400: '#34d399' },
+                        rose: { 500: '#f43f5e' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-12 border-b border-zinc-900 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+                Position Size Calculator
+            </h1>
+            <p class="text-xl text-zinc-400 mb-2">Stocks · Forex · CFD</p>
+            <p class="text-zinc-500 text-sm">Enter your account size, risk percentage, and stop distance to get your exact position size.</p>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-2xl mx-auto px-6">
+            <!-- Mode Toggle -->
+            <div class="flex rounded-lg overflow-hidden border border-zinc-800 mb-8">
+                <button id="btn-stocks" onclick="setMode('stocks')" class="flex-1 py-2.5 text-sm font-medium transition-colors bg-emerald-600 text-white">Stocks</button>
+                <button id="btn-forex" onclick="setMode('forex')" class="flex-1 py-2.5 text-sm font-medium transition-colors bg-zinc-900 text-zinc-400 hover:text-white">Forex</button>
+                <button id="btn-cfd" onclick="setMode('cfd')" class="flex-1 py-2.5 text-sm font-medium transition-colors bg-zinc-900 text-zinc-400 hover:text-white">CFD / Index</button>
+            </div>
+
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-8 space-y-6">
+                <!-- Account Size -->
+                <div>
+                    <label class="block text-sm font-medium text-zinc-300 mb-2">Account Size ($)</label>
+                    <input id="account" type="number" value="10000" min="1" oninput="calculate()"
+                        class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-4 py-3 text-white font-mono text-lg focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+                <!-- Risk % -->
+                <div>
+                    <label class="block text-sm font-medium text-zinc-300 mb-2">Risk Per Trade (%)</label>
+                    <input id="risk" type="number" value="1" min="0.1" max="100" step="0.1" oninput="calculate()"
+                        class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-4 py-3 text-white font-mono text-lg focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+                <!-- Stop Distance (Stocks/CFD) -->
+                <div id="stop-distance-row">
+                    <label id="stop-label" class="block text-sm font-medium text-zinc-300 mb-2">Stop Distance ($ per share)</label>
+                    <input id="stop" type="number" value="0.50" min="0.001" step="0.01" oninput="calculate()"
+                        class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-4 py-3 text-white font-mono text-lg focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+                <!-- Pip Value (Forex only) -->
+                <div id="pip-value-row" class="hidden">
+                    <label class="block text-sm font-medium text-zinc-300 mb-2">Pip Value ($ per pip per standard lot)</label>
+                    <input id="pipval" type="number" value="10" min="0.01" step="0.01" oninput="calculate()"
+                        class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-4 py-3 text-white font-mono text-lg focus:outline-none focus:border-emerald-500 transition-colors">
+                    <p class="text-zinc-600 text-xs mt-1 font-mono">EURUSD ≈ $10/pip · USDJPY ≈ $9.09/pip · GBPUSD ≈ $10/pip</p>
+                </div>
+
+                <!-- Result -->
+                <div class="border-t border-zinc-800 pt-6 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-zinc-400 font-mono text-sm">Dollar Risk (1R)</span>
+                        <span id="result-risk" class="font-mono text-white font-bold text-lg">$100.00</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-zinc-950 rounded-lg px-4 py-3">
+                        <span id="result-label" class="text-zinc-400 font-mono text-sm">Position Size</span>
+                        <span id="result-size" class="font-mono text-emerald-400 font-bold text-2xl">200 shares</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-zinc-600 text-xs font-mono mt-4">Results are for educational purposes. Always verify before placing a trade.</p>
+        </div>
+    </section>
+
+    <!-- Explainer -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-6">The Formula Behind the Calculator</h2>
+            <p class="text-zinc-400 leading-relaxed mb-6">Fixed-R position sizing has one rule: risk a consistent percentage of your current account equity on every trade. Position size is a derived output — calculated from your stop distance, not chosen by feel.</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 font-mono text-sm text-zinc-300 mb-6">
+                <div class="text-zinc-500 mb-2"># Stocks / CFD</div>
+                Position Size (shares) = Dollar Risk ÷ Stop Distance ($)
+                <div class="text-zinc-500 mt-4 mb-2"># Forex</div>
+                Lot Size = Dollar Risk ÷ (Pip Distance × Pip Value)
+            </div>
+            <p class="text-zinc-400 leading-relaxed mb-6">The position size automatically adapts to your stop distance on each trade — tighter stop means more shares, wider stop means fewer. The risk stays locked. The position adapts to fit it.</p>
+            <p class="text-zinc-400 leading-relaxed">This is the opposite of how most traders work. Most decide shares first and let the stop determine their actual risk. Fixed-R inverts this: decide risk first, then derive shares from the stop.</p>
+            <div class="mt-8">
+                <a href="../blog/fixed-r-position-sizing/index.html" class="text-emerald-400 hover:text-emerald-300 transition-colors text-sm">Read the full guide to Fixed-R position sizing →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SignalDeck Automates This -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-6">SignalDeck Calculates This Automatically</h2>
+            <p class="text-zinc-400 leading-relaxed mb-6">This calculator gives you the formula. SignalDeck applies it automatically to every trade in your journal — calculating R-Multiple from your entry, stop, and position size the moment you log the trade. No manual calculation needed.</p>
+            <p class="text-zinc-400 leading-relaxed mb-8">Once you have 100+ trades of R-normalized data, SignalDeck derives your Kelly Criterion position sizing from your actual win rate and average R — and surfaces it as a recommended lot size for your next trade. The formula evolves as your edge data improves.</p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','position_sizing_beta_click',{'button_location':'explainer'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all">
+                Start journaling with automatic R-calculation — Free
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How do you calculate position size from a stop loss?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Position Size = (Account × Risk%) ÷ Stop Distance. For a $10,000 account risking 1% ($100) with a $0.50 stop, that's 100 ÷ 0.50 = 200 shares. For forex: Lot Size = Dollar Risk ÷ (Pip Distance × Pip Value).</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What percentage should I risk per trade?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">0.5%–2% for most retail traders. At 1%, a 10-trade losing streak costs ~9.6% of your account. At 2%, the same streak costs ~18.3%. Use your strategy's SQN score to calibrate — higher SQN systems can tolerate slightly more risk per trade.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is Fixed-R position sizing?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Risking a consistent percentage of your current account equity on every trade. Position size is derived from your stop distance — not chosen arbitrarily. The key property: during a drawdown, your dollar risk automatically shrinks with your account, protecting you from oversizing into weakness.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">When should I use Kelly Criterion instead?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Kelly Criterion requires accurate win rate and average R data — ideally 100+ trades. Use Fixed-R first to build the journal, then let Kelly refine the percentage once you have reliable input data. SignalDeck calculates Kelly from your live trade history automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a></p>
+            <p class="mt-1"><a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+        </div>
+    </footer>
+
+    <script>
+    let mode = 'stocks';
+
+    function setMode(m) {
+        mode = m;
+        ['stocks','forex','cfd'].forEach(function(x) {
+            var btn = document.getElementById('btn-' + x);
+            btn.className = 'flex-1 py-2.5 text-sm font-medium transition-colors ' + (x === m ? 'bg-emerald-600 text-white' : 'bg-zinc-900 text-zinc-400 hover:text-white');
+        });
+        var stopRow = document.getElementById('stop-distance-row');
+        var pipRow = document.getElementById('pip-value-row');
+        var stopLabel = document.getElementById('stop-label');
+        if (m === 'forex') {
+            stopLabel.textContent = 'Stop Distance (pips)';
+            stopRow.style.display = '';
+            pipRow.style.display = '';
+            document.getElementById('stop').value = 20;
+        } else if (m === 'cfd') {
+            stopLabel.textContent = 'Stop Distance (points)';
+            stopRow.style.display = '';
+            pipRow.style.display = 'none';
+            document.getElementById('stop').value = 10;
+        } else {
+            stopLabel.textContent = 'Stop Distance ($ per share)';
+            stopRow.style.display = '';
+            pipRow.style.display = 'none';
+            document.getElementById('stop').value = 0.50;
+        }
+        calculate();
+    }
+
+    function calculate() {
+        var account = parseFloat(document.getElementById('account').value) || 0;
+        var riskPct = parseFloat(document.getElementById('risk').value) || 0;
+        var stop = parseFloat(document.getElementById('stop').value) || 0;
+        var dollarRisk = account * (riskPct / 100);
+        document.getElementById('result-risk').textContent = '$' + dollarRisk.toFixed(2);
+
+        var size, label;
+        if (mode === 'forex') {
+            var pipVal = parseFloat(document.getElementById('pipval').value) || 10;
+            var lots = stop > 0 && pipVal > 0 ? dollarRisk / (stop * pipVal) : 0;
+            size = lots.toFixed(2) + ' lots';
+            label = 'Lot Size';
+        } else if (mode === 'cfd') {
+            var contracts = stop > 0 ? (dollarRisk / stop).toFixed(2) : '0';
+            size = contracts + ' contracts';
+            label = 'Contracts';
+        } else {
+            var shares = stop > 0 ? Math.floor(dollarRisk / stop) : 0;
+            size = shares.toLocaleString() + ' shares';
+            label = 'Position Size';
+        }
+        document.getElementById('result-size').textContent = size;
+        document.getElementById('result-label').textContent = label;
+    }
+
+    calculate();
+    </script>
+</body>
+</html>

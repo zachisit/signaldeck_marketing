@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trading Journal with Broker Import: What to Know Before You Choose | SignalDeck</title>
+    <meta name="description" content="Honest comparison of broker auto-import vs manual trade logging. Who needs broker import, what you give up for convenience, and what SignalDeck offers instead. TraderSync and Tradervue lead on imports — SignalDeck leads on analytics depth.">
+    <meta name="keywords" content="trading journal broker import, trading journal auto import, broker integration trading journal, tradersync broker import, tradervue broker import, trading journal csv import, manual trade journal vs auto import">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/broker-import/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/broker-import/">
+    <meta property="og:title" content="Trading Journal with Broker Import: What to Know Before You Choose | SignalDeck">
+    <meta property="og:description" content="Honest comparison of broker auto-import vs manual logging. SignalDeck doesn't have broker auto-import — here's why, and which journals do.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/broker-import/">
+    <meta property="twitter:title" content="Trading Journal with Broker Import | SignalDeck">
+    <meta property="twitter:description" content="Honest comparison of broker auto-import vs manual logging. Who needs it, what you trade off, and what SignalDeck offers instead.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck have broker auto-import?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. SignalDeck requires manual trade entry or CSV import. SignalDeck prioritized analytical depth (Walk-Forward Analysis, Monte Carlo simulation, SQN scoring, Kelly Criterion, structured Post Mortems) over broker connectivity. Broker API integrations are on the roadmap. If broker auto-import is your primary requirement today, TraderSync (700+ brokers) and Tradervue (80+ brokers) are better fits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which trading journals have broker auto-import?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "TraderSync supports 700+ broker integrations and is the market leader for auto-import. Tradervue supports 80+ brokers and is the industry standard for manual traders who want some automation. TradesViz also offers broker import with AI Q&A. SignalDeck does not currently have broker auto-import but supports CSV import from most brokers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the trade-offs between broker import and manual logging?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Broker auto-import is faster but captures only execution data — P&L, fills, timestamps. It misses the stop loss (required for R-Multiple calculation), the thesis, the psychological context, and the post-trade review. Manual logging takes 2–3 minutes per trade and forces you to articulate your stop and rationale before logging. For R-value analytics to be meaningful, the stop must be logged — which is only possible manually or via a journal that prompts for it at entry."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-400 text-xs font-mono mb-6">
+                Honest comparison
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Trading Journal with Broker Import:<br><span class="text-blue-400">What to Know Before You Choose.</span>
+            </h1>
+            <p class="text-xl text-zinc-400 leading-relaxed">
+                Broker auto-import is convenient. It's also the fastest way to build a journal full of data you can't use to calculate your actual edge. Here's the honest breakdown of what broker import gives you — and what it doesn't.
+            </p>
+        </div>
+    </section>
+
+    <!-- Does SignalDeck have it? -->
+    <section class="py-16 border-b border-zinc-900 bg-zinc-900/30">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="flex items-start gap-4 bg-zinc-900 border border-zinc-700 rounded-xl p-6">
+                <div class="text-2xl mt-0.5">⚡</div>
+                <div>
+                    <h2 class="text-white font-bold text-lg mb-2">SignalDeck does not have broker auto-import.</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck requires manual entry or CSV import. We made this tradeoff deliberately — if you need 700+ broker integrations today, <a href="https://tradersync.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">TraderSync</a> is the right tool. Broker API integrations are on our roadmap. What SignalDeck chose to build instead is documented below.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Broker Import Gives You -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Auto-Import vs Manual Logging: The Real Tradeoff</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-zinc-800">
+                            <th class="text-left py-3 px-4 text-zinc-500 font-mono uppercase text-xs tracking-wider">Feature</th>
+                            <th class="text-center py-3 px-4 text-zinc-400 font-semibold">Broker Auto-Import</th>
+                            <th class="text-center py-3 px-4 text-zinc-400 font-semibold">Manual / CSV Entry</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-900">
+                        <tr class="bg-zinc-900/30">
+                            <td class="py-3 px-4 text-zinc-400">Time to log a trade</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">Automatic</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">2–3 min</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 text-zinc-400">P&L and execution data</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                        </tr>
+                        <tr class="bg-zinc-900/30">
+                            <td class="py-3 px-4 text-zinc-400">Stop loss captured</td>
+                            <td class="py-3 px-4 text-center text-rose-400">Rarely</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓ (required)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 text-zinc-400">R-Multiple calculable</td>
+                            <td class="py-3 px-4 text-center text-rose-400">No stop = no R</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                        </tr>
+                        <tr class="bg-zinc-900/30">
+                            <td class="py-3 px-4 text-zinc-400">Trade rationale / thesis</td>
+                            <td class="py-3 px-4 text-center text-rose-400">Not captured</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 text-zinc-400">Psychological context</td>
+                            <td class="py-3 px-4 text-center text-rose-400">Not captured</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓ (behavioral tags)</td>
+                        </tr>
+                        <tr class="bg-zinc-900/30">
+                            <td class="py-3 px-4 text-zinc-400">Forced pre-trade discipline review</td>
+                            <td class="py-3 px-4 text-center text-rose-400">None</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">Every trade</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 text-zinc-400">SQN calculable</td>
+                            <td class="py-3 px-4 text-center text-rose-400">Requires R (see above)</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-500 text-sm mt-6 leading-relaxed">The root issue: R-Multiple requires a stop loss. Broker executions don't include the stop you had in your head — only the fills that hit. Without a stop, there's no R. Without R, there's no expectancy, no SQN, no Kelly Criterion. Auto-import builds a large dataset fast. It's often a dataset you can't use for the metrics that actually predict long-run profitability.</p>
+        </div>
+    </section>
+
+    <!-- Who Needs Import -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Choose Based on What You Actually Need</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-white font-bold text-lg mb-4">Use broker auto-import if:</h3>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>You trade very high frequency and manual logging isn't feasible</span></li>
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>Your primary goal is P&L tracking and tax reporting</span></li>
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>You need multi-account aggregation across many brokers</span></li>
+                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>You don't plan to use R-Multiple or SQN-based analytics</span></li>
+                    </ul>
+                    <div class="mt-6 pt-5 border-t border-zinc-800">
+                        <p class="text-zinc-500 text-xs">Best options: <a href="../compare/tradersync/index.html" class="text-blue-400 hover:text-blue-300">TraderSync</a> (700+ brokers) · Tradervue (80+ brokers) · TradesViz</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-white font-bold text-lg mb-4">Use SignalDeck if:</h3>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want R-Multiple, SQN scoring, and Kelly Criterion from your actual data</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want a strategy backtester with Walk-Forward Analysis and Monte Carlo</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want a structured Post Mortem review on every closed trade</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You're willing to spend 2–3 minutes per trade to build a journal that means something</span></li>
+                    </ul>
+                    <div class="mt-6 pt-5 border-t border-zinc-800">
+                        <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 text-sm transition-colors">Start free during beta →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck have broker auto-import?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">No. SignalDeck uses manual entry or CSV import. Broker API integrations are on the roadmap. If auto-import is your primary requirement today, TraderSync and Tradervue are better fits.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Which trading journals have broker auto-import?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">TraderSync (700+ brokers), Tradervue (80+ brokers), and TradesViz all support broker auto-import. TraderSync is the market leader for this feature.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Why doesn't broker import support R-Multiple tracking?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">R-Multiple requires your initial stop loss. Broker executions capture fills and P&L — not the stop you planned before entry. Without the stop, the R calculation is impossible. Manual logging solves this by requiring the stop at the time of entry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a></p>
+            <p class="mt-1"><a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+        </div>
+    </footer>
+</body>
+</html>

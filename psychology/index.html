@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trading Psychology Journal | Track the Behaviors Killing Your Edge | SignalDeck</title>
+    <meta name="description" content="A trading psychology journal built on data, not diary entries. Behavioral tagging (FOMO, hesitation, revenge trading), R-value per psychology tag, and a structured Post Mortem protocol for every trade. Free during beta.">
+    <meta name="keywords" content="trading psychology journal, trading psychology tracker, trading behavior journal, FOMO trading journal, revenge trading tracker, trading discipline journal, behavioral trading analytics, trading psychology software">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/psychology/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/psychology/">
+    <meta property="og:title" content="Trading Psychology Journal | Track the Behaviors Killing Your Edge | SignalDeck">
+    <meta property="og:description" content="Behavioral tagging, R-value per psychology pattern, and a structured Post Mortem on every trade. Data-driven psychology tracking. Free during beta.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/psychology/">
+    <meta property="twitter:title" content="Trading Psychology Journal | SignalDeck">
+    <meta property="twitter:description" content="Behavioral tagging, R-value per psychology pattern, and a structured Post Mortem on every trade. Free during beta.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a trading psychology journal?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A trading psychology journal tracks the behavioral and emotional drivers behind your trading decisions — not just what you traded, but why. SignalDeck's approach uses behavioral tags (FOMO, hesitation, revenge trading, overconfidence, following the plan) attached to each trade, showing you the average R-multiple associated with each psychological pattern over time. This turns psychology from a vague feeling into measurable, trackable data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does behavioral tagging work in SignalDeck?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When logging or reviewing a trade, you tag it with the psychological driver that influenced the decision. Over time, SignalDeck shows you the average R-multiple per tag — so you can see that your FOMO trades average -0.8R while your plan-following trades average +0.6R. The data makes the cost of each behavioral pattern explicit and quantifiable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is SignalDeck different from Edgewonk for psychology tracking?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Edgewonk is the most recognized psychology-focused trading journal. It uses a diary and emotion-tagging approach. SignalDeck takes a data-first approach: behavioral tags are tied to R-multiples so you can quantify the cost of each psychological pattern, not just describe it. SignalDeck also adds the 5-step Post Mortem protocol — a structured diagnostic review for every trade — which goes further than diary-style entries by separating process quality from outcome."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                        rose: { 500: '#f43f5e', 400: '#fb7185' },
+                        emerald: { 500: '#10b981' },
+                        purple: { 500: '#a855f7' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-rose-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-16 border-b border-zinc-900 text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-mono mb-6">
+                Behavioral Analytics
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Your Psychology Isn't the Problem.<br><span class="text-rose-400">Not Measuring It Is.</span>
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
+                Every trader knows they FOMO. Most can't tell you how much it costs them per trade. SignalDeck shows you the exact R-multiple associated with every psychological pattern in your journal.
+            </p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','psychology_beta_click',{'button_location':'hero'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-8 py-3 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-rose-900/20">
+                Start Free — Beta Access
+            </a>
+        </div>
+    </section>
+
+    <!-- Feature: Behavioral Tags -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Tag Every Trade with Its<br><span class="text-rose-400">Psychological Driver.</span></h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">Behavioral tags attach a psychological reason to each trade entry. Over time, SignalDeck aggregates the average R-multiple per tag — showing you not just that you FOMO'd, but exactly how much FOMO costs you per trade over your entire history.</p>
+                    <p class="text-zinc-400 leading-relaxed">This turns psychology from a vague problem you journal about into a pattern you can see, measure, and systematically eliminate. When revenge trades average -1.4R and plan-following trades average +0.6R, you have a number to work with — not just a feeling.</p>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 flex justify-between items-center hover:border-rose-500/20 transition-colors">
+                        <div>
+                            <div class="text-white font-semibold text-sm">FOMO</div>
+                            <div class="text-zinc-500 text-xs mt-0.5">Chased the move after the signal</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-mono text-rose-400 font-bold">Avg -0.8R</div>
+                            <div class="text-zinc-600 text-xs">14 trades</div>
+                        </div>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 flex justify-between items-center hover:border-rose-500/20 transition-colors">
+                        <div>
+                            <div class="text-white font-semibold text-sm">Revenge Trade</div>
+                            <div class="text-zinc-500 text-xs mt-0.5">Entered to recover a previous loss</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-mono text-rose-400 font-bold">Avg -1.4R</div>
+                            <div class="text-zinc-600 text-xs">7 trades</div>
+                        </div>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 flex justify-between items-center hover:border-rose-500/20 transition-colors">
+                        <div>
+                            <div class="text-white font-semibold text-sm">Hesitation</div>
+                            <div class="text-zinc-500 text-xs mt-0.5">Late entry on a valid signal</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-mono text-yellow-400 font-bold">Avg -0.3R</div>
+                            <div class="text-zinc-600 text-xs">9 trades</div>
+                        </div>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 flex justify-between items-center hover:border-emerald-500/20 transition-colors">
+                        <div>
+                            <div class="text-white font-semibold text-sm">Following the Plan</div>
+                            <div class="text-zinc-500 text-xs mt-0.5">Executed exactly as designed</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-mono text-emerald-400 font-bold">Avg +0.6R</div>
+                            <div class="text-zinc-600 text-xs">38 trades</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature: Post Mortem -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">The 5-Step Post Mortem: Psychology Built Into Every Review</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto mb-14">The Post Mortem protocol separates process from outcome. A bad loss might be a good process trade. A good win might be built on broken discipline. The protocol forces you to see the difference.</p>
+            <div class="grid sm:grid-cols-5 gap-3">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-rose-500/20 transition-colors">
+                    <div class="text-rose-400 font-mono text-xs font-bold mb-2">01</div>
+                    <div class="text-white font-semibold text-sm">Setup<br>Diagnosis</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-rose-500/20 transition-colors">
+                    <div class="text-rose-400 font-mono text-xs font-bold mb-2">02</div>
+                    <div class="text-white font-semibold text-sm">Management<br>Diagnosis</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-rose-500/20 transition-colors">
+                    <div class="text-rose-400 font-mono text-xs font-bold mb-2">03</div>
+                    <div class="text-white font-semibold text-sm">Verdict</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-rose-500/20 transition-colors">
+                    <div class="text-rose-400 font-mono text-xs font-bold mb-2">04</div>
+                    <div class="text-white font-semibold text-sm">Training<br>Gap</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-rose-500/20 transition-colors">
+                    <div class="text-rose-400 font-mono text-xs font-bold mb-2">05</div>
+                    <div class="text-white font-semibold text-sm">Mentor<br>Feedback</div>
+                </div>
+            </div>
+            <div class="mt-6">
+                <a href="../post-mortem/index.html" class="text-sm text-rose-400 hover:text-rose-300 transition-colors">Learn more about the 5-step Post Mortem protocol →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is a trading psychology journal?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">A trading psychology journal tracks the behavioral and emotional drivers behind your trading decisions. SignalDeck uses behavioral tags tied to R-multiples, so you can quantify the cost of each psychological pattern — not just describe it in a diary entry.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How is this different from Edgewonk's psychology tracking?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Edgewonk uses a diary and emotion-tagging approach. SignalDeck ties every behavioral tag to R-multiples, so psychology becomes quantifiable data rather than qualitative notes. SignalDeck also adds the 5-step Post Mortem protocol for structured trade diagnosis on every closed position.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What behavioral tags does SignalDeck support?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">FOMO, hesitation, revenge trading, overconfidence, and following the plan — plus any custom tags you create. Each tag accumulates R-multiple data over time so you can see the statistical cost of each behavior across your entire trade history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Put a number on your psychology.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">Behavioral tagging, R-value per pattern, and the 5-step Post Mortem — all included free during beta.</p>
+            <a href="https://app.sgnldk.com" onclick="gtag('event','psychology_beta_click',{'button_location':'cta'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-rose-900/20">
+                Join the Beta — Free
+            </a>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a></p>
+            <p class="mt-1"><a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+        </div>
+    </footer>
+</body>
+</html>

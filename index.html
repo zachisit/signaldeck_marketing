@@ -37,34 +37,45 @@
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
-        {
+    {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "SignalDeck",
+        "url": "https://app.sgnldk.com",
         "operatingSystem": "Web",
         "applicationCategory": "FinanceApplication",
         "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "USD"
+            "priceCurrency": "USD",
+            "description": "Free during beta. Planned: Free tier (20 trades), Pro ($19/mo), Team ($29/mo)."
         },
-        "description": "Forensic trade auditing and AI-driven behavioral analysis for serious traders."
-        }
-        </script>
+        "description": "Professional-grade trading journal and strategy backtester built around R-Multiple methodology. Features SQN scoring, Kelly Criterion position sizing, 1,000-path Monte Carlo drawdown simulation, Walk-Forward Analysis, grid-search parameter optimization, structured 5-step Post Mortem reviews, execution quality analysis (MAE/MFE, entry/exit slippage), behavioral tagging, and a social trading layer (Borg). Supports common stocks, forex, CFD/indices, and crypto natively.",
+        "featureList": "R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Native forex support, Native crypto support, Native CFD support, Strategy backtester, Forward testing scanner",
+        "screenshot": "https://sgnldk.com/assets/og-image.png",
+        "softwareVersion": "Beta"
+    }
+    </script>
     <script type="application/ld+json">
-        {
+    {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "SignalDeck",
         "url": "https://sgnldk.com",
-        "logo": "https://sgnldk.com/assets/og-image.png",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/signaldeck_logo_nav.png"
+        },
         "description": "SignalDeck is a professional-grade trading journal and strategy backtester built around R-Multiple methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, Walk-Forward Analysis, and structured Post Mortem reviews.",
         "foundingDate": "2025",
         "sameAs": [
+            "https://x.com/forensicquant",
+            "https://www.youtube.com/@SignalDeck",
+            "https://www.linkedin.com/in/zachisit",
             "https://sgnldk.com/discord.html"
         ]
-        }
-        </script>
+    }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

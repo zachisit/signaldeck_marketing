@@ -175,6 +175,10 @@ A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spread
 - URL: https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/
 - Content: Four data signals that separate a normal drawdown from real edge decay (rolling win rate trend, SQN floor breach, loss magnitude creep, winner compression), a five-step decision protocol for responding to decay signals, and why sample size matters before making any strategy verdict
 
+### Blog: Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It
+- URL: https://sgnldk.com/blog/monte-carlo-simulation-trading/
+- Content: Explains the difference between backtesting (one historical sequence) and Monte Carlo simulation (1,000 reshuffled sequences). Covers how block bootstrap Monte Carlo works, how to read percentile equity curves (5th through 95th), the concept of sequence risk, a worked example showing a +40R strategy with a -18R worst-case drawdown at the 5th percentile, how to use the stress-test number to calibrate position size, limitations of Monte Carlo (assumes stable distribution), and how SignalDeck runs 1,000-path Monte Carlo on every backtest with 5th/25th/50th/75th/95th percentile curves and probability of profit.
+
 ### Blog: Why Most Traders Risk Too Much on Every Trade (Fixed-R Position Sizing)
 - URL: https://sgnldk.com/blog/fixed-r-position-sizing/
 - Content: Why dollar-based position sizing is arbitrary and context-free, how Fixed-R ties every trade to a consistent percentage of account equity (defining 1R), the formula (Position Size = Account × Risk% ÷ Stop Distance) with a worked stock and forex example, a comparison table showing how the same P&L means completely different things without risk normalization, a 6-trade drawdown comparison showing Fixed-R vs fixed-dollar account decay, the relationship between Fixed-R and Kelly Criterion (Fixed-R first, Kelly as the optimization layer once 100+ trades exist), and how SignalDeck calculates R-Multiple automatically and derives Kelly sizing from live trade history

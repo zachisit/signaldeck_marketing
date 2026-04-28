@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It | SignalDeck</title>
+    <meta name="description" content="Backtesting tells you what did happen. Monte Carlo simulation tells you what could happen — including the worst-case drawdown your strategy can produce. Here's how to use it to stress-test your system before the market does.">
+    <meta name="keywords" content="Monte Carlo simulation trading, worst case drawdown trading, trading backtest simulation, position size drawdown, R-multiple Monte Carlo, trade sequence risk, trading risk management, equity curve simulation">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/monte-carlo-simulation-trading/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/monte-carlo-simulation-trading/">
+    <meta property="og:title" content="Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It | SignalDeck">
+    <meta property="og:description" content="Backtesting tells you what did happen. Monte Carlo simulation tells you what could happen — including the worst-case drawdown your strategy can produce.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/monte-carlo-simulation-trading/">
+    <meta property="twitter:title" content="Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It | SignalDeck">
+    <meta property="twitter:description" content="Backtesting tells you what did happen. Monte Carlo simulation tells you what could happen — including the worst-case drawdown your strategy can produce.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It",
+        "description": "Backtesting tells you what did happen. Monte Carlo simulation tells you what could happen — including the worst-case drawdown your strategy can produce before the market finds it for you.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-04-28",
+        "dateModified": "2026-04-28"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Monte Carlo simulation in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Monte Carlo simulation in trading takes your actual historical trade results and randomly reshuffles them thousands of times to generate a distribution of possible equity curves. Each simulation run contains the same trades but in a different sequence — showing you the range of outcomes your system could produce, including worst-case drawdowns that your real trading history may have avoided simply due to lucky ordering."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a 95th percentile drawdown?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 95th percentile drawdown is the maximum drawdown figure that only 5% of your Monte Carlo simulation runs exceeded. It represents a conservative stress-test: your system would need to encounter an unusually bad trade sequence — worse than 95% of simulated orderings — to breach it. If this number is larger than you can psychologically or financially tolerate, your position size is too large for your actual risk capacity."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does trade sequence matter in backtesting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A backtest replays your trades in historical order — but real markets don't deliver results in any guaranteed sequence. The same set of 100 trades could produce a brutal 8-trade losing streak early (before profits have accumulated) or distribute losses evenly across the year. The first scenario is psychologically and financially devastating; the second is manageable. Monte Carlo shows you the full range of sequences your system might encounter, not just the one sequence history happened to produce."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many trades do I need for Monte Carlo to be meaningful?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A meaningful Monte Carlo simulation generally requires at least 30 trades, with 50–100 trades giving more reliable results. Below 30 trades, the simulated distribution is too narrow to surface meaningful tail scenarios. The more trades in your history, the wider the range of sequence permutations the simulation can explore, and the more accurate the percentile estimates become. This is another reason consistent trade journaling matters — your Monte Carlo is only as good as your input data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is Monte Carlo different from backtesting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Backtesting runs your strategy against historical data in chronological order and produces a single result — one equity curve, one max drawdown, one return figure. It tells you what actually happened with that strategy on that data. Monte Carlo takes the trades that backtesting produced and reshuffles them thousands of times to show you the distribution of what could have happened with different trade orderings. Backtesting answers 'what did my strategy do?' Monte Carlo answers 'what is my strategy capable of?'"
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Monte Carlo Simulation for Traders", "item": "https://sgnldk.com/blog/monte-carlo-simulation-trading/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Breadcrumb -->
+    <div class="max-w-3xl mx-auto px-6 pt-8">
+        <nav class="flex items-center gap-2 text-xs font-mono text-zinc-500">
+            <a href="../../index.html" class="hover:text-zinc-300 transition-colors">Home</a>
+            <span>/</span>
+            <a href="../index.html" class="hover:text-zinc-300 transition-colors">Blog</a>
+            <span>/</span>
+            <span class="text-zinc-400">Monte Carlo Simulation</span>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="relative pt-10 pb-12 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-04-28" class="text-xs font-mono text-zinc-500">April 28, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Risk Management</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Backtesting tells you what <em>did</em> happen with a strategy. Monte Carlo tells you what <em>could</em> happen — including the drawdowns your historical sequence happened to avoid. Here's how to use it before the market runs the experiment for you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- The Problem with Your Backtest -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Problem with Your Backtest</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Your backtest produced one equity curve. One drawdown figure. One return. It ran your trades through in the exact order history delivered them — January first, then February, through to December. That sequence felt inevitable because you lived it. It wasn't.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The same 80 trades could have arrived in hundreds of thousands of different orderings. An 8-trade losing streak that hit in month seven — after you'd built up a cushion — could just as easily have hit in month one, before you had any profit to absorb it. The entry size was the same. The sequence was different. The psychological and financial outcome would have been completely different.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is sequence risk, and it's the dimension backtesting doesn't show you. Your historical equity curve is a single path through a very large space of possible paths. Monte Carlo simulation maps that space.
+            </p>
+
+            <!-- What Monte Carlo Actually Does -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Monte Carlo Simulation Actually Does</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The mechanics are straightforward. Take your actual trade results — your real R-multiples from your journal — and randomly reshuffle their order. Run 1,000 versions of this reshuffled sequence. Each version has the exact same trades, just delivered in a different order. Plot the equity curve for all 1,000 runs.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">What you end up with is a distribution of possible equity curves. Not what happened — what could have happened. From that distribution you extract:</p>
+            <ul class="list-disc list-outside pl-5 space-y-2 text-zinc-300 mb-6">
+                <li>The range of final account values across all 1,000 paths</li>
+                <li>The range of max drawdowns each path produced</li>
+                <li>The probability that any given path ended in profit</li>
+                <li>The worst-case drawdown your system is capable of at various confidence levels</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The key insight is that your actual backtest result sits somewhere in the middle of this distribution. It might be near the median — roughly what the average path produces. Or it might sit unusually high, meaning your historical sequence was luckier than most orderings would have been. Monte Carlo tells you which.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "Your actual equity curve is just one possible path through your trades. Monte Carlo shows you the full range — including the paths you could have been dealt but weren't."
+            </blockquote>
+
+            <!-- Reading the Output -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Reading the Output: What the Percentiles Mean</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Monte Carlo output is expressed as percentile equity curves. After 1,000 simulation runs, you sort all the final outcomes and all the max drawdowns by rank. The percentiles tell you what percentage of simulated paths ended at or below a given result.
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Percentile</th>
+                            <th class="px-4 py-3 text-left font-semibold">What it means</th>
+                            <th class="px-4 py-3 text-left font-semibold">How to read it</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-emerald-400">95th</td>
+                            <td class="px-4 py-3 text-zinc-300">Near-best case</td>
+                            <td class="px-4 py-3 text-zinc-400">Only 5% of runs did better than this</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-emerald-400">75th</td>
+                            <td class="px-4 py-3 text-zinc-300">Good case</td>
+                            <td class="px-4 py-3 text-zinc-400">75% of runs did this well or worse</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">50th</td>
+                            <td class="px-4 py-3 text-zinc-300">Median</td>
+                            <td class="px-4 py-3 text-zinc-400">The middle path — half did better, half worse</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-rose-400">25th</td>
+                            <td class="px-4 py-3 text-zinc-300">Below-average case</td>
+                            <td class="px-4 py-3 text-zinc-400">75% of runs outperformed this</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-rose-400">5th</td>
+                            <td class="px-4 py-3 text-zinc-300">Near-worst case</td>
+                            <td class="px-4 py-3 text-zinc-400">95% of runs did better than this. This is your stress-test number.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The number that matters most for risk management is the <strong class="text-white">5th percentile max drawdown</strong>. This is the drawdown figure that 950 out of 1,000 simulated paths stayed above — only 50 paths out of 1,000 produced a worse sequence. If your system can't survive this drawdown psychologically or financially, your position size is too large. Period.
+            </p>
+
+            <!-- The Worked Example -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Worked Example</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Say your strategy has produced +40R total profit over 120 trades. Great backtest. You run Monte Carlo across 1,000 reshuffled orderings and get the following max drawdown distribution:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Percentile</th>
+                            <th class="px-4 py-3 text-left font-semibold">Max Drawdown (R)</th>
+                            <th class="px-4 py-3 text-left font-semibold">At $1,000/R</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-emerald-400">Best 5% of paths</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">-4R</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">-$4,000</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-emerald-400">25th percentile</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">-7R</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">-$7,000</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Median (50th)</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">-11R</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">-$11,000</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-rose-400">75th percentile</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-14R</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-$14,000</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-800/50">
+                            <td class="px-4 py-3 font-mono text-rose-400 font-bold">5th percentile (stress test)</td>
+                            <td class="px-4 py-3 font-mono text-rose-400 font-bold">-18R</td>
+                            <td class="px-4 py-3 font-mono text-rose-400 font-bold">-$18,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Your actual backtest produced, say, a -9R max drawdown — comfortably between the median and 25th percentile. Looks manageable. But the stress-test number is -18R. At $1,000 per R, that's an $18,000 drawdown on the way to $40,000 in total profit. Can you stay in the trade at -$18,000? Can you keep your position size? Can you stay solvent if this happens early, before profits have compounded?
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If the honest answer is no — you'd reduce size, switch systems, or quit — then you've identified a real problem before the market exposed it. The fix is mechanical: cut your R-size until the 5th percentile drawdown is a number you can actually survive.
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6">
+                <p class="text-sm font-mono text-zinc-400 mb-2">Sizing adjustment formula:</p>
+                <div class="font-mono text-sm text-zinc-300">
+                    New R-size = Current R-size × (Target Max Drawdown $ ÷ 5th Percentile Drawdown $)
+                </div>
+                <div class="mt-3 font-mono text-xs text-zinc-500">
+                    Example: $1,000/R × ($10,000 ÷ $18,000) = $555/R → reduces stress-test drawdown to ~$10,000
+                </div>
+            </div>
+
+            <!-- Why Your Historical Sequence Might Have Been Lucky -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Your Historical Sequence Might Have Been Lucky</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If your actual backtest drawdown sits well above the 5th percentile — say, near the 25th percentile — that's a signal your historical results were relatively fortunate in their ordering. The losses were distributed in a gentler pattern than most other orderings would have produced.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Markets don't care about historical ordering. The next 120 trades will arrive in whatever sequence they arrive. You cannot rely on the same benign distribution. This is why the 5th percentile drawdown is the planning number — it represents a realistic bad-case scenario, not an extreme tail catastrophe. Nineteen out of 20 random orderings stayed inside it. That's not a black swan; that's a sequence you might encounter in an ordinary bad year.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "A backtest result near your 25th percentile means you got a favorable sequence. Position-size as if the next run delivers the 5th percentile."
+            </blockquote>
+
+            <!-- How to Use This to Calibrate Position Size -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Using Monte Carlo to Set Your Position Size</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The practical workflow is three steps:
+            </p>
+            <ol class="list-decimal list-inside space-y-4 text-zinc-300 mb-6 pl-2">
+                <li><strong class="text-white">Run Monte Carlo on your trade history.</strong> You need at least 30–50 trades for the simulation to be meaningful. More trades produce a more reliable distribution.</li>
+                <li><strong class="text-white">Identify your 5th percentile max drawdown.</strong> This is your stress-test number — the drawdown 950 out of 1,000 orderings stayed above.</li>
+                <li><strong class="text-white">Set your R-size so that drawdown is survivable.</strong> "Survivable" means both financially (you don't blow the account) and psychologically (you don't abandon the system before it recovers). If your 5th percentile drawdown at current sizing is -$18,000 and you'd fold at -$8,000, scale down until the numbers align.</li>
+            </ol>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is how professional funds approach position sizing. They don't ask "what's the best-case return?" They ask "what's the worst-case drawdown we can sustain, and how much do we need to size down to ensure we stay inside it?" Retail traders almost never run this calculation. Monte Carlo makes it mechanical instead of a guess.
+            </p>
+
+            <!-- What Monte Carlo Can't Tell You -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Monte Carlo Can't Tell You</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Monte Carlo reshuffles your existing trades. It assumes future trades will come from the same distribution as past trades — same win rate, same average R, same distribution of outcomes. If your strategy's edge is degrading (your SQN score is falling, your rolling win rate is trending down), Monte Carlo based on old trade data will underestimate future drawdown risk.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It also can't model structural market changes, black swan events outside your historical sample, or the compounding effect of your own behavioral mistakes under drawdown pressure. Monte Carlo is a tool for stress-testing a known distribution — not a forecast.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Run it regularly as your trade history grows. A Monte Carlo on 30 trades is a rough estimate. On 200 trades, it becomes a reliable planning input.
+            </p>
+
+            <!-- How SignalDeck Runs Monte Carlo -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Runs Monte Carlo on Your Backtest</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck's strategy backtester includes a 1,000-path block bootstrap Monte Carlo on every backtest result. After running your strategy against historical data, it reshuffles the trade sequence 1,000 times and returns 5th, 25th, 50th, 75th, and 95th percentile equity curves — so you can see the full spread of outcomes your system is capable of producing, not just the one path history delivered.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The output includes worst-case drawdown at the 5th percentile and probability of profit across all 1,000 paths. If your strategy is profitable in 850 out of 1,000 randomly ordered runs, you have a real edge. If it's profitable in 520, the edge is fragile — sequence-dependent rather than structurally robust.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Combined with Walk-Forward Analysis — which tests whether your strategy's parameters hold up on out-of-sample data — Monte Carlo gives you two independent stress tests before you put real capital on a system. <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Run Monte Carlo on your own trade history — free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is Monte Carlo simulation in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Monte Carlo simulation in trading takes your actual historical trade results and randomly reshuffles them thousands of times to generate a distribution of possible equity curves. Each simulation run contains the same trades but in a different sequence — showing you the range of outcomes your system could produce, including worst-case drawdowns that your real trading history may have avoided simply due to lucky ordering.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is a 5th percentile drawdown?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The 5th percentile drawdown is the maximum drawdown figure that only 5% of your Monte Carlo simulation runs stayed above. It represents a conservative stress-test: your system would need to encounter an unusually bad trade sequence — worse than 95% of simulated orderings — to breach it. If this number is larger than you can psychologically or financially tolerate, your position size is too large for your actual risk capacity.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why does trade sequence matter in backtesting?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">A backtest replays your trades in historical order — but real markets don't deliver results in any guaranteed sequence. The same set of 100 trades could produce a brutal 8-trade losing streak early (before profits have accumulated) or distribute losses evenly across the year. The first scenario is psychologically and financially devastating; the second is manageable. Monte Carlo shows you the full range of sequences your system might encounter, not just the one sequence history happened to produce.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How many trades do I need for Monte Carlo to be meaningful?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">A meaningful Monte Carlo simulation generally requires at least 30 trades, with 50–100 trades giving more reliable results. Below 30 trades, the simulated distribution is too narrow to surface meaningful tail scenarios. The more trades in your history, the wider the range of sequence permutations the simulation can explore, and the more accurate the percentile estimates become.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How is Monte Carlo different from backtesting?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Backtesting runs your strategy against historical data in chronological order and produces a single result — one equity curve, one max drawdown, one return figure. It tells you what actually happened with that strategy on that data. Monte Carlo takes the trades that backtesting produced and reshuffles them thousands of times to show you the distribution of what could have happened. Backtesting answers "what did my strategy do?" Monte Carlo answers "what is my strategy capable of?"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../fixed-r-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Most Traders Risk Too Much on Every Trade (And How Fixed-R Position Sizing Fixes It)</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 22, 2026</p>
+                    </a>
+                    <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Know When Your Trading Strategy Is Dying (Before It Kills Your Account)</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 13, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Run Monte Carlo on your own strategy.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck runs 1,000-path Monte Carlo simulation on every backtest — returning 5th through 95th percentile equity curves and your worst-case drawdown at the 5th percentile. Free during beta.</p>
+                <a href="https://app.sgnldk.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="gtag('event', 'blog_cta_click', {'article': 'monte-carlo-simulation-trading'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta — Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

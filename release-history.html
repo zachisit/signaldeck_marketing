@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-04-29",
+      "dateModified": "2026-04-30",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,50 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.41 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.41-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Apr 30, 2026 12:25PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Emoji reactions on Borg trade cards, a Signal field preference toggle, and clearer stop loss exit reason labels.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Trade Reactions (Borg)</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">React to your team's trades</strong> — Four emoji reactions are available on Borg live feed cards: 🔥 fire, 💪 strong, ✅ perfect, and 😬 tough. Tap the same emoji again to remove your reaction.</li>
+                            <li><strong class="text-zinc-200">Live counts</strong> — Reaction totals update in real time for all team members via WebSocket — no refresh needed.</li>
+                            <li><strong class="text-zinc-200">Review queue notification</strong> — The trade owner receives a review queue item the first time someone reacts to their trade.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Signal Field Toggle</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Hide or show Signal UI</strong> — A new toggle in Settings → Trade Preferences controls whether the Signal dropdown and filter bar appear. Off by default — enable it if you actively log signals.</li>
+                            <li><strong class="text-zinc-200">Data is always preserved</strong> — Hiding the Signal field does not affect signal data already logged on your trades. You can re-enable the toggle at any time to see it again.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stop Loss Label Updates</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">New exit reason: Stop Loss (Trailed or Moved)</strong> — For trades where you moved your stop before it was hit. Appears between Original Stop and Take Profit in the close-trade dropdown.</li>
+                            <li><strong class="text-zinc-200">Clearer label names</strong> — "Manual Override" is now "Original Stop" in the exit reason list. The stop display in the trade detail panel now reads "Edited Stop."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.40 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.40-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Apr 29, 2026 6:01PM</span>
                 </div>
 

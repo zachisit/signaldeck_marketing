@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-04-30",
+      "dateModified": "2026-05-01",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,63 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.42 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.42-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 1, 2026 12:11PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>New onboarding step, referral ambassador links, pips on forex trades, and a batch of mobile layout fixes.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Timezone Step in Onboarding</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Required step added</strong> — Timezone is now step 3 of 4 in the onboarding flow. You select from 50 IANA zones before continuing. Setting your timezone ensures P&amp;L calculations and journal timestamps are accurate from the start.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Referral Ambassador Links</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Copy your link</strong> — A new Copy Link button in the Referrals screen generates a shareable UTM URL. Anyone who opens it gets the register form with your referral code pre-filled and locked — no manual entry required.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Pips Display</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">See your pips at a glance</strong> — Closed forex and CFD trades now show pips result in the exit details card. Open trades show live pips in the P&amp;L card, updating as price moves. The post-close summary includes a pips row too.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Mobile Layout Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Filter bar</strong> — On narrow screens, status and symbol search always stay visible. A Filters toggle reveals the remaining controls.</li>
+                            <li><strong class="text-zinc-200">Settings navigation</strong> — A section-jump dropdown replaces the invisible sidebar on phones and tablets.</li>
+                            <li><strong class="text-zinc-200">Calendar, trades table, pagination, modals</strong> — Week view collapses to two columns, year heatmap scrolls horizontally, trades table renders as labelled cards, pagination stacks vertically, trade modal buttons wrap instead of overflow.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">CFD/metal pip calculation</strong> — XAUUSD, XAGUSD, NAS100, US500, US30, and GER40 trades now close with the correct pip size. Previous versions produced inflated pips and P&amp;L for these instruments.</li>
+                            <li><strong class="text-zinc-200">Referral code deletion</strong> — Deleting a referral code no longer removes referred users from your stats. The code disappears from your list, but the signups stay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.41 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.41-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Apr 30, 2026 12:25PM</span>
                 </div>
 

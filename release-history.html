@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-05-05",
+      "dateModified": "2026-05-06",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,42 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.44 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.44-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 6, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>MT4/MT5 MetaApi integration — sync your live broker balance directly into the account balance modal with one click.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT4/MT5 Balance Sync</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Connect your MT5 account</strong> — Enter your MT5 login, password, and server in the account balance modal. Click "Use MT5 Balance" to pull your live balance directly from MetaApi — no manual entry required.</li>
+                            <li><strong class="text-zinc-200">Read-only display after sync</strong> — Once connected, the manual input fields are replaced with a clean read-only balance display showing your synced amount. Clear it to return to manual entry.</li>
+                            <li><strong class="text-zinc-200">Credentials persist per session</strong> — Your MT5 connection details are remembered so you don't need to re-enter them each time you open the modal.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Account balance modal clears on reset</strong> — Re-opening the modal after clearing your saved balance now shows an empty input instead of retaining the previous value.</li>
+                            <li><strong class="text-zinc-200">Docker healthcheck</strong> — The API container now includes curl so the Docker healthcheck no longer fails on cold start.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.43 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.43-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 5, 2026 2:13PM</span>
                 </div>
 

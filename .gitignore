@@ -1,3 +1,6 @@
 # Implementation handoff files
 implementation_handoffs/
 .tokensave
+
+# Local audit/planning files
+seo_audit.csv

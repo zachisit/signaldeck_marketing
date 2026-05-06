@@ -206,8 +206,12 @@ Content: Honest comparison of replay (pattern recognition practice) vs Post Mort
 
 ### Plans & Pricing
 URL: https://sgnldk.com/plans/
-Target queries: best free trading journal, free trading journal with backtester
-Content: Free/Pro/Team tier comparison. SignalDeck is the only free trading journal with Walk-Forward Analysis and Monte Carlo simulation. Active beta testers get Founder Status (free for life).
+Target queries: best free trading journal, free trading journal with backtester, SignalDeck pricing, trading journal pricing
+Content: Free/Pro/Team tier comparison with locked-in post-beta pricing.
+Free ($0): Unlimited trades/post mortems/journal entries, basic R-value analytics & equity curve, 3 strategies/10 tags/5 checklist items (caps), 5 saved backtest notebooks/30 runs per month (daily bars, 1-year history, 7 built-in strategies), 3 AI Post Mortems/month, 1 screenshot per trade, join 1 Borg team (no create), 15-minute delayed market data, community Discord.
+Pro ($19/mo): Everything in Free + unlimited strategies/tags/checklist; Walk-Forward Analysis, Monte Carlo simulation, grid-search optimizer (500 combos), custom rule builder; 50 notebooks/300 runs per month, intraday data (1m–1h), 5-year history; technical indicators on trades (RSI/MACD/MAs/VWAP/ATR); Execution Quality (MAE/MFE) + slippage tracking; Automated Forward Testing scanner; 50 AI Post Mortems/month; full R-analytics (SQN, Kelly, Monte Carlo drawdown); SPY/QQQ benchmark overlay; backtest↔journal strategy overlay; create up to 3 Borg teams; unlimited screenshots, price alerts, CSV/ML export; public profile; priority support.
+Team ($29/mo): Everything in Pro + real-time market data (no 15-min delay, Team only); unlimited AI Post Mortems; unlimited notebooks and backtest runs; unlimited Borg teams (create/manage); pod-level collective metrics; shared team strategy library; live trade feed; leaderboards; custom display name/alias.
+Founder Status: active beta testers who provide feedback get free lifetime access to the full platform (all Pro + Team features, no restrictions, even after transition to paid). During beta all features are fully unlocked at no cost.
 
 ### Compare Hub
 URL: https://sgnldk.com/compare/

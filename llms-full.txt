@@ -260,7 +260,12 @@ Content: 1:1 onboarding for every beta tester, direct founder access, 48-hour fe
 
 ### Blog
 URL: https://sgnldk.com/blog/
-Articles: SQN score, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Monte Carlo simulation.
+Articles: SQN score, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Monte Carlo simulation, journal account balance accuracy.
+
+### Blog: Why Your Account Balance at Trade Entry Matters
+URL: https://sgnldk.com/blog/journal-account-balance/
+Target queries: trading journal account balance, journal balance sync, Kelly criterion account balance, fixed r position sizing balance, MT4 journal balance sync, MT5 journal real time balance, account equity trade journal
+Content: Why account balance at the moment of trade entry is the foundational input for R-Multiple, Fixed-R sizing, and Kelly Criterion. Three failure modes of stale balance: wrong 1R value, wrong Kelly lot size, drifting R-Multiple attribution. Drawdown compounding table showing 1.00% → 1.13% → 1.29% actual risk as balance goes stale through a losing streak. The 6-step copy-paste manual workflow and where it breaks (balance vs equity confusion, mid-setup tab-switching, updating after the trade instead of before). SignalDeck manual flow (balance field on entry form). MT4/MT5 real-time sync via MetaApi — balance, equity, margin, leverage all continuous, no manual input after initial connection. Balance vs equity distinction table. Prop firm section: drawdown limits calculated against live equity at FTMO/MyFundedFX/Apex/The5ers. FAQ: 5 questions covering the core concepts.
 
 ### Jobs
 URL: https://sgnldk.com/jobs/

@@ -247,7 +247,11 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Blog
 - URL: https://sgnldk.com/blog/
-- Content: Five published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, and Monte Carlo simulation for drawdown stress-testing. Topics target serious retail traders who want institutional analytics applied to their own trade data.
+- Content: Six published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Monte Carlo simulation, and journal account balance accuracy. Topics target serious retail traders who want institutional analytics applied to their own trade data.
+
+### Blog: Why Your Account Balance at Trade Entry Matters
+- URL: https://sgnldk.com/blog/journal-account-balance/
+- Content: Explains why account balance at the moment of trade entry is the foundational input for R-Multiple, Fixed-R position sizing, and Kelly Criterion. Covers what breaks when the balance is stale (wrong 1R dollar value, wrong Kelly lot size, drifting R-Multiple attribution), the drawdown compounding problem (stale balance defeats the Fixed-R circuit breaker), the copy-paste failure modes of manual broker-to-journal workflows, how SignalDeck handles manual balance entry, and how MT4/MT5 real-time sync via MetaApi eliminates the problem entirely. Balance vs equity distinction table. Prop firm section covering why always-current equity matters for drawdown-limit calculations. FAQ: why balance matters, what breaks with stale balance, balance vs equity, MT4/MT5 sync for prop firms, why drawdowns amplify the problem.
 
 ### Blog: How to Calculate Your Trading SQN Score
 - URL: https://sgnldk.com/blog/how-to-calculate-sqn-score/

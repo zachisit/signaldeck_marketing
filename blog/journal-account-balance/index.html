@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Why Your Account Balance at Trade Entry Matters (And How to Get It Right) | SignalDeck</title>
+    <meta name="description" content="Logging trades with a stale account balance corrupts your Kelly Criterion, your Fixed-R sizing, and your risk-adjusted analytics. Here's why the balance at the moment of the trade is the only number that's honest — and how MT4/MT5 real-time sync eliminates the problem entirely.">
+    <meta name="keywords" content="trading journal account balance, journal balance sync, Kelly criterion account balance, fixed r position sizing balance, MT4 journal balance sync, MT5 journal real time balance, trading journal auto sync, account equity trade journal, position sizing current balance">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/journal-account-balance/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/journal-account-balance/">
+    <meta property="og:title" content="Why Your Account Balance at Trade Entry Matters (And How to Get It Right) | SignalDeck">
+    <meta property="og:description" content="Logging trades with a stale account balance corrupts your Kelly Criterion, your Fixed-R sizing, and your risk-adjusted analytics. Here's why the balance at the moment of the trade is the only number that's honest.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/journal-account-balance/">
+    <meta property="twitter:title" content="Why Your Account Balance at Trade Entry Matters (And How to Get It Right) | SignalDeck">
+    <meta property="twitter:description" content="Logging trades with a stale account balance corrupts your Kelly Criterion, your Fixed-R sizing, and your risk-adjusted analytics. Here's why the balance at the moment of the trade is the only number that's honest.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why Your Account Balance at Trade Entry Matters (And How to Get It Right)",
+        "description": "Logging trades with a stale account balance corrupts your Kelly Criterion, your Fixed-R sizing, and your risk-adjusted analytics. Here's why the balance at the moment of the trade is the only number that's honest — and how MT4/MT5 real-time sync eliminates the problem entirely.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-05-06",
+        "dateModified": "2026-05-06"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why does account balance matter when logging a trade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Account balance at the moment of entry defines what 1R actually is in dollar terms for that specific trade. If your balance has changed since you last updated it in your journal — due to closed trades, commissions, or a drawdown — your R-Multiple calculation, Kelly Criterion recommendation, and Fixed-R position size are all derived from a number that's already wrong. The position size formula (Position Size = Account × Risk% ÷ Stop Distance) requires accurate current equity, not last week's balance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What goes wrong when you use a stale account balance in your journal?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Three things break simultaneously. First, your 1R dollar value is wrong — if your balance has fallen during a drawdown and you haven't updated it, 1R is larger than it should be and you're over-risking on every subsequent trade. Second, your Kelly Criterion sizing recommendation is calculated from incorrect equity, meaning the lot size or share count it suggests doesn't match your actual account. Third, your R-Multiple attribution is corrupted — because the R-value of each trade is measured against the wrong baseline, your expectancy and SQN score become unreliable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I keep my account balance accurate in a trading journal without MT4/MT5?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The manual approach works fine if you're disciplined: update your balance in the journal before entering each new trade, pulling the current equity directly from your broker's platform. The risk is human error — copying the wrong number, forgetting to update after commissions close, or simply missing an update during a fast-moving session. In SignalDeck, this is a single field on the trade entry form. For MT4/MT5 traders, SignalDeck's MetaApi integration syncs live balance, equity, margin, and leverage continuously — no copy-pasting required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does MT4/MT5 real-time balance sync work for prop firm accounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Any MT4 or MT5 account accessible via MetaApi — including FTMO, MyFundedFX, Apex, The5ers, IC Markets, Pepperstone, and Exness accounts — syncs live balance, equity, margin, and leverage to SignalDeck automatically. This is particularly valuable for funded accounts where the balance changes after every trade and drawdown limits are calculated as a percentage of the live equity — not a static starting number."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does balance matter more after a drawdown?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "During a drawdown, your account equity falls. If you keep risking 1R calculated against your pre-drawdown balance, your actual risk percentage creeps upward — sometimes significantly. A trader who set 1R = $300 when their account was $30,000 (1%) but has since fallen to $25,000 is now risking $300 / $25,000 = 1.2% without realizing it. With 10 open trades in a bad week, that 0.2% compounding difference is real money. Fixed-R only works if the R-value is recalculated from current equity on every single trade."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Journal Account Balance", "item": "https://sgnldk.com/blog/journal-account-balance/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Breadcrumb -->
+    <div class="max-w-3xl mx-auto px-6 pt-8">
+        <nav class="flex items-center gap-2 text-xs font-mono text-zinc-500">
+            <a href="../../index.html" class="hover:text-zinc-300 transition-colors">Home</a>
+            <span>/</span>
+            <a href="../index.html" class="hover:text-zinc-300 transition-colors">Blog</a>
+            <span>/</span>
+            <span class="text-zinc-400">Journal Account Balance</span>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="relative pt-10 pb-12 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-05-06" class="text-xs font-mono text-zinc-500">May 6, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Journal Workflow</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Why Your Account Balance at Trade Entry Matters More Than You Think
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Your position sizing formula, your Kelly Criterion recommendation, and your R-Multiple calculations all start from one number: your current account balance. Log it wrong — or let it go stale — and everything downstream is quietly wrong too. Here's what breaks, what the manual fix looks like, and how MT4/MT5 real-time sync makes the problem disappear entirely.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- Section 1 -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Number Every Journal Entry Depends On</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                When you open a position, one number anchors every risk calculation that follows: your account balance at that moment. Not the balance from last Tuesday. Not the number you typed into your journal three weeks ago when you first set it up. The balance right now, before this trade, including every win, loss, commission, swap, and withdrawal that has happened since.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If you use <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Fixed-R position sizing</a>, your 1R dollar value is derived directly from current equity. A 1% risk rule on a $30,000 account makes 1R = $300. If your account is actually $26,800 right now — because you've taken some losses and paid some commissions since you last updated your journal — your 1R is $268, not $300. The difference looks small. Over a week of active trading, it isn't.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Most traders don't think about this until their analytics start producing numbers that don't match their intuition. Their R-Multiple calculations look right but their actual dollar outcomes don't line up with what the journal predicted. The source is almost always stale balance data. The fix sounds trivial. The discipline to apply it consistently is harder than it looks.
+            </p>
+
+            <!-- Section 2 -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Exactly Breaks When the Balance Is Wrong</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">Three things get corrupted simultaneously, and they compound each other:</p>
+
+            <div class="space-y-4 mb-8">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-rose-400 text-sm font-bold mt-0.5 shrink-0">01</span>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1">Your 1R value is wrong</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">The dollar amount you're actually risking per trade diverges from what the journal thinks you're risking. If you've experienced a drawdown and haven't updated your balance, every subsequent position is sized against an equity number that no longer exists. You're over-risking without knowing it — exactly when over-risking is most dangerous.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-rose-400 text-sm font-bold mt-0.5 shrink-0">02</span>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1">Kelly Criterion gives you the wrong lot size</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Kelly is a function of win rate, average R, and current account equity. Change the equity input and the output changes. A Kelly recommendation of "risk 1.4% of your account" expressed as a lot size on a stale balance number gives you the wrong number of lots. The percentage looks right. The execution is wrong.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="font-mono text-rose-400 text-sm font-bold mt-0.5 shrink-0">03</span>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1">Your R-Multiple attribution drifts</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed">R-Multiple is calculated as outcome ÷ 1R. If 1R is wrong because the balance it's derived from is wrong, your R-Multiple is wrong. A trade you closed at +$300 might be logged as +1.0R when it was actually +1.12R — and that gap accumulates. Your SQN score and expectancy both consume R-Multiple data. Garbage in, garbage out.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 — The drawdown compounding problem -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Drawdown Problem: When Getting It Wrong Costs the Most</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The scenario where stale balance data is most damaging is also the scenario where it's most likely to happen: a losing streak.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                When you're in a drawdown, you're more focused on the trades than the journal housekeeping. Updating your account balance in your journal is the last thing on your mind. But it's precisely when your balance has fallen that recalculating 1R matters most. A trader risking 1% per trade should automatically reduce their absolute dollar risk as their account shrinks — that's the mathematical protection built into Fixed-R sizing. If the balance in the journal never gets updated, that protection doesn't apply.
+            </p>
+
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden mb-8">
+                <div class="bg-zinc-950 border-b border-zinc-800 px-5 py-3">
+                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">Worked Example — Drawdown Compounding</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                                <th class="px-5 py-3 text-left font-semibold">State</th>
+                                <th class="px-5 py-3 text-left font-semibold">Real Balance</th>
+                                <th class="px-5 py-3 text-left font-semibold">Journal Balance</th>
+                                <th class="px-5 py-3 text-left font-semibold">Correct 1R</th>
+                                <th class="px-5 py-3 text-left font-semibold">Actual Risk %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t border-zinc-800">
+                                <td class="px-5 py-3 text-zinc-300">Start of month</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$30,000</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$30,000</td>
+                                <td class="px-5 py-3 font-mono text-emerald-400">$300</td>
+                                <td class="px-5 py-3 font-mono text-emerald-400">1.00%</td>
+                            </tr>
+                            <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                                <td class="px-5 py-3 text-zinc-300">After 5 losses</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$26,500</td>
+                                <td class="px-5 py-3 font-mono text-rose-400">$30,000 ← stale</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$265</td>
+                                <td class="px-5 py-3 font-mono text-rose-400">1.13% ← over-risking</td>
+                            </tr>
+                            <tr class="border-t border-zinc-800">
+                                <td class="px-5 py-3 text-zinc-300">After 10 losses</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$23,200</td>
+                                <td class="px-5 py-3 font-mono text-rose-400">$30,000 ← stale</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$232</td>
+                                <td class="px-5 py-3 font-mono text-rose-400">1.29% ← creeping up</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-5 py-3 border-t border-zinc-800">
+                    <p class="text-xs font-mono text-zinc-500">At 10 losses deep, the trader believes they're risking 1%. They're risking 1.29%. Not catastrophic on a single trade — compounding over a continued drawdown, it accelerates the damage.</p>
+                </div>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The Fixed-R framework is designed to act as a natural circuit breaker during losing streaks — as the account shrinks, so does 1R in dollar terms, which limits how fast you can lose. But that circuit breaker only works if the balance powering the calculation is current.
+            </p>
+
+            <!-- Section 4 — The copy-paste problem -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Manual Workflow: What It Looks Like, Where It Breaks</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                For most traders using a journal without broker integration, keeping the balance accurate means a manual update at the start of each session — or before each new trade entry. The workflow looks like this:
+            </p>
+
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6">
+                <ol class="space-y-3 text-sm text-zinc-300">
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-zinc-500 shrink-0 pt-0.5">1.</span>
+                        <span>Switch from your journal tab to your broker platform</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-zinc-500 shrink-0 pt-0.5">2.</span>
+                        <span>Find the current equity figure (not the balance — equity includes open position float)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-zinc-500 shrink-0 pt-0.5">3.</span>
+                        <span>Copy or memorize the number</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-zinc-500 shrink-0 pt-0.5">4.</span>
+                        <span>Switch back to your journal</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-zinc-500 shrink-0 pt-0.5">5.</span>
+                        <span>Update the balance field</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-zinc-500 shrink-0 pt-0.5">6.</span>
+                        <span>Log the trade</span>
+                    </li>
+                </ol>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                In isolation this is fine. In practice, it breaks down. During fast market conditions — when you're making quick decisions around a catalyst or a breakout — tab-switching to copy-paste a balance number creates friction at the worst possible moment. The number you grabbed was accurate two minutes ago; by the time you're entering the trade, your open positions have moved. You copy the wrong field (balance vs equity — not the same thing when you have open trades). You misread a digit. You update the balance after logging the trade instead of before, which means the R-Multiple calculation for that entry used yesterday's figure anyway.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                None of these errors are catastrophic in isolation. But they accumulate. Over months of trading, a journal with intermittently stale balance data tells you a story about your edge that is subtly and consistently wrong.
+            </p>
+
+            <!-- Section 5 — SignalDeck manual -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Handles It Manually</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                In SignalDeck, the account balance field appears directly on the trade entry form. Before you log a trade, you enter your current equity — pulled from your broker's terminal — and the platform immediately recalculates your 1R dollar value and your Kelly Criterion position size based on that updated number. No hidden settings. No separate account management screen you might forget to visit.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The manual flow is as streamlined as it gets without automation: open the entry form, update the balance, fill in the trade details. The position sizing calculator on the same screen shows you the correct lot size or share count for the trade you're about to enter, based on your current equity and your stop distance. For traders who aren't on MT4 or MT5, this is the right workflow — and the discipline to update that field every single time is the discipline that makes the rest of the analytics honest.
+            </p>
+
+            <!-- Section 6 — MT4/MT5 real-time -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">MT4/MT5 Real-Time Sync: The Balance That's Always Right</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                For traders on MetaTrader 4 or MetaTrader 5, SignalDeck's MetaApi integration removes the manual step entirely. When you connect your MT4 or MT5 account, your live balance, equity, margin, and leverage sync to SignalDeck continuously — not on a schedule, not on a manual refresh. The moment a trade closes, a commission processes, or a swap charges overnight, the number in SignalDeck updates.
+            </p>
+
+            <!-- Live balance widget mock -->
+            <div class="bg-zinc-900 border border-emerald-500/30 rounded-xl overflow-hidden mb-8">
+                <div class="bg-zinc-950 border-b border-zinc-800 px-5 py-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">MetaApi — Live Account Sync</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded">CONNECTED</span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-800">
+                    <div class="bg-zinc-900 p-4">
+                        <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1.5">Balance</p>
+                        <p class="text-xl font-bold font-mono text-white">$48,214.63</p>
+                        <p class="text-[10px] font-mono text-zinc-600 mt-1">Closed trades only</p>
+                    </div>
+                    <div class="bg-zinc-900 p-4">
+                        <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1.5">Equity</p>
+                        <p class="text-xl font-bold font-mono text-emerald-400">$47,891.20</p>
+                        <p class="text-[10px] font-mono text-zinc-600 mt-1">Includes open float</p>
+                    </div>
+                    <div class="bg-zinc-900 p-4">
+                        <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1.5">1R @ 1%</p>
+                        <p class="text-xl font-bold font-mono text-blue-400">$478.91</p>
+                        <p class="text-[10px] font-mono text-zinc-600 mt-1">Derived from equity</p>
+                    </div>
+                    <div class="bg-zinc-900 p-4">
+                        <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1.5">Margin Used</p>
+                        <p class="text-xl font-bold font-mono text-amber-400">$2,840.00</p>
+                        <p class="text-[10px] font-mono text-zinc-600 mt-1">Live leverage context</p>
+                    </div>
+                </div>
+                <div class="px-5 py-3 border-t border-zinc-800">
+                    <p class="text-xs font-mono text-zinc-500">Every metric above updates in real time as positions move, close, and as overnight swaps process. The 1R value SignalDeck uses for position sizing and R-Multiple calculation is always derived from current equity — not a number you entered last session.</p>
+                </div>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The practical result: every time you log a trade in SignalDeck, the balance field is already correct. Not approximately correct based on what you remembered to enter last time you traded. Precisely correct, down to the cent, reflecting the exact state of your account at that moment. The Kelly Criterion sizing recommendation on the trade entry form is derived from that number. The 1R dollar value used to calculate R-Multiple at trade close is derived from that number.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                There is no copy-paste. There is no tab-switching at the moment of a setup. There is no risk of misreading the equity field vs the balance field because you were in a hurry. The number is always there, it's always current, and it requires no action from you after the initial connection.
+            </p>
+
+            <!-- Section 7 — balance vs equity -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Balance vs Equity: Which Number Actually Matters</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                One distinction that trips up manual updaters: <strong class="text-white">balance</strong> and <strong class="text-white">equity</strong> are not the same number when you have open trades.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                <strong class="text-white">Balance</strong> is your closed-trade result — cash that's actually settled. <strong class="text-white">Equity</strong> is balance plus or minus the floating P&amp;L of all open positions. When no trades are open, they're identical. With open positions, equity fluctuates in real time while balance stays fixed until each trade closes.
+            </p>
+
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden mb-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                                <th class="px-5 py-3 text-left font-semibold">Scenario</th>
+                                <th class="px-5 py-3 text-left font-semibold">Balance</th>
+                                <th class="px-5 py-3 text-left font-semibold">Equity</th>
+                                <th class="px-5 py-3 text-left font-semibold">Use for sizing?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t border-zinc-800">
+                                <td class="px-5 py-3 text-zinc-300">No open positions</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$30,000</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$30,000</td>
+                                <td class="px-5 py-3 font-mono text-emerald-400">Either — same number</td>
+                            </tr>
+                            <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                                <td class="px-5 py-3 text-zinc-300">One open trade, +$400 float</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$30,000</td>
+                                <td class="px-5 py-3 font-mono text-emerald-400">$30,400</td>
+                                <td class="px-5 py-3 font-mono text-blue-400">Equity → $30,400</td>
+                            </tr>
+                            <tr class="border-t border-zinc-800">
+                                <td class="px-5 py-3 text-zinc-300">One open trade, -$600 float</td>
+                                <td class="px-5 py-3 font-mono text-zinc-300">$30,000</td>
+                                <td class="px-5 py-3 font-mono text-rose-400">$29,400</td>
+                                <td class="px-5 py-3 font-mono text-blue-400">Equity → $29,400</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-5 py-3 border-t border-zinc-800">
+                    <p class="text-xs font-mono text-zinc-500">For sizing a new trade, use equity — it reflects what your account is actually worth right now, including the exposure already on the books. Using balance when you have open losing positions means your next 1R calculation is based on a number larger than your real current capital.</p>
+                </div>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is one of the most common manual entry errors: traders pull the balance figure rather than equity, particularly when they're used to seeing the balance as the "headline" number in their broker terminal. With SignalDeck's MetaApi sync, both figures are available separately — balance and equity are displayed as distinct fields, and the equity figure is what feeds the position sizing and R-Multiple calculations.
+            </p>
+
+            <!-- Section 8 — prop firm specific -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why This Matters More for Prop Firm Accounts</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Prop firm challenge and funded account traders face a stricter version of this problem. Drawdown limits on FTMO, MyFundedFX, Apex, and similar firms are calculated as a percentage of the live equity — not a static starting number. A 5% daily loss limit on a funded account that started at $100,000 isn't $5,000 flat; it's calculated from where the equity is at the start of each trading day.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If your journal's balance doesn't match your broker's live equity, your risk calculations are off in both directions. You might think you have more headroom under the drawdown limit than you actually do. Or you might be sizing trades against a balance that has grown since your last update, meaning your positions are smaller than they need to be. Neither is optimal.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The MetaApi sync covers this precisely because it pulls balance, equity, and margin simultaneously, refreshed continuously. For prop firm traders using MT4 or MT5 (which covers most major prop firms — FTMO, IC Markets, Pepperstone, Exness, MyFundedFX, The5ers, Apex), the number in SignalDeck matches the number on the platform at all times. There is no ambiguity about which number the risk limit is being calculated against.
+            </p>
+
+            <!-- Section 9 — practical advice -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Practical Summary: What to Actually Do</h2>
+
+            <div class="space-y-3 mb-8">
+                <div class="flex items-start gap-4 p-4 bg-zinc-900 border border-zinc-800 rounded-xl">
+                    <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">IF MT4 / MT5</span>
+                    <p class="text-zinc-300 text-sm leading-relaxed">Connect via MetaApi. Done. Your balance, equity, margin, and leverage sync continuously. Every trade you log already has the correct balance attached without any manual input after setup.</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-zinc-900 border border-zinc-800 rounded-xl">
+                    <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">IF MANUAL</span>
+                    <p class="text-zinc-300 text-sm leading-relaxed">Update the balance field in SignalDeck at the start of every session — before you enter the first trade. Use your broker's equity figure, not the balance field (they differ when you have open positions). Build it into your pre-trade checklist. Treat it with the same discipline as checking your stop placement.</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-zinc-900 border border-zinc-800 rounded-xl">
+                    <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">BOTH</span>
+                    <p class="text-zinc-300 text-sm leading-relaxed">After a drawdown, verify your 1R dollar value has decreased proportionally. If your account is down 10%, your 1R should be down 10%. That's the protection Fixed-R provides — but only if the balance feeding the calculation has been updated to reflect the new reality.</p>
+                </div>
+            </div>
+
+            <!-- CTA block -->
+            <div class="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">MT4 / MT5 Integration</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Connect your MT4 or MT5 account — balance syncs automatically</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                    SignalDeck connects to any MT4 or MT5 broker account via MetaApi. Trades import automatically. Balance and equity update in real time. Kelly Criterion and Fixed-R sizing always reflect your actual current account state — not a number you entered last week.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="gtag('event', 'generate_lead', { 'event_category': 'blog_cta', 'event_label': 'journal-account-balance' });"
+                        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors text-sm text-center">
+                        Connect Your Account Free
+                    </a>
+                    <a href="../../mt4-journal/index.html"
+                        class="px-6 py-3 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white font-medium rounded-lg transition-colors text-sm text-center">
+                        How MT4/MT5 Import Works →
+                    </a>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="mt-16 pt-12 border-t border-zinc-800">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+
+                    <div class="border border-zinc-800 rounded-xl p-5">
+                        <h3 class="text-white font-semibold mb-2">Why does account balance matter when logging a trade?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Account balance at the moment of entry defines what 1R actually is in dollar terms for that specific trade. If your balance has changed since you last updated it in your journal — due to closed trades, commissions, or a drawdown — your R-Multiple calculation, Kelly Criterion recommendation, and Fixed-R position size are all derived from a number that's already wrong. The position size formula requires accurate current equity, not last week's balance.</p>
+                    </div>
+
+                    <div class="border border-zinc-800 rounded-xl p-5">
+                        <h3 class="text-white font-semibold mb-2">What goes wrong when you use a stale account balance?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Three things break simultaneously: your 1R dollar value is wrong, your Kelly Criterion lot size recommendation is derived from incorrect equity, and your R-Multiple attribution drifts over time. These errors compound each other — and they're worst during drawdowns, when accurate risk calculation matters most and manual updates are most easily skipped.</p>
+                    </div>
+
+                    <div class="border border-zinc-800 rounded-xl p-5">
+                        <h3 class="text-white font-semibold mb-2">Should I use balance or equity when updating my journal?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Equity — not balance. When you have open positions, balance reflects only closed-trade results while equity includes the floating P&amp;L of everything currently open. If you have an open trade down $400, using balance overstates your real current capital by $400. SignalDeck's MetaApi sync tracks both fields separately and uses equity for all position sizing calculations.</p>
+                    </div>
+
+                    <div class="border border-zinc-800 rounded-xl p-5">
+                        <h3 class="text-white font-semibold mb-2">Does MT4/MT5 real-time balance sync work for prop firm accounts?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Yes. Any MT4 or MT5 account accessible via MetaApi syncs live balance, equity, margin, and leverage to SignalDeck automatically — including FTMO, MyFundedFX, Apex, The5ers, IC Markets, Pepperstone, and Exness accounts. For funded accounts where drawdown limits are calculated against live equity, having an always-current balance in your journal is not optional — it's structural to understanding your actual risk headroom.</p>
+                    </div>
+
+                    <div class="border border-zinc-800 rounded-xl p-5">
+                        <h3 class="text-white font-semibold mb-2">Why does balance accuracy matter more during a drawdown?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Fixed-R sizing provides a natural circuit breaker: as your account shrinks, your 1R dollar amount shrinks proportionally, limiting how fast further losses accumulate. But this only works if 1R is recalculated from current equity on every trade. A stale balance during a drawdown means you're risking a higher percentage of your real account than intended — exactly when over-risking is most dangerous.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Related Articles -->
+            <section class="mt-16 pt-12 border-t border-zinc-800">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="../fixed-r-position-sizing/index.html" class="block group p-5 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-blue-500/30 transition-all">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <h3 class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm">Why Most Traders Risk Too Much on Every Trade (Fixed-R Position Sizing)</h3>
+                    </a>
+                    <a href="../why-win-rate-is-lying/index.html" class="block group p-5 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-blue-500/30 transition-all">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
+                        <h3 class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm">Why Your Win Rate Is Lying to You (And What to Track Instead)</h3>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12 mt-8">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-zinc-500 text-sm mb-4">SignalDeck — Professional trading journal built around R-value analytics.</p>
+            <div class="flex justify-center gap-6 text-xs font-mono text-zinc-600">
+                <a href="../../index.html" class="hover:text-zinc-400 transition-colors">Home</a>
+                <a href="../index.html" class="hover:text-zinc-400 transition-colors">Blog</a>
+                <a href="../../plans/index.html" class="hover:text-zinc-400 transition-colors">Plans</a>
+                <a href="../../compare/index.html" class="hover:text-zinc-400 transition-colors">Compare</a>
+                <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400 transition-colors">App →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

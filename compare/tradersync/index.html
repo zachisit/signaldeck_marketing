@@ -54,10 +54,10 @@
         },
         {
           "@type": "Question",
-          "name": "Why does SignalDeck not have broker auto-import like TraderSync?",
+          "name": "Does SignalDeck have broker import like TraderSync?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TraderSync supports 700+ broker integrations for automatic trade import. SignalDeck requires manual entry or CSV import. We prioritized analytical depth over data ingestion — manual logging reinforces trade discipline and ensures every trade is reviewed before entering your journal. Broker API integrations are on our development roadmap."
+            "text": "SignalDeck now supports MT4 and MT5 trade import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses your actual current equity. TraderSync still leads on breadth with 700+ broker integrations for non-MT4/MT5 platforms. Both platforms return fill data without stop loss — R-Multiple still requires manual entry after import in both cases."
           }
         },
         {
@@ -114,10 +114,10 @@
             },
             {
                 "@type": "Question",
-                "name": "Why doesn't SignalDeck have broker auto-import like TraderSync?",
+                "name": "Does SignalDeck have broker import like TraderSync?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "TraderSync supports 700+ broker integrations. SignalDeck requires manual entry or CSV import. We prioritized analytical depth — manual logging reinforces trade discipline. Broker API integrations are on the roadmap."
+                    "text": "SignalDeck now supports MT4 and MT5 trade import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses your actual current equity. TraderSync still leads on breadth with 700+ broker integrations for non-MT4/MT5 platforms."
                 }
             },
             {
@@ -210,6 +210,7 @@
                 <div class="bg-blue-500/5 border border-blue-500/20 rounded-lg p-6">
                     <p class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">Choose SignalDeck if...</p>
                     <ul class="space-y-2 text-sm text-zinc-300">
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on MT4 or MT5 and want automatic import with stop loss + balance sync</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want backtesting with Walk-Forward Analysis and Monte Carlo</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> R-Multiple is how you think about risk — not just one metric</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want a structured 5-step Post Mortem on every trade</li>
@@ -220,10 +221,10 @@
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-6">
                     <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">Choose TraderSync if...</p>
                     <ul class="space-y-2 text-sm text-zinc-400">
-                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> Auto-importing from 700+ brokers is non-negotiable for you</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need import from a non-MT4/MT5 broker — stocks, US equities, 700+ platform coverage</li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You want AI coaching (Cypher) to give you trade feedback</li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You prefer a feature-heavy all-in-one dashboard</li>
-                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You don't log every trade manually</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> P&L tracking and tax reporting are your primary goals</li>
                     </ul>
                 </div>
             </div>
@@ -321,8 +322,13 @@
                             <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ Cypher AI</td>
                         </tr>
                         <tr class="border-t border-zinc-800">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">Broker Auto-Import</td>
-                            <td class="px-4 py-3 text-center bg-blue-500/5 text-yellow-500">⚠️ Coming Soon</td>
+                            <td class="px-4 py-3 text-zinc-300 font-medium">MT4/MT5 Import + Live Balance Sync</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ MT4/MT5 via MetaApi</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only (no balance sync)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Broad Broker Auto-Import (700+)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
                             <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ 700+ brokers</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
@@ -398,8 +404,8 @@
                     <p class="text-zinc-400 text-sm">TraderSync includes R-multiple as one metric among many. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN score, Kelly Criterion, equity curves, Post Mortem reviews) flows from risk-normalized R-value. The difference is between a metric and a framework.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
-                    <h3 class="text-white font-semibold mb-2">Why doesn't SignalDeck have broker auto-import like TraderSync?</h3>
-                    <p class="text-zinc-400 text-sm">TraderSync supports 700+ broker integrations. SignalDeck requires manual entry or CSV import. We prioritized analytical depth — manual logging reinforces trade discipline. Broker API integrations are on the roadmap.</p>
+                    <h3 class="text-white font-semibold mb-2">Does SignalDeck have broker import now?</h3>
+                    <p class="text-zinc-400 text-sm">Yes — SignalDeck now supports MT4 and MT5 trade import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses your actual current equity. The live balance sync is something TraderSync's import doesn't offer. TraderSync still leads on breadth with 700+ broker integrations for non-MT4/MT5 platforms. Both platforms return fills without stop loss — R-Multiple still requires manual entry after import.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Which is cheaper, SignalDeck or TraderSync?</h3>
@@ -446,7 +452,8 @@
                 <a href="../../release-history.html" class="hover:text-zinc-400">Release History</a> |
                 <a href="../../clubs.html" class="hover:text-zinc-400">Clubs</a> |
                 <a href="../../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a>
+                <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |

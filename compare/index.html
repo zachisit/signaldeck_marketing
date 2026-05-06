@@ -65,15 +65,15 @@
           "name": "What features is SignalDeck missing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The main gap is broker auto-import. Competitors like TraderSync and Edgewonk support 200–700+ broker integrations for automatic trade import. SignalDeck currently requires manual entry or CSV import. Broker API integrations are on the roadmap. Trade replay is also not currently available."
+            "text": "The main remaining gap versus competitors like TraderSync is broad broker coverage — SignalDeck supports MT4 and MT5 via MetaApi but not 700+ generic brokers. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned."
           }
         },
         {
           "@type": "Question",
-          "name": "Why doesn't SignalDeck have broker auto-import yet?",
+          "name": "Does SignalDeck have broker import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We prioritized analytical depth over data ingestion. Manual logging reinforces trade discipline — you review every entry before it enters your journal. CSV import is fully supported, and broker API integrations are actively on our development roadmap."
+            "text": "Yes — SignalDeck now supports MT4 and MT5 trade import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses your actual current equity. Import captures fills, P&L, symbol, volume, and price automatically. Stop loss still requires manual entry after import for R-Multiple calculation. Manual entry and CSV import remain available for non-MT4/MT5 platforms."
           }
         }
       ]
@@ -94,6 +94,8 @@
         "description": "Free during beta"
       },
       "featureList": [
+        "MT4/MT5 trade import via MetaApi (automatic fills + P&L, no manual execution entry)",
+        "Real-time account balance sync for accurate Kelly Criterion sizing",
         "Walk-Forward Analysis for backtesting overfitting detection",
         "1000-path Monte Carlo simulation for drawdown risk modeling",
         "Grid-search parameter optimization (up to 500 combinations)",
@@ -221,6 +223,86 @@
         </div>
     </section>
 
+    <!-- MT4/MT5 Import Highlight -->
+    <section class="py-12 border-b border-zinc-900 bg-emerald-500/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">New Feature</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">MT4/MT5 import with live account balance sync.</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, and volume with no manual entry. The real differentiator: SignalDeck syncs your live account balance in real time, so Kelly Criterion sizing and fixed-R calculations always use your actual current equity. After a drawdown, your position sizing adjusts automatically. No other journal that imports trades also syncs your live balance.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">MT4 Import</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">MT5 Import</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Live Balance Sync</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Zero Fill Entry</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Kelly Always Current</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Drawdown-Adjusted Sizing</span>
+                    </div>
+                </div>
+                <!-- Import feed visual — distinct from backtester metrics card -->
+                <div class="flex-shrink-0 w-full md:w-72 rounded-xl overflow-hidden border border-emerald-500/25" style="background: linear-gradient(160deg, #0d1f14 0%, #0a0a0b 60%);">
+                    <!-- Header bar -->
+                    <div class="flex items-center justify-between px-4 py-2.5 border-b border-emerald-900/60">
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">MetaApi · Connected</span>
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-600">MT5</span>
+                    </div>
+                    <!-- Balance block -->
+                    <div class="px-4 pt-4 pb-3 border-b border-zinc-800/60">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-1">Live Equity</div>
+                        <div class="text-2xl font-bold text-white tracking-tight">$12,614<span class="text-emerald-400">.32</span></div>
+                        <div class="flex items-center gap-3 mt-1">
+                            <span class="text-[9px] font-mono text-zinc-500">Balance $12,480.00</span>
+                            <span class="text-[9px] font-mono text-emerald-500">+$134.32 open</span>
+                        </div>
+                        <div class="mt-2 text-[9px] font-mono text-zinc-500 bg-emerald-500/5 border border-emerald-500/15 rounded px-2 py-1">
+                            Kelly 1R → risk <span class="text-white font-bold">$124.80</span> next trade
+                        </div>
+                    </div>
+                    <!-- Import feed -->
+                    <div class="px-4 py-3 space-y-2">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-2">Import feed</div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-500 text-[9px]">↓</span>
+                                <span class="text-zinc-300 text-[10px] font-mono">EURUSD</span>
+                                <span class="text-zinc-600 text-[9px]">BUY 0.10</span>
+                            </div>
+                            <span class="text-emerald-400 text-[10px] font-mono">+$84.20</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-500 text-[9px]">↓</span>
+                                <span class="text-zinc-300 text-[10px] font-mono">GBPUSD</span>
+                                <span class="text-zinc-600 text-[9px]">SELL 0.05</span>
+                            </div>
+                            <span class="text-rose-400 text-[10px] font-mono">-$31.50</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-500 text-[9px]">↓</span>
+                                <span class="text-zinc-300 text-[10px] font-mono">XAUUSD</span>
+                                <span class="text-zinc-600 text-[9px]">BUY 0.02</span>
+                            </div>
+                            <span class="text-emerald-400 text-[10px] font-mono">+$212.00</span>
+                        </div>
+                        <div class="pt-1 border-t border-zinc-800/60 text-[9px] font-mono text-zinc-600">
+                            3 trades synced today · no manual entry
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Backtester Highlight -->
     <section class="py-12 border-b border-zinc-900 bg-blue-500/5">
         <div class="max-w-5xl mx-auto px-6">
@@ -296,6 +378,31 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <!-- ===== TIER 0: MT4/MT5 Import (new, top) ===== -->
+                        <tr class="border-t-2 border-emerald-500/30">
+                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/5 font-bold">⚡ MT4/MT5 Import + Live Balance Sync — New 2026</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-emerald-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">MT4/MT5 Trade Import</td>
+                            <td class="px-4 py-3 text-center bg-emerald-500/10 text-emerald-500 font-bold">✅ MT4/MT5 via MetaApi</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Fills only (700+ brokers)</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Fills only</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Fills only</td>
+                        </tr>
+
+                        <tr class="border-t border-zinc-800 bg-emerald-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Live Account Balance Sync</td>
+                            <td class="px-4 py-3 text-center bg-emerald-500/10 text-emerald-500 font-bold">✅ Real-Time Equity</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
 
                         <!-- ===== TIER 1: Strategy Backtester (new, highest impact) ===== -->
                         <tr class="border-t-2 border-blue-500/30">
@@ -547,16 +654,6 @@
                         </tr>
 
                         <!-- ===== TIER 6: Weaknesses (bottom) ===== -->
-                        <tr class="border-t border-zinc-800">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">Broker Auto-Import</td>
-                            <td class="px-4 py-3 text-center bg-blue-500/5 text-yellow-500">⚠️ Coming Soon</td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (700+)</td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (200+)</td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (80+)</td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ (200+)</td>
-                        </tr>
-
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Trade Replay</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
@@ -662,12 +759,12 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What features is SignalDeck missing?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">The main gap is broker auto-import. Competitors like TraderSync and Edgewonk support 200–700+ broker integrations for automatic trade import. SignalDeck currently requires manual entry or CSV import. Broker API integrations are on the roadmap. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">The main remaining gap versus competitors like TraderSync is broad broker coverage — SignalDeck supports MT4 and MT5 via MetaApi but not 700+ generic brokers. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
-                    <h3 class="text-base font-bold text-white mb-2">Why doesn't SignalDeck have broker auto-import yet?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">We prioritized analytical depth over data ingestion. Manual logging reinforces trade discipline — you review every entry before it enters your journal. CSV import is fully supported, and broker API integrations are actively on our development roadmap.</p>
+                    <h3 class="text-base font-bold text-white mb-2">Does SignalDeck have broker import?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes — SignalDeck now supports MT4 and MT5 trade import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses your actual current equity. Import captures fills, P&L, symbol, volume, and price automatically. Stop loss still requires manual entry after import for R-Multiple calculation. Manual entry and CSV import remain available for non-MT4/MT5 platforms.</p>
                 </div>
 
             </div>
@@ -696,7 +793,8 @@
                 <a href="../release-history.html" title="Release History">Release History</a> |
                 <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
                 <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |

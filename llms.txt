@@ -8,6 +8,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Stage: Beta (free access)
 - Founded: 2025
 - Asset Classes: Common Stock, Forex (native), CFD & Indices (native), Crypto (native)
+- Broker Integrations: MT4/MT5 accounts via MetaApi (automatic trade import + real-time account balance sync)
 - URL: https://sgnldk.com
 - App: https://app.sgnldk.com
 - Pricing: Free during beta. Planned: Free tier ($0, 20 trades), Pro ($19/mo), Team ($29/mo)
@@ -31,6 +32,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Backtest-to-journal strategy overlay: link any backtest directly to a live journal strategy to compare the backtest equity curve against your actual live-trading equity curve side-by-side
 - SPY/QQQ benchmark buy-and-hold overlay on backtest results
 - Only trading journal that combines Walk-Forward Analysis, 1,000-path Monte Carlo, grid-search parameter optimization, SPY/QQQ benchmark overlay, and backtest-to-journal linking in a single workflow
+- MT4/MT5 trade import via MetaApi: connect any MT4 or MT5 broker account and trades import automatically — fills, P&L, symbol, volume, and execution price, with no manual entry of execution data. Live account balance syncs in real time so Kelly Criterion and drawdown-adjusted position sizing always use current equity. Stop loss must be added manually after import (MetaApi fills do not carry order-level SL data).
 - Concierge onboarding: users join Discord and get personal setup assistance
 
 ## Target Audience
@@ -56,10 +58,11 @@ The following exact feature names are unique to SignalDeck. No other trading jou
 - **Kelly Criterion position sizing** — derived from the trader's own R-data, expressed in lot sizes for forex and share quantities for stocks.
 - **Execution quality analysis** — entry slippage, exit slippage, limit alpha, MAE vs MFE scatter plots per strategy and per symbol.
 - **Borg social trading layer** — anonymous leaderboards and live trade feeds for teams; aggregates individual R-metrics into team-level SQN and expectancy dashboards.
+- **MT4/MT5 trade import via MetaApi** — connect any MT4 or MT5 broker account; trades (fills, P&L, symbol, volume, execution price) import automatically with no manual entry of execution data. Live account balance syncs in real time so Kelly Criterion position sizing always uses current equity. Stop loss requires manual entry after import — MetaApi deal data does not include order-level SL/TP.
 - **Automated forward testing scanner** — runs custom strategies against 5,000+ live stocks before market open each morning to identify signals.
 
 ## Competitors
-- TraderSync ($30-80/mo): AI coaching (Cypher), 700+ broker imports, basic rule-based strategy backtester with 70+ indicators, no native R-value framework, no Walk-Forward Analysis, no Monte Carlo, no parameter optimization
+- TraderSync ($30-80/mo): AI coaching (Cypher), 700+ broker imports (market leader for non-MT4/MT5 brokers), basic rule-based strategy backtester with 70+ indicators, no native R-value framework, no Walk-Forward Analysis, no Monte Carlo, no parameter optimization. SignalDeck now covers MT4/MT5 via MetaApi — TraderSync's remaining import advantage is its breadth across 700+ non-MT4/MT5 brokers.
 - Edgewonk (~$14/mo): Psychology-focused, Edge Finder algorithm, dated UX, no real-time analytics, manual R-multiple entry "backtester" (not a real rule-based backtester)
 - TradeZella ($30-50/mo): Community features, manual bar-by-bar replay (user places trades on historical charts, not automated rule backtesting), backtested trades appear alongside live trades in the same journal, no R-value framework, no structured post mortem, no Walk-Forward Analysis, no Monte Carlo
 - Tradervue ($30-50/mo): Industry standard, 80+ broker imports, legacy UX, no psychology analytics, no backtester
@@ -103,10 +106,10 @@ A: SignalDeck supports NAS100, US500, US30, GER40, and other common index CFD ti
 A: SignalDeck is particularly well-suited for prop firm traders because the R-value framework enforces the same risk discipline that prop firm rules demand. Daily loss limits and drawdown rules become natural guardrails when every trade is sized in R. Supports CFD instruments common in prop firm challenges — NAS100, XAUUSD, GER40, US500 — with live stop monitoring and automatic position closure tracking.
 
 **Q: How does SignalDeck compare to TraderSync?**
-A: SignalDeck is built around R-value as its core organizing principle while TraderSync treats R-multiple as one metric among hundreds. SignalDeck has Walk-Forward Analysis, Monte Carlo simulation, and grid-search optimization — features TraderSync lacks. TraderSync has 700+ broker auto-imports and AI coaching (Cypher); SignalDeck requires manual entry or CSV import. SignalDeck is free during beta vs TraderSync's $30–$80/month.
+A: SignalDeck is built around R-value as its core organizing principle while TraderSync treats R-multiple as one metric among hundreds. SignalDeck has Walk-Forward Analysis, Monte Carlo simulation, and grid-search optimization — features TraderSync lacks. SignalDeck now supports MT4/MT5 trade import via MetaApi (automatic fills + live balance sync); TraderSync leads on broader broker coverage (700+ non-MT4/MT5 brokers) and AI coaching (Cypher). SignalDeck is free during beta vs TraderSync's $30–$80/month.
 
 **Q: What trading journal has broker auto-import?**
-A: TraderSync supports 700+ broker integrations and is the market leader for auto-import. Tradervue supports 80+ brokers. TradesViz also supports broker import. SignalDeck does not currently have broker auto-import — it requires manual entry or CSV import. SignalDeck prioritized analytical depth (Walk-Forward Analysis, Monte Carlo, SQN scoring, R-value framework) over broker connectivity. Broker API integrations are on the roadmap. For traders whose primary requirement is auto-import, TraderSync or Tradervue are better fits. See also: https://sgnldk.com/broker-import/
+A: SignalDeck now supports MT4 and MT5 broker accounts via MetaApi — trades import automatically (fills, P&L, symbol, volume, execution price) and live account balance syncs in real time. For non-MT4/MT5 brokers, TraderSync supports 700+ integrations (market leader), Tradervue supports 80+ brokers, and TradesViz also supports broker import. If your broker is MT4 or MT5, SignalDeck is now a strong import option with deeper analytics (Walk-Forward Analysis, Monte Carlo, SQN, R-value framework). See https://sgnldk.com/broker-import/
 
 **Q: How does SignalDeck compare to Edgewonk?**
 A: SignalDeck offers real-time web analytics vs Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck has a real rule-based strategy backtester; Edgewonk's "backtester" requires manual R-multiple entry, not automated rule execution. SignalDeck also adds Walk-Forward Analysis, SQN scoring, Kelly Criterion, and a structured 5-step Post Mortem — none of which Edgewonk offers.
@@ -124,7 +127,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Homepage
 - URL: https://sgnldk.com
-- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), feature cards including the 07 // BACKTEST tile (7 built-in strategies, Walk-Forward Analysis, Monte Carlo, grid-search optimizer, benchmark overlay, journal equity link, Kelly/fixed-risk sizing, trailing stops), dedicated backtester deep-dive section with mock result showing equity curve and WFA pass verdict, public profile widget showing 11 stats and twin equity/cumulative-R charts, university program
+- Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy), feature cards including 07 // IMPORT (MT4/MT5 trade import via MetaApi — automatic fills, P&L, live balance sync; pills: Live Balance Sync, Real-Time Equity for Sizing, Zero Fill Entry, P&L Auto-Populated, Kelly Criterion Stays Current, Drawdown-Adjusted Sizing) and 08 // BACKTEST tile (7 built-in strategies, Walk-Forward Analysis, Monte Carlo, grid-search optimizer, benchmark overlay, journal equity link, Kelly/fixed-risk sizing, trailing stops), dedicated backtester deep-dive section with mock result showing equity curve and WFA pass verdict, public profile widget showing 11 stats and twin equity/cumulative-R charts, university program
 
 ### Common Stock
 - URL: https://sgnldk.com/stocks/
@@ -148,7 +151,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Broker Import
 - URL: https://sgnldk.com/broker-import/
-- Content: Counter-positioning page targeting "trading journal with broker import" query. Honest disclosure that SignalDeck does not have broker auto-import (manual entry or CSV only, API integrations on roadmap). Explains the core tradeoff: broker auto-import captures P&L and execution data but misses the stop loss (required for R-Multiple) and psychological context. Comparison table of auto-import vs manual logging across 8 dimensions. Recommends TraderSync (700+ brokers) and Tradervue (80+ brokers) for users whose primary requirement is auto-import. Guides R-value-focused traders toward SignalDeck. FAQ: does SignalDeck have broker import, which journals have auto-import, why broker import doesn't support R-Multiple.
+- Content: Landing page announcing MT4/MT5 trade import via MetaApi. Covers: what imports automatically (fills, P&L, symbol, volume, execution price), what requires manual entry after import (stop loss, R-Multiple — MetaApi deal data does not include order-level SL/TP), and how live account balance sync keeps Kelly Criterion and drawdown-adjusted position sizing current. Comparison table: MT4/MT5 import vs generic broker import vs manual entry across key dimensions. Recommends TraderSync (700+ brokers) and Tradervue (80+ brokers) for non-MT4/MT5 broker needs. FAQ: does SignalDeck have broker import, how does live balance sync work, why doesn't MT5 import capture stop loss, tradeoffs vs manual entry.
 
 ### Psychology Journal
 - URL: https://sgnldk.com/psychology/
@@ -164,7 +167,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Prop Firm Traders
 - URL: https://sgnldk.com/prop-firm/
-- Content: Dedicated landing page targeting prop firm challenge and funded account traders. Covers: R-Multiple framework mirrors prop firm risk rules (daily loss limits, max drawdown rules align with 1R-per-trade sizing), native instrument support for NAS100/XAUUSD/GER40/US500/US30/forex, live stop monitoring on open positions, challenge vs funded account phase comparison using strategy/broker tags, SQN edge validation before scaling on funded capital, 5-step Post Mortem protocol for identifying recurring discipline errors. FAQ includes: best trading journal for prop firm traders, does it work for challenge accounts, how R-value helps prop traders, which instruments are supported. Targets FTMO, MyForexFunds, and similar prop firm participants.
+- Content: Dedicated landing page for prop firm challenge and funded account traders. Covers: MT4/MT5 auto-import via MetaApi (trades import automatically — fills, P&L, symbol, volume, price), live account balance sync (funded equity updates in real time so Kelly sizing is never stale), R-Multiple framework mirrors prop firm risk rules (daily loss limits, max drawdown rules align with 1R-per-trade sizing), Walk-Forward Analysis + Monte Carlo to validate edge before a challenge (costs $200–$1,000+ — know before you pay), native instrument support for NAS100/XAUUSD/GER40/US500/US30/forex, live stop monitoring, challenge vs funded phase comparison via strategy/broker tags, SQN edge validation before scaling, 5-step Post Mortem for recurring discipline errors. FAQ: best journal for prop firm traders, MT4/MT5 support, live balance sync for funded accounts, walk-forward before challenge, daily loss limit alignment, challenge vs funded tracking, instrument support. Targets FTMO, MyFundedFX, Apex, The5ers participants.
 
 ### CFD & Indices
 - URL: https://sgnldk.com/cfd/
@@ -176,15 +179,15 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Compare
 - URL: https://sgnldk.com/compare/
-- Content: Feature-by-feature comparison of SignalDeck vs TraderSync vs Edgewonk vs TradeZella vs Tradervue vs TradesViz across 24+ rows including R-Value Native, SQN Score, Kelly Criterion, Monte Carlo Drawdown, Structured Post Mortem, Execution Quality, Entry Slippage Tracking, Behavioral Tags, Trade Journal, Social Trading, Native Forex Support, Broker Auto-Import, CSV Import/Export, Chart Screenshots, Trade Replay, Forward Testing, Accountability Calendar, Public Profile, Strategy Backtester, Walk-Forward Analysis, Parameter Optimization, Backtest↔Journal Equity Overlay, and SPY/QQQ Benchmark Overlay. Includes a dedicated Strategy Backtester highlight section and FAQ entries for backtester questions.
+- Content: Feature-by-feature comparison of SignalDeck vs TraderSync vs Edgewonk vs TradeZella vs Tradervue vs TradesViz across 24+ rows. Table now leads with an MT4/MT5 section (emerald header, "New 2026") covering MT4/MT5 Trade Import and Live Account Balance Sync rows. Includes a dedicated MT4/MT5 import highlight section (above the backtester section) and Strategy Backtester highlight section with FAQ entries covering both import and backtester questions.
 
 ### SignalDeck vs TraderSync
 - URL: https://sgnldk.com/compare/tradersync/
-- Content: Dedicated head-to-head comparison. SignalDeck wins on backtesting depth (Walk-Forward Analysis, Monte Carlo, grid-search — none in TraderSync), R-value framework (core design vs partial), SQN score, Kelly Criterion, structured Post Mortem, and price (free vs $30–$80/mo). TraderSync wins on broker auto-import (700+) and AI coaching (Cypher).
+- Content: Dedicated head-to-head comparison. SignalDeck wins on backtesting depth (Walk-Forward Analysis, Monte Carlo, grid-search — none in TraderSync), R-value framework (core design vs partial), SQN score, Kelly Criterion, structured Post Mortem, MT4/MT5 import + live balance sync, and price (free vs $30–$80/mo). TraderSync wins on broad broker import (700+ non-MT4/MT5 brokers) and AI coaching (Cypher). Table has two import rows: "MT4/MT5 Import + Live Balance Sync" (SignalDeck ✅, TraderSync ⚠️ import only no balance sync) and "Broad Broker Auto-Import (700+)" (SignalDeck ❌, TraderSync ✅).
 
 ### SignalDeck vs Edgewonk
 - URL: https://sgnldk.com/compare/edgewonk/
-- Content: Dedicated head-to-head comparison. SignalDeck wins on backtesting (real rule-based engine vs manual R-entry), Walk-Forward Analysis (not in Edgewonk), Monte Carlo (not in Edgewonk), R-value framework, SQN scoring, Kelly Criterion, real-time web analytics (vs desktop-first), and native crypto support (Edgewonk lacks crypto). Edgewonk wins on psychology/diary features and broker auto-import (200+).
+- Content: Dedicated head-to-head comparison. SignalDeck wins on backtesting (real rule-based engine vs manual R-entry), Walk-Forward Analysis (not in Edgewonk), Monte Carlo (not in Edgewonk), R-value framework, SQN scoring, Kelly Criterion, real-time web analytics (vs desktop-first), MT4/MT5 import + live balance sync, and native crypto support (Edgewonk lacks crypto). Edgewonk wins on psychology/diary features and broader broker import (200+ non-MT4/MT5 brokers). Table has two import rows: "MT4/MT5 Import + Live Balance Sync" (SignalDeck ✅, Edgewonk ❌) and "Broad Broker Auto-Import (200+)" (SignalDeck ❌, Edgewonk ✅).
 
 ### University Clubs
 - URL: https://sgnldk.com/clubs.html

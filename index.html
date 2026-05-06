@@ -51,7 +51,7 @@
             "description": "Free during beta. Planned: Free tier (20 trades), Pro ($19/mo), Team ($29/mo)."
         },
         "description": "Professional-grade trading journal and strategy backtester built around R-Multiple methodology. Features SQN scoring, Kelly Criterion position sizing, 1,000-path Monte Carlo drawdown simulation, Walk-Forward Analysis, grid-search parameter optimization, structured 5-step Post Mortem reviews, execution quality analysis (MAE/MFE, entry/exit slippage), behavioral tagging, and a social trading layer (Borg). Supports common stocks, forex, CFD/indices, and crypto natively.",
-        "featureList": "R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Native forex support, Native crypto support, Native CFD support, Strategy backtester, Forward testing scanner",
+        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Native forex support, Native crypto support, Native CFD support, Strategy backtester, Forward testing scanner",
         "screenshot": "https://sgnldk.com/assets/og-image.png",
         "softwareVersion": "Beta"
     }
@@ -471,10 +471,33 @@
                     <div class="text-[10px] font-mono text-zinc-600 uppercase border-t border-zinc-900 pt-4">Output - Forensic CSV</div>
                 </div>
 
+                <div class="p-8 bg-zinc-950 border border-emerald-500/30 rounded-xl hover:border-emerald-400/60 transition-all relative md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="text-emerald-400 font-mono text-xl">07 // IMPORT</div>
+                        <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500 text-white uppercase tracking-widest">New</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                        <div>
+                            <h4 class="text-white font-bold mb-3 text-lg">MT4/MT5 Trade Import</h4>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so Kelly Criterion sizing and fixed-R risk calculations always reflect your actual current equity — not a stale number you entered last month. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
+                            <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Integration — MetaApi · Real-Time Balance Sync</div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">MT4 Import</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">MT5 Import</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Live Balance Sync</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Real-Time Equity for Sizing</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Zero Fill Entry</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">P&L Auto-Populated</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Kelly Criterion Stays Current</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Drawdown-Adjusted Sizing</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="p-8 bg-zinc-950 border border-blue-500/30 rounded-xl hover:border-blue-400/60 transition-all relative md:col-span-2 lg:col-span-3">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="text-blue-400 font-mono text-xl">07 // BACKTEST</div>
-                        <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-blue-500 text-white uppercase tracking-widest">New</span>
+                        <div class="text-blue-400 font-mono text-xl">08 // BACKTEST</div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                         <div>
@@ -1060,7 +1083,8 @@
                 <a href="release-history.html" title="Release History">Release History</a> |
                 <a href="clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
                 <a href="jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
+                <a href="prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |

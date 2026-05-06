@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MT4 & MT5 Trading Journal 2026 | Auto-Import + Live Balance Sync | SignalDeck</title>
+    <meta name="description" content="Connect any MT4 or MT5 account and trades import automatically — fills, P&L, symbol, volume, no manual entry. Live account balance syncs in real time for accurate Kelly Criterion sizing. The only MT4/MT5 trading journal that combines import with Walk-Forward Analysis and R-value analytics.">
+    <meta name="keywords" content="MT4 trading journal, MT5 trading journal, best trading journal with MT4 import, MetaTrader trading journal, MT4 trade log, MT5 trade log, MT4 journal with analytics, MT5 journal backtester, MetaApi trading journal, MT4 live balance sync">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/mt4-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/mt4-journal/">
+    <meta property="og:title" content="MT4 & MT5 Trading Journal 2026 | Auto-Import + Live Balance Sync | SignalDeck">
+    <meta property="og:description" content="Connect any MT4 or MT5 account via MetaApi. Trades import automatically — fills, P&L, symbol, volume. Live balance syncs in real time for accurate Kelly Criterion. Full R-value analytics + Walk-Forward Analysis included free.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/mt4-journal/">
+    <meta property="twitter:title" content="MT4 & MT5 Trading Journal 2026 | Auto-Import + Live Balance Sync | SignalDeck">
+    <meta property="twitter:description" content="Connect any MT4 or MT5 account via MetaApi. Trades import automatically — fills, P&L, symbol, volume. Live balance syncs in real time for accurate Kelly Criterion. Full R-value analytics + Walk-Forward Analysis included free.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What trading journal supports MT4 import?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck supports MT4 and MT5 trade import via MetaApi. Connect any MT4 or MT5 broker account and trades import automatically — fills, P&L, symbol, volume, and execution price with no manual entry. Live account balance syncs in real time so Kelly Criterion and fixed-R position sizing always use your current equity. Stop loss still requires manual entry after import for R-Multiple calculation, since MetaApi fills don't carry order-level SL/TP data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does MT4 import capture stop loss automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — and this applies to all MT4/MT5 import tools, not just SignalDeck. MetaApi's history-deals endpoint returns fills only (entry price, exit price, P&L, symbol, volume, commission, swap). It does not return order-level stop loss or take profit data. To calculate R-Multiple, stop loss must be entered manually after import. This is a MetaApi API limitation, not a SignalDeck limitation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is live balance sync and why does it matter for MT4/MT5 traders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Live balance sync uses the MetaApi account-information endpoint to pull your real-time balance, equity, margin, and leverage at any moment. This matters for position sizing: Kelly Criterion and fixed-R position sizing recommendations are only accurate if they use your current equity — not a stale number entered weeks ago. After a drawdown on a funded account, your balance drops, and your position size should adjust immediately. No other trading journal that imports MT4/MT5 trades also syncs your live balance for automatic sizing adjustment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which MT4/MT5 brokers does SignalDeck support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck supports any broker that runs a MetaTrader 4 or MetaTrader 5 server — which covers the vast majority of forex, CFD, and prop firm brokers worldwide including FTMO, IC Markets, Pepperstone, Exness, ThinkMarkets, MyFundedFX, The5ers, Apex, and thousands of others. Connection is via MetaApi's cloud connector, which handles compatibility with both MT4 and MT5 server versions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a better MT4 trading journal than SignalDeck?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For MT4/MT5 traders who want deep analytics, SignalDeck is the strongest option: it combines MT4/MT5 import + live balance sync with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, SQN scoring, Kelly Criterion, R-value as a core framework, and a structured 5-step Post Mortem protocol — all free during beta. For traders who need broad broker import across 700+ non-MT4/MT5 brokers, TraderSync is the market leader but lacks Walk-Forward Analysis, Monte Carlo, and the R-value framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use SignalDeck as an MT5 trading journal for prop firm accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck is particularly well-suited for prop firm MT5 accounts. The R-value framework naturally enforces prop firm risk discipline — daily loss limits and max drawdown rules align with 1R-per-trade sizing. Live balance sync means Kelly Criterion sizing is always based on your current funded equity, not a stale number. Walk-Forward Analysis lets you validate your edge before paying for a challenge ($200–$1,000+). Native support for NAS100, XAUUSD, GER40, US500, and forex pairs covers the instruments most prop firms trade."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "SignalDeck",
+          "item": "https://sgnldk.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "MT4 & MT5 Trading Journal",
+          "item": "https://sgnldk.com/mt4-journal/"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        teal: { 400: '#2dd4bf' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-widest">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    MT4/MT5 Import Live
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase tracking-widest">Live Balance Sync</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                The MT4 & MT5 trading journal<br class="hidden sm:block"> built for serious analytics.
+            </h1>
+            <p class="mt-4 max-w-3xl mx-auto text-xl text-zinc-400 font-mono">
+                Connect any MetaTrader account via MetaApi. Trades import automatically. Live balance syncs in real time. Then: Walk-Forward Analysis, Monte Carlo, SQN, Kelly Criterion, and a structured Post Mortem — all from one platform.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer"
+                    onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'MT4 Journal CTA' });"
+                    class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
+                    Connect MT4/MT5 Free →
+                </a>
+                <a href="../broker-import/index.html" class="px-8 py-3.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold rounded-lg transition-colors border border-zinc-700">
+                    How Import Works
+                </a>
+            </div>
+            <div class="mt-6 flex flex-wrap justify-center gap-2 text-xs font-mono">
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">MT4 / MetaTrader 4</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">MT5 / MetaTrader 5</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">FTMO</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">IC Markets</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">Pepperstone</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">Exness</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">MyFundedFX</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">The5ers</span>
+                <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">Apex</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Import Works -->
+    <section class="py-16 border-b border-zinc-900 bg-emerald-500/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-start gap-10">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">How MT4/MT5 Import Works</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-4">Connect once. Everything imports automatically.</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-5">
+                        SignalDeck uses MetaApi's cloud connector to link your MT4 or MT5 account. No software to install — just enter your broker server, account number, and password in SignalDeck, and the connection is established via MetaApi's secure cloud infrastructure.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xs font-bold">1</div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-0.5">Add your MT4/MT5 account</div>
+                                <div class="text-zinc-500 text-xs">Enter your broker server, account number, and password. Credentials are Fernet-encrypted at rest.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xs font-bold">2</div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-0.5">Trades import automatically</div>
+                                <div class="text-zinc-500 text-xs">Fills, P&L, symbol, volume, commission, and execution price import with zero manual entry required.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xs font-bold">3</div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-0.5">Add stop loss for R-Multiple</div>
+                                <div class="text-zinc-500 text-xs">Stop loss requires manual entry — MetaApi fills don't carry order-level SL/TP data. Everything else is populated automatically.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 text-xs font-bold">4</div>
+                            <div>
+                                <div class="text-white text-sm font-medium mb-0.5">Live balance syncs continuously</div>
+                                <div class="text-zinc-500 text-xs">Balance, equity, margin, and leverage pull from MetaApi's account-information endpoint in real time — Kelly Criterion is always current.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Import UI mock -->
+                <div class="flex-shrink-0 w-full md:w-80 rounded-xl overflow-hidden border border-emerald-500/25" style="background: linear-gradient(160deg, #0d1f14 0%, #0a0a0b 60%);">
+                    <div class="flex items-center justify-between px-4 py-2.5 border-b border-emerald-900/60">
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">MetaApi · Connected</span>
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-600">MT5 · IC Markets</span>
+                    </div>
+                    <div class="px-4 pt-4 pb-3 border-b border-zinc-800/60">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-1">Live Equity</div>
+                        <div class="text-2xl font-bold text-white tracking-tight">$48,214<span class="text-emerald-400">.63</span></div>
+                        <div class="flex items-center gap-3 mt-1">
+                            <span class="text-[9px] font-mono text-zinc-500">Balance $47,930.00</span>
+                            <span class="text-[9px] font-mono text-emerald-500">+$284.63 open</span>
+                        </div>
+                        <div class="mt-2 text-[9px] font-mono text-zinc-500 bg-emerald-500/5 border border-emerald-500/15 rounded px-2 py-1">
+                            1R = <span class="text-white font-bold">$479.30</span> · Kelly rec: risk 1%
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 space-y-2">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-2">Recent Imports</div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-500 text-[9px]">↓</span>
+                                <span class="text-zinc-300 text-[10px] font-mono">XAUUSD</span>
+                                <span class="text-zinc-600 text-[9px]">BUY 0.05</span>
+                            </div>
+                            <span class="text-emerald-400 text-[10px] font-mono">+$184.60</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-500 text-[9px]">↓</span>
+                                <span class="text-zinc-300 text-[10px] font-mono">NAS100</span>
+                                <span class="text-zinc-600 text-[9px]">SELL 0.10</span>
+                            </div>
+                            <span class="text-rose-400 text-[10px] font-mono">-$96.20</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-500 text-[9px]">↓</span>
+                                <span class="text-zinc-300 text-[10px] font-mono">EURUSD</span>
+                                <span class="text-zinc-600 text-[9px]">BUY 0.10</span>
+                            </div>
+                            <span class="text-emerald-400 text-[10px] font-mono">+$127.40</span>
+                        </div>
+                        <div class="pt-1 border-t border-zinc-800/60 text-[9px] font-mono text-zinc-600">
+                            3 trades synced · stop loss: enter manually for R
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Imports vs What Doesn't -->
+    <section class="py-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-3 text-center">What imports. What doesn't. Why.</h2>
+            <p class="text-center text-zinc-500 text-sm mb-10 font-mono">MetaApi's history-deals endpoint returns fills only — not order-level data.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900/50 border border-emerald-500/30 rounded-xl p-6">
+                    <div class="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-4">Imports Automatically</div>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">Entry & exit price</span> — exact fill prices from your broker</div>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">P&L (realized)</span> — profit and loss in account currency</div>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">Symbol</span> — exactly as your broker displays it (XAUUSD, NAS100, EURUSD, etc.)</div>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">Volume / lot size</span> — position size in lots</div>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">Commission & swap</span> — broker costs included</div>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">Open & close timestamps</span> — exact execution times</div>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm">
+                            <span class="text-emerald-500 flex-shrink-0">✅</span>
+                            <div><span class="text-white font-medium">Live balance, equity, margin, leverage</span> — syncs in real time continuously</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-700 rounded-xl p-6">
+                    <div class="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-4">Requires Manual Entry After Import</div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 text-sm">
+                            <span class="text-yellow-500 flex-shrink-0 mt-0.5">⚠️</span>
+                            <div>
+                                <span class="text-white font-medium">Stop loss</span>
+                                <div class="text-zinc-500 text-xs mt-0.5">MetaApi's <code class="text-zinc-400 bg-zinc-800 px-1 rounded text-[10px]">history-deals</code> endpoint returns fills only — not order-level SL/TP. This is a MetaApi API limitation, not a SignalDeck limitation. Enter your intended stop loss after import to enable R-Multiple calculation.</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-sm mt-4">
+                            <span class="text-zinc-600 flex-shrink-0 mt-0.5">ℹ️</span>
+                            <div>
+                                <span class="text-zinc-400 font-medium">R-Multiple (auto-calculated once SL is entered)</span>
+                                <div class="text-zinc-600 text-xs mt-0.5">R = (Exit − Entry) ÷ (Entry − Stop Loss). SignalDeck calculates this automatically the moment you add the stop loss.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-zinc-800 text-xs text-zinc-600 leading-relaxed">
+                        Every other MT4/MT5 import tool has the same SL limitation — because it's a constraint of how MetaTrader exposes deal history, not how it's read.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics you get -->
+    <section class="py-16 border-b border-zinc-900 bg-blue-500/3">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-3 text-center">Import is just the start.</h2>
+            <p class="text-center text-zinc-500 text-sm mb-10 font-mono">Most MT4 journals stop at logging. SignalDeck starts there and builds the full analytics stack.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <div class="bg-zinc-900/50 border border-blue-500/30 rounded-xl p-6">
+                    <div class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2">Analytics</div>
+                    <h3 class="text-base font-bold text-white mb-2">R-Value Framework</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Every trade's return normalized to initial risk. Expectancy, SQN, Kelly Criterion, and equity curves all flow from a single coherent R-based framework.</p>
+                </div>
+
+                <div class="bg-zinc-900/50 border border-blue-500/30 rounded-xl p-6">
+                    <div class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2">Edge Validation</div>
+                    <h3 class="text-base font-bold text-white mb-2">Walk-Forward Analysis</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">80% in-sample / 20% out-of-sample split. Pass or Likely Overfitted verdict. Know whether your strategy works or is curve-fitted to the past.</p>
+                </div>
+
+                <div class="bg-zinc-900/50 border border-blue-500/30 rounded-xl p-6">
+                    <div class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2">Risk Modeling</div>
+                    <h3 class="text-base font-bold text-white mb-2">Monte Carlo Drawdown</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">1,000-path block bootstrap resampling. Worst-case drawdown at the 5th percentile. Know what your strategy risks in bad-luck sequences before it costs real capital.</p>
+                </div>
+
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <div class="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-2">SQN Score</div>
+                    <h3 class="text-base font-bold text-white mb-2">Is Your Edge Real?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SQN = √N × Mean R / StdDev R. Tells you whether your edge is statistically significant or noise. Below 1.6 = poor. 2.0–3.0 = good. Above 3.0 = excellent.</p>
+                </div>
+
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <div class="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-2">Position Sizing</div>
+                    <h3 class="text-base font-bold text-white mb-2">Kelly Criterion — Live Equity</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Kelly is derived from your live R-data and your current account balance from MetaApi. After a drawdown, your sizing recommendation adjusts immediately — not after you remember to update it.</p>
+                </div>
+
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <div class="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-2">Trade Review</div>
+                    <h3 class="text-base font-bold text-white mb-2">5-Step Post Mortem</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Setup Diagnosis → Management Diagnosis → Verdict → Training Gap → Mentor Feedback. Built into every closed trade. Forces process-level review rather than P&L-level reaction.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Instruments -->
+    <section class="py-14 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-xl font-bold text-white mb-3">Every instrument MT4/MT5 traders trade — natively supported.</h2>
+            <p class="text-zinc-500 text-sm mb-8 font-mono">Enter tickers exactly as your broker displays them. SignalDeck routes each to the correct price feed automatically.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-4 text-center">
+                    <div class="text-white font-bold font-mono text-sm mb-1">XAUUSD</div>
+                    <div class="text-zinc-600 text-[10px]">Gold / CFD</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-4 text-center">
+                    <div class="text-white font-bold font-mono text-sm mb-1">NAS100</div>
+                    <div class="text-zinc-600 text-[10px]">Nasdaq CFD</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-4 text-center">
+                    <div class="text-white font-bold font-mono text-sm mb-1">GER40</div>
+                    <div class="text-zinc-600 text-[10px]">DAX CFD</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-4 text-center">
+                    <div class="text-white font-bold font-mono text-sm mb-1">US500</div>
+                    <div class="text-zinc-600 text-[10px]">S&P 500 CFD</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-4 text-center">
+                    <div class="text-white font-bold font-mono text-sm mb-1">EURUSD</div>
+                    <div class="text-zinc-600 text-[10px]">Forex Major</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-4 text-center">
+                    <div class="text-white font-bold font-mono text-sm mb-1">All FX</div>
+                    <div class="text-zinc-600 text-[10px]">Majors / Minors / Exotics</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Common Questions</h2>
+            <div class="space-y-6">
+
+                <div class="bg-zinc-900/40 border border-emerald-500/30 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What trading journal supports MT4 import?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports MT4 and MT5 import via MetaApi. Connect any MT4/MT5 broker account and trades import automatically — fills, P&L, symbol, volume, and execution price. Live account balance syncs in real time for accurate Kelly Criterion sizing. Stop loss requires manual entry after import for R-Multiple calculation, as MetaApi fills don't carry order-level SL/TP data.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Does MT4 import capture stop loss automatically?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">No — and this applies to all MT4/MT5 import tools. MetaApi's history-deals endpoint returns fills only, not order-level SL/TP. Stop loss must be entered manually for R-Multiple calculation. Every other tool importing MT4/MT5 trades has the same constraint — it's an API limitation of how MetaTrader exposes deal history.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is live balance sync and why does it matter?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Live balance sync pulls your real-time balance, equity, margin, and leverage from MetaApi's account-information endpoint. Kelly Criterion and fixed-R sizing recommendations are only accurate if they use your current equity — not a stale manual entry. After a drawdown on a funded account, your balance drops and your position size should adjust immediately. No other trading journal that imports MT4/MT5 trades also syncs your live balance.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which MT4/MT5 brokers does SignalDeck support?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Any broker that runs a MetaTrader 4 or MetaTrader 5 server — which covers the vast majority of forex, CFD, and prop firm brokers worldwide including FTMO, IC Markets, Pepperstone, Exness, ThinkMarkets, MyFundedFX, The5ers, Apex, and thousands of others. Connection is via MetaApi's cloud connector, which handles compatibility with both MT4 and MT5 server versions.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Is there a better MT4 trading journal than SignalDeck?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">For MT4/MT5 traders who want deep analytics, SignalDeck is the strongest option: MT4/MT5 import + live balance sync + Walk-Forward Analysis + Monte Carlo + SQN + Kelly + R-value framework + structured Post Mortem — all free during beta. For traders who need broad broker coverage across 700+ non-MT4/MT5 brokers, TraderSync leads on import breadth but lacks Walk-Forward Analysis, Monte Carlo, and the R-value framework.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I use SignalDeck as an MT5 journal for prop firm accounts?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes — it's particularly well-suited for prop firm MT5 accounts. The R-value framework naturally enforces prop firm risk discipline. Live balance sync means Kelly sizing uses current funded equity. Walk-Forward Analysis lets you validate edge before paying for a challenge. Native support for NAS100, XAUUSD, GER40, US500, and forex covers the instruments most prop firm challenges trade. See the <a href="../prop-firm/index.html" class="text-blue-400 hover:text-blue-300">prop firm page</a> for full details.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Further Reading -->
+    <section class="py-12 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-lg font-bold text-white mb-6 text-center">Further Reading</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                <a href="../broker-import/index.html" class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 hover:border-zinc-600 transition-colors">
+                    <div class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-1">Broker Import</div>
+                    <div class="text-white font-medium">Full import docs →</div>
+                    <div class="text-zinc-500 text-xs mt-1">Detailed comparison of MT4/MT5 vs manual entry vs CSV</div>
+                </a>
+                <a href="../prop-firm/index.html" class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 hover:border-zinc-600 transition-colors">
+                    <div class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1">Prop Firm</div>
+                    <div class="text-white font-medium">MT5 for funded accounts →</div>
+                    <div class="text-zinc-500 text-xs mt-1">WFA + live balance sync for FTMO, MyFundedFX, Apex</div>
+                </a>
+                <a href="../blog/fixed-r-position-sizing/index.html" class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 hover:border-zinc-600 transition-colors">
+                    <div class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1">Blog</div>
+                    <div class="text-white font-medium">Fixed-R position sizing →</div>
+                    <div class="text-zinc-500 text-xs mt-1">Why risk per trade should be defined before entry</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Connect MT4/MT5. Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. Connect your MT4 or MT5 account and get Walk-Forward Analysis, Monte Carlo, SQN scoring, and Kelly Criterion sizing — all from your own trade data. Active beta testers receive <strong>Founder Status</strong> — free for life.</p>
+
+            <a href="https://app.sgnldk.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                    Connect MT4/MT5 Free
+                </a>
+
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" title="Release History">Release History</a> |
+                <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

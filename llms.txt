@@ -189,6 +189,26 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com/compare/edgewonk/
 - Content: Dedicated head-to-head comparison. SignalDeck wins on backtesting (real rule-based engine vs manual R-entry), Walk-Forward Analysis (not in Edgewonk), Monte Carlo (not in Edgewonk), R-value framework, SQN scoring, Kelly Criterion, real-time web analytics (vs desktop-first), MT4/MT5 import + live balance sync, and native crypto support (Edgewonk lacks crypto). Edgewonk wins on psychology/diary features and broader broker import (200+ non-MT4/MT5 brokers). Table has two import rows: "MT4/MT5 Import + Live Balance Sync" (SignalDeck ✅, Edgewonk ❌) and "Broad Broker Auto-Import (200+)" (SignalDeck ❌, Edgewonk ✅).
 
+### SignalDeck vs TradeZella
+- URL: https://sgnldk.com/compare/tradezella/
+- Content: Head-to-head comparison emphasizing the replay vs backtesting distinction. TradeZella is built around manual bar-by-bar trade replay (user places trades on historical charts interactively); SignalDeck is built around automated rule-based backtesting. SignalDeck wins on automated backtester (WFA, Monte Carlo, grid-search, backtest-journal overlay), R-value framework (R-Multiple, SQN, Kelly, Post Mortem, MAE/MFE — none in TradeZella), MT4/MT5 import + live balance sync, and price (free vs $30–$50/mo). TradeZella wins on manual bar-by-bar replay, community features, and broad broker auto-import. Key explainer section: "Replay vs. Backtesting: What's the Actual Difference?" FAQ covers: WFA vs TradeZella, does TradeZella have backtesting, which is better for analytics.
+
+### SignalDeck vs Tradervue
+- URL: https://sgnldk.com/compare/tradervue/
+- Content: Comparison against the legacy industry standard. Tradervue is a trusted platform founded in 2012 with 80+ broker imports and a large user base; SignalDeck is the analytics-depth option. SignalDeck wins on full backtesting suite (WFA, Monte Carlo, grid-search — none in Tradervue), R-value framework (R-Multiple, SQN, Kelly, Post Mortem — none in Tradervue), modern web UX, MT4/MT5 import + live balance sync, behavioral tagging, and price (free vs $30–$50/mo). Tradervue wins on 80+ broker auto-imports and established user base. Key section: "Analytics vs. Import: Different Primary Goals." FAQ includes "Why do people still use Tradervue in 2026?"
+
+### SignalDeck vs TradesViz
+- URL: https://sgnldk.com/compare/tradesviz/
+- Content: Comparison against the closest analytical competitor. Both have rule-based backtesting (SignalDeck: 7 strategies; TradesViz: 70+ indicators, 30,000+ tickers). The gap is Walk-Forward Analysis (SignalDeck only), Monte Carlo (SignalDeck only), grid-search parameter optimization (SignalDeck only), backtest-journal overlay (SignalDeck only), and R-value as an organizing principle (SignalDeck only). TradesViz wins on indicator library (70+), ticker universe (30,000+), and AI Q&A. Key explainer: "Both have backtesting. Only one checks for overfitting." FAQ covers: which is better for backtesting, does TradesViz have Walk-Forward Analysis, indicator depth comparison.
+
+### Free Trading Journal
+- URL: https://sgnldk.com/free/
+- Content: Landing page targeting "free trading journal", "best free trading journal", "free trading journal backtester" keywords. SignalDeck is completely free during beta — no credit card, no trial, no feature restrictions. Walk-Forward Analysis, 1,000-path Monte Carlo, SQN scoring, Kelly Criterion, MT4/MT5 import, structured Post Mortem, and behavioral tagging all included free. Comparison table: SignalDeck ($0) vs TraderSync ($30–$80), TradeZella ($30–$50), Tradervue ($30–$50), TradesViz ($15–$30 with limited free tier), Edgewonk (~$14). Founder Status section: active beta testers receive free-for-life access to all Pro features. FAQ covers: is it really free, what happens after beta, best free trading journal 2026, free forex journal, free journal with backtester.
+
+### MT4 & MT5 Trading Journal
+- URL: https://sgnldk.com/mt4-journal/
+- Content: SEO landing page targeting "MT4 trading journal", "MT5 trading journal", "best trading journal with MT4 import", "MT4 trade log", "MetaTrader trading journal" keywords. Covers: how MT4/MT5 import works via MetaApi (4-step process: connect account, trades import automatically, add stop loss for R-Multiple, live balance syncs continuously), what imports automatically (fills, P&L, symbol, volume, commission, swap, timestamps, live balance/equity/margin/leverage), what requires manual entry after import (stop loss — MetaApi API limitation, not SignalDeck limitation), analytics stack (R-value framework, Walk-Forward Analysis, Monte Carlo, SQN, Kelly Criterion, 5-step Post Mortem), native instrument support (XAUUSD, NAS100, GER40, US500, EURUSD, all FX). Supported brokers include any MT4/MT5 server (FTMO, IC Markets, Pepperstone, Exness, MyFundedFX, The5ers, Apex). FAQ covers: MT4 import support, stop loss limitation, live balance sync explained, supported brokers, best MT4 trading journal, MT5 for prop firm accounts.
+
 ### University Clubs
 - URL: https://sgnldk.com/clubs.html
 - Content: Free access program for student-managed investment funds

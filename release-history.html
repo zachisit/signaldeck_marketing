@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-05-06",
+      "dateModified": "2026-05-07",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,60 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.45 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.45-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 7, 2026 2:58PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The dashboard gets a full redesign — a new Standard view puts your performance snapshot front and center, while the existing analytics charts move to a dedicated Quant tab. Unlimited daily journal entries, an MT5 connecting overlay, and fractional crypto quantity support round out the release.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Dashboard Standard View</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Standard / Quant tab strip</strong> — Switch between the new trader-focused Standard view and the existing analytics Quant view. Your preference is saved across sessions.</li>
+                            <li><strong class="text-zinc-200">Stat cards</strong> — Net P&L, Win Rate, Avg R:R, and Profit Factor displayed prominently with color-coded green/red values. Secondary row shows Trades Today, Average Pips, current streak, and your top-performing pair.</li>
+                            <li><strong class="text-zinc-200">Accountability tables</strong> — Two live tables: trades created in the last 48 hours with no note, and all closed trades without a post-mortem. Both tables update in real time when you add a note or save a post-mortem from the trade modal.</li>
+                            <li><strong class="text-zinc-200">Recent Daily Notes</strong> — Your last 10 journal entries shown directly on the dashboard. Click any row to read the full entry or edit it without leaving the dashboard.</li>
+                            <li><strong class="text-zinc-200">Recent Post-Mortems and Recent Closed trades</strong> — Side-by-side widgets showing your latest reviews (with verdict, quality, and trigger badges) alongside open and recently closed positions.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Calendar — Unlimited Daily Notes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Multiple notes per day</strong> — The daily journal now supports unlimited entries per date. Create as many notes as you like for a given trading session.</li>
+                            <li><strong class="text-zinc-200">Edit by ID</strong> — Each note is independently editable. Opening a note from the dashboard or calendar shows it in a view modal with a dedicated Edit button — no more replacing the entire day's entry to fix a typo.</li>
+                            <li><strong class="text-zinc-200">Note indicator on all calendar views</strong> — The daily-note badge now appears on the week view and mobile dot strip, not just the month grid.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Connecting Overlay</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Loading overlay during connection</strong> — A full-screen spinner with an elapsed-time counter appears the moment you click Connect, so the app doesn't look frozen during the 10–30 second MetaApi provisioning call.</li>
+                            <li><strong class="text-zinc-200">Readable validation errors</strong> — MT5 API errors now show human-readable messages ("Login ID must be numeric") instead of the raw internal field name or [object Object].</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Fractional crypto quantities</strong> — The shares / quantity input now accepts decimal values like 0.00123 BTC. Previously, browser validation rejected anything that wasn't a whole number.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.44 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.44-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 6, 2026</span>
                 </div>
 

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk | SignalDeck</title>
+    <meta name="description" content="Kelly Criterion calculates the mathematically optimal bet size from YOUR win rate and YOUR win/loss ratio — not someone else's rules. Learn the formula, a worked example, why most traders use half-Kelly, and how many trades you need before trusting the output.">
+    <meta name="keywords" content="Kelly Criterion trading, kelly criterion formula, half kelly position sizing, optimal position size, win rate R ratio position sizing, kelly criterion calculator, trading risk per trade, position sizing formula">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/kelly-criterion-position-sizing/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/kelly-criterion-position-sizing/">
+    <meta property="og:title" content="Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk | SignalDeck">
+    <meta property="og:description" content="Kelly Criterion calculates the mathematically optimal bet size from YOUR win rate and YOUR win/loss ratio — not someone else's rules. Learn the formula, a worked example, why most traders use half-Kelly, and how many trades you need before trusting the output.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/kelly-criterion-position-sizing/">
+    <meta property="twitter:title" content="Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk | SignalDeck">
+    <meta property="twitter:description" content="Kelly Criterion calculates the mathematically optimal bet size from YOUR win rate and YOUR win/loss ratio — not someone else's rules. Learn the formula, a worked example, and how many trades you need before trusting the output.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk Per Trade",
+        "description": "Kelly Criterion calculates the mathematically optimal bet size from your win rate and win/loss ratio. Learn the formula, a worked example, why most traders use half-Kelly, and how many trades you need before trusting the output.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-05-13",
+        "dateModified": "2026-05-13"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Kelly Criterion formula for trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The simplified Kelly Criterion formula for traders is: Kelly % = W - [(1 - W) / R], where W is your win rate as a decimal and R is your average winner size divided by your average loser size. The result tells you what percentage of your account to risk on a single trade to maximise long-run growth."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is half-Kelly position sizing?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Half-Kelly means risking 50% of the full Kelly percentage on each trade. For example, if Kelly outputs 20%, half-Kelly means risking 10%. Most traders use half-Kelly as a safety margin because Kelly assumes perfectly accurate inputs — if your win rate or R-ratio estimates are slightly off, full Kelly can oversize positions and cause serious drawdowns."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many trades do I need to use Kelly Criterion?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need at least 50 to 100 closed trades with consistent stop placement before your win rate and R-ratio estimates are stable enough to trust. Below 50 trades, small sample variation can cause Kelly to output wildly different numbers — and those errors translate directly into oversizing risk."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between Kelly Criterion and fixed-R sizing?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fixed-R sizing risks a constant percentage of your account on every trade regardless of your statistics — commonly 1% or 2%. Kelly Criterion sizes based on your measured edge: if your win rate and R-ratio are high, Kelly allows a larger position; if your edge is thin, Kelly sizes small. Fixed-R is simpler and safer for beginners. Kelly is more precise but requires accurate, stable data."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Kelly Criterion: Let Your Own Data Tell You How Much to Risk Per Trade", "item": "https://sgnldk.com/blog/kelly-criterion-position-sizing/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-05-13" class="text-xs font-mono text-zinc-500">May 13, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Position Sizing</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Kelly Criterion: Let Your Own Data Tell You How Much to Risk Per Trade
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Most traders size positions by feel or by a YouTube rule of thumb. Kelly Criterion is a formula that calculates the mathematically optimal bet size based on your win rate and your win/loss ratio — not someone else's rules. Your actual data.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <!-- Introduction -->
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                "Never risk more than 2%." It's the rule everyone repeats. Nobody knows where it came from. It doesn't know your win rate. It doesn't know how big your average winner is relative to your loser. It doesn't know anything about your system — it just sounds responsible, so it spread.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The Kelly Criterion, originally developed by John Kelly Jr. at Bell Labs in 1956, does the opposite. It takes your actual measured edge — your win rate and your payoff ratio — and outputs the position size that maximizes long-run account growth. Not a universal rule. A formula derived from your own trade data.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                There's a catch, and it's an important one: Kelly is only as good as the inputs you feed it. If your win rate estimate is off, or your R-ratio is calculated from too small a sample, Kelly will oversize you — and oversizing is where accounts die. This article covers the formula, how to interpret it, and the data requirements you need to meet before trusting the output.
+            </p>
+
+            <!-- The Formula -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Kelly Criterion Formula (Simplified for Traders)</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The full Kelly formula handles multi-outcome scenarios. For trading — where you're essentially dealing with wins and losses at varying magnitudes — the simplified version is:
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
+                Kelly % = W &minus; [(1 &minus; W) / R]
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">Where:</p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">W</span> = your win rate as a decimal (e.g. 45% = 0.45)</li>
+                <li><span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">R</span> = your win/loss ratio: average winner size divided by average loser size</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The output is the percentage of your account capital to risk on a single trade. A Kelly output of 0.20 means risk 20% of your account. Most traders immediately cut that in half — more on why below.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If Kelly outputs a negative number, it means your system has negative expectancy: you'd be better off not trading it at all. That's a useful signal in itself. <a href="../why-win-rate-is-lying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Chasing win rate without tracking your payoff ratio is why so many traders never notice this until too late.</a>
+            </p>
+
+            <!-- Worked Example -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A Worked Example</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Suppose your last 80 trades show:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li>Win rate: <strong class="text-white">45%</strong> &rarr; W = 0.45</li>
+                <li>Average winner: $250 | Average loser: $100 &rarr; R = 2.5</li>
+            </ul>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 font-mono text-sm text-zinc-300 overflow-x-auto mb-6">
+Kelly % = 0.45 &minus; [(1 &minus; 0.45) / 2.5]
+        = 0.45 &minus; [0.55 / 2.5]
+        = 0.45 &minus; 0.22
+        = 0.23  &rarr;  23% of account per trade
+
+Half-Kelly = 11.5%
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Full Kelly says risk 23% of your account per trade to maximize compounded growth given this edge. That's a number that will make most traders uncomfortable — and it should. The math is sound, but it assumes your inputs are perfectly accurate. Because they're almost certainly not, you apply a safety margin. Half-Kelly brings you to 11.5%, which still exceeds what most traders risk but is far less likely to create catastrophic drawdowns when the inevitable estimation error appears.
+            </p>
+
+            <!-- Why Half-Kelly -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Most Traders Use Half-Kelly</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Kelly is derived from an idealized model. It assumes your win rate and R-ratio are stable, accurately measured, and will continue into the future. None of those assumptions hold perfectly in live trading.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The problem is asymmetric. If Kelly tells you 20% and you're slightly wrong about your edge, you can lose 30-40% of your account in a normal losing streak. But if you use half-Kelly and your edge is exactly as estimated, you only give up a fraction of theoretically maximum growth. The downside risk of full Kelly far exceeds the upside benefit over full-Kelly — which is why serious traders almost universally use a fractional Kelly: most commonly 0.5× (half-Kelly) or 0.25× (quarter-Kelly).
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "The Kelly Criterion maximizes the geometric mean of wealth — but only if your inputs are exact. In practice, fractional Kelly is the rational choice."
+            </blockquote>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The more uncertainty in your input estimates, the lower the fraction you should apply. A trader 6 months into live trading with 60 trades logged should probably use quarter-Kelly at most. A trader with 500 trades across stable market conditions has more confidence in the stability of their parameters and might go to half-Kelly.
+            </p>
+
+            <!-- Data Requirements -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Data Requirements: When Can You Actually Trust Kelly?</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is the part most articles skip. Kelly is a function of two numbers: win rate and R-ratio. Both need to be stable estimates from a large enough sample before they mean anything.
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Trade Count</th>
+                            <th class="px-4 py-3 text-left font-semibold">Reliability of Kelly Output</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Under 30</td>
+                            <td class="px-4 py-3 text-rose-400">Unreliable — do not use</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">30 – 50</td>
+                            <td class="px-4 py-3 text-yellow-400">Directionally useful, not precise — quarter-Kelly at most</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">50 – 100</td>
+                            <td class="px-4 py-3 text-blue-400">Reasonable estimate — half-Kelly appropriate</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">100+</td>
+                            <td class="px-4 py-3 text-emerald-400">Reliable — full analysis justifiable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Beyond trade count, the quality of the data matters as much as the quantity. Trades need to be taken with consistent stop placement — if your stop size varies wildly, your R-ratio becomes noise. Kelly also assumes your strategy parameters are stable: if your win rate was 55% in a trending market and you're now running Kelly on that figure in a choppy market, you're trading on stale inputs.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is why <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">monitoring your system for edge decay</a> matters before applying Kelly. If your edge is changing, your Kelly percentage should change with it.
+            </p>
+
+            <!-- Kelly vs Fixed-R -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Kelly vs. Fixed-R: Which Should You Use?</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                They're not mutually exclusive — <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Fixed-R sizing</a> is how you normalize every trade to a consistent risk unit so that your journal data becomes meaningful. Kelly is what you calculate from that journal data to determine what percentage your Fixed-R should be.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The practical workflow looks like this: start with a fixed risk percentage (1-2%) when you don't yet have enough data. Log every trade consistently with a well-defined stop. After 50-100 trades, calculate your win rate and R-ratio from the clean data. Feed those into Kelly, apply your chosen fraction, and adjust your risk percentage accordingly. Then keep monitoring — if your statistics drift, Kelly will tell you to resize.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Fixed-R without Kelly is arbitrary. Kelly without Fixed-R is unmeasurable. Together, they form a complete position-sizing framework grounded in your actual performance.
+            </p>
+
+            <!-- Kelly, SQN, Expectancy -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How Kelly Connects to SQN and Expectancy</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Kelly, SQN, and expectancy are three lenses on the same underlying question: does your system have a real edge, and if so, how much should you bet on it?
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <strong class="text-white">Expectancy</strong> tells you the average R-multiple per trade — your expected profit for every unit of risk taken. A positive expectancy system is one worth trading. Expectancy is an input to Kelly: your R-ratio and win rate are just a decomposition of expectancy into its two components.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <strong class="text-white"><a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN (System Quality Number)</a></strong> adds a third dimension — consistency. Two systems can have identical expectancy but very different SQN scores. The one with lower variance in outcomes has a higher SQN and a more reliable Kelly estimate. A high-SQN system is one where you can trust the Kelly output more, because the edge isn't just positive but stable.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                In practice: calculate expectancy to confirm you have an edge, use SQN to confirm that edge is consistent and reliable, and then apply Kelly (fractionally) to determine the position size that maximizes your compounded growth. Each metric is a prerequisite for the next.
+            </p>
+
+            <!-- How SignalDeck Calculates -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Calculates Kelly Automatically</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck computes Kelly Criterion, half-Kelly, expectancy, SQN, and R-multiple in real-time from your closed trade journal — no spreadsheets, no manual inputs. As you log trades, your Kelly percentage updates automatically and is visible alongside your other system metrics.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                You can filter by strategy, tag, date range, or asset class to see how your Kelly percentage differs across different setups. If your "Breakout" strategy has a Kelly of 18% and your "Counter-trend" strategy shows 3%, you have a clear, data-driven basis for how much confidence to place in each — and where to concentrate capital. <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Try it free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the Kelly Criterion formula for trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The simplified Kelly Criterion formula for traders is: Kelly % = W &minus; [(1 &minus; W) / R], where W is your win rate as a decimal and R is your average winner size divided by your average loser size. The result tells you what percentage of your account to risk on a single trade to maximize long-run growth.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is half-Kelly position sizing?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Half-Kelly means risking 50% of the full Kelly percentage on each trade. For example, if Kelly outputs 20%, half-Kelly means risking 10%. Most traders use half-Kelly as a safety margin because Kelly assumes perfectly accurate inputs — if your win rate or R-ratio estimates are slightly off, full Kelly can oversize positions and cause serious drawdowns.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How many trades do I need to use Kelly Criterion?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">You need at least 50 to 100 closed trades with consistent stop placement before your win rate and R-ratio estimates are stable enough to trust. Below 50 trades, small sample variation can cause Kelly to output very different numbers from one period to the next — and those estimation errors translate directly into oversizing your risk.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the difference between Kelly Criterion and fixed-R sizing?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Fixed-R sizing risks a constant percentage of your account on every trade regardless of your statistics — commonly 1% or 2%. Kelly Criterion sizes based on your measured edge: if your win rate and R-ratio are high, Kelly allows a larger position; if your edge is thin, Kelly sizes small. Fixed-R is simpler and safer for beginners. Kelly is more precise but requires accurate, stable data from your own trade history.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Pages -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
+                <p class="text-zinc-500 text-sm mb-6">Kelly Criterion is calculated automatically in SignalDeck from your live trade journal. Neither TraderSync nor Edgewonk offer it.</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-1">TraderSync has no Kelly Criterion, no SQN scoring, no Walk-Forward Analysis.</p>
+                    </a>
+                    <a href="../../compare/edgewonk/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs Edgewonk</p>
+                        <p class="text-zinc-500 text-xs mt-1">Edgewonk has no Kelly Criterion and no automated R-Multiple calculation.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../fixed-r-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Most Traders Risk Too Much on Every Trade (And How Fixed-R Position Sizing Fixes It)</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 22, 2026</p>
+                    </a>
+                    <a href="../how-to-calculate-sqn-score/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Calculate Your Trading System Quality Number (SQN)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 20, 2026</p>
+                    </a>
+                    <a href="../why-win-rate-is-lying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Win Rate Is Lying to You (And What to Track Instead)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 30, 2026</p>
+                    </a>
+                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Stop guessing how much to risk.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck computes your Kelly Criterion, half-Kelly, expectancy, SQN, and R-multiple automatically from your trade journal. Free during beta.</p>
+                <a href="https://app.sgnldk.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="gtag('event', 'blog_cta_click', {'article': 'kelly-criterion'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta - Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

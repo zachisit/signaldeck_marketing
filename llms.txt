@@ -247,7 +247,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Blog
 - URL: https://sgnldk.com/blog/
-- Content: Six published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Monte Carlo simulation, and journal account balance accuracy. Topics target serious retail traders who want institutional analytics applied to their own trade data.
+- Content: Seven published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, and journal account balance accuracy. Topics target serious retail traders who want institutional analytics applied to their own trade data.
 
 ### Blog: Why Your Account Balance at Trade Entry Matters
 - URL: https://sgnldk.com/blog/journal-account-balance/
@@ -272,6 +272,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Blog: Why Most Traders Risk Too Much on Every Trade (Fixed-R Position Sizing)
 - URL: https://sgnldk.com/blog/fixed-r-position-sizing/
 - Content: Why dollar-based position sizing is arbitrary and context-free, how Fixed-R ties every trade to a consistent percentage of account equity (defining 1R), the formula (Position Size = Account × Risk% ÷ Stop Distance) with a worked stock and forex example, a comparison table showing how the same P&L means completely different things without risk normalization, a 6-trade drawdown comparison showing Fixed-R vs fixed-dollar account decay, the relationship between Fixed-R and Kelly Criterion (Fixed-R first, Kelly as the optimization layer once 100+ trades exist), and how SignalDeck calculates R-Multiple automatically and derives Kelly sizing from live trade history
+
+### Blog: Kelly Criterion — Let Your Own Data Tell You How Much to Risk Per Trade
+- URL: https://sgnldk.com/blog/kelly-criterion-position-sizing/
+- Content: Why generic rules like "never risk more than 2%" ignore your system's actual edge. Simplified Kelly formula (Kelly % = W − [(1 − W) / R], where W = win rate and R = avg winner / avg loser). Worked example: W=0.45, R=2.5 → 23% full Kelly, 11.5% half-Kelly. Why most traders use half-Kelly: asymmetric downside of input estimation error. Data requirements table by trade count (under 30 = unreliable, 30–50 = quarter-Kelly, 50–100 = half-Kelly, 100+ = reliable). Fixed-R and Kelly relationship (Fixed-R first, Kelly as optimization layer). How Kelly connects to SQN (high SQN = more reliable Kelly estimate) and expectancy (win rate + R-ratio decompose expectancy). How SignalDeck computes Kelly in real time filterable by strategy and asset class. FAQ: Kelly formula, half-Kelly, trade count requirements, Kelly vs Fixed-R.
 
 ### Brand Ambassador — PAP€RWORK (@gr3fter)
 - URL: https://sgnldk.com/brand_ambassadors/paperwork/

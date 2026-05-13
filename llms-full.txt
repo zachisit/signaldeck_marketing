@@ -260,12 +260,17 @@ Content: 1:1 onboarding for every beta tester, direct founder access, 48-hour fe
 
 ### Blog
 URL: https://sgnldk.com/blog/
-Articles: SQN score, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Monte Carlo simulation, journal account balance accuracy.
+Articles: SQN score, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, journal account balance accuracy.
 
 ### Blog: Why Your Account Balance at Trade Entry Matters
 URL: https://sgnldk.com/blog/journal-account-balance/
 Target queries: trading journal account balance, journal balance sync, Kelly criterion account balance, fixed r position sizing balance, MT4 journal balance sync, MT5 journal real time balance, account equity trade journal
 Content: Why account balance at the moment of trade entry is the foundational input for R-Multiple, Fixed-R sizing, and Kelly Criterion. Three failure modes of stale balance: wrong 1R value, wrong Kelly lot size, drifting R-Multiple attribution. Drawdown compounding table showing 1.00% → 1.13% → 1.29% actual risk as balance goes stale through a losing streak. The 6-step copy-paste manual workflow and where it breaks (balance vs equity confusion, mid-setup tab-switching, updating after the trade instead of before). SignalDeck manual flow (balance field on entry form). MT4/MT5 real-time sync via MetaApi — balance, equity, margin, leverage all continuous, no manual input after initial connection. Balance vs equity distinction table. Prop firm section: drawdown limits calculated against live equity at FTMO/MyFundedFX/Apex/The5ers. FAQ: 5 questions covering the core concepts.
+
+### Blog: Kelly Criterion — Let Your Own Data Tell You How Much to Risk Per Trade
+URL: https://sgnldk.com/blog/kelly-criterion-position-sizing/
+Target queries: Kelly Criterion trading, kelly criterion formula, half kelly position sizing, optimal position size, win rate R ratio position sizing, kelly criterion calculator, trading risk per trade, position sizing formula
+Content: Why generic rules like "never risk more than 2%" ignore your system's actual edge. Simplified Kelly formula: Kelly % = W − [(1 − W) / R], where W = win rate as decimal and R = average winner / average loser. Worked example: W=0.45, R=2.5 → 23% full Kelly, 11.5% half-Kelly. Why most traders use half-Kelly or quarter-Kelly — asymmetric downside of estimation error (slight overestimate of edge causes serious oversizing; the growth cost of fractional Kelly is small). Data requirements table: under 30 trades = unreliable, 30–50 = quarter-Kelly at most, 50–100 = half-Kelly appropriate, 100+ = reliable. Fixed-R and Kelly relationship: Fixed-R normalizes trade data so Kelly can be calculated from it; start with Fixed-R, layer in Kelly once 100+ clean trades exist. Kelly and SQN: high SQN means more reliable Kelly estimate because the edge is consistent across outcomes. Kelly and expectancy: win rate and R-ratio are a decomposition of expectancy into two components. How SignalDeck computes Kelly in real time from live trade history, filterable by strategy and asset class. FAQ: what is the Kelly Criterion formula, what is half-Kelly, how many trades needed, Kelly vs Fixed-R.
 
 ### Jobs
 URL: https://sgnldk.com/jobs/

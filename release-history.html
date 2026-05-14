@@ -140,12 +140,73 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.48 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.48-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 14, 2026 1:14PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The largest MT5/MT4 broker integration release yet. Connect directly from the New Trade screen, share your open positions, run multiple broker accounts at once, and cut MetaAPI costs by ~95% with automatic idle undeployment.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Inline Broker Connect</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Connect without leaving the flow</strong> — The MT5/MT4 connect modal now opens directly from the New Trade screen. Provision, authenticate, and start trading without switching screens.</li>
+                            <li><strong class="text-zinc-200">Closes in ~5-10 seconds</strong> — The overlay completes as soon as MetaApi confirms the account is provisioned. Balance appears automatically in the background once CONNECTED — no waiting around.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Share Open Trade</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Screenshot-optimised share modal for open positions</strong> — Every open trade now has a Share Open Position button. It opens a clean modal showing your P&amp;L, position details, friction cost, and thesis — formatted for screenshots with SGNLDK.COM branding.</li>
+                            <li><strong class="text-zinc-200">Download PNG or copy a link</strong> — Save the image directly or share a link to the trade detail page.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Multi-MT Connections</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Connect more than one MT account</strong> — The one-per-user broker limit is lifted. Connect a live account and a demo account, or accounts at different brokers, and switch between them.</li>
+                            <li><strong class="text-zinc-200">Adaptive broker-connect modal</strong> — The modal detects your existing connections and shows them first. Adding another account is one click from the existing list.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Server Autocomplete</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Find your broker server instantly</strong> — The server name field shows popular brokers grouped by name when you click it. Type two or more characters for live filtered search across all known servers.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">~95% MetaAPI Cost Savings</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Idle accounts undeployed automatically</strong> — Broker accounts that haven't been used for over an hour are automatically undeployed by the background worker. They redeploy transparently the next time you request a balance or history. Cuts typical per-user MetaAPI cost from ~$28/month to ~$1.50/month.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Disconnect warning badge</strong> — A warning now appears in the MT5 panel when a connection is detected as DISCONNECTED between sessions, instead of failing silently.</li>
+                            <li><strong class="text-zinc-200">Balance and history retries</strong> — Requests now retry up to 10 times on cold-deploy lag, so a slow MetaAPI start no longer surfaces as an error.</li>
+                            <li><strong class="text-zinc-200">Recovery guidance on connection failure</strong> — Persistent DISCONNECTED state (wrong credentials) and terminal DEPLOY_FAILED state now return clear 409 responses with actionable next steps.</li>
+                            <li><strong class="text-zinc-200">SSL verification on by default</strong> — All MetaAPI requests now use the certifi CA bundle for certificate verification.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.47 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.47-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 13, 2026 5:11AM</span>
                 </div>
 

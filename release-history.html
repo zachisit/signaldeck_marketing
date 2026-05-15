@@ -140,12 +140,56 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.49 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.49-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 15, 2026 12:23PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The Borg live feed gets a dedicated post-mortem card, MT5 imports now capture your full risk profile at the moment of the trade, and every trade shows its origin — MT5, CSV, or manually entered.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Borg PM Feed Card</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Post-mortem completion as a distinct feed event</strong> — When you review a trade, a separate purple Reviewed card appears in the Borg live feed below the original trade entry. It shows your verdict, setup quality rating, and how long ago you wrote it.</li>
+                            <li><strong class="text-zinc-200">Always accurate, never duplicated</strong> — The card is broadcast once on first save, so refreshing the feed won't create double entries.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Risk Fields at Import</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Complete risk snapshot captured at import</strong> — For open positions, SignalDeck now fetches your pip value, original stop, price target, dollar risk, and account risk percentage directly from MetaAPI at the moment you import. Your risk context is preserved even after the position closes.</li>
+                            <li><strong class="text-zinc-200">Smarter batch imports</strong> — When importing a closed-only batch, the live position and balance API calls are skipped entirely, keeping imports fast and avoiding unnecessary API usage.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Entry Method Badge</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">See how every trade entered SignalDeck</strong> — Trade details now show an Entry Method badge: Manual for trades you entered by hand, MT5 for broker imports, and CSV for spreadsheet uploads. The source is stored permanently and enforced at the database level.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">MT5 import wizard feedback</strong> — The loading step now shows the correct label while fetching history, an animated spinner displays during fetch and import, the Back button correctly re-enables the Preview button when stepping backward, and the connection refresh button behaves as expected.</li>
+                            <li><strong class="text-zinc-200">Duplicate MetaAPI account prevention</strong> — Provisioning a connection that already exists in MetaAPI now reuses the existing account instead of creating a new one, eliminating orphaned accounts that continued billing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.48 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.48-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 14, 2026 1:14PM</span>
                 </div>
 

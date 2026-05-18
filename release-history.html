@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-05-07",
+      "dateModified": "2026-05-18",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -140,12 +140,61 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.50 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.50-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 18, 2026 10:21AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>SignalDeck now generates a personalized AI coaching digest every week using Gemini. Each Monday your trade history from the past 90 days is analysed and a structured coaching report lands in your new AI Reviews screen — complete with a first-time explainer, a "data used" disclosure, and a one-click flag if a review misses the mark.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">AI Weekly Review</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Weekly Gemini coaching digest</strong> — A structured AI review of your last 90 days of trades lands in your new AI Reviews screen every Monday morning. It covers execution patterns, strategy consistency, and specific areas to focus on.</li>
+                            <li><strong class="text-zinc-200">New AI Reviews screen</strong> — All your AI coaching reports live in one place at AI Reviews in the navigation. A badge shows when new reviews are waiting.</li>
+                            <li><strong class="text-zinc-200">First-time explainer + data disclosure</strong> — Your first review opens a short explainer so you know what to expect. Every review includes a collapsible section showing exactly which trades and strategies went into it.</li>
+                            <li><strong class="text-zinc-200">Small-sample mode</strong> — If you have fewer than 10 trades in the window, the review adapts its language to focus on early patterns and what to watch as you build your track record.</li>
+                            <li><strong class="text-zinc-200">Flag low-quality reviews</strong> — A single-click flag button in every review lets you mark unhelpful output. Flagged reviews feed an admin investigation queue so quality can be improved over time.</li>
+                            <li><strong class="text-zinc-200">Opt-out in Settings</strong> — AI Weekly Review is enabled by default. Turn it off anytime under Settings → AI Features.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Borg Ownership Guard</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Post-mortem access scoped to your own trades</strong> — In Borg team view, the post-mortem tab and the PM review nudge now only appear on trades you entered. Teammate trades remain read-only, keeping the review surface focused on your own work.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">CSV Export: Signal Name Column</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Export signal names alongside your trades</strong> — The Reports screen now includes Signal Name as a selectable column under Relationships, so scanner signal names travel with your export data.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Admin Referral column</strong> — The User Stats referral column now shows the code a user typed at signup, not their own auto-generated shareable code.</li>
+                            <li><strong class="text-zinc-200">Borg closed trade modal</strong> — Null profit and risk values in teammate trade cards now show an em-dash instead of rendering blank or green.</li>
+                            <li><strong class="text-zinc-200">Mailjet CI kill-switch</strong> — Real emails no longer fire during test runs. A new MAILJET_ENABLED flag short-circuits sends in CI and local dev environments.</li>
+                            <li><strong class="text-zinc-200">Post-close share modal branding</strong> — The SGNLDK.COM footer now appears consistently in the post-close summary modal, matching the open-trade share modal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.49 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.49-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 15, 2026 12:23PM</span>
                 </div>
 

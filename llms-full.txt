@@ -23,7 +23,7 @@ SignalDeck is a professional-grade trade journaling platform and strategy backte
 |------|-------|-------------|--------------|
 | Free (post-beta) | $0/mo | 20 trades | Journal, R-value, SQN, Post Mortem |
 | Pro | $19/mo | Unlimited | Everything + Strategy Backtester, Walk-Forward Analysis, Monte Carlo, grid-search |
-| Team | $29/mo | Unlimited | Everything + Borg social layer, team SQN/expectancy dashboards, leaderboards |
+| Team | $29/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Team Plan), Borg social layer, team dashboards, leaderboards |
 | Beta (current) | Free | Unlimited | All Pro + Team features, no restrictions |
 | Founder Status | Free for life | Unlimited | Granted to active beta testers who provide feedback |
 
@@ -206,11 +206,11 @@ Content: Honest comparison of replay (pattern recognition practice) vs Post Mort
 
 ### Plans & Pricing
 URL: https://sgnldk.com/plans/
-Target queries: best free trading journal, free trading journal with backtester, SignalDeck pricing, trading journal pricing
-Content: Free/Pro/Team tier comparison with locked-in post-beta pricing.
-Free ($0): Unlimited trades/post mortems/journal entries, basic R-value analytics & equity curve, 3 strategies/10 tags/5 checklist items (caps), 5 saved backtest notebooks/30 runs per month (daily bars, 1-year history, 7 built-in strategies), 3 AI Post Mortems/month, 1 screenshot per trade, join 1 Borg team (no create), 15-minute delayed market data, community Discord.
+Target queries: best free trading journal, free trading journal with backtester, MT5 trading journal import plan, which trading journal has MT5 import, SignalDeck pricing, trading journal pricing
+Content: Free/Pro/Team tier comparison with locked-in post-beta pricing. MT4/MT5 trade import (via MetaApi) is a Team-only feature ($29/mo).
+Free ($0): Unlimited trades/post mortems/journal entries, basic R-value analytics & equity curve, 3 strategies/10 tags/5 checklist items (caps), 5 saved backtest notebooks/30 runs per month (daily bars, 1-year history, 7 built-in strategies), 3 AI Post Mortems/month, 1 screenshot per trade, join 1 Borg team (no create), community Discord.
 Pro ($19/mo): Everything in Free + unlimited strategies/tags/checklist; Walk-Forward Analysis, Monte Carlo simulation, grid-search optimizer (500 combos), custom rule builder; 50 notebooks/300 runs per month, intraday data (1m–1h), 5-year history; technical indicators on trades (RSI/MACD/MAs/VWAP/ATR); Execution Quality (MAE/MFE) + slippage tracking; Automated Forward Testing scanner; 50 AI Post Mortems/month; full R-analytics (SQN, Kelly, Monte Carlo drawdown); SPY/QQQ benchmark overlay; backtest↔journal strategy overlay; create up to 3 Borg teams; unlimited screenshots, price alerts, CSV/ML export; public profile; priority support.
-Team ($29/mo): Everything in Pro + real-time market data (no 15-min delay, Team only); unlimited AI Post Mortems; unlimited notebooks and backtest runs; unlimited Borg teams (create/manage); pod-level collective metrics; shared team strategy library; live trade feed; leaderboards; custom display name/alias.
+Team ($29/mo): Everything in Pro + MT4/MT5 trade import via MetaApi (Team Plan — auto-imports fills, P&L, symbol, volume, execution price; live account balance syncs in real time for accurate Kelly Criterion sizing; stop loss requires manual entry after import for R-Multiple); unlimited AI Post Mortems; unlimited notebooks and backtest runs; unlimited Borg teams (create/manage); pod-level collective metrics; shared team strategy library; live trade feed; leaderboards; custom display name/alias.
 Founder Status: active beta testers who provide feedback get free lifetime access to the full platform (all Pro + Team features, no restrictions, even after transition to paid). During beta all features are fully unlocked at no cost.
 
 ### Compare Hub

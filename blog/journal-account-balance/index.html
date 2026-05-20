@@ -78,7 +78,7 @@
                 "name": "How do I keep my account balance accurate in a trading journal without MT4/MT5?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The manual approach works fine if you're disciplined: update your balance in the journal before entering each new trade, pulling the current equity directly from your broker's platform. The risk is human error — copying the wrong number, forgetting to update after commissions close, or simply missing an update during a fast-moving session. In SignalDeck, this is a single field on the trade entry form. For MT4/MT5 traders, SignalDeck's MetaApi integration syncs live balance, equity, margin, and leverage continuously — no copy-pasting required."
+                    "text": "The manual approach works fine if you're disciplined: update your balance in the journal before entering each new trade, pulling the current equity directly from your broker's platform. The risk is human error — copying the wrong number, forgetting to update after commissions close, or simply missing an update during a fast-moving session. In SignalDeck, this is a single field on the trade entry form. For MT4/MT5 traders, SignalDeck's MetaApi integration syncs live balance, equity, margin, and leverage on connect — no copy-pasting required."
                 }
             },
             {
@@ -388,7 +388,7 @@
             <!-- Section 6 — MT4/MT5 real-time -->
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">MT4/MT5 Real-Time Sync: The Balance That's Always Right</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                For traders on MetaTrader 4 or MetaTrader 5, SignalDeck's MetaApi integration removes the manual step entirely. When you connect your MT4 or MT5 account, your live balance, equity, margin, and leverage sync to SignalDeck continuously — not on a schedule, not on a manual refresh. The moment a trade closes, a commission processes, or a swap charges overnight, the number in SignalDeck updates.
+                For traders on MetaTrader 4 or MetaTrader 5, SignalDeck's MetaApi integration removes the manual step entirely. When you connect your MT4 or MT5 account, your live balance, equity, margin, and leverage sync to SignalDeck on demand — pulled fresh each time you open the platform or log a trade.
             </p>
 
             <!-- Live balance widget mock -->
@@ -494,7 +494,7 @@
                 If your journal's balance doesn't match your broker's live equity, your risk calculations are off in both directions. You might think you have more headroom under the drawdown limit than you actually do. Or you might be sizing trades against a balance that has grown since your last update, meaning your positions are smaller than they need to be. Neither is optimal.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The MetaApi sync covers this precisely because it pulls balance, equity, and margin simultaneously, refreshed continuously. For prop firm traders using MT4 or MT5 (which covers most major prop firms — FTMO, IC Markets, Pepperstone, Exness, MyFundedFX, The5ers, Apex), the number in SignalDeck matches the number on the platform at all times. There is no ambiguity about which number the risk limit is being calculated against.
+                The MetaApi sync covers this precisely because it pulls balance, equity, and margin simultaneously on connect. For prop firm traders using MT4 or MT5 (which covers most major prop firms — FTMO, IC Markets, Pepperstone, Exness, MyFundedFX, The5ers, Apex), the number in SignalDeck matches the number on the platform at all times. There is no ambiguity about which number the risk limit is being calculated against.
             </p>
 
             <!-- Section 9 — practical advice -->
@@ -503,7 +503,7 @@
             <div class="space-y-3 mb-8">
                 <div class="flex items-start gap-4 p-4 bg-zinc-900 border border-zinc-800 rounded-xl">
                     <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">IF MT4 / MT5</span>
-                    <p class="text-zinc-300 text-sm leading-relaxed">Connect via MetaApi. Done. Your balance, equity, margin, and leverage sync continuously. Every trade you log already has the correct balance attached without any manual input after setup.</p>
+                    <p class="text-zinc-300 text-sm leading-relaxed">Connect via MetaApi. Done. Your balance, equity, margin, and leverage sync on connect. Every trade you log already has the correct balance attached without any manual input after setup.</p>
                 </div>
                 <div class="flex items-start gap-4 p-4 bg-zinc-900 border border-zinc-800 rounded-xl">
                     <span class="font-mono text-blue-400 text-sm font-bold shrink-0 mt-0.5">IF MANUAL</span>

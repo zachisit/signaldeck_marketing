@@ -188,8 +188,14 @@
 
   <url>
     <loc>https://sgnldk.com/blog/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/blog/walk-forward-analysis/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.80</priority>
   </url>
 
   <url>

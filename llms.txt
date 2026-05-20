@@ -247,7 +247,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Blog
 - URL: https://sgnldk.com/blog/
-- Content: Seven published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, and journal account balance accuracy. Topics target serious retail traders who want institutional analytics applied to their own trade data.
+- Content: Eight published articles covering R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, Walk-Forward Analysis, and journal account balance accuracy. Topics target serious retail traders who want institutional analytics applied to their own trade data.
 
 ### Blog: Why Your Account Balance at Trade Entry Matters
 - URL: https://sgnldk.com/blog/journal-account-balance/
@@ -272,6 +272,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Blog: Why Most Traders Risk Too Much on Every Trade (Fixed-R Position Sizing)
 - URL: https://sgnldk.com/blog/fixed-r-position-sizing/
 - Content: Why dollar-based position sizing is arbitrary and context-free, how Fixed-R ties every trade to a consistent percentage of account equity (defining 1R), the formula (Position Size = Account × Risk% ÷ Stop Distance) with a worked stock and forex example, a comparison table showing how the same P&L means completely different things without risk normalization, a 6-trade drawdown comparison showing Fixed-R vs fixed-dollar account decay, the relationship between Fixed-R and Kelly Criterion (Fixed-R first, Kelly as the optimization layer once 100+ trades exist), and how SignalDeck calculates R-Multiple automatically and derives Kelly sizing from live trade history
+
+### Blog: Walk-Forward Analysis — The Overfitting Detector Every Backtester Needs
+- URL: https://sgnldk.com/blog/walk-forward-analysis/
+- Content: Why standard backtests can't detect their own overfitting (closed-loop problem). How Walk-Forward Analysis works: alternating in-sample optimization windows and out-of-sample test windows, stepped forward through time. Rolling vs anchored (expanding) walk-forward variants. Walk-forward efficiency ratio (WFE = OOS return / IS return) with threshold table (above 70% = strong, 50–70% = acceptable, 30–50% = marginal, below 30% = high overfitting). How many OOS periods you need (minimum 8–12). How WFA connects to live trading: live journal data is your continuously growing OOS window. How SQN on OOS trades diagnoses edge consistency. How SignalDeck compares IS and OOS performance using strategy filters and date ranges. FAQ: what is walk-forward analysis, what is walk-forward efficiency ratio, WFA vs backtesting, how many periods needed.
 
 ### Blog: Kelly Criterion — Let Your Own Data Tell You How Much to Risk Per Trade
 - URL: https://sgnldk.com/blog/kelly-criterion-position-sizing/

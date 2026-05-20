@@ -140,12 +140,59 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.51 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.51-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 20, 2026 7:59PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>SignalDeck's journal gets a complete overhaul. Free-form daily notes now live in a Google Keep-style card grid with mood tracking, milestone celebrations, and a richer day-detail view — all accessible at a permanent URL you can bookmark and share.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Daily Journal — Keep Layout</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Card grid replaces the table</strong> — Journal entries for each day are displayed as Keep-style cards with your note text, a timestamp chip, and a mood badge. Action buttons appear on hover, pinned to the bottom-right of each card.</li>
+                            <li><strong class="text-zinc-200">Bookmarkable URLs</strong> — Every journal date has its own URL at <code class="text-zinc-300">/journal/YYYY-MM-DD</code>. Hard-refreshing or sharing the link takes you straight to that day's entries.</li>
+                            <li><strong class="text-zinc-200">Date picker in the header</strong> — A calendar picker sits to the right of the date label so you can jump to any date without scrolling through the week strip.</li>
+                            <li><strong class="text-zinc-200">Mood on every entry</strong> — Pick a mood (great, good, neutral, bad, awful) when you write a note. The mood appears as a badge on the card and in the day-detail view.</li>
+                            <li><strong class="text-zinc-200">Per-entry delete with undo</strong> — Each card has its own delete button. An undo toast gives you a moment to reverse the action before it's permanent.</li>
+                            <li><strong class="text-zinc-200">Day-detail timestamps and sort</strong> — Clicking a card opens a day-detail modal showing all entries for that date in newest-first order, each with a precise timestamp.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Journal Milestones</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Milestone coaching events</strong> — SignalDeck recognises your first journal entry ever, a 7-day consecutive journaling streak, and a mood recovery (good or great mood after a bad stretch). Each milestone appears once in your Review Queue as a coaching card.</li>
+                            <li><strong class="text-zinc-200">Streak counts both notes and journal entries</strong> — Your daily streak now advances whether you left a trade note or wrote a freeform journal entry, so mixed journaling habits still build your streak consistently.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">AI Weekly Review — Mood Context</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Mood data included in your weekly AI review</strong> — Gemini now sees your mood ratings alongside your trades when generating your weekly coaching digest. The result is a more complete picture of how your emotional state tracked against your trading performance that week.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Trade modal counter no longer wraps</strong> — On modals with more than nine trades in the navigator, the position counter (e.g. "10 / 14") now stays on a single line instead of breaking across two.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.50 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.50-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 18, 2026 10:21AM</span>
                 </div>
 

@@ -15,9 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>SignalDeck - Trading Journal &amp; Strategy Backtester | Institutional Metrics for Serious Traders</title>
-    <meta name="description" content="The only trading journal with MT4/MT5 trade import + live balance sync, Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization built in. R-value analytics, a structured Post Mortem protocol, and a full strategy backtester. MT5 import on Team plan. Free lifetime access for beta testers.">
-    <meta name="keywords" content="trading journal, free trading journal, MT4 MT5 trading journal, MetaTrader trading journal, broker import trading journal, live balance sync trading journal, AI trading journal, win rate, win rate vs expectancy, trading consistency, trading accountability, trading mistakes, plan adherence, rules-based trading, trade discipline, SQN score, Kelly criterion, day trading journal, swing trading journal, trading analytics, risk management, best free trading journal 2026">
+    <title>SignalDeck — AI Trading Journal &amp; Strategy Backtester</title>
+    <meta name="description" content="The only trading journal with MT4/MT5 import, Walk-Forward Analysis, Monte Carlo, SQN scoring & Kelly Criterion. Free for beta testers — keep it for life.">
+    <meta name="keywords" content="trading journal, MT4 MT5 trading journal, Walk-Forward Analysis, strategy backtester, SQN score, Kelly criterion, R-value trading, free trading journal, AI trading journal, best trading journal 2026">
     <meta name="author" content="SignalDeck">
     <link rel="canonical" href="https://sgnldk.com">
     <meta name="robots" content="index, follow">
@@ -27,6 +27,10 @@
     <meta property="og:url" content="https://sgnldk.com">
     <meta property="og:title" content="SignalDeck - AI Trading Journal for Serious Traders">
     <meta property="og:description" content="Stop using glorified tax software. Audit your trading discipline with AI and institutional-grade metrics. Free lifetime access for beta testers.">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="SignalDeck">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -159,6 +163,9 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
+                    <a href="free/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
+                    <a href="mt4-journal/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">MT4/MT5</a>
+                    <a href="prop-firm/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Prop Firm</a>
                     <a href="plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
                     <a href="compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
@@ -172,6 +179,9 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="free/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
+            <a href="mt4-journal/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">MT4/MT5 Import</a>
+            <a href="prop-firm/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Prop Firm</a>
             <a href="plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
             <a href="compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
@@ -489,7 +499,7 @@
                         </div>
                         <div>
                             <h4 class="text-white font-bold mb-3 text-lg">MT4/MT5 Trade Import</h4>
-                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so Kelly Criterion sizing and fixed-R risk calculations always reflect your actual current equity — not a stale number you entered last month. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so <a href="blog/kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kelly Criterion</a> sizing and fixed-R risk calculations always reflect your actual current equity — not a stale number you entered last month. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
                             <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Integration — MetaApi · Real-Time Balance Sync</div>
                         </div>
                     </div>
@@ -502,7 +512,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                         <div>
                             <h4 class="text-white font-bold mb-3 text-lg">Strategy Backtester</h4>
-                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Test any of 15+ built-in strategies against up to 5 years of historical data. Walk-Forward Analysis detects overfitting before you go live. Monte Carlo simulation models your worst-case drawdown across 1,000 paths. Grid-search optimizer finds your best parameters. Then link the backtest to your journal strategy and compare theory against your actual execution — all in the same platform.</p>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Test any of 15+ built-in strategies against up to 5 years of historical data. <a href="blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Walk-Forward Analysis</a> detects overfitting before you go live. Monte Carlo simulation models your worst-case drawdown across 1,000 paths. Grid-search optimizer finds your best parameters. Then link the backtest to your journal strategy and compare theory against your actual execution — all in the same platform.</p>
                             <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Engine — Bar-by-Bar Simulation · Async Worker</div>
                         </div>
                         <div class="flex flex-wrap gap-2">
@@ -893,7 +903,7 @@
                     </div>
                     <h3 class="text-3xl font-bold text-white mb-4">Backtest before you risk a dollar</h3>
                     <p class="text-zinc-400 text-lg leading-relaxed">
-                        Run any of 15+ built-in strategies against up to 5 years of historical data. Walk-Forward Analysis catches overfitting before you go live. Monte Carlo simulation runs 1,000 paths to model your worst-case drawdown at the 5th percentile. Then link the backtest directly to your journal strategy — and see exactly where your live execution diverges from theory.
+                        Run any of 15+ built-in strategies against up to 5 years of historical data. <a href="blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Walk-Forward Analysis</a> catches overfitting before you go live. Monte Carlo simulation runs 1,000 paths to model your worst-case drawdown at the 5th percentile. Then link the backtest directly to your journal strategy — and see exactly where your live execution diverges from theory.
                     </p>
                     <ul class="mt-6 space-y-3 font-mono text-sm text-zinc-400">
                         <li class="flex items-start">

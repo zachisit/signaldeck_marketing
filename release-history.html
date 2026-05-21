@@ -140,12 +140,68 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.52 -->
+            <div class="pl-8 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.52-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 21, 2026 8:25AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>This release focuses on the MT5 broker-import flow. After a session with a beta tester importing live forex trades, we addressed every snag he hit — stop-loss capture, multi-position stacking, post-import journaling, preview ordering, and a handful of polish items across the dashboard and journal.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Import — Needs Review</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Per-row pill cluster on imported trades</strong> — Each MT5-imported trade shows quick-add pills for fields the broker doesn't supply: stop, target, trading style, psychology scores, entry screenshot. Tap a pill to add the value in a single-field popover without opening the full edit modal.</li>
+                            <li><strong class="text-zinc-200">Needs Review filter chip</strong> — A new chip on Trade History lets you filter to just the imported trades that still need journaling. A counter shows how many remain.</li>
+                            <li><strong class="text-zinc-200">Post-import CTA</strong> — Right after importing, a soft prompt links you directly to the filtered list so you can journal the new trades in one sitting.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Import — Multi-Position Stacking</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Sibling positions detected at preview</strong> — When you import multiple broker positions that share the same symbol, side, and entry window, SignalDeck now groups them as one campaign automatically. A cluster band on the preview shows the link, with a checkbox you can untick if you really want them imported as separate trades.</li>
+                            <li><strong class="text-zinc-200">Group linkage propagated on import</strong> — Approved clusters share a campaign ID across all sibling trades. Re-importing later never overwrites your manual journaling or group changes.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Import — Stop-Loss Accuracy</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Original stop captured at fill, not after trailing</strong> — If you trailed your broker stop closer to entry before importing, SignalDeck used to capture that trailed value as your "original stop" — wrecking your R-multiple math. The importer now reads the at-entry stop from the broker's deal log.</li>
+                            <li><strong class="text-zinc-200">Suspicious-stop warning banner</strong> — When the imported stop still looks unreliable (very close to entry, or on the wrong side of price), the trade-detail modal shows a warning banner with an "Update Original Stop" CTA so you can fix it.</li>
+                            <li><strong class="text-zinc-200">Preview lists newest trades first</strong> — Recent trades now appear at the top of the import preview where you'd expect them, not the bottom.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MT5 Import — Reliability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Import button no longer gets stuck</strong> — If the broker took too long to respond, the import button could lock up with no way to recover except a hard refresh. There's now a 60-second timeout, the button always re-enables, and you get a clear error if something goes wrong.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Polish</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Calendar date-picker icon is now white on dark mode</strong> — The journal date picker indicator stays visible on macOS dark mode instead of inverting to black.</li>
+                            <li><strong class="text-zinc-200">Journal keep-card action buttons no longer overlap text</strong> — Cards now have proper bottom padding so the absolute-positioned action buttons sit cleanly below the note content.</li>
+                            <li><strong class="text-zinc-200">Downloaded share-modal screenshots no longer show duplicate branding</strong> — Removed a hardcoded SGNLDK.COM footer that was duplicating the watermark added at capture time.</li>
+                            <li><strong class="text-zinc-200">Dashboard streak label fixes "lossing day"</strong> — "1 lossing day" now correctly reads "1 losing day".</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.51 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.51-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 20, 2026 7:59PM</span>
                 </div>
 

@@ -140,12 +140,60 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.53 -->
+            <div class="pl-8 relative" id="v1-0-53">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.53-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 21, 2026 3:34PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Three new scanner strategies built for the current macro regime, a fix for the journal-note save bug that hit anyone leaving the compose modal open for a while, and a round of hardening across the backtester and edit-trade flow.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Gold-Regime Scanner Strategies</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">GOLD-R21 Tactical</strong> — Tactical trend-follow on the GLD basket (GLD, GDX, GOLD, NEM, WPM, RGLD, AEM, FNV). Enters when price is above its 50-day SMA and either VIX is calm or SPY is above its 200-day. Exits on a trend break or a sharp rise in 10-year yields.</li>
+                            <li><strong class="text-zinc-200">GOLD-EC-VIX-27</strong> — Contrarian Williams %R setup on NDX-energy names (XOM, CVX, COP, EOG, OXY, PSX, VLO, MPC, SLB, DVN, FANG, BKR, XLE, XOP) that adapts its entry threshold based on where VIX sits in its 252-day percentile rank.</li>
+                            <li><strong class="text-zinc-200">GOLD-UNIVERSAL-DEFENSIVE</strong> — A defensive signal that goes long TLT and GLD when VIX clears 35 or SPY drops below its 200-day. Complements the equity strategies that go flat during stress.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Release Announcements in Your Review Queue</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">In-app heads-up for every release</strong> — Each time SignalDeck ships, you'll see a release-announcement card at the top of your Review Queue with a one-line summary and a link straight to the release notes here.</li>
+                            <li><strong class="text-zinc-200">Email follow-up</strong> — The same announcement arrives in your inbox so you don't miss it if you only catch up on email.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Link an Existing Trade as an Add-on</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Edit a trade to mark it as an add-on</strong> — The edit-trade modal now has an "Is Add-on?" checkbox. Tick it, pick the parent trade from the dropdown, and SignalDeck groups them into the same campaign for P&L and journaling.</li>
+                            <li><strong class="text-zinc-200">Unlink at any time</strong> — Untick the box and the trade detaches into its own campaign. Your existing journaling is preserved either way.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Journal notes saved after a long compose session</strong> — If you left the compose modal open long enough for your session to age out, hitting Save would silently fail and the note would vanish on refresh. SignalDeck now refreshes your session transparently and retries the save — no more lost notes.</li>
+                            <li><strong class="text-zinc-200">Backtester returns clearer errors</strong> — Submitting a backtest with a bad parameter value (empty, non-numeric, or infinity) used to fail with "submission failed: internal error". You now get a specific 422 that tells you which parameter is wrong.</li>
+                            <li><strong class="text-zinc-200">Live Trade Feed matches sidebar height on desktop</strong> — The Borg live feed column now matches the height of the right-side leaderboard column at desktop widths instead of cutting off at a fixed 500 px.</li>
+                            <li><strong class="text-zinc-200">Review Queue email link opens the Review Queue</strong> — The CTA in coaching-event email notifications now deep-links to your Review Queue instead of dumping you on the home screen.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.52 -->
             <div class="pl-8 relative">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.52-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 21, 2026 8:25AM</span>
                 </div>
 

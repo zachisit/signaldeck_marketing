@@ -140,12 +140,70 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.56 -->
+            <div class="pl-8 relative" id="v1-0-56">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.56-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 24, 2026 12:07PM UTC</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A wide-ranging update: a new composite scanner strategy combines two proven signals into a single higher-confidence entry, the dashboard gets a proper empty-state treatment so it's never confusing when you're looking at a blank section, and the production deploy pipeline gets a serious reliability overhaul.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Champion Composite Scanner Strategy</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">EC27 + DefSwitch-030 combined into a single signal</strong> — the new Champion strategy weights EC27's equity-curve momentum at 40% and the credit-spread defensive switch at 60%, requiring both to agree before triggering. Back-tested across 18+ years: +1394% return, 19.5% max drawdown, Walk-Forward Analysis pass (5/5).</li>
+                            <li><strong class="text-zinc-200">More signal, less noise</strong> — compositing two independent indicators reduces false entries versus either signal alone.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Dashboard Empty States</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Every dashboard section now tells you something useful when it's empty</strong> — instead of a blank panel, each of the seven standard-view sections shows a short actionable message (e.g. "All caught up — no trades from the last 48h are missing notes" or "No open positions right now").</li>
+                            <li><strong class="text-zinc-200">Table headers hide when there's nothing to show</strong> — column headings no longer float above an empty table, removing visual clutter when you're starting fresh or caught up on everything.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtester Quality Pass (23 Fixes)</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Profit factor and win rate are now accurate</strong> — force-closed end-of-backtest positions are excluded from win rate, profit factor, and expectancy calculations so the numbers reflect real trade outcomes.</li>
+                            <li><strong class="text-zinc-200">Monte Carlo and Walk-Forward panels are always visible</strong> — previously these panels could disappear silently when the sample was too small; they now show a clear placeholder instead.</li>
+                            <li><strong class="text-zinc-200">Notebook names are unique per user</strong> — duplicate notebook names are now blocked at save, preventing silent overwrites.</li>
+                            <li><strong class="text-zinc-200">Styled in-app modals for rename and delete</strong> — notebook actions no longer use the browser's native confirm/prompt popups.</li>
+                            <li><strong class="text-zinc-200">Error messages are sanitized</strong> — backtester errors shown in the UI no longer leak internal tracebacks.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">UI Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Login screen: single Google button</strong> — the "Continue with Google" button was occasionally appearing twice. Now strictly one.</li>
+                            <li><strong class="text-zinc-200">/profile and /account route correctly</strong> — both paths now redirect to Settings as intended.</li>
+                            <li><strong class="text-zinc-200">Fill/Entry Price back at the top of the sizing section</strong> — the field order in the New Trade form was reshuffled so the most important price input appears first.</li>
+                            <li><strong class="text-zinc-200">BETA badge no longer overlaps nav buttons</strong> — at mid-width screen sizes the badge was clipping into the Calendar navigation button. Fixed.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Deploy Reliability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Migration tracking table</strong> — a new <code>schema_migrations</code> table records every applied database migration, replacing the previous brittle git-diff heuristic with a proper server-side audit trail.</li>
+                            <li><strong class="text-zinc-200">Hardened deploy runbook</strong> — tag disambiguation guard, pre-deploy container snapshot, updated credential helper scripts, and a clearer preflight checklist reduce the risk of operator error during production releases.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.55 -->
             <div class="pl-8 relative" id="v1-0-55">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.55-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 24, 2026 10:51AM UTC</span>
                 </div>
 

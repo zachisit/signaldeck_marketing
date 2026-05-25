@@ -140,12 +140,69 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.57 -->
+            <div class="pl-8 relative" id="v1-0-57">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.57-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 25, 2026 4:43PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A security and compliance-focused release. Session tokens move out of browser storage and into secure HttpOnly cookies, email validation gets stricter, and a new admin workflow lets you manage user accounts without touching the database.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Secure Cookie Session Auth</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Session tokens now live in HttpOnly cookies</strong> — your JWT and refresh token are no longer accessible to JavaScript, eliminating the XSS token-theft attack surface present in localStorage-based storage.</li>
+                            <li><strong class="text-zinc-200">Refresh token reuse detection</strong> — if a stolen refresh token is presented after you've already used it to rotate, the entire session family is immediately revoked and an alert is fired.</li>
+                            <li><strong class="text-zinc-200">CSRF protection added</strong> — all state-changing requests now require a double-submit cookie token, transparently attached by the SPA.</li>
+                            <li><strong class="text-zinc-200">Logout and password reset fully purge all tokens</strong> — changing your password invalidates every active session across all devices.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Admin: User Soft-Delete &amp; Restore</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Deactivate and restore accounts from the admin panel</strong> — admins can now disable a user account in one click from the User Stats panel without database access. The account is preserved and fully recoverable.</li>
+                            <li><strong class="text-zinc-200">Deactivated users are automatically excluded</strong> — they stop receiving broadcasts, coaching emails, and AI weekly reviews the moment they're deactivated.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stricter Input Validation</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Email fields reject emoji and non-ASCII characters</strong> — registration, login, and password reset now validate that email addresses contain only standard ASCII characters.</li>
+                            <li><strong class="text-zinc-200">Passwords capped at 128 characters</strong> — an upper limit is now enforced at every auth flow: register, login, reset, and change-password.</li>
+                            <li><strong class="text-zinc-200">Risk Profile field caps</strong> — account size and daily loss limit are capped at $10,000,000; max trades per day capped at 1,000. The UI inputs also enforce these limits directly.</li>
+                            <li><strong class="text-zinc-200">Short passwords no longer blocked at sign-in</strong> — the sign-in form previously rejected passwords shorter than 8 characters, which could lock out legacy accounts. The floor is removed; the minimum remains at signup only.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">CAN-SPAM Compliance</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">One-click unsubscribe from all marketing emails</strong> — every non-transactional email now includes a signed unsubscribe link that works for a full year without requiring you to log in.</li>
+                            <li><strong class="text-zinc-200">Email preferences in Settings</strong> — toggle marketing and coaching emails on or off at any time from your account settings.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Bottom toast notification restored</strong> — a CSS class conflict was pushing the notification banner behind other page content. Fixed.</li>
+                            <li><strong class="text-zinc-200">Backtester fixed-risk error message</strong> — selecting fixed-risk mode without a stop loss now shows a clear explanation instead of the raw <code>[object Object]</code> text.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.56 -->
             <div class="pl-8 relative" id="v1-0-56">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.56-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 24, 2026 12:07PM UTC</span>
                 </div>
 

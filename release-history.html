@@ -140,12 +140,53 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.58 -->
+            <div class="pl-8 relative" id="v1-0-58">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.58-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 26, 2026 2:01PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A focused admin panel upgrade. The user management modal is redesigned for clarity, deactivated users are now filtered out of team stats and charts everywhere, and a live MT5 connection status column makes it easier to diagnose broker issues at a glance.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Admin Panel Redesign</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Two-column trade list in the user modal</strong> — the user-stats modal now uses a 60/39 split layout with a compact, scrollable trade list so you can see trade history alongside account metrics without switching views.</li>
+                            <li><strong class="text-zinc-200">Stat rows styled as dashboard cards</strong> — account size, risk profile, and session stats use the same card treatment as the main dashboard for visual consistency.</li>
+                            <li><strong class="text-zinc-200">MT5 connection status column</strong> — the admin user table now shows a live MT5 broker connection badge (Connected / Disconnected / None) so you can spot import issues immediately.</li>
+                            <li><strong class="text-zinc-200">Charts repaint on deactivate and restore</strong> — signup and activity charts update in real time when you deactivate or restore a user, so the numbers are always accurate without a page reload.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Deactivated User Filtering</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Deactivated users excluded from all team stats</strong> — Borg group charts, leaderboards, and aggregate stats no longer count deactivated members, keeping team metrics clean and accurate.</li>
+                            <li><strong class="text-zinc-200">Admin metric cards reflect active users only</strong> — the signup and retention metric cards now count only active accounts.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Broker dropdown preserved on fetch error</strong> — the New Trade broker dropdown no longer disappears when a background refresh fails; your last selection stays in place.</li>
+                            <li><strong class="text-zinc-200">Quick-tag crash on new tag creation fixed</strong> — creating a tag from the quick-tag modal no longer crashes when the API returns an unexpected response.</li>
+                            <li><strong class="text-zinc-200">Release broadcast subject line versioned</strong> — announcement emails and in-app broadcast titles now include the version number so recipients know exactly what changed.</li>
+                            <li><strong class="text-zinc-200">Referral code pill hidden when unset</strong> — the referral code pill in the admin user modal no longer shows an empty badge when a user has no referral code.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.57 -->
             <div class="pl-8 relative" id="v1-0-57">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.57-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 25, 2026 4:43PM</span>
                 </div>
 

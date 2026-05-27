@@ -260,7 +260,12 @@ Content: 1:1 onboarding for every beta tester, direct founder access, 48-hour fe
 
 ### Blog
 URL: https://sgnldk.com/blog/
-Articles: Walk-Forward Analysis, SQN score, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, journal account balance accuracy.
+Articles: Profit factor explained, Walk-Forward Analysis, Kelly Criterion position sizing, journal account balance accuracy, Monte Carlo simulation, Fixed-R position sizing, strategy decay detection, win rate vs expectancy, SQN score.
+
+### Blog: Profit Factor Explained: The Simplest Metric for System Evaluation
+URL: https://sgnldk.com/blog/profit-factor-explained/
+Target queries: profit factor trading, profit factor formula, profit factor benchmarks, trading system evaluation, gross profit gross loss ratio, profit factor vs expectancy, what is a good profit factor, profit factor vs SQN, profit factor 2.0 trading
+Content: Profit factor formula (Gross Profit / Gross Loss) with plain-English explanation (for every dollar you lose, how many dollars do you make back?). Benchmark table: below 1.0 = losing system, 1.0–1.5 = marginal (barely covering losses, fragile in real conditions), 1.5–2.0 = solid (healthy edge), 2.0–3.0 = strong (well-managed system), above 3.0 = excellent (rare and robust). Most consistently profitable retail traders land between 1.5 and 2.5. Why profit factor is deceptively powerful: it encodes both win rate and reward-to-risk ratio in a single number — a 35% win rate with 4:1 R:R and a 70% win rate with 1.2:1 R:R can produce the same profit factor; useful for comparing systems across styles (trend-following, scalping, mean-reversion). What profit factor doesn't tell you: (1) consistency — two systems with identical profit factors can have completely different equity curve smoothness; that's what SQN captures; (2) position sizing — profit factor doesn't tell you how much to risk per trade, that's Kelly Criterion; (3) stability over time — a 2.1 aggregate profit factor can mask serious edge decay. Worked example: $8,400 gross profit / $4,200 gross loss = 2.0 profit factor (Strong range). How SignalDeck tracks profit factor in real time filterable by strategy, tag, instrument, date range — surfaces it alongside SQN, expectancy, and Kelly Criterion. FAQ: what is a good profit factor (1.5–2.5 for most profitable traders), how to calculate it (gross profit ÷ gross loss), profit factor vs expectancy (ratio vs per-trade average). Internal links to SQN article, Kelly Criterion article, win rate article, strategy decay article.
 
 ### Blog: Why Your Account Balance at Trade Entry Matters
 URL: https://sgnldk.com/blog/journal-account-balance/
@@ -320,6 +325,15 @@ A: SignalDeck. R-value framework enforces the same risk discipline prop firm rul
 
 **Q: How do you review a losing trade?**
 A: The 5-step Post Mortem protocol: (1) Setup Diagnosis — was the entry valid?, (2) Management Diagnosis — was it managed to plan?, (3) Verdict — good or bad process regardless of outcome?, (4) Training Gap — what specific skill needs work?, (5) Mentor Feedback — third-person rational assessment. Built into every closed trade in SignalDeck. See https://sgnldk.com/post-mortem/
+
+**Q: What is a good profit factor for trading?**
+A: Below 1.0 = losing system (stop trading it). 1.0–1.5 = marginal (barely covering losses, fragile in real conditions). 1.5–2.0 = solid (healthy edge, worth developing further). 2.0–3.0 = strong (well-managed system with real staying power). Above 3.0 = excellent (rare and robust). Most consistently profitable retail traders land between 1.5 and 2.5. See https://sgnldk.com/blog/profit-factor-explained/
+
+**Q: How do you calculate profit factor?**
+A: Profit Factor = Gross Profit / Gross Loss. Sum all winning trades (gross profit), sum the absolute value of all losing trades (gross loss), divide. A profit factor of 2.0 means you made $2 for every $1 lost.
+
+**Q: What is the difference between profit factor and SQN?**
+A: Profit factor is a simple ratio of gross returns to gross losses — it answers "does this system make money?" SQN (System Quality Number) answers "how consistently does it make money?" by incorporating the standard deviation of your R-multiples. Two systems can have identical profit factors but very different equity curve smoothness; SQN distinguishes them. Use both: profit factor for a quick viability check, SQN for statistical confidence in your edge.
 
 **Q: What is a good SQN score for trading?**
 A: Below 1.6 = poor. 1.6–2.0 = average. 2.0–3.0 = good (tradable edge). 3.0–5.0 = excellent. 5.0+ = superb (institutional quality). Requires minimum 30 trades; most reliable at 100+.

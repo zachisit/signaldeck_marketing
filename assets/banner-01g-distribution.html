@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-G · R-Multiple Distribution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+  <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+    <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+      Audit<br>
+      <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+  </div>
+
+  <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  /* Box-Muller via uniform PRNG */
+  function boxMuller(u1, u2) {
+    return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+  }
+
+  const rng = prng(3141);
+
+  /* Generate 400 trades with positive expectancy */
+  const trades = [];
+  for (let i = 0; i < 400; i++) {
+    const u1 = Math.max(rng(), 1e-9), u2 = rng();
+    trades.push(boxMuller(u1, u2) * 1.6 + 0.55); /* mean=+0.55R, sd=1.6 */
+  }
+
+  /* Bin into 0.5R-wide buckets from -6R to +8R */
+  const BIN_W = 0.5, BIN_MIN = -6, BIN_MAX = 8;
+  const bins = {};
+  for (let b = BIN_MIN; b < BIN_MAX; b += BIN_W) {
+    bins[b.toFixed(1)] = 0;
+  }
+  trades.forEach(t => {
+    const b = Math.floor(t / BIN_W) * BIN_W;
+    const key = b.toFixed(1);
+    if (key in bins) bins[key]++;
+  });
+
+  const keys = Object.keys(bins).map(Number).sort((a, b) => a - b);
+  const counts = keys.map(k => bins[k.toFixed(1)]);
+  const maxCount = Math.max(...counts);
+
+  /* Layout */
+  const ZERO_X = 380; /* x pixel for 0R */
+  const PX_PER_R = 48; /* pixels per 1R */
+  const baseY = 440;
+  const maxBarH = 350;
+
+  const toBarX = r => ZERO_X + r * PX_PER_R;
+  const barPx = BIN_W * PX_PER_R - 2;
+
+  /* Grid lines */
+  [-4, -2, 0, 2, 4, 6].forEach(r => {
+    const x = toBarX(r).toFixed(1);
+    el(svg, 'line', { x1: x, y1: 60, x2: x, y2: baseY, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 8', opacity: 0.4 });
+  });
+
+  /* Zero vertical line */
+  el(svg, 'line', { x1: ZERO_X, y1: 60, x2: ZERO_X, y2: baseY, stroke: '#3f3f46', 'stroke-width': 1.5, opacity: 0.6 });
+
+  /* Baseline */
+  el(svg, 'line', { x1: 0, y1: baseY, x2: 900, y2: baseY, stroke: '#27272a', 'stroke-width': 1, opacity: 0.5 });
+
+  /* Bars */
+  keys.forEach((r, idx) => {
+    const count = counts[idx];
+    if (count === 0) return;
+    const bh = (count / maxCount) * maxBarH;
+    const bx = toBarX(r);
+    const color = r >= 0 ? '#10b981' : '#f43f5e';
+    const opacity = r >= 0 ? 0.75 : 0.65;
+    el(svg, 'rect', {
+      x: bx.toFixed(1), y: (baseY - bh).toFixed(1),
+      width: barPx.toFixed(1), height: bh.toFixed(1),
+      fill: color, rx: 2, opacity,
+    });
+    /* Glow cap */
+    el(svg, 'rect', {
+      x: bx.toFixed(1), y: (baseY - bh).toFixed(1),
+      width: barPx.toFixed(1), height: 3,
+      fill: color, rx: 1, opacity: opacity + 0.15,
+    });
+  });
+
+  /* Bell curve overlay */
+  const mean = 0.55, sd = 1.6;
+  const normY = x => (1 / (sd * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * ((x - mean) / sd) ** 2);
+  const normPeak = normY(mean);
+  let cd = '';
+  for (let rx = -6; rx <= 8; rx += 0.1) {
+    const x = toBarX(rx);
+    const y = baseY - (normY(rx) / normPeak) * maxBarH * 0.88;
+    cd += (cd === '' ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+  }
+  el(svg, 'path', { d: cd, stroke: '#60a5fa', 'stroke-width': 2, fill: 'none', opacity: 0.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-J · Perspective Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(9,9,11,0.65) 0%,transparent 18%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.6) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.6) 100%);pointer-events:none;"></div>
+
+  <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+    <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+      Audit<br>
+      <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+  </div>
+
+  <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  const VP = { x: 880, y: 250 }; /* vanishing point */
+
+  /* Horizontal fan: from left edge (x=0) at various y → VP */
+  const hLines = 26;
+  for (let i = 0; i <= hLines; i++) {
+    const yLeft = 10 + (i / hLines) * 480;
+    const t = Math.abs(yLeft - VP.y) / VP.y; /* 0 at center, 1 at edges */
+    const color = t > 0.5 ? '#a855f7' : '#3b82f6';
+    const opacity = (0.08 + t * 0.25).toFixed(3);
+    const sw = (0.6 + t * 1.4).toFixed(2);
+    el(svg, 'line', {
+      x1: 0, y1: yLeft.toFixed(1),
+      x2: VP.x, y2: VP.y,
+      stroke: color, 'stroke-width': sw, opacity,
+    });
+  }
+
+  /* Vertical fan: from top/bottom at various x → VP */
+  const vLines = 18;
+  for (let i = 0; i <= vLines; i++) {
+    const xTop = 40 + (i / vLines) * 820;
+
+    /* from top */
+    const tTop = 1 - Math.abs(xTop - VP.x) / VP.x;
+    el(svg, 'line', {
+      x1: xTop.toFixed(1), y1: 0,
+      x2: VP.x, y2: VP.y,
+      stroke: '#3b82f6', 'stroke-width': (0.5 + tTop * 0.8).toFixed(2), opacity: (0.06 + tTop * 0.18).toFixed(3),
+    });
+
+    /* from bottom */
+    el(svg, 'line', {
+      x1: xTop.toFixed(1), y1: 500,
+      x2: VP.x, y2: VP.y,
+      stroke: '#a855f7', 'stroke-width': (0.5 + tTop * 0.8).toFixed(2), opacity: (0.06 + tTop * 0.18).toFixed(3),
+    });
+  }
+
+  /* Cross-grid arcs: ellipses of decreasing size approaching VP */
+  for (let s = 0; s < 10; s++) {
+    const t = 1 - s / 10;
+    const rx = 80 + s * 70;
+    const ry = 50 + s * 42;
+    const cx = VP.x - rx * 0.1;
+    el(svg, 'ellipse', {
+      cx: cx.toFixed(1), cy: VP.y,
+      rx: rx.toFixed(1), ry: ry.toFixed(1),
+      stroke: '#3b82f6', 'stroke-width': 0.8, fill: 'none', opacity: (t * 0.12).toFixed(3),
+    });
+  }
+
+  /* VP glow */
+  el(svg, 'circle', { cx: VP.x, cy: VP.y, r: 40, fill: '#3b82f6', opacity: 0.06 });
+  el(svg, 'circle', { cx: VP.x, cy: VP.y, r: 15, fill: '#60a5fa', opacity: 0.12 });
+  el(svg, 'circle', { cx: VP.x, cy: VP.y, r: 4, fill: '#60a5fa', opacity: 0.5 });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-L · Circuit Traces</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+  <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+    <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+      Audit<br>
+      <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+  </div>
+
+  <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const rng = prng(6174);
+  const GRID = 28; /* snap traces to this grid */
+  const nodes = []; /* junction dots */
+
+  /* Generate traces: start from left edge, travel right with 90° turns */
+  const traceCount = 18;
+  const yStarts = [];
+  for (let i = 0; i <= traceCount; i++) yStarts.push(Math.round((30 + (i / traceCount) * 440) / GRID) * GRID);
+
+  yStarts.forEach(startY => {
+    let x = 0, y = startY;
+    const color = rng() > 0.5 ? '#3b82f6' : (rng() > 0.5 ? '#a855f7' : '#2dd4bf');
+    const sw = (0.8 + rng() * 1.4).toFixed(2);
+    const op = (0.15 + rng() * 0.35).toFixed(3);
+    let d = `M${x},${y} `;
+    const steps = 4 + Math.floor(rng() * 5);
+
+    for (let s = 0; s < steps && x < 900; s++) {
+      /* Horizontal run */
+      const hRun = Math.round((40 + rng() * 160) / GRID) * GRID;
+      x = Math.min(x + hRun, 900);
+      d += `L${x},${y} `;
+      nodes.push({ x, y, color, op: parseFloat(op) + 0.1 });
+      if (x >= 900) break;
+
+      /* Vertical jog */
+      const vDir = rng() > 0.5 ? 1 : -1;
+      const vRun = Math.round((GRID + rng() * GRID * 4) / GRID) * GRID;
+      const ny = Math.max(10, Math.min(490, y + vDir * vRun));
+      y = Math.round(ny / GRID) * GRID;
+      d += `L${x},${y} `;
+    }
+    d += `L900,${y}`;
+    el(svg, 'path', { d, stroke: color, 'stroke-width': sw, fill: 'none', opacity: op, 'stroke-linecap': 'square', 'stroke-linejoin': 'miter' });
+  });
+
+  /* Junction dots */
+  nodes.forEach(n => {
+    if (rng() > 0.45) {
+      el(svg, 'circle', { cx: n.x, cy: n.y, r: 2.5, fill: n.color, opacity: Math.min(n.op + 0.2, 1).toFixed(3) });
+      if (rng() > 0.6) {
+        el(svg, 'circle', { cx: n.x, cy: n.y, r: 6, fill: n.color, opacity: (n.op * 0.4).toFixed(3) });
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-C · Pure Candlestick</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <!-- Subtle grid lines -->
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;"></div>
+
+      <svg id="svg-candles" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+      <!-- Right fade into text -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.45) 66%,rgba(9,9,11,0.97) 82%);pointer-events:none;"></div>
+      <!-- Top/bottom vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.45) 0%,transparent 18%,transparent 82%,rgba(9,9,11,0.45) 100%);pointer-events:none;"></div>
+
+      <!-- Text block: upper-right -->
+      <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+        <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+          Audit<br>
+          <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+      </div>
+
+      <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+
+  function el(parent, tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    parent.appendChild(e);
+    return e;
+  }
+
+  /* ── Seeded PRNG ── */
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const svg = document.getElementById('svg-candles');
+  const N = 42, rng = prng(137), rng2 = prng(99);
+
+  /* ── Generate price data ── */
+  const raw = [];
+  let price = 240;
+  for (let i = 0; i < N; i++) {
+    const o = price;
+    const move = 2.0 + (rng() - 0.46) * 26;
+    const c = o + move;
+    const h = Math.max(o, c) + rng() * 13;
+    const l = Math.min(o, c) - rng() * 13;
+    raw.push({ o, h, l, c });
+    price = c;
+  }
+
+  let pMax = -Infinity, pMin = Infinity;
+  raw.forEach(c => { pMax = Math.max(pMax, c.h); pMin = Math.min(pMin, c.l); });
+  const toY = p => 48 + ((pMax - p) / (pMax - pMin)) * 404;
+
+  const candles = raw.map(c => ({ o: toY(c.o), h: toY(c.h), l: toY(c.l), c: toY(c.c), up: c.c >= c.o }));
+
+  /* X layout: candles from x=30 to x=820 */
+  const xStart = 30;
+  const xStep  = (820 - 30) / (N - 1);
+  const bodyW  = 14;
+
+  /* ── Horizontal price-grid lines ── */
+  [120, 220, 320, 420].forEach(y => {
+    el(svg, 'line', { x1: 0, y1: y, x2: 880, y2: y, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 6', opacity: 0.6 });
+  });
+
+  /* ── Volume bars (bottom, very faint) ── */
+  raw.forEach((c, i) => {
+    const cx  = xStart + i * xStep;
+    const vol = (30 + rng2() * 80) * (c.c >= c.o ? 1 : 0.7);
+    el(svg, 'rect', {
+      x: (cx - 6).toFixed(2), y: (500 - vol - 2).toFixed(2),
+      width: 12, height: vol.toFixed(2),
+      fill: c.c >= c.o ? '#10b981' : '#f43f5e',
+      opacity: 0.15, rx: 1,
+    });
+  });
+
+  /* ── Candle wicks + bodies ── */
+  const maPoints = [];
+  candles.forEach((c, i) => {
+    const cx  = xStart + i * xStep;
+    const col = c.up ? '#10b981' : '#f43f5e';
+
+    el(svg, 'line', { x1: cx.toFixed(2), y1: c.h.toFixed(2), x2: cx.toFixed(2), y2: c.l.toFixed(2), stroke: col, 'stroke-width': 1.5, opacity: 0.9 });
+
+    const bTop = Math.min(c.o, c.c);
+    const bH   = Math.max(Math.abs(c.c - c.o), 2);
+    el(svg, 'rect', {
+      x: (cx - bodyW / 2).toFixed(2), y: bTop.toFixed(2),
+      width: bodyW, height: bH.toFixed(2),
+      fill: col, rx: 1,
+      opacity: c.up ? 0.92 : 0.85,
+    });
+
+    /* Moving average accumulator (10-period) */
+    if (i >= 9) {
+      const sum = candles.slice(i - 9, i + 1).reduce((a, d) => a + (d.o + d.c) / 2, 0) / 10;
+      maPoints.push({ x: cx, y: sum });
+    }
+  });
+
+  /* ── MA line ── */
+  let mad = '';
+  maPoints.forEach((p, i) => { mad += (i === 0 ? 'M' : 'L') + p.x.toFixed(2) + ',' + p.y.toFixed(2) + ' '; });
+  el(svg, 'path', { d: mad, stroke: '#3b82f6', 'stroke-width': 2.5, fill: 'none', opacity: 0.75, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+
+  /* ── Subtle blue glow under MA line ── */
+  el(svg, 'path', { d: mad, stroke: '#3b82f6', 'stroke-width': 8, fill: 'none', opacity: 0.08, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+})();
+</script>
+</body>
+</html>

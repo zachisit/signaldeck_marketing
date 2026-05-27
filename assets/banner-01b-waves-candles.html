@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-B · Waves + Candles</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <!-- Waves: muted background layer -->
+      <svg id="svg-waves" width="1500" height="500" style="position:absolute;top:0;left:0;opacity:0.35;"></svg>
+      <!-- Candles: midground -->
+      <svg id="svg-candles" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+      <!-- Right fade into text area -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 54%,rgba(9,9,11,0.5) 70%,rgba(9,9,11,0.97) 85%);pointer-events:none;"></div>
+      <!-- Top/bottom vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+      <!-- Text block: upper-right -->
+      <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+        <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+          Audit<br>
+          <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+      </div>
+
+      <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 1500, H = 500;
+
+  function el(parent, tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    parent.appendChild(e);
+    return e;
+  }
+
+  /* ── Waves ── */
+  const svgW = document.getElementById('svg-waves');
+  const waves = [
+    { A:130, f:1.05, y0:248, ph:0.00, col:'#3b82f6', op:0.52, sw:2.5 },
+    { A: 85, f:2.20, y0:256, ph:1.05, col:'#a855f7', op:0.42, sw:2.0 },
+    { A: 52, f:3.60, y0:250, ph:2.20, col:'#2dd4bf', op:0.28, sw:1.5 },
+    { A:160, f:0.55, y0:244, ph:0.50, col:'#60a5fa', op:0.10, sw:4.5 },
+    { A: 38, f:5.40, y0:252, ph:3.10, col:'#c084fc', op:0.20, sw:1.0 },
+    { A: 70, f:1.80, y0:245, ph:4.20, col:'#818cf8', op:0.15, sw:1.8 },
+  ];
+  waves.forEach(w => {
+    let d = '';
+    for (let i = 0; i <= 700; i++) {
+      const x = (i / 700) * W;
+      const y = w.y0 + w.A * Math.sin(2 * Math.PI * w.f * (i / 700) + w.ph);
+      d += (i === 0 ? 'M' : 'L') + x.toFixed(2) + ',' + y.toFixed(2) + ' ';
+    }
+    el(svgW, 'path', { d, stroke: w.col, 'stroke-width': w.sw, fill: 'none', opacity: w.op, 'stroke-linecap': 'round' });
+  });
+
+  /* ── Seeded PRNG ── */
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  /* ── Candles ── */
+  const svgC = document.getElementById('svg-candles');
+  const N = 36, rng = prng(42);
+  const raw = [];
+  let price = 280;
+  for (let i = 0; i < N; i++) {
+    const o = price;
+    const move = 1.8 + (rng() - 0.46) * 22;
+    const c = o + move;
+    const h = Math.max(o, c) + rng() * 11;
+    const l = Math.min(o, c) - rng() * 11;
+    raw.push({ o, h, l, c });
+    price = c;
+  }
+
+  let pMax = -Infinity, pMin = Infinity;
+  raw.forEach(c => { pMax = Math.max(pMax, c.h); pMin = Math.min(pMin, c.l); });
+  const toY = p => 60 + ((pMax - p) / (pMax - pMin)) * 380;
+
+  const candles = raw.map(c => ({ o: toY(c.o), h: toY(c.h), l: toY(c.l), c: toY(c.c), up: c.c >= c.o }));
+  const xStep = 40, bodyW = 18, xStart = 48;
+
+  const maPoints = [];
+  candles.forEach((c, i) => {
+    const cx = xStart + i * xStep;
+    const col = c.up ? '#10b981' : '#f43f5e';
+    el(svgC, 'line', { x1: cx, y1: c.h.toFixed(2), x2: cx, y2: c.l.toFixed(2), stroke: col, 'stroke-width': 1.5, opacity: 0.9 });
+    const bTop = Math.min(c.o, c.c), bH = Math.max(Math.abs(c.c - c.o), 2);
+    el(svgC, 'rect', { x: (cx - bodyW / 2).toFixed(2), y: bTop.toFixed(2), width: bodyW, height: bH.toFixed(2), fill: col, rx: 1, opacity: c.up ? 0.92 : 0.85 });
+    if (i >= 9) {
+      const sum = candles.slice(i - 9, i + 1).reduce((a, d) => a + (d.o + d.c) / 2, 0) / 10;
+      maPoints.push({ x: cx, y: sum });
+    }
+  });
+
+  let mad = '';
+  maPoints.forEach((p, i) => { mad += (i === 0 ? 'M' : 'L') + p.x.toFixed(2) + ',' + p.y.toFixed(2) + ' '; });
+  el(svgC, 'path', { d: mad, stroke: '#60a5fa', 'stroke-width': 2, fill: 'none', opacity: 0.7, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+})();
+</script>
+</body>
+</html>

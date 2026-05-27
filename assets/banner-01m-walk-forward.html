@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-M · Walk-Forward</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+  <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+    <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+      Audit<br>
+      <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+  </div>
+
+  <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const rng = prng(2718);
+
+  /* Walk-forward layout */
+  const ITER = 7;
+  const IS_W = 110;   /* in-sample window width px */
+  const OOS_W = 42;   /* out-of-sample window width px */
+  const STEP = IS_W;  /* slide per iteration */
+  const X0 = 30;      /* start x */
+
+  const WIN_Y = 175, WIN_H = 150;
+  const MID_Y = WIN_Y + WIN_H / 2;
+  const PERF_Y = 100; /* performance bars above windows */
+
+  /* Timeline bar */
+  el(svg, 'line', { x1: X0, y1: MID_Y, x2: X0 + ITER * STEP + OOS_W + 20, y2: MID_Y, stroke: '#27272a', 'stroke-width': 1, opacity: 0.5 });
+
+  /* Tick marks on timeline */
+  for (let i = 0; i <= ITER; i++) {
+    const x = X0 + i * STEP;
+    el(svg, 'line', { x1: x, y1: MID_Y - 6, x2: x, y2: MID_Y + 6, stroke: '#3f3f46', 'stroke-width': 1, opacity: 0.6 });
+  }
+
+  /* Walk-forward windows */
+  for (let i = 0; i < ITER; i++) {
+    const isX = X0 + i * STEP;
+    const oosX = isX + IS_W;
+
+    /* In-sample (blue) */
+    el(svg, 'rect', {
+      x: isX, y: WIN_Y, width: IS_W, height: WIN_H,
+      fill: '#3b82f6', rx: 3, opacity: 0.18,
+    });
+    el(svg, 'rect', {
+      x: isX, y: WIN_Y, width: IS_W, height: WIN_H,
+      fill: 'none', stroke: '#3b82f6', 'stroke-width': 1, rx: 3, opacity: 0.35,
+    });
+
+    /* Out-of-sample (purple) */
+    el(svg, 'rect', {
+      x: oosX, y: WIN_Y + 20, width: OOS_W, height: WIN_H - 40,
+      fill: '#a855f7', rx: 3, opacity: 0.35,
+    });
+    el(svg, 'rect', {
+      x: oosX, y: WIN_Y + 20, width: OOS_W, height: WIN_H - 40,
+      fill: 'none', stroke: '#a855f7', 'stroke-width': 1.5, rx: 3, opacity: 0.7,
+    });
+
+    /* Performance bar above OOS window */
+    const perf = (rng() - 0.3) * 65;
+    const barColor = perf >= 0 ? '#10b981' : '#f43f5e';
+    const barY = perf >= 0 ? WIN_Y - 20 - perf : WIN_Y - 20;
+    el(svg, 'rect', {
+      x: oosX + 4, y: barY.toFixed(1),
+      width: OOS_W - 8, height: Math.abs(perf).toFixed(1),
+      fill: barColor, rx: 2, opacity: 0.75,
+    });
+  }
+
+  /* Cumulative OOS equity line above windows */
+  const oosResults = [];
+  let eq = 0;
+  for (let i = 0; i < ITER; i++) {
+    eq += (rng() - 0.32) * 40;
+    oosResults.push({ x: X0 + i * STEP + IS_W + OOS_W / 2, y: eq });
+  }
+
+  const eqMin = Math.min(0, ...oosResults.map(r => r.y));
+  const eqMax = Math.max(0, ...oosResults.map(r => r.y));
+  const eqRange = eqMax - eqMin || 1;
+  const eqToY = v => (WIN_Y - 50) - ((v - eqMin) / eqRange) * 60 + 60;
+
+  let ed = '';
+  oosResults.forEach((pt, i) => {
+    const py = eqToY(pt.y).toFixed(1);
+    ed += (i === 0 ? 'M' : 'L') + pt.x.toFixed(1) + ',' + py + ' ';
+    el(svg, 'circle', { cx: pt.x.toFixed(1), cy: py, r: 4, fill: pt.y >= 0 ? '#10b981' : '#f43f5e', opacity: 0.85 });
+  });
+  el(svg, 'path', { d: ed, stroke: '#60a5fa', 'stroke-width': 2, fill: 'none', opacity: 0.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+})();
+</script>
+</body>
+</html>

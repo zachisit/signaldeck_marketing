@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-D · Equity Curve</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+  <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+    <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+      Audit<br>
+      <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+  </div>
+
+  <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const rng = prng(8472);
+  const N = 200;
+  const pts = [0];
+  for (let i = 1; i < N; i++) pts.push(pts[i - 1] + (rng() - 0.41) * 20);
+
+  const minV = Math.min(...pts), maxV = Math.max(...pts);
+  const range = maxV - minV;
+  const toX = i => 30 + (i / (N - 1)) * 850;
+  const toY = v => 55 + ((maxV - v) / range) * 390;
+
+  /* Gradient fill */
+  const defs = el(svg, 'defs', {});
+  const gr = el(defs, 'linearGradient', { id: 'eg', x1: '0', y1: '0', x2: '0', y2: '1' });
+  el(gr, 'stop', { offset: '0%', 'stop-color': '#3b82f6', 'stop-opacity': '0.28' });
+  el(gr, 'stop', { offset: '100%', 'stop-color': '#3b82f6', 'stop-opacity': '0.0' });
+
+  /* Grid lines */
+  [0.25, 0.5, 0.75].forEach(f => {
+    const y = (55 + f * 390).toFixed(1);
+    el(svg, 'line', { x1: 0, y1: y, x2: 920, y2: y, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 8', opacity: 0.5 });
+  });
+
+  /* Zero baseline */
+  const zy = toY(0).toFixed(1);
+  el(svg, 'line', { x1: 0, y1: zy, x2: 920, y2: zy, stroke: '#3f3f46', 'stroke-width': 1.5, opacity: 0.6 });
+
+  /* Build path */
+  let d = '';
+  pts.forEach((v, i) => { d += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  const fd = d + `L${toX(N - 1).toFixed(1)},500 L${toX(0).toFixed(1)},500 Z`;
+
+  el(svg, 'path', { d: fd, fill: 'url(#eg)', stroke: 'none' });
+  el(svg, 'path', { d, stroke: '#3b82f6', 'stroke-width': 8, fill: 'none', opacity: 0.12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  el(svg, 'path', { d, stroke: '#60a5fa', 'stroke-width': 2.5, fill: 'none', opacity: 0.9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+
+  /* End dot */
+  const lx = toX(N - 1).toFixed(1), ly = toY(pts[N - 1]).toFixed(1);
+  el(svg, 'circle', { cx: lx, cy: ly, r: 10, fill: '#60a5fa', opacity: 0.15 });
+  el(svg, 'circle', { cx: lx, cy: ly, r: 5, fill: '#60a5fa', opacity: 0.9 });
+})();
+</script>
+</body>
+</html>

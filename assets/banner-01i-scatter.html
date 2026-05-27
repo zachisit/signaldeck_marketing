@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-I · Trade Scatter</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1500px; height: 500px; overflow: hidden; position: relative; background: #09090b; }
+</style>
+</head>
+<body>
+
+  <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+  <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+    <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+      Audit<br>
+      <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Your Edge.</span>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 Connection · Teams · Post Mortem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+  </div>
+
+  <div style="position:absolute;bottom:30px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  function boxMuller(u1, u2) {
+    return Math.sqrt(-2 * Math.log(Math.max(u1, 1e-9))) * Math.cos(2 * Math.PI * u2);
+  }
+
+  const rng = prng(7777);
+  const N = 130;
+
+  /* Generate trades: R-multiples with positive expectancy */
+  const trades = [];
+  for (let i = 0; i < N; i++) {
+    trades.push(boxMuller(rng(), rng()) * 1.8 + 0.45);
+  }
+
+  const R_MIN = -5, R_MAX = 7;
+  const toX = i => 50 + (i / (N - 1)) * 820;
+  const toY = r => 250 + (-r / (R_MAX - R_MIN) * 2) * 190;
+
+  /* Grid lines */
+  [-4, -2, 0, 2, 4, 6].forEach(r => {
+    const y = toY(r).toFixed(1);
+    el(svg, 'line', { x1: 0, y1: y, x2: 920, y2: y, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 8', opacity: 0.4 });
+  });
+
+  /* Zero line */
+  el(svg, 'line', { x1: 0, y1: toY(0).toFixed(1), x2: 920, y2: toY(0).toFixed(1), stroke: '#3f3f46', 'stroke-width': 1.5, opacity: 0.65 });
+
+  /* Linear regression trend line */
+  const xs = trades.map((_, i) => i);
+  const ys = trades;
+  const n = trades.length;
+  const xbar = xs.reduce((a, b) => a + b) / n;
+  const ybar = ys.reduce((a, b) => a + b) / n;
+  const slope = xs.reduce((s, x, i) => s + (x - xbar) * (ys[i] - ybar), 0) /
+                xs.reduce((s, x) => s + (x - xbar) ** 2, 0);
+  const intercept = ybar - slope * xbar;
+  const trendY0 = toY(intercept);
+  const trendYN = toY(slope * (N - 1) + intercept);
+  el(svg, 'line', { x1: toX(0).toFixed(1), y1: trendY0.toFixed(1), x2: toX(N - 1).toFixed(1), y2: trendYN.toFixed(1), stroke: '#3b82f6', 'stroke-width': 2, opacity: 0.5, 'stroke-dasharray': '8 5' });
+
+  /* Dots */
+  trades.forEach((r, i) => {
+    const cx = toX(i).toFixed(1);
+    const cy = toY(r).toFixed(1);
+    const color = r >= 0 ? '#10b981' : '#f43f5e';
+    const radius = Math.min(2 + Math.abs(r) * 0.7, 7).toFixed(1);
+    el(svg, 'circle', { cx, cy, r: radius, fill: color, opacity: 0.7 });
+    el(svg, 'circle', { cx, cy, r: (parseFloat(radius) + 3).toFixed(1), fill: color, opacity: 0.1 });
+  });
+})();
+</script>
+</body>
+</html>

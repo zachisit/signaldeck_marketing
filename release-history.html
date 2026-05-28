@@ -140,12 +140,60 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.59 -->
+            <div class="pl-8 relative" id="v1-0-59">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.59-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 28, 2026 8:14AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The biggest instrument expansion since launch. Full futures trading support lands across the entire stack — live CME price feeds, tick-based P&L, session-gated worker alerts, and a zero-API product pill picker. Plus: clickable Borg leaderboard rows with rich member profile cards, and a Remember Me option on login.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Futures Trading — Full Stack</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Live CME futures support</strong> — trade ES, NQ, CL, GC, SI and the full CME product suite with real-time Polygon price feeds, tick-based P&L, and contract spec auto-population.</li>
+                            <li><strong class="text-zinc-200">Product pill contract search</strong> — a zero-API-call product picker pre-loads the full CME futures schedule locally. Select your product, pick a contract month, and the spec fills in automatically without a network round-trip.</li>
+                            <li><strong class="text-zinc-200">Tick-accurate P&L</strong> — all futures P&L is computed in ticks and converted to dollars using the contract's tick value. The calc panel, close modal, and trade detail cards show futures-specific fields.</li>
+                            <li><strong class="text-zinc-200">Session-gated worker</strong> — the audit worker skips futures price updates outside active CME trading hours and stamps futures_audit_at on each cycle, keeping data clean without unnecessary API calls.</li>
+                            <li><strong class="text-zinc-200">Stop detection and alerts</strong> — stop loss breach detection and price alerts work for futures trades using the same bar high/low logic as equities.</li>
+                            <li><strong class="text-zinc-200">Demo data</strong> — 10 futures sample trades in the demo account with realistic specs, P&L, and contract details.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Borg Member Profile Modal</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Clickable leaderboard rows</strong> — every row in the Borg leaderboard now opens a full member profile card showing display name, avatar, trading stats, and last-login timestamp.</li>
+                            <li><strong class="text-zinc-200">Social links</strong> — X (Twitter) and Discord handles appear as icon sub-lines when the member has them set, making it easy to connect with teammates.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Remember Me</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">30-day sessions</strong> — a Remember Me checkbox on the login form extends your session cookie TTL to 30 days so you stay signed in across browser restarts.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Auth: concurrent token refresh no longer returns 500</strong> — a race between two simultaneous refresh requests now correctly returns 401 instead of crashing.</li>
+                            <li><strong class="text-zinc-200">Deploy: root-level SPA files included in S3 sync</strong> — the deploy script now syncs spa/*.js at the root path so all assets are served correctly after deploy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.58 -->
             <div class="pl-8 relative" id="v1-0-58">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.58-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 26, 2026 2:01PM</span>
                 </div>
 

@@ -281,6 +281,24 @@
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Real-time equity</td>
                             <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only, no balance sync</td>
                         </tr>
+                        <tr class="border-t-2 border-orange-500/30">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — New v1.0.59</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Futures (ES/NQ/CL/GC)</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Tick Math + Globex</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Via broker import (P&L from broker data)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Tick-Aligned P&L Math</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Auto Contract Spec</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">CME Globex Session Monitoring</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Broad Broker Auto-Import</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
@@ -330,12 +348,57 @@
         </div>
     </section>
 
+
+    <!-- Futures Distinction Callout -->
+    <section class="py-14 border-b border-zinc-900 bg-orange-500/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — New v1.0.59</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3">SignalDeck vs TradesViz: Futures Support</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">TradesViz supports futures through broker imports and has a broad indicator library for analysis once data is in. If your broker sends correct futures fill data, TradesViz can surface it. But TradesViz has no native tick-based P&L engine — the calculation accuracy is entirely broker-dependent. There is no contract-spec fetching (no automatic knowledge that ES is 50 × $0.25/tick = $12.50/tick), no CME Globex session gating for alert evaluation, and no front-month contract search. SignalDeck computes futures P&L from first principles, validates tick alignment on every price, and gates alert evaluation to Globex hours — whether you import from a broker or log manually.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ES · $12.50/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQ · $5.00/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Auto Contract Spec</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Globex Session Gate</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                    </div>
+                    <a href="../../futures/index.html" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Full Futures page →</a>
+                </div>
+                <div class="flex-shrink-0 w-full md:w-56 bg-zinc-900 border border-orange-500/20 rounded-xl p-5">
+                    <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-3">SignalDeck · ESU6 long</div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[10px] font-mono">
+                            <span class="text-zinc-500">Tick move</span>
+                            <span class="text-white">58 ticks</span>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-mono">
+                            <span class="text-zinc-500">× $12.50 × 2 contracts</span>
+                            <span class="text-emerald-400 font-bold">+$1,450</span>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-mono border-t border-zinc-800 pt-2">
+                            <span class="text-zinc-500">R-Multiple</span>
+                            <span class="text-emerald-400 font-bold">+2.9R</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- FAQ -->
     <section class="py-16 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
             <div class="space-y-6">
                 <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Does TradesViz support futures trading?</h3>
+                    <p class="text-zinc-400 text-sm">TradesViz supports futures through broker imports and can display imported P&L and trade data. It does not have native tick-aligned P&L math — the accuracy depends on what the broker delivers. It also has no CME Globex session monitoring or front-month contract search. SignalDeck fetches the contract spec automatically for ES, NQ, CL, and GC and computes P&L natively from tick data, regardless of whether you have a broker import. See the <a href="../../futures/index.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a>.</p>
+                </div>
+                                <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does SignalDeck or TradesViz have better backtesting?</h3>
                     <p class="text-zinc-400 text-sm">Both have rule-based backtesting. SignalDeck adds Walk-Forward Analysis, 1,000-path Monte Carlo simulation, grid-search parameter optimization (500 combos), and backtest-to-journal equity overlay — none of which TradesViz offers. TradesViz has 70+ indicators and 30,000+ tickers. The trade-off is depth vs breadth: SignalDeck's workflow detects overfitting before you trade; TradesViz lets you test more strategies on more symbols.</p>
                 </div>
@@ -395,7 +458,8 @@
                 <a href="../../clubs.html" class="hover:text-zinc-400">Clubs</a> |
                 <a href="../../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
                 <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> |
-                <a href="../../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
+                <a href="../../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../../futures/index.html" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |

@@ -326,6 +326,24 @@
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ MT4/MT5 via MetaApi</td>
                             <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only (no balance sync)</td>
                         </tr>
+                        <tr class="border-t-2 border-orange-500/30">
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — New v1.0.59</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Futures (ES/NQ/CL/GC)</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Tick Math + Globex</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Via Tradovate / NinjaTrader / Rithmic import</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Tick-Aligned P&L Math</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Auto Contract Spec</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌ P&L from broker data</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">CME Globex Session Monitoring</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Broad Broker Auto-Import (700+)</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
@@ -390,6 +408,47 @@
         </div>
     </section>
 
+
+    <!-- Futures Distinction Callout -->
+    <section class="py-14 border-b border-zinc-900 bg-orange-500/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — New v1.0.59</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3">SignalDeck vs TraderSync: Futures Support</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">TraderSync connects to Tradovate, NinjaTrader, and Rithmic — all futures-native platforms. If your broker sends clean fill data, TraderSync surfaces it and P&L shows up correctly. But that P&L is broker-derived: TraderSync displays what the import delivers, not what a contract-spec engine computes. Log an ES trade manually without a broker connection and TraderSync has no way to know it's 2 contracts × $12.50/tick — it treats it like a stock position. SignalDeck fetches the contract spec automatically, computes tick-aligned P&L from first principles, and gates stop-alert evaluation to CME Globex hours. Both work for futures traders using supported brokers — SignalDeck additionally works correctly without any broker import.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ES · $12.50/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQ · $5.00/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Auto Contract Spec</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Globex Session Gate</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                    </div>
+                    <a href="../../futures/index.html" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Full Futures page →</a>
+                </div>
+                <div class="flex-shrink-0 w-full md:w-56 bg-zinc-900 border border-orange-500/20 rounded-xl p-5">
+                    <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-3">SignalDeck · ESU6 long</div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[10px] font-mono">
+                            <span class="text-zinc-500">Tick move</span>
+                            <span class="text-white">58 ticks</span>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-mono">
+                            <span class="text-zinc-500">× $12.50 × 2 contracts</span>
+                            <span class="text-emerald-400 font-bold">+$1,450</span>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-mono border-t border-zinc-800 pt-2">
+                            <span class="text-zinc-500">R-Multiple</span>
+                            <span class="text-emerald-400 font-bold">+2.9R</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- FAQ -->
     <section class="py-16 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -404,6 +463,10 @@
                     <p class="text-zinc-400 text-sm">TraderSync includes R-multiple as one metric among many. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN score, Kelly Criterion, equity curves, Post Mortem reviews) flows from risk-normalized R-value. The difference is between a metric and a framework.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
+                    <h3 class="text-white font-semibold mb-2">Does TraderSync support futures trading?</h3>
+                    <p class="text-zinc-400 text-sm">TraderSync can import futures trades from Tradovate, NinjaTrader, and Rithmic and displays the P&L and fill data from those imports. It does not have native tick-aligned P&L math, so manual futures entry or trades from unsupported brokers will use equity-style calculation. SignalDeck fetches the contract spec (tick size, tick value, contract size) automatically for ES, NQ, CL, and GC and computes P&L from first principles — with or without a broker import. CME Globex session monitoring and front-month contract search are also native to SignalDeck. See the <a href="../../futures/index.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a> for full details.</p>
+                </div>
+                                <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does SignalDeck have broker import now?</h3>
                     <p class="text-zinc-400 text-sm">Yes — SignalDeck now supports MT4 and MT5 trade import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses your actual current equity. The live balance sync is something TraderSync's import doesn't offer. TraderSync still leads on breadth with 700+ broker integrations for non-MT4/MT5 platforms. Both platforms return fills without stop loss — R-Multiple still requires manual entry after import.</p>
                 </div>
@@ -453,7 +516,8 @@
                 <a href="../../clubs.html" class="hover:text-zinc-400">Clubs</a> |
                 <a href="../../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
                 <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> |
-                <a href="../../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
+                <a href="../../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../../futures/index.html" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |

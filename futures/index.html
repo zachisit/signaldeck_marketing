@@ -76,7 +76,7 @@
           "name": "Does SignalDeck handle CME Globex overnight sessions?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck monitors open futures positions during CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour daily halt from 5:00 PM to 6:00 PM ET. Monitoring uses Chicago time (America/Chicago) to handle daylight saving transitions correctly. Stop monitoring is paused during the daily halt and outside Globex hours — no false triggers from off-hours prices."
+            "text": "Yes. SignalDeck tracks open futures positions during CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour daily halt from 5:00 PM to 6:00 PM ET. Price updates and stop-level alert evaluation use Chicago time (America/Chicago) for DST accuracy. Price and alert evaluation is paused during the daily halt and outside Globex hours — no false stop alerts from off-hours prices."
           }
         },
         {
@@ -84,7 +84,7 @@
           "name": "How do I find the active front-month futures contract?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Select your product (ES, NQ, CL, or GC) from the instrument grid. SignalDeck generates the active front-month contract ticker based on the CME expiration schedule — ESU6, NQZ6, CLN6, GCQ6 — so you see the correct contract immediately. No manual calendar lookup required."
+            "text": "Select your product (ES, NQ, CL, or GC) from the instrument grid. SignalDeck generates the active front-month contract ticker based on the CME expiration schedule — ESU6, NQU6, CLN6, GCQ6 — so you see the correct contract immediately. No manual calendar lookup required."
           }
         },
         {
@@ -92,7 +92,7 @@
           "name": "Can I use SignalDeck for a futures prop firm challenge?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck is well-suited for futures prop firm challenges on platforms like Apex Trader Funding, Topstep, and TradaFi. The R-value framework enforces the same risk discipline that prop firm rules demand — daily loss limits and drawdown rules become natural guardrails when every futures trade is sized in R. ES and NQ are the most common instruments on these platforms and both are fully supported with tick-aligned P&L and live stop monitoring."
+            "text": "Yes. SignalDeck is well-suited for futures prop firm challenges on platforms like Apex Trader Funding, Topstep, and TradaFi. The R-value framework enforces the same risk discipline that prop firm rules demand — daily loss limits and drawdown rules become natural guardrails when every futures trade is sized in R. ES and NQ are the most common instruments on these platforms and both are fully supported with tick-aligned P&L, live price monitoring, and stop-level alert evaluation."
           }
         },
         {
@@ -331,7 +331,7 @@
                         Monitoring uses Chicago time (America/Chicago timezone) to handle daylight saving transitions correctly. Open positions are never evaluated against prices printed during the halt or outside Globex hours — so a gap-open Sunday spike or a phantom print at 5:15 PM never triggers a false stop alert.
                     </p>
                     <p class="text-zinc-400 leading-relaxed">
-                        Stop detection and audit timestamps live in a dedicated futures audit field, separate from equity and forex position tracking.
+                        An audit timestamp (`futures_audit_at`) records the last time each futures trade was evaluated, kept in a dedicated field separate from equity and forex tracking.
                     </p>
                 </div>
 
@@ -706,7 +706,7 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck handle CME Globex overnight sessions?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Live stop monitoring runs within CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET each day. Monitoring uses Chicago timezone (America/Chicago) to handle DST correctly. Positions are never evaluated outside this window — no false stop triggers from off-hours price moves.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Price updates and stop-level alert evaluation run within CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET each day. Evaluation uses Chicago timezone (America/Chicago) to handle DST correctly. Positions are never evaluated outside this window — no false stop alerts from off-hours price moves.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -722,6 +722,16 @@
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Do I need a different journal for CFD vs futures?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">No. SignalDeck handles both in the same platform. If you trade NAS100 (CFD) and NQ (futures), or XAUUSD (CFD) and GC (futures), both are logged in the same journal with the correct math for each instrument type. CFD trades use broker-native tickers; futures trades use CME-convention tickers with tick-aligned P&amp;L. See the <a href="../cfd/index.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">CFD page</a> for more.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What happens when my futures contract expires?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Each trade is permanently bound to its contract ticker (e.g., ESU6). When that contract's expiration date passes, price updates skip the expired contract automatically — you won't see stale data. The trade remains in your journal with its recorded history intact. For the next contract month, you open a new trade with the current front-month ticker (e.g., ESZ6). Automatic rollover is not yet supported — it's on the roadmap.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Are micro futures (MES, MNQ) supported?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Not yet. MES (Micro E-mini S&amp;P 500) and MNQ (Micro E-mini Nasdaq-100) are on the roadmap. Currently supported products are ES, NQ, CL, and GC. Bond futures (ZB/ZN/ZF) and spread/combo contracts are also deferred. Multi-leg spreads require separate legs for now.</p>
                 </div>
 
             </div>

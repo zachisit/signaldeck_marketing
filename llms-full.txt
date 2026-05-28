@@ -123,9 +123,13 @@ Instrument types: ES (E-mini S&P 500 — CME, $12.50/tick, contract size 50), NQ
 P&L formula: (exit − entry) × side × contract_size × contracts − fees. All prices and stops validated against tick size before save.
 CME Globex session: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET daily. Timezone: America/Chicago (DST-aware).
 Front-month contract search: select product (ES/NQ/CL/GC), platform generates active contract ticker based on CME quarterly/monthly expiration schedule. Contract spec cached in Redis (24h).
-Live stop monitoring: respects Globex window; no false triggers during halt or outside hours.
+Price and alert evaluation: runs for ALL users within Globex hours. Stop-breach → auto-close is gated to the managed service account (user_id=2) only; regular users receive stop-level alerts and manually close the trade.
+Calc panel: shows notional value, margin estimate (notional ÷ 20 placeholder — Polygon API does not expose initial margin), dollar risk, and R:R ratio as you fill the form.
+TradingView chart links: each futures trade links to TradingView using CBOT/NYMEX conventional tickers (e.g., ES1! for continuous ES contract).
+Contract expiration: trades are permanently bound to their ticker (e.g., ESU6). When expiration_date passes, price updates skip the expired contract automatically. Trades remain in journal. Automatic rollover is deferred — users open a new trade for the next front-month.
 Prop firm support: Apex Trader Funding, Topstep, TradaFi (all use ES/NQ as primary instruments).
 R-Multiple applies identically. SQN, expectancy, Kelly Criterion, Post Mortem, execution quality all work for futures.
+Deferred / not yet supported: MES/MNQ micro futures, ZB/ZN/ZF bond futures, spread/combo contracts, automatic contract rollover, live margin API.
 URL: https://sgnldk.com/futures/
 
 ## Competitors — Full Comparison

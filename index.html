@@ -15,9 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>SignalDeck — AI Trading Journal &amp; Strategy Backtester</title>
+    <title>SignalDeck — AI Trading Journal for Stocks, Forex, Futures &amp; Crypto</title>
     <meta name="description" content="The only trading journal with MT4/MT5 import, Walk-Forward Analysis, Monte Carlo, SQN scoring & Kelly Criterion. Free for beta testers — keep it for life.">
-    <meta name="keywords" content="trading journal, MT4 MT5 trading journal, Walk-Forward Analysis, strategy backtester, SQN score, Kelly criterion, R-value trading, free trading journal, AI trading journal, best trading journal 2026">
+    <meta name="keywords" content="trading journal, futures trading journal, ES NQ futures journal, MT4 MT5 trading journal, Walk-Forward Analysis, strategy backtester, SQN score, Kelly criterion, R-value trading, free trading journal, AI trading journal, best trading journal 2026">
     <meta name="author" content="SignalDeck">
     <link rel="canonical" href="https://sgnldk.com">
     <meta name="robots" content="index, follow">
@@ -26,7 +26,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgnldk.com">
     <meta property="og:title" content="SignalDeck - AI Trading Journal for Serious Traders">
-    <meta property="og:description" content="Stop using glorified tax software. Audit your trading discipline with AI and institutional-grade metrics. Free lifetime access for beta testers.">
+    <meta property="og:description" content="Stop using glorified tax software. Audit your trading discipline with AI and institutional-grade metrics. Stocks, forex, futures (ES/NQ/CL/GC), CFD, and crypto. Free lifetime access for beta testers.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
@@ -54,8 +54,8 @@
             "priceCurrency": "USD",
             "description": "Free during beta. Planned: Free tier (20 trades), Pro ($19/mo), Team ($29/mo — includes MT4/MT5 import + live balance sync)."
         },
-        "description": "Professional-grade trading journal and strategy backtester built around R-Multiple methodology. Features SQN scoring, Kelly Criterion position sizing, 1,000-path Monte Carlo drawdown simulation, Walk-Forward Analysis, grid-search parameter optimization, structured 5-step Post Mortem reviews, execution quality analysis (MAE/MFE, entry/exit slippage), behavioral tagging, and a social trading layer (Borg). Supports common stocks, forex, CFD/indices, and crypto natively.",
-        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Native forex support, Native crypto support, Native CFD support, Strategy backtester, Forward testing scanner",
+        "description": "Professional-grade trading journal and strategy backtester built around R-Multiple methodology. Features SQN scoring, Kelly Criterion position sizing, 1,000-path Monte Carlo drawdown simulation, Walk-Forward Analysis, grid-search parameter optimization, structured 5-step Post Mortem reviews, execution quality analysis (MAE/MFE, entry/exit slippage), behavioral tagging, and a social trading layer (Borg). Supports common stocks, forex, CFD/indices, crypto, and futures (ES/NQ/CL/GC) natively.",
+        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Native forex support, Native crypto support, Native CFD support, Native futures support (ES/NQ/CL/GC with tick math and Globex monitoring), Strategy backtester, Forward testing scanner",
         "screenshot": "https://sgnldk.com/assets/banner-01a-waves.png",
         "softwareVersion": "Beta"
     }
@@ -191,7 +191,7 @@
 
     <section id="about" class="sr-only" aria-hidden="false">
         <h2>What is SignalDeck?</h2>
-        <p>SignalDeck is a professional-grade trading journal and strategy backtester for serious retail traders. Unlike general-purpose trading journals, SignalDeck uses R-Multiple (risk-normalized return) as the organizing principle for every metric — equity curves, expectancy, SQN scoring, Kelly Criterion position sizing, and Post Mortem reviews all flow from a single risk framework. It supports stocks, forex, CFD, and crypto natively. The built-in strategy backtester includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for worst-case drawdown modeling, and grid-search parameter optimization — a combination no other trading journal offers. SignalDeck is currently in beta and free to use.</p>
+        <p>SignalDeck is a professional-grade trading journal and strategy backtester for serious retail traders. Unlike general-purpose trading journals, SignalDeck uses R-Multiple (risk-normalized return) as the organizing principle for every metric — equity curves, expectancy, SQN scoring, Kelly Criterion position sizing, and Post Mortem reviews all flow from a single risk framework. It supports stocks, forex, CFD, crypto, and futures (ES/NQ/CL/GC) natively. The built-in strategy backtester includes Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for worst-case drawdown modeling, and grid-search parameter optimization — a combination no other trading journal offers. SignalDeck is currently in beta and free to use.</p>
     </section>
 
     <section class="relative pt-20 pb-32 overflow-hidden">
@@ -528,6 +528,32 @@
                             <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Journal Equity Link</span>
                             <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Kelly / Fixed-Risk Sizing</span>
                             <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Trailing Stops</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-zinc-950 border border-orange-500/30 rounded-xl hover:border-orange-400/60 transition-all relative md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="text-orange-400 font-mono text-xl">09 // FUTURES</div>
+                        <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-orange-500 text-white uppercase tracking-widest">New</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                        <div>
+                            <h4 class="text-white font-bold mb-3 text-lg">Native Futures Trading — ES, NQ, CL, GC</h4>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Futures are now first-class instruments. <a href="futures/index.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">ES, NQ, CL, and GC</a> are tracked with tick-aligned P&L math (not shares, not pips — contracts × ticks × tick value), CME Globex session monitoring, and front-month contract search. The contract spec is fetched automatically so you just enter price and contract count. Prop firm futures challenges on Apex Trader Funding, Topstep, and TradaFi are fully supported.</p>
+                            <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Markets — CME · NYMEX · COMEX · Globex Session Aware</div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ES · E-mini S&amp;P 500</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQ · E-mini Nasdaq-100</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">CL · Crude Oil</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">GC · Gold</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Tick-Aligned P&amp;L</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Globex Monitoring</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">R-Multiple</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Calc Panel</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Apex / Topstep / TradaFi</span>
                         </div>
                     </div>
                 </div>
@@ -1095,7 +1121,7 @@
                 <a href="clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
                 <a href="jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
                 <a href="blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
-                <a href="prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
+                <a href="prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> | <a href="futures/index.html" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |

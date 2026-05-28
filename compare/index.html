@@ -213,7 +213,7 @@
     <!-- Hero -->
     <section class="relative pt-24 pb-16 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-widest mb-6">Now Shipping: MT5 Import + Live Balance Sync</span>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-widest mb-6">Now Shipping: Futures Trading (ES/NQ/CL/GC) · MT5 Import</span>
             <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
                 SignalDeck vs The Competition
             </h1>
@@ -362,6 +362,64 @@
                     </div>
                     <div class="mt-2 bg-zinc-800/60 border border-zinc-700 rounded px-2 py-1.5 text-[9px] text-zinc-400">
                         <span class="text-blue-400 font-bold">MC P5:</span> -24.1% drawdown risk at 5th percentile
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Futures Highlight -->
+    <section class="py-12 border-b border-zinc-900 bg-orange-500/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">New v1.0.59</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Native futures trading — ES, NQ, CL, GC.</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        Futures are now first-class instruments. SignalDeck uses tick-aligned P&L math (contracts × ticks × tick value) — not share-based or pip-based calculations. CME Globex session monitoring runs Sun 6PM–Fri 5PM ET with DST-aware Chicago timezone. Front-month contract search resolves ESU6, NQU6, CLN6, GCQ6 automatically. No other trading journal offers this combination natively.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-orange-300 border border-orange-500/20">ES · $12.50/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-orange-300 border border-orange-500/20">NQ · $5.00/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-orange-300 border border-orange-500/20">CL · $10.00/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-orange-300 border border-orange-500/20">GC · $10.00/tick</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Globex Session</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Tick Validation</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="../futures/index.html" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Full Futures page →</a>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-full md:w-72 rounded-xl overflow-hidden border border-orange-500/20" style="background: linear-gradient(160deg, #1a0f00 0%, #0a0a0b 60%);">
+                    <div class="flex items-center justify-between px-4 py-2.5 border-b border-orange-900/40">
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+                            <span class="text-[10px] font-mono text-orange-400 uppercase tracking-widest">ESU6 · 2 Contracts</span>
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-600">CME</span>
+                    </div>
+                    <div class="px-4 pt-4 pb-3 border-b border-zinc-800/60">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-1">Tick Move</div>
+                        <div class="text-2xl font-bold text-white tracking-tight">58 ticks<span class="text-orange-400 text-sm ml-1">× $12.50 × 2</span></div>
+                        <div class="text-[9px] font-mono text-emerald-400 mt-1">+$1,450.00 realized P&L</div>
+                    </div>
+                    <div class="px-4 py-3 space-y-2">
+                        <div class="flex justify-between text-[10px] font-mono">
+                            <span class="text-zinc-500">R-Multiple</span>
+                            <span class="text-emerald-400 font-bold">+2.9R</span>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-mono">
+                            <span class="text-zinc-500">Stop (tick-aligned)</span>
+                            <span class="text-zinc-300">5,235.25</span>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-mono border-t border-zinc-800/60 pt-2">
+                            <span class="text-zinc-500">Session</span>
+                            <span class="text-emerald-400">Globex Active</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -638,6 +696,37 @@
                             <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
                             <td class="px-4 py-3 text-center text-rose-500 font-bold">❌</td>
                             <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
+                        </tr>
+
+                        <tr class="border-t-2 border-orange-500/30">
+                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — New v1.0.59</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Native Futures Support (ES/NQ/CL/GC)</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Tick Math + Globex</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Via broker import</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Manual entry</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Via broker import</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Manual entry</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Tick-Aligned P&L Math</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Auto Contract Spec</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-orange-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">CME Globex Session Monitoring</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
 
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">

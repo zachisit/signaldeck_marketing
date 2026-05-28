@@ -111,7 +111,7 @@
                 "name": "Which prop firm instruments does SignalDeck support?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SignalDeck natively supports NAS100, XAUUSD (Gold), GER40, US500, US30, XAGUSD (Silver), and all major forex pairs. Enter tickers exactly as your broker displays them — no manual translation required. Live stop monitoring tracks open CFD and forex positions in real time."
+                    "text": "SignalDeck natively supports CFD instruments (NAS100, XAUUSD/Gold, GER40, US500, US30, XAGUSD/Silver) and all major forex pairs — plus native futures trading: ES (E-mini S&P 500), NQ (E-mini Nasdaq-100), CL (Crude Oil), and GC (Gold) with tick-aligned P&L math and CME Globex session monitoring. Enter CFD tickers exactly as your broker displays them. Futures prop firm platforms (Apex Trader Funding, Topstep, TradaFi) using ES and NQ are fully supported."
                 }
             }
         ]
@@ -547,7 +547,23 @@
                     <div class="text-xs font-mono text-zinc-500">All major pairs</div>
                 </div>
             </div>
-            <p class="text-center text-zinc-500 text-sm">Live stop monitoring tracks open CFD and forex positions in real time. MT4/MT5 import supports all instruments your broker offers on the platform.</p>
+            <!-- Futures cross-link -->
+            <div class="mt-6 bg-orange-500/5 border border-orange-500/20 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex items-center gap-2 flex-shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                    <span class="text-xs font-mono uppercase tracking-widest text-orange-400">New — Futures</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm text-zinc-300">Trading ES or NQ on a futures prop firm (Apex Trader Funding, Topstep, TradaFi)? <a href="../futures/index.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-2 font-medium">ES, NQ, CL, and GC are now natively supported →</a></p>
+                </div>
+                <div class="flex flex-wrap gap-2 flex-shrink-0">
+                    <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ESU6</span>
+                    <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQU6</span>
+                    <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-500 border border-zinc-700">Tick Math</span>
+                    <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-500 border border-zinc-700">Globex Sessions</span>
+                </div>
+            </div>
+            <p class="text-center text-zinc-500 text-sm mt-4">Live stop monitoring tracks open CFD, forex, and futures positions in real time. MT4/MT5 import supports all instruments your broker offers on the platform.</p>
         </div>
     </section>
 
@@ -653,7 +669,7 @@
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Which prop firm instruments does SignalDeck support?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">NAS100, XAUUSD (Gold), GER40, US500, US30, XAGUSD (Silver), and all major forex pairs. Enter tickers exactly as your broker displays them — no manual translation required. Live stop monitoring tracks open positions in real time. MT4/MT5 import via MetaApi supports all instruments available on your broker's MT4/MT5 platform.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">CFD and forex: NAS100, XAUUSD (Gold), GER40, US500, US30, XAGUSD (Silver), and all major forex pairs. Futures: ES (E-mini S&P 500), NQ (E-mini Nasdaq-100), CL (Crude Oil), and GC (Gold) — all with native tick-aligned P&L math and CME Globex session monitoring. Enter CFD tickers exactly as your broker displays them. See the <a href="../futures/index.html" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">Futures page</a> for full details on futures prop firm support (Apex, Topstep, TradaFi).</p>
                 </div>
             </div>
         </div>
@@ -663,7 +679,7 @@
     <section class="py-24">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-white mb-4">Start journaling your prop firm trades. Free.</h2>
-            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">MT4/MT5 auto-import, live balance sync, R-value tracking, SQN scoring, Walk-Forward Analysis, live stop monitoring, Post Mortem protocol, and native CFD support — all included during beta.</p>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">MT4/MT5 auto-import, live balance sync, R-value tracking, SQN scoring, Walk-Forward Analysis, live stop monitoring, Post Mortem protocol, native CFD support, and native futures trading (ES/NQ/CL/GC) — all included during beta.</p>
             <a href="https://app.sgnldk.com"
                 onclick="gtag('event', 'prop_firm_beta_click', {'button_location': 'cta'});"
                 target="_blank" rel="noopener noreferrer"
@@ -683,7 +699,8 @@
                 <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
                 <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
                 <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a>
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |

@@ -325,10 +325,10 @@
                         <span class="text-emerald-500">No false triggers. Ever.</span>
                     </h2>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        Futures trade nearly 24 hours a day — but not exactly. The CME Globex session runs Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET each trading day. Live stop monitoring respects this window precisely.
+                        Futures trade nearly 24 hours a day — but not exactly. The CME Globex session runs Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET each trading day. Price monitoring and alert evaluation are gated to this window precisely.
                     </p>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        Monitoring uses Chicago time (America/Chicago timezone) to handle daylight saving transitions correctly. Open positions are never evaluated against prices printed during the halt or outside Globex hours — so a gap-open Sunday spike or a phantom print at 5:15 PM never closes a live position incorrectly.
+                        Monitoring uses Chicago time (America/Chicago timezone) to handle daylight saving transitions correctly. Open positions are never evaluated against prices printed during the halt or outside Globex hours — so a gap-open Sunday spike or a phantom print at 5:15 PM never triggers a false stop alert.
                     </p>
                     <p class="text-zinc-400 leading-relaxed">
                         Stop detection and audit timestamps live in a dedicated futures audit field, separate from equity and forex position tracking.
@@ -504,10 +504,10 @@
                     <div class="relative z-10">
                         <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                            Live Stop Monitoring
+                            Price &amp; Alert Monitoring
                         </h4>
                         <p class="text-sm text-zinc-400 leading-relaxed mb-6">
-                            Open futures positions are monitored in real time within Globex hours. When your stop is hit, the trade auto-closes with the correct exit data populated. Monitoring respects the 5–6 PM daily halt — no phantom closures in the gap.
+                            Open futures positions have prices and unrealized P&amp;L updated on every worker cycle within Globex hours. Stop alerts fire when price hits your stop level — you see the alert in real time and close the trade. Processing gates out during the 5–6 PM daily halt and outside Globex hours.
                         </p>
                         <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded p-4 shadow-inner">
                             <div class="flex justify-between text-[10px] font-mono text-zinc-400 mb-2">

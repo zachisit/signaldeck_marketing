@@ -140,12 +140,66 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.60 -->
+            <div class="pl-8 relative" id="v1-0-60">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.60-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 29, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Performance hardening, API rate limits, and input validation across the stack. No new UI features — this release is entirely backend reliability and security work.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Performance</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Needs Review filter rewritten as a SQL predicate</strong> — no more application-side filtering; the query now runs entirely at the DB layer for proportionally faster review-queue loads.</li>
+                            <li><strong class="text-zinc-200">trade_audit_runs timestamp index + Redis cache</strong> — a DESC index on the timestamp column, plus a 60-second Redis cache on the latest audit run lookup, cuts repeated DB reads proportionally to polling frequency.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">API Rate Limits</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Mutation routes throttled</strong> — notes, calendar, and tags endpoints are now rate-limited (30–120 req/min depending on route), preventing unbounded DB writes from tight loops.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Input Validation</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">max_length on 12 schema fields</strong> — NoteBase, PostMortemBase, DailyJournalEntry, EntryChecklistItem, TradeBase currencies, and UserUpdate.display_name now enforce max_length constraints. Long strings return 422 instead of hitting MySQL strict mode.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Infrastructure</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">S3 backup integrity verification</strong> — the backup script now verifies gzip integrity after upload and fires a Slawk alert on failure.</li>
+                            <li><strong class="text-zinc-200">change_audits retention policy</strong> — prune script and timestamp index added for efficient range-deletes on the audit log table.</li>
+                            <li><strong class="text-zinc-200">Redis RDB persistence disabled</strong> — cache-only config in E2E/CI stack; no point snapshotting a pure cache.</li>
+                            <li><strong class="text-zinc-200">MySQL slow query log enabled</strong> — via migration 039 for production visibility into slow queries.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Superuser tag/signal/checklist scope</strong> — GET /tags, /signals, and /entry-checklist now return only the current user's own data (was returning all users' data for superusers).</li>
+                            <li><strong class="text-zinc-200">Duplicate tag pill on quick-create</strong> — adding a tag that already exists no longer renders a duplicate pill in the new trade form.</li>
+                            <li><strong class="text-zinc-200">entry_timestamp future buffer widened to 24h</strong> — the previous 1h buffer rejected valid trades from users in UTC+ timezones submitting trades at midnight local time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.59 -->
             <div class="pl-8 relative" id="v1-0-59">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.59-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 28, 2026 8:14AM</span>
                 </div>
 

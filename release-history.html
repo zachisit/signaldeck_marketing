@@ -140,12 +140,66 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.61 -->
+            <div class="pl-8 relative" id="v1-0-61">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.61-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">May 29, 2026 10:29PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Advanced filter bar, security hardening across five XSS surfaces, and a wide net of backtester and scanner reliability fixes. Sessions now silently refresh on startup so "Keep me signed in" actually keeps you signed in.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Advanced Filter Bar</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Collapsed filter bar</strong> — Side, Asset type, and Needs Review are always visible; an Advanced button opens the full filter panel without crowding the trade list.</li>
+                            <li><strong class="text-zinc-200">Active filter chips</strong> — every active filter appears as a dismissible chip inline below the bar. One click clears it and instantly re-fetches your trade list.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Session Stability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Silent token refresh on startup</strong> — if your 30-minute session token has expired but your 14-day refresh token is still valid, SignalDeck now renews it automatically in the background. No more surprise logouts for users who have "Keep me signed in" enabled.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Security</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">XSS hardening across five surfaces</strong> — trade symbols, display names, exit reasons, and verdict labels are now HTML-escaped in the Borg feed, calendar post-mortem modal, needs-attention widgets, and dashboard note preview.</li>
+                            <li><strong class="text-zinc-200">Post-mortem ownership check tightened</strong> — the API now returns 404 for both missing and unauthorised records, eliminating a subtle record-existence leak.</li>
+                            <li><strong class="text-zinc-200">Input validation</strong> — leverage is capped at 500× on both create and edit paths; entry prices below 0.000001 are rejected on both paths.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtester &amp; Scanner Reliability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Backtester</strong> — Sharpe/Sortino guard against zero-equity periods; Kelly sizing excludes break-even trades from the loss sample; trailing ATR stop caches the last valid ATR to prevent freezing on shorts; max_length constraints on strategy name and notebook fields.</li>
+                            <li><strong class="text-zinc-200">Scanner</strong> — divide-by-zero guards in CMF, MFI, and stochastic logic; true-range ATR used in VSA absorption logic; batch fetch exceptions are now logged instead of silently swallowed.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Other Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Forex margin_used</strong> — correctly computed from leverage on every trade update instead of staying null after a PUT.</li>
+                            <li><strong class="text-zinc-200">Rate limits</strong> — broker and funding account mutation routes are now throttled alongside the rest of the API.</li>
+                            <li><strong class="text-zinc-200">Edit-modal time inputs</strong> — widened so the AM/PM segment is never clipped.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.60 -->
             <div class="pl-8 relative" id="v1-0-60">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.60-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">May 29, 2026</span>
                 </div>
 

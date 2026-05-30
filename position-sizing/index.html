@@ -238,9 +238,38 @@
     <!-- Futures cross-link -->
     <section class="py-10 border-t border-zinc-900 bg-orange-500/5">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <p class="text-sm text-zinc-300 mb-2 font-semibold">Trading futures? Position sizing works differently.</p>
-            <p class="text-sm text-zinc-400 mb-4">For ES, NQ, CL, and GC futures, position size is expressed in <strong class="text-white">contracts</strong>, not shares or lots. The formula: Contracts = Dollar Risk ÷ (Tick Risk × Tick Value). SignalDeck's futures calc panel handles this automatically — enter your stop in ticks and the platform shows contract count, notional, and R:R in real time.</p>
+            <p class="text-sm text-zinc-300 mb-2 font-semibold">Trading futures? Position sizing works differently. <span class="text-orange-400 font-normal text-xs">(Beta)</span></p>
+            <p class="text-sm text-zinc-400 mb-4">For ES, NQ, CL, and GC futures, position size is expressed in <strong class="text-white">contracts</strong>, not shares or lots. The formula: Contracts = Dollar Risk ÷ (Tick Risk × Tick Value). SignalDeck's futures calc panel handles this automatically — enter your stop in ticks and the platform shows contract count, notional, and R:R in real time. Futures support is currently in Beta; tick math and contract specs are under active validation.</p>
             <a href="../futures/index.html" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Futures position sizing and journaling →</a>
+        </div>
+    </section>
+
+    <!-- What else is in SignalDeck -->
+    <section class="py-12 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest text-center mb-6">What else is in SignalDeck</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="../plans/index.html" class="bg-zinc-900/50 border border-emerald-500/20 rounded-lg p-4 hover:border-emerald-500/40 transition-colors">
+                    <div class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-2">Backtester</div>
+                    <div class="text-white text-sm font-semibold mb-1">Walk-Forward Analysis</div>
+                    <div class="text-zinc-500 text-xs">Detect strategy overfitting before you risk real capital. The only journal with this.</div>
+                </a>
+                <a href="../plans/index.html" class="bg-zinc-900/50 border border-emerald-500/20 rounded-lg p-4 hover:border-emerald-500/40 transition-colors">
+                    <div class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-2">Risk Modeling</div>
+                    <div class="text-white text-sm font-semibold mb-1">1,000-Path Monte Carlo</div>
+                    <div class="text-zinc-500 text-xs">Worst-case drawdown at the 5th percentile — before you trade live.</div>
+                </a>
+                <a href="../plans/index.html" class="bg-zinc-900/50 border border-emerald-500/20 rounded-lg p-4 hover:border-emerald-500/40 transition-colors">
+                    <div class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-2">Optimization</div>
+                    <div class="text-white text-sm font-semibold mb-1">Grid-Search Optimizer</div>
+                    <div class="text-zinc-500 text-xs">Test 500 parameter combinations per backtest. Ranked by Sharpe, SQN, or profit factor.</div>
+                </a>
+                <a href="../plans/index.html" class="bg-zinc-900/50 border border-emerald-500/20 rounded-lg p-4 hover:border-emerald-500/40 transition-colors">
+                    <div class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-2">Framework</div>
+                    <div class="text-white text-sm font-semibold mb-1">R-Multiple System</div>
+                    <div class="text-zinc-500 text-xs">Every metric — expectancy, SQN, Kelly Criterion — flows from risk-normalized R-value.</div>
+                </a>
+            </div>
         </div>
     </section>
 

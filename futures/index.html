@@ -76,7 +76,7 @@
           "name": "Does SignalDeck handle CME Globex overnight sessions?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck tracks open futures positions during CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour daily halt from 5:00 PM to 6:00 PM ET. Price updates and stop-level alert evaluation use Chicago time (America/Chicago) for DST accuracy. Price and alert evaluation is paused during the daily halt and outside Globex hours — no false stop alerts from off-hours prices."
+            "text": "Yes, and Globex session awareness is currently in testing. SignalDeck tracks open futures positions during CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour daily halt from 5:00 PM to 6:00 PM ET. Price updates and stop-level alert evaluation use Chicago time (America/Chicago) for DST accuracy. Price and alert evaluation is designed to pause during the daily halt and outside Globex hours — behavior is under active validation in beta."
           }
         },
         {
@@ -92,7 +92,7 @@
           "name": "Can I use SignalDeck for a futures prop firm challenge?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck is well-suited for futures prop firm challenges on platforms like Apex Trader Funding, Topstep, and TradaFi. The R-value framework enforces the same risk discipline that prop firm rules demand — daily loss limits and drawdown rules become natural guardrails when every futures trade is sized in R. ES and NQ are the most common instruments on these platforms and both are fully supported with tick-aligned P&L, live price monitoring, and stop-level alert evaluation."
+            "text": "Yes. SignalDeck is well-suited for futures prop firm challenges on platforms like Apex Trader Funding, Topstep, and TradaFi. The R-value framework enforces the same risk discipline that prop firm rules demand — daily loss limits and drawdown rules become natural guardrails when every futures trade is sized in R. ES and NQ are the most common instruments on these platforms and both are now supported (Beta) with tick-aligned P&L, live price monitoring, and stop-level alert evaluation. See the Futures page for current coverage."
           }
         },
         {
@@ -201,7 +201,7 @@
     <!-- Hero -->
     <section class="relative pt-24 pb-16 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/30 uppercase tracking-widest mb-6">Now Available — v1.0.59</span>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/30 uppercase tracking-widest mb-6">Now in Beta — v1.0.59</span>
             <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
                 Professional-Grade Journaling for<br>
                 <span class="text-orange-500">Futures Traders.</span>
@@ -706,7 +706,7 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck handle CME Globex overnight sessions?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Price updates and stop-level alert evaluation run within CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET each day. Evaluation uses Chicago timezone (America/Chicago) to handle DST correctly. Positions are never evaluated outside this window — no false stop alerts from off-hours price moves.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Globex session awareness is currently in testing. Price updates and stop-level alert evaluation are designed to run within CME Globex hours: Sunday 6:00 PM ET through Friday 5:00 PM ET, with a one-hour halt from 5:00–6:00 PM ET each day. Evaluation uses Chicago timezone (America/Chicago) to handle DST correctly. This behavior is actively being validated in beta — see the <a href="../release-history.html" class="text-orange-400 hover:text-orange-300">release history</a> for current status.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -743,7 +743,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
-            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We're building this alongside serious traders — partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we're shipping. Active beta testers who send feedback receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform.</p>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We're building this alongside serious traders — partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we're shipping. Paid plans (Free / Pro $30 / Team $50) launch June 2026.</p>
 
             <a href="https://app.sgnldk.com"
                 target="_blank"

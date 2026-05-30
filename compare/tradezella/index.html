@@ -65,7 +65,7 @@
           "name": "Does SignalDeck or TradeZella have broker import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Both have broker import. SignalDeck supports MT4 and MT5 via MetaApi with real-time account balance sync — live equity feeds Kelly Criterion sizing automatically. TradeZella has broader broker coverage across more platforms. If your broker runs MT4 or MT5, SignalDeck's import includes live balance sync that TradeZella's import does not offer."
+            "text": "Both have broker import. SignalDeck supports MT4 and MT5 via MetaApi with real-time account balance sync — live equity feeds Kelly Criterion sizing automatically. TradeZella has broader broker coverage (500+ connections). If your broker runs MT4 or MT5, SignalDeck's import includes live balance sync that TradeZella's import does not offer."
           }
         },
         {
@@ -73,7 +73,7 @@
           "name": "Which is cheaper, SignalDeck or TradeZella?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck is free during beta with all features unlocked, including the full strategy backtester with Walk-Forward Analysis and Monte Carlo. TradeZella is $30–$50 per month. Active SignalDeck beta testers who provide feedback receive Founder Status with lifetime free access after beta ends."
+            "text": "SignalDeck is free during beta with all features unlocked, including the full strategy backtester with Walk-Forward Analysis and Monte Carlo. TradeZella is $30–$50 per month. SignalDeck paid plans launch June 2026 at Pro $30/mo, Team $50/mo — existing beta testers were grandfathered."
           }
         }
       ]
@@ -190,6 +190,13 @@
         </div>
     </section>
 
+    <!-- Moat header -->
+    <section class="py-6 border-b border-zinc-900 bg-blue-500/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xl font-bold text-white">The only trading journal with Walk-Forward Analysis, Monte Carlo, and grid-search optimization.</h2>
+        </div>
+    </section>
+
     <!-- Feature comparison table -->
     <section class="py-16 border-b border-zinc-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -296,7 +303,7 @@
                         <tr class="border-t border-zinc-800">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Broad Broker Auto-Import</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ Multiple brokers</td>
+                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ 500+ brokers</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
                             <td class="px-4 py-3 text-zinc-300 font-medium">CSV Import/Export</td>
@@ -329,6 +336,16 @@
             <p class="mt-4 text-center text-xs text-zinc-600 font-mono">
                 → <a href="../index.html" class="hover:text-zinc-400 transition-colors">View full comparison with all 6 competitors</a>
             </p>
+        </div>
+    </section>
+
+    <!-- TradeZella automated backtester inoculation -->
+    <section class="py-8 border-b border-zinc-900 bg-amber-500/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-start gap-3 bg-zinc-900/50 border border-amber-500/20 rounded-xl p-5">
+                <span class="text-amber-400 mt-0.5 text-sm font-bold">Note</span>
+                <p class="text-zinc-400 text-sm leading-relaxed">TradeZella has announced an automated backtester as "coming soon." Even when it ships, it will still lack Walk-Forward Analysis (overfit detection), 1,000-path Monte Carlo simulation, and grid-search parameter optimization — the three features that separate a real validation workflow from a standard backtest. Those remain exclusive to SignalDeck.</p>
+            </div>
         </div>
     </section>
 
@@ -431,7 +448,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Which is cheaper — SignalDeck or TradeZella?</h3>
-                    <p class="text-zinc-400 text-sm">SignalDeck is free during beta with every feature unlocked — including Walk-Forward Analysis and Monte Carlo. TradeZella is $30–$50/month. Active SignalDeck beta testers who provide feedback receive Founder Status with lifetime free access after beta ends.</p>
+                    <p class="text-zinc-400 text-sm">SignalDeck is free during beta with every feature unlocked — including Walk-Forward Analysis and Monte Carlo. TradeZella is $30–$50/month. SignalDeck paid plans launch June 2026 at Pro $30/mo, Team $50/mo — existing beta testers were grandfathered.</p>
                 </div>
             </div>
         </div>
@@ -461,7 +478,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Try SignalDeck Free.</h2>
-            <p class="text-zinc-400 mb-8">All features unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework, MT4/MT5 import — no subscription required. Active beta testers receive lifetime free access.</p>
+            <p class="text-zinc-400 mb-8">All features unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework, MT4/MT5 import — no subscription required. Paid plans launch June 2026: Pro $30/mo, Team $50/mo.</p>
             <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer"
                 onclick="gtag('event', 'generate_lead', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
                 class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors">

@@ -53,7 +53,7 @@
           "name": "Is SignalDeck better than Edgewonk?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck offers real-time analytics and a modern web-based UX compared to Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck also includes native forex pip math, SQN scoring, and a structured post mortem workflow that Edgewonk does not offer. During beta, SignalDeck is free versus Edgewonk's ~$14/month."
+            "text": "SignalDeck offers real-time analytics and a modern web-based UX compared to Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck also includes native forex pip math, SQN scoring, and a structured post mortem workflow that Edgewonk does not offer. During beta, SignalDeck is free versus Edgewonk's ~$16.50/month (billed $197/yr)."
           }
         },
         {
@@ -61,7 +61,7 @@
           "name": "Does SignalDeck have a strategy backtester?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck includes a full strategy backtesting engine with 15+ built-in strategies, Walk-Forward Analysis for overfitting detection, Monte Carlo simulation across 1,000 paths, grid-search parameter optimization, and the ability to link any backtest directly to your live journal trades for side-by-side comparison. While a handful of competitors offer basic backtesting, none combine Walk-Forward Analysis, Monte Carlo, grid-search optimization, and an SPY/QQQ benchmark overlay in a single workflow."
+            "text": "Yes. SignalDeck includes a full strategy backtesting engine with 16 built-in strategies, Walk-Forward Analysis for overfitting detection, Monte Carlo simulation across 1,000 paths, grid-search parameter optimization, and the ability to link any backtest directly to your live journal trades for side-by-side comparison. While a handful of competitors offer basic backtesting, none combine Walk-Forward Analysis, Monte Carlo, grid-search optimization, and an SPY/QQQ benchmark overlay in a single workflow."
           }
         },
         {
@@ -69,7 +69,7 @@
           "name": "What features is SignalDeck missing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The main remaining gap versus competitors like TraderSync is broad broker coverage — SignalDeck supports MT4 and MT5 via MetaApi but not 700+ generic brokers. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned."
+            "text": "The main remaining gap versus competitors like TraderSync is broad broker coverage — SignalDeck supports MT4 and MT5 via MetaApi but not 950+ generic brokers. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned."
           }
         },
         {
@@ -324,7 +324,7 @@
                         Other journals have basic backtesters. SignalDeck is the only one with Walk-Forward Analysis (overfit detection), 1,000-path Monte Carlo simulation, and grid-search parameter optimization — all inside the same platform where you log your trades. Test on up to 5 years of historical data, then link the backtest directly to your live journal strategy to compare theory against actual execution.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">7 Built-in Strategies</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">16 Built-in Strategies</span>
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Monte Carlo</span>
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Walk-Forward Analysis</span>
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Parameter Optimization</span>
@@ -452,7 +452,7 @@
                         <tr class="border-t border-zinc-800 bg-emerald-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">MT4/MT5 Trade Import</td>
                             <td class="px-4 py-3 text-center bg-emerald-500/10 text-emerald-500 font-bold">✅ MT4/MT5 via MetaApi</td>
-                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Fills only (700+ brokers)</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Fills only (950+ brokers)</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                             <td class="px-4 py-3 text-center text-yellow-500">⚠️ Fills only</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
@@ -691,9 +691,9 @@
                             <td class="px-4 py-3 text-zinc-300 font-medium">Monthly Price</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold font-mono">Free (Beta)</td>
                             <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$80</td>
-                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">~$14</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">~$16.50/mo ($197/yr)</td>
                             <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$50</td>
-                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">$30–$50</td>
+                            <td class="px-4 py-3 text-center text-zinc-400 font-mono">Free (30 tr/mo) → $30–$50<br><span class="text-[9px] text-zinc-600">auto-sync = Gold plan only</span></td>
                             <td class="px-4 py-3 text-center text-zinc-400 font-mono">$15–$30</td>
                         </tr>
 
@@ -856,7 +856,7 @@
 
                 <div class="bg-zinc-900/40 border border-blue-500/30 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck have a strategy backtester?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes — and it's the most complete backtester available inside any trading journal. A handful of competitors (TraderSync, TradesViz, TradeZella) offer basic backtesting, but SignalDeck is the only one with Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, grid-search parameter optimization across up to 500 combinations, and an SPY/QQQ benchmark overlay — all in the same workflow. Run any of 15+ built-in strategies (SMA Crossover, RSI Mean Reversion, EMA, Bollinger Bands, MACD, and more) over up to 5 years of historical data with configurable stop types, position sizing (Kelly, fixed-risk, equal-weight), and commission/slippage modeling. And the truly unique feature: link any backtest directly to a live journal strategy and overlay your real equity curve against the backtest result to see exactly where your live execution diverges from theory.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes — and it's the most complete backtester available inside any trading journal. A handful of competitors (TraderSync, TradesViz, TradeZella) offer basic backtesting, but SignalDeck is the only one with Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, grid-search parameter optimization across up to 500 combinations, and an SPY/QQQ benchmark overlay — all in the same workflow. Run any of 16 built-in strategies (SMA Crossover, RSI Mean Reversion, EMA, Bollinger Bands, MACD, and more) over up to 5 years of historical data with configurable stop types, position sizing (Kelly, fixed-risk, equal-weight), and commission/slippage modeling. And the truly unique feature: link any backtest directly to a live journal strategy and overlay your real equity curve against the backtest result to see exactly where your live execution diverges from theory.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -866,12 +866,17 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Is SignalDeck better than Edgewonk?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck offers real-time analytics and a modern web-based UX compared to Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck also includes native forex pip math, SQN scoring, and a structured post mortem workflow that Edgewonk does not offer. During beta, SignalDeck is free versus Edgewonk's ~$14/month.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck offers real-time analytics and a modern web-based UX compared to Edgewonk's desktop-first, spreadsheet-inspired interface. SignalDeck also includes native forex pip math, SQN scoring, and a structured post mortem workflow that Edgewonk does not offer. During beta, SignalDeck is free versus Edgewonk's ~$16.50/month (billed $197/yr).</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What features is SignalDeck missing?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">The main remaining gap versus competitors like TraderSync is broad broker coverage — SignalDeck supports MT4 and MT5 via MetaApi but not 700+ generic brokers. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">The main remaining gap versus competitors like TraderSync is broad broker coverage — SignalDeck supports MT4 and MT5 via MetaApi but not 950+ generic brokers. Trade replay is also not currently available. The backtesting engine currently supports stocks and ETFs via daily and intraday data — forex backtesting support is planned.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Does Tradervue have a free plan?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Tradervue has a free tier that supports up to 30 trades per month. For most active traders that limit hits quickly. Important caveat: automatic broker sync (the feature most people want) is a Gold (top) plan feature — the free and Silver plans require manual CSV upload. If auto-sync is your goal, factor in the Gold plan price rather than the advertised entry price.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -888,7 +893,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
-            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We're building this alongside serious traders — partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we're shipping. Active beta testers who send feedback receive <strong>Founder Status</strong>, which includes a free-for-life subscription to the entire platform.</p>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We're building this alongside serious traders — partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we're shipping. Paid plans launch June 2026: Free / Pro $30 / Team $50.</p>
 
             <a href="https://app.sgnldk.com"
                 target="_blank"

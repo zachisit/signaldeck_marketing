@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric | SignalDeck</title>
+    <meta name="description" content="R-Multiple defines your initial risk as 1R. Every trade outcome — win or loss — becomes a multiple of that unit. Here's how expectancy, SQN, Kelly, and win rate all flow from a single number.">
+    <meta name="keywords" content="R-multiple trading, what is R-multiple, R-value trading, 1R risk unit, risk reward ratio, expectancy R-multiple, trading risk unit, R-multiple position sizing">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/what-is-r-multiple/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/what-is-r-multiple/">
+    <meta property="og:title" content="What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric | SignalDeck">
+    <meta property="og:description" content="R-Multiple defines your initial risk as 1R. Every trade outcome becomes a multiple of that unit. Here's how expectancy, SQN, Kelly, and win rate all flow from one number.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/what-is-r-multiple/">
+    <meta property="twitter:title" content="What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric | SignalDeck">
+    <meta property="twitter:description" content="R-Multiple defines your initial risk as 1R. Every trade outcome becomes a multiple of that unit. Here's how expectancy, SQN, Kelly, and win rate all flow from one number.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric",
+        "description": "R-Multiple defines your initial risk as 1R. Every trade outcome — win or loss — becomes a multiple of that unit. Here's how expectancy, SQN, Kelly Criterion, and win rate all flow from R.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-05-31",
+        "dateModified": "2026-05-31"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is R-Multiple in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "R-Multiple is a way of measuring trade outcomes relative to your initial risk. Before you enter a trade, you define your stop loss — the maximum dollar amount you're willing to lose. That amount is 1R. If the trade wins twice that amount, the outcome is +2R. If it loses, it's -1R. R-Multiple converts every trade into a risk-normalized unit, so you can compare outcomes across different instruments, position sizes, and account sizes without the dollar amounts distorting the comparison."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you calculate R-Multiple?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "R-Multiple = Trade P&L ÷ Initial Risk (in dollars). If you risk $200 on a trade and it wins $500, the R-Multiple is +2.5R. If it loses $150 of a $200 stop (early exit), the R-Multiple is -0.75R. The key is that 1R is always defined at trade entry by your stop loss distance — not by a percentage rule applied after the fact."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a good R-Multiple for a trade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no universal 'good' R-Multiple in isolation — it depends on your win rate. A strategy with 40% win rate needs an average winning trade above +2.5R to be profitable after losses. A strategy with 65% win rate can be profitable with average wins of +1.2R. What matters is expectancy: (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the strategy earns money per trade on average."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does R-Multiple relate to SQN?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SQN (System Quality Number) is calculated from your R-Multiple distribution. The formula is: SQN = (Mean R × √N) ÷ Standard Deviation of R. R-Multiples are the raw input data. Without consistent R-Multiple tracking, you cannot calculate SQN. A higher mean R with lower standard deviation (consistent outcomes) produces a better SQN score."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does SignalDeck use R-Multiple as its core metric?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "R-Multiple is the only metric that makes trade outcomes comparable across different instruments, position sizes, and account sizes. It's the foundation for expectancy, SQN, Kelly Criterion, and Monte Carlo simulation. Without normalizing trades to R, you can't meaningfully aggregate statistics across a multi-instrument journal. SignalDeck uses R as its organizing principle so that every downstream metric — from expectancy to walk-forward analysis — is measuring the same thing."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "What Is R-Multiple in Trading?", "item": "https://sgnldk.com/blog/what-is-r-multiple/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-05-31" class="text-xs font-mono text-zinc-500">May 31, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">R-Value</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric
+            </h1>
+            <p class="text-lg text-zinc-400">
+                R-Multiple turns your stop loss into a unit of measurement. Once every trade is expressed as a multiple of your initial risk, win rate, expectancy, SQN, and Kelly Criterion all start speaking the same language.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Two traders both "made $500 today." One risked $100 to make it. The other risked $2,000. Those are not comparable results. The first trader made 5R. The second made 0.25R. One of these strategies is building a sustainable edge. The other is hoping big wins outpace eventual big losses. R-Multiple is what makes that distinction visible.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                R-Multiple is not a new concept. Van Tharp popularized it in <em>Trade Your Way to Financial Freedom</em>, and it has been the organizing principle of professional systematic trading for decades. What's changed is that most retail traders still don't use it — which is exactly why their statistics lie to them.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Defining 1R: Your Risk Unit</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Before you enter a trade, you place a stop loss. The dollar distance between your entry price and your stop — multiplied by your position size — is your initial risk in dollars. That is <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">1R</span>.
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 font-mono text-sm text-zinc-300 mb-6">
+                <div class="mb-2 text-zinc-500">// Example: EURUSD long</div>
+                Entry:     1.0850<br>
+                Stop Loss: 1.0820  <span class="text-zinc-500">// 30 pips</span><br>
+                Position:  1 standard lot  <span class="text-zinc-500">// $10/pip</span><br>
+                <br>
+                1R = 30 pips × $10/pip = <span class="text-blue-400">$300</span>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Once 1R is defined at entry, every possible trade outcome becomes a multiple of it. The trade hits your 2:1 target? That's <span class="font-mono text-emerald-400 bg-zinc-900 px-1 rounded text-sm">+2R</span>. You exit early for half a loss? That's <span class="font-mono text-rose-400 bg-zinc-900 px-1 rounded text-sm">-0.5R</span>. You're stopped out at full loss? That's <span class="font-mono text-rose-400 bg-zinc-900 px-1 rounded text-sm">-1R</span>.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The R-Multiple Formula</h2>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
+                R-Multiple = Trade P&amp;L ($) &divide; Initial Risk ($)
+            </div>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Trade P&amp;L</th>
+                            <th class="px-4 py-3 text-left font-semibold">Initial Risk (1R)</th>
+                            <th class="px-4 py-3 text-left font-semibold">R-Multiple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-emerald-400">+$600</td>
+                            <td class="px-4 py-3 text-zinc-300">$300</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+2.0R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-emerald-400">+$150</td>
+                            <td class="px-4 py-3 text-zinc-300">$300</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+0.5R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-rose-400">-$300</td>
+                            <td class="px-4 py-3 text-zinc-300">$300</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-1.0R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-rose-400">-$150</td>
+                            <td class="px-4 py-3 text-zinc-300">$300</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-0.5R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-emerald-400">+$900</td>
+                            <td class="px-4 py-3 text-zinc-300">$300</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">+3.0R</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why R-Multiple Is the Foundation of Every Other Metric</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Once you have a distribution of R-Multiples across your trades, every serious trading metric is computable. None of them require dollar amounts — only R values.
+            </p>
+
+            <h3 class="text-lg font-bold text-white mt-8 mb-3">Expectancy</h3>
+            <p class="text-zinc-300 leading-relaxed mb-3">
+                <a href="../trading-expectancy/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Trading expectancy</a> is the average R-Multiple across all your trades — what you earn per trade, in R, on average.
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
+                Expectancy = (Win Rate × Avg Win R) − (Loss Rate × Avg Loss R)
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A positive expectancy means you make money over time. A negative expectancy means you lose it. Win rate alone tells you neither — a 70% win rate with 0.3R average wins and 1.5R average losses is deeply unprofitable (+0.7×0.3 − 0.3×1.5 = −0.24R per trade).
+            </p>
+
+            <h3 class="text-lg font-bold text-white mt-8 mb-3">SQN (System Quality Number)</h3>
+            <p class="text-zinc-300 leading-relaxed mb-3">
+                <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> measures the consistency of your R-Multiple distribution, not just its average. A strategy can have high expectancy but wild variance — meaning it requires deep drawdowns to realize its edge. SQN penalizes that variance.
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-6">
+                SQN = (Mean R × √N) &divide; Standard Deviation of R
+            </div>
+
+            <h3 class="text-lg font-bold text-white mt-8 mb-3">Kelly Criterion</h3>
+            <p class="text-zinc-300 leading-relaxed mb-3">
+                <a href="../kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly Criterion</a> determines the mathematically optimal fraction of your account to risk per trade. It uses win rate and the ratio of average win R to average loss R — both derived from your R-Multiple history.
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm text-zinc-300 overflow-x-auto mb-6">
+                Kelly % = Win Rate − (Loss Rate &divide; Win-to-Loss R Ratio)
+            </div>
+
+            <h3 class="text-lg font-bold text-white mt-8 mb-3">Win Rate (In Context)</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../why-win-rate-is-lying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Win rate alone is meaningless without knowing average win R and average loss R.</a> R-Multiple provides that context. A 40% win rate with 3R wins and 1R losses (expectancy = +0.8R/trade) outperforms a 70% win rate with 0.5R wins and 2R losses (expectancy = −0.25R/trade). The win-rate-obsessed trader is losing money. The R-focused trader is building wealth.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">R-Multiple Benchmarks by Strategy Type</h2>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Strategy Type</th>
+                            <th class="px-4 py-3 text-left font-semibold">Typical Win Rate</th>
+                            <th class="px-4 py-3 text-left font-semibold">Avg Win R Needed to Break Even</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Trend following</td>
+                            <td class="px-4 py-3 text-zinc-300">35–45%</td>
+                            <td class="px-4 py-3 font-mono text-blue-400">&gt;1.5R average</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Mean reversion</td>
+                            <td class="px-4 py-3 text-zinc-300">55–70%</td>
+                            <td class="px-4 py-3 font-mono text-blue-400">&gt;0.6R average</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Scalping</td>
+                            <td class="px-4 py-3 text-zinc-300">65–80%</td>
+                            <td class="px-4 py-3 font-mono text-blue-400">&gt;0.3R average</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Breakout</td>
+                            <td class="px-4 py-3 text-zinc-300">40–55%</td>
+                            <td class="px-4 py-3 font-mono text-blue-400">&gt;1.0R average</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">R-Multiple and Walk-Forward Analysis</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> in SignalDeck reports its results entirely in R. The in-sample result is expressed as total R earned. The out-of-sample result is expressed as total R earned. The walk-forward efficiency ratio compares those two R figures. Because both the strategy validation phase and the live trading phase use the same R unit, you can directly compare your backtest performance to your journal performance — apples to apples, regardless of account size changes over time.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How R-Multiple Works in Prop Firm Trading</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Prop firm rules are risk-based: daily loss limits (typically 4–5% of account), max drawdown rules (typically 8–10%), and consistency requirements. These translate directly into R when you define 1R as a fixed percentage of funded account equity. A 5% daily loss limit becomes a "stop trading after -5R today" rule. The R-framework doesn't just help you track performance — it structurally enforces prop firm compliance. <a href="../../prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">See how SignalDeck's prop firm journal is built around this principle.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is R-Multiple in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">R-Multiple is a way of measuring trade outcomes relative to your initial risk. Before you enter a trade, you define your stop loss — the maximum dollar amount you're willing to lose. That amount is 1R. If the trade wins twice that amount, the outcome is +2R. If it loses, it's -1R. R-Multiple converts every trade into a risk-normalized unit, so you can compare outcomes across different instruments, position sizes, and account sizes.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do you calculate R-Multiple?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">R-Multiple = Trade P&amp;L ÷ Initial Risk (in dollars). If you risk $200 on a trade and it wins $500, the R-Multiple is +2.5R. If it loses $150 of a $200 stop, the R-Multiple is -0.75R. The key is that 1R is always defined at trade entry by your stop loss distance — not applied after the fact.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is a good R-Multiple for a trade?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">There is no universal 'good' R-Multiple in isolation — it depends on your win rate. A strategy with 40% win rate needs average winning trades above +2.5R to be profitable. What matters is expectancy: (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the strategy earns money per trade on average.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How does R-Multiple relate to SQN?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">SQN is calculated from your R-Multiple distribution: SQN = (Mean R × √N) ÷ Standard Deviation of R. R-Multiples are the raw input data. Without consistent R-Multiple tracking, you cannot calculate SQN. A higher mean R with lower standard deviation produces a better SQN score.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why does SignalDeck use R-Multiple as its core metric?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">R-Multiple is the only metric that makes trade outcomes comparable across different instruments, position sizes, and account sizes. It's the foundation for expectancy, SQN, Kelly Criterion, and Monte Carlo simulation. Without normalizing trades to R, you can't meaningfully aggregate statistics across a multi-instrument journal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../trading-expectancy/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Trading Expectancy Formula: Why It Beats Win Rate Every Time</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
+                    </a>
+                    <a href="../how-to-calculate-sqn-score/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Calculate Your Trading System Quality Number (SQN)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 20, 2026</p>
+                    </a>
+                    <a href="../kelly-criterion-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Kelly Criterion: Let Your Own Data Tell You How Much to Risk Per Trade</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 13, 2026</p>
+                    </a>
+                    <a href="../why-win-rate-is-lying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Win Rate Is Lying to You (And What to Track Instead)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 30, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Every SignalDeck metric flows from R.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">Log your stop loss and SignalDeck calculates R-Multiple, expectancy, SQN, and Kelly Criterion automatically. Free during beta — Pro ($30/mo) and Team ($50/mo) plans launch June 2026.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="gtag('event', 'blog_cta_click', {'article': 'what-is-r-multiple'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta — Free
+                    </a>
+                    <a href="../../plans/index.html"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

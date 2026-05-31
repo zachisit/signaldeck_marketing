@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FTMO Trading Journal — MT4/MT5 Auto-Import, R-Framework, WFA Edge Validation | SignalDeck</title>
+    <meta name="description" content="SignalDeck integrates with FTMO MT4/MT5 accounts via MetaApi auto-import. R-Multiple framework mirrors FTMO drawdown rules. Walk-Forward Analysis validates your edge before the challenge fee.">
+    <meta name="keywords" content="FTMO trading journal, FTMO MT4 MT5 journal, FTMO challenge journal, FTMO R-multiple tracking, FTMO drawdown tracker, best journal for FTMO, FTMO walk-forward analysis, FTMO funded account journal">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/ftmo-trading-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/ftmo-trading-journal/">
+    <meta property="og:title" content="FTMO Trading Journal — MT4/MT5 Auto-Import, R-Framework, WFA Edge Validation | SignalDeck">
+    <meta property="og:description" content="SignalDeck integrates with FTMO MT4/MT5 accounts via MetaApi. R-Multiple framework mirrors FTMO drawdown rules. Walk-Forward Analysis validates your edge before the challenge fee.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/ftmo-trading-journal/">
+    <meta property="twitter:title" content="FTMO Trading Journal — MT4/MT5 Auto-Import, R-Framework, WFA Edge Validation | SignalDeck">
+    <meta property="twitter:description" content="SignalDeck integrates with FTMO MT4/MT5 accounts via MetaApi. R-Multiple framework mirrors FTMO drawdown rules. Walk-Forward Analysis validates your edge before the challenge fee.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SignalDeck",
+        "url": "https://app.sgnldk.com",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Trading journal for FTMO and other MT4/MT5-based prop firm traders. MT4/MT5 auto-import via MetaApi, live balance sync, R-Multiple tracking aligned with FTMO drawdown rules, Walk-Forward Analysis for edge validation before the challenge fee, and 1,000-path Monte Carlo simulation.",
+        "featureList": "MT4/MT5 auto-import, Live balance sync, R-Multiple tracking, Walk-Forward Analysis, Monte Carlo simulation, SQN edge scoring, Drawdown limit monitoring, NAS100/XAUUSD/GER40 native support",
+        "operatingSystem": "Web"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck work with FTMO MT4 and MT5 accounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SignalDeck connects to FTMO MT4 and MT5 accounts via MetaApi. Once connected, trades import automatically — fills, P&L, symbol, volume, and execution price sync without manual entry. Live account balance syncs in real time so your Kelly Criterion and 1R sizing always reflect your actual FTMO funded account equity. Stop loss requires manual entry after import for R-Multiple calculation — MetaApi history-deals returns fills, not order-level SL data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does R-Multiple tracking help with FTMO drawdown rules?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "FTMO's daily loss limit (typically 5% of account balance) and maximum drawdown rule (typically 10%) are risk-based constraints. R-Multiple thinking enforces the same constraints structurally. When every trade is sized as a fixed fraction of your funded account (1R = 1% of equity), a 5% daily loss limit becomes a 'stop after -5R today' rule — no separate dollar monitoring required. The R-framework and FTMO's rules align by design, which is why SignalDeck uses R as its core metric."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I validate my edge before an FTMO challenge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SignalDeck's Walk-Forward Analysis splits your historical data 80% in-sample and 20% out-of-sample and returns a Pass or Likely Overfitted verdict. An FTMO Challenge costs $155–$1,080+ depending on account size. Running Walk-Forward Analysis before you pay tells you whether your edge is genuinely out-of-sample valid or just curve-fitted to your trade history. Monte Carlo simulation shows your worst-case drawdown across 1,000 randomized trade sequences — know your risk before you risk it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which instruments does SignalDeck support for FTMO traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck natively supports the instruments most commonly traded on FTMO: XAUUSD (Gold), NAS100, GER40, US500, US30, XAGUSD, and all major forex pairs (EURUSD, GBPUSD, USDJPY, etc.). Enter tickers exactly as FTMO's MT4/MT5 displays them — SignalDeck routes to the correct live price feed automatically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck track the FTMO daily loss limit in real time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck tracks your running R-loss for the day and alerts you when open positions approach your pre-set daily R limit. Because live balance sync keeps your 1R dollar value current, the daily R limit translates directly to your FTMO percentage-based daily loss rule. Live stop monitoring on open CFD and forex positions alerts you before a stop is hit — so you know your risk before the trade closes."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "FTMO Trading Journal", "item": "https://sgnldk.com/ftmo-trading-journal/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981', 400: '#34d399' },
+                        rose: { 500: '#f43f5e' },
+                        amber: { 400: '#fbbf24' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/signaldeck_logo_nav.png" class="h-6 w-6 object-contain" alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../prop-firm/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Prop Firm</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../prop-firm/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Prop Firm</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-emerald-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="flex flex-wrap justify-center gap-3 mb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    FTMO MT4/MT5 Auto-Import
+                </div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    Walk-Forward Analysis · Live Balance Sync
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                The Trading Journal Built for<br>
+                <span class="text-emerald-400">FTMO Challenge and Funded Accounts.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 leading-relaxed">
+                MT4/MT5 auto-import via MetaApi. R-Multiple framework that structurally mirrors FTMO's drawdown rules. Walk-Forward Analysis to validate your edge before you pay the challenge fee. Free during beta.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://app.sgnldk.com"
+                    onclick="gtag('event', 'ftmo_journal_cta_click', {'button_location': 'hero'});"
+                    target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
+                    Start Free — Beta Access
+                </a>
+                <a href="../prop-firm/index.html"
+                    class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
+                    Full Prop Firm Features
+                </a>
+            </div>
+            <!-- Feature pills -->
+            <div class="mt-10 flex flex-wrap justify-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">FTMO MT4/MT5 Auto-Import</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">Live Balance Sync</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">R-Multiple Tracking</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">Walk-Forward Analysis</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">1,000-Path Monte Carlo</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">XAUUSD · NAS100 · GER40</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">SQN Edge Scoring</span>
+                <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono">Daily Loss Limit Tracker</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: MT4/MT5 Auto-Import -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-5">
+                        MT4/MT5 via MetaApi
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        FTMO Runs on MT4/MT5.<br>
+                        <span class="text-blue-400">So Does Your Journal.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Connect your FTMO MT4 or MT5 account once. Every closed trade imports automatically — fills, P&amp;L, symbol, volume, and execution price. No CSV exports. No manual entry. No missed trades on a busy news day.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Live balance sync reads your FTMO account equity in real time. After a losing day, your 1R dollar amount adjusts automatically — so your next position is sized against what you actually have, not yesterday's balance.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5">✓</span>
+                            <span>Fills, P&amp;L, symbol, volume, execution price import automatically</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5">✓</span>
+                            <span>Live equity sync — Kelly and Fixed-R sizing always use current FTMO balance</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5">✓</span>
+                            <span>Works on any FTMO MT4/MT5 server — FTMO, FTMO-Demo, FTMO-Evaluation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-500 mt-0.5">→</span>
+                            <span class="text-zinc-500">Stop loss requires manual entry after import for R-Multiple calculation</span>
+                        </li>
+                    </ul>
+                    <a href="../broker-import/index.html" class="text-blue-400 hover:text-blue-300 text-sm mt-5 inline-block transition-colors">Full import details and how MetaApi connects &rarr;</a>
+                </div>
+
+                <!-- Visual: import feed -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-blue-600/10 to-emerald-600/10 rounded-2xl blur-xl opacity-40 group-hover:opacity-80 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-blue-500/25 rounded-xl p-6 shadow-2xl">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                                <span class="text-xs font-mono text-blue-400">MetaApi · FTMO MT5 · Live</span>
+                            </div>
+                            <span class="text-[10px] font-mono text-zinc-500">Auto-sync active</span>
+                        </div>
+                        <div class="space-y-3 mb-5">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">FTMO Equity (Live)</p>
+                                    <p class="text-base font-mono font-bold text-white">$49,622.80</p>
+                                </div>
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">Daily Loss Remaining</p>
+                                    <p class="text-base font-mono font-bold text-emerald-400">$2,238.18</p>
+                                </div>
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">1R = 1% equity</p>
+                                    <p class="text-base font-mono font-bold text-zinc-300">$496.23</p>
+                                </div>
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">Today's R-PnL</p>
+                                    <p class="text-base font-mono font-bold text-emerald-400">+1.4R</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-[10px] font-mono text-zinc-500 mb-2">Recent imports (FTMO Challenge Phase 1)</p>
+                            <div class="flex items-center justify-between bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-[10px] font-mono text-zinc-500">08:14</span>
+                                    <span class="text-sm font-mono font-semibold text-white">XAUUSD</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">BUY 0.15 lots</span>
+                                </div>
+                                <span class="text-sm font-mono font-bold text-emerald-400">+$347.60</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-[10px] font-mono text-zinc-500">10:02</span>
+                                    <span class="text-sm font-mono font-semibold text-white">NAS100</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">SELL 0.10 lots</span>
+                                </div>
+                                <span class="text-sm font-mono font-bold text-rose-400">−$186.40</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-[10px] font-mono text-zinc-500">11:47</span>
+                                    <span class="text-sm font-mono font-semibold text-white">EURUSD</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">BUY 0.40 lots</span>
+                                </div>
+                                <span class="text-sm font-mono font-bold text-emerald-400">+$531.20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: R-Framework Mirrors FTMO Rules -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <!-- Visual left -->
+                <div class="relative group order-2 md:order-1">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-40 group-hover:opacity-80 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <p class="text-xs font-mono text-zinc-500 mb-5">FTMO Rule Alignment · Challenge Phase 1 · $50K Account</p>
+                        <div class="space-y-3">
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-mono text-zinc-400">Daily Loss Limit</span>
+                                    <span class="text-xs font-mono text-zinc-500">FTMO: 5% = $2,500</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-mono text-zinc-300">SignalDeck 1R = 1%</span>
+                                    <span class="text-sm font-mono font-bold text-emerald-400">Stop after &minus;5R today</span>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-mono text-zinc-400">Max Drawdown</span>
+                                    <span class="text-xs font-mono text-zinc-500">FTMO: 10% = $5,000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-mono text-zinc-300">Fixed-R sizing</span>
+                                    <span class="text-sm font-mono font-bold text-emerald-400">Loss compounds predictably</span>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-mono text-zinc-400">Consistency Rule</span>
+                                    <span class="text-xs font-mono text-zinc-500">No single day &gt;25% of profit</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-mono text-zinc-300">R-normalized sizing</span>
+                                    <span class="text-sm font-mono font-bold text-emerald-400">Prevents outsized days</span>
+                                </div>
+                            </div>
+                            <div class="bg-emerald-500/5 border border-emerald-500/15 rounded-lg px-4 py-2">
+                                <p class="text-[10px] font-mono text-emerald-500/70">SQN: 2.4 — Good edge. Trust the system.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text right -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        FTMO Rules Are Risk Rules.<br>
+                        <span class="text-emerald-400">R-value enforces them automatically.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        FTMO's trading objectives — 10% profit target, 5% daily loss limit, 10% maximum drawdown — are all percentage-of-equity constraints. R-Multiple thinking enforces the same constraints as your position sizing methodology. When 1R is defined as 1% of your current funded equity, your daily loss limit becomes a simple R count. No dollar-amount monitoring alongside your sizing decisions.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        After a losing sequence, your funded equity decreases. Because SignalDeck syncs your live FTMO balance, your 1R dollar amount decreases with it — you're automatically de-sizing after drawdown without changing any settings. This is what <a href="../blog/journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">live balance sync</a> makes possible.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-3">
+                            <p class="text-emerald-400 text-xs font-mono mb-1">Daily Loss Limit</p>
+                            <p class="text-zinc-300 text-sm">R-sizing keeps you structurally inside the 5% rule</p>
+                        </div>
+                        <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-3">
+                            <p class="text-emerald-400 text-xs font-mono mb-1">Max Drawdown</p>
+                            <p class="text-zinc-300 text-sm">Fixed-R compounds loss predictably — no surprises</p>
+                        </div>
+                        <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-3">
+                            <p class="text-emerald-400 text-xs font-mono mb-1">Profit Target</p>
+                            <p class="text-zinc-300 text-sm">Track R-progress toward the 10% target daily</p>
+                        </div>
+                        <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-3">
+                            <p class="text-emerald-400 text-xs font-mono mb-1">Scaling Up</p>
+                            <p class="text-zinc-300 text-sm">SQN confirms edge is real before requesting more capital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Validate Edge Before Challenge Fee -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Know If Your Edge Is Real<br>
+                        <span class="text-purple-400">Before You Pay the Challenge Fee.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        An FTMO Challenge costs $155–$1,080+ depending on account size. Most traders pay to find out whether their strategy works under prop firm conditions. SignalDeck lets you find that out first.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        <a href="../blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> splits your backtest data into in-sample and out-of-sample windows, returns a Pass or Likely Overfitted verdict, and shows the walk-forward efficiency ratio. A passing strategy has demonstrated that its parameters hold up on data they were never fit to — which is the closest thing to a live test you can run before you're live.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        <a href="../blog/monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> reruns your trade sequence 1,000 times in randomized order. The 5th percentile result is your worst-case drawdown under bad luck conditions — the drawdown your historical sequence happened to avoid. Know whether your system can survive FTMO's 10% max drawdown under adverse trade sequences before you submit.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-purple-400 mt-0.5">✓</span>
+                            <span>Walk-Forward Analysis — Pass/Fail verdict for out-of-sample edge validity</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-purple-400 mt-0.5">✓</span>
+                            <span>1,000-path Monte Carlo — worst-case drawdown before it hits your FTMO account</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-purple-400 mt-0.5">✓</span>
+                            <span>SQN score from live journal data — confirms edge is statistically real (2.0+ is tradable)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-purple-400 mt-0.5">✓</span>
+                            <span>16 built-in strategies tested on XAUUSD, NAS100, and forex pairs</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Visual right: WFA panel -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-purple-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-40 group-hover:opacity-80 transition duration-1000"></div>
+                    <div class="relative space-y-4">
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-2xl">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-mono text-zinc-500">Walk-Forward Analysis</span>
+                                <span class="text-[10px] font-mono text-zinc-600">EMA 9/21 · XAUUSD · 1H</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-3 mb-4">
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3 text-center">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">In-Sample</p>
+                                    <p class="text-base font-mono font-bold text-emerald-400">+42.1R</p>
+                                </div>
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3 text-center">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">Out-of-Sample</p>
+                                    <p class="text-base font-mono font-bold text-emerald-400">+11.8R</p>
+                                </div>
+                                <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3 text-center">
+                                    <p class="text-[10px] font-mono text-zinc-500 mb-1">WFA Ratio</p>
+                                    <p class="text-base font-mono font-bold text-blue-400">0.68</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between bg-emerald-500/8 border border-emerald-500/20 rounded-lg px-4 py-3">
+                                <span class="text-sm font-mono text-zinc-300">Verdict</span>
+                                <span class="text-sm font-mono font-bold text-emerald-400">✓ PASS</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
+                                <p class="text-[10px] font-mono text-zinc-500 mb-2">SQN Score (Live)</p>
+                                <p class="text-2xl font-mono font-bold text-blue-400 mb-1">2.4</p>
+                                <p class="text-[10px] font-mono text-zinc-500">Good — tradable edge</p>
+                            </div>
+                            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
+                                <p class="text-[10px] font-mono text-zinc-500 mb-2">MC 5th %ile DD</p>
+                                <p class="text-2xl font-mono font-bold text-amber-400 mb-1">-8.6R</p>
+                                <p class="text-[10px] font-mono text-zinc-500">Below FTMO 10% limit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instrument Support -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-bold text-white mb-4">Every FTMO Instrument. Natively.</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Enter tickers exactly as FTMO's MT4/MT5 displays them. SignalDeck routes to the correct live price feed automatically — no manual symbol mapping.</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">XAUUSD</div>
+                    <div class="text-xs font-mono text-zinc-500">Gold</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">NAS100</div>
+                    <div class="text-xs font-mono text-zinc-500">Nasdaq 100</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">GER40</div>
+                    <div class="text-xs font-mono text-zinc-500">DAX 40</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">US500</div>
+                    <div class="text-xs font-mono text-zinc-500">S&amp;P 500</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">EURUSD</div>
+                    <div class="text-xs font-mono text-zinc-500">Major Forex</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-colors">
+                    <div class="text-xl font-mono font-bold text-white mb-1">XAGUSD</div>
+                    <div class="text-xs font-mono text-zinc-500">Silver</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck work with FTMO MT4 and MT5 accounts?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. SignalDeck connects to FTMO MT4 and MT5 accounts via MetaApi. Trades import automatically — fills, P&amp;L, symbol, volume, and execution price sync without manual entry. Live account balance syncs in real time. Stop loss requires manual entry after import for R-Multiple calculation.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How does R-Multiple tracking help with FTMO drawdown rules?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">FTMO's daily loss limit (typically 5%) and maximum drawdown (typically 10%) are percentage-of-equity constraints. When 1R is defined as 1% of your FTMO account equity, a 5% daily loss limit becomes a "stop after −5R today" rule. No separate dollar monitoring. The framework and the rules align by design — and live balance sync keeps your 1R dollar value current as your FTMO equity changes.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Can I validate my edge before an FTMO challenge?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. Walk-Forward Analysis splits your historical data into in-sample and out-of-sample windows and returns a Pass or Likely Overfitted verdict. Monte Carlo simulation shows your worst-case drawdown across 1,000 randomized trade sequences — know whether your system can survive FTMO's 10% max drawdown under adverse conditions before you submit the challenge.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Which instruments does SignalDeck support for FTMO traders?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">XAUUSD (Gold), NAS100, GER40, US500, US30, XAGUSD, and all major forex pairs — natively. Enter tickers exactly as FTMO's MT4/MT5 displays them. SignalDeck routes to the correct live price feed automatically.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck track the FTMO daily loss limit in real time?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. SignalDeck tracks your running R-loss for the day and provides live stop monitoring on open positions so you know your risk before trades close. Because live balance sync keeps your 1R dollar value current, the daily R limit translates directly to FTMO's percentage-based daily loss rule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Start journaling your FTMO trades. Free.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">MT4/MT5 auto-import, live balance sync, R-Multiple tracking, Walk-Forward Analysis, 1,000-path Monte Carlo, SQN edge scoring, and daily loss limit monitoring — all included during beta.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="gtag('event', 'ftmo_journal_cta_click', {'button_location': 'bottom_cta'});"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
+                Join the Beta — Free
+            </a>
+            <p class="mt-4 text-xs text-zinc-600 font-mono">Free during beta. Paid plans launch June 2026: Free / Pro $30 / Team $50.</p>
+        </div>
+    </section>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> |
+                <a href="../discord.html" class="hover:text-zinc-400">Discord</a>
+            </p>
+            <!-- Legal disclaimer: third-party trademark -->
+            <p class="mt-6 text-xs text-zinc-700 font-mono max-w-md mx-auto">
+                FTMO is a trademark of its respective owner. SignalDeck is not affiliated with, endorsed by, or in any way officially connected with FTMO or any of its subsidiaries. All product names, trademarks, and registered trademarks are property of their respective owners.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits | SignalDeck</title>
+    <meta name="description" content="Grid search tests every parameter combination in a defined range. Without Walk-Forward Analysis, it reliably finds parameters that look great in-sample and fail live. Here's why — and how to fix it.">
+    <meta name="keywords" content="grid search trading, parameter optimization trading, strategy optimization backtesting, overfitting grid search, walk-forward optimization, trading parameter stability, grid search vs walk-forward, SignalDeck optimizer">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/">
+    <meta property="og:title" content="Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits | SignalDeck">
+    <meta property="og:description" content="Grid search tests every parameter combination in a defined range. Without Walk-Forward Analysis, it reliably finds parameters that look great in-sample and fail live.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/">
+    <meta property="twitter:title" content="Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits | SignalDeck">
+    <meta property="twitter:description" content="Grid search tests every parameter combination in a defined range. Without Walk-Forward Analysis, it reliably finds parameters that look great in-sample and fail live.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits",
+        "description": "Grid search parameter optimization tests every combination of parameters in a defined range to find the set that maximizes a performance metric. Without Walk-Forward Analysis, it reliably produces overfit strategies. Here's the full picture.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-05-31",
+        "dateModified": "2026-05-31"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is grid search in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Grid search is a parameter optimization method that tests every possible combination of strategy parameters within a defined range. For example, if you're optimizing a moving average crossover with fast MA values from 5 to 20 and slow MA values from 20 to 60, grid search runs every combination (5/20, 5/21, 5/22... 20/60) and returns the one with the best historical performance. The danger is that this best-performing combination may be best because it happened to fit the specific historical data tested, not because it captures a durable market edge."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does grid search cause overfitting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Grid search evaluates and selects parameters based on in-sample performance. The selected parameters are, by definition, the ones that performed best on the data the search was run on. This creates a circular problem: the evaluation data is the same as the selection data. With enough parameters and enough combinations, grid search will always find a parameter set that looks excellent historically — even if the underlying strategy has no real edge. This is overfitting: the parameters describe the past rather than predicting the future."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Walk-Forward Analysis fix grid search overfitting?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Walk-Forward Analysis runs grid search on a rolling in-sample window, then applies the selected parameters to an out-of-sample window that the optimization never saw. This separates the selection data from the evaluation data. If the parameters found by grid search are genuinely robust, they will perform well on the out-of-sample data. If they were overfit, they will degrade significantly on unseen data — which is exactly what you want to detect before risking real capital."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is parameter stability and why does it matter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Parameter stability refers to how consistently the optimal parameters cluster across different optimization windows. If grid search finds fast MA = 9 as optimal in most rolling windows, that's a stable parameter. If the optimal fast MA value jumps from 5 to 17 to 8 across successive windows, the parameter is unstable — meaning the optimization is finding noise, not signal. Stable parameters across multiple walk-forward windows are strong evidence of genuine edge. Unstable parameters suggest overfitting."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many parameter combinations does SignalDeck's optimizer test?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck's grid-search optimizer tests up to 500 parameter combinations per optimization run across its 16 built-in backtest strategies. Each combination is evaluated on the in-sample period, and the selected parameters are then validated on the out-of-sample period via Walk-Forward Analysis. This means you see both the optimized result and its out-of-sample validation in a single workflow."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Grid Search Parameter Optimization in Trading", "item": "https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-05-31" class="text-xs font-mono text-zinc-500">May 31, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Strategy</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Grid search is the most common optimization method and the most reliable way to fool yourself into thinking you have an edge. Here's exactly what it does, why it produces overfit strategies, and how Walk-Forward Analysis converts it into a tool you can trust.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Every strategy has parameters: a moving average period, an RSI threshold, a stop loss distance. These numbers matter — the difference between EMA 9 and EMA 21 can be the difference between a profitable strategy and a losing one on a specific dataset. Grid search is the brute-force method for finding which parameter values worked best historically.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The problem is that "worked best historically" and "will work going forward" are not the same thing — and grid search, applied naively, systematically finds the parameters that maximize the gap between those two outcomes.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How Grid Search Works</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Grid search takes a set of parameters and a range for each parameter, then tests every possible combination:
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 font-mono text-sm text-zinc-300 mb-6">
+                <div class="mb-2 text-zinc-500">// EMA Crossover grid search</div>
+                Fast EMA: [5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]  <span class="text-zinc-500">// 11 values</span><br>
+                Slow EMA: [20, 25, 30, 35, 40, 50, 60, 75, 100]      <span class="text-zinc-500">// 9 values</span><br>
+                Stop Loss: [1.0, 1.5, 2.0, 2.5, 3.0]                 <span class="text-zinc-500">// 5 values (ATR multiples)</span><br>
+                <br>
+                Total combinations: 11 × 9 × 5 = <span class="text-blue-400">495 backtests</span>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Each combination is run against the full historical dataset. The combination with the best score — highest Sharpe ratio, highest total return, best SQN — is selected as the "optimal" parameter set. This sounds rigorous. It isn't, for a fundamental reason: the same data was used to both select and evaluate the winner.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Grid Search Overfits by Design</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Consider what happens when you run 495 backtests on the same historical data. Even if the underlying strategy has no genuine edge, some parameter combinations will look profitable by chance. The more combinations you test, the more likely you are to find one that appears excellent historically. When you then select and deploy the best-performing combination, you've inadvertently selected for luck on that specific historical sequence.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "Optimization without out-of-sample validation is an advanced way to torture data until it confesses." — common systematic trading maxim
+            </blockquote>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is the multiple comparisons problem applied to trading. In statistics, if you run 20 independent tests at 5% significance, you expect one false positive by chance alone. In grid search with 495 combinations, you will find multiple parameter sets that look statistically excellent — even on random noise. The one you pick will almost certainly underperform in live trading because its historical outperformance was, at least partially, an artifact of the data it was selected on.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Parameter Stability: The Early Warning Signal</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Before running Walk-Forward Analysis, you can get an early read on overfitting by examining parameter stability across the optimization surface. A genuinely robust parameter value tends to be optimal (or near-optimal) across a broad region of the parameter space — not just at a single peak.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                If EMA 9 is the optimum, but EMA 8 and EMA 10 perform almost as well, that's a stable region — the strategy isn't sensitive to the exact parameter value. If EMA 9 is the only value that produces a positive result, surrounded by negative results at EMA 8 and EMA 10, that's a peak in a noise landscape. The precise value is likely a coincidence specific to the historical data.
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Signal</th>
+                            <th class="px-4 py-3 text-left font-semibold">Stable (Good)</th>
+                            <th class="px-4 py-3 text-left font-semibold">Unstable (Red Flag)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Optimal value region</td>
+                            <td class="px-4 py-3 text-emerald-400">Broad plateau</td>
+                            <td class="px-4 py-3 text-rose-400">Single sharp spike</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Across rolling windows</td>
+                            <td class="px-4 py-3 text-emerald-400">Clusters near same value</td>
+                            <td class="px-4 py-3 text-rose-400">Jumps wildly window to window</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Adjacent parameter performance</td>
+                            <td class="px-4 py-3 text-emerald-400">Degrades gracefully</td>
+                            <td class="px-4 py-3 text-rose-400">Falls off a cliff</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Walk-Forward Analysis: The Fix</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> breaks the circular dependency of grid search by separating the optimization data from the evaluation data. Instead of running grid search on the full dataset and evaluating the result on the same data, WFA does the following:
+            </p>
+            <ol class="list-decimal list-inside space-y-3 text-zinc-300 mb-6">
+                <li>Divide the dataset into alternating in-sample (IS) and out-of-sample (OOS) windows</li>
+                <li>Run grid search on the IS window — select the best parameter combination</li>
+                <li>Apply those parameters to the OOS window (which the optimizer never saw)</li>
+                <li>Record the OOS performance, advance the window, repeat</li>
+                <li>Stitch the OOS results together into a combined out-of-sample equity curve</li>
+            </ol>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The combined OOS performance is your real validation. If the grid-search-selected parameters hold up on data they were never optimized against, the edge is likely genuine. If OOS performance degrades dramatically relative to IS performance, you've found overfitting — before it costs you capital.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck's Optimizer Works</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck's grid-search optimizer tests up to 500 parameter combinations across its 16 built-in backtest strategies. Crucially, the optimizer is designed to run within a Walk-Forward Analysis wrapper — grid search finds the in-sample optimum, WFA immediately validates it out-of-sample. The output is not just "here are the best parameters" but "here are the best parameters, and here is whether they held up on data they were never fit to."
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This integrated approach — grid search within Walk-Forward Analysis — is what separates a genuine edge-finding process from sophisticated-looking data fitting. <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Try it free during beta.</a>
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is grid search in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Grid search is a parameter optimization method that tests every possible combination of strategy parameters within a defined range. For example, testing all combinations of fast MA from 5–20 and slow MA from 20–60. The combination with the best historical performance is selected. The danger is that this may fit the historical data specifically rather than capture a durable market edge.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why does grid search cause overfitting?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Grid search evaluates and selects parameters based on in-sample performance. The selected parameters are, by definition, the ones that performed best on the data the search ran on. With enough combinations, grid search will always find a set that looks excellent historically — even on noise. This is overfitting: the parameters describe the past rather than predicting the future.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How does Walk-Forward Analysis fix grid search overfitting?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Walk-Forward Analysis runs grid search on a rolling in-sample window, then applies the selected parameters to an out-of-sample window the optimization never saw. If the parameters are genuinely robust, they will perform well on unseen data. If they were overfit, they will degrade significantly — which is exactly what you want to detect before risking real capital.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is parameter stability and why does it matter?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Parameter stability refers to how consistently the optimal parameters cluster across different optimization windows. If the optimal value jumps wildly across successive windows, the optimization is finding noise, not signal. Stable parameters across multiple walk-forward windows are strong evidence of genuine edge.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How many parameter combinations does SignalDeck's optimizer test?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">SignalDeck's grid-search optimizer tests up to 500 parameter combinations per run across its 16 built-in backtest strategies. Each combination is evaluated on the in-sample period, and the selected parameters are then validated on the out-of-sample period via Walk-Forward Analysis — so you see both the optimized result and its validation in a single workflow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare and Related -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 20, 2026</p>
+                    </a>
+                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
+                    </a>
+                    <a href="../how-to-calculate-sqn-score/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Calculate Your Trading System Quality Number (SQN)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 20, 2026</p>
+                    </a>
+                    <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Know When Your Trading Strategy Is Dying</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 13, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Grid search and Walk-Forward Analysis — built in.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck's optimizer tests up to 500 combinations across 16 strategies, then immediately validates the winner out-of-sample. No separate tools, no manual setup. Pro feature — free during beta.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="gtag('event', 'blog_cta_click', {'article': 'grid-search-parameter-optimization'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta — Free
+                    </a>
+                    <a href="../../plans/index.html"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

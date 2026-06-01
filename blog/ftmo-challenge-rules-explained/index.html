@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track | SignalDeck</title>
+    <meta name="description" content="The FTMO daily loss limit and maximum drawdown rules end most challenges. Here's how they interact, what your journal must track in real time, and how Monte Carlo helps you estimate pass probability before you pay.">
+    <meta name="keywords" content="FTMO challenge rules, FTMO drawdown rules, FTMO daily loss limit, FTMO trading journal, how to pass FTMO challenge, FTMO maximum drawdown">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/ftmo-challenge-rules-explained/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/ftmo-challenge-rules-explained/">
+    <meta property="og:title" content="FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track | SignalDeck">
+    <meta property="og:description" content="The FTMO daily loss limit and maximum drawdown rules end most challenges. Here's how they interact, what your journal must track in real time, and how Monte Carlo helps you estimate pass probability before you pay.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/ftmo-challenge-rules-explained/">
+    <meta property="twitter:title" content="FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track | SignalDeck">
+    <meta property="twitter:description" content="The FTMO daily loss limit and maximum drawdown rules end most challenges. Here's how they interact, what your journal must track in real time, and how Monte Carlo helps you estimate pass probability before you pay.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track",
+        "description": "The FTMO daily loss limit and maximum drawdown rules end most challenges. Here's how they interact, what your journal must track in real time, and how Monte Carlo simulation helps you estimate pass probability before you pay the fee.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-06-01",
+        "dateModified": "2026-06-01"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the FTMO daily loss limit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The FTMO daily loss limit is 5% of the initial account balance for the standard FTMO Challenge. On a $100,000 account, that is a $5,000 maximum loss in a single trading day. The limit is calculated from the balance at the start of the trading day and resets each day at midnight Prague time (CET/CEST). Verify the current rule directly with FTMO before trading — rules can change."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does FTMO use trailing or static drawdown?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard FTMO Challenge uses a static (non-trailing) maximum drawdown. The overall 10% drawdown limit is calculated from the initial account balance — it does not trail your equity high-water mark. The daily 5% loss limit does reset each day, but it is always measured from the starting balance, not from a peak. Verify the current implementation directly with FTMO, as rules and account types can change."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I track my FTMO drawdown in real time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need to track two numbers simultaneously: your distance to the daily 5% loss limit (from the session opening balance) and your distance to the overall 10% maximum drawdown (from the initial account balance). The most reliable approach is MT4/MT5 live sync that updates your running P&L automatically, rather than calculating manually from a statement after the session ends. Intraday violations happen mid-session — a post-session spreadsheet catches them too late."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What percentage of traders pass the FTMO challenge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "FTMO has publicly disclosed a pass rate of approximately 10% for new applicants, though this figure has been cited in various contexts and may not reflect current data. The low pass rate is widely attributed to drawdown violations caused by position sizing errors, not losing strategies. A trader with a genuine positive-expectancy strategy and correctly sized positions has a materially higher probability of passing than a trader relying on intuition or oversized trades."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use a trading journal during the FTMO challenge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, and it is strongly recommended. A journal that tracks your daily starting balance, running P&L in R-multiples, distance to both drawdown limits, and setup compliance gives you a live picture of your challenge status at any point in the session. Journals that sync directly from MT4/MT5 eliminate the lag of manual entry and update intraday, which matters because the daily loss limit can be hit during the trading session — not just at close."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track", "item": "https://sgnldk.com/blog/ftmo-challenge-rules-explained/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/signaldeck_logo_nav.png"
+                    class="h-6 w-6 object-contain"
+                    alt="SignalDeck logo">
+                    <span class="text-xl font-bold text-white tracking-tight">SignalDeck</span>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-06-01" class="text-xs font-mono text-zinc-500">June 1, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Most traders who fail an FTMO Challenge do not fail because their strategy stopped working. They fail because they did not know — in real time — how close they were to a drawdown limit. Here is what the rules actually say, how they interact, and what your journal must track to keep you safe.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                FTMO's challenge structure is not complicated, but the interaction between its two drawdown rules catches traders who do not have the numbers in front of them during the session. The daily 5% loss limit resets every day. The 10% maximum drawdown does not. A string of days near the daily limit can quietly close most of your headroom on the overall limit before you notice.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This article covers the rules as they apply to the standard FTMO Challenge. Rule details, account types, and fee structures change — verify everything directly with FTMO before you trade. Use this as orientation, not as a substitute for reading FTMO's current documentation.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Two Drawdown Limits That End Most FTMO Challenges</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                FTMO enforces two independent drawdown rules on the standard Challenge. Violating either one ends the challenge immediately, regardless of where you stand on profit targets or trading days.
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Rule</th>
+                            <th class="px-4 py-3 text-left font-semibold">Limit</th>
+                            <th class="px-4 py-3 text-left font-semibold">Measured From</th>
+                            <th class="px-4 py-3 text-left font-semibold">Resets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Daily Loss Limit</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">5%</td>
+                            <td class="px-4 py-3 text-zinc-400">Opening balance of the trading day</td>
+                            <td class="px-4 py-3 text-zinc-400">Daily at midnight CET/CEST</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Maximum Drawdown</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">10%</td>
+                            <td class="px-4 py-3 text-zinc-400">Initial account balance</td>
+                            <td class="px-4 py-3 text-zinc-400">Never — static throughout challenge</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                On a $100,000 account: the daily limit is $5,000 of loss per day; the maximum drawdown limit is $10,000 of cumulative loss from the starting balance.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The interaction between them is the danger zone. Suppose you lose $4,800 on Day 1 (just under the daily limit), $4,800 on Day 2. That is $9,600 in total losses — you are now only $400 away from the maximum drawdown limit, even though you never triggered the daily limit on either day. Day 3 can end your challenge with a single losing trade.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The daily limit is calculated on your balance at the start of each day. If you had a profitable week and grew your account from $100,000 to $108,000, your daily limit for the next session is 5% of $108,000 = $5,400. The maximum drawdown remains anchored to the $100,000 initial balance throughout. Always verify the exact implementation with FTMO directly — rules may change.
+            </p>
+            <blockquote class="border-l-2 border-rose-500/50 pl-4 italic text-zinc-400 mb-6">
+                Most challenge failures are not strategic failures. They are information failures — the trader did not know their real-time distance to the limit when they entered the trade that violated it.
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Profit Target, Minimum Days, and Consistency Rules</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The drawdown rules are the challenge killers, but the profit targets and minimum trading days define what you are working toward. For the standard FTMO Challenge (Phase 1 → Phase 2 → Funded):
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Phase</th>
+                            <th class="px-4 py-3 text-left font-semibold">Profit Target</th>
+                            <th class="px-4 py-3 text-left font-semibold">Min Trading Days</th>
+                            <th class="px-4 py-3 text-left font-semibold">Consistency Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Phase 1 (Challenge)</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">10%</td>
+                            <td class="px-4 py-3 text-zinc-300">4</td>
+                            <td class="px-4 py-3 text-zinc-400">None on standard challenge</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Phase 2 (Verification)</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">5%</td>
+                            <td class="px-4 py-3 text-zinc-300">4</td>
+                            <td class="px-4 py-3 text-zinc-400">None on standard challenge</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Funded Account</td>
+                            <td class="px-4 py-3 text-zinc-400">No target</td>
+                            <td class="px-4 py-3 text-zinc-300">No minimum</td>
+                            <td class="px-4 py-3 text-zinc-400">Drawdown rules still apply</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Key notes: the standard FTMO Challenge does not have a consistency rule — you can earn all 10% in a single day if the drawdown rules allow it. Some other prop firms (notably The5ers, per their public documentation) do enforce a consistency rule limiting any single day's contribution to total profit. FTMO's standard challenge does not, as of the time of writing — verify directly with FTMO.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The 4-day minimum trading day requirement means you cannot pass the challenge in under 4 calendar trading days even if you hit the profit target immediately. This is a compliance rule, not a performance bar — but failing to track trading day count has ended challenges for traders who did not realize they had not met the minimum.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Traders Fail FTMO Challenges (It's Rarely the Strategy)</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The leading causes of FTMO challenge failure, in rough order of frequency:
+            </p>
+            <ol class="list-decimal list-inside space-y-3 text-zinc-300 mb-6">
+                <li class="pl-2"><span class="font-semibold text-white">Position sizing too large relative to the drawdown envelope.</span> A trader with a genuine positive-expectancy strategy can fail if they size each trade at 2–3% risk rather than the 0.5–1% that keeps a losing sequence inside the drawdown limits. The strategy is not broken; the position sizing is incompatible with the challenge constraints.</li>
+                <li class="pl-2"><span class="font-semibold text-white">Revenge trading after a daily loss.</span> A $2,000 loss early in the session leaves $3,000 of daily limit remaining. A trader who tries to recover that $2,000 in the same session is now playing a game where one more standard-sized loss ends the day and possibly the challenge. See how <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">behavioral edge decay</a> shows up in journal data.</li>
+                <li class="pl-2"><span class="font-semibold text-white">Not tracking real-time drawdown.</span> Traders who check their P&L at end-of-session on a statement often do not know their intraday low. FTMO's daily limit is assessed on the floating equity during the session — not just the closed P&L at the end.</li>
+            </ol>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The cost of failure is real but finite. Challenge fees range from approximately $155 for a $10K account to around $540 for a $100K account (estimates based on publicly available pricing — verify at FTMO's site before registering). That is the cost of one attempt. The pattern of multiple failed attempts before passing is common; the traders who break the pattern treat each attempt as a data point, not an anomaly.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                In <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiple terms</a>: if your average trade risks 0.5% of account, the challenge fee is approximately 0.5–2.0% of a $10K account — comparable to 1–4 losing trades. That framing changes whether it feels like a catastrophic failure or a data collection cost. And <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> is the most direct fix for the sizing errors that cause most failures.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Your Journal Must Track During an FTMO Challenge</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                A generic trading journal is not sufficient during a challenge. You need a journal that surfaces challenge-specific numbers in real time, not just after the session closes.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The fields your challenge journal must maintain:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-semibold text-white">Daily opening balance:</span> recorded at the start of each session — this is the reference for the 5% daily limit calculation</li>
+                <li><span class="font-semibold text-white">Running daily P&L (in R and in dollars):</span> updated with each closed trade intraday; also expressed in <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> so you can see how many R you have used</li>
+                <li><span class="font-semibold text-white">Distance to daily loss limit:</span> dollars remaining before the 5% cap is hit — this should be visible before you enter each trade</li>
+                <li><span class="font-semibold text-white">Distance to maximum drawdown:</span> dollars remaining before the 10% cap from initial balance is hit</li>
+                <li><span class="font-semibold text-white">Trading day count:</span> number of sessions with at least one trade — required to confirm you will meet the 4-day minimum</li>
+                <li><span class="font-semibold text-white">Setup compliance notes:</span> did this trade conform to your defined entry criteria, or was it an off-plan entry?</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The pre-trade check before every entry should answer one question: "Given my current daily P&L and the size of this trade, is it possible for this trade to violate the daily limit?" If a single trade at your planned size can push you past the daily limit, you need to size down or not take the trade.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Monte Carlo Test Before You Attempt</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Before you pay an FTMO challenge fee, you can estimate your probability of passing using the trade history you already have. This is what <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> does: it takes your historical R-multiples, randomizes their sequence across 1,000+ paths, and shows you the distribution of outcomes that are plausible for a trader with your edge profile.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Applied to an FTMO challenge, the question becomes: across 1,000 simulated Phase 1 attempts using my actual trade history, what fraction of paths hit the 10% profit target without violating the 5% daily limit or 10% maximum drawdown?
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                A rough interpretation framework:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Simulated Pass Rate</th>
+                            <th class="px-4 py-3 text-left font-semibold">Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Above 70%</td>
+                            <td class="px-4 py-3 text-emerald-400">Your edge and position sizing are well-matched to the challenge constraints</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">50% – 70%</td>
+                            <td class="px-4 py-3 text-blue-400">Reasonable probability; expect to pay ~2 fees per successful funded account on average</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">30% – 50%</td>
+                            <td class="px-4 py-3 class="text-yellow-400">Marginal — consider reducing position size before attempting</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Below 30%</td>
+                            <td class="px-4 py-3 text-rose-400">Do not attempt yet — your position sizing or edge profile is misaligned with the challenge structure</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Minimum input requirement: 30 trades in conditions similar to what you will trade during the challenge. Below 30 trades, the Monte Carlo output is driven more by small-sample variance than by your actual edge. If you do not have 30 qualifying trades, collect more data before paying the fee.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Live Drawdown Monitoring: From Manual Spreadsheet to MT4/MT5 Sync</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The most common form of manual challenge tracking is a spreadsheet updated at end-of-session. The problem: FTMO's daily limit applies to floating equity during the trading session, not just closed P&L. A position that is open and deeply negative mid-session can trigger the daily limit even if it eventually closes at a smaller loss.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Manual spreadsheet tracking has an inherent lag — it tells you where you were, not where you are. For traders running multiple positions simultaneously or scaling into trades, this lag can be dangerous.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Live MT4/MT5 sync solves this by pulling your account equity in real time, not just when trades close. Your distance-to-limit numbers update continuously. Before you enter a trade, you can see whether the maximum loss on that trade (if stopped out) would breach the daily limit. This is the "Can I take this trade?" pre-trade check made into a live number rather than a mental calculation.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                See the <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">account balance journaling guide</a> for more detail on how to structure balance-aware journaling — it covers the specific fields and update cadence that make drawdown tracking reliable.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Supports FTMO Traders</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                SignalDeck is built around the journaling needs of funded-challenge traders. Key features for FTMO participants:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-semibold text-white">Live MT4/MT5 sync (Team, $50/mo):</span> trade data and account balance pulled directly from your terminal, updating intraday</li>
+                <li><span class="font-semibold text-white">Daily drawdown distance widget:</span> shows your current distance to both the daily 5% limit and the overall 10% maximum — visible before each trade entry</li>
+                <li><span class="font-semibold text-white">Monte Carlo (Pro, $30/mo):</span> 1,000-path simulation on your logged trade history — estimate your pass probability before paying the challenge fee</li>
+                <li><span class="font-semibold text-white">R-multiple P&L:</span> running challenge P&L expressed in R, so you can see how many units of risk you have earned or spent during the challenge period</li>
+                <li><span class="font-semibold text-white">Strategy stats by phase:</span> separate your Phase 1 and Phase 2 performance from your general historical data to isolate challenge-specific edge quality</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck also has a dedicated FTMO journal landing page at <a href="https://sgnldk.com/ftmo-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">sgnldk.com/ftmo-trading-journal/</a> with more detail on the FTMO-specific workflow. For a broader comparison of journaling tools used by prop traders, see the <a href="../best-trading-journal-prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> comparison.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the FTMO daily loss limit?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The FTMO daily loss limit is 5% of the initial account balance for the standard FTMO Challenge. On a $100,000 account, that is a $5,000 maximum loss in a single trading day. The limit is calculated from the balance at the start of the trading day and resets each day at midnight Prague time (CET/CEST). Verify the current rule directly with FTMO before trading — rules can change.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">Does FTMO use trailing or static drawdown?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The standard FTMO Challenge uses a static (non-trailing) maximum drawdown. The overall 10% drawdown limit is calculated from the initial account balance — it does not trail your equity high-water mark. The daily 5% loss limit does reset each day, but it is always measured from the starting balance for that day. Verify the current implementation directly with FTMO, as rules and account types can change.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I track my FTMO drawdown in real time?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">You need to track two numbers simultaneously: your distance to the daily 5% loss limit (from the session opening balance) and your distance to the overall 10% maximum drawdown (from the initial account balance). The most reliable approach is MT4/MT5 live sync that updates your running P&L automatically, rather than calculating manually from a statement after the session ends. Intraday violations happen mid-session — a post-session spreadsheet catches them too late.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">What percentage of traders pass the FTMO challenge?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">FTMO has publicly disclosed a pass rate of approximately 10% for new applicants, though this figure has been cited in various contexts and may not reflect current data. The low pass rate is widely attributed to drawdown violations caused by position sizing errors, not losing strategies. A trader with a genuine positive-expectancy strategy and correctly sized positions has a materially higher probability of passing than the published average suggests.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">Can I use a trading journal during the FTMO challenge?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes, and it is strongly recommended. A journal that tracks your daily starting balance, running P&L in R-multiples, distance to both drawdown limits, and setup compliance gives you a live picture of your challenge status at any point in the session. Journals that sync directly from MT4/MT5 eliminate the lag of manual entry and update intraday — which matters because the daily loss limit can be hit during the trading session, not just at close.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
+                <p class="text-zinc-500 text-sm mb-6">Live drawdown tracking and Monte Carlo are built for prop firm challengers specifically.</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-1">TraderSync has no Monte Carlo simulation and no real-time drawdown distance widget.</p>
+                    </a>
+                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
+                        <p class="text-zinc-500 text-xs mt-1">TradeZella has no Walk-Forward Analysis and no Monte Carlo simulation for challenge readiness.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
+                    </a>
+                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
+                    </a>
+                    <a href="../journal-account-balance/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Journal Your Account Balance (and Why Most Traders Do It Wrong)</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
+                    </a>
+                    <a href="../fixed-r-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Fixed-R Position Sizing: Why Risking the Same R Every Trade Is Not Conservative</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 22, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Don't attempt your next challenge without running the Monte Carlo first.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck runs 1,000 simulated challenge paths on your actual trade history and shows you your real-time drawdown distance during the challenge. Monte Carlo is a Pro ($30/mo) feature — free during beta.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="gtag('event', 'blog_cta_click', {'article': 'ftmo-challenge-rules-explained'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta — Free
+                    </a>
+                    <a href="../../plans/index.html"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" title="@ForensicQuant X.com profile" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer" title="Zach Smith LinkedIn">LinkedIn</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

@@ -137,12 +137,68 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.63 -->
+            <div class="pl-8 relative" id="v1-0-63">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.63-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jun 2, 2026 9:31AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A focused reliability and polish release — smarter session management, trade validation that prevents nonsensical setups, a new login cadence chart, and a batch of backtester, email, and journal improvements.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Session Stability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">"Keep me signed in" actually keeps you signed in</strong> — the silent token-refresh introduced in v1.0.61 now fires reliably on every app load, so 30-minute surprise logouts are gone for good.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Smarter Trade Validation</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Stop-loss, target &amp; entry checks</strong> — SignalDeck now rejects inverted or zero-risk setups before they hit your journal. Long and short trades are validated independently, so a misplaced decimal no longer silently corrupts your R-multiples.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stats: Login Cadence Chart</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">See your consistency at a glance</strong> — a new chart in your stats dashboard shows how often you log in over time, turning trading discipline into a measurable metric.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtester Polish</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Sensible name limits &amp; clearer errors</strong> — notebook and strategy names now have enforced length limits with plain-English error messages, and the delete confirmation dialog works correctly.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Journal</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Multiple notes on the same day</strong> — you can now add more than one journal entry per day, so a mid-session thought and an end-of-day review both have a home.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Other Improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Clearer timezone picker</strong> — UTC offsets are now shown alongside city names, and the list includes more locations (including Vietnam), making it easier to find your local timezone.</li>
+                            <li><strong class="text-zinc-200">Refreshed emails</strong> — transactional emails (welcome, password reset, and password changed) have been redesigned to match the current sgnldk brand.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.62 -->
             <div class="pl-8 relative" id="v1-0-62">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.62-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jun 1, 2026 8:54PM</span>
                 </div>
 

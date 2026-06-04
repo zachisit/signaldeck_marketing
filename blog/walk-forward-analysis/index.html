@@ -231,7 +231,7 @@
                 When you optimize a strategy on a dataset and then evaluate its performance on that same dataset, you've created a closed loop. The optimization process will always find parameters that score well on data it had access to — that's what it's designed to do. Evaluating the result on the same data tells you nothing about whether those parameters mean anything going forward.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The more parameters you optimize, the worse this gets. A strategy with 10 free parameters and 500 data points can almost always be fit to look profitable in-sample — even if the underlying system is pure noise. With enough degrees of freedom, you're not discovering an edge; you're constructing a description of the past.
+                The more parameters you optimize, the worse this gets. A strategy with 10 free parameters and 500 data points can almost always be fit to look profitable in-sample — even if the underlying system is pure noise. With enough degrees of freedom, you're not discovering an edge; you're constructing a description of the past. This is exactly the trap that exhaustive <a href="../what-is-grid-search-parameter-optimization/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">grid-search parameter optimization</a> falls into when it isn't validated out-of-sample.
             </p>
             <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
                 "With four parameters I can fit an elephant, and with five I can make him wiggle his trunk." — John von Neumann

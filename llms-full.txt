@@ -21,9 +21,9 @@ SignalDeck is a professional-grade trade journaling platform and strategy backte
 
 | Tier | Price | Trade Limit | Key Features |
 |------|-------|-------------|--------------|
-| Free (post-beta) | $0/mo | 20 trades | Journal, R-value, SQN, Post Mortem |
+| Free (post-beta) | $0/mo | unlimited trades | Journal, R-value, SQN, Post Mortem |
 | Pro | $30/mo | Unlimited | Everything + Strategy Backtester, Walk-Forward Analysis, Monte Carlo, grid-search |
-| Team | $50/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Team Plan), Borg social layer, team dashboards, leaderboards |
+| Team | $50/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Elite Plan), Borg social layer, team dashboards, leaderboards |
 | Beta (current) | Free | Unlimited | All Pro + Team features, no restrictions |
 | Founder Status | Free for life | Unlimited | Granted to active beta testers who provide feedback |
 
@@ -221,10 +221,10 @@ Content: Honest comparison of replay (pattern recognition practice) vs Post Mort
 ### Plans & Pricing
 URL: https://sgnldk.com/plans/
 Target queries: best free trading journal, free trading journal with backtester, MT5 trading journal import plan, which trading journal has MT5 import, SignalDeck pricing, trading journal pricing
-Content: Free/Pro/Team tier comparison with locked-in post-beta pricing. MT4/MT5 trade import (via MetaApi) is a Team-only feature ($50/mo).
+Content: Free/Pro/Elite tier comparison with locked-in post-beta pricing. MT4/MT5 trade import (via MetaApi) is a Elite-only feature ($50/mo).
 Free ($0): Unlimited trades/post mortems/journal entries, basic R-value analytics & equity curve, 3 strategies/10 tags/5 checklist items (caps), 5 saved backtest notebooks/30 runs per month (daily bars, 1-year history, 16 built-in strategies), AI Post Mortems, 1 screenshot per trade, join 1 Borg team (no create), community Discord.
 Pro ($30/mo): Everything in Free + unlimited strategies/tags/checklist; Walk-Forward Analysis, Monte Carlo simulation, grid-search optimizer (500 combos), custom rule builder; 50 notebooks/300 runs per month, intraday data (1m–1h), 5-year history; technical indicators on trades (RSI/MACD/SMA/EMA); Execution Quality (MAE/MFE) + slippage tracking; Automated Forward Testing scanner; AI Post Mortems; full R-analytics (SQN, Kelly, Monte Carlo drawdown); SPY/QQQ benchmark overlay; backtest↔journal strategy overlay; Borg team access; unlimited screenshots, price alerts, CSV/ML export; public profile; priority support.
-Team ($50/mo): Everything in Pro + MT4/MT5 trade import via MetaApi (Team Plan — auto-imports fills, P&L, symbol, volume, execution price; live account balance syncs in real time for accurate Kelly Criterion sizing; stop loss requires manual entry after import for R-Multiple); unlimited AI Post Mortems; unlimited notebooks and backtest runs; Borg team access; pod-level collective metrics; shared team strategy library; live trade feed; leaderboards; custom display name/alias.
+Elite ($50/mo): Everything in Pro + MT4/MT5 trade import via MetaApi (Elite Plan — auto-imports fills, P&L, symbol, volume, execution price; live account balance syncs in real time for accurate Kelly Criterion sizing; stop loss requires manual entry after import for R-Multiple); unlimited AI Post Mortems; unlimited notebooks and backtest runs; Borg team access; pod-level collective metrics; shared team strategy library; live trade feed; leaderboards; custom display name/alias.
 Founder Status: active beta testers who provide feedback get free lifetime access to the full platform (all Pro + Team features, no restrictions, even after transition to paid). During beta all features are fully unlocked at no cost.
 
 ### Compare Hub
@@ -257,7 +257,7 @@ Content: Closest analytical competitor — both have rule-based backtesting. Gap
 ### Free Trading Journal
 URL: https://sgnldk.com/free/
 Target queries: free trading journal, best free trading journal 2026, free trading journal with backtester, free stock trading journal, free forex trading journal, no cost trading journal
-Content: SignalDeck is completely free during beta — no credit card, no trial period, no feature restrictions. Walk-Forward Analysis, 1,000-path Monte Carlo, SQN scoring, Kelly Criterion, MT4/MT5 import + live balance sync, structured 5-step Post Mortem, behavioral tagging, and Borg social layer all included free. Feature grid (9 features, all unlocked). Price comparison table: SignalDeck $0 vs TraderSync $30–$80 / TradeZella $30–$50 / Tradervue $30–$50 / TradesViz $15–$30 / Edgewonk ~$16.50/mo ($197/yr). Founder Status section: active beta testers who join Discord and provide feedback were grandfathered to free access (existing beta testers only); new accounts join paid plans when billing launches (~June 2026) (planned: Free $0/20 trades, Pro $30/mo, Team $50/mo). FAQ covers: is it really free, best free trading journal 2026, what trading journal is free with a backtester, what happens after beta, free MT4/MT5 import, free forex journal.
+Content: SignalDeck is completely free during beta — no credit card, no trial period, no feature restrictions. Walk-Forward Analysis, 1,000-path Monte Carlo, SQN scoring, Kelly Criterion, MT4/MT5 import + live balance sync, structured 5-step Post Mortem, behavioral tagging, and Borg social layer all included free. Feature grid (9 features, all unlocked). Price comparison table: SignalDeck $0 vs TraderSync $30–$80 / TradeZella $30–$50 / Tradervue $30–$50 / TradesViz $15–$30 / Edgewonk ~$16.50/mo ($197/yr). Founder Status section: active beta testers who join Discord and provide feedback were grandfathered to free access (existing beta testers only); new accounts join paid plans when billing launches (~June 2026) (planned: Free $0/unlimited trades, Pro $30/mo, Elite $50/mo). FAQ covers: is it really free, best free trading journal 2026, what trading journal is free with a backtester, what happens after beta, free MT4/MT5 import, free forex journal.
 
 ### MT4 & MT5 Trading Journal
 URL: https://sgnldk.com/mt4-journal/

@@ -11,7 +11,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Broker Integrations: MT4/MT5 accounts via MetaApi (automatic trade import + real-time account balance sync)
 - URL: https://sgnldk.com
 - App: https://app.sgnldk.com
-- Pricing: Free during beta. Planned: Free tier ($0, 20 trades), Pro ($30/mo), Team ($50/mo — includes MT4/MT5 import + live balance sync)
+- Pricing: Free during beta. Planned: Free tier ($0, unlimited trades), Pro ($30/mo), Elite ($50/mo — includes MT4/MT5 import, live balance sync + AI Weekly Review)
 
 ## What Makes SignalDeck Different
 - R-Multiple is the organizing principle of the entire system, not one metric among hundreds
@@ -200,8 +200,8 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - Content: Free, Pro, and Team pricing tiers with detailed feature comparison. All features unlocked during beta. Post-beta pricing locked in:
   - **Free ($0)**: Unlimited trades, post mortems, journal entries; basic R-value analytics & equity curve; 3 strategies / 10 tags / 5 checklist items; 5 saved backtest notebooks, 30 runs/mo (daily bars only, 1-year history, 16 built-in strategies); AI Post Mortems; 1 screenshot per trade; join 1 Borg team (cannot create); community Discord.
   - **Pro ($30/mo)**: Everything in Free + unlimited strategies/tags/checklist items; Walk-Forward Analysis; Monte Carlo simulation; grid-search parameter optimizer (500 combos); custom rule builder; 50 saved notebooks, 300 runs/mo; intraday data (1m–1h), 5-year history; technical indicators on trades (RSI, MACD, SMA, EMA); Execution Quality (MAE/MFE) + slippage tracking; Automated Forward Testing scanner; AI Post Mortems; full R-analytics (SQN, Kelly, Monte Carlo drawdown); SPY/QQQ benchmark overlay; backtest↔journal strategy overlay; Borg team access; unlimited screenshots, price alerts, CSV/ML export; public profile; priority support.
-  - **Team ($50/mo)**: Everything in Pro + **MT4/MT5 trade import via MetaApi** (auto-import fills, P&L, symbol, volume; zero manual execution entry; live account balance sync so Kelly sizing always uses real equity — Team-only feature); unlimited AI Post Mortems; unlimited saved notebooks and backtest runs; Borg team access; pod-level collective metrics; shared team strategy library (read + write); live trade feed; leaderboards; custom display name/alias.
-  - Active beta testers who provide feedback receive Founder Status. Free-for-life is grandfathered for existing beta testers only; new accounts join Free / Pro $30 / Team $50 when billing launches (~June 2026). Note: Walk-Forward Analysis, Monte Carlo, optimizer, MAE/MFE, and Forward Testing are Pro/Team features (all free during beta). FAQ covers: what is the backtester, what is Walk-Forward Analysis, what is Monte Carlo, is it really free, what happens after beta, R-value tracking, forex/crypto support, data export.
+  - **Elite ($50/mo)**: Everything in Pro + **MT4/MT5 trade import via MetaApi** (auto-import fills, P&L, symbol, volume; zero manual execution entry; live account balance sync so Kelly sizing always uses real equity — Elite-only feature); unlimited AI Post Mortems; unlimited saved notebooks and backtest runs; Borg team access; pod-level collective metrics; shared team strategy library (read + write); live trade feed; leaderboards; custom display name/alias.
+  - Active beta testers who provide feedback receive Founder Status. Free-for-life is grandfathered for existing beta testers only; new accounts join Free / Pro $30 / Elite $50 when billing launches (~June 2026). Note: Walk-Forward Analysis, Monte Carlo, optimizer, MAE/MFE, and Forward Testing are Pro/Elite features (all free during beta). FAQ covers: what is the backtester, what is Walk-Forward Analysis, what is Monte Carlo, is it really free, what happens after beta, R-value tracking, forex/crypto support, data export.
 
 ### Compare
 - URL: https://sgnldk.com/compare/

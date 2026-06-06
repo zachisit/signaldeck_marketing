@@ -21,3 +21,17 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+# Training/dataset + other AI crawlers (Common Crawl feeds most LLMs)
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+

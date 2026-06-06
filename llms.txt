@@ -185,7 +185,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Prop Firm Traders
 - URL: https://sgnldk.com/tools/
-- Content: Free trading tools hub — Position Size Calculator (account + risk% + stop → size), R-Multiple Calculator (entry/stop/exit → R-multiple + reward:risk), and the prop-firm "Would I Pass?" rule checker. All free, instant, no signup; built around the R-value framework; each funnels to journaling real trades in SignalDeck. Target queries: free trading tools, trading calculators.
+- Content: Free trading-tools hub — 8 calculators, all free/instant/no-signup, built on the R-value framework, each funneling to journaling real trades in SignalDeck: Position Size (/position-sizing/), R-Multiple (/tools/r-multiple-calculator/), Drawdown Recovery (/tools/drawdown-recovery-calculator/), Kelly Criterion (/tools/kelly-criterion-calculator/), Expectancy (/tools/expectancy-calculator/), Pip Value (/tools/pip-value-calculator/), Prop-Firm Payout (/tools/prop-firm-payout-calculator/), and the prop-firm "Would I Pass?" rule checker (/would-i-pass/). Target queries: free trading tools, trading calculators, position size calculator, kelly criterion calculator, expectancy calculator, drawdown recovery calculator, pip value calculator.
 - URL: https://sgnldk.com/tools/r-multiple-calculator/
 - Content: Free R-multiple calculator — enter entry, stop, exit (long or short) to get the trade's R-multiple and reward-to-risk ratio; optional account + risk% returns position size and $ P&L. Target queries: R-multiple calculator, how to calculate R-multiple, risk reward calculator, reward to risk ratio.
 - URL: https://sgnldk.com/would-i-pass/

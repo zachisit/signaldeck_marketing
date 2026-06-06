@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+<title>Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck</title>
+<meta name="description" content="Free prop firm payout calculator: enter your profit and a firm (FTMO, Topstep, Apex, FundedNext, The5ers) or a custom split to see your take-home vs the firm's share.">
+<meta name="keywords" content="prop firm payout calculator, profit split calculator, prop firm profit split, trader payout calculator, how much do prop firms pay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sgnldk.com/tools/prop-firm-payout-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/tools/prop-firm-payout-calculator/">
+<meta property="og:title" content="Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck">
+<meta property="og:description" content="Profit + firm split → your take-home. FTMO, Topstep, Apex presets. Free.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck">
+<meta property="twitter:description" content="Profit + firm split → your take-home. FTMO, Topstep, Apex presets. Free.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Prop Firm Payout Calculator","url":"https://sgnldk.com/tools/prop-firm-payout-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free prop firm payout calculator: enter your profit and a firm (FTMO, Topstep, Apex, FundedNext, The5ers) or a custom split to see your take-home vs the firm's share.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What is a prop firm profit split?", "acceptedAnswer": {"@type": "Answer", "text": "The profit split is the share of profits you keep. Most firms pay the trader 80\u201390%; some advertise up to 100% within a capped payout ladder. Enter your profit and pick a firm (or a custom split) to see your take-home."}}, {"@type": "Question", "name": "Does this account for payout caps or fees?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 this is the straight split on a given profit amount. Real payouts can be capped per cycle, require a minimum number of winning days, or carry activation fees. Always confirm the cadence and caps with your firm."}}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Prop Firm Payout Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    </div>
+  </div>
+</header>
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Prop Firm Payout Calculator</h1>
+  <p class="text-zinc-400 text-lg mb-8">See what you actually keep. Enter your profit and pick a firm's <strong class="text-zinc-200">profit split</strong> (or set a custom one) — we'll show your take-home and the firm's cut.</p>
+  <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
+    <div class="grid sm:grid-cols-2 gap-4"><label class="block"><span class="text-sm font-medium text-zinc-300">Profit made ($)</span>
+      <input id="profit" type="number" step="any" value="5000" oninput="calc()" min="0" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Firm / split</span>
+        <select id="firm" onchange="onFirm()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white"><option value="80">FTMO (80%)</option><option value="90">FTMO Scaling / Topstep (90%)</option><option value="100">Apex (up to 100%)</option><option value="80">FundedNext (80%)</option><option value="custom">Custom…</option></select></label>
+    </div>
+    <label class="block"><span class="text-sm font-medium text-zinc-300">Profit split to trader (%)</span>
+      <input id="split" type="number" step="any" value="80" min="0" max="100" oninput="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+    <div id="out"></div>
+  </div>
+  <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
+    <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Prop Firm Payout Calculator CTA'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal in SignalDeck — Free</a>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
+    <div class="flex flex-wrap gap-3 text-sm">
+      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+    </div>
+  </section>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">What is a prop firm profit split?</h3><p class="text-zinc-400">The profit split is the share of profits you keep. Most firms pay the trader 80–90%; some advertise up to 100% within a capped payout ladder. Enter your profit and pick a firm (or a custom split) to see your take-home.</p></div><div><h3 class="font-bold text-white">Does this account for payout caps or fees?</h3><p class="text-zinc-400">No — this is the straight split on a given profit amount. Real payouts can be capped per cycle, require a minimum number of winning days, or carry activation fees. Always confirm the cadence and caps with your firm.</p></div></div>
+  </section>
+</main>
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+  </div>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value);}
+function fmt(n){return (Math.round(n*100)/100).toLocaleString();}
+function onFirm(){var v=document.getElementById('firm').value;if(v!=='custom')document.getElementById('split').value=v;calc();}
+function calc(){var p=gv('profit'),s=gv('split');var o=document.getElementById('out');
+if([p,s].some(isNaN)||p<0||s<0||s>100){o.innerHTML='';return;}
+var take=p*s/100, firm=p-take;
+o.innerHTML='<div class="mt-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-5 text-center"><div class="text-4xl font-extrabold mono text-emerald-400">$'+fmt(take)+'</div><div class="text-sm text-zinc-400 mt-2">your take-home ('+fmt(s)+'% split)</div><div class="text-sm text-zinc-500 mt-1">Firm keeps <span class="mono text-zinc-300">$'+fmt(firm)+'</span></div></div>';}
+calc();
+</script>
+</body>
+</html>

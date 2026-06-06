@@ -186,7 +186,7 @@ Target queries: CFD trading journal, gold trading journal, XAUUSD journal, NAS10
 ### Prop Firm Traders
 URL: https://sgnldk.com/tools/
 Target queries: free trading tools, trading calculators, position size calculator, R-multiple calculator, prop firm calculator
-Content: Hub for SignalDeck's free trading calculators — Position Size Calculator, R-Multiple Calculator, and the "Would I Pass?" prop-firm rule checker (more coming: drawdown recovery, Kelly, expectancy). All client-side, free, no signup, built on the R-value framework; each links to journaling real trades in SignalDeck.
+Content: Hub for SignalDeck's 8 free, client-side trading calculators (all free, no signup, built on the R-value framework, each links to journaling real trades in SignalDeck): Position Size (/position-sizing/), R-Multiple (/tools/r-multiple-calculator/), Drawdown Recovery (/tools/drawdown-recovery-calculator/), Kelly Criterion (/tools/kelly-criterion-calculator/), Expectancy (/tools/expectancy-calculator/), Pip Value (/tools/pip-value-calculator/), Prop-Firm Payout (/tools/prop-firm-payout-calculator/), and the "Would I Pass?" prop-firm rule checker (/would-i-pass/).
 
 URL: https://sgnldk.com/tools/r-multiple-calculator/
 Target queries: R-multiple calculator, how to calculate R-multiple, risk reward calculator, reward to risk ratio, R value trading

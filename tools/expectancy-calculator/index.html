@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+<title>Trading Expectancy Calculator — Expected Profit Per Trade | SignalDeck</title>
+<meta name="description" content="Free expectancy calculator: enter win rate, average win, and average loss to get your expected profit per trade in dollars and in R, plus a 100-trade projection.">
+<meta name="keywords" content="expectancy calculator, trading expectancy, expected value per trade, expectancy in R, trading system expectancy">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sgnldk.com/tools/expectancy-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/tools/expectancy-calculator/">
+<meta property="og:title" content="Trading Expectancy Calculator — Expected Profit Per Trade | SignalDeck">
+<meta property="og:description" content="Win rate + avg win/loss → expected profit per trade (and in R). Free.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Trading Expectancy Calculator — Expected Profit Per Trade | SignalDeck">
+<meta property="twitter:description" content="Win rate + avg win/loss → expected profit per trade (and in R). Free.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Expectancy Calculator","url":"https://sgnldk.com/tools/expectancy-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free expectancy calculator: enter win rate, average win, and average loss to get your expected profit per trade in dollars and in R, plus a 100-trade projection.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What is trading expectancy?", "acceptedAnswer": {"@type": "Answer", "text": "Expectancy is the average amount you can expect to win (or lose) per trade over many trades: Expectancy = (Win% \u00d7 Average win) \u2212 (Loss% \u00d7 Average loss). Positive = a profitable system over time; negative = it bleeds, no matter how good any single trade feels."}}, {"@type": "Question", "name": "What is expectancy in R?", "acceptedAnswer": {"@type": "Answer", "text": "Expressed in R (multiples of risk), expectancy = Win% \u00d7 (avg win in R) \u2212 Loss%. An expectancy of +0.3R means you net about a third of your risk per trade on average \u2014 multiply by trades and by risk-per-trade to project P&L."}}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Expectancy Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    </div>
+  </div>
+</header>
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Trading Expectancy Calculator</h1>
+  <p class="text-zinc-400 text-lg mb-8">The number that tells you whether a system actually makes money. Enter <strong class="text-zinc-200">win rate</strong>, <strong class="text-zinc-200">average win</strong> and <strong class="text-zinc-200">average loss</strong> → expected profit per trade, in dollars and in R.</p>
+  <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
+    <div class="grid sm:grid-cols-3 gap-4"><label class="block"><span class="text-sm font-medium text-zinc-300">Win rate (%)</span>
+      <input id="win" type="number" step="any" value="45" oninput="calc()" min="0" max="100" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label><label class="block"><span class="text-sm font-medium text-zinc-300">Avg win ($)</span>
+      <input id="aw" type="number" step="any" value="200" oninput="calc()"  class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label><label class="block"><span class="text-sm font-medium text-zinc-300">Avg loss ($)</span>
+      <input id="al" type="number" step="any" value="100" oninput="calc()"  class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label></div>
+    <div id="out"></div>
+  </div>
+  <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
+    <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Expectancy Calculator CTA'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal in SignalDeck — Free</a>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
+    <div class="flex flex-wrap gap-3 text-sm">
+      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+    </div>
+  </section>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">What is trading expectancy?</h3><p class="text-zinc-400">Expectancy is the average amount you can expect to win (or lose) per trade over many trades: Expectancy = (Win% × Average win) − (Loss% × Average loss). Positive = a profitable system over time; negative = it bleeds, no matter how good any single trade feels.</p></div><div><h3 class="font-bold text-white">What is expectancy in R?</h3><p class="text-zinc-400">Expressed in R (multiples of risk), expectancy = Win% × (avg win in R) − Loss%. An expectancy of +0.3R means you net about a third of your risk per trade on average — multiply by trades and by risk-per-trade to project P&L.</p></div></div>
+  </section>
+</main>
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+  </div>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value);}
+function fmt(n){return (Math.round(n*100)/100).toLocaleString();}
+function calc(){var W=gv('win')/100,aw=gv('aw'),al=gv('al');var o=document.getElementById('out');
+if([W,aw,al].some(isNaN)||al<=0||W<0||W>1){o.innerHTML='';return;}
+var exp=W*aw-(1-W)*al; var expR=W*(aw/al)-(1-W); var pos=exp>=0;
+o.innerHTML='<div class="mt-2 rounded-xl border '+(pos?'border-emerald-500/40 bg-emerald-500/10':'border-rose-500/40 bg-rose-500/10')+' p-5 text-center"><div class="text-4xl font-extrabold mono '+(pos?'text-emerald-400':'text-rose-400')+'">'+(exp>=0?'+':'')+'$'+fmt(exp)+'</div><div class="text-sm text-zinc-400 mt-2">expected profit per trade · <span class="text-zinc-200 mono">'+(expR>=0?'+':'')+fmt(expR)+'R</span></div><div class="text-sm text-zinc-400 mt-1">Over 100 trades: <span class="'+(pos?'text-emerald-400':'text-rose-400')+' mono">'+(exp>=0?'+':'')+'$'+fmt(exp*100)+'</span></div>'+(pos?'':'<div class="text-xs text-rose-300 mt-2">Negative expectancy — this system loses money over time regardless of individual wins.</div>')+'</div>';}
+calc();
+</script>
+</body>
+</html>

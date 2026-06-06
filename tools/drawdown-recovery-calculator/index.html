@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+<title>Drawdown Recovery Calculator — Gain Needed to Break Even | SignalDeck</title>
+<meta name="description" content="Free drawdown recovery calculator: enter a drawdown percentage and see the exact gain needed to get back to break-even. Losses and recoveries are not symmetric.">
+<meta name="keywords" content="drawdown recovery calculator, gain to recover drawdown, break even after loss, trading drawdown calculator, percentage to recover loss">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sgnldk.com/tools/drawdown-recovery-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/tools/drawdown-recovery-calculator/">
+<meta property="og:title" content="Drawdown Recovery Calculator — Gain Needed to Break Even | SignalDeck">
+<meta property="og:description" content="Enter a drawdown % → the gain needed to break even. Free, instant.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Drawdown Recovery Calculator — Gain Needed to Break Even | SignalDeck">
+<meta property="twitter:description" content="Enter a drawdown % → the gain needed to break even. Free, instant.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Drawdown Recovery Calculator","url":"https://sgnldk.com/tools/drawdown-recovery-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free drawdown recovery calculator: enter a drawdown percentage and see the exact gain needed to get back to break-even. Losses and recoveries are not symmetric.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "Why does a bigger drawdown need a disproportionately larger gain?", "acceptedAnswer": {"@type": "Answer", "text": "Because the gain is calculated on the smaller, post-loss balance. Lose 50% and you have half left \u2014 you now need to double (+100%) just to get back to even. The deeper the hole, the steeper the climb."}}, {"@type": "Question", "name": "What is drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "Drawdown is the peak-to-trough decline in your account, usually expressed as a percentage of the peak. It's the single most important risk number a prop firm \u2014 and your own survival \u2014 cares about."}}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Drawdown Recovery Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    </div>
+  </div>
+</header>
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Drawdown Recovery Calculator</h1>
+  <p class="text-zinc-400 text-lg mb-8">A loss and its recovery are <strong class="text-zinc-200">not symmetric</strong>. Enter how far you're down and see the gain you actually need to get back to break-even — the math every risk manager respects.</p>
+  <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
+    <div class="grid sm:grid-cols-2 gap-4"><label class="block"><span class="text-sm font-medium text-zinc-300">Current drawdown (%)</span>
+      <input id="dd" type="number" step="any" value="20" oninput="calc()" min="0.1" max="99" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label></div>
+    <div id="out"></div>
+  </div>
+  <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
+    <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Drawdown Recovery Calculator CTA'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal in SignalDeck — Free</a>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
+    <div class="flex flex-wrap gap-3 text-sm">
+      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+    </div>
+  </section>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">Why does a bigger drawdown need a disproportionately larger gain?</h3><p class="text-zinc-400">Because the gain is calculated on the smaller, post-loss balance. Lose 50% and you have half left — you now need to double (+100%) just to get back to even. The deeper the hole, the steeper the climb.</p></div><div><h3 class="font-bold text-white">What is drawdown?</h3><p class="text-zinc-400">Drawdown is the peak-to-trough decline in your account, usually expressed as a percentage of the peak. It's the single most important risk number a prop firm — and your own survival — cares about.</p></div></div>
+  </section>
+</main>
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+  </div>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value);}
+function fmt(n){return (Math.round(n*100)/100).toLocaleString();}
+function calc(){var dd=gv('dd');var o=document.getElementById('out');
+if(isNaN(dd)||dd<=0||dd>=100){o.innerHTML='';return;}
+var gain=dd/(100-dd)*100;
+var rows=[5,10,20,30,40,50,60,75,90].map(function(d){var g=d/(100-d)*100;return '<tr class="'+(d==Math.round(dd)?'bg-blue-500/10':'')+'"><td class="px-3 py-1.5 mono">-'+d+'%</td><td class="px-3 py-1.5 mono text-emerald-400">+'+fmt(g)+'%</td></tr>';}).join('');
+o.innerHTML='<div class="mt-2 rounded-xl border border-blue-500/40 bg-blue-500/10 p-5 text-center"><div class="text-4xl font-extrabold mono text-white">+'+fmt(gain)+'%</div><div class="text-sm text-zinc-400 mt-2">gain needed to recover a '+fmt(dd)+'% drawdown</div></div>'
++'<table class="w-full text-sm mt-4 rounded-lg overflow-hidden border border-zinc-800"><thead class="bg-zinc-900 text-zinc-400 text-left"><tr><th class="px-3 py-2">Drawdown</th><th class="px-3 py-2">Gain to break even</th></tr></thead><tbody class="divide-y divide-zinc-800 text-zinc-300">'+rows+'</tbody></table>';}
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+<title>Pip Value Calculator — Forex Pip Worth Per Lot | SignalDeck</title>
+<meta name="description" content="Free pip value calculator: enter position size and pip size (0.0001 or JPY 0.01) to get the value of one pip, with standard/mini/micro lot presets and account-currency conversion.">
+<meta name="keywords" content="pip value calculator, forex pip value, pip value per lot, how much is a pip worth, pip calculator forex">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sgnldk.com/tools/pip-value-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/tools/pip-value-calculator/">
+<meta property="og:title" content="Pip Value Calculator — Forex Pip Worth Per Lot | SignalDeck">
+<meta property="og:description" content="Position size + pip size → value of one pip. Lot presets included. Free.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Pip Value Calculator — Forex Pip Worth Per Lot | SignalDeck">
+<meta property="twitter:description" content="Position size + pip size → value of one pip. Lot presets included. Free.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Pip Value Calculator","url":"https://sgnldk.com/tools/pip-value-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free pip value calculator: enter position size and pip size (0.0001 or JPY 0.01) to get the value of one pip, with standard/mini/micro lot presets and account-currency conversion.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What is a pip?", "acceptedAnswer": {"@type": "Answer", "text": "A pip is the standard smallest price move in forex \u2014 0.0001 for most pairs, or 0.01 for JPY pairs. Pip value is how much one pip is worth on your position: pip size \u00d7 position size (in units), expressed in the quote currency."}}, {"@type": "Question", "name": "How do I convert pip value to my account currency?", "acceptedAnswer": {"@type": "Answer", "text": "If the pair's quote currency equals your account currency (e.g. EUR/USD for a USD account), pip value is already in your currency. Otherwise multiply by the quote\u2192account exchange rate \u2014 enter it in the optional field."}}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Pip Value Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    </div>
+  </div>
+</header>
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Pip Value Calculator</h1>
+  <p class="text-zinc-400 text-lg mb-8">What one pip is worth on your forex position. Pick a lot size, set the pip size, and (if your account currency differs from the pair's quote currency) add the conversion rate.</p>
+  <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
+    <div class="flex flex-wrap gap-2">
+      <button type="button" onclick="setLot(100000)" class="px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 text-sm hover:border-blue-500/50">Standard (100k)</button>
+      <button type="button" onclick="setLot(10000)" class="px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 text-sm hover:border-blue-500/50">Mini (10k)</button>
+      <button type="button" onclick="setLot(1000)" class="px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 text-sm hover:border-blue-500/50">Micro (1k)</button>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-4"><label class="block"><span class="text-sm font-medium text-zinc-300">Position size (units)</span>
+      <input id="units" type="number" step="any" value="100000" oninput="calc()" min="1" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Pip size</span>
+        <select id="pipsize" onchange="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"><option value="0.0001">0.0001 (most pairs)</option><option value="0.01">0.01 (JPY pairs)</option></select></label><label class="block"><span class="text-sm font-medium text-zinc-300">Quote→account rate</span>
+      <input id="rate" type="number" step="any" value="1" oninput="calc()" min="0.0001" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label></div>
+    <div id="out"></div>
+  </div>
+  <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
+    <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Pip Value Calculator CTA'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal in SignalDeck — Free</a>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
+    <div class="flex flex-wrap gap-3 text-sm">
+      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+    </div>
+  </section>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">What is a pip?</h3><p class="text-zinc-400">A pip is the standard smallest price move in forex — 0.0001 for most pairs, or 0.01 for JPY pairs. Pip value is how much one pip is worth on your position: pip size × position size (in units), expressed in the quote currency.</p></div><div><h3 class="font-bold text-white">How do I convert pip value to my account currency?</h3><p class="text-zinc-400">If the pair's quote currency equals your account currency (e.g. EUR/USD for a USD account), pip value is already in your currency. Otherwise multiply by the quote→account exchange rate — enter it in the optional field.</p></div></div>
+  </section>
+</main>
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+  </div>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value);}
+function fmt(n){return (Math.round(n*100)/100).toLocaleString();}
+function setLot(u){document.getElementById('units').value=u;calc();}
+function calc(){var u=gv('units'),ps=parseFloat(document.getElementById('pipsize').value),r=gv('rate');var o=document.getElementById('out');
+if([u,ps,r].some(isNaN)||u<=0){o.innerHTML='';return;}
+var q=ps*u; var acct=q*r;
+o.innerHTML='<div class="mt-2 rounded-xl border border-blue-500/40 bg-blue-500/10 p-5 text-center"><div class="text-4xl font-extrabold mono text-white">'+fmt(acct)+'</div><div class="text-sm text-zinc-400 mt-2">per pip, in your account currency</div><div class="text-xs text-zinc-500 mt-1">('+fmt(q)+' in the pair’s quote currency × '+fmt(r)+' rate)</div></div>';}
+calc();
+</script>
+</body>
+</html>

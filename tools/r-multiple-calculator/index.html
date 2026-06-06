@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+<title>R-Multiple Calculator — Risk-to-Reward in R | SignalDeck</title>
+<meta name="description" content="Free R-multiple calculator: enter your entry, stop, and exit to get the trade's R-multiple and reward-to-risk ratio. R normalizes every trade so you can compare them apples-to-apples.">
+<meta name="keywords" content="R-multiple calculator, R multiple, risk reward calculator, R value trading, reward to risk ratio, how to calculate R multiple">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sgnldk.com/tools/r-multiple-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/tools/r-multiple-calculator/">
+<meta property="og:title" content="R-Multiple Calculator — Risk-to-Reward in R | SignalDeck">
+<meta property="og:description" content="Enter entry, stop & exit → your trade's R-multiple and reward-to-risk. Free, instant.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="R-Multiple Calculator | SignalDeck">
+<meta property="twitter:description" content="Enter entry, stop & exit → your trade's R-multiple and reward-to-risk. Free, instant.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"R-Multiple Calculator","url":"https://sgnldk.com/tools/r-multiple-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free calculator that converts an entry, stop, and exit price into the trade's R-multiple and reward-to-risk ratio.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is an R-multiple?","acceptedAnswer":{"@type":"Answer","text":"An R-multiple expresses a trade's result as a multiple of the amount you risked (1R = your initial risk, the distance from entry to stop). A trade that makes twice your risk is +2R; one that hits your stop is -1R. Because every trade is measured in R, you can compare trades of different sizes and instruments on the same scale."}},
+{"@type":"Question","name":"How do you calculate R-multiple?","acceptedAnswer":{"@type":"Answer","text":"Risk per unit = |entry − stop|. Reward per unit = exit − entry for a long (entry − exit for a short). R-multiple = reward ÷ risk. Example: buy at 100, stop at 98 (risk 2), exit at 106 (reward 6) → 6 ÷ 2 = +3R."}},
+{"@type":"Question","name":"What is a good reward-to-risk ratio?","acceptedAnswer":{"@type":"Answer","text":"Reward-to-risk is your planned R before the trade (target distance ÷ stop distance). Many traders aim for at least 2:1, but the right number depends on win rate — a 2:1 system only needs to win ~34% of the time to break even. Expectancy (win rate combined with average R) matters more than the ratio alone."}}
+]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - R-Multiple'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">R-Multiple Calculator</h1>
+  <p class="text-zinc-400 text-lg mb-8">Enter your <strong class="text-zinc-200">entry, stop, and exit</strong> to get the trade's <strong class="text-zinc-200">R-multiple</strong> and reward-to-risk. R is the unit your whole journal should speak — it normalizes every trade so you can compare them apples-to-apples.</p>
+
+  <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
+    <div class="flex gap-2">
+      <button data-dir="long" class="dir flex-1 py-2 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 font-medium">Long</button>
+      <button data-dir="short" class="dir flex-1 py-2 rounded-lg border border-zinc-700 text-zinc-400 font-medium">Short</button>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Entry price</span>
+        <input id="entry" type="number" step="any" value="100" oninput="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Stop price</span>
+        <input id="stop" type="number" step="any" value="98" oninput="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Exit / target</span>
+        <input id="exit" type="number" step="any" value="106" oninput="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+    </div>
+    <div class="border-t border-zinc-800 pt-4 grid sm:grid-cols-2 gap-4">
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Account size ($) <span class="text-zinc-500">— optional</span></span>
+        <input id="acct" type="number" step="any" value="" placeholder="10000" oninput="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Risk per trade (%) <span class="text-zinc-500">— optional</span></span>
+        <input id="riskpct" type="number" step="any" value="1" oninput="calc()" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+    </div>
+    <div id="out"></div>
+  </div>
+  <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice. Assumes a single entry and a single stop.</p>
+
+  <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Every trade, in R — automatically</h2>
+    <p class="text-zinc-400 mb-5">SignalDeck computes R-multiple, expectancy, and SQN across your whole journal from your imported trades — no spreadsheet. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - R-Multiple CTA'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal in SignalDeck — Free</a>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
+    <div class="flex flex-wrap gap-3 text-sm">
+      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size Calculator</a>
+      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm">
+      <div><h3 class="font-bold text-white">What is an R-multiple?</h3><p class="text-zinc-400">Your result as a multiple of what you risked. 1R = entry-to-stop distance. +2R means you made twice your risk; -1R means you hit your stop. Measuring every trade in R lets you compare across sizes and instruments.</p></div>
+      <div><h3 class="font-bold text-white">How is it calculated?</h3><p class="text-zinc-400">Risk = |entry − stop|. Reward = exit − entry (long) or entry − exit (short). R-multiple = reward ÷ risk. Buy 100, stop 98, exit 106 → 6 ÷ 2 = +3R.</p></div>
+      <div><h3 class="font-bold text-white">What's a good reward-to-risk?</h3><p class="text-zinc-400">Planned R:R is target distance ÷ stop distance. ≥2:1 is common, but it only matters alongside win rate — expectancy (win rate × avg R) is what actually compounds.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/what-is-r-multiple/index.html" class="hover:text-zinc-400">What is R-multiple?</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+  </div>
+</footer>
+
+<script>
+let dir="long";
+document.querySelectorAll(".dir").forEach(b=>b.addEventListener("click",()=>{
+  dir=b.dataset.dir;
+  document.querySelectorAll(".dir").forEach(x=>{const on=x.dataset.dir===dir;
+    x.className="dir flex-1 py-2 rounded-lg font-medium "+(on?(dir==="long"?"border border-emerald-500/40 bg-emerald-500/10 text-emerald-400":"border border-rose-500/40 bg-rose-500/10 text-rose-400"):"border border-zinc-700 text-zinc-400");});
+  calc();
+}));
+const fmt=n=>(Math.round(n*100)/100).toLocaleString();
+function calc(){
+  const e=parseFloat(document.getElementById("entry").value), s=parseFloat(document.getElementById("stop").value), x=parseFloat(document.getElementById("exit").value);
+  const out=document.getElementById("out");
+  if([e,s,x].some(v=>isNaN(v))){out.innerHTML="";return;}
+  const risk=Math.abs(e-s);
+  if(risk===0){out.innerHTML='<div class="text-rose-400 text-sm">Entry and stop can\'t be equal.</div>';return;}
+  const reward = dir==="long" ? (x-e) : (e-x);
+  const R = reward/risk;
+  const rr = Math.abs((dir==="long"?(x-e):(e-x))/risk); // planned magnitude
+  const good = R>=0;
+  // optional $ context
+  let dollarRow="";
+  const acct=parseFloat(document.getElementById("acct").value), rp=parseFloat(document.getElementById("riskpct").value);
+  if(!isNaN(acct)&&!isNaN(rp)&&rp>0){
+    const riskDollars=acct*rp/100, units=riskDollars/risk, pnl=R*riskDollars;
+    dollarRow=`<div class="mt-3 grid grid-cols-3 gap-3 text-center text-sm">
+      <div class="rounded-lg bg-zinc-950 border border-zinc-800 p-3"><div class="text-zinc-500 text-xs">Risk</div><div class="text-white mono">$${fmt(riskDollars)}</div></div>
+      <div class="rounded-lg bg-zinc-950 border border-zinc-800 p-3"><div class="text-zinc-500 text-xs">Size (units)</div><div class="text-white mono">${fmt(units)}</div></div>
+      <div class="rounded-lg bg-zinc-950 border border-zinc-800 p-3"><div class="text-zinc-500 text-xs">P&L at exit</div><div class="mono ${pnl>=0?'text-emerald-400':'text-rose-400'}">${pnl>=0?'+':''}$${fmt(pnl)}</div></div></div>`;
+  }
+  out.innerHTML=`<div class="mt-2 rounded-xl border ${good?'border-emerald-500/40 bg-emerald-500/10':'border-rose-500/40 bg-rose-500/10'} p-5 text-center">
+      <div class="text-4xl font-extrabold mono ${good?'text-emerald-400':'text-rose-400'}">${R>=0?'+':''}${fmt(R)}R</div>
+      <div class="text-sm text-zinc-400 mt-2">Risk/unit <span class="text-zinc-200 mono">${fmt(risk)}</span> · Reward/unit <span class="text-zinc-200 mono">${reward>=0?'+':''}${fmt(reward)}</span> · Reward:Risk <span class="text-zinc-200 mono">${fmt(rr)}:1</span></div>
+      ${dollarRow}
+    </div>`;
+}
+calc();
+</script>
+</body>
+</html>

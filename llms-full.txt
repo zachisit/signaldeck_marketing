@@ -184,6 +184,14 @@ URL: https://sgnldk.com/cfd/
 Target queries: CFD trading journal, gold trading journal, XAUUSD journal, NAS100 journal, GER40 journal
 
 ### Prop Firm Traders
+URL: https://sgnldk.com/tools/
+Target queries: free trading tools, trading calculators, position size calculator, R-multiple calculator, prop firm calculator
+Content: Hub for SignalDeck's free trading calculators — Position Size Calculator, R-Multiple Calculator, and the "Would I Pass?" prop-firm rule checker (more coming: drawdown recovery, Kelly, expectancy). All client-side, free, no signup, built on the R-value framework; each links to journaling real trades in SignalDeck.
+
+URL: https://sgnldk.com/tools/r-multiple-calculator/
+Target queries: R-multiple calculator, how to calculate R-multiple, risk reward calculator, reward to risk ratio, R value trading
+Content: Converts an entry, stop, and exit price (long or short) into the trade's R-multiple (reward ÷ risk) and reward-to-risk ratio. Optional account size + risk% returns position size in units and dollar P&L at the exit. Explains 1R = entry-to-stop distance; +2R = twice the risk; -1R = stopped out.
+
 URL: https://sgnldk.com/would-i-pass/
 Target queries: would i pass prop firm, would i pass FTMO, prop firm challenge calculator, prop firm consistency rule, max drawdown checker, prop firm rules checker, would i pass a funded challenge
 Content: Free client-side tool that checks whether a trading run would pass a prop firm challenge. User enters net profit, largest winning day, worst drawdown from peak, largest losing day, and trading days; it evaluates against the firm's rules — profit target, max drawdown (static for forex firms FTMO/FundedNext; trailing for futures firms Topstep/Apex/MyFundedFutures, often incl. unrealized, locking at start balance), daily loss limit (none on Apex/MyFundedFutures/Take Profit Trader), minimum trading days, and the consistency rule (best single day < 40–50% of total profit). Covers FTMO, Topstep, Apex, MyFundedFutures, FundedNext, The5ers, FXIFY, Take Profit Trader with a per-firm rules table. Edge-validation framing; CTA into SignalDeck to run it on real imported trades via Walk-Forward Analysis + Monte Carlo.

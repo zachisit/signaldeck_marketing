@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+<title>Would I Pass? — Free Prop Firm Challenge Rule Checker | SignalDeck</title>
+<meta name="description" content="Check whether your current trading run would pass an FTMO, Topstep, Apex, MyFundedFutures, FundedNext or The5ers challenge — profit target, max drawdown, daily loss, min days, and the consistency rule. Free, instant, no signup.">
+<meta name="keywords" content="would i pass prop firm, prop firm challenge calculator, FTMO pass checker, prop firm consistency rule, max drawdown checker, prop firm rules, would i pass FTMO">
+<!-- STAGED 2026-06-05: noindex until founder review; on approve -> remove robots noindex, add to sitemap, link from nav, IndexNow auto-pings -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://sgnldk.com/would-i-pass/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/would-i-pass/">
+<meta property="og:title" content="Would I Pass? — Free Prop Firm Challenge Rule Checker">
+<meta property="og:description" content="Check if your run would pass FTMO, Topstep, Apex, MyFundedFutures, FundedNext & more — target, drawdown, daily loss, min days, consistency. Free, instant.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Would I Pass? — Free Prop Firm Challenge Rule Checker">
+<meta property="twitter:description" content="Check if your run would pass FTMO, Topstep, Apex, MyFundedFutures, FundedNext & more. Free, instant, no signup.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Would I Pass? — Prop Firm Rule Checker","url":"https://sgnldk.com/would-i-pass/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free tool to check whether a trading run would pass a prop firm challenge — profit target, max drawdown, daily loss, minimum trading days, and consistency rule — for FTMO, Topstep, Apex, MyFundedFutures, FundedNext, The5ers and more.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the prop firm consistency rule?","acceptedAnswer":{"@type":"Answer","text":"The consistency rule caps how much of your total profit can come from a single day — most firms require your best day to be less than 50% (sometimes 40%) of total profit. A firm like Topstep or Apex enforces it so that one lucky day can't account for the bulk of your pass."}},
+{"@type":"Question","name":"What is max drawdown on a prop firm challenge?","acceptedAnswer":{"@type":"Answer","text":"Max drawdown is the largest your account can fall before you fail. Forex firms (FTMO, FundedNext) usually use a static drawdown — a fixed floor below your starting balance. Futures firms (Topstep, Apex, MyFundedFutures) usually use a trailing drawdown that ratchets up with your high-water mark, often including unrealized P&L, and frequently locks once it reaches the starting balance."}},
+{"@type":"Question","name":"What is the difference between daily loss and max drawdown?","acceptedAnswer":{"@type":"Answer","text":"Daily loss is the most you can lose in one trading day; breaching it usually fails the day or the account. Max drawdown is the most you can lose overall across the whole challenge. Some futures firms (Apex, MyFundedFutures, Take Profit Trader) have no daily loss limit at all — the trailing drawdown is the only hard guardrail."}},
+{"@type":"Question","name":"How do I know if I would pass an FTMO challenge?","acceptedAnswer":{"@type":"Answer","text":"You pass FTMO's first phase if you reach the 10% profit target without breaching the 5% daily loss or the 10% max loss, across at least 4 trading days. The 2-step then requires a 5% target in verification. This tool checks your current numbers against those thresholds; to run it on your real trade history automatically, journal your trades in SignalDeck."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"Would I Pass?","item":"https://sgnldk.com/would-i-pass/"}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2"><img src="img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2">Free tool · no signup</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Would You Pass?</h1>
+  <p class="text-zinc-400 text-lg mb-8">Check whether your current run clears a prop firm challenge — <strong class="text-zinc-200">profit target, max drawdown, daily loss, minimum days, and the consistency rule</strong>. The point isn't the badge; it's knowing your edge survives the rules <em>before</em> you pay the fee.</p>
+
+  <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Prop firm</span>
+        <select id="firm" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white"></select></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Account size</span>
+        <select id="size" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white"></select></label>
+    </div>
+    <div id="firmnote" class="text-xs text-zinc-500"></div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Your net profit so far ($)</span>
+        <input id="profit" type="number" value="0" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Largest single winning day ($)</span>
+        <input id="bestday" type="number" value="0" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Worst drawdown you've hit ($ from peak)</span>
+        <input id="dd" type="number" value="0" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Largest single losing day ($)</span>
+        <input id="worstday" type="number" value="0" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+      <label class="block"><span class="text-sm font-medium text-zinc-300">Trading days completed</span>
+        <input id="days" type="number" value="0" class="mt-1 w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2 text-white mono"></label>
+    </div>
+    <button id="check" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Check my run</button>
+    <div id="result" class="hidden"></div>
+  </div>
+
+  <p class="text-xs text-zinc-600 mt-3">⚠️ Rules current as of 2026-06-03 and simplified to one common variant per firm (e.g. FTMO 2-Step Phase 1). Prop-firm rules change often — always confirm against your firm's official help center before relying on this. This tool is an estimate, not financial advice.</p>
+
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">Rules at a glance</h2>
+    <div class="overflow-x-auto rounded-xl border border-zinc-800">
+      <table class="w-full text-sm"><thead class="bg-zinc-900 text-zinc-400 text-left">
+        <tr><th class="px-3 py-2">Firm</th><th class="px-3 py-2">Target</th><th class="px-3 py-2">Max DD</th><th class="px-3 py-2">Daily loss</th><th class="px-3 py-2">Min days</th><th class="px-3 py-2">Consistency</th></tr>
+      </thead><tbody id="rulestable" class="divide-y divide-zinc-800"></tbody></table>
+    </div>
+  </section>
+
+  <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Stop guessing — validate on your real trades</h2>
+    <p class="text-zinc-400 mb-5">This checker uses numbers you type in. <strong class="text-zinc-200">SignalDeck runs the same rules against your actual imported trade history</strong> — Walk-Forward Analysis and 1,000-path Monte Carlo on your data — so you know the odds your edge passes <em>before</em> you pay a challenge fee. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass (CTA)'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal your edge in SignalDeck — Free</a>
+  </section>
+
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm">
+      <div><h3 class="font-bold text-white">What is the consistency rule?</h3><p class="text-zinc-400">Most firms cap your best single day at 40–50% of total profit, so one outlier day can't carry your pass. Topstep and Apex (on funded) enforce 50%; many forex firms have none during evaluation.</p></div>
+      <div><h3 class="font-bold text-white">Static vs trailing drawdown?</h3><p class="text-zinc-400">Forex firms (FTMO, FundedNext) typically use a static floor below your start. Futures firms (Topstep, Apex, MyFundedFutures) use a trailing floor that ratchets up with your high-water mark — often including unrealized P&L — and usually locks once it reaches your starting balance.</p></div>
+      <div><h3 class="font-bold text-white">Which firms have no daily loss limit?</h3><p class="text-zinc-400">Apex, MyFundedFutures, and Take Profit Trader removed daily loss limits — the trailing drawdown is the only hard guardrail. That changes how you should size and manage risk.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="index.html" class="hover:text-zinc-400">Home</a> · <a href="prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> · <a href="blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="plans/index.html" class="hover:text-zinc-400">Plans</a></p>
+  </div>
+</footer>
+
+<script>
+// Simplified, one-common-variant-per-firm. Forex = % of size; Futures = $ per size. Source: research/PROP_FIRM_RULES.md (2026-06-03).
+const FIRMS = {
+  ftmo:        {name:"FTMO", market:"Forex/CFD", variant:"2-Step · Phase 1", dd:"static", kind:"pct", sizes:[10000,25000,50000,100000,200000], pct:{target:0.10,maxDD:0.10,daily:0.05}, minDays:4, consistency:null, note:"Phase 1 target 10% (then 5% verification). Daily loss 5% (equity), max loss 10% static."},
+  topstep:     {name:"Topstep", market:"Futures", variant:"Combine", dd:"trailing", kind:"money", money:{50000:{target:3000,maxDD:2000,daily:1000},100000:{target:6000,maxDD:3000,daily:2000},150000:{target:9000,maxDD:4500,daily:3000}}, minDays:2, consistency:0.50, note:"Trailing max loss incl. unrealized; best day must be <50% of target."},
+  apex:        {name:"Apex", market:"Futures", variant:"Eval (EOD)", dd:"trailing", kind:"money", money:{25000:{target:1500,maxDD:1000,daily:null},50000:{target:3000,maxDD:2500,daily:null},100000:{target:6000,maxDD:3000,daily:null},150000:{target:9000,maxDD:4000,daily:null}}, minDays:0, consistency:null, note:"No daily loss; trailing DD; no eval consistency (50% applies on funded)."},
+  mffu:        {name:"MyFundedFutures", market:"Futures", variant:"Core", dd:"trailing", kind:"money", money:{50000:{target:3000,maxDD:1500,daily:null},100000:{target:6000,maxDD:3000,daily:null}}, minDays:2, consistency:0.50, note:"No daily loss; 3% EOD trailing; 50% consistency (Core eval)."},
+  fundednext:  {name:"FundedNext", market:"Forex/CFD", variant:"Stellar 2-Step · Phase 1", dd:"static", kind:"pct", sizes:[6000,15000,25000,50000,100000,200000], pct:{target:0.08,maxDD:0.10,daily:0.05}, minDays:5, consistency:null, note:"Phase 1 target 8% (then 5%); static 10% max DD; daily 5%."},
+  the5ers:     {name:"The5ers", market:"Forex/CFD", variant:"Hyper Growth (1-step)", dd:"static", kind:"pct", sizes:[5000,10000,20000,50000,100000], pct:{target:0.10,maxDD:0.06,daily:0.05}, minDays:0, consistency:null, note:"1-step 10% target; static 6% max DD; daily ~5%."},
+  fxify:       {name:"FXIFY", market:"Forex/CFD", variant:"1-Step", dd:"trailing", kind:"pct", sizes:[10000,25000,50000,100000,200000], pct:{target:0.10,maxDD:0.06,daily:0.03}, minDays:4, consistency:null, note:"1-step 10% target; 6% trailing max DD; daily 3%."},
+  tpt:         {name:"Take Profit Trader", market:"Futures", variant:"Test", dd:"trailing", kind:"money", money:{25000:{target:1500,maxDD:500,daily:null},50000:{target:3000,maxDD:1100,daily:null},100000:{target:6000,maxDD:2200,daily:null},150000:{target:9000,maxDD:3300,daily:null}}, minDays:5, consistency:0.50, note:"No daily loss; EOD trailing (Test); 50% consistency."},
+};
+const fmt = n => n==null ? "—" : "$"+Math.round(n).toLocaleString();
+function rules(f, size){
+  const F=FIRMS[f];
+  if(F.kind==="pct") return {target:size*F.pct.target, maxDD:size*F.pct.maxDD, daily:F.pct.daily?size*F.pct.daily:null, minDays:F.minDays, consistency:F.consistency};
+  const r=F.money[size]; return {target:r.target, maxDD:r.maxDD, daily:r.daily, minDays:F.minDays, consistency:F.consistency};
+}
+const firmSel=document.getElementById('firm'), sizeSel=document.getElementById('size'), note=document.getElementById('firmnote');
+Object.keys(FIRMS).forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=FIRMS[k].name+" — "+FIRMS[k].variant;firmSel.appendChild(o);});
+function fillSizes(){const F=FIRMS[firmSel.value];const sizes=F.kind==="pct"?F.sizes:Object.keys(F.money).map(Number);sizeSel.innerHTML='';sizes.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent="$"+s.toLocaleString()+(F.market==="Futures"?" ("+F.market+")":"");sizeSel.appendChild(o);});note.textContent=F.note;}
+firmSel.addEventListener('change',fillSizes); fillSizes();
+function buildTable(){const tb=document.getElementById('rulestable');Object.keys(FIRMS).forEach(k=>{const F=FIRMS[k];const s=F.kind==="pct"?F.sizes[2]:Object.keys(F.money).map(Number)[0];const r=rules(k,s);const tr=document.createElement('tr');tr.className="text-zinc-300";tr.innerHTML=`<td class="px-3 py-2 font-medium text-white">${F.name}<div class="text-[10px] text-zinc-500">${F.variant}</div></td><td class="px-3 py-2">${F.kind==="pct"?(F.pct.target*100)+"%":fmt(r.target)}</td><td class="px-3 py-2">${F.kind==="pct"?(F.pct.maxDD*100)+"% "+F.dd:fmt(r.maxDD)+" "+F.dd}</td><td class="px-3 py-2">${r.daily==null?"none":(F.kind==="pct"?(F.pct.daily*100)+"%":fmt(r.daily))}</td><td class="px-3 py-2">${r.minDays||"—"}</td><td class="px-3 py-2">${r.consistency?(r.consistency*100)+"%":"—"}</td>`;tb.appendChild(tr);});}
+buildTable();
+document.getElementById('check').addEventListener('click',()=>{
+  const f=firmSel.value, size=+sizeSel.value, r=rules(f,size);
+  const profit=+document.getElementById('profit').value||0, best=+document.getElementById('bestday').value||0,
+        dd=+document.getElementById('dd').value||0, worst=+document.getElementById('worstday').value||0, days=+document.getElementById('days').value||0;
+  const checks=[];
+  checks.push({label:`Profit target ${fmt(r.target)}`, pass:profit>=r.target, detail:profit>=r.target?`hit (${fmt(profit)})`:`need ${fmt(r.target-profit)} more`});
+  checks.push({label:`Max drawdown ${fmt(r.maxDD)} (${FIRMS[f].dd})`, pass:dd<r.maxDD, detail:dd<r.maxDD?`ok (worst ${fmt(dd)}, ${fmt(r.maxDD-dd)} buffer)`:`BREACHED (${fmt(dd)} ≥ ${fmt(r.maxDD)})`});
+  if(r.daily!=null) checks.push({label:`Daily loss limit ${fmt(r.daily)}`, pass:worst<r.daily, detail:worst<r.daily?`ok (worst day ${fmt(worst)})`:`BREACHED (${fmt(worst)} ≥ ${fmt(r.daily)})`});
+  if(r.minDays) checks.push({label:`Min ${r.minDays} trading days`, pass:days>=r.minDays, detail:days>=r.minDays?`ok (${days})`:`need ${r.minDays-days} more`});
+  if(r.consistency&&profit>0){const cap=r.consistency*profit;checks.push({label:`Consistency: best day ≤ ${(r.consistency*100)}% of profit (${fmt(cap)})`, pass:best<=cap, detail:best<=cap?`ok (best ${fmt(best)})`:`FAIL (best ${fmt(best)} > ${fmt(cap)} — spread profit over more days)`});}
+  const passed=checks.every(c=>c.pass);
+  const el=document.getElementById('result');el.classList.remove('hidden');
+  el.innerHTML=`<div class="mt-2 rounded-xl border ${passed?'border-emerald-500/40 bg-emerald-500/10':'border-rose-500/40 bg-rose-500/10'} p-4">
+    <div class="text-lg font-bold ${passed?'text-emerald-400':'text-rose-400'}">${passed?'✅ This run would pass '+FIRMS[f].name:'❌ Not yet — '+FIRMS[f].name}</div>
+    <ul class="mt-3 space-y-1.5 text-sm">${checks.map(c=>`<li class="flex gap-2"><span>${c.pass?'✅':'⛔'}</span><span><span class="text-zinc-200">${c.label}</span> — <span class="text-zinc-400">${c.detail}</span></span></li>`).join('')}</ul>
+    <p class="mt-3 text-xs text-zinc-500">Want this on your real trades, not typed-in guesses? <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass (result)'});">Journal in SignalDeck →</a></p></div>`;
+  gtag('event','would_i_pass_check',{firm:f,passed:passed});
+});
+</script>
+</body>
+</html>

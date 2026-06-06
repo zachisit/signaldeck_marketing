@@ -1,0 +1,67 @@
+name: IndexNow submit
+
+# Auto-notify Bing + Yandex of new/changed pages on every publish (blog posts, release-history,
+# any HTML, or sitemap changes). No manual step, no secrets — the IndexNow key file (a public
+# 32-hex .txt at the repo root) is the credential. See sd-research MARKETING.md "IndexNow".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'sitemap.xml'
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # need the previous commit to diff changed files
+      - name: Submit changed URLs to IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import os, json, subprocess, urllib.request, urllib.error, re, glob
+          host = "sgnldk.com"
+          keyfiles = [f for f in glob.glob("*.txt") if re.fullmatch(r"[a-f0-9]{32}\.txt", f)]
+          if not keyfiles:
+              print("No IndexNow key file at repo root; skipping."); raise SystemExit
+          key = keyfiles[0][:-4]
+          before, after = os.environ.get("BEFORE", ""), os.environ.get("AFTER", "")
+          urls = set()
+          # URLs of HTML files added/modified in this push
+          if before and set(before) != {"0"}:
+              try:
+                  out = subprocess.run(["git", "diff", "--name-only", "--diff-filter=AM", before, after],
+                                       capture_output=True, text=True).stdout
+                  for f in out.splitlines():
+                      if f.endswith(".html"):
+                          path = f[:-len("index.html")] if f.endswith("index.html") else f
+                          urls.add(f"https://{host}/{path}")
+              except Exception as e:
+                  print("diff failed:", e)
+          # Fallback: nothing diffable -> submit the whole sitemap
+          if not urls and os.path.exists("sitemap.xml"):
+              urls = set(re.findall(r"<loc>([^<]+)</loc>", open("sitemap.xml").read()))
+          urls = sorted(urls)
+          if not urls:
+              print("No URLs to submit."); raise SystemExit
+          print(f"Submitting {len(urls)} URL(s) to IndexNow:")
+          for u in urls: print("  ", u)
+          payload = {"host": host, "key": key,
+                     "keyLocation": f"https://{host}/{key}.txt", "urlList": urls}
+          req = urllib.request.Request("https://api.indexnow.org/indexnow",
+                data=json.dumps(payload).encode(),
+                headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow HTTP", r.status, "(200/202 = accepted)")
+          except urllib.error.HTTPError as e:
+              print("IndexNow HTTP", e.code, e.read().decode()[:300])
+          PY

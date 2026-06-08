@@ -161,10 +161,6 @@
 
                 <div class="hidden md:flex items-center gap-4">
                     <a href="free/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
-                    <a href="mt4-journal/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">MT4/MT5</a>
-                    <a href="prop-firm/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Prop Firm</a>
-                    <a href="alerts/index.html" title="Position alerts" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Alerts</a>
-                    <a href="tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
                     <a href="plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
                     <a href="compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
@@ -179,9 +175,6 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
             <a href="free/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
-            <a href="mt4-journal/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">MT4/MT5 Import</a>
-            <a href="prop-firm/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Prop Firm</a>
-            <a href="tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
             <a href="plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
             <a href="compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
@@ -385,9 +378,10 @@
                             <span><span class="text-white font-semibold">Action</span> — One specific thing to do differently next time</span>
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm">
-                        <a href="post-mortem/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Learn about the Post Mortem protocol →</a>
-                    </p>
+                    <a href="post-mortem/index.html" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
+                        Learn about the Post Mortem protocol
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
 
                 <div class="mt-10 lg:mt-0 relative">
@@ -506,7 +500,10 @@
                         <div>
                             <h4 class="text-white font-bold mb-3 text-lg">MT4/MT5 Trade Import</h4>
                             <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so <a href="blog/kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kelly Criterion</a> sizing and fixed-R risk calculations always reflect your actual current equity — not a stale number you entered last month. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
-                            <p class="mb-4 text-sm"><a href="mt4-journal/index.html" class="text-emerald-400 hover:text-emerald-300 transition-colors">See MT4/MT5 import →</a></p>
+                            <a href="mt4-journal/index.html" class="inline-flex items-center gap-2 mb-4 px-4 py-2 text-sm font-medium rounded-lg border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 transition-all">
+                                See MT4/MT5 import
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
                             <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Integration — MetaApi · Real-Time Balance Sync</div>
                         </div>
                     </div>
@@ -520,7 +517,10 @@
                         <div>
                             <h4 class="text-white font-bold mb-3 text-lg">Strategy Backtester</h4>
                             <p class="text-sm text-zinc-400 leading-relaxed mb-4">Test any of 16 built-in strategies against up to 5 years of historical data. <a href="blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Walk-Forward Analysis</a> detects overfitting before you go live. Monte Carlo simulation models your worst-case drawdown across 1,000 paths. Grid-search optimizer finds your best parameters. Then link the backtest to your journal strategy and compare theory against your actual execution — all in the same platform.</p>
-                            <p class="mb-4 text-sm"><a href="blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Learn about Walk-Forward Analysis →</a></p>
+                            <a href="backtester/index.html" class="inline-flex items-center gap-2 mb-4 px-4 py-2 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
+                                Explore the strategy backtester
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
                             <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Engine — Bar-by-Bar Simulation · Async Worker</div>
                         </div>
                         <div class="flex flex-wrap gap-2">
@@ -561,7 +561,10 @@
                         <div>
                             <h4 class="text-white font-bold mb-3 text-lg">Native Futures Trading — ES, NQ, CL, GC</h4>
                             <p class="text-sm text-zinc-400 leading-relaxed mb-4">Futures are now first-class instruments. <a href="futures/index.html" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">ES, NQ, CL, and GC</a> are tracked with tick-aligned P&L math (not shares, not pips — contracts × ticks × tick value), CME Globex session monitoring, and front-month contract search. The contract spec is fetched automatically so you just enter price and contract count. Prop firm futures challenges on Apex Trader Funding, Topstep, and TradaFi are fully supported.</p>
-                            <p class="mb-4 text-sm"><a href="futures/index.html" class="text-orange-400 hover:text-orange-300 transition-colors">Explore futures journaling →</a></p>
+                            <a href="futures/index.html" class="inline-flex items-center gap-2 mb-4 px-4 py-2 text-sm font-medium rounded-lg border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 transition-all">
+                                Explore futures journaling
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
                             <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Markets — CME · NYMEX · COMEX · Globex Session Aware</div>
                         </div>
                     </div>
@@ -630,6 +633,10 @@
                     <p class="text-zinc-400 text-lg leading-relaxed">
                         Your journal is a proprietary training set. Export clean, forensic-grade CSVs formatted for LLMs or Monte Carlo simulations. Built for the lab - not just the ledger.
                     </p>
+                    <a href="analytics/index.html" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium rounded-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transition-all">
+                        Explore trading analytics
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
             </div>
 
@@ -653,9 +660,10 @@
                             Tap any day to review notes and trade records
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm">
-                        <a href="psychology/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Explore trading psychology journaling →</a>
-                    </p>
+                    <a href="psychology/index.html" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
+                        Explore trading psychology journaling
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
 
                 <div class="w-full md:w-1/2 relative group">
@@ -768,9 +776,10 @@
                     <p class="text-zinc-400 text-lg leading-relaxed">
                         Step away from standard charting alerts and bring the notifications into your journal ecosystem. Set unlimited triggers on the basics like break-even and stop levels - or behavioral caps like max trades per day and exceeding your ideal dollar risk. It’s about being tapped on the shoulder when you’re breaking your own rules before the drawdown gets expensive.
                     </p>
-                    <p class="mt-4 text-sm">
-                        <a href="alerts/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Learn about alerts on open positions →</a>
-                    </p>
+                    <a href="alerts/index.html" class="inline-flex items-center gap-2 mt-4 px-5 py-2.5 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
+                        Learn about alerts on open positions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
 
                 <div class="w-full md:w-1/2 relative group order-1">
@@ -818,9 +827,10 @@
                             Privacy toggle — hide dollar amounts, keep ratios public
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm">
-                        <a href="public-profile/index.html" class="text-purple-400 hover:text-purple-300 transition-colors">See how public profiles work →</a>
-                    </p>
+                    <a href="public-profile/index.html" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium rounded-lg border border-purple-500/40 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 transition-all">
+                        See how public profiles work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
 
                 <div class="w-full md:w-1/2 relative group">
@@ -967,9 +977,10 @@
                             Journal overlay — backtest equity curve vs your real trades
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm">
-                        <a href="backtester/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Explore the strategy backtester →</a>
-                    </p>
+                    <a href="backtester/index.html" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
+                        Explore the strategy backtester
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
 
                 <div class="w-full md:w-1/2 order-1 md:order-2 relative group">
@@ -1141,9 +1152,10 @@
                             Compare forex pairs, prop accounts, and strategies on the same scale
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm">
-                        <a href="tools/r-multiple-calculator/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Try the R-Multiple calculator →</a>
-                    </p>
+                    <a href="tools/r-multiple-calculator/index.html" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
+                        Try the R-Multiple calculator
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
 
                 <div class="mt-10 lg:mt-0 grid grid-cols-2 gap-4">
@@ -1261,7 +1273,7 @@
                             Price &amp; pip-distance targets — no second charting tab needed
                         </li>
                     </ul>
-                    <a href="alerts/index.html" class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
+                    <a href="alerts/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all">
                         See how alerts work
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>

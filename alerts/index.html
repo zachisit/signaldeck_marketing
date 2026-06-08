@@ -34,7 +34,8 @@
     {"@type":"Question","name":"Do trading journals have price alerts on open positions?","acceptedAnswer":{"@type":"Answer","text":"Most don't. Trading journals (TraderSync, Tradervue, Edgewonk) are post-trade analytics tools — they journal trades after the fact and have no live alerts. A few have related features (TradesViz has a market screener; TradeZella has rule alerts), but those scan the market or your rules, not the specific positions you're holding. SignalDeck alerts on your open positions directly, inside the journal."}},
     {"@type":"Question","name":"What is a break-even alert?","acceptedAnswer":{"@type":"Answer","text":"A break-even alert pings you the moment price reaches your entry on an open trade, so you can move your stop to break-even and make the position risk-free. It turns a discipline rule you'd otherwise have to remember into an automatic prompt."}},
     {"@type":"Question","name":"How do futures alerts handle market hours?","acceptedAnswer":{"@type":"Answer","text":"Stop-level and price alerts on futures positions (ES, NQ, CL, GC) are evaluated only within CME Globex trading hours (Sun 6PM–Fri 5PM ET with the daily halt, DST-aware), so you don't get spurious alerts when the market is closed."}},
-    {"@type":"Question","name":"Are the alerts inside the journal or a separate tool?","acceptedAnswer":{"@type":"Answer","text":"Inside the journal. You don't need a separate charting platform open to watch your stops — the alerts live in the same place you journal and analyze your trades, so the loop from 'price hit my level' to 'log the action' is one ecosystem."}}
+    {"@type":"Question","name":"Are the alerts inside the journal or a separate tool?","acceptedAnswer":{"@type":"Answer","text":"Inside the journal. You don't need a separate charting platform open to watch your stops — the alerts live in the same place you journal and analyze your trades, so the loop from 'price hit my level' to 'log the action' is one ecosystem."}},
+    {"@type":"Question","name":"Can I set a custom alert at any price level from the chart?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every open trade has a full interactive chart in the trade-details view. Right-click anywhere on the chart to add an alert at that exact price with an optional title. You can also drag any existing alert line to a new price and confirm to save instantly. This is in addition to the automatic position-based alerts for break-even, stop proximity, and pip-distance targets."}}
     ]}
     </script>
     <script type="application/ld+json">
@@ -170,7 +171,7 @@
                     <span class="text-blue-400 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    <span><strong class="text-white">In your journal</strong> — the alert and the trade record live in the same ecosystem.</span>
+                    <span><strong class="text-white">Chart-based custom alerts</strong> — right-click on the chart to set any alert at cursor price; drag the line to adjust.</span>
                 </div>
             </div>
             <div class="mt-10">
@@ -289,13 +290,110 @@
         </div>
     </section>
 
-    <!-- Alert types grid -->
+    <!-- Chart-based alerts section -->
     <section class="py-24 bg-zinc-950 border-t border-zinc-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <h3 class="text-3xl font-bold text-white mb-4 text-center">Three alert types. One journal.</h3>
-            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">Position-attached alerts that watch the trades you actually hold — not a market screener, not a separate tool.</p>
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 mb-4">
+                        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-blue-400">New in v1.0.66</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Set any alert directly<br>
+                        <span class="text-blue-500">from the chart.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        Every open trade now has a full interactive price chart in the trade-details view — with your stop, fill, target, current price, and existing alerts drawn as draggable lines.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Right-click anywhere on the chart to add an alert at that exact price — optionally give it a title so you know what to do when it fires. To adjust an existing alert, drag its line to the new price and confirm. It saves instantly.
+                    </p>
+                    <ul class="space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 mt-0.5">></span>
+                            <span>Right-click on chart → <strong class="text-white">"Add alert at this price"</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 mt-0.5">></span>
+                            <span>Drag any alert line to a new level → confirm to save</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 mt-0.5">></span>
+                            <span>4 timeframes (15m / 1H / 4H / Daily) · up to ~4 months history</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 mt-0.5">></span>
+                            <span>Pre-market aware · fullscreen mode · MAE/MFE overlay</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mock: chart with alert lines -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden font-mono text-xs">
+                        <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-zinc-400 uppercase tracking-widest text-[10px]">AAPL · Trade Chart · 1H</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-[9px] text-zinc-600">
+                                <span class="px-1.5 py-0.5 border border-zinc-700 rounded">15m</span>
+                                <span class="px-1.5 py-0.5 border border-blue-500/50 text-blue-400 rounded">1H</span>
+                                <span class="px-1.5 py-0.5 border border-zinc-700 rounded">4H</span>
+                                <span class="px-1.5 py-0.5 border border-zinc-700 rounded">D</span>
+                            </div>
+                        </div>
+                        <!-- Chart area -->
+                        <div class="relative h-48 bg-zinc-950 p-3">
+                            <svg class="w-full h-full" viewBox="0 0 280 120" preserveAspectRatio="none">
+                                <!-- Price line -->
+                                <path d="M0,80 C20,75 40,60 60,55 C80,50 100,65 120,58 C140,52 160,40 180,38 C200,36 220,42 240,35 C255,30 268,28 280,25" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+                                <!-- Fill area under price -->
+                                <path d="M0,80 C20,75 40,60 60,55 C80,50 100,65 120,58 C140,52 160,40 180,38 C200,36 220,42 240,35 C255,30 268,28 280,25 L280,120 L0,120 Z" fill="rgba(59,130,246,0.04)"/>
+                                <!-- Entry line (fill) -->
+                                <line x1="0" y1="90" x2="280" y2="90" stroke="#10b981" stroke-width="1" stroke-dasharray="4 2" opacity="0.7"/>
+                                <!-- Stop line -->
+                                <line x1="0" y1="108" x2="280" y2="108" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 2" opacity="0.7"/>
+                                <!-- Target line -->
+                                <line x1="0" y1="15" x2="280" y2="15" stroke="#10b981" stroke-width="1" stroke-dasharray="4 2" opacity="0.5"/>
+                                <!-- Custom alert line (being dragged) -->
+                                <line x1="0" y1="48" x2="280" y2="48" stroke="#60a5fa" stroke-width="1.5" opacity="0.9"/>
+                                <!-- Drag handle on alert line -->
+                                <circle cx="240" cy="48" r="5" fill="#1e3a5f" stroke="#60a5fa" stroke-width="1.5"/>
+                                <line x1="238" y1="44" x2="238" y2="52" stroke="#60a5fa" stroke-width="1"/>
+                                <line x1="242" y1="44" x2="242" y2="52" stroke="#60a5fa" stroke-width="1"/>
+                            </svg>
+                            <!-- Line labels -->
+                            <div class="absolute right-3 top-3 text-[9px] text-emerald-500 bg-zinc-950 px-1 rounded">Target 196.50</div>
+                            <div class="absolute right-3 font-bold" style="top: calc(48/120 * 100% - 8px)">
+                                <span class="text-[9px] text-blue-400 bg-zinc-950 px-1 rounded border border-blue-500/30">Alert 191.20 ↕ drag</span>
+                            </div>
+                            <div class="absolute right-3" style="top: calc(90/120 * 100% - 8px)">
+                                <span class="text-[9px] text-emerald-400 bg-zinc-950 px-1 rounded">Entry 188.40</span>
+                            </div>
+                            <div class="absolute right-3 bottom-3 text-[9px] text-rose-400 bg-zinc-950 px-1 rounded">Stop 184.20</div>
+                        </div>
+                        <!-- Right-click context hint -->
+                        <div class="px-4 py-3 border-t border-zinc-800 bg-zinc-900/60 flex items-center gap-3">
+                            <div class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></div>
+                            <span class="text-zinc-500 text-[10px]">Right-click anywhere on chart → <span class="text-blue-400">Add alert at 189.75</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alert types grid -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-white mb-4 text-center">Four ways to set alerts. One journal.</h3>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">Position-attached alerts, chart-drawn custom levels, Globex-aware futures monitoring — all in the same place you journal and review your trades.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all flex flex-col relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
@@ -347,6 +445,25 @@
                             <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase">Pip alert</div>
                             <div class="text-sm text-white font-bold">20 pips from target</div>
                             <div class="text-xs text-purple-400 mt-1">EUR/USD · London session</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-blue-500/30 rounded-2xl p-8 hover:border-blue-400/60 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="relative z-10">
+                        <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                            Chart-Drawn Alerts
+                            <span class="ml-auto px-1.5 py-0.5 text-[9px] font-bold bg-blue-500 text-white rounded uppercase tracking-widest">New</span>
+                        </h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                            Right-click on the trade chart to add an alert at cursor price — add a title so you know what to do when it fires. Drag any alert line to adjust the level. Saves instantly.
+                        </p>
+                        <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase">Chart alert set</div>
+                            <div class="text-sm text-white font-bold">191.20 — "break above pivot?"</div>
+                            <div class="text-xs text-blue-400 mt-1">Right-click → drag to adjust</div>
                         </div>
                     </div>
                 </div>
@@ -442,6 +559,11 @@
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Are the alerts inside the journal or a separate tool?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">Inside the journal. You don't need a separate charting platform open to watch your stops — the alerts live in the same place you journal and analyze your trades, so the loop from "price hit my level" to "log the action" is one ecosystem.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I set a custom alert at any price level, not just break-even or stop?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. The trade-details view includes a full interactive chart — right-click anywhere on the chart to add an alert at that exact price, and give it a title so you know what action to take when it fires. You can also drag any existing alert line to a new price level and confirm to save. This is in addition to the automatic position-based alerts (break-even, stop proximity, pip-distance).</p>
                 </div>
 
             </div>

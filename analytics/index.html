@@ -330,27 +330,113 @@
         </div>
     </section>
 
-    <!-- Data fields grid -->
+    <!-- CSV Export section -->
     <section class="py-24 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Every field. One export.<br>
+                        <span class="text-teal-400">Ready for the lab.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        The full trade record exports as a clean CSV — not just the outcome. Every execution field, every indicator value captured at entry, every behavioral tag, every post-mortem grade, and the screenshot URLs for every chart image you attached to the trade.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Use it in Python to build ML features. Feed it to an LLM for pattern analysis. Run your own Monte Carlo against real trade sequences. The export is structured for direct use — no cleaning, no reshaping.
+                    </p>
+                    <ul class="space-y-2 text-sm text-zinc-400 mb-6">
+                        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span><span><strong class="text-white">Screenshot URLs included</strong> — every chart image you attached exports as a URL column, so your visual context travels with the data row.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span><span><strong class="text-white">Save-time snapshot</strong> — account balance, unrealized P&amp;L on other positions, and session context captured at the moment you logged the trade.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span><span><strong class="text-white">All custom fields</strong> — custom tags, signals, and any extra fields you defined are columns in the export.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Mock: CSV preview -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden font-mono text-[10px]">
+                        <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 bg-zinc-900">
+                            <div class="w-2 h-2 rounded-full bg-teal-400"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest">trades_export.csv</span>
+                            <span class="ml-auto text-zinc-600">847 rows · 38 columns</span>
+                        </div>
+                        <!-- Header row -->
+                        <div class="overflow-x-auto">
+                            <div class="min-w-max">
+                                <div class="grid text-zinc-500 bg-zinc-900/60 border-b border-zinc-800" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800">date</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">symbol</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">r_multiple</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">rsi_entry</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">macd_hist</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">screenshot_url</div>
+                                    <div class="px-3 py-2">tag</div>
+                                </div>
+                                <!-- Row 1 -->
+                                <div class="grid text-zinc-300 border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-400">2026-06-07</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-white font-bold">AAPL</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-emerald-400">+2.1</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">58.4</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">+0.12</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-blue-400 truncate max-w-[100px]">cdn.sgnldk…</div>
+                                    <div class="px-3 py-2 text-purple-400">A+_setup</div>
+                                </div>
+                                <!-- Row 2 -->
+                                <div class="grid text-zinc-300 border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-400">2026-06-06</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-white font-bold">ES</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-rose-400">-0.8</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">71.2</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-rose-400">-0.04</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-blue-400 truncate max-w-[100px]">cdn.sgnldk…</div>
+                                    <div class="px-3 py-2 text-amber-400">FOMO</div>
+                                </div>
+                                <!-- Row 3 -->
+                                <div class="grid text-zinc-300 border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-400">2026-06-05</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-white font-bold">EUR/USD</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-emerald-400">+1.4</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">44.8</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">+0.08</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-600">—</div>
+                                    <div class="px-3 py-2 text-purple-400">breakout</div>
+                                </div>
+                                <!-- Ellipsis row -->
+                                <div class="px-3 py-2 text-zinc-600 border-b border-zinc-800/50">· · · 844 more rows · · ·</div>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-zinc-900/40 text-zinc-600 text-[9px] border-t border-zinc-800">38 total columns including: date, symbol, side, qty, entry_price, exit_price, stop, target, r_multiple, pnl, mae, mfe, hold_mins, rsi_entry, macd_hist, sma_above, session, strategy, setup_grade, process_verdict, tags, signals, screenshot_url, acct_balance_at_save, custom_field_1…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data fields grid -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-950">
         <div class="max-w-6xl mx-auto px-6">
-            <h3 class="text-3xl font-bold text-white mb-4 text-center">Everything captured. Nothing missing.</h3>
-            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">Every trade record includes the fields you'd want for any serious analysis — execution, context, outcome, and behavior.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+            <h3 class="text-3xl font-bold text-white mb-4 text-center">Every field in the export.</h3>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">38 columns per trade row — execution, technical context at entry, save-time snapshot, and behavioral review data.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                     <h4 class="text-sm font-mono text-teal-400 uppercase tracking-widest mb-4">Execution</h4>
                     <ul class="space-y-2 text-sm text-zinc-400">
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Entry / exit price &amp; time</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>R-multiple (final outcome)</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>MAE &amp; MFE per trade</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Entry &amp; exit slippage</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Hold duration</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Hold duration (minutes)</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Position size &amp; risk %</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Stop &amp; target prices</li>
                     </ul>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                     <h4 class="text-sm font-mono text-blue-400 uppercase tracking-widest mb-4">Technical Context</h4>
                     <ul class="space-y-2 text-sm text-zinc-400">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>RSI at entry (per-minute snap)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>RSI(14) at entry</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>MACD histogram at entry</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>SMA relationship at entry</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>Session (pre-market / regular)</li>
@@ -358,15 +444,26 @@
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>Strategy &amp; setup label</li>
                     </ul>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-sm font-mono text-amber-400 uppercase tracking-widest mb-4">Save-Time Snapshot</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Account balance at save</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Unrealized P&amp;L at save</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span><strong class="text-white">Screenshot URL(s)</strong></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Journal notes text</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Custom signals</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Custom fields (user-defined)</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                     <h4 class="text-sm font-mono text-purple-400 uppercase tracking-widest mb-4">Behavior &amp; Review</h4>
                     <ul class="space-y-2 text-sm text-zinc-400">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Behavioral tags (FOMO, hesitation…)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Behavioral tags (FOMO…)</li>
                         <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Post-mortem grade (A+ → F)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Process verdict (win / loss / violation)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Training gap classification</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Custom signals &amp; custom fields</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Journal notes text</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Process verdict</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Training gap class</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Setup quality score</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Management grade</li>
                     </ul>
                 </div>
             </div>

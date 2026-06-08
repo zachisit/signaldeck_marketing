@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <title>Trading Analytics — Forensic-Grade Trade Data, SQN, Expectancy &amp; CSV Export | SignalDeck</title>
+    <meta name="description" content="SignalDeck captures RSI, MACD, and SMA values at the exact minute of your entry — then exports clean, forensic-grade CSVs for LLMs or Monte Carlo simulations. SQN scoring, expectancy, strategy decay, and MAE/MFE on every trade.">
+    <meta name="keywords" content="trading analytics, forensic trade data, SQN score, trading expectancy, MAE MFE analysis, strategy decay detection, trading CSV export, trade data export, execution quality analysis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sgnldk.com/analytics/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/analytics/">
+    <meta property="og:title" content="Trading Analytics — Forensic Trade Data &amp; Export | SignalDeck">
+    <meta property="og:description" content="RSI/MACD/SMA captured at entry. SQN, expectancy, MAE/MFE, strategy decay. Export forensic CSVs for LLMs or Monte Carlo. Built for the lab, not just the ledger.">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Trading Analytics — Forensic Trade Data | SignalDeck">
+    <meta property="twitter:description" content="SQN, expectancy, MAE/MFE, strategy decay, and forensic CSV export. Your journal is a proprietary training set.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"Trading Analytics — Forensic Trade Data, SQN & Export","url":"https://sgnldk.com/analytics/","description":"SignalDeck captures execution indicators at entry, computes SQN/expectancy/MAE/MFE, detects strategy decay, and exports forensic-grade CSVs for ML or Monte Carlo use.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is SQN score in trading?","acceptedAnswer":{"@type":"Answer","text":"SQN (System Quality Number) measures the statistical quality of a trading system. A score above 2.0 indicates a statistically real edge. It normalizes expectancy by the standard deviation of R-multiples across your trade sample — so a high win rate with wildly inconsistent outcomes scores lower than a lower win rate with tight, consistent results. SignalDeck computes SQN automatically from your trade history."}},
+    {"@type":"Question","name":"What is trading expectancy?","acceptedAnswer":{"@type":"Answer","text":"Expectancy is the average R-multiple (risk-normalized return) you earn per trade across your full trade history. A positive expectancy means your system is profitable on average — even if individual trades lose. It's the only number that reliably predicts forward profitability, because it normalizes for position size."}},
+    {"@type":"Question","name":"What are MAE and MFE in trading analytics?","acceptedAnswer":{"@type":"Answer","text":"MAE (Maximum Adverse Excursion) is the worst intra-trade drawdown before the trade closed. MFE (Maximum Favorable Excursion) is the best intra-trade profit before the trade closed. Comparing MAE/MFE to final P&L reveals execution quality — if your MFE consistently exceeds final profit, you're exiting too early. If your MAE exceeds your stop, you're not following your plan."}},
+    {"@type":"Question","name":"Can I export my trade data from SignalDeck?","acceptedAnswer":{"@type":"Answer","text":"Yes. SignalDeck exports clean, forensic-grade CSVs that include every trade field — R-multiples, execution indicators (RSI/MACD/SMA at entry), MAE/MFE, behavioral tags, post-mortem grades, and strategy labels. The format is designed for direct use with Python, Excel, or LLM fine-tuning pipelines."}}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"Analytics","item":"https://sgnldk.com/analytics/"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        teal: { 400: '#2dd4bf' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-teal-400/30 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <a href="../index.html"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../free/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../free/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-xs font-mono uppercase tracking-widest text-teal-400 mb-4">Trading Analytics</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Your journal is a<br>
+                <span class="text-teal-400">proprietary training set.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400">
+                SignalDeck captures RSI, MACD, and SMA values at the exact minute of your entry. Every trade comes with execution quality metrics, behavioral tags, and post-mortem grades — then exports as clean forensic CSVs for LLMs, Monte Carlo, or your own analysis.
+            </p>
+            <div class="mt-6 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-sm text-zinc-400">
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">SQN &amp; expectancy</strong> — the two numbers that determine whether your edge is statistically real.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">MAE/MFE</strong> — max adverse and favorable excursion per trade for execution quality analysis.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">Strategy decay</strong> — detect when a working edge starts breaking down before the drawdown gets expensive.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">Forensic CSV export</strong> — every field, clean format, ready for Python/LLM/Monte Carlo.</span>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="https://app.sgnldk.com"
+                    onclick="gtag('event', 'generate_lead', {'event_category': 'engagement', 'event_label': 'Beta Signup - Analytics (hero)'});"
+                    target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-teal-900/20">
+                    Request Beta Access — Free
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-zinc-500">Or check your edge — <a href="../tools/expectancy-calculator/index.html" class="text-teal-400 hover:text-teal-300 underline underline-offset-2">free expectancy calculator →</a></p>
+        </div>
+    </section>
+
+    <!-- Feature 1: Edge metrics -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <!-- Mock: edge metric dashboard -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950/80 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-3">
+                            <div class="w-2 h-2 rounded-full bg-teal-400"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Edge Metrics · Last 90 trades</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">Expectancy</div>
+                                <div class="text-teal-400 font-bold text-xl">+0.84R</div>
+                                <div class="text-[10px] text-zinc-500 mt-0.5">per trade, avg</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">SQN Score</div>
+                                <div class="text-emerald-400 font-bold text-xl">2.8</div>
+                                <div class="text-[10px] text-emerald-600 mt-0.5">EXCELLENT</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">Profit Factor</div>
+                                <div class="text-blue-400 font-bold text-xl">2.14</div>
+                                <div class="text-[10px] text-zinc-500 mt-0.5">win $ / loss $</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">Kelly %</div>
+                                <div class="text-purple-400 font-bold text-xl">1.8%</div>
+                                <div class="text-[10px] text-zinc-500 mt-0.5">optimal risk/trade</div>
+                            </div>
+                        </div>
+                        <div class="bg-teal-500/10 border border-teal-500/20 rounded-lg p-3">
+                            <div class="text-[10px] text-zinc-400 leading-relaxed">SQN 2.8 — edge is statistically real. Expectancy 0.84R — system is profitable on average even with a 42% win rate.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        The two numbers that<br>
+                        <span class="text-teal-400">actually measure edge.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        Win rate tells you nothing on its own. A 42% win rate with 2.5R winners is more profitable than a 75% win rate with 0.3R winners. SignalDeck tracks every trade outcome as an R-multiple — risk-normalized — so SQN and expectancy are based on real edge measurement, not raw dollars.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        SQN above 2.0 is a statistically real edge. Kelly Criterion gives you the mathematically optimal position size from your own R data. These aren't vanity metrics — they're the numbers that determine if you should be scaling up or fixing the system first.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Execution indicators at entry -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        The technical context<br>
+                        <span class="text-blue-400">at the moment you traded.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        Most journals store the outcome. SignalDeck also stores the context — RSI, MACD, and SMA values at the exact minute of your entry, snapshotted automatically.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        When you go back to review a trade, you see not just what happened but what the market looked like when you pulled the trigger. And when you export to CSV, that context travels with every row — ready for ML feature engineering or pattern analysis.
+                    </p>
+                </div>
+
+                <!-- Mock: execution context widget -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-blue-500/10 to-teal-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 rounded-xl border border-zinc-800 shadow-2xl p-6 font-mono text-xs">
+                        <div class="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-3">
+                            <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Execution Context · $AAPL · Entry 09:32</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1">RSI(14)</div>
+                                <div class="text-blue-400 font-bold text-base">58.4</div>
+                                <div class="text-[10px] text-zinc-600">at entry</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1">MACD</div>
+                                <div class="text-emerald-400 font-bold text-base">+0.12</div>
+                                <div class="text-[10px] text-zinc-600">histogram</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1">SMA 20</div>
+                                <div class="text-blue-400 font-bold text-base">above</div>
+                                <div class="text-[10px] text-zinc-600">price vs MA</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1">MAE</div>
+                                <div class="text-rose-400 font-bold">-0.4R</div>
+                                <div class="text-[10px] text-zinc-600">max adverse excursion</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1">MFE</div>
+                                <div class="text-emerald-400 font-bold">+3.1R</div>
+                                <div class="text-[10px] text-zinc-600">max favorable excursion</div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900 rounded-lg p-3">
+                            <div class="text-[9px] text-zinc-500 mb-1">Final outcome</div>
+                            <div class="text-white font-bold">+2.1R — left 1.0R on table vs MFE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: Strategy decay + CSV export -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <!-- Mock: strategy decay chart -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-rose-500/10 to-teal-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950/80 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+                                <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Strategy Decay · SMA Breakout</span>
+                            </div>
+                            <span class="px-2 py-0.5 text-[9px] bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded font-bold">DECAY DETECTED</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="text-[9px] text-zinc-500 mb-2 uppercase">Rolling 20-trade expectancy</div>
+                            <svg class="w-full h-16" viewBox="0 0 280 48" preserveAspectRatio="none">
+                                <!-- strong period -->
+                                <path d="M0,30 C20,24 40,16 70,10 C90,6 110,8 130,6" fill="none" stroke="#2dd4bf" stroke-width="2"/>
+                                <!-- decay begins -->
+                                <path d="M130,6 C150,8 170,18 190,28 C210,36 240,40 280,44" fill="none" stroke="#f43f5e" stroke-width="2"/>
+                                <!-- decay line annotation -->
+                                <line x1="130" y1="0" x2="130" y2="48" stroke="#52525b" stroke-width="1" stroke-dasharray="3 2"/>
+                            </svg>
+                            <div class="flex items-center gap-4 mt-1 text-[9px] text-zinc-600">
+                                <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-teal-400 inline-block"></span> Working</span>
+                                <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-rose-500 inline-block"></span> Decay</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between bg-zinc-900 rounded p-2.5">
+                                <span class="text-zinc-400">Trades 1–40</span>
+                                <span class="text-teal-400 font-bold">+0.91R avg</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-zinc-900 rounded p-2.5">
+                                <span class="text-zinc-400">Trades 41–60</span>
+                                <span class="text-rose-400 font-bold">-0.18R avg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Know when your edge<br>
+                        <span class="text-rose-400">starts breaking down.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        Strategy decay is the most expensive thing that happens silently. A system that worked for 40 trades can stop working in week 7 — and if you're not tracking rolling expectancy, you'll find out via drawdown, not data.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        SignalDeck tracks rolling expectancy and flags when a strategy's recent performance diverges from its baseline — so you can pause and diagnose before the drawdown compounds.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Every metric, every indicator, every tag exports to a clean CSV. Use it in Python, feed it to an LLM, run your own Monte Carlo — the data is yours and it's already formatted for the lab.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSV Export section -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Every field. One export.<br>
+                        <span class="text-teal-400">Ready for the lab.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        The full trade record exports as a clean CSV — not just the outcome. Every execution field, every indicator value captured at entry, every behavioral tag, every post-mortem grade, and the screenshot URLs for every chart image you attached to the trade.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Use it in Python to build ML features. Feed it to an LLM for pattern analysis. Run your own Monte Carlo against real trade sequences. The export is structured for direct use — no cleaning, no reshaping.
+                    </p>
+                    <ul class="space-y-2 text-sm text-zinc-400 mb-6">
+                        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span><span><strong class="text-white">Screenshot URLs included</strong> — every chart image you attached exports as a URL column, so your visual context travels with the data row.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span><span><strong class="text-white">Save-time snapshot</strong> — account balance, unrealized P&amp;L on other positions, and session context captured at the moment you logged the trade.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span><span><strong class="text-white">All custom fields</strong> — custom tags, signals, and any extra fields you defined are columns in the export.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Mock: CSV preview -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden font-mono text-[10px]">
+                        <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 bg-zinc-900">
+                            <div class="w-2 h-2 rounded-full bg-teal-400"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest">trades_export.csv</span>
+                            <span class="ml-auto text-zinc-600">847 rows · 38 columns</span>
+                        </div>
+                        <!-- Header row -->
+                        <div class="overflow-x-auto">
+                            <div class="min-w-max">
+                                <div class="grid text-zinc-500 bg-zinc-900/60 border-b border-zinc-800" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800">date</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">symbol</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">r_multiple</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">rsi_entry</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">macd_hist</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800">screenshot_url</div>
+                                    <div class="px-3 py-2">tag</div>
+                                </div>
+                                <!-- Row 1 -->
+                                <div class="grid text-zinc-300 border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-400">2026-06-07</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-white font-bold">AAPL</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-emerald-400">+2.1</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">58.4</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">+0.12</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-blue-400 truncate max-w-[100px]">cdn.sgnldk…</div>
+                                    <div class="px-3 py-2 text-purple-400">A+_setup</div>
+                                </div>
+                                <!-- Row 2 -->
+                                <div class="grid text-zinc-300 border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-400">2026-06-06</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-white font-bold">ES</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-rose-400">-0.8</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">71.2</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-rose-400">-0.04</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-blue-400 truncate max-w-[100px]">cdn.sgnldk…</div>
+                                    <div class="px-3 py-2 text-amber-400">FOMO</div>
+                                </div>
+                                <!-- Row 3 -->
+                                <div class="grid text-zinc-300 border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors" style="grid-template-columns: repeat(7, minmax(100px,1fr))">
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-400">2026-06-05</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-white font-bold">EUR/USD</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-emerald-400">+1.4</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">44.8</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50">+0.08</div>
+                                    <div class="px-3 py-2 border-r border-zinc-800/50 text-zinc-600">—</div>
+                                    <div class="px-3 py-2 text-purple-400">breakout</div>
+                                </div>
+                                <!-- Ellipsis row -->
+                                <div class="px-3 py-2 text-zinc-600 border-b border-zinc-800/50">· · · 844 more rows · · ·</div>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-zinc-900/40 text-zinc-600 text-[9px] border-t border-zinc-800">38 total columns including: date, symbol, side, qty, entry_price, exit_price, stop, target, r_multiple, pnl, mae, mfe, hold_mins, rsi_entry, macd_hist, sma_above, session, strategy, setup_grade, process_verdict, tags, signals, screenshot_url, acct_balance_at_save, custom_field_1…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data fields grid -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-950">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-white mb-4 text-center">Every field in the export.</h3>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">38 columns per trade row — execution, technical context at entry, save-time snapshot, and behavioral review data.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-sm font-mono text-teal-400 uppercase tracking-widest mb-4">Execution</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Entry / exit price &amp; time</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>R-multiple (final outcome)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>MAE &amp; MFE per trade</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Entry &amp; exit slippage</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Hold duration (minutes)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Position size &amp; risk %</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>Stop &amp; target prices</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-sm font-mono text-blue-400 uppercase tracking-widest mb-4">Technical Context</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>RSI(14) at entry</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>MACD histogram at entry</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>SMA relationship at entry</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>Session (pre-market / regular)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>Asset class &amp; instrument</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>Strategy &amp; setup label</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-sm font-mono text-amber-400 uppercase tracking-widest mb-4">Save-Time Snapshot</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Account balance at save</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Unrealized P&amp;L at save</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span><strong class="text-white">Screenshot URL(s)</strong></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Journal notes text</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Custom signals</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Custom fields (user-defined)</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-sm font-mono text-purple-400 uppercase tracking-widest mb-4">Behavior &amp; Review</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Behavioral tags (FOMO…)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Post-mortem grade (A+ → F)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Process verdict</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Training gap class</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Setup quality score</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>Management grade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-zinc-950 border border-teal-500/30 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute -top-16 -right-16 w-48 h-48 bg-teal-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-xl">
+                    <h2 class="text-3xl font-bold text-white mb-4">Your journal is your most valuable dataset.</h2>
+                    <p class="text-zinc-400 mb-8">SQN, expectancy, MAE/MFE, execution indicators at entry, behavioral tags, and forensic CSV export. Built for the lab, not just the ledger. Free during beta.</p>
+                    <a href="https://app.sgnldk.com"
+                        onclick="gtag('event', 'generate_lead', {'event_category': 'engagement', 'event_label': 'Beta Signup - Analytics (CTA)'});"
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-teal-900/20">
+                        Start free in SignalDeck
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is SQN score in trading?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SQN (System Quality Number) measures statistical trading quality. Above 2.0 is a real edge. It normalizes expectancy by the standard deviation of R-multiples — so consistent results score higher than wild swings, even with the same average.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is trading expectancy?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Expectancy is the average R-multiple per trade across your full history. It's the only number that reliably predicts forward profitability — because it normalizes for position size and accounts for both win rate and reward-to-risk ratio simultaneously.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What are MAE and MFE?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">MAE (Maximum Adverse Excursion) is the worst intra-trade drawdown before close. MFE (Maximum Favorable Excursion) is the best intra-trade profit before close. Comparing these to your final P&L reveals execution quality — if MFE consistently exceeds final profit, you're exiting too early.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I export my trade data?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. SignalDeck exports clean forensic CSVs including R-multiples, execution indicators (RSI/MACD/SMA at entry), MAE/MFE, behavioral tags, post-mortem grades, and strategy labels — designed for direct use in Python, Excel, or LLM pipelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related -->
+    <section class="py-12 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 text-sm">
+                <a href="../tools/expectancy-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-500/50 text-zinc-300 transition-colors">Expectancy calculator →</a>
+                <a href="../tools/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-500/50 text-zinc-300 transition-colors">All free tools →</a>
+                <a href="../backtester/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-500/50 text-zinc-300 transition-colors">Strategy backtester →</a>
+                <a href="../post-mortem/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-500/50 text-zinc-300 transition-colors">Post Mortem protocol →</a>
+                <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-500/50 text-zinc-300 transition-colors">Plans →</a>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. SQN, expectancy, MAE/MFE, execution indicators, and forensic CSV export — your journal as a proprietary training set. Paid plans (Free / Pro $30 / Elite $50) launch June 2026.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="gtag('event', 'generate_lead', {'event_category': 'engagement', 'event_label': 'Beta Signup - Analytics (footer)'});"
+                target="_blank" rel="noopener noreferrer"
+                class="w-full sm:w-auto px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                Beta Signup Here
+            </a>
+            <p class="mt-12 text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="../discord.html">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

@@ -389,84 +389,85 @@
 
     <!-- Alert types grid -->
     <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-5xl mx-auto px-6">
             <h3 class="text-3xl font-bold text-white mb-4 text-center">Four ways to set alerts. One journal.</h3>
             <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">Position-attached alerts, chart-drawn custom levels, Globex-aware futures monitoring — all in the same place you journal and review your trades.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all flex flex-col relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-                            Break-Even Alerts
-                        </h4>
-                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-10 hover:border-blue-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Break-Even Alerts</h4>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
                             Get pinged the second price tags your entry — move your stop to break-even and make the trade risk-free. The discipline rule you'd otherwise forget, automated.
                         </p>
-                        <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
-                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase">Alert fired</div>
-                            <div class="text-sm text-white font-bold">Price = Entry at 1.08452</div>
-                            <div class="text-xs text-blue-400 mt-1">Move stop to break-even →</div>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Alert fired</div>
+                            <div class="text-sm text-white font-bold mb-1">Price = Entry at 1.08452</div>
+                            <div class="text-xs text-blue-400">Move stop to break-even →</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all flex flex-col relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-emerald-500/10"></div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                            Live Stop Monitoring
-                        </h4>
-                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-10 hover:border-emerald-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-emerald-500/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Live Stop Monitoring</h4>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
                             Your stop levels are watched in real time on open positions — including futures (ES/NQ/CL/GC) gated to CME Globex hours, so no spurious alerts when the market's closed.
                         </p>
-                        <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
-                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase">Position watch</div>
-                            <div class="text-sm text-white font-bold">Stop: 5,201.25 · ES</div>
-                            <div class="text-xs text-emerald-400 mt-1">Globex session active</div>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Position watch</div>
+                            <div class="text-sm text-white font-bold mb-1">Stop: 5,201.25 · ES</div>
+                            <div class="text-xs text-emerald-400">Globex session active</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-purple-500/50 transition-all flex flex-col relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-purple-500/10"></div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-                            Price &amp; Pip-Distance
-                        </h4>
-                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-10 hover:border-purple-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-purple-500/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-500 flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Price &amp; Pip-Distance</h4>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
                             Set price targets on a position, or pip-distance alerts for forex. When the level hits, you know — without a second charting tab open.
                         </p>
-                        <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
-                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase">Pip alert</div>
-                            <div class="text-sm text-white font-bold">20 pips from target</div>
-                            <div class="text-xs text-purple-400 mt-1">EUR/USD · London session</div>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Pip alert</div>
+                            <div class="text-sm text-white font-bold mb-1">20 pips from target</div>
+                            <div class="text-xs text-purple-400">EUR/USD · London session</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-blue-500/30 rounded-2xl p-8 hover:border-blue-400/60 transition-all flex flex-col relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                            Chart-Drawn Alerts
-                            <span class="ml-auto px-1.5 py-0.5 text-[9px] font-bold bg-blue-500 text-white rounded uppercase tracking-widest">New</span>
-                        </h4>
-                        <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                <div class="bg-zinc-900/40 border border-blue-500/30 rounded-2xl p-10 hover:border-blue-400/60 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Chart-Drawn Alerts</h4>
+                            <span class="ml-auto px-2 py-0.5 text-[9px] font-bold bg-blue-500 text-white rounded uppercase tracking-widest flex-shrink-0">New</span>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
                             Right-click on the trade chart to add an alert at cursor price — add a title so you know what to do when it fires. Drag any alert line to adjust the level. Saves instantly.
                         </p>
-                        <div class="mt-auto bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-xl">
-                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase">Chart alert set</div>
-                            <div class="text-sm text-white font-bold">191.20 — "break above pivot?"</div>
-                            <div class="text-xs text-blue-400 mt-1">Right-click → drag to adjust</div>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Chart alert set</div>
+                            <div class="text-sm text-white font-bold mb-1">191.20 — "break above pivot?"</div>
+                            <div class="text-xs text-blue-400">Right-click → drag to adjust</div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

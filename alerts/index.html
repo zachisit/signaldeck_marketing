@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+<title>Trade Alerts on Your Open Positions — Price, Stop & Break-Even | SignalDeck</title>
+<meta name="description" content="SignalDeck alerts you on the trades you actually hold — price, stop-level, and break-even alerts on your open positions, delivered inside your journal (futures gated to CME Globex hours). Most journals don't.">
+<meta name="keywords" content="trade alerts, price alerts on positions, stop loss alert, break-even alert, trading journal alerts, position alerts, stop alert trading journal, move stop to break even alert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sgnldk.com/alerts/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sgnldk.com/alerts/">
+<meta property="og:title" content="Trade Alerts on Your Open Positions | SignalDeck">
+<meta property="og:description" content="Price, stop-level & break-even alerts on the trades you actually hold — inside your journal. Most journals don't alert on open positions.">
+<meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Trade Alerts on Your Open Positions | SignalDeck">
+<meta property="twitter:description" content="Price, stop-level & break-even alerts on the trades you actually hold — inside your journal.">
+<meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Trade Alerts on Your Open Positions","url":"https://sgnldk.com/alerts/","description":"SignalDeck's live alerts on open positions — price, stop-level, and break-even alerts delivered inside the journal, futures gated to CME Globex hours.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Do trading journals have price alerts on open positions?","acceptedAnswer":{"@type":"Answer","text":"Most don't. Trading journals (TraderSync, Tradervue, Edgewonk) are post-trade analytics tools — they journal trades after the fact and have no live alerts. A few have related features (TradesViz has a market screener; TradeZella has rule alerts), but those scan the market or your rules, not the specific positions you're holding. SignalDeck alerts on your open positions directly, inside the journal."}},
+{"@type":"Question","name":"What is a break-even alert?","acceptedAnswer":{"@type":"Answer","text":"A break-even alert pings you the moment price reaches your entry on an open trade, so you can move your stop to break-even and make the position risk-free. It turns a discipline rule you'd otherwise have to remember into an automatic prompt."}},
+{"@type":"Question","name":"How do futures alerts handle market hours?","acceptedAnswer":{"@type":"Answer","text":"Stop-level and price alerts on futures positions (ES, NQ, CL, GC) are evaluated only within CME Globex trading hours (Sun 6PM–Fri 5PM ET with the daily halt, DST-aware), so you don't get spurious alerts when the market is closed."}},
+{"@type":"Question","name":"Are the alerts inside the journal or a separate tool?","acceptedAnswer":{"@type":"Answer","text":"Inside the journal. You don't need a separate charting platform open to watch your stops — the alerts live in the same place you journal and analyze your trades, so the loop from 'price hit my level' to 'log the action' is one ecosystem."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"Alerts","item":"https://sgnldk.com/alerts/"}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
+
+<header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <div class="flex items-center gap-4">
+      <a href="../tools/index.html" class="hidden sm:inline text-sm font-medium text-zinc-400 hover:text-white">Tools</a>
+      <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Alerts'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-3">Live alerts · in your journal</p>
+  <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">Alerts that watch the trades you're <span class="text-blue-400">actually holding.</span></h1>
+  <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl mb-8">Most trading journals only look at trades <em>after</em> they close, and charting tools only alert on the market. SignalDeck fires <strong class="text-zinc-200">price, stop-level, and break-even alerts on your open positions</strong> — delivered inside the journal, so discipline doesn't depend on memory.</p>
+  <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Alerts (hero)'});" class="inline-flex justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Request Beta Access — Free</a>
+    <a href="../tools/index.html" class="text-sm text-zinc-400 hover:text-blue-400">Free trading tools →</a>
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-5 mt-14">
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+      <div class="text-2xl mb-3">🎯</div>
+      <h2 class="text-lg font-bold text-white mb-1">Break-even alerts</h2>
+      <p class="text-sm text-zinc-400">Get pinged the second price tags your entry — move your stop to break-even and make the trade risk-free. The discipline rule you'd otherwise forget, automated.</p>
+    </div>
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+      <div class="text-2xl mb-3">🛡️</div>
+      <h2 class="text-lg font-bold text-white mb-1">Live stop-level monitoring</h2>
+      <p class="text-sm text-zinc-400">Your stop levels are watched in real time on open positions — including <strong class="text-zinc-300">futures (ES/NQ/CL/GC) gated to CME Globex hours</strong>, so no spurious alerts when the market's closed.</p>
+    </div>
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+      <div class="text-2xl mb-3">📈</div>
+      <h2 class="text-lg font-bold text-white mb-1">Price &amp; pip-distance alerts</h2>
+      <p class="text-sm text-zinc-400">Set price targets on a position, or pip-distance alerts for forex. When the level hits, you know — without a second charting tab open.</p>
+    </div>
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+      <div class="text-2xl mb-3">🧭</div>
+      <h2 class="text-lg font-bold text-white mb-1">In your journal, not a separate app</h2>
+      <p class="text-sm text-zinc-400">The alert and the trade record live in the same place. From "price hit my level" to "log what I did" is one ecosystem — not a charting tool bolted onto a spreadsheet.</p>
+    </div>
+  </div>
+
+  <section class="mt-14">
+    <h2 class="text-2xl font-bold text-white mb-4">Why this is different</h2>
+    <div class="overflow-x-auto rounded-xl border border-zinc-800">
+      <table class="w-full text-sm"><thead class="bg-zinc-900 text-zinc-400 text-left">
+        <tr><th class="px-4 py-3">Tool type</th><th class="px-4 py-3">Alerts on your open positions?</th></tr></thead>
+        <tbody class="divide-y divide-zinc-800 text-zinc-300">
+        <tr><td class="px-4 py-3 font-medium text-white">SignalDeck</td><td class="px-4 py-3 text-emerald-400">✅ Price, stop-level &amp; break-even — in-journal</td></tr>
+        <tr><td class="px-4 py-3">Post-trade journals <span class="text-zinc-500">(TraderSync, Tradervue, Edgewonk)</span></td><td class="px-4 py-3 text-zinc-500">❌ Post-trade analytics only</td></tr>
+        <tr><td class="px-4 py-3">Journals w/ screener or rule alerts <span class="text-zinc-500">(TradesViz, TradeZella)</span></td><td class="px-4 py-3 text-yellow-500">⚠️ Market-screener / rule alerts — not your positions</td></tr>
+        <tr><td class="px-4 py-3">Charting platforms <span class="text-zinc-500">(TradingView, broker)</span></td><td class="px-4 py-3 text-yellow-500">⚠️ Yes — but a separate tool from your journal</td></tr>
+        </tbody></table>
+    </div>
+    <p class="text-xs text-zinc-600 mt-2">Competitor features change — verify current specs on their sites. <a href="../compare/index.html" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
+  </section>
+
+  <section class="mt-14 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-white mb-2">Discipline your edge can rely on</h2>
+    <p class="text-zinc-400 mb-5">An edge only compounds if you actually manage the trade — move the stop, take the level, don't flinch. Alerts on your open positions make the disciplined action the easy one. Free during beta.</p>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','generate_lead',{'event_category':'engagement','event_label':'Beta Signup - Alerts (CTA)'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Start free in SignalDeck</a>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <div class="space-y-4 text-sm">
+      <div><h3 class="font-bold text-white">Do trading journals have price alerts on open positions?</h3><p class="text-zinc-400">Most don't — journals are post-trade analytics. A few have market-screener (TradesViz) or rule (TradeZella) alerts, but those watch the market or your rules, not the positions you hold. SignalDeck alerts on your open positions directly.</p></div>
+      <div><h3 class="font-bold text-white">What is a break-even alert?</h3><p class="text-zinc-400">It pings you when price reaches your entry so you can move your stop to break-even and make the trade risk-free — the discipline rule, automated.</p></div>
+      <div><h3 class="font-bold text-white">How do futures alerts handle market hours?</h3><p class="text-zinc-400">Futures stop/price alerts are evaluated only within CME Globex hours (DST-aware), so you don't get false triggers when the market's closed.</p></div>
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <div class="flex flex-wrap gap-3 text-sm">
+      <a href="../prop-firm/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">Prop-firm traders →</a>
+      <a href="../tools/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">Free tools →</a>
+      <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">Plans →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-zinc-800 mt-16">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
+    <p>&copy; 2026 SignalDeck · sgnldk.com</p>
+    <p><a href="../index.html" class="hover:text-zinc-400">Home</a> · <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> · <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> · <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../plans/index.html" class="hover:text-zinc-400">Plans</a></p>
+  </div>
+</footer>
+</body>
+</html>

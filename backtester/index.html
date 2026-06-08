@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <title>Strategy Backtester — Walk-Forward Analysis, Monte Carlo &amp; Grid-Search | SignalDeck</title>
+    <meta name="description" content="SignalDeck's strategy backtester combines Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization — then overlays your live journal trades on the backtest equity curve. The only journal with all three.">
+    <meta name="keywords" content="strategy backtester, walk-forward analysis, monte carlo simulation trading, grid search optimizer, backtesting software, trading journal backtester, overfitting detection, drawdown simulation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sgnldk.com/backtester/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/backtester/">
+    <meta property="og:title" content="Strategy Backtester — Walk-Forward Analysis, Monte Carlo &amp; Grid-Search | SignalDeck">
+    <meta property="og:description" content="Walk-Forward Analysis catches overfitting. 1,000-path Monte Carlo models worst-case drawdown. Grid-search finds robust parameters. All inside your journal.">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Strategy Backtester with Walk-Forward Analysis | SignalDeck">
+    <meta property="twitter:description" content="Walk-Forward Analysis + Monte Carlo + Grid-Search. The only trading journal backtester with all three.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"Strategy Backtester — Walk-Forward Analysis, Monte Carlo & Grid-Search","url":"https://sgnldk.com/backtester/","description":"SignalDeck's strategy backtester: Walk-Forward Analysis, 1,000-path Monte Carlo simulation, grid-search parameter optimization, and live journal overlay.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is Walk-Forward Analysis?","acceptedAnswer":{"@type":"Answer","text":"Walk-Forward Analysis splits your historical data into in-sample (IS) and out-of-sample (OOS) windows. The strategy is optimized on the IS portion and then tested on the OOS data it never saw. If performance collapses on the OOS window, the strategy is curve-fit to history — not a real edge. SignalDeck runs this automatically and delivers a plain-English Pass/Fail verdict."}},
+    {"@type":"Question","name":"What does Monte Carlo simulation show for a trading strategy?","acceptedAnswer":{"@type":"Answer","text":"Monte Carlo simulation shuffles your trade history 1,000 times to generate a distribution of possible equity curves. The P5 (5th percentile worst-case) drawdown tells you what to expect in a genuinely bad variance run — before you experience it live. Most backtesting tools only show a single backtest path, which is misleading."}},
+    {"@type":"Question","name":"How many strategies does the SignalDeck backtester support?","acceptedAnswer":{"@type":"Answer","text":"16 built-in strategies including SMA/EMA crossover, RSI mean reversion, Bollinger Bands, MACD, and others — tested against up to 5 years of historical data. Grid-search runs up to 500 parameter combinations per strategy."}},
+    {"@type":"Question","name":"Can I link a backtest to my live journal strategy?","acceptedAnswer":{"@type":"Answer","text":"Yes. SignalDeck lets you link any completed backtest to your live journal strategy and overlays the backtest equity curve against your actual trade history. This shows you exactly where your live execution diverges from the theoretical strategy — slippage, discipline violations, timing differences."}}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"Backtester","item":"https://sgnldk.com/backtester/"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500/30 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <a href="../index.html"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-xs font-mono uppercase tracking-widest text-blue-400 mb-4">Strategy Backtester</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Test your edge before<br>
+                <span class="text-blue-500">the market does.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400">
+                Walk-Forward Analysis catches overfitting. 1,000-path Monte Carlo models your worst-case drawdown. Grid-search finds robust parameters. Then overlay your live trades on the theoretical curve — all inside the same journal.
+            </p>
+            <div class="mt-6 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-sm text-zinc-400">
+                <div class="flex items-start gap-2">
+                    <span class="text-blue-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">Walk-Forward Analysis</strong> — IS vs OOS split with a plain-English Pass/Fail verdict.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-blue-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">Monte Carlo simulation</strong> — 1,000 paths, P5 worst-case drawdown before you risk a dollar.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-blue-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">Grid-search optimizer</strong> — up to 500 parameter combinations ranked by robustness.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-blue-400 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                    <span><strong class="text-white">Journal overlay</strong> — compare your live execution against the theoretical equity curve.</span>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="https://app.sgnldk.com"
+                    onclick="gtag('event', 'generate_lead', {'event_category': 'engagement', 'event_label': 'Beta Signup - Backtester (hero)'});"
+                    target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Request Beta Access — Free
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-zinc-500">Or read first — <a href="../blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">what is Walk-Forward Analysis? →</a></p>
+        </div>
+    </section>
+
+    <!-- Feature 1: Walk-Forward Analysis -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <!-- Mock UI: WFA result -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-emerald-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950/80 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Walk-Forward Analysis · SMA 20/50 · SPY · 3Y</span>
+                            </div>
+                            <span class="text-emerald-400 text-[10px] font-bold">COMPLETE</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">In-Sample Return</div>
+                                <div class="text-emerald-400 font-bold text-base">+142%</div>
+                                <div class="text-[10px] text-zinc-500 mt-0.5">24 months IS</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">Out-of-Sample</div>
+                                <div class="text-emerald-400 font-bold text-base">+48%</div>
+                                <div class="text-[10px] text-zinc-500 mt-0.5">12 months OOS</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">IS Sharpe</div>
+                                <div class="text-blue-400 font-bold text-base">1.84</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-3">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">OOS Sharpe</div>
+                                <div class="text-blue-400 font-bold text-base">1.41</div>
+                            </div>
+                        </div>
+                        <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3 text-center">
+                            <div class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Walk-Forward: Pass — Not Overfitted</div>
+                            <div class="text-zinc-500 text-[10px] mt-1">OOS performance holds — strategy generalizes to unseen data</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        The only reliable<br>
+                        <span class="text-blue-500">overfitting test.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        A strategy that only works on the data it was built on isn't an edge — it's a memory. Walk-Forward Analysis splits your data: optimize on two-thirds, test on the third it never saw.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        If the strategy falls apart on out-of-sample data, it's curve-fit. SignalDeck runs the split automatically and delivers a plain-English Pass/Fail verdict so you know before going live.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Monte Carlo -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        See your worst-case drawdown<br>
+                        <span class="text-rose-500">before you live it.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        A single backtest path is a lottery result. Monte Carlo simulation shuffles your trade history 1,000 times and shows you the full distribution of possible outcomes — including the P5 worst-case drawdown you should be sized for.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Most backtesting tools show one path. One path hides 999 ways it can go wrong. Size your live position to survive the 5th percentile, not the median.
+                    </p>
+                </div>
+
+                <!-- Mock UI: Monte Carlo fan -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-rose-500/10 to-blue-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 rounded-xl border border-zinc-800 shadow-2xl p-6 font-mono text-xs">
+                        <div class="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-3">
+                            <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Monte Carlo · 1,000 paths · SMA 20/50</span>
+                        </div>
+                        <div class="relative h-32 mb-4">
+                            <svg class="w-full h-full" viewBox="0 0 280 80" preserveAspectRatio="none">
+                                <!-- MC band (P5–P95) -->
+                                <path d="M0,60 C40,52 80,38 120,22 C160,10 200,14 240,5 C260,2 270,2 280,1 L280,72 C260,75 220,78 180,75 C140,72 100,70 60,72 C40,73 20,72 0,70 Z" fill="rgba(59,130,246,0.08)" stroke="none"/>
+                                <!-- P5 worst case -->
+                                <path d="M0,65 C40,63 80,62 120,58 C160,54 200,56 240,50 C260,47 270,46 280,44" fill="none" stroke="rgba(244,63,94,0.6)" stroke-width="1.5" stroke-dasharray="4 2"/>
+                                <!-- Median path -->
+                                <path d="M0,60 C40,54 80,42 120,30 C160,18 200,20 240,10 C260,6 270,4 280,2" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                                <!-- P95 best case -->
+                                <path d="M0,55 C40,46 80,28 120,14 C160,4 200,6 240,2 C260,1 270,1 280,1" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
+                            </svg>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="bg-zinc-900 rounded-lg p-2.5 text-center">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">P5 Drawdown</div>
+                                <div class="text-rose-400 font-bold">-24.1%</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-2.5 text-center">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">Median Return</div>
+                                <div class="text-blue-400 font-bold">+142%</div>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-2.5 text-center">
+                                <div class="text-[9px] text-zinc-500 mb-1 uppercase">P(Profit)</div>
+                                <div class="text-emerald-400 font-bold">91.3%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: Grid-Search + Journal Overlay -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <!-- Mock UI: Grid-search result -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950/80 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-3">
+                            <div class="w-2 h-2 rounded-full bg-purple-400"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Grid-Search · RSI Mean Reversion · 216 combinations</span>
+                        </div>
+                        <div class="text-[10px] text-zinc-500 mb-2 uppercase">Best parameters by Sharpe</div>
+                        <div class="space-y-2 mb-4">
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-2.5 flex items-center justify-between">
+                                <span class="text-zinc-300">RSI(14) · OB 72 · OS 28</span>
+                                <span class="text-emerald-400 font-bold">Sharpe 2.1</span>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-2.5 flex items-center justify-between">
+                                <span class="text-zinc-400">RSI(14) · OB 70 · OS 30</span>
+                                <span class="text-zinc-300 font-bold">Sharpe 1.9</span>
+                            </div>
+                            <div class="bg-zinc-900 rounded-lg p-2.5 flex items-center justify-between">
+                                <span class="text-zinc-400">RSI(21) · OB 72 · OS 28</span>
+                                <span class="text-zinc-300 font-bold">Sharpe 1.7</span>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900 rounded-lg p-2.5">
+                            <div class="text-[9px] text-zinc-500 mb-1 uppercase">Robustness check</div>
+                            <div class="text-zinc-300">Top params hold across ±2 RSI period — not a single-point peak.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        Find parameters that are<br>
+                        <span class="text-purple-400">robust, not lucky.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        Grid-search runs up to 500 parameter combinations in a single pass. The goal isn't finding the combination that peaks on historical data — it's finding the combination that performs across a range of nearby values.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        A parameter set that only works at exactly RSI(14) with OB=70 is fragile. A set that holds across RSI(12–16) with OB=68–72 is robust. SignalDeck shows you both.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Then link the backtest to your live journal strategy — and overlay the theoretical equity curve against your actual trades to see exactly where execution diverges from theory.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature cards: 16 strategies -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-white mb-4 text-center">16 built-in strategies. Up to 5 years of data.</h3>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">Test any strategy out of the box. Tune it with grid-search. Validate it with Walk-Forward. Then trade it live and compare the execution against the model.</p>
+            <div class="flex flex-wrap gap-2 justify-center mb-12">
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">SMA Crossover</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">EMA Crossover</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">RSI Mean Reversion</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">Bollinger Bands</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">MACD</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">Trailing Stops</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-blue-300 border border-blue-500/30">Walk-Forward Analysis</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-blue-300 border border-blue-500/30">Monte Carlo (1,000 paths)</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-blue-300 border border-blue-500/30">Grid-Search Optimizer</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-blue-300 border border-blue-500/30">Benchmark Overlay</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-blue-300 border border-blue-500/30">Journal Equity Link</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-700">Kelly / Fixed-Risk Sizing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">The only journal with all four</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">Walk-Forward Analysis, Monte Carlo, grid-search, and a live journal overlay. No other trading journal combines them.</p>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead class="bg-zinc-900 text-zinc-400 text-left">
+                        <tr>
+                            <th class="px-5 py-4">Approach</th>
+                            <th class="px-5 py-4 text-center">Walk-Forward</th>
+                            <th class="px-5 py-4 text-center">Monte Carlo</th>
+                            <th class="px-5 py-4 text-center">Grid-Search</th>
+                            <th class="px-5 py-4 text-center">Journal Overlay</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800 text-zinc-300">
+                        <tr class="bg-blue-500/5">
+                            <td class="px-5 py-4 font-medium text-white">SignalDeck</td>
+                            <td class="px-5 py-4 text-center text-emerald-400">✓</td>
+                            <td class="px-5 py-4 text-center text-emerald-400">✓</td>
+                            <td class="px-5 py-4 text-center text-emerald-400">✓</td>
+                            <td class="px-5 py-4 text-center text-emerald-400">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Other trading journals <span class="text-zinc-500">(TraderSync, Edgewonk, TradesViz)</span></td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">TradingView Pine Script</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Python / Backtrader</td>
+                            <td class="px-5 py-4 text-center text-amber-400">Manual</td>
+                            <td class="px-5 py-4 text-center text-amber-400">Manual</td>
+                            <td class="px-5 py-4 text-center text-amber-400">Manual</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Spreadsheet</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                            <td class="px-5 py-4 text-center text-zinc-600">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-zinc-600 mt-3">Competitor features change — verify current specs on their sites. <a href="../compare/index.html" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-zinc-950 border border-blue-500/30 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute -top-16 -right-16 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-xl">
+                    <h2 class="text-3xl font-bold text-white mb-4">Stop going live on untested strategies.</h2>
+                    <p class="text-zinc-400 mb-8">Walk-Forward Analysis, Monte Carlo, and grid-search in a single backtest — then compare your live execution against the model. Free during beta.</p>
+                    <a href="https://app.sgnldk.com"
+                        onclick="gtag('event', 'generate_lead', {'event_category': 'engagement', 'event_label': 'Beta Signup - Backtester (CTA)'});"
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Start free in SignalDeck
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is Walk-Forward Analysis?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Walk-Forward Analysis splits your historical data into in-sample (IS) and out-of-sample (OOS) windows. The strategy is optimized on the IS portion and then tested on OOS data it never saw. If performance collapses on OOS, the strategy is curve-fit. SignalDeck delivers a plain-English Pass/Fail verdict.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What does Monte Carlo simulation show for a trading strategy?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Monte Carlo shuffles your trade history 1,000 times to generate a distribution of possible equity curves. The P5 worst-case drawdown tells you what to expect in a genuinely bad variance run — before you're living it. Most backtesting tools only show a single path, which is misleading.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How many strategies and how much historical data?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">16 built-in strategies including SMA/EMA crossover, RSI mean reversion, Bollinger Bands, and MACD — tested against up to 5 years of data. Grid-search runs up to 500 parameter combinations per strategy.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I link a backtest to my live journal trades?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. SignalDeck lets you link any completed backtest to your live journal strategy and overlays the backtest equity curve against your actual trade history — showing you exactly where execution diverges from theory. Slippage, discipline violations, and timing differences all show up in the gap.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Related pages -->
+    <section class="py-12 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 text-sm">
+                <a href="../blog/walk-forward-analysis/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Walk-Forward Analysis explained →</a>
+                <a href="../blog/monte-carlo-simulation-trading/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Monte Carlo for traders →</a>
+                <a href="../tools/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Free trading tools →</a>
+                <a href="../free/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Free tier →</a>
+                <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Plans →</a>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. Walk-Forward Analysis, Monte Carlo, and grid-search — the only journal with all three. Paid plans (Free / Pro $30 / Elite $50) launch June 2026.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="gtag('event', 'generate_lead', {'event_category': 'engagement', 'event_label': 'Beta Signup - Backtester (footer)'});"
+                target="_blank" rel="noopener noreferrer"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                Beta Signup Here
+            </a>
+            <p class="mt-12 text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/forensicquant" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="../discord.html">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

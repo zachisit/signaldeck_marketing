@@ -23,7 +23,7 @@ SignalDeck is a professional-grade trade journaling platform and strategy backte
 |------|-------|-------------|--------------|
 | Free (post-beta) | $0/mo | unlimited trades | Journal, R-value, SQN, Post Mortem |
 | Pro | $30/mo | Unlimited | Everything + Strategy Backtester, Walk-Forward Analysis, Monte Carlo, grid-search |
-| Team | $50/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Elite Plan), Borg social layer, team dashboards, leaderboards |
+| Elite | $50/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Elite Plan), Borg social layer, team dashboards, leaderboards |
 | Beta (current) | Free | Unlimited | All Pro + Team features, no restrictions |
 | Founder Status | Free for life | Unlimited | Granted to active beta testers who provide feedback |
 
@@ -90,8 +90,15 @@ Tags: FOMO, hesitation, revenge trading, overconfidence, following the plan, plu
 Each tag accumulates average R-multiple data over time — quantifying the financial cost of each psychological pattern.
 Integrated into the Post Mortem workflow on every trade review.
 
+### Live Position Alerts (in-journal)
+Four alert types on OPEN positions — all delivered inside the journal:
+1. Break-even alerts — fires when price reaches your entry; prompts you to move the stop to break-even.
+2. Live stop monitoring — real-time watch on open positions; futures (ES/NQ/CL/GC) gated to CME Globex hours so no spurious pings when the market is closed.
+3. Price & pip-distance alerts — set a price target or pip distance on a position; no second charting tab needed.
+4. Chart-drawn custom alerts (v1.0.66) — right-click anywhere on the interactive trade chart to add an alert at that exact price (optional title), or drag any existing alert line to a new price level to adjust it. Saves instantly. The trade chart shows stop, fill, target, current price, and all alert lines as draggable overlays.
+Differentiator: competing journals have no live position alerts (TraderSync/Tradervue/Edgewonk) or only market-screener/rule alerts (TradesViz/TradeZella).
+
 ### Borg Social Trading Layer
-Live position alerts (in-journal): price, stop-level, and break-even alerts on the user's OPEN positions, evaluated live and delivered in the journal (futures gated to CME Globex hours) — a differentiator; competing journals have no live position alerts (TraderSync/Tradervue/Edgewonk) or only market-screener/rule alerts (TradesViz/TradeZella).
 Anonymous leaderboards ranked by SQN score, expectancy, and cumulative R.
 Live trade feeds showing real-time trade activity across the community.
 Team dashboards: aggregates individual R-metrics into team-level SQN and expectancy for prop firm groups and investment clubs.
@@ -184,7 +191,7 @@ Target queries: crypto trading journal, 24/7 crypto journal, DeFi trading tracke
 URL: https://sgnldk.com/cfd/
 Target queries: CFD trading journal, gold trading journal, XAUUSD journal, NAS100 journal, GER40 journal
 
-### Prop Firm Traders
+### Free Tools Hub
 URL: https://sgnldk.com/tools/
 Target queries: free trading tools, trading calculators, position size calculator, R-multiple calculator, prop firm calculator
 Content: Hub for SignalDeck's 8 free, client-side trading calculators (all free, no signup, built on the R-value framework, each links to journaling real trades in SignalDeck): Position Size (/position-sizing/), R-Multiple (/tools/r-multiple-calculator/), Drawdown Recovery (/tools/drawdown-recovery-calculator/), Kelly Criterion (/tools/kelly-criterion-calculator/), Expectancy (/tools/expectancy-calculator/), Pip Value (/tools/pip-value-calculator/), Prop-Firm Payout (/tools/prop-firm-payout-calculator/), and the "Would I Pass?" prop-firm rule checker (/would-i-pass/).
@@ -312,6 +319,21 @@ Content: Why standard backtesting can't detect its own overfitting — the close
 URL: https://sgnldk.com/blog/kelly-criterion-position-sizing/
 Target queries: Kelly Criterion trading, kelly criterion formula, half kelly position sizing, optimal position size, win rate R ratio position sizing, kelly criterion calculator, trading risk per trade, position sizing formula
 Content: Why generic rules like "never risk more than 2%" ignore your system's actual edge. Simplified Kelly formula: Kelly % = W − [(1 − W) / R], where W = win rate as decimal and R = average winner / average loser. Worked example: W=0.45, R=2.5 → 23% full Kelly, 11.5% half-Kelly. Why most traders use half-Kelly or quarter-Kelly — asymmetric downside of estimation error (slight overestimate of edge causes serious oversizing; the growth cost of fractional Kelly is small). Data requirements table: under 30 trades = unreliable, 30–50 = quarter-Kelly at most, 50–100 = half-Kelly appropriate, 100+ = reliable. Fixed-R and Kelly relationship: Fixed-R normalizes trade data so Kelly can be calculated from it; start with Fixed-R, layer in Kelly once 100+ clean trades exist. Kelly and SQN: high SQN means more reliable Kelly estimate because the edge is consistent across outcomes. Kelly and expectancy: win rate and R-ratio are a decomposition of expectancy into two components. How SignalDeck computes Kelly in real time from live trade history, filterable by strategy and asset class. FAQ: what is the Kelly Criterion formula, what is half-Kelly, how many trades needed, Kelly vs Fixed-R.
+
+### Trading Analytics
+URL: https://sgnldk.com/analytics/
+Target queries: trading analytics, forensic trade data, SQN expectancy tracking, MAE MFE analysis, trading CSV export, strategy decay detection, trading journal data export, execution indicators trading, screenshot url export
+Content: Landing page for SignalDeck's forensic trade analytics and full CSV export. SQN and expectancy computed in real time (the two numbers that determine if your edge is statistically real). Execution indicators captured at entry per-minute: RSI(14), MACD histogram, SMA relationship — snapshotted automatically at the moment of trade entry, not estimated. MAE/MFE per trade for execution quality analysis (shows if stops are too tight, exits too early, or losers held too long). Strategy decay detection via rolling 20-trade expectancy with visual flag when a system's recent performance diverges from its baseline. Full CSV export — 38 columns per trade row including: execution (entry/exit price+time, R-multiple, MAE/MFE, slippage, hold duration, position size, stop/target prices), technical context at entry (RSI/MACD/SMA, session, asset class, strategy label), save-time snapshot (account balance at save, unrealized P&L at save, screenshot URLs, journal notes, custom signals and custom fields), and behavioral/review data (behavioral tags, post-mortem grade, process verdict, training gap, setup quality, management grade). Export designed for direct use in Python, Excel, or LLM pipelines — no cleaning required.
+
+### Strategy Backtester
+URL: https://sgnldk.com/backtester/
+Target queries: strategy backtester trading, walk-forward analysis, monte carlo simulation trading, grid search optimizer, backtesting software, trading journal backtester, overfitting detection, drawdown simulation
+Content: Landing page for SignalDeck's strategy backtester. Walk-Forward Analysis: 80%/20% IS/OOS split with Pass or Likely-Overfitted verdict — the only reliable overfitting test in any trading journal. Monte Carlo simulation: 1,000-path block bootstrap shows the full distribution of outcomes including P5 worst-case drawdown. Grid-search: up to 500 parameter combinations ranked by robustness, not just peak historical performance. Journal overlay: link any backtest to a live journal strategy to compare theoretical vs actual equity curve. 16 built-in strategies, up to 5 years of data, 6 timeframes (5m to 1D). Comparison table: SignalDeck vs other journals (no WFA/MC/grid-search) vs Python/Backtrader (manual setup, no journal overlay) vs TradingView Pine (no WFA/MC/grid-search) vs spreadsheet. Target: "test your edge before the market does."
+
+### Verified Public Trading Profile
+URL: https://sgnldk.com/public-profile/
+Target queries: verified trading results, public trading profile, share trading performance, trading track record, verified equity curve, trading accountability, trading results not screenshot
+Content: Landing page for SignalDeck's verified public profiles at my.sgnldk.com/u/username. Every account gets a profile showing 11 verified stats: Net P&L, profit factor, average R, max drawdown, win rate, average win/loss, average hold time, equity curve, cumulative R, monthly P&L breakdown, last 20 trades streak. Trade thinking cards and post-mortem completion history also visible. Privacy toggle: hide all dollar amounts while keeping ratios/percentages fully public (win rate, R-multiples, profit factor, max drawdown %, equity curve shape). Profile updates automatically from live journal data — no export or upload step. vs screenshots: verified live data from the journal, full history, filterable 1W → ALL, can't be cherry-picked.
 
 ### Jobs
 URL: https://sgnldk.com/jobs/

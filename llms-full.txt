@@ -91,6 +91,7 @@ Each tag accumulates average R-multiple data over time — quantifying the finan
 Integrated into the Post Mortem workflow on every trade review.
 
 ### Borg Social Trading Layer
+Live position alerts (in-journal): price, stop-level, and break-even alerts on the user's OPEN positions, evaluated live and delivered in the journal (futures gated to CME Globex hours) — a differentiator; competing journals have no live position alerts (TraderSync/Tradervue/Edgewonk) or only market-screener/rule alerts (TradesViz/TradeZella).
 Anonymous leaderboards ranked by SQN score, expectancy, and cumulative R.
 Live trade feeds showing real-time trade activity across the community.
 Team dashboards: aggregates individual R-metrics into team-level SQN and expectancy for prop firm groups and investment clubs.

@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-06-10",
+      "dateModified": "2026-06-12",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -154,12 +154,57 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
-            <!-- v1.0.67 -->
-            <div class="pl-8 relative" id="v1-0-67">
+            <!-- v1.0.68 -->
+            <div class="pl-8 relative" id="v1-0-68">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-white">v1.0.67-Beta</h2>
+                    <h2 class="text-2xl font-bold text-white">v1.0.68-Beta</h2>
                     <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jun 12, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Chart interactions get a major upgrade: drag your price target directly on the chart, set it from the right-click menu, and see the price line update instantly on Refresh. Keyboard-first traders can now save alert dialogs and submit add-alert forms with Enter. The Backtester gains interactive signal charts so you can visualise exactly when your strategy fired. Plus a round of chart sync, filter, and Borg polish.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Chart Interactions</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Drag price target on chart</strong> &mdash; grab and move your price target line directly without opening a modal.</li>
+                            <li><strong class="text-zinc-200">Set price target from right-click</strong> &mdash; context menu now includes "Set as Price Target" when no target exists.</li>
+                            <li><strong class="text-zinc-200">Refresh Price updates the price line</strong> &mdash; clicking Refresh now repositions the live price line immediately.</li>
+                            <li><strong class="text-zinc-200">Enter key shortcuts</strong> &mdash; Enter saves the chart-alert dialog, generic confirm modal, and the add-alert form from any focused field.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtester Signal Charts</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Interactive signal chart</strong> &mdash; visualise exactly when your backtest strategy fired buy/sell signals on a TradingView-powered chart.</li>
+                            <li><strong class="text-zinc-200">Minimum-close price badge</strong> &mdash; snapshot cards now show the minimum closing price over the backtest window.</li>
+                            <li>Start-date picker rejects future dates to prevent invalid backtests.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes &amp; Polish</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Alert tab and badge refresh automatically after stop/target changes from chart drag or right-click.</li>
+                            <li>Post-mortems triage card on Today now correctly aggregates all strategies (not just one).</li>
+                            <li>Tag filter include/exclude mode-first logic fixed &mdash; mode toggle migrates tags and auto-applies the filter.</li>
+                            <li>Premarket line suppressed on Daily chart during Regular Trading Hours.</li>
+                            <li>Server error detail surfaces on failed stop/target chart updates instead of a silent failure.</li>
+                            <li>Stop drag syncs the stop field in the trade modal; Escape closes the stop-move modal cleanly.</li>
+                            <li>Borg loading spinners and audit polling JSON error resolved (SD-054).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.67 -->
+            <div class="pl-8 relative" id="v1-0-67">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-600 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.67-Beta</h2>
                     <span class="text-sm font-mono text-zinc-500">Jun 10, 2026</span>
                 </div>
 

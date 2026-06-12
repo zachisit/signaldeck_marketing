@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sgnldk.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>1.00</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/analytics/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/backtester/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/public-profile/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/would-i-pass/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -42,13 +42,13 @@
 
   <url>
     <loc>https://sgnldk.com/alerts/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/tools/r-multiple-calculator/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -76,14 +76,14 @@
 
   <url>
     <loc>https://sgnldk.com/tools/pip-value-calculator/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/tools/prop-firm-payout-calculator/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -108,13 +108,13 @@
 
   <url>
     <loc>https://sgnldk.com/forex/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/jobs/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -156,67 +156,67 @@
 
   <url>
     <loc>https://sgnldk.com/stocks/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/crypto/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/prop-firm/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/day-trading/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/post-mortem/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/broker-import/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/psychology/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/position-sizing/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/trade-replay/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/cfd/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/futures/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
@@ -228,7 +228,7 @@
 
   <url>
     <loc>https://sgnldk.com/plans/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 
@@ -240,7 +240,7 @@
 
   <url>
     <loc>https://sgnldk.com/compare/tradersync/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -252,7 +252,7 @@
 
   <url>
     <loc>https://sgnldk.com/compare/tradezella/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -264,13 +264,13 @@
 
   <url>
     <loc>https://sgnldk.com/compare/tradesviz/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/compare/support/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -294,19 +294,19 @@
 
   <url>
     <loc>https://sgnldk.com/blog/profit-factor-explained/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/walk-forward-analysis/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/kelly-criterion-position-sizing/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -318,37 +318,37 @@
 
   <url>
     <loc>https://sgnldk.com/blog/how-to-calculate-sqn-score/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/why-win-rate-is-lying/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/monte-carlo-simulation-trading/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/fixed-r-position-sizing/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/what-is-r-multiple/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -361,21 +361,21 @@
 
   <url>
     <loc>https://sgnldk.com/blog/ftmo-challenge-rules-explained/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/best-forex-trading-journal/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/ftmo-trading-journal/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.90</priority>
   </url>
 </urlset>

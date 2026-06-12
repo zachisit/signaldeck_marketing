@@ -12,19 +12,19 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Trading Expectancy Formula: Why It Beats Win Rate Every Time | SignalDeck</title>
+    <title>Trading Expectancy Formula: Why It Beats Win Rate | SignalDeck</title>
     <meta name="description" content="Trading expectancy = (Win Rate × Avg Win R) − (Loss Rate × Avg Loss R). The single number that tells you whether your system makes or loses money over time — regardless of win rate.">
     <meta name="keywords" content="trading expectancy formula, expectancy trading, positive expectancy trading system, expectancy vs win rate, trading expectancy calculation, R-multiple expectancy, system expectancy trading">
     <meta name="author" content="SignalDeck">
 
     <link rel="canonical" href="https://sgnldk.com/blog/trading-expectancy/">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sgnldk.com/blog/trading-expectancy/">
     <meta property="og:title" content="Trading Expectancy Formula: Why It Beats Win Rate Every Time | SignalDeck">
     <meta property="og:description" content="Expectancy = (Win Rate × Avg Win R) − (Loss Rate × Avg Loss R). The single number that tells you whether your system makes money over time — regardless of win rate.">
-    <meta property="og:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
@@ -33,7 +33,7 @@
     <meta property="twitter:url" content="https://sgnldk.com/blog/trading-expectancy/">
     <meta property="twitter:title" content="Trading Expectancy Formula: Why It Beats Win Rate Every Time | SignalDeck">
     <meta property="twitter:description" content="Expectancy = (Win Rate × Avg Win R) − (Loss Rate × Avg Loss R). The single number that tells you whether your system makes money over time — regardless of win rate.">
-    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01k-interference.png">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
 
     <script type="application/ld+json">
     {
@@ -41,17 +41,24 @@
         "@type": "Article",
         "headline": "Trading Expectancy Formula: Why It Beats Win Rate Every Time",
         "description": "Trading expectancy measures how much you earn per trade on average, expressed in R. It combines win rate, average win size, and average loss size into a single number that tells you definitively whether your system is profitable over time.",
+        "image": "https://sgnldk.com/assets/banner-01g-distribution.png",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://sgnldk.com/blog/trading-expectancy/"
+        },
         "author": {
             "@type": "Organization",
-            "name": "SignalDeck"
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com",
+            "sameAs": ["https://x.com/forensicquant"]
         },
         "publisher": {
             "@type": "Organization",
             "name": "SignalDeck",
             "url": "https://sgnldk.com"
         },
-        "datePublished": "2026-05-31",
-        "dateModified": "2026-05-31"
+        "datePublished": "2026-06-12",
+        "dateModified": "2026-06-12"
     }
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
@@ -82,7 +89,7 @@
                 "name": "What is a good expectancy for a trading system?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Any positive expectancy means the system is theoretically profitable given enough trades. In practice, expectancy above +0.3R per trade is considered solid for a discretionary system. Above +0.5R is excellent. Below +0.1R is borderline — transaction costs and slippage may erode the edge in live trading. The number of trades in your sample also matters: low-trade-count expectancy estimates are noisy."
+                    "text": "Any positive expectancy means the system is theoretically profitable given enough trades. Above +0.5R per trade is excellent. +0.2R to +0.5R is solid and tradable. 0 to +0.2R is marginal — transaction costs and slippage may erode the edge in live trading. Negative expectancy means the system loses money regardless of short-term streaks. Sample size also matters: expectancy based on fewer than 30 trades is statistically unreliable; 100+ trades is preferable for a stable reading."
                 }
             },
             {
@@ -99,6 +106,30 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Positive expectancy is a prerequisite for position sizing to matter. If your expectancy is negative, risking more money per trade makes you lose faster. Kelly Criterion and Fixed-R sizing only make sense for systems with positive expectancy — they determine how much of your edge to extract, not whether an edge exists. Calculate expectancy first, then optimize position sizing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many trades do I need to calculate expectancy accurately?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fewer than 30 trades produces an expectancy estimate with very wide confidence intervals — a genuinely profitable system can look negative by chance, and vice versa. Treat it as directional only. With 30–100 trades, expectancy is usable but noisy; monitor the trend rather than the point estimate. At 100+ trades the reading stabilizes enough to base position sizing decisions on. For Kelly Criterion calculations, 200+ trades is recommended."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between trading expectancy and profit factor?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Profit factor equals gross profit divided by gross loss. It tells you how much you earn back for every dollar lost. Expectancy equals (Win Rate × Average Win R) minus (Loss Rate × Average Loss R). It tells you how much you earn per trade on average. Profit factor ignores trade count and per-trade magnitude — one outsized winner can inflate it. Expectancy normalizes by trade, making it more useful for system design and position sizing decisions. Use both: profit factor for a quick sanity check; expectancy for system evaluation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can trading expectancy be calculated in dollars instead of R?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Dollar expectancy = (Win Rate × Average $ Win) − (Loss Rate × Average $ Loss). Equivalently, Dollar Expectancy = R-Expectancy × Dollar Risk Per Trade. If your R-expectancy is +0.40R and you risk $200 per trade, your dollar expectancy is +$80 per trade. However, dollar expectancy changes every time you adjust position size, making it unsuitable for comparing systems. Use R-expectancy for system evaluation and dollar expectancy for P&L projections only."
                 }
             }
         ]
@@ -203,7 +234,7 @@
         <div class="max-w-3xl mx-auto px-6">
             <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
-                <time datetime="2026-05-31" class="text-xs font-mono text-zinc-500">May 31, 2026</time>
+                <time datetime="2026-06-12" class="text-xs font-mono text-zinc-500">June 12, 2026</time>
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Analytics</span>
             </div>
             <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
@@ -225,11 +256,17 @@
             <p class="text-zinc-300 leading-relaxed mb-6">
                 Expectancy is the answer to: "If I take 1,000 more trades with this system, will I make money or lose it?" Win rate cannot answer that question. Expectancy can.
             </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The concept is equivalent to <em>expected value</em> (EV) from probability theory — the same calculation used in poker, options pricing, and game theory. In trading, it was popularized by Van Tharp in <em>Trade Your Way to Financial Freedom</em>, where he demonstrated that R-based expectancy is the most reliable measure of a system's true profitability.
+            </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Expectancy Formula</h2>
             <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
                 Expectancy = (Win Rate × Avg Win R) &minus; (Loss Rate × Avg Loss R)
             </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                In plain terms: trading expectancy equals the fraction of trades that win multiplied by the average winner size, minus the fraction of trades that lose multiplied by the average loser size — all measured in units of initial risk (R). A result above zero means the system makes money over a large enough sample; below zero means it loses regardless of short-term streaks.
+            </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
                 Where:
             </p>
@@ -239,6 +276,17 @@
                 <li><strong class="text-zinc-100">Loss Rate</strong> — 1 minus win rate (e.g., 0.55)</li>
                 <li><strong class="text-zinc-100">Avg Loss R</strong> — the average R-Multiple of losing trades, expressed as a positive number (e.g., 1.0 for full -1R stops)</li>
             </ul>
+
+            <h3 class="text-lg font-bold text-white mt-8 mb-3">Expectancy in Dollar Terms</h3>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                R-expectancy is the standard for system evaluation because it stays constant regardless of account size or position size. Dollar expectancy converts it to a concrete P&L figure:
+            </p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 font-mono text-sm text-zinc-300 overflow-x-auto mb-4">
+                Expectancy$ = ExpectancyR × $ Risk Per Trade
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Example: if your R-expectancy is +0.40R and you risk $200 per trade, your dollar expectancy is +$80 per trade — approximately $8,000 over 100 trades before compounding. Use dollar expectancy for P&L projections; use R-expectancy for system comparison, since it changes whenever position size changes. You can also compute it directly: Dollar Expectancy = (Win Rate × Avg $ Win) &minus; (Loss Rate × Avg $ Loss). SignalDeck's <a href="../../tools/expectancy-calculator/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy calculator</a> shows both automatically.
+            </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Worked Examples</h2>
 
@@ -301,6 +349,44 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
                 </table>
             </div>
 
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How Many Trades Do You Need?</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Expectancy is a statistical estimate — it converges toward the true value as sample size grows. With too few trades, variance dominates and the reading is unreliable:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Trade Count</th>
+                            <th class="px-4 py-3 text-left font-semibold">Reliability</th>
+                            <th class="px-4 py-3 text-left font-semibold">Recommended Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-rose-400">&lt; 30 trades</td>
+                            <td class="px-4 py-3 text-zinc-300">Unreliable — directional only</td>
+                            <td class="px-4 py-3 text-zinc-400">Do not base sizing decisions on this</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-yellow-400">30–100 trades</td>
+                            <td class="px-4 py-3 text-zinc-300">Usable but noisy</td>
+                            <td class="px-4 py-3 text-zinc-400">Monitor trend, not the point estimate</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-blue-400">100+ trades</td>
+                            <td class="px-4 py-3 text-zinc-300">Stable — suitable for evaluation</td>
+                            <td class="px-4 py-3 text-zinc-400">Use for system comparison and sizing</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-emerald-400">200+ trades</td>
+                            <td class="px-4 py-3 text-zinc-300">High confidence</td>
+                            <td class="px-4 py-3 text-zinc-400">Suitable for Kelly Criterion input</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Expectancy vs Win Rate: The Full Picture</h2>
             <p class="text-zinc-300 leading-relaxed mb-4">
                 The table below shows how the same win rates produce opposite outcomes depending on R-ratios:
@@ -347,6 +433,37 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
                 The 35% win rate system outperforms the 70% win rate system by 0.57R per trade. Win rate alone would suggest the opposite conclusion. This is why <a href="../why-win-rate-is-lying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">win rate lies to you</a>.
             </p>
 
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Expectancy vs Profit Factor</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                <a href="../profit-factor-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Profit factor</a> and expectancy both measure whether a system makes money, but from different angles:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Metric</th>
+                            <th class="px-4 py-3 text-left font-semibold">Formula</th>
+                            <th class="px-4 py-3 text-left font-semibold">What It Misses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-semibold">Profit Factor</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">Gross Win ÷ Gross Loss</td>
+                            <td class="px-4 py-3 text-zinc-400">Per-trade magnitude; one outlier distorts it</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-semibold">Expectancy</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">(WR × Avg Win R) &minus; (LR × Avg Loss R)</td>
+                            <td class="px-4 py-3 text-zinc-400">Gross totals; focuses on per-trade average</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A profit factor of 1.5 sounds solid — but a system with one large win and 99 small losses can produce PF 1.5. Expectancy would immediately expose the per-trade picture. Use profit factor as a quick sanity check and expectancy for system design decisions. The two are complementary, not interchangeable.
+            </p>
+
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Expectancy vs SQN: What Each Measures</h2>
             <p class="text-zinc-300 leading-relaxed mb-4">
                 Expectancy measures the average outcome. <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN (System Quality Number)</a> measures the consistency of that outcome relative to its variance. A system with +0.5R expectancy but wildly variable outcomes (SQN 1.2) requires deeper drawdowns to realize its edge than a system with +0.3R expectancy but very consistent outcomes (SQN 3.0). Both metrics are needed:
@@ -354,7 +471,7 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
                 <li><strong class="text-zinc-100">Expectancy</strong> answers: does this system make money?</li>
                 <li><strong class="text-zinc-100">SQN</strong> answers: how smoothly does it make money?</li>
-                <li><strong class="text-zinc-100">Monte Carlo</strong> answers: what's the worst-case path through that edge?</li>
+                <li><strong class="text-zinc-100"><a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo</a></strong> answers: what's the worst-case path through that edge?</li>
             </ul>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Expectancy and Position Sizing</h2>
@@ -367,7 +484,7 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Tracks Expectancy</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                SignalDeck calculates expectancy automatically from your logged R-Multiples. As your trade count grows, the expectancy estimate stabilizes. The platform flags when your rolling expectancy diverges significantly from your long-run average — a signal that <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">your edge may be degrading</a>. Filter by strategy tag, instrument, or date range to isolate expectancy by segment — so you can see whether a single instrument or session is dragging your overall expectancy down. <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Try it free during beta.</a>
+                SignalDeck calculates expectancy automatically from your logged R-Multiples — both in R and in dollar terms. As your trade count grows, the expectancy estimate stabilizes. The platform flags when your rolling expectancy diverges significantly from your long-run average — a signal that <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">your edge may be degrading</a>. Filter by strategy tag, instrument, or date range to isolate expectancy by segment — so you can see whether a single instrument or session is dragging your overall expectancy down. Use it alongside <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward analysis</a> to verify that your expectancy holds out-of-sample, not just on historical data. Try the <a href="../../tools/expectancy-calculator/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy calculator</a> or <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">join the beta free</a>.
             </p>
 
             <!-- FAQ Section -->
@@ -376,28 +493,43 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
 
                 <div class="space-y-6">
                     <div>
-                        <p class="text-white font-semibold mb-2">What is trading expectancy?</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Trading expectancy is the average amount you earn or lose per trade, expressed as a multiple of your initial risk (R). Formula: Expectancy = (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the system makes money over a large enough sample. A negative expectancy means it loses money regardless of short-term results.</p>
+                        <h3 class="text-white font-semibold mb-2">What is trading expectancy?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Trading expectancy is the average amount you earn or lose per trade, expressed as a multiple of your initial risk (R). Formula: Expectancy = (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the system makes money over a large enough sample. A negative expectancy means it loses money regardless of short-term results. It is equivalent to expected value (EV) in probability theory.</p>
                     </div>
 
                     <div>
-                        <p class="text-white font-semibold mb-2">What is the expectancy formula in trading?</p>
+                        <h3 class="text-white font-semibold mb-2">What is the expectancy formula in trading?</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-6">Expectancy = (Win Rate × Average Win in R) − (Loss Rate × Average Loss in R). Example: Win Rate 45%, Average Win +2.2R, Average Loss -1.0R. Expectancy = (0.45 × 2.2) − (0.55 × 1.0) = 0.99 − 0.55 = +0.44R per trade.</p>
                     </div>
 
                     <div>
-                        <p class="text-white font-semibold mb-2">What is a good expectancy for a trading system?</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Any positive expectancy is theoretically profitable. In practice, above +0.3R per trade is solid for a discretionary system. Above +0.5R is excellent. Below +0.1R is borderline — transaction costs and slippage may erase the edge live. Sample size matters: low-trade-count estimates are noisy.</p>
+                        <h3 class="text-white font-semibold mb-2">What is a good expectancy for a trading system?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Any positive expectancy is theoretically profitable. Above +0.5R per trade is excellent. +0.2R to +0.5R is solid and tradable. 0 to +0.2R is marginal — transaction costs and slippage may erase the edge live. Negative expectancy means the system loses money. Sample size matters: expectancy based on fewer than 30 trades is unreliable; 100+ is preferable for a stable reading.</p>
                     </div>
 
                     <div>
-                        <p class="text-white font-semibold mb-2">How is expectancy different from win rate?</p>
+                        <h3 class="text-white font-semibold mb-2">How is expectancy different from win rate?</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-6">Win rate only tells you how often you win. A 70% win rate with 0.4R average wins and 1.5R average losses loses −0.17R per trade on average. Expectancy combines win rate, average win size, and average loss size into a single number that tells you the full picture.</p>
                     </div>
 
                     <div>
-                        <p class="text-white font-semibold mb-2">How does expectancy relate to position sizing?</p>
+                        <h3 class="text-white font-semibold mb-2">How does expectancy relate to position sizing?</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-6">Positive expectancy is a prerequisite for position sizing decisions to matter. Kelly Criterion and Fixed-R sizing only make sense for systems with positive expectancy — they determine how much of your edge to extract, not whether an edge exists. Calculate expectancy first, then optimize sizing.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">How many trades do I need to calculate expectancy accurately?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Fewer than 30 trades produces a very wide confidence interval — treat the result as directional only. With 30–100 trades, expectancy is usable but noisy; monitor the trend rather than the point estimate. At 100+ trades, the reading is stable enough to base position sizing decisions on. For Kelly Criterion input, 200+ trades is recommended.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">What is the difference between trading expectancy and profit factor?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Profit factor equals gross profit divided by gross loss. Expectancy equals (Win Rate × Average Win R) minus (Loss Rate × Average Loss R). Profit factor ignores per-trade magnitude — one large outlier can inflate it. Expectancy normalizes by trade, making it more reliable for system design. Use profit factor as a quick sanity check; use expectancy for evaluation and sizing decisions.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">Can trading expectancy be calculated in dollars instead of R?</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes. Dollar Expectancy = R-Expectancy × Dollar Risk Per Trade. Alternatively: (Win Rate × Avg $ Win) − (Loss Rate × Avg $ Loss). If your R-expectancy is +0.40R and you risk $200 per trade, your dollar expectancy is +$80 per trade. Use dollar expectancy for P&L projections; use R-expectancy for system comparison, since dollar expectancy changes with position size.</p>
                     </div>
                 </div>
             </div>
@@ -416,6 +548,11 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Win Rate Is Lying to You (And What to Track Instead)</p>
                         <p class="text-zinc-500 text-xs mt-2">March 30, 2026</p>
                     </a>
+                    <a href="../profit-factor-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Profit Factor Explained: The Simplest Metric for System Evaluation</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 27, 2026</p>
+                    </a>
                     <a href="../how-to-calculate-sqn-score/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Calculate Your Trading System Quality Number (SQN)</p>
@@ -425,6 +562,11 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Kelly Criterion: Let Your Own Data Tell You How Much to Risk Per Trade</p>
                         <p class="text-zinc-500 text-xs mt-2">May 13, 2026</p>
+                    </a>
+                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 20, 2026</p>
                     </a>
                 </div>
             </div>

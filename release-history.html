@@ -154,12 +154,55 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.69 -->
+            <div class="pl-8 relative" id="v1-0-69">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.69-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jun 14, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A focused hardening release ahead of paid launch. This one is all about getting the numbers right and keeping you signed in &mdash; sharper P&amp;L across shorts, futures, and forex, more accurate execution-quality and dashboard stats, plus a round of journaling, chart, and sign-in reliability fixes.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">More Accurate P&amp;L &amp; Stats</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Short trades calculate correctly</strong> &mdash; distance-to-target, R-multiples, and entry guards are now side-aware instead of assuming long.</li>
+                            <li><strong class="text-zinc-200">Futures &amp; forex close-outs</strong> &mdash; batch-closing futures and closing forex positions now report real realized P&amp;L with the correct tick and lot sizing.</li>
+                            <li><strong class="text-zinc-200">Dashboard unrealized P&amp;L</strong> &mdash; open forex and futures positions now show live unrealized value instead of $0.</li>
+                            <li><strong class="text-zinc-200">Execution Quality</strong> &mdash; friction and slippage are now dollar-weighted, so large positions count properly, and the waterfall uses consistent units.</li>
+                            <li>Daily P&amp;L in the background worker now uses the right pip size for CFDs and metals and includes open futures.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Journaling, Charts &amp; Alerts</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li>Deleting a trade screenshot or a note now works reliably and updates the view immediately.</li>
+                            <li>Pip-distance alerts can be edited inline again, and the advanced-filter "Clear All" fully resets and refreshes your list.</li>
+                            <li>The chart right-click menu now positions correctly in Firefox, and market-holiday handling extends through 2030.</li>
+                            <li>Close-summary and share cards no longer show odd values (NaN/Infinity or a misleading green) for edge-case trades.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Sign-In &amp; Reliability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">No more surprise logouts</strong> &mdash; a mid-session refresh race that could sign you out around the 30-minute mark is fixed, and "Keep me signed in" now sticks across refreshes.</li>
+                            <li>Re-logging in no longer doubles up live-price updates and notification sounds.</li>
+                            <li>A pass over plan features closes a few gaps so each tier sees exactly what it should &mdash; no more brief flashes of gated sections.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.68 -->
             <div class="pl-8 relative" id="v1-0-68">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.68-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jun 12, 2026</span>
                 </div>
 

@@ -288,7 +288,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -349,6 +349,12 @@
   <url>
     <loc>https://sgnldk.com/blog/what-is-r-multiple/</loc>
     <lastmod>2026-06-12</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.80</priority>
   </url>
 

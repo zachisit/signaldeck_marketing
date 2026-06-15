@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat · Blue Eyes + Ring</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 512px; height: 512px; background: #09090b; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.wrap { position: relative; width: 420px; height: 420px; }
+canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <svg viewBox="0 0 420 420">
+    <defs>
+      <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#3b82f6"/>
+        <stop offset="100%" stop-color="#a855f7"/>
+      </linearGradient>
+    </defs>
+    <circle cx="210" cy="210" r="205" fill="none" stroke="url(#rg)" stroke-width="4"/>
+  </svg>
+  <canvas id="c" width="390" height="390"></canvas>
+</div>
+<script>
+const img = new Image();
+img.crossOrigin = 'anonymous';
+img.onload = () => {
+  const c = document.getElementById('c');
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0, 390, 390);
+  const id = ctx.getImageData(0, 0, 390, 390);
+  const d = id.data;
+  for (let y = 0; y < 390; y++) {
+    for (let x = 0; x < 390; x++) {
+      const i = (y * 390 + x) * 4;
+      const r = d[i], g = d[i+1], b = d[i+2], a = d[i+3];
+      if (a < 20) continue;
+      const rx = x / 390, ry = y / 390;
+      const inZone = rx > 0.12 && rx < 0.88 && ry > 0.20 && ry < 0.55;
+      if (inZone && r < 110 && g < 110 && b < 110) {
+        d[i] = 59; d[i+1] = 130; d[i+2] = 246;
+      }
+    }
+  }
+  ctx.putImageData(id, 0, 0);
+};
+img.src = '../img/signaldeck_logo_nav.png';
+</script>
+</body>
+</html>

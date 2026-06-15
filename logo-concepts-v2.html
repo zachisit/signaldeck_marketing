@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Logo Concepts v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+
+.hdr { margin-bottom: 52px; }
+.hdr h1 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.hdr p  { color: #3f3f46; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; }
+
+.concept { display: flex; align-items: flex-start; gap: 40px; margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid #111; }
+.concept:last-child { border-bottom: none; margin-bottom: 0; }
+
+.concept-meta { flex: 0 0 220px; padding-top: 8px; }
+.concept-num  { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px; }
+.concept-name { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.concept-desc { font-size: 12px; color: #52525b; line-height: 1.65; }
+
+.previews { display: flex; align-items: flex-start; gap: 16px; }
+
+/* Large preview: 320×320 card */
+.card-lg {
+  width: 320px; height: 320px;
+  background: #09090b;
+  border: 1px solid #1e1e21;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Small preview stack */
+.sm-stack { display: flex; flex-direction: column; gap: 10px; }
+.sm-row   { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+
+.card-sm-dk {
+  width: 64px; height: 64px;
+  background: #09090b;
+  border: 1px solid #1e1e21;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-sm-lt {
+  width: 64px; height: 64px;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.sm-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; color: #3f3f46;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>SignalDeck — Logo Concepts v2</h1>
+  <p>5 marks · pure SVG · pick a direction or say what's close</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     A — SIGNAL BREAK
+     A step-function: flat → inflection → higher.
+     The moment a strategy's edge activates.
+     ═══════════════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-meta">
+    <div class="concept-num">A</div>
+    <div class="concept-name">Signal Break</div>
+    <div class="concept-desc">Flat noise, inflection point, new level. The moment a system's edge kicks in and stays. Reads as a step function at any size.</div>
+  </div>
+  <div class="previews">
+
+    <div class="card-lg">
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="gAL" x1="10" y1="0" x2="90" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <!-- Flat start → diagonal rise → flat end (higher) -->
+        <path d="M 10,65 L 32,65 L 64,35 L 90,35"
+              stroke="url(#gAL)" stroke-width="5.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Inflection dot: where the signal fires -->
+        <circle cx="32" cy="65" r="4.5" fill="#3b82f6"/>
+        <!-- Subtle trailing dot at new level -->
+        <circle cx="64" cy="35" r="3"   fill="#a855f7" opacity="0.55"/>
+      </svg>
+    </div>
+
+    <div class="sm-stack">
+      <div class="sm-row">
+        <div class="card-sm-dk">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gAS" x1="10" y1="0" x2="90" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10,65 L 32,65 L 64,35 L 90,35"
+                  stroke="url(#gAS)" stroke-width="5.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="65" r="4.5" fill="#3b82f6"/>
+            <circle cx="64" cy="35" r="3"   fill="#a855f7" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="sm-label">dark</div>
+      </div>
+      <div class="sm-row">
+        <div class="card-sm-lt">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gAW" x1="10" y1="0" x2="90" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10,65 L 32,65 L 64,35 L 90,35"
+                  stroke="url(#gAW)" stroke-width="5.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="65" r="4.5" fill="#2563eb"/>
+            <circle cx="64" cy="35" r="3"   fill="#7c3aed" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="sm-label">light</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     B — PATTERN DETECTED
+     Three parallel horizontal lines.
+     The middle one spikes — an anomaly, a
+     pattern firing above the noise floor.
+     ═══════════════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-meta">
+    <div class="concept-num">B</div>
+    <div class="concept-name">Pattern Detected</div>
+    <div class="concept-desc">Three baseline lines. The middle one breaks out — a behavioral pattern surfacing above noise. SignalDeck's core act, as a mark.</div>
+  </div>
+  <div class="previews">
+
+    <div class="card-lg">
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="gBL" x1="50" y1="72" x2="50" y2="16" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <!-- Noise floor lines: top and bottom -->
+        <line x1="10" y1="36" x2="90" y2="36" stroke="#27272a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="10" y1="64" x2="90" y2="64" stroke="#27272a" stroke-width="2" stroke-linecap="round"/>
+        <!-- Middle signal line — spikes up at center -->
+        <path d="M 10,50 L 38,50 L 50,18 L 62,50 L 90,50"
+              stroke="url(#gBL)" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Peak dot -->
+        <circle cx="50" cy="18" r="4" fill="#a855f7"/>
+        <!-- Subtle glow ring at peak -->
+        <circle cx="50" cy="18" r="8" stroke="#a855f7" stroke-width="1" opacity="0.2"/>
+      </svg>
+    </div>
+
+    <div class="sm-stack">
+      <div class="sm-row">
+        <div class="card-sm-dk">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gBS" x1="50" y1="72" x2="50" y2="16" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+            <line x1="10" y1="36" x2="90" y2="36" stroke="#27272a" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="64" x2="90" y2="64" stroke="#27272a" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 10,50 L 38,50 L 50,18 L 62,50 L 90,50"
+                  stroke="url(#gBS)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="18" r="4" fill="#a855f7"/>
+          </svg>
+        </div>
+        <div class="sm-label">dark</div>
+      </div>
+      <div class="sm-row">
+        <div class="card-sm-lt">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gBW" x1="50" y1="72" x2="50" y2="16" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+            <line x1="10" y1="36" x2="90" y2="36" stroke="#d4d4d8" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="64" x2="90" y2="64" stroke="#d4d4d8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 10,50 L 38,50 L 50,18 L 62,50 L 90,50"
+                  stroke="url(#gBW)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="18" r="4" fill="#7c3aed"/>
+          </svg>
+        </div>
+        <div class="sm-label">light</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     C — CONVERGENCE
+     Three concentric chevrons collapsing to
+     a single dot on the right. Data converging
+     to a single truth — your edge.
+     ═══════════════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-meta">
+    <div class="concept-num">C</div>
+    <div class="concept-name">Convergence</div>
+    <div class="concept-desc">Three nested angle-marks narrowing toward a focal point. Precision narrowing in on a single conclusion. The forensic audit finding the edge.</div>
+  </div>
+  <div class="previews">
+
+    <div class="card-lg">
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="gCL" x1="8" y1="0" x2="78" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <!-- Outer chevron: spans full height, most blue -->
+        <path d="M 10,18 L 46,50 L 10,82"
+              stroke="#3b82f6" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+        <!-- Middle chevron -->
+        <path d="M 24,28 L 55,50 L 24,72"
+              stroke="url(#gCL)" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+        <!-- Inner chevron: most purple, tightest -->
+        <path d="M 38,37 L 64,50 L 38,63"
+              stroke="#a855f7" stroke-width="4.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Apex dot: the found edge -->
+        <circle cx="76" cy="50" r="5" fill="#a855f7"/>
+        <circle cx="76" cy="50" r="9" stroke="#a855f7" stroke-width="1" opacity="0.2"/>
+      </svg>
+    </div>
+
+    <div class="sm-stack">
+      <div class="sm-row">
+        <div class="card-sm-dk">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gCS" x1="8" y1="0" x2="78" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10,18 L 46,50 L 10,82"
+                  stroke="#3b82f6" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+            <path d="M 24,28 L 55,50 L 24,72"
+                  stroke="url(#gCS)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+            <path d="M 38,37 L 64,50 L 38,63"
+                  stroke="#a855f7" stroke-width="4.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="76" cy="50" r="5" fill="#a855f7"/>
+          </svg>
+        </div>
+        <div class="sm-label">dark</div>
+      </div>
+      <div class="sm-row">
+        <div class="card-sm-lt">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gCW" x1="8" y1="0" x2="78" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10,18 L 46,50 L 10,82"
+                  stroke="#2563eb" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+            <path d="M 24,28 L 55,50 L 24,72"
+                  stroke="url(#gCW)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+            <path d="M 38,37 L 64,50 L 38,63"
+                  stroke="#7c3aed" stroke-width="4.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="76" cy="50" r="5" fill="#7c3aed"/>
+          </svg>
+        </div>
+        <div class="sm-label">light</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     D — SIGNAL IN THE NOISE
+     A 4×4 dot matrix. One diagonal is lit —
+     the trend, the pattern, the signal
+     detected against background noise.
+     ═══════════════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-meta">
+    <div class="concept-num">D</div>
+    <div class="concept-name">Signal in the Noise</div>
+    <div class="concept-desc">A dot grid where one diagonal signal emerges from the background. Data detection made visual. Very readable at favicon size.</div>
+  </div>
+  <div class="previews">
+
+    <div class="card-lg">
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <!-- Gradient diagonal: blue bottom-left → purple top-right -->
+          <linearGradient id="gDL" x1="16" y1="84" x2="84" y2="16" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+
+        <!-- 4×4 grid of background dots at (16,16),(38,16),(60,16),(82,16), etc. -->
+        <!-- Row 1 (y=16) -->
+        <circle cx="16" cy="16" r="3.2" fill="#222225"/>
+        <circle cx="38" cy="16" r="3.2" fill="#222225"/>
+        <circle cx="60" cy="16" r="3.2" fill="#222225"/>
+        <!-- (82,16) = highlighted -->
+        <!-- Row 2 (y=38) -->
+        <circle cx="16" cy="38" r="3.2" fill="#222225"/>
+        <circle cx="38" cy="38" r="3.2" fill="#222225"/>
+        <!-- (60,38) = highlighted -->
+        <circle cx="82" cy="38" r="3.2" fill="#222225"/>
+        <!-- Row 3 (y=60) -->
+        <circle cx="16" cy="60" r="3.2" fill="#222225"/>
+        <!-- (38,60) = highlighted -->
+        <circle cx="60" cy="60" r="3.2" fill="#222225"/>
+        <circle cx="82" cy="60" r="3.2" fill="#222225"/>
+        <!-- Row 4 (y=82) -->
+        <!-- (16,82) = highlighted -->
+        <circle cx="38" cy="82" r="3.2" fill="#222225"/>
+        <circle cx="60" cy="82" r="3.2" fill="#222225"/>
+        <circle cx="82" cy="82" r="3.2" fill="#222225"/>
+
+        <!-- Highlighted diagonal (signal) -->
+        <circle cx="16" cy="82" r="4.5" fill="url(#gDL)"/>
+        <circle cx="38" cy="60" r="4.5" fill="url(#gDL)"/>
+        <circle cx="60" cy="38" r="4.5" fill="url(#gDL)"/>
+        <circle cx="82" cy="16" r="4.5" fill="url(#gDL)"/>
+      </svg>
+    </div>
+
+    <div class="sm-stack">
+      <div class="sm-row">
+        <div class="card-sm-dk">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gDS" x1="16" y1="84" x2="84" y2="16" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+            <circle cx="16" cy="16" r="3.2" fill="#222225"/>
+            <circle cx="38" cy="16" r="3.2" fill="#222225"/>
+            <circle cx="60" cy="16" r="3.2" fill="#222225"/>
+            <circle cx="16" cy="38" r="3.2" fill="#222225"/>
+            <circle cx="38" cy="38" r="3.2" fill="#222225"/>
+            <circle cx="82" cy="38" r="3.2" fill="#222225"/>
+            <circle cx="16" cy="60" r="3.2" fill="#222225"/>
+            <circle cx="60" cy="60" r="3.2" fill="#222225"/>
+            <circle cx="82" cy="60" r="3.2" fill="#222225"/>
+            <circle cx="38" cy="82" r="3.2" fill="#222225"/>
+            <circle cx="60" cy="82" r="3.2" fill="#222225"/>
+            <circle cx="82" cy="82" r="3.2" fill="#222225"/>
+            <circle cx="16" cy="82" r="4.5" fill="url(#gDS)"/>
+            <circle cx="38" cy="60" r="4.5" fill="url(#gDS)"/>
+            <circle cx="60" cy="38" r="4.5" fill="url(#gDS)"/>
+            <circle cx="82" cy="16" r="4.5" fill="url(#gDS)"/>
+          </svg>
+        </div>
+        <div class="sm-label">dark</div>
+      </div>
+      <div class="sm-row">
+        <div class="card-sm-lt">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gDW" x1="16" y1="84" x2="84" y2="16" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+            <circle cx="16" cy="16" r="3.2" fill="#d4d4d8"/>
+            <circle cx="38" cy="16" r="3.2" fill="#d4d4d8"/>
+            <circle cx="60" cy="16" r="3.2" fill="#d4d4d8"/>
+            <circle cx="16" cy="38" r="3.2" fill="#d4d4d8"/>
+            <circle cx="38" cy="38" r="3.2" fill="#d4d4d8"/>
+            <circle cx="82" cy="38" r="3.2" fill="#d4d4d8"/>
+            <circle cx="16" cy="60" r="3.2" fill="#d4d4d8"/>
+            <circle cx="60" cy="60" r="3.2" fill="#d4d4d8"/>
+            <circle cx="82" cy="60" r="3.2" fill="#d4d4d8"/>
+            <circle cx="38" cy="82" r="3.2" fill="#d4d4d8"/>
+            <circle cx="60" cy="82" r="3.2" fill="#d4d4d8"/>
+            <circle cx="82" cy="82" r="3.2" fill="#d4d4d8"/>
+            <circle cx="16" cy="82" r="4.5" fill="url(#gDW)"/>
+            <circle cx="38" cy="60" r="4.5" fill="url(#gDW)"/>
+            <circle cx="60" cy="38" r="4.5" fill="url(#gDW)"/>
+            <circle cx="82" cy="16" r="4.5" fill="url(#gDW)"/>
+          </svg>
+        </div>
+        <div class="sm-label">light</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     E — SIGMOID
+     A mathematical S-curve with a dashed axis.
+     The sigmoid function: the shape of every
+     edge that compounds. Doubles as the letter S.
+     ═══════════════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-meta">
+    <div class="concept-num">E</div>
+    <div class="concept-name">Sigmoid</div>
+    <div class="concept-desc">The S-curve — shape of every compounding edge. Reads as an S for SignalDeck. Mathematical, precise, unusual in fintech.</div>
+  </div>
+  <div class="previews">
+
+    <div class="card-lg">
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="gEL" x1="22" y1="80" x2="78" y2="20" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <!-- Dashed horizontal axis at y=50 -->
+        <line x1="10" y1="50" x2="90" y2="50"
+              stroke="#27272a" stroke-width="1.5"
+              stroke-dasharray="3 5" stroke-linecap="round"/>
+        <!-- S-curve: bottom-left to top-right -->
+        <path d="M 22,80 C 22,58 46,50 50,50 C 54,50 78,42 78,20"
+              stroke="url(#gEL)" stroke-width="6"
+              stroke-linecap="round"/>
+        <!-- End dots -->
+        <circle cx="22" cy="80" r="3.5" fill="#3b82f6"/>
+        <circle cx="78" cy="20" r="3.5" fill="#a855f7"/>
+      </svg>
+    </div>
+
+    <div class="sm-stack">
+      <div class="sm-row">
+        <div class="card-sm-dk">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gES" x1="22" y1="80" x2="78" y2="20" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+            <line x1="10" y1="50" x2="90" y2="50"
+                  stroke="#27272a" stroke-width="1.5"
+                  stroke-dasharray="3 5" stroke-linecap="round"/>
+            <path d="M 22,80 C 22,58 46,50 50,50 C 54,50 78,42 78,20"
+                  stroke="url(#gES)" stroke-width="6"
+                  stroke-linecap="round"/>
+            <circle cx="22" cy="80" r="3.5" fill="#3b82f6"/>
+            <circle cx="78" cy="20" r="3.5" fill="#a855f7"/>
+          </svg>
+        </div>
+        <div class="sm-label">dark</div>
+      </div>
+      <div class="sm-row">
+        <div class="card-sm-lt">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="gEW" x1="22" y1="80" x2="78" y2="20" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+            <line x1="10" y1="50" x2="90" y2="50"
+                  stroke="#d4d4d8" stroke-width="1.5"
+                  stroke-dasharray="3 5" stroke-linecap="round"/>
+            <path d="M 22,80 C 22,58 46,50 50,50 C 54,50 78,42 78,20"
+                  stroke="url(#gEW)" stroke-width="6"
+                  stroke-linecap="round"/>
+            <circle cx="22" cy="80" r="3.5" fill="#2563eb"/>
+            <circle cx="78" cy="20" r="3.5" fill="#7c3aed"/>
+          </svg>
+        </div>
+        <div class="sm-label">light</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

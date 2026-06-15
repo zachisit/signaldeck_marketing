@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat · Cool Grade</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 512px; height: 512px; background: #09090b; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+</style>
+</head>
+<body>
+<canvas id="c" width="400" height="400"></canvas>
+<script>
+const img = new Image();
+img.crossOrigin = 'anonymous';
+img.onload = () => {
+  const c = document.getElementById('c');
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0, 400, 400);
+  const id = ctx.getImageData(0, 0, 400, 400);
+  const d = id.data;
+  for (let y = 0; y < 400; y++) {
+    for (let x = 0; x < 400; x++) {
+      const i = (y * 400 + x) * 4;
+      const r = d[i], g = d[i+1], b = d[i+2], a = d[i+3];
+      if (a < 20) continue;
+      /* Blend dark/shadow areas toward brand blue; leave bright orange intact */
+      const brightness = (r + g + b) / 3;
+      const t = Math.max(0, 1 - brightness / 120);
+      d[i]   = Math.round(r * (1 - t) + 59  * t);
+      d[i+1] = Math.round(g * (1 - t) + 130 * t);
+      d[i+2] = Math.round(b * (1 - t) + 246 * t);
+    }
+  }
+  ctx.putImageData(id, 0, 0);
+};
+img.src = '../img/signaldeck_logo_nav.png';
+</script>
+</body>
+</html>

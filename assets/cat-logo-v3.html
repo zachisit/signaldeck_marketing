@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat Logo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+h1   { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; letter-spacing: 0.06em; margin-bottom: 40px; line-height: 1.9; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.card-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px; }
+.card-desc  { font-size: 11px; color: #52525b; margin-bottom: 14px; line-height: 1.5; }
+.card-row   { display: flex; align-items: center; gap: 12px; }
+.icon-lg    { width: 200px; height: 200px; border-radius: 44px; border: 1px solid #1e1e21; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.sm-stack   { display: flex; flex-direction: column; gap: 10px; }
+.sm-item    { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sm-lbl     { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; letter-spacing: 0.1em; text-transform: uppercase; }
+.icon-sm-dk { width: 64px; height: 64px; background: #09090b; border: 1px solid #1e1e21; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+.icon-sm-lt { width: 64px; height: 64px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+.sec-lbl { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 48px; margin-bottom: 14px; }
+.nav-mock { display: inline-flex; align-items: center; gap: 8px; background: #09090b; border: 1px solid #27272a; border-radius: 8px; padding: 10px 18px; }
+.nav-name { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.sizes-row { display: flex; align-items: flex-end; gap: 20px; }
+.sz-wrap   { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #09090b; border: 1px solid #1e1e21; border-radius: 10px; padding: 10px; }
+.sz-lbl    { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; }
+</style>
+</head>
+<body>
+
+<h1>SignalDeck — Cat Logo</h1>
+<div class="sub">Hand-drawn SVG · flat orange + outline · brand blue eyes</div>
+
+<!-- ── One global defs block; all SVG instances reference these IDs ── -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden">
+  <defs>
+    <!-- Iris: bright blue with highlight shimmer -->
+    <radialGradient id="iris" cx="34%" cy="26%" r="74%">
+      <stop offset="0%"   stop-color="#bfdbfe"/>
+      <stop offset="42%"  stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+    <!-- Eye glow (applied as CSS filter per-instance when needed) -->
+  </defs>
+</svg>
+
+<div class="grid" id="grid"></div>
+<div class="sec-lbl">NAV BAR</div>
+<div class="nav-mock" id="nav"></div>
+<div class="sec-lbl">SIZES · DARK</div>
+<div class="sizes-row" id="sizes"></div>
+
+<script>
+/* ─────────────────────────────────────────────────────────────────────
+   CAT SVG shapes — no <defs> (those live in the global block above)
+
+   Design: organic single-path head silhouette (ears are part of the
+   curve, not separate triangles), flat orange fill, darker-orange
+   stroke for the sticker/illustration look, brand-blue eyes.
+   ───────────────────────────────────────────────────────────────────── */
+var CAT =
+
+  /* ── 1. OUTER SILHOUETTE ─────────────────────────────────────────
+     One continuous bezier. Starting at the chin and going clockwise:
+     left cheek → left ear → forehead → right ear → right cheek → chin.
+     Ears emerge from the head curve; no separate triangle elements.   */
+  '<path d="'
+    + 'M 50,90 '                         /* chin center */
+    + 'C 28,90 11,75 11,56 '             /* left lower cheek */
+    + 'C 11,43 13,33 18,25 '             /* left upper side */
+    + 'C 15,17 17,7  19,2  '             /* outer left ear → tip */
+    + 'C 23,9  33,21 38,27 '             /* inner left ear → head */
+    + 'C 42,17 48,13 50,13 '             /* forehead left */
+    + 'C 52,13 58,17 62,27 '             /* forehead right */
+    + 'C 67,21 77,9  81,2  '             /* inner right ear → tip */
+    + 'C 83,7  85,17 82,25 '             /* outer right ear → head */
+    + 'C 87,33 89,43 89,56 '             /* right upper side */
+    + 'C 89,75 72,90 50,90 '             /* right lower cheek → chin */
+    + 'Z" '
+    + 'fill="#f97316" stroke="#c2410c" stroke-width="2.2" '
+    + 'stroke-linejoin="round" stroke-linecap="round"/>'
+
+  /* ── 2. INNER EAR SHADING ────────────────────────────────────────
+     Small darker-orange fills sitting inside each visible ear area.
+     No stroke — they blend with the head below.                      */
+  + '<path d="M 21,5  C 25,12 31,20 35,25 C 28,18 22,9 21,5 Z"  fill="#c2410c" opacity="0.55"/>'
+  + '<path d="M 79,5  C 75,12 69,20 65,25 C 72,18 78,9 79,5 Z"  fill="#c2410c" opacity="0.55"/>'
+
+  /* ── 3. EYES ─────────────────────────────────────────────────────
+     Almond-shaped, outer corner higher than inner corner (cat tilt).
+     Left eye:  inner corner (22,56) · outer corner (47,51)
+     Right eye: inner corner (53,56) · outer corner (78,51)          */
+
+  /* LEFT EYE — iris */
+  + '<path d="M 22,56 C 25,46 42,46 47,51 C 43,63 25,63 22,56 Z" '
+    + 'fill="url(#iris)"/>'
+  /* LEFT EYE — upper eyelid line (gives it a drawn quality) */
+  + '<path d="M 22,56 C 25,46 42,46 47,51" '
+    + 'fill="none" stroke="#c2410c" stroke-width="1.6" stroke-linecap="round"/>'
+  /* LEFT EYE — pupil (vertical slit) */
+  + '<ellipse cx="34" cy="56" rx="3.8" ry="7.5" fill="#09090b"/>'
+  /* LEFT EYE — catchlight */
+  + '<circle cx="27" cy="50" r="2.6" fill="white" opacity="0.9"/>'
+
+  /* RIGHT EYE — iris */
+  + '<path d="M 53,56 C 57,46 74,46 78,51 C 75,63 57,63 53,56 Z" '
+    + 'fill="url(#iris)"/>'
+  /* RIGHT EYE — upper eyelid line */
+  + '<path d="M 53,56 C 57,46 74,46 78,51" '
+    + 'fill="none" stroke="#c2410c" stroke-width="1.6" stroke-linecap="round"/>'
+  /* RIGHT EYE — pupil */
+  + '<ellipse cx="66" cy="56" rx="3.8" ry="7.5" fill="#09090b"/>'
+  /* RIGHT EYE — catchlight */
+  + '<circle cx="60" cy="50" r="2.6" fill="white" opacity="0.9"/>'
+
+  /* ── 4. NOSE ─────────────────────────────────────────────────────
+     Small inverted triangle with rounded bottom tip.                 */
+  + '<path d="M 47,68 L 50,63 L 53,68 Q 50,72 47,68 Z" fill="#7c2d12"/>'
+
+  /* ── 5. MOUTH ────────────────────────────────────────────────────
+     Subtle curved smile — single arc, dark orange-red.              */
+  + '<path d="M 44,73 Q 50,80 56,73" '
+    + 'fill="none" stroke="#7c2d12" stroke-width="1.8" stroke-linecap="round"/>'
+
+  /* ── 6. WHISKERS ─────────────────────────────────────────────────
+     Two per side. Thin, low-opacity — present at large sizes,
+     disappear gracefully at small ones.                              */
+  + '<line x1="2"  y1="60" x2="23" y2="63" stroke="#9a3412" stroke-width="1" stroke-linecap="round" opacity="0.45"/>'
+  + '<line x1="2"  y1="69" x2="23" y2="67" stroke="#9a3412" stroke-width="1" stroke-linecap="round" opacity="0.45"/>'
+  + '<line x1="77" y1="63" x2="98" y2="60" stroke="#9a3412" stroke-width="1" stroke-linecap="round" opacity="0.45"/>'
+  + '<line x1="77" y1="67" x2="98" y2="69" stroke="#9a3412" stroke-width="1" stroke-linecap="round" opacity="0.45"/>'
+;
+
+/* ── Factory: stamp out an SVG at any size ── */
+function mkSvg(sz, cssFilter) {
+  var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('width',  sz);
+  svg.setAttribute('height', sz);
+  svg.style.display = 'block';
+  if (cssFilter) svg.style.filter = cssFilter;
+  svg.innerHTML = CAT;
+  return svg;
+}
+
+var GLOW = 'drop-shadow(0 0 6px rgba(59,130,246,0.95)) '
+         + 'drop-shadow(0 0 18px rgba(59,130,246,0.55)) '
+         + 'drop-shadow(0 0 36px rgba(168,85,247,0.30))';
+
+/* ── Gallery cards ── */
+var CARDS = [
+  { label: 'DARK',
+    desc:  'Primary — brand dark background.',
+    bg:    '#09090b', filter: '' },
+  { label: 'DARK + GLOW',
+    desc:  'Blue/purple eye glow — for hero contexts.',
+    bg:    '#09090b', filter: GLOW },
+  { label: 'LIGHT',
+    desc:  'Light background — strong orange reads clearly.',
+    bg:    '#f4f4f5', filter: '' },
+];
+
+var grid = document.getElementById('grid');
+
+CARDS.forEach(function(c) {
+  var card = document.createElement('div');
+
+  var lbl = document.createElement('div'); lbl.className='card-label'; lbl.textContent=c.label;
+  var desc = document.createElement('div'); desc.className='card-desc'; desc.textContent=c.desc;
+
+  var lgWrap = document.createElement('div'); lgWrap.className='icon-lg'; lgWrap.style.background=c.bg;
+  lgWrap.appendChild(mkSvg(164, c.filter));
+
+  var dkWrap = document.createElement('div'); dkWrap.className='icon-sm-dk';
+  dkWrap.appendChild(mkSvg(50, c.filter));
+  var dkLbl = document.createElement('div'); dkLbl.className='sm-lbl'; dkLbl.textContent='dark';
+  var dkItm = document.createElement('div'); dkItm.className='sm-item'; dkItm.appendChild(dkWrap); dkItm.appendChild(dkLbl);
+
+  var ltWrap = document.createElement('div'); ltWrap.className='icon-sm-lt';
+  ltWrap.appendChild(mkSvg(50, c.filter));
+  var ltLbl = document.createElement('div'); ltLbl.className='sm-lbl'; ltLbl.textContent='light';
+  var ltItm = document.createElement('div'); ltItm.className='sm-item'; ltItm.appendChild(ltWrap); ltItm.appendChild(ltLbl);
+
+  var stack = document.createElement('div'); stack.className='sm-stack';
+  stack.appendChild(dkItm); stack.appendChild(ltItm);
+
+  var row = document.createElement('div'); row.className='card-row';
+  row.appendChild(lgWrap); row.appendChild(stack);
+
+  card.appendChild(lbl); card.appendChild(desc); card.appendChild(row);
+  grid.appendChild(card);
+});
+
+/* ── Nav bar mockup ── */
+var nav = document.getElementById('nav');
+nav.appendChild(mkSvg(26));
+var nm = document.createElement('span'); nm.className='nav-name'; nm.textContent='SignalDeck';
+nav.appendChild(nm);
+
+/* ── Size ramp ── */
+var sizesRow = document.getElementById('sizes');
+[128, 64, 48, 32, 20, 16].forEach(function(sz) {
+  var wrap = document.createElement('div'); wrap.className='sz-wrap';
+  wrap.appendChild(mkSvg(sz));
+  var lbl = document.createElement('div'); lbl.className='sz-lbl'; lbl.textContent=sz+'px';
+  wrap.appendChild(lbl);
+  sizesRow.appendChild(wrap);
+});
+</script>
+</body>
+</html>

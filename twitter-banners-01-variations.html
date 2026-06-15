@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01 Variations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px; font-family: 'Inter', sans-serif; min-width: 860px; }
+
+.page-hdr { margin-bottom: 52px; }
+.page-hdr h1 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.page-hdr p  { color: #3f3f46; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; }
+.page-hdr p strong { color: #71717a; }
+
+.opt { margin-bottom: 64px; }
+.opt-lbl { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.opt-num  { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.15em; text-transform: uppercase; }
+.opt-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #52525b; letter-spacing: 0.12em; text-transform: uppercase; }
+.opt-rule { flex: 1; height: 1px; background: #18181b; }
+
+.frame { width: 750px; height: 250px; overflow: hidden; border-radius: 8px; border: 1px solid #27272a; position: relative; }
+.banner { width: 1500px; height: 500px; transform: scale(0.5); transform-origin: top left; position: absolute; top: 0; left: 0; overflow: hidden; }
+
+/* shared text block styles */
+.txt-block {
+  position: absolute;
+  top: 54px; right: 68px;
+  text-align: right;
+  z-index: 10;
+}
+.txt-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 700;
+  color: #3b82f6; letter-spacing: 0.22em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.txt-h1 {
+  font-size: 74px; font-weight: 900;
+  letter-spacing: -0.038em; line-height: 0.95;
+  color: #fff; margin-bottom: 14px;
+}
+.txt-grad {
+  background: linear-gradient(95deg, #60a5fa 0%, #a855f7 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.txt-f1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; color: #52525b;
+  letter-spacing: 0.05em; margin-bottom: 7px;
+}
+.txt-f2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: #3f3f46;
+  letter-spacing: 0.04em;
+}
+.txt-url {
+  position: absolute; bottom: 30px; right: 68px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: #27272a; letter-spacing: 0.1em;
+  z-index: 10;
+}
+.stripe {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(to right, #3b82f6, #a855f7);
+}
+</style>
+</head>
+<body>
+
+<div class="page-hdr">
+  <h1>SignalDeck — Banner 01 Variations</h1>
+  <p>Export: <strong>DevTools → right-click .banner div → "Capture node screenshot"</strong></p>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     01-A  SIGNAL WAVES (reference)
+     ═══════════════════════════════════ -->
+<div class="opt">
+  <div class="opt-lbl">
+    <span class="opt-num">01-A</span>
+    <span class="opt-name">Signal Waves — abstract overlapping frequencies (original)</span>
+    <div class="opt-rule"></div>
+  </div>
+  <div class="frame">
+    <div class="banner" id="bA">
+      <div style="position:absolute;inset:0;background:#09090b;"></div>
+      <svg id="svgA" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+      <!-- Left + right vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(9,9,11,0.92) 0%,rgba(9,9,11,0.3) 12%,transparent 28%,transparent 62%,rgba(9,9,11,0.7) 80%,rgba(9,9,11,0.96) 100%);pointer-events:none;"></div>
+      <!-- Top/bottom vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.55) 0%,transparent 22%,transparent 78%,rgba(9,9,11,0.55) 100%);pointer-events:none;"></div>
+
+      <div class="txt-block">
+        <div class="txt-brand">SignalDeck</div>
+        <div class="txt-h1">Audit<br><span class="txt-grad">Your Edge.</span></div>
+        <div class="txt-f1">MT5 Connection · Teams · Post Mortem</div>
+        <div class="txt-f2">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+      </div>
+      <div class="txt-url">sgnldk.com</div>
+      <div class="stripe"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     01-B  WAVES + CANDLE OVERLAY
+     Sine waves in background, OHLC
+     candlestick chart in midground.
+     ═══════════════════════════════════ -->
+<div class="opt">
+  <div class="opt-lbl">
+    <span class="opt-num">01-B</span>
+    <span class="opt-name">Waves + Candles — signal frequencies with OHLC chart overlay</span>
+    <div class="opt-rule"></div>
+  </div>
+  <div class="frame">
+    <div class="banner" id="bB">
+      <div style="position:absolute;inset:0;background:#09090b;"></div>
+      <!-- Waves: muted, background -->
+      <svg id="svgB-waves" width="1500" height="500" style="position:absolute;top:0;left:0;opacity:0.35;"></svg>
+      <!-- Candles: foreground -->
+      <svg id="svgB-candles" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+      <!-- Right vignette to blend candles into text area -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 54%,rgba(9,9,11,0.5) 70%,rgba(9,9,11,0.97) 85%);pointer-events:none;"></div>
+      <!-- Top/bottom vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+      <div class="txt-block">
+        <div class="txt-brand">SignalDeck</div>
+        <div class="txt-h1">Audit<br><span class="txt-grad">Your Edge.</span></div>
+        <div class="txt-f1">MT5 Connection · Teams · Post Mortem</div>
+        <div class="txt-f2">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+      </div>
+      <div class="txt-url">sgnldk.com</div>
+      <div class="stripe"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     01-C  PURE CANDLESTICK
+     Full OHLC chart — emerald up candles,
+     rose down candles, blue MA line.
+     No waves. Maximum "trading" energy.
+     ═══════════════════════════════════ -->
+<div class="opt">
+  <div class="opt-lbl">
+    <span class="opt-num">01-C</span>
+    <span class="opt-name">Pure Candlestick — OHLC chart with MA line, no waves</span>
+    <div class="opt-rule"></div>
+  </div>
+  <div class="frame">
+    <div class="banner" id="bC">
+      <div style="position:absolute;inset:0;background:#09090b;"></div>
+      <!-- Subtle grid -->
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;"></div>
+      <!-- Candles SVG -->
+      <svg id="svgC-candles" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+      <!-- Right vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.45) 66%,rgba(9,9,11,0.97) 82%);pointer-events:none;"></div>
+      <!-- Top/bottom vignette -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.45) 0%,transparent 18%,transparent 82%,rgba(9,9,11,0.45) 100%);pointer-events:none;"></div>
+
+      <div class="txt-block">
+        <div class="txt-brand">SignalDeck</div>
+        <div class="txt-h1">Audit<br><span class="txt-grad">Your Edge.</span></div>
+        <div class="txt-f1">MT5 Connection · Teams · Post Mortem</div>
+        <div class="txt-f2">SQN Score · R-Multiple · Kelly Criterion · Monte Carlo · Walk-Forward</div>
+      </div>
+      <div class="txt-url">sgnldk.com</div>
+      <div class="stripe"></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 1500, H = 500;
+
+  function el(parent, tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    parent.appendChild(e);
+    return e;
+  }
+
+  /* ─────────────────────────────────
+     WAVES (used in 01-A and 01-B)
+     ───────────────────────────────── */
+  function buildWaves(svgId) {
+    const svg = document.getElementById(svgId);
+    if (!svg) return;
+    const STEPS = 700;
+    const waves = [
+      { A:130, f:1.05, y0:248, ph:0.00, col:'#3b82f6', op:0.52, sw:2.5 },
+      { A: 85, f:2.20, y0:256, ph:1.05, col:'#a855f7', op:0.42, sw:2.0 },
+      { A: 52, f:3.60, y0:250, ph:2.20, col:'#2dd4bf', op:0.28, sw:1.5 },
+      { A:160, f:0.55, y0:244, ph:0.50, col:'#60a5fa', op:0.10, sw:4.5 },
+      { A: 38, f:5.40, y0:252, ph:3.10, col:'#c084fc', op:0.20, sw:1.0 },
+      { A: 70, f:1.80, y0:245, ph:4.20, col:'#818cf8', op:0.15, sw:1.8 },
+    ];
+    waves.forEach(w => {
+      let d = '';
+      for (let i = 0; i <= STEPS; i++) {
+        const x = (i / STEPS) * W;
+        const y = w.y0 + w.A * Math.sin(2 * Math.PI * w.f * (i / STEPS) + w.ph);
+        d += (i === 0 ? 'M' : 'L') + x.toFixed(2) + ',' + y.toFixed(2) + ' ';
+      }
+      el(svg, 'path', { d, stroke: w.col, 'stroke-width': w.sw, fill: 'none', opacity: w.op, 'stroke-linecap': 'round' });
+    });
+  }
+
+  /* ─────────────────────────────────
+     CANDLESTICK DATA + RENDERER
+     ───────────────────────────────── */
+
+  // Seeded PRNG so chart is deterministic on reload
+  function makePRNG(seed) {
+    let s = seed >>> 0;
+    return function () {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  function generateCandles(n, startP, trendPer, vol, seed) {
+    const rng = makePRNG(seed);
+    const candles = [];
+    let price = startP;
+    for (let i = 0; i < n; i++) {
+      const o = price;
+      // Slight upward trend with noise
+      const move = trendPer + (rng() - 0.46) * vol;
+      const c = o + move;
+      const wickRange = vol * 0.6;
+      const h = Math.max(o, c) + rng() * wickRange;
+      const l = Math.min(o, c) - rng() * wickRange;
+      candles.push({ o, h, l, c });
+      price = c;
+    }
+    return candles;
+  }
+
+  function scaleCandles(candles, yTop, yBottom) {
+    // Find price extremes
+    let pMax = -Infinity, pMin = Infinity;
+    candles.forEach(c => { pMax = Math.max(pMax, c.h); pMin = Math.min(pMin, c.l); });
+    const pRange = pMax - pMin || 1;
+    const pixRange = yBottom - yTop;
+    // Map: higher price → lower Y
+    const toY = p => yTop + ((pMax - p) / pRange) * pixRange;
+    return candles.map(c => ({
+      o: toY(c.o),
+      h: toY(c.h),
+      l: toY(c.l),
+      c: toY(c.c),
+      up: c.c >= c.o,
+    }));
+  }
+
+  function drawCandles(svg, candles, xStart, xStep, bodyW, showMA, maColor) {
+    const green = '#10b981';
+    const red   = '#f43f5e';
+
+    // Draw bodies + wicks
+    candles.forEach((c, i) => {
+      const cx  = xStart + i * xStep;
+      const col = c.up ? green : red;
+      const bodyTop    = Math.min(c.o, c.c);
+      const bodyBottom = Math.max(c.o, c.c);
+      const bodyH = Math.max(bodyBottom - bodyTop, 2);
+
+      // Wick
+      el(svg, 'line', {
+        x1: cx, y1: c.h.toFixed(2),
+        x2: cx, y2: c.l.toFixed(2),
+        stroke: col, 'stroke-width': 1.5, opacity: 0.9,
+      });
+      // Body
+      el(svg, 'rect', {
+        x: (cx - bodyW / 2).toFixed(2),
+        y: bodyTop.toFixed(2),
+        width: bodyW,
+        height: bodyH.toFixed(2),
+        fill: col,
+        rx: 1,
+        opacity: c.up ? 0.92 : 0.85,
+      });
+    });
+
+    // Moving average line (20-period simple MA)
+    if (showMA && candles.length >= 5) {
+      const period = Math.min(10, candles.length);
+      const maPoints = [];
+      for (let i = period - 1; i < candles.length; i++) {
+        let sum = 0;
+        for (let j = i - period + 1; j <= i; j++) {
+          sum += (candles[j].o + candles[j].c) / 2; // midpoint of close
+        }
+        const maY = sum / period;
+        maPoints.push({ x: xStart + i * xStep, y: maY });
+      }
+      let d = '';
+      maPoints.forEach((p, i) => {
+        d += (i === 0 ? 'M' : 'L') + p.x.toFixed(2) + ',' + p.y.toFixed(2) + ' ';
+      });
+      el(svg, 'path', {
+        d,
+        stroke: maColor || '#3b82f6',
+        'stroke-width': 2,
+        fill: 'none',
+        opacity: 0.7,
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round',
+      });
+    }
+  }
+
+  /* ─────────────────────────────────
+     BUILD EACH BANNER
+     ───────────────────────────────── */
+
+  // 01-A: waves only
+  buildWaves('svgA');
+
+  // 01-B: muted waves + candle overlay
+  buildWaves('svgB-waves');
+  (function buildBCandles() {
+    const svg = document.getElementById('svgB-candles');
+    if (!svg) return;
+    const N = 36;
+    const raw = generateCandles(N, 280, 1.8, 22, 42);
+    const scaled = scaleCandles(raw, 60, 440);
+    drawCandles(svg, scaled, 48, 40, 18, true, '#60a5fa');
+  })();
+
+  // 01-C: pure candles, more prominent
+  (function buildCCandles() {
+    const svg = document.getElementById('svgC-candles');
+    if (!svg) return;
+
+    // More candles, wider spread, filling left 80% of banner
+    const N = 42;
+    const raw = generateCandles(N, 240, 2.0, 26, 137);
+    const scaled = scaleCandles(raw, 48, 452);
+
+    // X: candles from x=30 to x=820, step = (820-30)/42
+    const xStep = (820 - 30) / (N - 1);
+    drawCandles(svg, scaled, 30, xStep, 14, true, '#3b82f6');
+
+    // Add volume bars at the bottom (faint)
+    const maxVol = 80;
+    const rng2 = makePRNG(99);
+    raw.forEach((c, i) => {
+      const cx = 30 + i * xStep;
+      const volH = (30 + rng2() * maxVol) * (c.c >= c.o ? 1 : 0.7);
+      el(svg, 'rect', {
+        x: (cx - 7).toFixed(2),
+        y: (500 - volH - 2).toFixed(2),
+        width: 14,
+        height: volH.toFixed(2),
+        fill: c.c >= c.o ? '#10b981' : '#f43f5e',
+        opacity: 0.18,
+        rx: 1,
+      });
+    });
+
+    // Horizontal price grid lines (very faint)
+    [100, 200, 300, 400].forEach(y => {
+      el(svg, 'line', {
+        x1: 0, y1: y, x2: 880, y2: y,
+        stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 6', opacity: 0.6,
+      });
+    });
+  })();
+
+})();
+</script>
+
+</body>
+</html>

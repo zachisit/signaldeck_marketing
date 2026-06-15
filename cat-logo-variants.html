@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat Logo Variants</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+
+.hdr { margin-bottom: 48px; }
+.hdr h1 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.hdr p  { color: #3f3f46; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; line-height: 1.8; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.variant { }
+.variant-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  color: #3b82f6; letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.variant-desc {
+  font-size: 11px; color: #52525b;
+  margin-bottom: 14px; line-height: 1.5;
+}
+
+.card-row { display: flex; align-items: center; gap: 12px; }
+
+/* Large icon card: dark bg */
+.icon-lg {
+  width: 200px; height: 200px;
+  background: #09090b;
+  border: 1px solid #1e1e21;
+  border-radius: 44px;   /* iOS-style rounded square */
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Small cards stack */
+.small-stack { display: flex; flex-direction: column; gap: 10px; }
+.sm-row { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sm-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.icon-sm-dk {
+  width: 64px; height: 64px;
+  background: #09090b;
+  border: 1px solid #1e1e21;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.icon-sm-lt {
+  width: 64px; height: 64px;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+
+canvas { display: block; }
+
+/* Divider */
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: #27272a;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin: 48px 0 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: #111; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>SignalDeck — Cat Logo Color Variants</h1>
+  <p>
+    Original cat image, color-remapped via canvas pixel manipulation.<br>
+    All variants use the brand palette: zinc-950 bg · blue #3b82f6 · purple #a855f7
+  </p>
+</div>
+
+<!-- Variants rendered into canvas elements by JS -->
+<div class="section-title">CSS filter variants — fast approximations</div>
+
+<div class="grid" id="grid-css"></div>
+
+<div class="section-title">Canvas pixel-remapped variants — precise hue shift</div>
+
+<div class="grid" id="grid-canvas"></div>
+
+
+<script>
+const IMG_SRC = 'img/signaldeck_logo_nav.png';
+
+/* ─────────────────────────────────────────────────
+   HSL ↔ RGB helpers
+   ───────────────────────────────────────────────── */
+function rgbToHsl(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let h, s, l = (max + min) / 2;
+  if (max === min) { h = s = 0; }
+  else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+    }
+  }
+  return [h, s, l];
+}
+
+function hue2rgb(p, q, t) {
+  if (t < 0) t += 1; if (t > 1) t -= 1;
+  if (t < 1/6) return p + (q - p) * 6 * t;
+  if (t < 1/2) return q;
+  if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+  return p;
+}
+function hslToRgb(h, s, l) {
+  let r, g, b;
+  if (s === 0) { r = g = b = l; }
+  else {
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+/* ─────────────────────────────────────────────────
+   Build a card HTML structure (returns DOM node)
+   ───────────────────────────────────────────────── */
+function makeCard(label, desc) {
+  const wrap = document.createElement('div');
+  wrap.className = 'variant';
+  wrap.innerHTML = `
+    <div class="variant-label">${label}</div>
+    <div class="variant-desc">${desc}</div>
+    <div class="card-row">
+      <div class="icon-lg" id="${label}-lg"></div>
+      <div class="small-stack">
+        <div class="sm-row">
+          <div class="icon-sm-dk" id="${label}-sm-dk"></div>
+          <div class="sm-label">dark</div>
+        </div>
+        <div class="sm-row">
+          <div class="icon-sm-lt" id="${label}-sm-lt"></div>
+          <div class="sm-label">light</div>
+        </div>
+      </div>
+    </div>
+  `;
+  return wrap;
+}
+
+/* Place an img with CSS filter into a container */
+function cssVariant(containerId, filter) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const sz = c.classList.contains('icon-lg') ? 140 : 44;
+  const img = document.createElement('img');
+  img.src = IMG_SRC;
+  img.style.cssText = `width:${sz}px;height:${sz}px;object-fit:contain;filter:${filter};`;
+  c.appendChild(img);
+}
+
+/* Place a canvas (remapped pixels) into a container */
+function canvasVariant(containerId, srcCanvas) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const sz = c.classList.contains('icon-lg') ? 140 : 44;
+  const out = document.createElement('canvas');
+  out.width = sz; out.height = sz;
+  const ctx = out.getContext('2d');
+  ctx.drawImage(srcCanvas, 0, 0, sz, sz);
+  c.appendChild(out);
+}
+
+/* Remap pixels: hue shift + saturation scale + lightness scale */
+function remapImage(srcImg, hueShift, satScale, litScale) {
+  const c = document.createElement('canvas');
+  c.width = srcImg.naturalWidth; c.height = srcImg.naturalHeight;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(srcImg, 0, 0);
+  const id = ctx.getImageData(0, 0, c.width, c.height);
+  const d  = id.data;
+
+  for (let i = 0; i < d.length; i += 4) {
+    if (d[i + 3] < 8) continue;  // skip near-transparent
+    let [h, s, l] = rgbToHsl(d[i], d[i+1], d[i+2]);
+    h = (h + hueShift + 1) % 1;
+    s = Math.min(1, s * satScale);
+    l = Math.min(1, l * litScale);
+    const [r2, g2, b2] = hslToRgb(h, s, l);
+    d[i] = r2; d[i+1] = g2; d[i+2] = b2;
+  }
+  ctx.putImageData(id, 0, 0);
+  return c;
+}
+
+/* ─────────────────────────────────────────────────
+   CSS FILTER variants
+   ───────────────────────────────────────────────── */
+const cssVariants = [
+  {
+    id: 'css-a', label: 'CSS-A',
+    desc: 'Hue-shift +195° → blue. Original 3D render, brand-colorized.',
+    filter: 'hue-rotate(195deg) saturate(1.25) brightness(0.9)',
+  },
+  {
+    id: 'css-b', label: 'CSS-B',
+    desc: 'Hue-shift +225° → blue-purple. Slightly darker, more moody.',
+    filter: 'hue-rotate(225deg) saturate(1.1) brightness(0.82)',
+  },
+  {
+    id: 'css-c', label: 'CSS-C',
+    desc: 'Hue-shift +210° + desaturate slightly. More sophisticated, less toy-like.',
+    filter: 'hue-rotate(210deg) saturate(0.85) brightness(0.75) contrast(1.1)',
+  },
+];
+
+const gridCss = document.getElementById('grid-css');
+cssVariants.forEach(v => {
+  const card = makeCard(v.label, v.desc);
+  gridCss.appendChild(card);
+});
+
+// Wait for DOM, then insert images
+requestAnimationFrame(() => {
+  cssVariants.forEach(v => {
+    ['lg','sm-dk','sm-lt'].forEach(sz => {
+      cssVariant(`${v.label}-${sz}`, v.filter);
+    });
+  });
+});
+
+/* ─────────────────────────────────────────────────
+   CANVAS pixel-remap variants
+   ───────────────────────────────────────────────── */
+const canvasVariantDefs = [
+  {
+    id: 'px-a', label: 'PX-A',
+    desc: 'Full hue shift to brand blue. Orange → #3b82f6 region.',
+    hue: 0.54, sat: 1.15, lit: 0.92,
+  },
+  {
+    id: 'px-b', label: 'PX-B',
+    desc: 'Shift into blue-purple midpoint. Deeper, more brand-aligned.',
+    hue: 0.58, sat: 1.05, lit: 0.82,
+  },
+  {
+    id: 'px-c', label: 'PX-C',
+    desc: 'Dark mode — deep purple, reduced lightness. Most on-brand for zinc-950.',
+    hue: 0.62, sat: 0.90, lit: 0.72,
+  },
+];
+
+const gridCanvas = document.getElementById('grid-canvas');
+canvasVariantDefs.forEach(v => {
+  const card = makeCard(v.label, v.desc);
+  gridCanvas.appendChild(card);
+});
+
+// Load image once, remap for each variant
+const srcImg = new Image();
+srcImg.crossOrigin = 'anonymous';
+srcImg.onload = function () {
+  canvasVariantDefs.forEach(v => {
+    const remapped = remapImage(srcImg, v.hue, v.sat, v.lit);
+    ['lg','sm-dk','sm-lt'].forEach(sz => {
+      canvasVariant(`${v.label}-${sz}`, remapped);
+    });
+  });
+};
+srcImg.onerror = function() {
+  // If CORS fails on file://, show a note
+  document.querySelectorAll('#grid-canvas .icon-lg').forEach(el => {
+    el.innerHTML = '<div style="color:#3f3f46;font-family:monospace;font-size:10px;padding:8px;text-align:center;">Open via local server<br>or drag into Chrome</div>';
+  });
+};
+srcImg.src = IMG_SRC;
+</script>
+
+</body>
+</html>

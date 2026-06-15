@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Twitter Banner Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #000;
+  padding: 48px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  min-width: 860px;
+}
+
+.page-header { margin-bottom: 52px; }
+.page-header h1 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+.page-header p { color: #3f3f46; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; line-height: 1.8; }
+.page-header p strong { color: #52525b; }
+
+.option { margin-bottom: 64px; }
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.option-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.option-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #52525b;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.option-rule { flex: 1; height: 1px; background: #18181b; }
+
+/* Scaled preview frame */
+.banner-frame {
+  width: 750px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+  position: relative;
+  cursor: default;
+}
+/* Full-size banner scaled to 50% */
+.banner {
+  width: 1500px;
+  height: 500px;
+  transform: scale(0.5);
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════════════
+   BANNER 1 — TERMINAL READOUT
+   Two-column: brand/copy left, equity curve right
+   ══════════════════════════════════════════════ */
+#b1 {
+  background: #09090b;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+/* Subtle grid */
+#b1-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+/* Left blue glow */
+#b1-glow {
+  position: absolute;
+  top: -150px;
+  left: -150px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse, rgba(59,130,246,0.09) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.b1-left {
+  flex: 0 0 850px;
+  padding: 54px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Thin vertical separator */
+.b1-left::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 40px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #27272a 20%, #27272a 80%, transparent);
+}
+
+.b1-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.b1-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 8px rgba(59,130,246,0.6);
+}
+.b1-brand-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #71717a;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.b1-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #93c5fd;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 3px;
+  padding: 2px 7px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.b1-headline {
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: #fff;
+  margin-bottom: 22px;
+}
+.b1-grad {
+  background: linear-gradient(95deg, #60a5fa 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.b1-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  color: #3f3f46;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+}
+
+.b1-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pill-emerald { color: #34d399; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); }
+.pill-blue    { color: #60a5fa; background: rgba(59,130,246,0.08);  border: 1px solid rgba(59,130,246,0.25);  }
+.pill-purple  { color: #c084fc; background: rgba(168,85,247,0.08);  border: 1px solid rgba(168,85,247,0.25);  }
+.pill-teal    { color: #2dd4bf; background: rgba(45,212,191,0.08);  border: 1px solid rgba(45,212,191,0.25);  }
+
+/* Right panel: equity curve */
+.b1-right {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 56px 36px 40px;
+}
+
+.b1-chart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.b1-tag {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  z-index: 2;
+}
+.b1-tag-rose   { color: #f43f5e; background: rgba(244,63,94,0.1);  border: 1px solid rgba(244,63,94,0.35);  }
+.b1-tag-blue   { color: #60a5fa; background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.35); }
+
+/* URL + bottom gradient stripe */
+.b1-url {
+  position: absolute;
+  bottom: 26px;
+  right: 56px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #3f3f46;
+  letter-spacing: 0.06em;
+  z-index: 3;
+}
+.b1-stripe {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #3b82f6, #a855f7);
+  z-index: 4;
+}
+
+
+/* ══════════════════════════════════════════════
+   BANNER 2 — BOLD STATEMENT
+   Full-width typographic hero, dual glow bg
+   ══════════════════════════════════════════════ */
+#b2 {
+  background: #09090b;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b2-glow-l {
+  position: absolute;
+  width: 1000px; height: 1000px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(59,130,246,0.20) 0%, transparent 60%);
+  top: 50%; left: 22%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.b2-glow-r {
+  position: absolute;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(168,85,247,0.16) 0%, transparent 60%);
+  top: 50%; left: 76%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Horizontal hairlines */
+.b2-line-t {
+  position: absolute;
+  top: 36px; left: 72px; right: 72px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #27272a 20%, #27272a 80%, transparent);
+}
+.b2-line-b {
+  position: absolute;
+  bottom: 36px; left: 72px; right: 72px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #27272a 20%, #27272a 80%, transparent);
+}
+
+.b2-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.b2-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #3f3f46;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.b2-label span { color: #3b82f6; }
+
+.b2-h1 {
+  display: block;
+  font-size: 108px;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  color: #ffffff;
+}
+.b2-h2 {
+  display: block;
+  font-size: 108px;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  background: linear-gradient(95deg, #60a5fa 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 32px;
+}
+
+.b2-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.b2-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  color: #52525b;
+  letter-spacing: 0.08em;
+}
+.b2-sep { width: 1px; height: 14px; background: #3f3f46; }
+.b2-cta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #60a5fa;
+  letter-spacing: 0.06em;
+}
+
+/* Bottom gradient accent */
+.b2-stripe {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent 5%, #3b82f6 30%, #a855f7 70%, transparent 95%);
+}
+
+
+/* ══════════════════════════════════════════════
+   BANNER 3 — DATA NARRATIVE
+   Full-width equity curve + floating cards + stat bar
+   ══════════════════════════════════════════════ */
+#b3 {
+  background: #09090b;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Grid */
+#b3-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Soft purple glow right-center */
+#b3-glow {
+  position: absolute;
+  width: 900px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(168,85,247,0.07) 0%, transparent 65%);
+  top: 50%; left: 65%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Top bar: headline + brand */
+.b3-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 88px;
+  padding: 0 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #18181b;
+  z-index: 10;
+}
+
+.b3-headline-text {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.b3-headline-grad {
+  background: linear-gradient(95deg, #60a5fa 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.b3-brand-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+.b3-brandname {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.b3-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #3f3f46;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Chart zone: between top bar and stat bar */
+.b3-chart-zone {
+  position: absolute;
+  top: 88px;
+  left: 0; right: 0;
+  bottom: 78px;
+  z-index: 1;
+}
+
+/* Floating annotation cards */
+.b3-card {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 9px 14px;
+  border-radius: 5px;
+  z-index: 10;
+  white-space: nowrap;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+}
+.b3-card-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  display: block;
+  margin-bottom: 4px;
+}
+.b3-card-val {
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+}
+.card-rose    { color: #f43f5e; background: rgba(244,63,94,0.08);  border: 1px solid rgba(244,63,94,0.3);  }
+.card-emerald { color: #34d399; background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.3); }
+.card-blue    { color: #60a5fa; background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.3); }
+.card-amber   { color: #fbbf24; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.3); }
+.card-purple  { color: #c084fc; background: rgba(192,132,252,0.08); border: 1px solid rgba(192,132,252,0.3); }
+
+/* Bottom stat bar */
+.b3-statbar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 78px;
+  background: rgba(9,9,11,0.95);
+  border-top: 1px solid #1e1e21;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 60px;
+  z-index: 10;
+}
+.b3-stat { text-align: center; }
+.b3-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: #3f3f46;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+.b3-stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+}
+.b3-stat-sep { width: 1px; height: 32px; background: #1e1e21; }
+
+/* Top gradient stripe */
+.b3-stripe-t {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #3b82f6 0%, #a855f7 100%);
+  z-index: 20;
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>SignalDeck — Twitter Banner Options</h1>
+  <p>
+    Preview at 50% scale. To export a banner at full 1500×500px:<br>
+    <strong>Chrome DevTools → Elements → right-click a .banner div → "Capture node screenshot"</strong>
+  </p>
+</div>
+
+
+<!-- ══════════════════════
+     OPTION 1 — TERMINAL
+     ══════════════════════ -->
+<div class="option">
+  <div class="option-label">
+    <span class="option-num">01</span>
+    <span class="option-name">Terminal Readout — Two-column, data-native, product-authentic</span>
+    <div class="option-rule"></div>
+  </div>
+  <div class="banner-frame">
+    <div class="banner" id="b1">
+
+      <div id="b1-grid"></div>
+      <div id="b1-glow"></div>
+
+      <!-- LEFT: brand + copy -->
+      <div class="b1-left">
+        <div class="b1-brand-row">
+          <div class="b1-dot"></div>
+          <span class="b1-brand-text">SignalDeck</span>
+          <span class="b1-badge">Beta</span>
+        </div>
+
+        <div class="b1-headline">
+          Audit<br>
+          <span class="b1-grad">Your Edge.</span>
+        </div>
+
+        <div class="b1-sub">R-multiples · SQN · Monte Carlo · Post Mortem</div>
+
+        <div class="b1-pills">
+          <div class="pill pill-emerald">Walk-Forward Analysis</div>
+          <div class="pill pill-blue">1,000-Path Monte Carlo</div>
+          <div class="pill pill-purple">Kelly Criterion</div>
+          <div class="pill pill-teal">Execution Quality</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: equity curve -->
+      <div class="b1-right">
+        <div class="b1-chart">
+          <svg width="580" height="390" viewBox="0 0 580 390"
+               fill="none" xmlns="http://www.w3.org/2000/svg"
+               style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+            <defs>
+              <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#3b82f6" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="glowF">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+
+            <!-- Grid lines -->
+            <line x1="20" y1="350" x2="560" y2="350" stroke="#27272a" stroke-width="1"/>
+            <line x1="20" y1="260" x2="560" y2="260" stroke="#1a1a1d" stroke-width="1" stroke-dasharray="5 5"/>
+            <line x1="20" y1="170" x2="560" y2="170" stroke="#1a1a1d" stroke-width="1" stroke-dasharray="5 5"/>
+            <line x1="20" y1="80"  x2="560" y2="80"  stroke="#1a1a1d" stroke-width="1" stroke-dasharray="5 5"/>
+
+            <!-- Area fill -->
+            <path d="M20,340 C80,310 160,200 250,130 L275,195 L320,170
+                     C370,150 430,90 490,55 C520,40 545,32 560,28
+                     L560,350 L20,350 Z"
+                  fill="url(#areaFill)"/>
+
+            <!-- Green rising segment -->
+            <path d="M20,340 C80,310 160,200 250,130"
+                  stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+            <!-- Red drawdown (dashed) -->
+            <path d="M250,130 L275,195 L320,170"
+                  stroke="#f43f5e" stroke-width="2.5" fill="none"
+                  stroke-dasharray="8 5" stroke-linecap="round"/>
+
+            <!-- Blue recovery -->
+            <path d="M320,170 C370,150 430,90 490,55 C520,40 545,32 560,28"
+                  stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+            <!-- Glowing line overlay (blue, softer) -->
+            <path d="M320,170 C370,150 430,90 490,55 C520,40 545,32 560,28"
+                  stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round"
+                  opacity="0.15" filter="url(#glowF)"/>
+
+            <!-- Drawdown dot -->
+            <circle cx="275" cy="195" r="12" fill="#f43f5e" opacity="0.15"/>
+            <circle cx="275" cy="195" r="5"  fill="#f43f5e"/>
+
+            <!-- Entry dot -->
+            <circle cx="250" cy="130" r="4" fill="#10b981" opacity="0.7"/>
+
+            <!-- Current / peak dot -->
+            <circle cx="560" cy="28" r="5" fill="#3b82f6"/>
+            <circle cx="560" cy="28" r="10" fill="#3b82f6" opacity="0.2"/>
+
+            <!-- Y-axis R labels -->
+            <text x="6" y="354" fill="#3f3f46" font-family="JetBrains Mono,monospace" font-size="11">0R</text>
+            <text x="6" y="264" fill="#3f3f46" font-family="JetBrains Mono,monospace" font-size="11">1R</text>
+            <text x="6" y="174" fill="#3f3f46" font-family="JetBrains Mono,monospace" font-size="11">2R</text>
+            <text x="6" y="84"  fill="#3f3f46" font-family="JetBrains Mono,monospace" font-size="11">3R</text>
+          </svg>
+
+          <!-- Annotation tags -->
+          <div class="b1-tag b1-tag-rose"
+               style="bottom:72px; left:44px;">
+            ⚠ BEHAVIORAL PATTERN DETECTED
+          </div>
+          <div class="b1-tag b1-tag-blue"
+               style="top:24px; right:0;">
+            EDGE CONFIRMED · +0.84R
+          </div>
+        </div>
+      </div>
+
+      <div class="b1-url">sgnldk.com</div>
+      <div class="b1-stripe"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════
+     OPTION 2 — STATEMENT
+     ══════════════════════ -->
+<div class="option">
+  <div class="option-label">
+    <span class="option-num">02</span>
+    <span class="option-name">Bold Statement — Typographic hero, dual glow, maximum impact</span>
+    <div class="option-rule"></div>
+  </div>
+  <div class="banner-frame">
+    <div class="banner" id="b2">
+
+      <div class="b2-glow-l"></div>
+      <div class="b2-glow-r"></div>
+      <div class="b2-line-t"></div>
+      <div class="b2-line-b"></div>
+
+      <div class="b2-content">
+        <div class="b2-label">
+          <span>SignalDeck</span> — Trading Journal &amp; Strategy Backtester
+        </div>
+
+        <span class="b2-h1">Stop Guessing.</span>
+        <span class="b2-h2">Start Proving Your Edge.</span>
+
+        <div class="b2-footer">
+          <span class="b2-url">sgnldk.com</span>
+          <div class="b2-sep"></div>
+          <span class="b2-cta">Free Beta Access →</span>
+        </div>
+      </div>
+
+      <div class="b2-stripe"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════
+     OPTION 3 — DATA NARRATIVE
+     ══════════════════════ -->
+<div class="option">
+  <div class="option-label">
+    <span class="option-num">03</span>
+    <span class="option-name">Data Narrative — Full-width equity curve, floating insights, stat bar</span>
+    <div class="option-rule"></div>
+  </div>
+  <div class="banner-frame">
+    <div class="banner" id="b3">
+
+      <div id="b3-grid"></div>
+      <div id="b3-glow"></div>
+
+      <!-- Top bar -->
+      <div class="b3-top">
+        <div class="b3-headline-text">
+          Your P&amp;L is lying.<br>
+          <span class="b3-headline-grad">Your metrics aren't.</span>
+        </div>
+        <div class="b3-brand-tag">
+          <div class="b3-brandname">SignalDeck</div>
+          <div class="b3-sub">R-Value · SQN · Monte Carlo · sgnldk.com</div>
+        </div>
+      </div>
+
+      <!-- Chart zone -->
+      <div class="b3-chart-zone">
+        <svg width="1500" height="334" viewBox="0 0 1500 334"
+             fill="none" xmlns="http://www.w3.org/2000/svg"
+             style="position:absolute;top:0;left:0;">
+          <defs>
+            <linearGradient id="b3area" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#3b82f6" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="b3areaG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#10b981" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="glow3">
+              <feGaussianBlur stdDeviation="5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Grid lines -->
+          <line x1="0" y1="310" x2="1500" y2="310" stroke="#1e1e21" stroke-width="1"/>
+          <line x1="0" y1="220" x2="1500" y2="220" stroke="#1a1a1d" stroke-width="1" stroke-dasharray="8 8"/>
+          <line x1="0" y1="130" x2="1500" y2="130" stroke="#1a1a1d" stroke-width="1" stroke-dasharray="8 8"/>
+          <line x1="0" y1="50"  x2="1500" y2="50"  stroke="#1a1a1d" stroke-width="1" stroke-dasharray="8 8"/>
+
+          <!-- Area fills -->
+          <path d="M0,305 C120,285 280,195 440,140 L490,205 L580,185
+                   C680,160 800,70 1020,42 C1120,28 1280,62 1380,38 C1430,26 1468,18 1500,14
+                   L1500,310 L0,310 Z"
+                fill="url(#b3area)" opacity="0.8"/>
+
+          <!-- GREEN: initial rise -->
+          <path d="M0,305 C120,285 280,195 440,140"
+                stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- RED: drawdown dip (dashed) -->
+          <path d="M440,140 L480,205 L580,185"
+                stroke="#f43f5e" stroke-width="2.5" fill="none"
+                stroke-dasharray="10 6" stroke-linecap="round"/>
+
+          <!-- BLUE: recovery to new highs -->
+          <path d="M580,185 C680,160 800,70 1020,42"
+                stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- BLUE: consolidation + new high -->
+          <path d="M1020,42 C1120,28 1280,55 1380,36 C1430,26 1468,16 1500,12"
+                stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- Blue glow overlay -->
+          <path d="M580,185 C680,160 800,70 1020,42 C1120,28 1280,55 1380,36 C1430,26 1468,16 1500,12"
+                stroke="#3b82f6" stroke-width="8" fill="none"
+                opacity="0.12" filter="url(#glow3)"/>
+
+          <!-- Vertical drop line at drawdown low -->
+          <line x1="480" y1="205" x2="480" y2="310" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 4" opacity="0.25"/>
+
+          <!-- Drawdown dot -->
+          <circle cx="480" cy="205" r="14" fill="#f43f5e" opacity="0.12"/>
+          <circle cx="480" cy="205" r="5"  fill="#f43f5e"/>
+
+          <!-- Entry dot -->
+          <circle cx="440" cy="140" r="4" fill="#10b981" opacity="0.8"/>
+
+          <!-- Current peak dot -->
+          <circle cx="1500" cy="12" r="6" fill="#3b82f6"/>
+          <circle cx="1500" cy="12" r="14" fill="#3b82f6" opacity="0.15"/>
+
+          <!-- Mid-curve dot (SQN marker) -->
+          <circle cx="800" cy="66" r="4" fill="#60a5fa" opacity="0.6"/>
+        </svg>
+
+        <!-- Floating annotation cards -->
+        <!-- FOMO card: near drawdown -->
+        <div class="b3-card card-rose" style="top:52px; left:398px;">
+          <span class="b3-card-label">FOMO Entries</span>
+          <span class="b3-card-val">-1.2R</span>
+        </div>
+
+        <!-- Psych friction near drawdown low -->
+        <div class="b3-card card-amber" style="bottom:36px; left:490px;">
+          <span class="b3-card-label">Psych Friction</span>
+          <span class="b3-card-val">HIGH</span>
+        </div>
+
+        <!-- SQN card: mid-chart -->
+        <div class="b3-card card-blue" style="top:24px; left:770px;">
+          <span class="b3-card-label">SQN Score</span>
+          <span class="b3-card-val">2.8 — Stable</span>
+        </div>
+
+        <!-- A+ setup card: near top right -->
+        <div class="b3-card card-emerald" style="top:20px; right:210px;">
+          <span class="b3-card-label">A+ Setup Avg</span>
+          <span class="b3-card-val">+2.1R</span>
+        </div>
+
+        <!-- Kelly card: far right -->
+        <div class="b3-card card-purple" style="bottom:36px; right:100px;">
+          <span class="b3-card-label">Kelly %</span>
+          <span class="b3-card-val">8.3%</span>
+        </div>
+      </div>
+
+      <!-- Bottom stat bar -->
+      <div class="b3-statbar">
+        <div class="b3-stat">
+          <span class="b3-stat-label">Expectancy</span>
+          <span class="b3-stat-val" style="color:#60a5fa">+0.84R</span>
+        </div>
+        <div class="b3-stat-sep"></div>
+        <div class="b3-stat">
+          <span class="b3-stat-label">Profit Factor</span>
+          <span class="b3-stat-val" style="color:#34d399">2.62</span>
+        </div>
+        <div class="b3-stat-sep"></div>
+        <div class="b3-stat">
+          <span class="b3-stat-label">Win Rate</span>
+          <span class="b3-stat-val" style="color:#e4e4e7">42%</span>
+        </div>
+        <div class="b3-stat-sep"></div>
+        <div class="b3-stat">
+          <span class="b3-stat-label">Max Drawdown</span>
+          <span class="b3-stat-val" style="color:#f43f5e">-14.2%</span>
+        </div>
+        <div class="b3-stat-sep"></div>
+        <div class="b3-stat">
+          <span class="b3-stat-label">Walk-Forward</span>
+          <span class="b3-stat-val" style="color:#c084fc">Stable</span>
+        </div>
+        <div class="b3-stat-sep"></div>
+        <div class="b3-stat">
+          <span class="b3-stat-label">Free Beta</span>
+          <span class="b3-stat-val" style="color:#3f3f46;font-size:15px">sgnldk.com →</span>
+        </div>
+      </div>
+
+      <div class="b3-stripe-t"></div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

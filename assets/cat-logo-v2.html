@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat Logo V2 · Redrawn</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+h1 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; letter-spacing: 0.06em; margin-bottom: 48px; line-height: 1.9; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.card-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #f97316; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px; }
+.card-desc  { font-size: 11px; color: #52525b; margin-bottom: 14px; line-height: 1.5; }
+.card-row   { display: flex; align-items: center; gap: 12px; }
+.icon-lg    { width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 44px; border: 1px solid #1e1e21; flex-shrink: 0; }
+.sm-stack   { display: flex; flex-direction: column; gap: 10px; }
+.sm-item    { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sm-lbl     { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; letter-spacing: 0.1em; text-transform: uppercase; }
+.icon-sm-dk { width: 64px; height: 64px; background: #09090b; border: 1px solid #1e1e21; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+.icon-sm-lt { width: 64px; height: 64px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+
+<h1>SignalDeck — Cat Logo V2 · Redrawn</h1>
+<div class="sub">
+  Orange retained from original. Rebuilt as flat SVG — almond cat-eyes, no blush, cleaner proportions.<br>
+  Six colour treatments: pick a direction, iterate from there.
+</div>
+
+<div class="grid" id="grid"></div>
+
+<script>
+/* ─────────────────────────────────────────────────────────────────────────
+   Cat anatomy — 100×100 viewBox
+   Head+ears: single merged SVG path (circle r=36 centred at 50,56 with ear
+   tips at y=6). Arc params: bottom (0 0 1) CW through y=92; top (0 0 0)
+   CCW through y=20.
+   Eyes: almond / cat-eye paths — more logo-like, less emoji-cute.
+   ───────────────────────────────────────────────────────────────────────── */
+
+const HEAD   = "M 32,25 L 20,6 L 19,38 A 36 36 0 0 1 81,38 L 80,6 L 68,25 A 36 36 0 0 0 32,25 Z";
+const EAR_L  = "M 23,12 L 21,33 L 33,25 Z";  /* inner ear triangles */
+const EAR_R  = "M 77,12 L 79,33 L 67,25 Z";
+
+/* Almond eyes — outer corner higher than inner corner (cat tilt) */
+const EYE_L  = "M 26,49 C 29,44 39,44 43,52 C 39,57 28,56 26,49 Z";
+const EYE_R  = "M 57,52 C 61,44 71,44 74,49 C 71,56 60,57 57,52 Z";
+
+const NOSE   = "M 47,62 L 50,58 L 53,62 Q 50,65 47,62 Z";
+const MOUTH  = "M 44,68 Q 50,74 56,68";   /* subtle upward arc */
+
+/* ── Variant definitions ───────────────────────────────────────────────── */
+const VARIANTS = [
+  {
+    id: 'og',
+    label: 'ORANGE · BLUE EYES',
+    desc: 'Orange cat body, brand-blue almond eyes. Warm/cool contrast pops on dark.',
+    bg: '#09090b',
+    headFill: '#f97316', headStroke: 'none', headSW: 0,
+    earFill: '#fed7aa',          /* light peach inner ear */
+    eyeFill: '#3b82f6',          /* blue iris fills the almond */
+    pupilFill: '#0c1433',
+    hiColor: '#fff',
+    noseFill: '#7c2d12',
+    mouthStroke: '#9a3412',
+    whisker: '#9a3412', whiskerOp: 0.55,
+    grad: false, glow: false,
+  },
+  {
+    id: 'grad',
+    label: 'ORANGE GRADIENT',
+    desc: 'Top-lit gradient: peach highlight → burnt orange shadow. Closest to original 3D feel.',
+    bg: '#09090b',
+    headFill: 'hgrad', headStroke: 'none', headSW: 0,
+    earFill: '#fde68a',
+    eyeFill: '#1d4ed8',
+    pupilFill: '#0a0f1e',
+    hiColor: '#ffffff',
+    noseFill: '#78350f',
+    mouthStroke: '#92400e',
+    whisker: '#92400e', whiskerOp: 0.55,
+    grad: true, glow: false,
+  },
+  {
+    id: 'outline',
+    label: 'ORANGE OUTLINE',
+    desc: 'Stroke-only on dark. Clean silhouette — works at tiny sizes.',
+    bg: '#09090b',
+    headFill: 'none', headStroke: '#f97316', headSW: 2,
+    earFill: 'rgba(249,115,22,0.15)',
+    eyeFill: 'none', eyeStroke: '#f97316',
+    pupilFill: '#f97316',
+    hiColor: 'none',
+    noseFill: '#f97316',
+    mouthStroke: '#f97316',
+    whisker: '#f97316', whiskerOp: 0.45,
+    grad: false, glow: false,
+  },
+  {
+    id: 'brand',
+    label: 'ORANGE + BRAND STROKE',
+    desc: 'Orange fill with blue→purple gradient outline. Ties the mascot to brand palette.',
+    bg: '#09090b',
+    headFill: '#ea580c', headStroke: 'sgrad', headSW: 2.5,
+    earFill: '#fed7aa',
+    eyeFill: '#60a5fa',
+    pupilFill: '#030712',
+    hiColor: '#fff',
+    noseFill: '#7c2d12',
+    mouthStroke: '#9a3412',
+    whisker: '#3b82f6', whiskerOp: 0.5,
+    grad: false, sgrad: true, glow: false,
+  },
+  {
+    id: 'neon',
+    label: 'NEON',
+    desc: 'Orange glow on dark. No fill, strong stroke — aggressive / cyberpunk feel.',
+    bg: '#09090b',
+    headFill: 'rgba(249,115,22,0.08)', headStroke: '#f97316', headSW: 1.8,
+    earFill: 'rgba(249,115,22,0.12)',
+    eyeFill: '#3b82f6', eyeStroke: 'none',
+    pupilFill: '#060d1e',
+    hiColor: '#fff',
+    noseFill: '#f97316',
+    mouthStroke: '#f97316',
+    whisker: '#f97316', whiskerOp: 0.4,
+    grad: false, glow: true,
+  },
+  {
+    id: 'light',
+    label: 'LIGHT BG',
+    desc: 'For white / light surfaces. Orange cat on light background.',
+    bg: '#f4f4f5',
+    headFill: '#f97316', headStroke: '#c2410c', headSW: 1.2,
+    earFill: '#fde68a',
+    eyeFill: '#1d4ed8',
+    pupilFill: '#0f172a',
+    hiColor: '#ffffff',
+    noseFill: '#7c2d12',
+    mouthStroke: '#7c2d12',
+    whisker: '#7c2d12', whiskerOp: 0.6,
+    grad: false, glow: false,
+  },
+];
+
+/* ── SVG renderer ─────────────────────────────────────────────────────── */
+function makeSVG(size, v, uid) {
+  const defs = `
+    ${v.grad ? `
+    <linearGradient id="${uid}hg" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%"   stop-color="#fed7aa"/>
+      <stop offset="40%"  stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>` : ''}
+    ${v.sgrad ? `
+    <linearGradient id="${uid}sg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>` : ''}
+    ${v.glow ? `
+    <filter id="${uid}gf" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>` : ''}
+  `;
+
+  const hFill  = v.headFill === 'hgrad' ? `url(#${uid}hg)` : v.headFill;
+  const hStroke = v.headStroke === 'sgrad' ? `url(#${uid}sg)` : (v.headStroke || 'none');
+  const hFilter = v.glow ? `filter="url(#${uid}gf)"` : '';
+
+  /* Almond eye: iris fills the almond shape, then pupil ellipse, then highlight */
+  const almondEye = (path, px, py, hx, hy) => `
+    <path d="${path}" fill="${v.eyeFill || 'none'}" stroke="${v.eyeStroke || 'none'}" stroke-width="${v.eyeStroke ? 1.2 : 0}"/>
+    ${v.pupilFill && v.eyeFill !== 'none' ? `<ellipse cx="${px}" cy="${py}" rx="3.5" ry="4.5" fill="${v.pupilFill}"/>` : ''}
+    ${v.hiColor && v.hiColor !== 'none' ? `<circle cx="${hx}" cy="${hy}" r="2" fill="${v.hiColor}" opacity="0.85"/>` : ''}
+  `;
+
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>${defs}</defs>
+
+    <!-- Head + ears -->
+    <path d="${HEAD}" fill="${hFill}" stroke="${hStroke}" stroke-width="${v.headSW}" stroke-linejoin="round" ${hFilter}/>
+
+    <!-- Inner ears -->
+    <path d="${EAR_L}" fill="${v.earFill}" opacity="0.9"/>
+    <path d="${EAR_R}" fill="${v.earFill}" opacity="0.9"/>
+
+    <!-- Eyes -->
+    ${almondEye(EYE_L, 34, 50, 30, 46)}
+    ${almondEye(EYE_R, 66, 50, 62, 46)}
+
+    <!-- Nose -->
+    <path d="${NOSE}" fill="${v.noseFill}"/>
+
+    <!-- Mouth -->
+    <path d="${MOUTH}" fill="none" stroke="${v.mouthStroke}" stroke-width="1.4" stroke-linecap="round"/>
+
+    <!-- Whiskers -->
+    <g stroke="${v.whisker}" stroke-width="0.9" stroke-linecap="round" opacity="${v.whiskerOp}">
+      <line x1="6"  y1="60" x2="27" y2="62"/>
+      <line x1="5"  y1="67" x2="26" y2="67"/>
+      <line x1="6"  y1="74" x2="26" y2="72"/>
+      <line x1="94" y1="60" x2="73" y2="62"/>
+      <line x1="95" y1="67" x2="74" y2="67"/>
+      <line x1="94" y1="74" x2="74" y2="72"/>
+    </g>
+  </svg>`;
+}
+
+/* ── Render grid ────────────────────────────────────────────────────────── */
+const grid = document.getElementById('grid');
+
+VARIANTS.forEach((v, idx) => {
+  const uid = `u${idx}`;
+  const card = document.createElement('div');
+  card.innerHTML = `
+    <div class="card-label">${v.label}</div>
+    <div class="card-desc">${v.desc}</div>
+    <div class="card-row">
+      <div class="icon-lg" style="background:${v.bg};">
+        ${makeSVG(150, v, uid + 'L')}
+      </div>
+      <div class="sm-stack">
+        <div class="sm-item">
+          <div class="icon-sm-dk" style="background:${v.bg};">
+            ${makeSVG(44, v, uid + 'D')}
+          </div>
+          <div class="sm-lbl">dark</div>
+        </div>
+        <div class="sm-item">
+          <div class="icon-sm-lt">
+            ${makeSVG(44, v, uid + 'T')}
+          </div>
+          <div class="sm-lbl">light</div>
+        </div>
+      </div>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>

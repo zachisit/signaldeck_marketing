@@ -1,0 +1,48 @@
+X CONTENT — Grid Search Parameter Optimization post
+https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/
+===================================================================
+
+OPTION 1 — Hook on the core insight (thread-style)
+---------------------------------------------------
+Grid search ran 495 backtests and found the "optimal" parameters.
+
+All 495 used the same data to select AND evaluate the winner.
+
+That's not optimization. That's a memory test.
+
+Here's why grid search reliably overfits — and the one fix that makes it actually useful:
+
+sgnldk.com/blog/what-is-grid-search-parameter-optimization/
+
+
+OPTION 2 — Single punchy post
+------------------------------
+The most common way to find "optimal" strategy parameters is also the most reliable way to fool yourself.
+
+Grid search tests 500 combinations on the same data it uses to crown a winner. Of course something looks great. You just ran 500 bets and kept the lucky one.
+
+Fix: Walk-Forward Analysis. Optimize in-sample, validate out-of-sample, never let the two touch.
+
+Full breakdown → sgnldk.com/blog/what-is-grid-search-parameter-optimization/
+
+
+OPTION 3 — Practical angle for algo/systematic traders
+-------------------------------------------------------
+Two grid search results that should make you nervous:
+
+1. The optimal parameter sits on a single sharp spike — neighbors perform terribly
+2. The "best" params shift wildly across different historical windows
+
+Both mean you found noise, not edge. Stable parameters cluster. Overfit ones don't.
+
+New article on how to tell the difference:
+sgnldk.com/blog/what-is-grid-search-parameter-optimization/
+
+
+OPTION 4 — Quote-led
+---------------------
+"Optimization without out-of-sample validation is an advanced way to torture data until it confesses."
+
+Grid search + Walk-Forward Analysis is the standard fix. Here's exactly how it works and what to look for in your results:
+
+sgnldk.com/blog/what-is-grid-search-parameter-optimization/

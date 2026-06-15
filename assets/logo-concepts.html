@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Logo Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #09090b; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+h1   { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; letter-spacing: 0.06em; margin-bottom: 40px; line-height: 1.9; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.card-id   { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #3f3f46; letter-spacing: 0.2em; margin-bottom: 4px; }
+.card-name { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.card-desc { font-size: 11px; color: #52525b; margin-bottom: 14px; line-height: 1.5; }
+.card-row  { display: flex; align-items: center; gap: 12px; }
+.icon-lg   { width: 192px; height: 192px; background: #09090b; border: 1px solid #1e1e21; border-radius: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.sm-stack  { display: flex; flex-direction: column; gap: 10px; }
+.sm-item   { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sm-lbl    { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; }
+.icon-sm-dk{ width: 60px; height: 60px; background: #09090b; border: 1px solid #1e1e21; border-radius: 13px; display: flex; align-items: center; justify-content: center; }
+.icon-sm-lt{ width: 60px; height: 60px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 13px; display: flex; align-items: center; justify-content: center; }
+.sec       { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.18em; margin-top: 48px; margin-bottom: 16px; }
+.nav-row   { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.nav-block { display: flex; flex-direction: column; gap: 6px; }
+.nav-mock  { display: inline-flex; align-items: center; gap: 8px; background: #09090b; border: 1px solid #27272a; border-radius: 7px; padding: 8px 16px; }
+.nav-label { font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.nav-id    { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; padding-left: 2px; }
+</style>
+</head>
+<body>
+
+<h1>SignalDeck — Logo Concepts</h1>
+<div class="sub">Six directions · no cat · open directly in browser</div>
+
+<div class="grid" id="grid"></div>
+<div class="sec">IN NAV BAR</div>
+<div class="nav-row" id="navrow"></div>
+
+<script>
+/* Each concept's build(uid) returns a self-contained SVG innerHTML string.
+   uid is a unique prefix so gradient/filter IDs never collide across instances. */
+
+var CONCEPTS = [
+
+  /* A — SIGNAL ─────────────────────────────────────────────────────────
+     Rising equity curve. Bottom-left → top-right. The core output of
+     every trade journal: performance over time.                        */
+  { id:'A', name:'Signal',
+    desc:'Rising equity curve — the core output of every trade journal. Clean at any size.',
+    build: function(u) {
+      return '<defs>'
+        + '<linearGradient id="'+u+'g" x1="14" y1="82" x2="86" y2="14" gradientUnits="userSpaceOnUse">'
+        + '<stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>'
+        + '<filter id="'+u+'f" x="-50%" y="-50%" width="200%" height="200%">'
+        + '<feGaussianBlur stdDeviation="3.5" result="b"/>'
+        + '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+        + '</defs>'
+        + '<path d="M 14,82 C 30,82 36,60 50,48 C 62,37 68,22 86,14" '
+        + 'fill="none" stroke="url(#'+u+'g)" stroke-width="6.5" stroke-linecap="round"/>'
+        + '<circle cx="86" cy="14" r="9" fill="#a855f7" filter="url(#'+u+'f)"/>'
+        + '<circle cx="86" cy="14" r="4.5" fill="#f3e8ff"/>'
+        + '<circle cx="14" cy="82" r="4" fill="#3b82f6" opacity="0.5"/>';
+    }
+  },
+
+  /* B — DECK ───────────────────────────────────────────────────────────
+     Three stacked panels at offset angles. The "Deck" in SignalDeck.
+     Top card has a mini sparkline — trade data layered and organised.  */
+  { id:'B', name:'Deck',
+    desc:'Stacked data panels — directly encodes "Deck." Trade history as layered cards.',
+    build: function(u) {
+      return '<defs>'
+        + '<linearGradient id="'+u+'g" x1="0%" y1="0%" x2="100%" y2="100%">'
+        + '<stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>'
+        + '</defs>'
+        /* Back card */
+        + '<g transform="rotate(-9 50 54)">'
+        + '<rect x="18" y="30" width="64" height="44" rx="7" fill="#111827" stroke="#1f2937" stroke-width="1.5"/>'
+        + '</g>'
+        /* Middle card */
+        + '<g transform="rotate(-3 50 54)">'
+        + '<rect x="18" y="30" width="64" height="44" rx="7" fill="#1e1b4b" stroke="#312e81" stroke-width="1.5"/>'
+        + '</g>'
+        /* Front card */
+        + '<g transform="rotate(3 50 54)">'
+        + '<rect x="18" y="30" width="64" height="44" rx="7" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>'
+        + '<rect x="24" y="38" width="18" height="3" rx="1.5" fill="#3b82f6" opacity="0.7"/>'
+        + '<rect x="24" y="44" width="11" height="2.5" rx="1.2" fill="#374151"/>'
+        + '<path d="M 24,63 C 31,63 34,55 40,52 C 46,49 52,43 62,39" '
+        + 'fill="none" stroke="url(#'+u+'g)" stroke-width="2.2" stroke-linecap="round"/>'
+        + '<circle cx="62" cy="39" r="3" fill="#a855f7"/>'
+        + '</g>';
+    }
+  },
+
+  /* C — BROADCAST ──────────────────────────────────────────────────────
+     Three concentric arcs opening upward from a center point.
+     Signal as broadcast — market intelligence radiating outward.      */
+  { id:'C', name:'Broadcast',
+    desc:'Signal arcs — radar / broadcast. Market intelligence radiating outward.',
+    build: function(u) {
+      return '<defs>'
+        + '<filter id="'+u+'f" x="-50%" y="-50%" width="200%" height="200%">'
+        + '<feGaussianBlur stdDeviation="3" result="b"/>'
+        + '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+        + '</defs>'
+        /* Center dot */
+        + '<circle cx="50" cy="82" r="6" fill="#3b82f6" filter="url(#'+u+'f)"/>'
+        + '<circle cx="50" cy="82" r="3.5" fill="#93c5fd"/>'
+        /* Arc 1 — inner */
+        + '<path d="M 27,82 A 23 23 0 0 0 73,82" fill="none" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>'
+        /* Arc 2 — mid */
+        + '<path d="M 13,82 A 37 37 0 0 0 87,82" fill="none" stroke="#6d28d9" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>'
+        /* Arc 3 — outer */
+        + '<path d="M 3,82 A 47 47 0 0 0 97,82" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>';
+    }
+  },
+
+  /* D — PULSE ──────────────────────────────────────────────────────────
+     An EKG-style signal spike. Flat line → sharp peak → flat.
+     The precise moment a trade signal fires. Unmistakable mark.       */
+  { id:'D', name:'Pulse',
+    desc:'Signal spike / EKG — the exact moment a trade signal fires. Highly distinctive.',
+    build: function(u) {
+      return '<defs>'
+        + '<linearGradient id="'+u+'g" x1="8" y1="0" x2="92" y2="0" gradientUnits="userSpaceOnUse">'
+        + '<stop offset="0%" stop-color="#3b82f6" stop-opacity="0.2"/>'
+        + '<stop offset="38%" stop-color="#3b82f6"/>'
+        + '<stop offset="62%" stop-color="#a855f7"/>'
+        + '<stop offset="100%" stop-color="#a855f7" stop-opacity="0.2"/></linearGradient>'
+        + '<filter id="'+u+'f" x="-50%" y="-50%" width="200%" height="200%">'
+        + '<feGaussianBlur stdDeviation="4" result="b"/>'
+        + '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+        + '</defs>'
+        /* Glow halo behind spike */
+        + '<path d="M 38,52 L 50,14 L 62,52" fill="none" stroke="#a855f7" '
+        + 'stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.15" filter="url(#'+u+'f)"/>'
+        /* Main waveform */
+        + '<path d="M 8,52 L 38,52 L 50,14 L 62,52 L 92,52" fill="none" '
+        + 'stroke="url(#'+u+'g)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>'
+        /* Peak dot */
+        + '<circle cx="50" cy="14" r="7" fill="#a855f7" filter="url(#'+u+'f)"/>'
+        + '<circle cx="50" cy="14" r="3.5" fill="#f3e8ff"/>';
+    }
+  },
+
+  /* E — WORDMARK ───────────────────────────────────────────────────────
+     "SD" in Inter Black — same typeface as the product. S in blue,
+     D in purple. Scales perfectly from nav bar to 16px favicon.       */
+  { id:'E', name:'Wordmark',
+    desc:'"SD" in Inter Black — simple, scales to 16px favicon, zero ambiguity.',
+    build: function(u) {
+      return '<defs>'
+        + '<linearGradient id="'+u+'g" x1="0%" y1="0%" x2="100%" y2="100%">'
+        + '<stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>'
+        + '</defs>'
+        /* Pill background */
+        + '<rect x="6" y="20" width="88" height="60" rx="14" fill="#0f172a" stroke="url(#'+u+'g)" stroke-width="1.5"/>'
+        /* S */
+        + '<text x="33" y="68" font-family="Inter,sans-serif" font-weight="900" font-size="48" '
+        + 'text-anchor="middle" fill="#3b82f6">S</text>'
+        /* D */
+        + '<text x="67" y="68" font-family="Inter,sans-serif" font-weight="900" font-size="48" '
+        + 'text-anchor="middle" fill="#a855f7">D</text>';
+    }
+  },
+
+  /* F — PRISM ──────────────────────────────────────────────────────────
+     A geometric diamond with refraction rays. Signals enter one side,
+     insight refracts out the other. Precision + analytical depth.     */
+  { id:'F', name:'Prism',
+    desc:'Geometric prism — signals refract into insight. Bold, geometric, ownable.',
+    build: function(u) {
+      return '<defs>'
+        + '<linearGradient id="'+u+'g" x1="0%" y1="0%" x2="100%" y2="100%">'
+        + '<stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>'
+        + '<linearGradient id="'+u+'gf" x1="0%" y1="0%" x2="100%" y2="100%">'
+        + '<stop offset="0%" stop-color="#3b82f6" stop-opacity="0.1"/>'
+        + '<stop offset="100%" stop-color="#a855f7" stop-opacity="0.1"/></linearGradient>'
+        + '<filter id="'+u+'f" x="-40%" y="-40%" width="180%" height="180%">'
+        + '<feGaussianBlur stdDeviation="3" result="b"/>'
+        + '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+        + '</defs>'
+        /* Outer diamond */
+        + '<path d="M 50,8 L 89,50 L 50,88 L 11,50 Z" fill="url(#'+u+'gf)" stroke="url(#'+u+'g)" stroke-width="2.5" stroke-linejoin="round"/>'
+        /* Inner diamond */
+        + '<path d="M 50,26 L 68,50 L 50,70 L 32,50 Z" fill="url(#'+u+'g)" opacity="0.28"/>'
+        /* Center jewel */
+        + '<circle cx="50" cy="50" r="7.5" fill="url(#'+u+'g)" filter="url(#'+u+'f)"/>'
+        + '<circle cx="50" cy="50" r="3.5" fill="#f3e8ff" opacity="0.9"/>'
+        /* Refraction rays right */
+        + '<line x1="68" y1="50" x2="90" y2="37" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" opacity="0.75"/>'
+        + '<line x1="68" y1="50" x2="92" y2="50" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" opacity="0.6"/>'
+        + '<line x1="68" y1="50" x2="90" y2="63" stroke="#a855f7" stroke-width="2" stroke-linecap="round" opacity="0.45"/>';
+    }
+  },
+
+];
+
+/* ── Stamp out an SVG at any size, unique ID namespace per call ── */
+var _uid = 0;
+function mkSvg(concept, sz) {
+  var u = 'u' + (_uid++) + '_';
+  var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('width', sz);
+  svg.setAttribute('height', sz);
+  svg.style.display = 'block';
+  svg.innerHTML = concept.build(u);
+  return svg;
+}
+
+/* ── Build cards ── */
+var grid = document.getElementById('grid');
+
+CONCEPTS.forEach(function(c) {
+  var card = document.createElement('div'); card.className = 'card';
+
+  var cid  = document.createElement('div'); cid.className='card-id';   cid.textContent='— OPTION '+c.id+' —';
+  var name = document.createElement('div'); name.className='card-name'; name.textContent=c.name.toUpperCase();
+  var desc = document.createElement('div'); desc.className='card-desc'; desc.textContent=c.desc;
+
+  var lg = document.createElement('div'); lg.className='icon-lg';
+  lg.appendChild(mkSvg(c, 156));
+
+  var dkW = document.createElement('div'); dkW.className='icon-sm-dk'; dkW.appendChild(mkSvg(c, 46));
+  var dkI = document.createElement('div'); dkI.className='sm-item';
+  var dkL = document.createElement('div'); dkL.className='sm-lbl'; dkL.textContent='dark';
+  dkI.appendChild(dkW); dkI.appendChild(dkL);
+
+  var ltW = document.createElement('div'); ltW.className='icon-sm-lt'; ltW.appendChild(mkSvg(c, 46));
+  var ltI = document.createElement('div'); ltI.className='sm-item';
+  var ltL = document.createElement('div'); ltL.className='sm-lbl'; ltL.textContent='light';
+  ltI.appendChild(ltW); ltI.appendChild(ltL);
+
+  var stack = document.createElement('div'); stack.className='sm-stack';
+  stack.appendChild(dkI); stack.appendChild(ltI);
+
+  var row = document.createElement('div'); row.className='card-row';
+  row.appendChild(lg); row.appendChild(stack);
+
+  card.appendChild(cid); card.appendChild(name); card.appendChild(desc); card.appendChild(row);
+  grid.appendChild(card);
+});
+
+/* ── Nav bar mockups ── */
+var navrow = document.getElementById('navrow');
+
+CONCEPTS.forEach(function(c) {
+  var block = document.createElement('div'); block.className='nav-block';
+
+  var mock = document.createElement('div'); mock.className='nav-mock';
+  mock.appendChild(mkSvg(c, 22));
+  var nm = document.createElement('span'); nm.className='nav-label'; nm.textContent='SignalDeck';
+  mock.appendChild(nm);
+
+  var lbl = document.createElement('div'); lbl.className='nav-id';
+  lbl.textContent = c.id + ' · ' + c.name;
+
+  block.appendChild(mock); block.appendChild(lbl);
+  navrow.appendChild(block);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat Logo Edits</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+h1 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; letter-spacing: 0.06em; margin-bottom: 8px; line-height: 1.9; }
+.note { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #f97316; letter-spacing: 0.06em; margin-bottom: 40px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.card-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px; }
+.card-desc  { font-size: 11px; color: #52525b; margin-bottom: 14px; line-height: 1.5; }
+.card-row   { display: flex; align-items: center; gap: 12px; }
+.icon-lg    { width: 200px; height: 200px; border-radius: 44px; border: 1px solid #1e1e21; flex-shrink: 0;
+              display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+.sm-stack   { display: flex; flex-direction: column; gap: 10px; }
+.sm-item    { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sm-lbl     { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; letter-spacing: 0.1em; text-transform: uppercase; }
+.icon-sm-dk { width: 64px; height: 64px; background: #09090b; border: 1px solid #1e1e21; border-radius: 14px;
+              display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.icon-sm-lt { width: 64px; height: 64px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 14px;
+              display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.cors-warn  { color: #f43f5e; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-align: center; padding: 8px; line-height: 1.6; }
+canvas, img.src-img { display: block; }
+</style>
+</head>
+<body>
+
+<h1>SignalDeck — Cat Logo · Edits from Original</h1>
+<div class="sub">
+  Original PNG loaded into canvas. Pixel-level edits applied: eye colour, background tints, brand borders.<br>
+  Orange body kept intact throughout.
+</div>
+<div class="note">⚠ Canvas pixel reads require HTTP. Run: <strong>npx serve .</strong> from the repo root, then open http://localhost:3000/assets/cat-logo-edit.html</div>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const IMG_SRC = '../img/signaldeck_logo_nav.png';
+
+/* ── Pixel manipulation functions ──────────────────────────────────────── */
+
+/* Replace dark pixels in the eye zone with a given colour */
+function recolourEyes(ctx, w, h, r2, g2, b2) {
+  const id = ctx.getImageData(0, 0, w, h);
+  const d  = id.data;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      const r = d[i], g = d[i+1], b = d[i+2], a = d[i+3];
+      if (a < 20) continue;
+      const rx = x / w, ry = y / h;
+      /* Eye zone: upper face, avoid chin + nose centre */
+      const inZone = rx > 0.12 && rx < 0.88 && ry > 0.20 && ry < 0.55;
+      const isDark  = r < 110 && g < 110 && b < 110;
+      if (inZone && isDark) {
+        d[i] = r2; d[i+1] = g2; d[i+2] = b2;
+      }
+    }
+  }
+  ctx.putImageData(id, 0, 0);
+}
+
+/* Cool-grade: push dark/shadow areas toward brand blue while leaving orange */
+function coolGrade(ctx, w, h) {
+  const id = ctx.getImageData(0, 0, w, h);
+  const d  = id.data;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      const r = d[i], g = d[i+1], b = d[i+2], a = d[i+3];
+      if (a < 20) continue;
+      /* Darkness as blend amount — leaves bright orange pixels untouched */
+      const brightness = (r + g + b) / 3;
+      const t = Math.max(0, 1 - brightness / 120); /* 0 for bright, 1 for near-black */
+      d[i]   = Math.round(r * (1-t) + 59  * t);
+      d[i+1] = Math.round(g * (1-t) + 130 * t);
+      d[i+2] = Math.round(b * (1-t) + 246 * t);
+    }
+  }
+  ctx.putImageData(id, 0, 0);
+}
+
+/* ── Variant list ────────────────────────────────────────────────────────
+   editFn(ctx, w, h)   — pixel manipulation (needs HTTP / canvas access)
+   cssFilter           — applied via CSS filter (works on file://)
+   ringColor           — optional SVG ring drawn after image
+   bgColor             — icon background
+   ───────────────────────────────────────────────────────────────────── */
+const VARIANTS = [
+  {
+    label: 'ORIGINAL · DARK BG',
+    desc:  'Original PNG, zero changes. Just placed on brand zinc-950 background.',
+    editFn: null,
+    cssFilter: '',
+    ring: null,
+    bg: '#09090b',
+    needsCanvas: false,
+  },
+  {
+    label: 'BLUE EYES',
+    desc:  'Canvas pixel edit: dark pixels in the eye zone swapped to brand blue #3b82f6. Everything else untouched.',
+    editFn: (ctx, w, h) => recolourEyes(ctx, w, h, 59, 130, 246),
+    ring: null,
+    bg: '#09090b',
+    needsCanvas: true,
+  },
+  {
+    label: 'PURPLE EYES',
+    desc:  'Same pixel edit but with purple #a855f7 — closer to brand gradient endpoint.',
+    editFn: (ctx, w, h) => recolourEyes(ctx, w, h, 168, 85, 247),
+    ring: null,
+    bg: '#09090b',
+    needsCanvas: true,
+  },
+  {
+    label: 'BLUE EYES + RING',
+    desc:  'Blue-eye edit plus a brand blue→purple gradient ring border. Clean icon treatment.',
+    editFn: (ctx, w, h) => recolourEyes(ctx, w, h, 59, 130, 246),
+    ring: 'brand',
+    bg: '#09090b',
+    needsCanvas: true,
+  },
+  {
+    label: 'COOL GRADE',
+    desc:  'Shadows/darks blended toward brand blue, orange preserved. Ties the palette without changing the character.',
+    editFn: (ctx, w, h) => coolGrade(ctx, w, h),
+    ring: null,
+    bg: '#09090b',
+    needsCanvas: true,
+  },
+  {
+    label: 'ORIGINAL · GLOW RING',
+    desc:  'No pixel changes. Orange cat with a blue→purple CSS drop-shadow glow. Works on file://.',
+    editFn: null,
+    cssFilter: 'drop-shadow(0 0 8px rgba(59,130,246,0.7)) drop-shadow(0 0 20px rgba(59,130,246,0.35))',
+    ring: null,
+    bg: '#09090b',
+    needsCanvas: false,
+  },
+];
+
+/* ── Renderer ────────────────────────────────────────────────────────── */
+function makeIcon(srcImg, displaySize, v, corsOk) {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = `position:relative;width:${displaySize}px;height:${displaySize}px;`;
+
+  if (v.ring === 'brand') {
+    /* SVG gradient ring underneath */
+    const svgRing = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svgRing.setAttribute('width', displaySize);
+    svgRing.setAttribute('height', displaySize);
+    svgRing.style.cssText = 'position:absolute;top:0;left:0;';
+    const uid = 'r' + Math.random().toString(36).slice(2);
+    svgRing.innerHTML = `
+      <defs>
+        <linearGradient id="${uid}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3b82f6"/>
+          <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+      </defs>
+      <circle cx="${displaySize/2}" cy="${displaySize/2}" r="${displaySize/2 - 2}"
+        fill="none" stroke="url(#${uid})" stroke-width="3"/>
+    `;
+    wrap.appendChild(svgRing);
+  }
+
+  const imgSize = Math.round(displaySize * 0.78);
+  const offset  = Math.round((displaySize - imgSize) / 2);
+
+  if (!v.needsCanvas || !corsOk) {
+    /* Pure CSS — works on file:// */
+    const img = document.createElement('img');
+    img.src = srcImg.src;
+    img.width = imgSize;
+    img.height = imgSize;
+    img.style.cssText = `position:absolute;top:${offset}px;left:${offset}px;`;
+    if (v.cssFilter) img.style.filter = v.cssFilter;
+    if (!corsOk && v.needsCanvas) {
+      const warn = document.createElement('div');
+      warn.className = 'cors-warn';
+      warn.style.cssText = `position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);border-radius:4px;`;
+      warn.innerHTML = 'Needs<br>HTTP server';
+      wrap.appendChild(img);
+      wrap.appendChild(warn);
+      return wrap;
+    }
+    wrap.appendChild(img);
+    return wrap;
+  }
+
+  /* Canvas pixel manipulation */
+  const c = document.createElement('canvas');
+  c.width = c.height = imgSize;
+  c.style.cssText = `position:absolute;top:${offset}px;left:${offset}px;`;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(srcImg, 0, 0, imgSize, imgSize);
+  try {
+    v.editFn(ctx, imgSize, imgSize);
+  } catch (e) {
+    /* CORS blocked */
+    const warn = document.createElement('div');
+    warn.className = 'cors-warn';
+    warn.style.cssText = `position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);border-radius:4px;`;
+    warn.textContent = 'CORS — use HTTP server';
+    wrap.appendChild(c);
+    wrap.appendChild(warn);
+    return wrap;
+  }
+  wrap.appendChild(c);
+  return wrap;
+}
+
+function renderAll(srcImg, corsOk) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  VARIANTS.forEach(v => {
+    const card = document.createElement('div');
+
+    const lgWrap = document.createElement('div');
+    lgWrap.className = 'icon-lg';
+    lgWrap.style.background = v.bg;
+    lgWrap.appendChild(makeIcon(srcImg, 164, v, corsOk));
+
+    const dkWrap = document.createElement('div');
+    dkWrap.className = 'icon-sm-dk';
+    dkWrap.style.background = v.bg;
+    dkWrap.appendChild(makeIcon(srcImg, 50, v, corsOk));
+
+    const ltWrap = document.createElement('div');
+    ltWrap.className = 'icon-sm-lt';
+    ltWrap.appendChild(makeIcon(srcImg, 50, v, corsOk));
+
+    card.innerHTML = `
+      <div class="card-label">${v.label}</div>
+      <div class="card-desc">${v.desc}</div>
+      <div class="card-row"></div>
+    `;
+    const row = card.querySelector('.card-row');
+    row.appendChild(lgWrap);
+    const stack = document.createElement('div');
+    stack.className = 'sm-stack';
+    stack.innerHTML = `
+      <div class="sm-item"><div class="sm-lbl">dark</div></div>
+      <div class="sm-item"><div class="sm-lbl">light</div></div>
+    `;
+    stack.children[0].prepend(dkWrap);
+    stack.children[1].prepend(ltWrap);
+    row.appendChild(stack);
+
+    grid.appendChild(card);
+  });
+}
+
+/* ── Load image ───────────────────────────────────────────────────────── */
+const srcImg = new Image();
+srcImg.crossOrigin = 'anonymous';
+
+srcImg.onload = function () {
+  /* Test canvas access */
+  let corsOk = true;
+  try {
+    const t = document.createElement('canvas');
+    t.width = t.height = 4;
+    const ctx = t.getContext('2d');
+    ctx.drawImage(srcImg, 0, 0, 4, 4);
+    ctx.getImageData(0, 0, 1, 1); /* throws if CORS-tainted */
+  } catch (e) {
+    corsOk = false;
+  }
+  renderAll(srcImg, corsOk);
+};
+
+srcImg.onerror = function () {
+  document.getElementById('grid').innerHTML =
+    '<p style="color:#f43f5e;font-family:monospace;font-size:12px">Could not load image. Make sure the path ../img/signaldeck_logo_nav.png is accessible.</p>';
+};
+
+srcImg.src = IMG_SRC;
+</script>
+
+</body>
+</html>

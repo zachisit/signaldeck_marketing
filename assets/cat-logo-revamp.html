@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Cat Logo Revamp</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; padding: 48px 56px; font-family: 'Inter', sans-serif; }
+h1   { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; letter-spacing: 0.06em; margin-bottom: 40px; line-height: 1.9; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.card-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #3b82f6; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px; }
+.card-desc  { font-size: 11px; color: #52525b; margin-bottom: 14px; line-height: 1.5; }
+.card-row   { display: flex; align-items: center; gap: 12px; }
+.icon-lg    { width: 200px; height: 200px; border-radius: 44px; border: 1px solid #1e1e21; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+.sm-stack   { display: flex; flex-direction: column; gap: 10px; }
+.sm-item    { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sm-lbl     { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #3f3f46; letter-spacing: 0.1em; text-transform: uppercase; }
+.icon-sm-dk { width: 64px; height: 64px; background: #09090b; border: 1px solid #1e1e21; border-radius: 14px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.icon-sm-lt { width: 64px; height: 64px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 14px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+canvas, img { display: block; }
+</style>
+</head>
+<body>
+<h1>SignalDeck — Cat Logo · Revamp</h1>
+<div class="sub">Same silhouette as original. Full palette revamp: dark navy body, brand blue accents, glow.<br>Orange completely replaced — cat now reads as a dark tech mascot.</div>
+<div class="grid" id="grid"></div>
+<script>
+var SRC = 'data:image/png;base64,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';
+
+/* Full palette revamp:
+   - Orange pixels  → dark navy-blue, brightness preserved for texture
+   - Dark pixels    → brand blue #3b82f6
+   - Mid/transition → blended toward slate
+*/
+function revamp(ctx, sz, eyeR, eyeG, eyeB, noseCol) {
+  var id = ctx.getImageData(0, 0, sz, sz);
+  var d = id.data;
+  for (var i = 0; i < d.length; i += 4) {
+    var r = d[i], g = d[i+1], b = d[i+2], a = d[i+3];
+    if (a < 20) continue;
+    var lum = 0.299*r + 0.587*g + 0.114*b;
+    var isOrange = r > 140 && (r - b) > 70 && (r - g) > 20 && r > g && r > b;
+    if (isOrange) {
+      /* Map orange → dark navy preserving per-pixel brightness for fur texture */
+      var t = Math.max(0, Math.min(1, (lum - 80) / 160));
+      d[i]   = Math.round(12 + t * 46);   /* #0c → #3b */
+      d[i+1] = Math.round(20 + t * 74);   /* #14 → #5a */
+      d[i+2] = Math.round(48 + t * 110);  /* #30 → #a0 */
+    } else {
+      /* Dark pixels (eyes, outlines, nose shadow) → brand blue */
+      d[i] = eyeR; d[i+1] = eyeG; d[i+2] = eyeB;
+    }
+  }
+  ctx.putImageData(id, 0, 0);
+}
+
+function revampPurple(ctx, sz) { revamp(ctx, sz, 168, 85, 247); }
+function revampBlue(ctx, sz)   { revamp(ctx, sz, 59, 130, 246); }
+function revampTeal(ctx, sz)   { revamp(ctx, sz, 20, 184, 166); }
+function revampAmber(ctx, sz)  { revamp(ctx, sz, 251, 191, 36); }
+
+var VARIANTS = [
+  {label:'BRAND BLUE',   desc:'Navy body with brand-blue #3b82f6 eye/outline pixels. Core revamp.',         bg:'#09090b', fn:revampBlue,   glow:'drop-shadow(0 0 8px rgba(59,130,246,0.9)) drop-shadow(0 0 22px rgba(59,130,246,0.5)) drop-shadow(0 0 44px rgba(168,85,247,0.3))'},
+  {label:'PURPLE',       desc:'Same navy body, purple #a855f7 accents — gradient endpoint variant.',         bg:'#09090b', fn:revampPurple, glow:'drop-shadow(0 0 8px rgba(168,85,247,0.9)) drop-shadow(0 0 22px rgba(168,85,247,0.5))'},
+  {label:'TEAL',         desc:'Navy body with teal #14b8a6 accents — high contrast on dark.',                bg:'#09090b', fn:revampTeal,   glow:'drop-shadow(0 0 8px rgba(20,184,166,0.9)) drop-shadow(0 0 22px rgba(20,184,166,0.5))'},
+  {label:'BLUE · NO GLOW', desc:'Brand blue accents, no CSS glow — clean flat icon.',                        bg:'#09090b', fn:revampBlue,   glow:''},
+  {label:'BLUE · LIGHT BG',desc:'Brand blue on light background — shows silhouette contrast.',              bg:'#f4f4f5', fn:revampBlue,   glow:''},
+  {label:'AMBER',        desc:'Navy body, warm amber #fbbf24 accents — retains warmth of the original.',    bg:'#09090b', fn:revampAmber,  glow:'drop-shadow(0 0 8px rgba(251,191,36,0.8)) drop-shadow(0 0 22px rgba(251,191,36,0.4))'},
+];
+
+function makeCanvas(sz, v, srcImg) {
+  var c = document.createElement('canvas');
+  c.width = c.height = sz;
+  var ctx = c.getContext('2d');
+  ctx.drawImage(srcImg, 0, 0, sz, sz);
+  v.fn(ctx, sz);
+  if (v.glow) c.style.filter = v.glow;
+  return c;
+}
+
+function render(srcImg) {
+  var grid = document.getElementById('grid');
+  VARIANTS.forEach(function(v) {
+    var card = document.createElement('div');
+    card.innerHTML =
+      '<div class="card-label">' + v.label + '</div>' +
+      '<div class="card-desc">' + v.desc + '</div>' +
+      '<div class="card-row">' +
+        '<div class="icon-lg" style="background:' + v.bg + ';"></div>' +
+        '<div class="sm-stack">' +
+          '<div class="sm-item"><div class="icon-sm-dk" style="background:' + v.bg + ';"></div><div class="sm-lbl">dark</div></div>' +
+          '<div class="sm-item"><div class="icon-sm-lt"></div><div class="sm-lbl">light</div></div>' +
+        '</div>' +
+      '</div>';
+    card.querySelector('.icon-lg').appendChild(makeCanvas(160, v, srcImg));
+    card.querySelector('.icon-sm-dk').appendChild(makeCanvas(50, v, srcImg));
+    card.querySelector('.icon-sm-lt').appendChild(makeCanvas(50, v, srcImg));
+    grid.appendChild(card);
+  });
+}
+
+var srcImg = new Image();
+srcImg.onload = function() { render(srcImg); };
+srcImg.src = SRC;
+</script>
+</body>
+</html>

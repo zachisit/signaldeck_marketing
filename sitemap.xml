@@ -121,7 +121,7 @@
 
   <url>
     <loc>https://sgnldk.com/jobs/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -152,6 +152,12 @@
   <url>
     <loc>https://sgnldk.com/jobs/social-media-manager.html</loc>
     <lastmod>2026-04-28</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/jobs/instagram-social-media-intern.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <priority>0.70</priority>
   </url>
 

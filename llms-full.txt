@@ -350,7 +350,7 @@ Content: Landing page for SignalDeck's verified public profiles at my.sgnldk.com
 
 ### Jobs
 URL: https://sgnldk.com/jobs/
-Open roles: Software Engineering Intern (Full Stack), Product & Growth Intern (Forex), Product & Growth Intern (Crypto), Quantitative Strategy Associate, Social Media Manager. All remote, unpaid, mentorship-based.
+Open roles: Software Engineering Intern (Full Stack), Product & Growth Intern (Forex), Product & Growth Intern (Crypto), Quantitative Strategy Associate, Social Media Manager, Instagram Social Media Intern. All remote, unpaid, mentorship-based. The Instagram Social Media Intern launches a brand-new SignalDeck Instagram from zero followers with a north-star metric of driving the company's first 10 paying users; works 1:1 with the founder on Reels, Stories, and carousels targeted to the ICP. Apply: https://forms.gle/5EZU9brwz6JgBHeB7
 
 ---
 

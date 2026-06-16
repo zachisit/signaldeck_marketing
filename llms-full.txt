@@ -23,7 +23,7 @@ SignalDeck is a professional-grade trade journaling platform and strategy backte
 |------|-------|-------------|--------------|
 | Free (post-beta) | $0/mo | unlimited trades | Journal, R-value, SQN, Post Mortem |
 | Pro | $30/mo | Unlimited | Everything + Strategy Backtester, Walk-Forward Analysis, Monte Carlo, grid-search |
-| Elite | $50/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Elite Plan), Borg social layer, team dashboards, leaderboards |
+| Elite | $50/mo | Unlimited | Everything + MT4/MT5 Import + Live Balance Sync (Elite Plan), Market News (per-symbol + news at entry), AI Weekly Review, Borg social layer, team dashboards, leaderboards |
 | Beta (current) | Free | Unlimited | All Pro + Team features, no restrictions |
 | Founder Status | Free for life | Unlimited | Granted to active beta testers who provide feedback |
 
@@ -97,6 +97,14 @@ Four alert types on OPEN positions — all delivered inside the journal:
 3. Price & pip-distance alerts — set a price target or pip distance on a position; no second charting tab needed.
 4. Chart-drawn custom alerts (v1.0.66) — right-click anywhere on the interactive trade chart to add an alert at that exact price (optional title), or drag any existing alert line to a new price level to adjust it. Saves instantly. The trade chart shows stop, fill, target, current price, and all alert lines as draggable overlays.
 Differentiator: competing journals have no live position alerts (TraderSync/Tradervue/Edgewonk) or only market-screener/rule alerts (TradesViz/TradeZella).
+
+### Market News (Elite plan; free during beta)
+Symbol-specific market news brought inside the journal — three surfaces:
+1. Per-trade News tab — open any trade and see the latest headlines for that exact symbol, sentiment-tagged (positive/neutral/negative).
+2. News at entry — every closed trade keeps the headlines published in the window around your entry timestamp (default ±24 hours, adjustable up to 7 days), archived as they happen so the context is still there months later during post-mortem review.
+3. Dedicated News screen — a live, multi-filterable feed across asset classes (stocks, crypto, CFD indices, macro).
+Coverage (live today): stocks & equity ETFs get symbol-specific per-ticker headlines; CFD indices map to a liquid proxy (US500→SPY, US100→QQQ); metals map to a proxy (XAUUSD→GLD); crypto gets per-coin news. Forex and futures coverage is COMING SOON. Where no symbol-specific source exists, users get honest market/macro headlines — never the wrong symbol's news.
+Differentiator: almost no trading journal has a news layer at all — competitors are post-trade analytics that leave you keeping a separate news tab open. SignalDeck is the only journal that ties per-symbol market news to your specific positions and your entry-time post-mortem.
 
 ### Borg Social Trading Layer
 Anonymous leaderboards ranked by SQN score, expectancy, and cumulative R.
@@ -222,6 +230,11 @@ Content: Positioned as a trading mistakes tracker and plan adherence journal. Ti
 URL: https://sgnldk.com/broker-import/
 Target queries: MT4 trade import, MT5 trade import, trading journal broker import, trading journal auto import
 Content: Landing page announcing MT4/MT5 trade import via MetaApi — now live. What imports automatically: fills, P&L, symbol, volume, execution price (zero manual execution entry). What requires manual entry after import: stop loss (MetaApi fills do not carry order-level SL data), R-Multiple (calculated from SL). Live account balance sync: real-time equity fed to Kelly Criterion and drawdown-adjusted sizing. Comparison table: MT4/MT5 import vs generic broker import vs manual entry. Recommends TraderSync/Tradervue for non-MT4/MT5 broker needs. FAQ: does SignalDeck have broker import, how does live balance sync work, why doesn't MT5 import capture stop loss, tradeoffs vs manual entry.
+
+### Market News
+URL: https://sgnldk.com/news/
+Target queries: trading journal market news, news on my trades, stock news in trading journal, news at trade entry, sentiment tagged news, crypto news journal
+Content: Landing page for Market News (Elite plan; free during beta). Three surfaces: per-trade News tab scoped to the trade's exact symbol with sentiment-tagged headlines; "news at entry" archiving headlines from the window around the entry timestamp (default ±24h, up to 7 days) for post-mortem context; a dedicated, multi-filterable News screen across asset classes. Live coverage: stocks/ETFs (per-ticker), CFD indices (US500→SPY, US100→QQQ proxy), metals (XAUUSD→GLD), crypto (per-coin). Forex and futures coverage COMING SOON. Comparison table: SignalDeck (in-journal per-trade + news at entry) vs post-trade journals (no news layer) vs news terminals/charting platforms (separate tool, not tied to your trades). FAQ: do journals show news on your symbols, what is news at entry, which asset classes get coverage, are headlines sentiment-tagged, which plan includes Market News.
 
 ### Trading Psychology Journal
 URL: https://sgnldk.com/psychology/

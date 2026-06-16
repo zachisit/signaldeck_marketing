@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <title>Market News — Headlines on the Symbols You Trade | SignalDeck</title>
+    <meta name="description" content="Symbol-specific market news inside your journal — for stocks, CFD indices, metals &amp; crypto (forex &amp; futures coming soon). See the headlines from around the time you entered each trade. Sentiment-tagged. Elite plan.">
+    <meta name="keywords" content="trading journal market news, news on my trades, stock news in trading journal, news at trade entry, trade news feed, sentiment tagged news, crypto news journal, forex news journal, futures market news">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sgnldk.com/news/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/news/">
+    <meta property="og:title" content="Market News on the Symbols You Trade | SignalDeck">
+    <meta property="og:description" content="Symbol-specific news inside your journal — and the headlines from around the time you entered each trade. Stocks, CFD indices, metals &amp; crypto (forex &amp; futures coming soon).">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Market News on the Symbols You Trade | SignalDeck">
+    <meta property="twitter:description" content="Symbol-specific news inside your journal — and the headlines from around the time you entered each trade.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"Market News on the Symbols You Trade","url":"https://sgnldk.com/news/","description":"SignalDeck's in-journal market news — symbol-specific headlines for stocks, CFD indices, metals and crypto (forex and futures coming soon), plus the news from around the time you entered each trade, sentiment-tagged. Elite plan feature.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Do trading journals show news on the symbols you trade?","acceptedAnswer":{"@type":"Answer","text":"Almost none do. Most journals (TraderSync, Tradervue, Edgewonk) are post-trade analytics tools with no news layer at all — you keep a separate news tab or terminal open. SignalDeck pulls market news for the exact symbol on each trade, inside the journal, and archives the headlines from around your entry time so you can review what the tape was reacting to."}},
+    {"@type":"Question","name":"What is news at trade entry?","acceptedAnswer":{"@type":"Answer","text":"When you review a closed trade, SignalDeck shows the headlines published in the window around your entry timestamp — by default the 24 hours either side, adjustable up to 7 days. It answers 'what was the market reacting to when I got in?' from your own archived news, so your post-mortem includes the context, not just the price action."}},
+    {"@type":"Question","name":"Which asset classes get news coverage?","acceptedAnswer":{"@type":"Answer","text":"Live today: stocks and equity ETFs get symbol-specific headlines; CFD indices map to a liquid proxy (US500 → SPY, US100 → QQQ) for index-level news; metals like XAUUSD map to GLD; and crypto gets per-coin news. Forex and futures coverage is coming soon. Where no symbol-specific source exists you get honest market/macro headlines — never the wrong symbol's news."}},
+    {"@type":"Question","name":"Are the headlines sentiment-tagged?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each headline is tagged positive, neutral, or negative where the source provides sentiment, so you can scan the tone of the tape on a symbol at a glance rather than reading every article."}},
+    {"@type":"Question","name":"Which plan includes Market News?","acceptedAnswer":{"@type":"Answer","text":"Market News is an Elite plan feature ($50/mo when billing launches ~June 2026). It is free for everyone during the beta. The live news feed, the per-trade News tab, the dedicated News screen, and news-at-entry are all included on Elite."}}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"Market News","item":"https://sgnldk.com/news/"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <a href="../index.html"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-teal-400/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-xs font-mono uppercase tracking-widest text-teal-400 mb-4">Market news · in your journal · Elite plan</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                The news on the symbols<br>
+                <span class="text-teal-400">you're actually trading.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
+                Open any trade and see the headlines for that exact symbol — and the news from around the time you entered. Stocks, CFD indices, metals and crypto, sentiment-tagged, inside the journal you already work in. Forex and futures coming soon.
+            </p>
+            <div class="mt-6 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-sm text-zinc-400">
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    <span><strong class="text-white">Per-trade headlines</strong> — a News tab on every trade, scoped to that symbol.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    <span><strong class="text-white">News at entry</strong> — the archived headlines from the hours around when you got in.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    <span><strong class="text-white">Multi-asset</strong> — stocks, CFD indices, metals &amp; crypto live · forex &amp; futures coming soon.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="text-teal-400 mt-0.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                    <span><strong class="text-white">Sentiment-tagged</strong> — each headline marked positive, neutral or negative.</span>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="https://app.sgnldk.com"
+                    onclick="gtag('event', 'cta_click', {'event_category': 'engagement', 'event_label': 'Beta Signup - News (hero)'});"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Request Beta Access — Free
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-zinc-500">Elite plan feature — <a href="../plans/index.html" class="text-teal-400 hover:text-teal-300 underline underline-offset-2">see plans →</a></p>
+        </div>
+    </section>
+
+    <!-- Feature 1: Per-trade News tab -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <!-- Mock UI: per-symbol news feed -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-teal-400/10 to-blue-600/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl overflow-hidden">
+                        <div class="flex justify-between items-center mb-4 border-b border-zinc-800/50 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></div>
+                                <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">News · AAPL</span>
+                            </div>
+                            <span class="text-[10px] font-mono text-zinc-600">Trade #4821</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-zinc-900 border border-emerald-500/20 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="px-1.5 py-0.5 text-[9px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded uppercase">Positive</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">2h ago</span>
+                                </div>
+                                <p class="text-sm text-zinc-300">Apple beats Q3 expectations on services revenue; guidance raised.</p>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-700/40 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="px-1.5 py-0.5 text-[9px] font-bold bg-zinc-700/40 text-zinc-400 border border-zinc-600/40 rounded uppercase">Neutral</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">5h ago</span>
+                                </div>
+                                <p class="text-sm text-zinc-300">Apple supplier reshuffles India production timeline.</p>
+                            </div>
+                            <div class="bg-zinc-900 border border-rose-500/20 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="px-1.5 py-0.5 text-[9px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded uppercase">Negative</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">1d ago</span>
+                                </div>
+                                <p class="text-sm text-zinc-300">Regulator opens review of App Store fee structure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        A News tab on<br>
+                        <span class="text-teal-400">every single trade.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Open any trade and switch to the News tab — SignalDeck pulls the latest headlines for that exact symbol, sentiment-tagged so you can read the tone of the tape at a glance. No second terminal, no copy-pasting tickers into a news site.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        It works the same whether you're holding AAPL, US500, XAUUSD or BTC — the journal resolves the right source for each instrument so the news matches the symbol you're actually in. Forex and futures coverage is coming soon.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: News at entry (the forensic differentiator) -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <div>
+                    <div class="inline-flex items-center gap-2 mb-4">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-teal-400">The forensic angle</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        What was the tape reacting to<br>
+                        <span class="text-teal-400">when you got in?</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Every closed trade keeps the headlines published in the window around your entry timestamp — 24 hours either side by default, adjustable out to 7 days. Your post-mortem stops being guesswork about "why did it move" and starts with the actual news context.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        SignalDeck archives the headlines as they happen, so the news at entry is there months later when you're reviewing the trade — not a dead link or a feed that's already rolled over.
+                    </p>
+                </div>
+
+                <!-- Mock UI: news-at-entry timeline -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-teal-400/10 to-purple-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
+                    <div class="relative bg-zinc-950 rounded-xl border border-zinc-800 shadow-2xl overflow-hidden p-6">
+                        <div class="flex items-center gap-2 mb-6 border-b border-zinc-800 pb-4">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">News at entry · NVDA · ±24h</span>
+                        </div>
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex items-start gap-3">
+                                <span class="text-zinc-600 w-14 flex-shrink-0">−18h</span>
+                                <span class="text-zinc-400">Analyst raises NVDA target on data-center demand</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-zinc-600 w-14 flex-shrink-0">−3h</span>
+                                <span class="text-zinc-400">Megacap tech rallies into the open</span>
+                            </div>
+                            <div class="flex items-start gap-3 bg-teal-400/5 border border-teal-400/20 rounded-lg p-2 -mx-1">
+                                <span class="text-teal-400 w-14 flex-shrink-0 font-bold">ENTRY</span>
+                                <span class="text-white">You bought NVDA @ 124.80</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-zinc-600 w-14 flex-shrink-0">+2h</span>
+                                <span class="text-zinc-400">Chip sector extends gains; breadth improves</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-zinc-600 w-14 flex-shrink-0">+6h</span>
+                                <span class="text-zinc-400">Profit-taking trims afternoon rally</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: dedicated News screen + coverage -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+
+                <!-- Mock: News screen with filters -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-teal-400/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden">
+                        <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></div>
+                                <span class="text-zinc-400 uppercase tracking-widest text-[10px] font-mono">News Feed</span>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 border-b border-zinc-800 flex flex-wrap gap-1.5">
+                            <span class="px-2 py-1 text-[9px] font-mono rounded border border-teal-400/50 text-teal-400">Stocks</span>
+                            <span class="px-2 py-1 text-[9px] font-mono rounded border border-zinc-700 text-zinc-500">Crypto</span>
+                            <span class="px-2 py-1 text-[9px] font-mono rounded border border-zinc-700 text-zinc-500">CFD</span>
+                            <span class="px-2 py-1 text-[9px] font-mono rounded border border-zinc-700 text-zinc-500">Macro</span>
+                            <span class="px-2 py-1 text-[9px] font-mono rounded border border-zinc-800 text-zinc-600">Forex · soon</span>
+                            <span class="px-2 py-1 text-[9px] font-mono rounded border border-zinc-800 text-zinc-600">Futures · soon</span>
+                        </div>
+                        <div class="divide-y divide-zinc-800">
+                            <div class="px-4 py-3 flex items-center gap-3">
+                                <span class="px-1.5 py-0.5 text-[9px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded uppercase font-mono">+</span>
+                                <span class="text-xs text-zinc-300 flex-1">NVDA upgraded on data-center demand</span>
+                                <span class="text-[10px] font-mono text-zinc-600">12m</span>
+                            </div>
+                            <div class="px-4 py-3 flex items-center gap-3">
+                                <span class="px-1.5 py-0.5 text-[9px] font-bold bg-zinc-700/40 text-zinc-400 border border-zinc-600/40 rounded uppercase font-mono">=</span>
+                                <span class="text-xs text-zinc-300 flex-1">SPY flat ahead of CPI print</span>
+                                <span class="text-[10px] font-mono text-zinc-600">40m</span>
+                            </div>
+                            <div class="px-4 py-3 flex items-center gap-3">
+                                <span class="px-1.5 py-0.5 text-[9px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded uppercase font-mono">−</span>
+                                <span class="text-xs text-zinc-300 flex-1">Bank sector slips on credit concerns</span>
+                                <span class="text-[10px] font-mono text-zinc-600">1h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        A dedicated News feed —<br>
+                        <span class="text-teal-400">filtered to how you trade.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-4">
+                        Beyond the per-trade tab, the News screen gives you a live feed across every asset class, with multi-filter so you can pin it to just the markets you trade.
+                    </p>
+                    <ul class="space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-400 mt-0.5">></span>
+                            <span><strong class="text-white">Stocks &amp; ETFs</strong> — symbol-specific per-ticker headlines</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-400 mt-0.5">></span>
+                            <span><strong class="text-white">CFD indices</strong> — mapped to liquid proxies (US500 → SPY, US100 → QQQ)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-400 mt-0.5">></span>
+                            <span><strong class="text-white">Metals</strong> — XAUUSD → GLD for gold-level news</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-400 mt-0.5">></span>
+                            <span><strong class="text-white">Crypto</strong> — per-coin news (BTC, ETH and more)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-zinc-600 mt-0.5">></span>
+                            <span class="text-zinc-500"><strong class="text-zinc-400">Forex &amp; futures</strong> — coming soon</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capability grid -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-white mb-4 text-center">Four ways news shows up. One journal.</h3>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">Per-trade headlines, news at your entry time, a filterable feed, and sentiment tags — all in the same place you journal and review your trades.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-10 hover:border-teal-400/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-teal-400/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-teal-400/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-400 flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Per-Trade News Tab</h4>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
+                            Every trade has a News tab scoped to its symbol — the latest headlines for what you're holding, without leaving the journal.
+                        </p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Trade modal</div>
+                            <div class="text-sm text-white font-bold mb-1">News · AAPL</div>
+                            <div class="text-xs text-teal-400">3 fresh headlines →</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-teal-400/30 rounded-2xl p-10 hover:border-teal-400/60 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-teal-400/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-teal-400/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">News at Entry</h4>
+                            <span class="ml-auto px-2 py-0.5 text-[9px] font-bold bg-teal-400 text-zinc-950 rounded uppercase tracking-widest flex-shrink-0">Unique</span>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
+                            Archived headlines from the window around your entry — default ±24h, up to 7 days. The context your post-mortem was always missing.
+                        </p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">At entry · NVDA</div>
+                            <div class="text-sm text-white font-bold mb-1">5 headlines ±24h</div>
+                            <div class="text-xs text-teal-400">Reviewed in post-mortem</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-10 hover:border-blue-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Filterable News Feed</h4>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
+                            A dedicated News screen across stocks, crypto, CFD indices and macro — multi-filter it down to just the markets you trade. Forex and futures coming soon.
+                        </p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Filters active</div>
+                            <div class="text-sm text-white font-bold mb-1">Stocks · Crypto · CFD</div>
+                            <div class="text-xs text-blue-400">Live across asset classes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-10 hover:border-purple-500/50 transition-all flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none transition-all group-hover:bg-purple-500/10"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-500 flex-shrink-0"></span>
+                            <h4 class="text-xl font-bold text-white">Sentiment Tags</h4>
+                        </div>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
+                            Each headline is marked positive, neutral or negative where the source provides it — scan the tone of the tape without reading every article.
+                        </p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Headline tone</div>
+                            <div class="text-sm text-white font-bold mb-1">+ Positive · = Neutral · − Negative</div>
+                            <div class="text-xs text-purple-400">At-a-glance sentiment</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why this is different — comparison table -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">Why this is different</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">Most journals have no news layer at all — you keep a separate news tab open and lose the context the moment the feed rolls over.</p>
+
+            <div class="overflow-x-auto rounded-xl border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead class="bg-zinc-900 text-zinc-400 text-left">
+                        <tr>
+                            <th class="px-5 py-4">Tool type</th>
+                            <th class="px-5 py-4">News on the symbols you trade?</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800 text-zinc-300">
+                        <tr class="bg-teal-400/5">
+                            <td class="px-5 py-4 font-medium text-white">SignalDeck</td>
+                            <td class="px-5 py-4 text-emerald-400 flex items-center gap-2">
+                                <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                Per-trade + news at entry, sentiment-tagged — in-journal
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Post-trade journals <span class="text-zinc-500">(TraderSync, Tradervue, Edgewonk)</span></td>
+                            <td class="px-5 py-4 text-zinc-500 flex items-center gap-2">
+                                <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                No news layer
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">News terminals <span class="text-zinc-500">(Benzinga, broker feeds)</span></td>
+                            <td class="px-5 py-4 text-amber-400">Yes — but a separate tool, no link to your trades</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Charting platforms <span class="text-zinc-500">(TradingView)</span></td>
+                            <td class="px-5 py-4 text-amber-400">Per-symbol news — but not tied to your entry or post-mortem</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-zinc-600 mt-3">Competitor features change — verify current specs on their sites. <a href="../compare/index.html" class="text-teal-400 hover:text-teal-300">See full comparisons →</a></p>
+        </div>
+    </section>
+
+    <!-- CTA section -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-zinc-950 border border-teal-400/30 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute -top-16 -right-16 w-48 h-48 bg-teal-400/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-xl">
+                    <h2 class="text-3xl font-bold text-white mb-4">Stop trading the news in a separate tab.</h2>
+                    <p class="text-zinc-400 mb-8">SignalDeck brings the headlines for your symbols — and the news from when you entered — into the journal you already work in. Market News is an Elite feature, free for everyone during beta.</p>
+                    <a href="https://app.sgnldk.com"
+                        onclick="gtag('event', 'cta_click', {'event_category': 'engagement', 'event_label': 'Beta Signup - News (CTA)'});"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Start free in SignalDeck
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Do trading journals show news on the symbols you trade?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Almost none do — most journals are post-trade analytics with no news layer, so you keep a separate news tab or terminal open. SignalDeck pulls market news for the exact symbol on each trade, inside the journal, and archives the headlines from around your entry so you can review what the tape was reacting to.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is news at trade entry?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">When you review a closed trade, SignalDeck shows the headlines published in the window around your entry timestamp — 24 hours either side by default, adjustable up to 7 days. It answers "what was the market reacting to when I got in?" from your own archived news, so your post-mortem includes the context, not just the price action.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which asset classes get news coverage?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Live today: stocks and equity ETFs get symbol-specific headlines; CFD indices map to a liquid proxy (US500 → SPY, US100 → QQQ) for index-level news; metals like XAUUSD map to GLD; and crypto gets per-coin news. <strong class="text-white">Forex and futures coverage is coming soon.</strong> Where no symbol-specific source exists, you get honest market/macro headlines — never the wrong symbol's news.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Are the headlines sentiment-tagged?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Each headline is tagged positive, neutral or negative where the source provides sentiment, so you can scan the tone of the tape on a symbol at a glance rather than reading every article.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which plan includes Market News?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Market News is an <strong class="text-white">Elite plan</strong> feature ($50/mo when billing launches ~June 2026), and it's free for everyone during the beta. The live news feed, the per-trade News tab, the dedicated News screen, and news-at-entry are all included on Elite.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Related pages -->
+    <section class="py-12 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 text-sm">
+                <a href="../alerts/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-400/50 text-zinc-300 transition-colors">Position alerts →</a>
+                <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-400/50 text-zinc-300 transition-colors">Plans →</a>
+                <a href="../compare/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-400/50 text-zinc-300 transition-colors">Compare →</a>
+                <a href="../futures/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-400/50 text-zinc-300 transition-colors">Futures journal →</a>
+                <a href="../crypto/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-teal-400/50 text-zinc-300 transition-colors">Crypto journal →</a>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We're building this alongside serious traders — partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we're shipping. Paid plans (Free / Pro $30 / Elite $50) launch June 2026.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="gtag('event', 'cta_click', {'event_category': 'engagement', 'event_label': 'Beta Signup - News (footer)'});"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                Beta Signup Here
+            </a>
+            <p class="mt-12 text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/in/zachisit" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../discord.html">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

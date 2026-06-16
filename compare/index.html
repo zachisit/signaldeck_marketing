@@ -66,6 +66,14 @@
         },
         {
           "@type": "Question",
+          "name": "Does SignalDeck show news on the symbols I trade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — and almost no other journal does. Most trading journals (TraderSync, Tradervue, Edgewonk) are post-trade analytics with no news layer, so you keep a separate news tab open. SignalDeck's Market News pulls sentiment-tagged headlines for the exact symbol on each trade, inside the journal, and archives the headlines from around your entry time so your post-mortem starts with the context. Live coverage spans stocks, CFD indices, metals and crypto; forex and futures coverage is coming soon. Market News is an Elite plan feature, free for everyone during beta."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What features is SignalDeck missing?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -235,7 +243,7 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">New Feature</span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">New v1.0.44</span>
                     </div>
                     <h2 class="text-2xl font-bold text-white mb-3">MT4/MT5 import with live account balance sync.</h2>
                     <p class="text-zinc-400 text-sm leading-relaxed mb-4">
@@ -315,7 +323,7 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                        <span class="text-xs font-mono uppercase tracking-widest text-blue-400">New Feature</span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-blue-400">New v1.0.30</span>
                     </div>
                     <h2 class="text-2xl font-bold text-white mb-3">The most complete backtester in any trading journal.</h2>
                     <p class="text-zinc-400 text-sm leading-relaxed mb-4">
@@ -424,6 +432,57 @@
         </div>
     </section>
 
+    <!-- Market News Highlight -->
+    <section class="py-12 border-b border-zinc-900 bg-teal-400/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-teal-400">New v1.0.70 · Elite</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Market news on the symbols you actually trade.</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        Other journals are post-trade analytics with no news layer — you keep a separate news tab open and lose the context the moment the feed rolls over. SignalDeck pulls sentiment-tagged headlines for the exact symbol on each trade, inside the journal, and archives the news from around your entry time so your post-mortem starts with what the tape was reacting to. Live coverage spans stocks, CFD indices, metals and crypto; forex and futures are coming soon.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-teal-300 border border-teal-400/20">Per-Trade News Tab</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-teal-300 border border-teal-400/20">News at Entry</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Sentiment Tags</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Filterable Feed</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Stocks · Crypto · CFD</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="../news/index.html" class="text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors">Full Market News page →</a>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 bg-zinc-900 border border-zinc-700 rounded-xl p-5 font-mono text-xs w-full md:w-72">
+                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-zinc-800">
+                        <span class="text-zinc-500 uppercase tracking-wider">News · NVDA</span>
+                        <span class="text-teal-400 font-bold text-[10px]">±24H</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="bg-zinc-800/60 border border-emerald-500/20 rounded px-2 py-1.5">
+                            <span class="text-emerald-400 font-bold text-[9px] uppercase">+ Positive</span>
+                            <div class="text-zinc-300 text-[10px] mt-0.5">Target raised on data-center demand</div>
+                        </div>
+                        <div class="bg-zinc-800/60 border border-zinc-600/40 rounded px-2 py-1.5">
+                            <span class="text-zinc-400 font-bold text-[9px] uppercase">= Neutral</span>
+                            <div class="text-zinc-300 text-[10px] mt-0.5">Chip sector flat into the open</div>
+                        </div>
+                        <div class="bg-zinc-800/60 border border-rose-500/20 rounded px-2 py-1.5">
+                            <span class="text-rose-400 font-bold text-[9px] uppercase">− Negative</span>
+                            <div class="text-zinc-300 text-[10px] mt-0.5">Profit-taking trims afternoon rally</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 bg-teal-400/5 border border-teal-400/20 rounded px-2 py-1.5 text-[9px] text-zinc-400">
+                        <span class="text-teal-400 font-bold">At entry:</span> headlines from when you bought
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Comparison Table -->
     <section class="py-20 border-b border-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
@@ -442,9 +501,41 @@
                     </thead>
                     <tbody>
 
+                        <!-- ===== TIER 0: Market News (new, top) ===== -->
+                        <tr class="border-t-2 border-teal-400/30">
+                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-teal-400 bg-teal-400/5 font-bold">⚡ Market News (in-journal) — New v1.0.70 · Elite</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-teal-400/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Per-Symbol News In Journal</td>
+                            <td class="px-4 py-3 text-center bg-teal-400/10 text-emerald-500 font-bold">✅ Per-Trade News Tab</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-teal-400/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">News at Trade Entry Time</td>
+                            <td class="px-4 py-3 text-center bg-teal-400/10 text-emerald-500 font-bold">✅ Archived ±24h–7d</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-teal-400/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Sentiment-Tagged Headlines</td>
+                            <td class="px-4 py-3 text-center bg-teal-400/10 text-emerald-500 font-bold">✅ +/=/− per headline</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+
                         <!-- ===== TIER 0: MT4/MT5 Import (new, top) ===== -->
                         <tr class="border-t-2 border-emerald-500/30">
-                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/5 font-bold">⚡ MT4/MT5 Import + Live Balance Sync — New 2026</td>
+                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/5 font-bold">⚡ MT4/MT5 Import + Live Balance Sync — New v1.0.44</td>
                         </tr>
 
                         <tr class="border-t border-zinc-800 bg-emerald-500/5">
@@ -499,7 +590,7 @@
 
                         <!-- ===== TIER 1: Strategy Backtester (new, highest impact) ===== -->
                         <tr class="border-t-2 border-blue-500/30">
-                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-blue-400 bg-blue-500/5 font-bold">⚡ Strategy Backtester — New 2026</td>
+                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-blue-400 bg-blue-500/5 font-bold">⚡ Strategy Backtester — New v1.0.30</td>
                         </tr>
 
                         <tr class="border-t border-zinc-800 bg-blue-500/5">
@@ -828,6 +919,22 @@
                     </div>
                 </div>
 
+                <div class="bg-zinc-900/40 border border-teal-400/30 rounded-2xl p-8 hover:border-teal-400/60 transition-all relative overflow-hidden group">
+                    <div class="absolute top-3 right-3 z-20">
+                        <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-teal-400 text-zinc-950 uppercase tracking-widest">New</span>
+                    </div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-400/8 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-teal-400/15"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span>
+                            News Where You Trade
+                        </h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Open any trade and see sentiment-tagged headlines for that exact symbol — then review the news from around the time you entered. No other journal ties market news to your specific positions and your post-mortem. Live for stocks, CFD indices, metals and crypto; forex and futures coming soon. <a href="../news/index.html" class="text-teal-400 hover:text-teal-300">Market News →</a>
+                        </p>
+                    </div>
+                </div>
+
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-all group-hover:bg-emerald-500/10"></div>
                     <div class="relative z-10">
@@ -855,6 +962,11 @@
                 <div class="bg-zinc-900/40 border border-blue-500/30 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck have a strategy backtester?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">Yes — and it's the most complete backtester available inside any trading journal. A handful of competitors (TraderSync, TradesViz, TradeZella) offer basic backtesting, but SignalDeck is the only one with Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, grid-search parameter optimization across up to 500 combinations, and an SPY/QQQ benchmark overlay — all in the same workflow. Run any of 16 built-in strategies (SMA Crossover, RSI Mean Reversion, EMA, Bollinger Bands, MACD, and more) over up to 5 years of historical data with configurable stop types, position sizing (Kelly, fixed-risk, equal-weight), and commission/slippage modeling. And the truly unique feature: link any backtest directly to a live journal strategy and overlay your real equity curve against the backtest result to see exactly where your live execution diverges from theory.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-teal-400/30 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Does SignalDeck show news on the symbols I trade?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes — and almost no other journal does. Most trading journals (TraderSync, Tradervue, Edgewonk) are post-trade analytics with no news layer, so you keep a separate news tab or terminal open. SignalDeck's <a href="../news/index.html" class="text-teal-400 hover:text-teal-300">Market News</a> pulls sentiment-tagged headlines for the exact symbol on each trade, inside the journal, and archives the headlines from around your entry time so your post-mortem starts with the context — not just the price action. Live coverage spans stocks, CFD indices, metals and crypto; forex and futures coverage is coming soon. Market News is an Elite plan feature, free for everyone during beta.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -908,7 +1020,7 @@
                 <a href="../release-history.html" title="Release History">Release History</a> |
                 <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
                 <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
+                <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../news/index.html" title="Market News" class="hover:text-zinc-400">News</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
                 <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">

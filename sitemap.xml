@@ -47,6 +47,13 @@
   </url>
 
   <url>
+    <loc>https://sgnldk.com/news/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://sgnldk.com/tools/r-multiple-calculator/</loc>
     <lastmod>2026-06-12</lastmod>
     <priority>0.70</priority>
@@ -228,13 +235,13 @@
 
   <url>
     <loc>https://sgnldk.com/plans/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/compare/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <priority>0.90</priority>
   </url>
 

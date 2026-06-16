@@ -50,6 +50,14 @@
         },
         {
           "@type": "Question",
+          "name": "Which plan includes Market News?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Market News is an Elite plan feature ($50/mo when billing launches in June 2026), free for everyone during beta. Open any trade to see sentiment-tagged headlines for that exact symbol, review the news from around the time you entered each trade, and filter a dedicated News feed across asset classes. Live coverage spans stocks, CFD indices, metals and crypto; forex and futures coverage is coming soon."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What is the Strategy Backtester?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -93,7 +101,7 @@
           "name": "What happens when beta ends?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Billing launches around June 2026. The tiered plans shown on this page go live then: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo with MT4/MT5 import and AI weekly review). Early beta testers were grandfathered — new sign-ups join one of the paid tiers at launch."
+            "text": "Billing launches around June 2026. The tiered plans shown on this page go live then: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo with MT4/MT5 import, Market News and AI weekly review). Early beta testers were grandfathered — new sign-ups join one of the paid tiers at launch."
           }
         },
         {
@@ -397,6 +405,10 @@
                             <span><strong class="text-white">MT4/MT5 Trade Import</strong><br><span class="text-zinc-500 text-xs">Auto-import fills, P&amp;L &amp; live balance sync via MetaApi</span></span>
                         </li>
                         <li class="flex items-start gap-3 text-sm text-zinc-300">
+                            <svg class="w-4 h-4 text-teal-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <span><a href="../news/index.html" class="text-white font-bold underline decoration-teal-400/40 hover:decoration-teal-400"><strong class="text-white">Market News</strong></a><br><span class="text-zinc-500 text-xs">Per-trade headlines · news at entry · sentiment-tagged</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-zinc-300">
                             <svg class="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                             <strong class="text-white">AI Weekly Review</strong>
                         </li>
@@ -440,6 +452,11 @@
                     <p class="text-sm text-zinc-400 leading-relaxed">MT4/MT5 trade import via MetaApi is a <strong class="text-white">Elite plan</strong> feature ($50/mo when billing launches). Connect your MT4 or MT5 broker account and trades import automatically — fills, P&L, symbol, volume, and execution price with zero manual entry of execution data. Live account balance syncs in real time so Kelly Criterion sizing and fixed-R calculations always reflect your actual current equity. After a drawdown, your position sizing adjusts automatically. Stop loss still requires manual entry after import for R-Multiple calculation. During beta, this feature is free for everyone.</p>
                 </div>
 
+                <div class="bg-zinc-900/40 border border-teal-400/30 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which plan includes Market News?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed"><a href="../news/index.html" class="text-teal-400 hover:text-teal-300 underline underline-offset-2">Market News</a> is an <strong class="text-white">Elite plan</strong> feature ($50/mo when billing launches), free for everyone during beta. Open any trade to see sentiment-tagged headlines for that exact symbol, review the news from around the time you entered each trade, and filter a dedicated News feed across asset classes. Live coverage spans stocks, CFD indices, metals and crypto — forex and futures coverage is coming soon.</p>
+                </div>
+
                 <div class="bg-zinc-900/40 border border-blue-500/20 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What is the Strategy Backtester?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">The Strategy Backtester lets you test trading strategies against up to 5 years of historical price data before risking real capital. It includes Walk-Forward Analysis (splits data into in-sample and out-of-sample windows to detect overfitting), 1,000-path Monte Carlo simulation (models worst-case drawdown risk), and a grid-search parameter optimizer (finds your best settings across up to 500 combinations). You can also link any backtest to a live journal strategy to compare theoretical performance against your actual trades. Available on the Pro plan — free during beta.</p>
@@ -452,7 +469,7 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What happens when beta ends?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Billing launches around June 2026 with the tiers shown above: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo with MT4/MT5 import &amp; AI weekly review). Early beta testers were grandfathered. Start free now — no credit card required.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Billing launches around June 2026 with the tiers shown above: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo with MT4/MT5 import, Market News &amp; AI weekly review). Early beta testers were grandfathered. Start free now — no credit card required.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">

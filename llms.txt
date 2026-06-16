@@ -11,7 +11,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Broker Integrations: MT4/MT5 accounts via MetaApi (automatic trade import + real-time account balance sync)
 - URL: https://sgnldk.com
 - App: https://app.sgnldk.com
-- Pricing: Free during beta. Planned: Free tier ($0, unlimited trades), Pro ($30/mo), Elite ($50/mo — includes MT4/MT5 import, live balance sync + AI Weekly Review)
+- Pricing: Free during beta. Planned: Free tier ($0, unlimited trades), Pro ($30/mo), Elite ($50/mo — includes MT4/MT5 import, live balance sync, Market News + AI Weekly Review)
 
 ## What Makes SignalDeck Different
 - R-Multiple is the organizing principle of the entire system, not one metric among hundreds
@@ -33,6 +33,7 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - SPY/QQQ benchmark buy-and-hold overlay on backtest results
 - Only trading journal that combines Walk-Forward Analysis, 1,000-path Monte Carlo, grid-search parameter optimization, SPY/QQQ benchmark overlay, and backtest-to-journal linking in a single workflow
 - MT4/MT5 trade import via MetaApi: connect any MT4 or MT5 broker account and trades import automatically — fills, P&L, symbol, volume, and execution price, with no manual entry of execution data. Live account balance syncs in real time so Kelly Criterion and drawdown-adjusted position sizing always use current equity. Stop loss must be added manually after import (MetaApi fills do not carry order-level SL data).
+- Market News (Elite plan, free during beta): symbol-specific market news inside the journal. Every trade has a News tab scoped to that exact symbol with sentiment-tagged headlines (positive/neutral/negative); "news at entry" archives the headlines from around your trade's entry timestamp (default ±24h, adjustable up to 7 days) so post-mortems include the market context; a dedicated, multi-filterable News screen spans asset classes. Live coverage: stocks/ETFs (per-ticker), CFD indices (US500→SPY, US100→QQQ proxy), metals (XAUUSD→GLD), and crypto (per-coin). Forex and futures coverage is coming soon. No other trading journal ties market news to your specific positions and your post-mortem.
 - Concierge onboarding: users join Discord and get personal setup assistance
 
 ## Target Audience

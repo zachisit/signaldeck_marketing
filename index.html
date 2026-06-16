@@ -55,7 +55,7 @@
             "description": "Free during beta. Billing launches ~June 2026: Free tier (unlimited trades), Pro ($30/mo), Elite ($50/mo — includes MT4/MT5 import, live balance sync + AI Weekly Review)."
         },
         "description": "Professional-grade trading journal and strategy backtester built around R-Multiple methodology. Features SQN scoring, Kelly Criterion position sizing, 1,000-path Monte Carlo drawdown simulation, Walk-Forward Analysis, grid-search parameter optimization, structured 5-step Post Mortem reviews, execution quality analysis (MAE/MFE, entry/exit slippage), behavioral tagging, and a social trading layer (Borg). Supports common stocks, forex, CFD/indices, crypto, and futures (ES/NQ/CL/GC) natively.",
-        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Native forex support, Native crypto support, Native CFD support, Native futures support (ES/NQ/CL/GC with tick math and Globex monitoring), Strategy backtester, Forward testing scanner",
+        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Market News (per-symbol headlines, news at trade entry, sentiment-tagged), Native forex support, Native crypto support, Native CFD support, Native futures support (ES/NQ/CL/GC with tick math and Globex monitoring), Strategy backtester, Forward testing scanner",
         "screenshot": "https://sgnldk.com/assets/banner-01a-waves.png",
         "softwareVersion": "Beta"
     }
@@ -1283,6 +1283,84 @@
         </div>
     </section>
 
+    <!-- Market News section -->
+    <section class="py-24 border-t border-zinc-800 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center gap-8">
+
+                <div>
+                    <h2 class="text-xs font-mono text-teal-400 uppercase tracking-[0.2em] mb-4">Market News · Elite</h2>
+                    <h3 class="text-3xl font-bold text-white mb-4">The news on the symbols you're actually trading</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-4">
+                        Open any trade and switch to the News tab — SignalDeck pulls sentiment-tagged headlines for that exact symbol, inside the journal. No second terminal, no copy-pasting tickers into a news site.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        The forensic part: every closed trade keeps the headlines from around the time you entered, so your post-mortem starts with what the tape was reacting to — not guesswork. Live for stocks, CFD indices, metals and crypto; forex and futures coming soon.
+                    </p>
+                    <ul class="space-y-3 font-mono text-sm text-zinc-400 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-teal-400 mr-2">&gt;</span>
+                            Per-trade News tab — scoped to the symbol you're holding
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-teal-400 mr-2">&gt;</span>
+                            News at entry — archived headlines from ±24h (up to 7 days)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-teal-400 mr-2">&gt;</span>
+                            Sentiment-tagged — positive / neutral / negative at a glance
+                        </li>
+                    </ul>
+                    <a href="news/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg border border-teal-400/40 text-teal-400 hover:bg-teal-400/10 hover:border-teal-400 transition-all">
+                        Explore Market News
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="mt-10 lg:mt-0 relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-teal-400/20 to-blue-500/20 rounded-xl blur opacity-20"></div>
+                    <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
+                        <div class="bg-zinc-950 px-4 py-3 border-b border-zinc-800 flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">News · NVDA · at entry ±24h</span>
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-600">Trade #4821</span>
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <div class="bg-zinc-950 border border-emerald-500/20 rounded-lg p-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="px-1.5 py-0.5 text-[9px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded uppercase font-mono">Positive · −18h</span>
+                                </div>
+                                <p class="text-xs text-zinc-300">Analyst raises NVDA target on data-center demand</p>
+                            </div>
+                            <div class="bg-zinc-950 border border-zinc-700/40 rounded-lg p-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="px-1.5 py-0.5 text-[9px] font-bold bg-zinc-700/40 text-zinc-400 border border-zinc-600/40 rounded uppercase font-mono">Neutral · −3h</span>
+                                </div>
+                                <p class="text-xs text-zinc-300">Megacap tech rallies into the open</p>
+                            </div>
+                            <div class="bg-teal-400/5 border border-teal-400/30 rounded-lg p-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-mono text-teal-400 font-bold uppercase">Your entry</span>
+                                    <span class="text-[9px] font-mono text-zinc-500">bought 124.80</span>
+                                </div>
+                                <p class="text-xs text-zinc-300">Headlines above &amp; below this point are kept with the trade.</p>
+                            </div>
+                            <div class="bg-zinc-950 border border-rose-500/20 rounded-lg p-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="px-1.5 py-0.5 text-[9px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded uppercase font-mono">Negative · +6h</span>
+                                </div>
+                                <p class="text-xs text-zinc-300">Profit-taking trims the afternoon rally</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Free Tools section -->
     <section class="py-24 border-t border-zinc-800 bg-zinc-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1450,6 +1528,8 @@
                 <a href="clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
                 <a href="jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
                 <a href="blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
+                <a href="news/index.html" title="Market News" class="hover:text-zinc-400">News</a> |
+                <a href="alerts/index.html" title="Position Alerts" class="hover:text-zinc-400">Alerts</a> |
                 <a href="prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> | <a href="futures/index.html" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">

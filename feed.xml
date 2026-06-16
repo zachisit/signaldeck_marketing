@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SignalDeck Blog</title>
+    <link>https://sgnldk.com/blog/</link>
+    <description>R-value trading, SQN scoring, trade psychology, and edge validation - written by traders, for traders.</description>
+    <language>en-us</language>
+    <atom:link href="https://sgnldk.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://sgnldk.com/img/mark-blue-512.png</url>
+      <title>SignalDeck Blog</title>
+      <link>https://sgnldk.com/blog/</link>
+    </image>
+
+    <!-- ================================================================
+         FEDICA PIPELINE SETUP (one-time):
+           Content source → Description
+           Hashtags → (add globally in Fedica UI if desired)
+         NEW POST WORKFLOW:
+           1. Add <item> block below (newest first)
+           2. Write tweet text in <description> — keep under ~230 chars,
+              Fedica appends the link automatically
+           3. Put full excerpt in <content:encoded>
+           4. Set <enclosure> to the post OG image URL
+           5. git push — Fedica detects within ~5 min and posts to X
+         PAST POSTS: <description> left blank intentionally.
+         Fedica only fires on items NEW after the pipeline is connected.
+    ================================================================ -->
+
+    <item>
+      <title>Best Forex Trading Journal: What to Track, How to Track It, and Why Pips Are the Wrong Unit</title>
+      <link>https://sgnldk.com/blog/best-forex-trading-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/best-forex-trading-journal/</guid>
+      <pubDate>Mon, 01 Jun 2026 11:53:03 +0000</pubDate>
+      <description></description>
+      <content:encoded>Most forex traders journal in the wrong unit. Pips are position-size-dependent — R-multiples aren't. Here's what your forex journal actually needs.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01a-waves.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</title>
+      <link>https://sgnldk.com/blog/ftmo-challenge-rules-explained/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/ftmo-challenge-rules-explained/</guid>
+      <pubDate>Mon, 01 Jun 2026 11:53:03 +0000</pubDate>
+      <description></description>
+      <content:encoded>FTMO's daily loss limit and max drawdown rules interact in ways most traders miss. Here's what your journal must track in real time to stay safe.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01k-interference.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Best Trading Journal for Prop Firm Traders 2026</title>
+      <link>https://sgnldk.com/blog/best-trading-journal-prop-firm/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/best-trading-journal-prop-firm/</guid>
+      <pubDate>Sun, 31 May 2026 10:51:26 +0000</pubDate>
+      <description></description>
+      <content:encoded>Prop firm traders need MT4/MT5 auto-import, R-value sizing, drawdown tracking, and edge validation. We compare 6 tools on what actually matters for funded account traders.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01f-drawdown.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Trading Expectancy Formula: Why It Beats Win Rate Every Time</title>
+      <link>https://sgnldk.com/blog/trading-expectancy/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/trading-expectancy/</guid>
+      <pubDate>Sun, 31 May 2026 10:51:26 +0000</pubDate>
+      <description></description>
+      <content:encoded>Expectancy = (Win Rate x Avg Win R) - (Loss Rate x Avg Loss R). The single number that tells you whether your system makes money over time - regardless of win rate.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01g-distribution.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits</title>
+      <link>https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/</guid>
+      <pubDate>Sun, 31 May 2026 10:51:26 +0000</pubDate>
+      <description></description>
+      <content:encoded>Grid search tests every parameter combination in a defined range. Without Walk-Forward Analysis, it reliably finds parameters that look great in-sample and fail live.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01k-interference.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric</title>
+      <link>https://sgnldk.com/blog/what-is-r-multiple/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/what-is-r-multiple/</guid>
+      <pubDate>Sun, 31 May 2026 10:51:26 +0000</pubDate>
+      <description></description>
+      <content:encoded>R-Multiple defines your initial risk as 1R. Every trade outcome becomes a multiple of that unit. Here's how expectancy, SQN, Kelly, and win rate all flow from one number.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01c-candlestick.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</title>
+      <link>https://sgnldk.com/blog/walk-forward-analysis/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/walk-forward-analysis/</guid>
+      <pubDate>Wed, 20 May 2026 14:45:19 +0000</pubDate>
+      <description></description>
+      <content:encoded>Walk-forward analysis tests whether your optimized strategy actually works on data it has never seen - or whether your backtest just memorized the past.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01m-walk-forward.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk</title>
+      <link>https://sgnldk.com/blog/kelly-criterion-position-sizing/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/kelly-criterion-position-sizing/</guid>
+      <pubDate>Wed, 13 May 2026 13:48:45 +0000</pubDate>
+      <description></description>
+      <content:encoded>Kelly Criterion calculates the mathematically optimal bet size from YOUR win rate and YOUR win/loss ratio - not someone else's rules. The formula, a worked example, why most traders use half-Kelly, and how many trades you need before trusting the output.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01b-waves-candles.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Why Your Account Balance at Trade Entry Matters (And How to Get It Right)</title>
+      <link>https://sgnldk.com/blog/journal-account-balance/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/journal-account-balance/</guid>
+      <pubDate>Wed, 06 May 2026 18:58:09 +0000</pubDate>
+      <description></description>
+      <content:encoded>Logging trades with a stale account balance corrupts your Kelly Criterion, your Fixed-R sizing, and your risk-adjusted analytics. Here's why the balance at the moment of the trade is the only number that's honest.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01j-perspective.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</title>
+      <link>https://sgnldk.com/blog/monte-carlo-simulation-trading/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/monte-carlo-simulation-trading/</guid>
+      <pubDate>Tue, 28 Apr 2026 18:59:55 +0000</pubDate>
+      <description></description>
+      <content:encoded>Backtesting tells you what did happen. Monte Carlo simulation tells you what could happen - including the worst-case drawdown your strategy can produce.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01e-monte-carlo.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Fixed-R Position Sizing: Why Most Traders Risk Too Much on Every Trade</title>
+      <link>https://sgnldk.com/blog/fixed-r-position-sizing/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/fixed-r-position-sizing/</guid>
+      <pubDate>Wed, 22 Apr 2026 11:59:26 +0000</pubDate>
+      <description></description>
+      <content:encoded>Fixed-R ties every trade to a consistent percentage of your account. The formula, worked examples, and why this makes your journal metrics meaningful.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01h-heatmap.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>How to Know When Your Trading Strategy Is Dying</title>
+      <link>https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/</guid>
+      <pubDate>Mon, 13 Apr 2026 19:02:20 +0000</pubDate>
+      <description></description>
+      <content:encoded>Your strategy worked last quarter. Now it's bleeding. Learn the four data signals that separate a normal drawdown from real edge decay - and the exact steps to take before it kills your account.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01d-equity-curve.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Why Your Win Rate Is Lying to You (And What to Track Instead)</title>
+      <link>https://sgnldk.com/blog/why-win-rate-is-lying/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/why-win-rate-is-lying/</guid>
+      <pubDate>Mon, 30 Mar 2026 11:33:16 +0000</pubDate>
+      <description></description>
+      <content:encoded>Win rate is a vanity metric. A 40% win rate can outperform 75%. Here's what R-multiple and expectancy measure, and how to evaluate your system honestly.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01l-circuit.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>How to Calculate Your Trading SQN Score</title>
+      <link>https://sgnldk.com/blog/how-to-calculate-sqn-score/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/how-to-calculate-sqn-score/</guid>
+      <pubDate>Fri, 20 Mar 2026 11:57:20 +0000</pubDate>
+      <description></description>
+      <content:encoded>SQN formula, benchmarks, and how to calculate your System Quality Number from real trade data to evaluate whether your system is statistically viable.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01i-scatter.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Profit Factor Explained: The Simplest Metric for System Evaluation</title>
+      <link>https://sgnldk.com/blog/profit-factor-explained/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/profit-factor-explained/</guid>
+      <pubDate>Fri, 20 Mar 2026 11:57:20 +0000</pubDate>
+      <description></description>
+      <content:encoded>Profit factor = Gross Profit / Gross Loss. The benchmarks, what makes it useful, and how it compares to expectancy and SQN.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01f-drawdown.png" length="0" type="image/png"/>
+    </item>
+
+  </channel>
+</rss>

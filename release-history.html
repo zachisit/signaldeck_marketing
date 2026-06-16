@@ -154,12 +154,52 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.71 -->
+            <div class="pl-8 relative" id="v1-0-71">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.71-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jun 16, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Futures traders get charts. Every new trade gets an instant risk read. And switching accounts in the same browser is now airtight. This release leans hard into futures &mdash; live price charts in the trade view, faster and unthrottled market data &mdash; alongside a sharper new-trade form and a round of reliability fixes.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2"><a href="futures/index.html" class="text-teal-400 hover:text-teal-300 underline decoration-teal-400/40">Futures Charts &amp; Faster Data</a></h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Price charts for futures</strong> &mdash; candlesticks now render in the trade Chart tab across Daily, 4H, 1H, and 15m for CME, CBOT, NYMEX, and COMEX contracts.</li>
+                            <li><strong class="text-zinc-200">Two years of history, unthrottled</strong> &mdash; an upgraded data plan lifts the old rate limit, so futures prices and charts load faster and stay current.</li>
+                            <li>Futures prices no longer freeze when the market-status feed hiccups &mdash; the session clock now falls back to the Globex schedule automatically.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Risk At A Glance</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A new R-multiple panel on every new-trade form</strong> &mdash; see your Risk (1R), Reward, and R-Multiple update live as you set entry, stop, and target, across stocks, forex, crypto, and futures.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Reliability &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Rock-solid account switching</strong> &mdash; signing into a different account in the same browser now fully resets the session and data, with no chance of one account's view bleeding into another.</li>
+                            <li>Logging a crypto trade no longer fails on certain price-validation edge cases.</li>
+                            <li>The Backtester now shows a clear upgrade prompt when you hit your monthly run limit, instead of a confusing block.</li>
+                            <li>A freshly connected MT5 account is no longer mislabeled "disconnected" during the broker handshake.</li>
+                            <li>In-app News is now available on the Pro plan, and the plan comparison reflects it.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.70 -->
             <div class="pl-8 relative" id="v1-0-70">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.70-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jun 15, 2026</span>
                 </div>
 

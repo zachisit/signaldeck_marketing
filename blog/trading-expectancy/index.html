@@ -579,7 +579,7 @@ Expectancy = (0.70 × 0.4) &minus; (0.30 × 1.5)
                     <a href="https://app.sgnldk.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        onclick="gtag('event', 'blog_cta_click', {'article': 'trading-expectancy'});"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'trading-expectancy'});"
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta — Free
                     </a>

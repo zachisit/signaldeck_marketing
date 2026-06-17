@@ -197,7 +197,7 @@
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-4">
                 <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer"
-                    onclick="gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'MT4 Journal CTA' });"
+                    onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'MT4 Journal CTA' });"
                     class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
                     Connect MT4/MT5 Free →
                 </a>
@@ -545,7 +545,7 @@
             <a href="https://app.sgnldk.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
                 class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
                     Connect MT4/MT5 Free
                 </a>

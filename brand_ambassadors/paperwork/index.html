@@ -82,7 +82,7 @@
                     <span class="hidden sm:block font-mono text-xs font-bold text-amber-400 tracking-widest">PAP€RWORK</span>
                 </div>
                 <a href="https://app.sgnldk.com?ref=paperwork"
-                   onclick="gtag('event', 'gr3fter_nav_click');"
+                   onclick="if(!navigator.webdriver) gtag('event', 'gr3fter_nav_click');"
                    target="_blank" rel="noopener noreferrer"
                    class="px-4 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-sm font-medium rounded-md transition-colors">
                     Start Free
@@ -152,7 +152,7 @@
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="https://app.sgnldk.com?ref=paperwork"
-                   onclick="gtag('event', 'gr3fter_hero_cta');"
+                   onclick="if(!navigator.webdriver) gtag('event', 'gr3fter_hero_cta');"
                    target="_blank" rel="noopener noreferrer"
                    class="w-full sm:w-auto px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-all shadow-lg shadow-amber-900/30 text-center">
                     Start Journaling Free
@@ -411,7 +411,7 @@
             </p>
 
             <a href="https://app.sgnldk.com?ref=paperwork"
-               onclick="gtag('event', 'gr3fter_footer_cta');"
+               onclick="if(!navigator.webdriver) gtag('event', 'gr3fter_footer_cta');"
                target="_blank" rel="noopener noreferrer"
                class="inline-block px-10 py-4 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl transition-all shadow-2xl shadow-amber-900/30 text-lg tracking-wide">
                 Start Journaling Free

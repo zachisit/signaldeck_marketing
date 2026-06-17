@@ -205,7 +205,7 @@
             </div>
             <div class="mt-10">
                 <a href="https://app.sgnldk.com"
-                onclick="gtag('event', 'forex_beta_click', {'button_location': 'hero_section'});"
+                onclick="if(!navigator.webdriver) gtag('event', 'forex_beta_click', {'button_location': 'hero_section'});"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
@@ -542,7 +542,7 @@
             <a href="https://app.sgnldk.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                onclick="gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
+                onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
                 class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
                     Beta Signup Here
                 </a>

@@ -46,7 +46,7 @@
 <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-2"><img src="img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
-    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
   </div>
 </header>
 
@@ -93,7 +93,7 @@
   <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
     <h2 class="text-2xl font-bold text-white mb-2">Stop guessing — validate on your real trades</h2>
     <p class="text-zinc-400 mb-5">This checker uses numbers you type in. <strong class="text-zinc-200">SignalDeck runs the same rules against your actual imported trade history</strong> — Walk-Forward Analysis and 1,000-path Monte Carlo on your data — so you know the odds your edge passes <em>before</em> you pay a challenge fee. Free during beta.</p>
-    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass (CTA)'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal your edge in SignalDeck — Free</a>
+    <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass (CTA)'});" class="inline-flex px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">Journal your edge in SignalDeck — Free</a>
   </section>
 
   <section class="mt-12">
@@ -152,7 +152,7 @@ document.getElementById('check').addEventListener('click',()=>{
   el.innerHTML=`<div class="mt-2 rounded-xl border ${passed?'border-emerald-500/40 bg-emerald-500/10':'border-rose-500/40 bg-rose-500/10'} p-4">
     <div class="text-lg font-bold ${passed?'text-emerald-400':'text-rose-400'}">${passed?'✅ This run would pass '+FIRMS[f].name:'❌ Not yet — '+FIRMS[f].name}</div>
     <ul class="mt-3 space-y-1.5 text-sm">${checks.map(c=>`<li class="flex gap-2"><span>${c.pass?'✅':'⛔'}</span><span><span class="text-zinc-200">${c.label}</span> — <span class="text-zinc-400">${c.detail}</span></span></li>`).join('')}</ul>
-    <p class="mt-3 text-xs text-zinc-500">Want this on your real trades, not typed-in guesses? <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300" onclick="gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass (result)'});">Journal in SignalDeck →</a></p></div>`;
+    <p class="mt-3 text-xs text-zinc-500">Want this on your real trades, not typed-in guesses? <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Would I Pass (result)'});">Journal in SignalDeck →</a></p></div>`;
   gtag('event','would_i_pass_check',{firm:f,passed:passed});
 });
 </script>

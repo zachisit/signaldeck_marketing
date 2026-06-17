@@ -145,7 +145,7 @@
                     </p>
                 </div>
                 <a href="https://sgnldk.com/discord.html"
-                   onclick="gtag('event', 'onboarding_discord_click');"
+                   onclick="if(!navigator.webdriver) gtag('event', 'onboarding_discord_click');"
                    target="_blank" rel="noopener noreferrer"
                    class="flex-shrink-0 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg transition-colors text-sm">
                     Join Discord
@@ -214,7 +214,7 @@
                     <p class="text-zinc-400 text-sm">Log a trade, run a post mortem, check your SQN. That's the loop.</p>
                 </div>
                 <a href="https://app.sgnldk.com"
-                   onclick="gtag('event', 'onboarding_app_click');"
+                   onclick="if(!navigator.webdriver) gtag('event', 'onboarding_app_click');"
                    target="_blank" rel="noopener noreferrer"
                    class="flex-shrink-0 px-6 py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors text-sm">
                     Open App

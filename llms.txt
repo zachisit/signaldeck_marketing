@@ -287,7 +287,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Blog
 - URL: https://sgnldk.com/blog/
-- Content: Ten published articles covering forex trade journaling (pips vs R-multiples), profit factor, R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, Walk-Forward Analysis, and journal account balance accuracy. Topics target serious retail traders who want institutional analytics applied to their own trade data.
+- Content: 15 published articles covering forex trade journaling (pips vs R-multiples), profit factor, R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, Walk-Forward Analysis, journal account balance accuracy, MAE/MFE execution metrics, trading expectancy, FTMO challenge rules, and grid search parameter optimization. Topics target serious retail traders who want institutional analytics applied to their own trade data.
 
 ### Blog: Profit Factor Explained: The Simplest Metric for System Evaluation
 - URL: https://sgnldk.com/blog/best-forex-trading-journal/
@@ -326,6 +326,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Blog: Kelly Criterion — Let Your Own Data Tell You How Much to Risk Per Trade
 - URL: https://sgnldk.com/blog/kelly-criterion-position-sizing/
 - Content: Why generic rules like "never risk more than 2%" ignore your system's actual edge. Simplified Kelly formula (Kelly % = W − [(1 − W) / R], where W = win rate and R = avg winner / avg loser). Worked example: W=0.45, R=2.5 → 23% full Kelly, 11.5% half-Kelly. Why most traders use half-Kelly: asymmetric downside of input estimation error. Data requirements table by trade count (under 30 = unreliable, 30–50 = quarter-Kelly, 50–100 = half-Kelly, 100+ = reliable). Fixed-R and Kelly relationship (Fixed-R first, Kelly as optimization layer). How Kelly connects to SQN (high SQN = more reliable Kelly estimate) and expectancy (win rate + R-ratio decompose expectancy). How SignalDeck computes Kelly in real time filterable by strategy and asset class. FAQ: Kelly formula, half-Kelly, trade count requirements, Kelly vs Fixed-R.
+
+### Blog: MAE and MFE: The Execution Metrics Most Traders Ignore
+- URL: https://sgnldk.com/blog/mae-mfe-execution-metrics/
+- Content: MAE (Maximum Adverse Excursion) measures how far a trade moved against you before turning or stopping out — expressed in R as a fraction of initial stop distance, it diagnoses entry quality. MFE (Maximum Favorable Excursion) measures the peak profit a trade reached before exit — compared to actual exit R via capture ratio, it diagnoses exit calibration. MAE benchmark table by R fraction: below 0.3R = excellent entry, 0.3–0.6R = good, 0.6–0.9R = marginal, above 0.9R = poor (entering too early). Capture ratio table: 0.80–1.0 = excellent exits, 0.60–0.80 = good, 0.40–0.60 = early exits costing you, below 0.40 = significant exit problem. MAE vs MFE scatter plot — each trade plotted as a point (MAE on X, MFE on Y) showing the shape of execution across the full trade history; four quadrant interpretations (top-left = clean executions, top-right = big moves with messy entries, bottom-left = good entries but early exits, bottom-right = losses and near-losses). Why consistent capture ratios below 0.5 indicate a rules problem not a noise problem. How to express MAE and MFE in R so they're comparable across instruments and position sizes. Target queries: MAE trading, MFE trading, maximum adverse excursion, maximum favorable excursion, trade execution metrics, MAE MFE scatter plot, entry quality trading, exit timing trading journal.
 
 ### Brand Ambassador — PAP€RWORK (@gr3fter)
 - URL: https://sgnldk.com/brand_ambassadors/paperwork/

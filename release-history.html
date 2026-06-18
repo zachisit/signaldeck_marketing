@@ -154,12 +154,53 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.72 -->
+            <div class="pl-8 relative" id="v1-0-72">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.72-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jun 18, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Your trade chart just got hands-on. Drag a stop or target line and a live dialog lets you dial in the exact price &mdash; with the chart previewing the move as you type. Underneath, price updates run faster and a stack of reliability fixes lands across imports, MT5, and forex.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Interactive Stop &amp; Target Editing</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Drag-to-edit stop and target lines</strong> &mdash; grab a line on the trade chart and an editable dialog opens with a numeric input and &plusmn; steppers at the right precision for your instrument, previewing the new price live before you commit.</li>
+                            <li><strong class="text-zinc-200">Lines that follow your cursor</strong> &mdash; stop and target lines now track the drag handle in real time, TradingView-style, with a clean borderless line and floating price label.</li>
+                            <li>Dragging a stop or target now also moves its linked price alert, so your alert never drifts out of sync.</li>
+                            <li>One-tap <strong class="text-zinc-200">Copy</strong> on the price target in trade details.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Faster, Steadier Prices</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Quicker price refreshes</strong> &mdash; the market-data engine now fetches prices in a single batched call per cycle, keeping your open positions current and ending the occasional stale-price lag.</li>
+                            <li>Switching a chart to Daily no longer squishes it back to an intraday view after a drag.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Reliability &amp; Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">MT5 Live Balance loads reliably</strong> &mdash; the balance no longer times out on the first load after connecting; it shows a brief "connecting" state and then fills in.</li>
+                            <li>Joining a Borg team now shows a clear, friendly message instead of a raw error.</li>
+                            <li>Trade imports (CSV and MT5) are stricter and safer &mdash; bad or incomplete rows are caught instead of silently saved.</li>
+                            <li>Forex trades now recompute their R-multiple correctly when closed, and dashboard stats refresh immediately after audited fills.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.71 -->
             <div class="pl-8 relative" id="v1-0-71">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.71-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jun 16, 2026</span>
                 </div>
 

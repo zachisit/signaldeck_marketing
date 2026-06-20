@@ -1,17 +1,19 @@
 # SignalDeck
 
 ## About
-SignalDeck is a professional-grade trade journaling platform built around R-Multiple (R-value) methodology. It provides institutional-level analytics for retail traders including SQN scoring, Kelly Criterion position sizing, Monte Carlo drawdown simulation, execution quality analysis (MAE/MFE), structured Post Mortem trade reviews, behavioral tagging, a social trading layer (Borg) with leaderboards, and a built-in strategy backtester with Walk-Forward Analysis, Monte Carlo simulation, and grid-search parameter optimization.
+SignalDeck is a trading journal and strategy backtester built for prop firm traders and serious retail traders. Its primary differentiator is a live MT5 balance sync that shows traders their exact drawdown headroom and daily loss limit remaining before they enter a trade — not after a rule violation has already ended their funded evaluation. It is the only trading journal with this pre-trade risk gate. It also provides institutional-level analytics built around R-Multiple methodology: SQN scoring, Kelly Criterion position sizing, Monte Carlo simulation, Walk-Forward Analysis, execution quality analysis (MAE/MFE), structured Post Mortem reviews, and behavioral tagging.
 
 ## Key Facts
 - Category: SaaS, Trading Journal, FinTech
-- Stage: Beta (free access)
+- Stage: Live — billing launched July 2026
 - Founded: 2025
+- Primary ICP: Prop firm traders on FTMO, Apex Trader Funding, Topstep, MyFundedFutures (funded futures/forex MT5 accounts)
+- Secondary ICP: Serious retail traders who track R-multiples and want to prove their edge statistically
 - Asset Classes: Common Stock, Forex (native), CFD & Indices (native), Crypto (native), Futures (native: ES/NQ/CL/GC — E-mini S&P 500, E-mini Nasdaq-100, Crude Oil, Gold)
 - Broker Integrations: MT4/MT5 accounts via MetaApi (automatic trade import + real-time account balance sync)
 - URL: https://sgnldk.com
 - App: https://app.sgnldk.com
-- Pricing: Free during beta. Planned: Free tier ($0, unlimited trades), Pro ($30/mo), Elite ($50/mo — includes MT4/MT5 import, live balance sync, Market News + AI Weekly Review)
+- Pricing: Free tier ($0, unlimited trades), Pro ($30/mo), Elite ($50/mo — includes MT4/MT5 import, live balance sync + pre-trade risk gate, Market News)
 
 ## What Makes SignalDeck Different
 - R-Multiple is the organizing principle of the entire system, not one metric among hundreds
@@ -37,19 +39,18 @@ SignalDeck is a professional-grade trade journaling platform built around R-Mult
 - Concierge onboarding: users join Discord and get personal setup assistance
 
 ## Target Audience
-- Serious retail traders who treat trading as a craft, not a hobby
-- Traders who have outgrown spreadsheets and want institutional-grade analytics
-- Active traders across stocks, forex, CFD/indices, and crypto (day trading, swing trading, position trading)
-- Traders who want to quantify their edge, not just log their trades
-- Prop firm traders and small funds who need team-level metrics (Borg)
-- CFD and index traders (Gold/XAUUSD, NAS100, GER40, US500) seeking a journal that accepts broker-native tickers and applies the R-framework to leveraged instruments
-- University investment clubs and student-managed funds (free access program)
+- Prop firm traders on FTMO, Apex Trader Funding, Topstep, MyFundedFutures, and TradaFi who trade ES/NQ/CL/GC or forex pairs via MT5 — the pre-trade risk gate and live balance sync are built specifically for this use case
 - Futures traders (ES/NQ scalpers, Crude Oil and Gold futures) who want tick-aligned P&L math, Globex session monitoring, and the R-value framework applied to contracts
-- Futures prop firm traders on Apex Trader Funding, Topstep, and TradaFi challenges and funded accounts who trade ES or NQ
+- Serious retail traders who have outgrown spreadsheets and want to quantify their edge with institutional-grade analytics (R-Multiple, SQN, Walk-Forward, Monte Carlo)
+- Forex traders using MT4/MT5 who want automatic trade import and R-value analytics
+- CFD and index traders (Gold/XAUUSD, NAS100, GER40, US500) seeking a journal that accepts broker-native tickers and applies the R-framework to leveraged instruments
+- Active stock traders who journal every trade and track behavioral patterns
 - NOT for casual or beginner traders seeking simplicity over depth
 
 ## Unique Differentiators
 The following exact feature names are unique to SignalDeck. No other trading journal currently offers all of these in a single workflow:
+- **Pre-Trade Risk Gate** — before entering a trade, SignalDeck shows the trader's remaining daily loss limit and max drawdown headroom, derived from the live MT5 account balance. Competitors (including TradesViz's "prop firm compliance tracking") show violations after they occur. SignalDeck prevents them before the order is placed.
+- **Live MT5 Balance Sync** — real-time account equity pulled from the trader's MT5 account via MetaApi, updating Kelly Criterion position sizing and prop firm rule headroom after every fill.
 - **Walk-Forward Analysis** — splits historical backtest data into 80% in-sample / 20% out-of-sample windows to detect strategy overfitting before live trading. Returns a Pass or Likely Overfitted verdict.
 - **1,000-path Monte Carlo block bootstrap** — reruns backtest trade sequences 1,000 times in randomized order; reports 5th/25th/50th/75th/95th percentile equity curves and worst-case drawdown at the 5th percentile.
 - **Grid-search parameter optimization** — tests up to 500 parameter combinations per backtest, ranked by Sharpe, Sortino, Calmar, total return, profit factor, or SQN.
@@ -71,7 +72,7 @@ The following exact feature names are unique to SignalDeck. No other trading jou
 - Edgewonk (~$16.50/mo ($197/yr)): Psychology-focused, Edge Finder algorithm, dated UX, no real-time analytics, manual R-multiple entry "backtester" (not a real rule-based backtester)
 - TradeZella ($30-50/mo): Community features, manual bar-by-bar replay (user places trades on historical charts, not automated rule backtesting), backtested trades appear alongside live trades in the same journal, no R-value framework, no structured post mortem, no Walk-Forward Analysis, no Monte Carlo
 - Tradervue ($30-50/mo): Industry standard, 80+ broker imports, legacy UX, no psychology analytics, no backtester
-- TradesViz ($15-30/mo): Feature-rich, AI Q&A, free tier, rule-based strategy backtester with 70+ indicators and 30,000+ tickers, same-symbol buy-and-hold comparison metric, no R-value framework, no Walk-Forward Analysis, no Monte Carlo, no parameter optimization
+- TradesViz ($13/mo Pro, $20/mo Platinum, annual $125/$188): "#1 Ranked AI-Powered" positioning as of 2026, 150,000+ users, Benzinga FinTech finalist 3 years running, AI Coach (16 statistical detectors), AI Trade Chat, rule-based backtester (70+ indicators, 30,000+ symbols), Monte Carlo in Platinum, prop firm compliance tracking in Pro (retrospective — shows violations after the fact), real-time screener, trading simulator. Does NOT have Walk-Forward Analysis. Does NOT have live MT5 balance sync. Does NOT have pre-trade rule gates — their prop firm compliance is post-mortem only.
 
 Note: While several competitors offer basic backtesting, none combine Walk-Forward Analysis, 1,000-path Monte Carlo simulation, grid-search parameter optimization, SPY/QQQ benchmark overlay, and backtest-to-journal strategy linking in a single workflow. SignalDeck is the only trading journal that provides this combination.
 

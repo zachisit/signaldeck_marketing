@@ -342,9 +342,95 @@
     <section class="py-12 border-t border-zinc-800">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-zinc-500 text-sm leading-relaxed">
-                <span class="text-white font-semibold">Built for traders who journal — or want to start.</span>
-                If you're tracking R-multiples in a spreadsheet, paying $30+/month for a journal that treats R-value as an afterthought, or you just know your edge is real but can't prove it yet — SignalDeck was built for you.
+                <span class="text-white font-semibold">Built for prop firm traders and serious retail traders.</span>
+                If you're running a funded eval and tired of finding out about rule violations after they happen, tracking R-multiples in a spreadsheet, or paying $30+/month for a journal that treats your edge as an afterthought — SignalDeck was built for you.
             </p>
+        </div>
+    </section>
+
+    <!-- Prop Firm Pre-Trade Gate -->
+    <section class="py-20 border-t border-zinc-800 bg-zinc-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/40 bg-orange-500/10 text-orange-400 text-xs font-mono uppercase tracking-wider mb-6">
+                        Prop Firm Traders
+                    </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">
+                        Other journals tell you <span class="text-zinc-500">after</span> you blow the eval.<br>
+                        <span style="background: linear-gradient(to right, #f97316, #ef4444); -webkit-background-clip: text; background-clip: text; color: transparent;">We stop you before.</span>
+                    </h2>
+                    <p class="text-lg text-zinc-400 leading-relaxed mb-6">
+                        Most prop firm compliance tools are retrospective — they show you the violation after it happened. SignalDeck's live MT5 balance sync reads your actual account equity in real time, so your daily loss limit, drawdown headroom, and risk-per-trade are always calculated against what's in your account <em>right now</em> — not a number you entered last week.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-400 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-mono mt-0.5">✓</span>
+                            <span><span class="text-white font-semibold">Live drawdown headroom</span> — see how much room you have before the eval ends, updated after every fill</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-mono mt-0.5">✓</span>
+                            <span><span class="text-white font-semibold">Real-time Kelly sizing</span> — position size calculated against live equity, not stale account snapshots</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-mono mt-0.5">✓</span>
+                            <span><span class="text-white font-semibold">Automatic MT5 fills</span> — trades import the moment they close; no manual entry, no missed trades</span>
+                        </li>
+                    </ul>
+                    <a href="prop-firm/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 transition-all">
+                        See prop firm features
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="mt-10 lg:mt-0">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl blur opacity-40"></div>
+                        <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
+                            <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900/50">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                    <span class="text-xs font-mono text-zinc-400">MT5 LIVE · Apex Challenge</span>
+                                </div>
+                                <span class="text-xs font-mono text-zinc-600">REAL-TIME</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-px bg-zinc-800 border-b border-zinc-800">
+                                <div class="bg-zinc-950 p-3 text-center">
+                                    <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Balance</div>
+                                    <div class="text-sm font-mono font-bold text-white">$49,210</div>
+                                </div>
+                                <div class="bg-zinc-950 p-3 text-center">
+                                    <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Drawdown Left</div>
+                                    <div class="text-sm font-mono font-bold text-amber-400">$790</div>
+                                </div>
+                                <div class="bg-zinc-950 p-3 text-center">
+                                    <div class="text-[10px] font-mono text-zinc-600 uppercase mb-1">Daily Left</div>
+                                    <div class="text-sm font-mono font-bold text-rose-400">$210</div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-b border-zinc-800">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-mono text-zinc-500 uppercase">Risk per trade (1R)</span>
+                                    <span class="text-xs font-mono text-white">$196.84</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-mono text-zinc-500 uppercase">Kelly suggested size</span>
+                                    <span class="text-xs font-mono text-blue-400">2 contracts</span>
+                                </div>
+                            </div>
+                            <div class="m-3 px-3 py-3 bg-rose-500/10 border border-rose-500/40 rounded-lg">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-sm mt-0.5">⚠</span>
+                                    <div>
+                                        <p class="text-rose-300 text-xs font-semibold font-mono">Daily loss limit: $210 remaining</p>
+                                        <p class="text-zinc-500 text-[10px] mt-1">At 2 contracts, one full stop costs $196. A loss near target puts you at risk of a daily violation. Size down or sit out.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -499,7 +585,7 @@
                         </div>
                         <div>
                             <h4 class="text-white font-bold mb-3 text-lg">MT4/MT5 Trade Import</h4>
-                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so <a href="blog/kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kelly Criterion</a> sizing and fixed-R risk calculations always reflect your actual current equity — not a stale number you entered last month. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so <a href="blog/kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kelly Criterion</a> sizing, fixed-R risk calculations, and prop firm drawdown headroom always reflect your actual current equity — not a stale number you entered last month. Running a funded evaluation? SignalDeck tracks your remaining daily loss limit against your live balance, so you know <em>before you place the trade</em> whether you have room to risk. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
                             <a href="mt4-journal/index.html" class="inline-flex items-center gap-2 mb-4 px-4 py-2 text-sm font-medium rounded-lg border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 transition-all">
                                 See MT4/MT5 import
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>

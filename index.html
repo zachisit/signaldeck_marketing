@@ -575,23 +575,23 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">MT4 Import</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">MT5 Import</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Live Balance Sync</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Real-Time Equity for Sizing</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Zero Fill Entry</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">P&L Auto-Populated</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Kelly Criterion Stays Current</span>
-                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Drawdown-Adjusted Sizing</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">MT4/MT5 — Live Balance Sync</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Interactive Brokers — Flex</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">cTrader — OAuth</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Robinhood · Schwab · Fidelity</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">E*TRADE · Coinbase · Webull</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">CSV — 8 Formats</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Tradovate · NinjaTrader</span>
+                            <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">FIFO Round-Trip Reconstruction</span>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold mb-3 text-lg">MT4/MT5 Trade Import</h4>
-                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect your MT4 or MT5 account via MetaApi and trades import automatically — fills, P&L, symbol, volume, and price, with no manual entry of execution data. Your live account balance syncs in real time, so <a href="blog/kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kelly Criterion</a> sizing, fixed-R risk calculations, and prop firm drawdown headroom always reflect your actual current equity — not a stale number you entered last month. Running a funded evaluation? SignalDeck tracks your remaining daily loss limit against your live balance, so you know <em>before you place the trade</em> whether you have room to risk. Stop loss is added in the post-trade review step to complete R-Multiple tracking.</p>
-                            <a href="mt4-journal/index.html" class="inline-flex items-center gap-2 mb-4 px-4 py-2 text-sm font-medium rounded-lg border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 transition-all">
-                                See MT4/MT5 import
+                            <h4 class="text-white font-bold mb-3 text-lg">Multi-Broker Trade Import</h4>
+                            <p class="text-sm text-zinc-400 leading-relaxed mb-4">Connect MT4/MT5 via MetaApi for automatic fills and real-time balance sync — your <a href="blog/kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Kelly Criterion</a> sizing and prop firm drawdown headroom always reflect your live equity. Interactive Brokers users connect via the free Flex Web Service with a guided wizard or file-upload fallback. cTrader connects via OAuth. Robinhood, Webull, Schwab, Fidelity, E*TRADE, and Coinbase connect through SnapTrade. Or upload a CSV from Tradovate, NinjaTrader, Schwab, TD Ameritrade, Vanguard, or MetaTrader — with automatic futures contract resolution for correct P&L.</p>
+                            <a href="broker-import/index.html" class="inline-flex items-center gap-2 mb-4 px-4 py-2 text-sm font-medium rounded-lg border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 transition-all">
+                                See all broker integrations
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                             </a>
-                            <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">Integration — MetaApi · Real-Time Balance Sync</div>
+                            <div class="text-[10px] font-mono text-zinc-500 uppercase border-t border-zinc-900 pt-4">MT4/MT5 · IBKR · cTrader · SnapTrade · CSV</div>
                         </div>
                     </div>
                 </div>

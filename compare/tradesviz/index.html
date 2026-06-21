@@ -65,7 +65,7 @@
           "name": "Does SignalDeck or TradesViz have better broker import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TradesViz has broader broker import coverage across multiple platforms. SignalDeck supports MT4 and MT5 via MetaApi with real-time account balance sync — live equity automatically updates Kelly Criterion and position sizing. Neither platform currently offers broad broker coverage like TraderSync (950+ brokers), but both support MT4/MT5 in some form. SignalDeck's live balance sync is a differentiator TradesViz does not offer."
+            "text": "SignalDeck supports MT4/MT5 via MetaApi (real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV in 8 broker formats. TradesViz has broader platform coverage across legacy and niche integrations. SignalDeck's live balance sync for MT4/MT5 is a differentiator TradesViz does not offer."
           }
         },
         {
@@ -205,7 +205,8 @@
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Walk-Forward Analysis and Monte Carlo simulation matter to you</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> R-Multiple is your core risk framework — not just one metric</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want SQN scoring, Kelly Criterion, and a structured 5-step Post Mortem</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade MT4/MT5 and want live balance sync for accurate position sizing</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade MT4/MT5 and want real-time live balance sync for accurate position sizing</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on IBKR, cTrader, Robinhood, Schwab, Fidelity, E*TRADE, or Coinbase</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want full-feature free access during beta</li>
                     </ul>
                 </div>
@@ -215,7 +216,7 @@
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need 70+ indicators for custom strategy testing</li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You want AI Q&A to query your trade data conversationally</li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need 30,000+ ticker universe for multi-symbol testing</li>
-                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need broad non-MT4/MT5 broker auto-import coverage</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need import from legacy or niche brokers beyond SignalDeck's current coverage</li>
                     </ul>
                 </div>
             </div>
@@ -331,6 +332,21 @@
                             <td class="px-4 py-3 text-zinc-300 font-medium">MT4/MT5 Import + Live Balance Sync</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Real-time equity</td>
                             <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only, no balance sync</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">IBKR Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Flex Web Service</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">cTrader Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ OAuth</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">US Equities &amp; Crypto (Robinhood, Schwab, Fidelity, Coinbase)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ via SnapTrade</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
                         <tr class="border-t-2 border-orange-500/30">
                             <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — New v1.0.59</td>
@@ -476,7 +492,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does SignalDeck or TradesViz have better broker import?</h3>
-                    <p class="text-zinc-400 text-sm">TradesViz has broader broker import coverage. SignalDeck supports MT4 and MT5 via MetaApi with real-time account balance sync — live equity automatically updates Kelly Criterion sizing. If your broker runs MT4 or MT5, SignalDeck's live balance sync is a differentiator TradesViz does not offer. For non-MT4/MT5 brokers, TradesViz has wider coverage.</p>
+                    <p class="text-zinc-400 text-sm">SignalDeck now supports MT4/MT5 (real-time live balance sync via MetaApi), IBKR via Flex Web Service, cTrader via OAuth, SnapTrade for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV in 8 formats. TradesViz has broader coverage across legacy and niche platforms. The live balance sync for MT4/MT5 remains exclusive to SignalDeck.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Which is cheaper — SignalDeck or TradesViz?</h3>

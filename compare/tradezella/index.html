@@ -65,7 +65,7 @@
           "name": "Does SignalDeck or TradeZella have broker import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Both have broker import. SignalDeck supports MT4 and MT5 via MetaApi with real-time account balance sync — live equity feeds Kelly Criterion sizing automatically. TradeZella has broader broker coverage (500+ connections). If your broker runs MT4 or MT5, SignalDeck's import includes live balance sync that TradeZella's import does not offer."
+            "text": "SignalDeck supports MT4/MT5 via MetaApi (real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV in 8 broker formats including Tradovate and NinjaTrader. TradeZella supports 500+ broker connections. For the major brokers traders actually use — MT4/MT5, IBKR, cTrader, Robinhood, Schwab, Fidelity, Coinbase — SignalDeck now covers them all, while also including live balance sync that TradeZella does not offer."
           }
         },
         {
@@ -81,7 +81,7 @@
           "name": "Does TradeZella have a free trial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TradeZella does not offer a free tier or ongoing free plan. It offers a short trial period before requiring a paid subscription of $30–$50/month. SignalDeck is fully free during beta with every feature unlocked — Walk-Forward Analysis, Monte Carlo, full backtester, and MT4/MT5 import."
+            "text": "TradeZella does not offer a free tier, an ongoing free plan, or a free trial. It requires a paid subscription of $30–$50/month from day one. SignalDeck is fully free during beta with every feature unlocked — Walk-Forward Analysis, Monte Carlo, full backtester, and MT4/MT5 import."
           }
         },
         {
@@ -217,7 +217,9 @@
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Walk-Forward Analysis and Monte Carlo are important to you</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> R-Multiple is how you think about risk — SQN tells you if your edge is real</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want a structured 5-step Post Mortem on every trade</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on MT4/MT5 and want automatic import with live balance sync</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on MT4/MT5 and want automatic import with real-time live balance sync</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on IBKR, cTrader, Robinhood, Schwab, Fidelity, E*TRADE, or Coinbase</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You use NinjaTrader or Tradovate and want CSV import with correct futures P&L</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Free beta access with every feature unlocked</li>
                     </ul>
                 </div>
@@ -226,7 +228,7 @@
                     <ul class="space-y-2 text-sm text-zinc-400">
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> Manual bar-by-bar trade replay is your primary training method</li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You prioritize community features and social trading</li>
-                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need broad broker import across non-MT4/MT5 platforms</li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> You need import from the full breadth of 500+ niche broker connections TradeZella aggregates</li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span> Screen-time simulation practice is your current development priority</li>
                     </ul>
                 </div>
@@ -352,8 +354,23 @@
                             <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">IBKR Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ Flex Web Service</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
                         <tr class="border-t border-zinc-800">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">Broad Broker Auto-Import</td>
+                            <td class="px-4 py-3 text-zinc-300 font-medium">cTrader Import</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ OAuth</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">US Equities &amp; Crypto (Robinhood, Schwab, Fidelity, Coinbase)</td>
+                            <td class="px-4 py-3 text-center bg-blue-500/5 text-emerald-500 font-bold">✅ via SnapTrade</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Broadest Broker Coverage (500+)</td>
                             <td class="px-4 py-3 text-center bg-blue-500/5 text-zinc-600">❌</td>
                             <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅ 500+ brokers</td>
                         </tr>
@@ -478,7 +495,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div class="flex items-start gap-3 bg-zinc-900/50 border border-amber-500/30 rounded-xl p-5">
                 <span class="text-amber-400 mt-0.5 text-sm font-bold flex-shrink-0">Note</span>
-                <p class="text-zinc-400 text-sm leading-relaxed"><strong class="text-white">TradeZella does not have a free tier or ongoing free plan.</strong> It offers a limited trial period before requiring $30–$50/month. If you want to evaluate a trading journal without committing, SignalDeck is fully free during beta — all features including Walk-Forward Analysis, Monte Carlo, and MT4/MT5 import are available at no cost.</p>
+                <p class="text-zinc-400 text-sm leading-relaxed"><strong class="text-white">TradeZella does not have a free tier, free plan, or free trial.</strong> It requires a paid subscription ($30–$50/month) from day one. If you want to evaluate a trading journal without committing, SignalDeck is fully free during beta — all features including Walk-Forward Analysis, Monte Carlo, and MT4/MT5 import are available at no cost.</p>
             </div>
             <p class="text-center text-xs text-zinc-500 font-mono">
                 → <a href="../support/" class="hover:text-zinc-300 transition-colors">Compare support quality across all 6 trading journals</a>
@@ -509,7 +526,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does SignalDeck or TradeZella have better import?</h3>
-                    <p class="text-zinc-400 text-sm">SignalDeck supports MT4 and MT5 import via MetaApi, plus real-time account balance sync so Kelly Criterion sizing always uses live equity. TradeZella has broader broker coverage across more platforms. If your broker runs MT4 or MT5, SignalDeck's import includes balance sync that TradeZella's import does not provide.</p>
+                    <p class="text-zinc-400 text-sm">SignalDeck now supports MT4/MT5 (real-time live balance sync via MetaApi), IBKR via Flex Web Service, cTrader via OAuth, SnapTrade for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV in 8 formats including Tradovate and NinjaTrader. For the major platforms traders actually use, SignalDeck covers them. TradeZella aggregates 500+ broker connections, which is wider in total breadth — but SignalDeck's live balance sync for MT4/MT5 is a feature TradeZella does not offer at all.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Which is cheaper — SignalDeck or TradeZella?</h3>
@@ -517,7 +534,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does TradeZella have a free trial?</h3>
-                    <p class="text-zinc-400 text-sm">TradeZella does not have an ongoing free tier. It offers a short trial period before requiring a paid subscription. SignalDeck is free for the entire beta period with all features accessible — no credit card required, no trial clock.</p>
+                    <p class="text-zinc-400 text-sm">TradeZella has no free tier, no free plan, and no free trial — a paid subscription is required from day one. SignalDeck is free for the entire beta period with all features accessible — no credit card required, no trial clock.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does TradeZella have sync issues?</h3>

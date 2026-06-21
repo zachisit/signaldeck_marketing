@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
@@ -12,9 +12,9 @@
     <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MT4/MT5 Trade Import for Trading Journals | SignalDeck</title>
-    <meta name="description" content="MT4/MT5 trade import via MetaApi — automatic fills, P&L, and live account balance sync so position sizing always uses real equity. Free during beta.">
-    <meta name="keywords" content="MT4 trade import trading journal, MT5 trade import trading journal, MetaApi trading journal, broker import trading journal, trading journal auto import, MT4 journal, MT5 journal, forex trading journal import">
+    <title>Multi-Broker Trade Import | SignalDeck</title>
+    <meta name="description" content="Import trades from MT4/MT5, Interactive Brokers, cTrader, SnapTrade (Robinhood, Schwab, Fidelity, Coinbase), or CSV. Automatic import with live balance sync. Free.">
+    <meta name="keywords" content="trading journal broker import, IBKR trading journal, Interactive Brokers trading journal, cTrader trading journal, MT4 MT5 trade import, Robinhood trading journal, Schwab trading journal, Fidelity trading journal, NinjaTrader CSV import, Tradovate CSV import, broker auto import trading journal">
     <meta name="author" content="SignalDeck">
 
     <link rel="canonical" href="https://sgnldk.com/broker-import/">
@@ -22,16 +22,16 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgnldk.com/broker-import/">
-    <meta property="og:title" content="MT4/MT5 Trade Import | SignalDeck">
-    <meta property="og:description" content="SignalDeck supports MT4/MT5 trade import via MetaApi. Import trades automatically and sync your live account balance — so position sizing always uses your real current equity.">
+    <meta property="og:title" content="Multi-Broker Trade Import | SignalDeck">
+    <meta property="og:description" content="Import trades from MT4/MT5, IBKR, cTrader, SnapTrade (Robinhood, Schwab, Fidelity, Coinbase), or CSV — automatically into SignalDeck.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01j-perspective.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sgnldk.com/broker-import/">
-    <meta property="twitter:title" content="MT4/MT5 Trade Import | SignalDeck">
-    <meta property="twitter:description" content="Import MT4/MT5 trades automatically. Live account balance sync. Position sizing based on your real equity.">
+    <meta property="twitter:title" content="Multi-Broker Trade Import | SignalDeck">
+    <meta property="twitter:description" content="Import from MT4/MT5, IBKR, cTrader, SnapTrade, or CSV. Live balance sync for MT4/MT5. Free.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01j-perspective.png">
 
     <script type="application/ld+json">
@@ -41,18 +41,18 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Does SignalDeck have broker auto-import?",
+                "name": "What brokers does SignalDeck support for trade import?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes — SignalDeck supports MT4 and MT5 trade import via MetaApi. Connect your account and trades import automatically (symbol, time, volume, price, P&L). SignalDeck also syncs your live account balance in real time so Kelly Criterion position sizing always uses your actual current equity, not a manually entered number."
+                    "text": "SignalDeck supports MT4 and MT5 via MetaApi (Elite plan — includes live balance sync), Interactive Brokers via Flex Web Service (all plans), cTrader via OAuth (all plans), and SnapTrade aggregator for US retail and crypto brokers including Robinhood, Webull, Schwab, Fidelity, E*TRADE, and Coinbase (all plans). CSV import is also available for 8 broker formats: Schwab, TD Ameritrade, IBKR Activity, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What is live account balance sync and why does it matter for position sizing?",
+                "name": "Does SignalDeck support Interactive Brokers import?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SignalDeck syncs your MT4/MT5 account balance in real time via MetaApi. Your Kelly Criterion recommendations and fixed-R risk sizing always reflect your actual current equity — not a number you typed in two weeks ago. After a drawdown, your sizing adjusts automatically. No journal that relies on manual balance entry can replicate this."
+                    "text": "Yes. SignalDeck connects to Interactive Brokers via the free IBKR Flex Web Service — no third-party subscription required. Set up your Flex Query in IBKR Account Management, paste your token into SignalDeck, and trades import with a guided wizard. A token-less file-upload fallback is also available. Opt-in auto-sync keeps your journal current. Available on all plans."
                 }
             },
             {
@@ -65,10 +65,26 @@
             },
             {
                 "@type": "Question",
-                "name": "What are the trade-offs between MT4/MT5 import and manual logging?",
+                "name": "What is live account balance sync and why does it matter?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "MT4/MT5 import handles fills, price, volume, and P&L automatically — no manual entry of execution data. What it doesn't capture: stop loss (required for R-Multiple), trade rationale, and psychological context. Those still require manual input via the post-trade review. The ideal workflow: use MT4/MT5 import for execution data, then complete a Post Mortem review for the qualitative context."
+                    "text": "MT4/MT5 import via MetaApi includes real-time account balance sync — SignalDeck reads your live equity so Kelly Criterion sizing and prop firm drawdown headroom always reflect what's actually in your account. After a drawdown, your sizing adjusts automatically. IBKR integration includes an EOD balance card. Other integrations import trade history; MT4/MT5 is the only one with real-time balance sync."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I import from Robinhood, Schwab, Fidelity, or Coinbase?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SignalDeck integrates with SnapTrade, an aggregator that covers major US retail and crypto brokers including Robinhood, Webull, Schwab, Fidelity, E*TRADE, and Coinbase. Connect once through SnapTrade's hosted portal and trades import into your journal automatically. Available on all plans."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What CSV formats does SignalDeck support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity Statement CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. Futures are supported with automatic contract multiplier resolution for correct P&L. CSV import is free and ungated on all plans."
                 }
             }
         ]
@@ -120,166 +136,241 @@
                 Now Live
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-                MT4/MT5 Trade Import<br><span class="text-blue-400">is Now Live in SignalDeck.</span>
+                Import From Any Broker<br><span class="text-blue-400">Into SignalDeck.</span>
             </h1>
             <p class="text-xl text-zinc-400 leading-relaxed">
-                Connect your MT4 or MT5 account via MetaApi. Trades import automatically — fills, P&L, and execution data — while your live account balance syncs in real time so position sizing always uses your actual current equity.
+                MT4/MT5 via MetaApi with live balance sync. Interactive Brokers via Flex Web Service. cTrader via OAuth. SnapTrade for US equities and crypto — Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase. Or upload a CSV in any of 8 broker formats.
             </p>
-            <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900 border border-emerald-500/30 text-sm text-zinc-400">
-                <span class="text-emerald-400 font-bold font-mono text-xs">TEAM PLAN</span>
-                <span class="text-zinc-600">|</span>
-                MT4/MT5 import is available on the <a href="../plans/index.html" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">Elite plan</a> ($50/mo · free during beta)
+            <div class="mt-8 flex flex-wrap gap-3">
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ MT4/MT5</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Interactive Brokers</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ cTrader</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Robinhood · Schwab · Fidelity · Coinbase</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ CSV — 8 Formats</span>
             </div>
         </div>
     </section>
 
-    <!-- MT4/MT5 Import Announcement -->
-    <section class="py-16 border-b border-zinc-900 bg-zinc-900/30">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="flex items-start gap-4 bg-zinc-900 border border-emerald-500/30 rounded-xl p-6">
-                <div class="text-2xl mt-0.5">⚡</div>
-                <div>
-                    <h2 class="text-white font-bold text-lg mb-2">SignalDeck supports MT4 and MT5 trade import via MetaApi.</h2>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-3">Connect your account once and trades import automatically — fills, P&L, symbol, volume, and price. Your live account balance syncs in real time for accurate position sizing. Manual entry and CSV import still work for non-MT4/MT5 platforms. If you need 950+ generic broker integrations, <a href="https://tradersync.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">TraderSync</a> still leads there — but SignalDeck adds the live balance sync that TraderSync doesn't offer.</p>
-                    <div class="flex flex-wrap gap-3 mt-4">
-                        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ MT4 Import</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ MT5 Import</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Live Balance Sync</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Zero Manual Entry for Fills</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Real-Time Equity for Sizing</span>
+    <!-- Import Methods -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-2 text-center">Five Ways to Connect</h2>
+            <p class="text-zinc-500 text-sm text-center mb-12">Every method imports fills, P&L, symbol, volume, and price. Stop loss is added in the post-trade review for R-Multiple.</p>
+
+            <div class="space-y-6">
+
+                <!-- MT4/MT5 -->
+                <div class="bg-zinc-900/60 border border-emerald-500/30 rounded-xl p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-white font-bold text-lg">MT4 / MT5 via MetaApi</h3>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-900/50 text-purple-300 border border-purple-700/50 uppercase tracking-wide">Elite Plan</span>
+                            </div>
+                            <p class="text-zinc-400 text-sm leading-relaxed">The only import method with <strong class="text-white">real-time account balance sync</strong>. Trades import the moment they close. Your live equity feeds Kelly Criterion sizing and prop firm drawdown headroom automatically — not a number you typed in last month. The default choice for forex and prop firm traders on MT4 or MT5.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Real-time balance sync</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Automatic on close</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Prop firm drawdown gate</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">Stop loss: manual after import</span>
                     </div>
                 </div>
+
+                <!-- IBKR -->
+                <div class="bg-zinc-900/60 border border-zinc-700/50 rounded-xl p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-white font-bold text-lg">Interactive Brokers — Flex Web Service</h3>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans</span>
+                            </div>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Direct IBKR integration via the free Flex Web Service — no MetaApi, no third-party subscription. Set up a Flex Query in IBKR Account Management, paste your token into SignalDeck's guided connect wizard, and your trade history imports with FIFO round-trip reconstruction (scale-in/out and flip-through-zero handled). Prefer not to use tokens? The file-upload fallback accepts any Flex XML statement. Opt-in auto-sync keeps your journal current. EOD balance card included.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Free — no subscription</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Guided connect wizard</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ File-upload fallback</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Opt-in auto-sync</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ FIFO round-trip reconstruction</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ EOD balance card</span>
+                    </div>
+                </div>
+
+                <!-- cTrader -->
+                <div class="bg-zinc-900/60 border border-zinc-700/50 rounded-xl p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-white font-bold text-lg">cTrader — OAuth Import</h3>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans</span>
+                            </div>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Connect your cTrader account via OAuth 2.0. Deals import with paginated history, idempotent upsert preserves any notes or tags you've added, and realized P&L comes from cTrader's authoritative grossProfit. Opt-in auto-sync keeps your journal current without re-importing duplicates.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ OAuth connect</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Full deal history</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Idempotent — safe to re-import</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Opt-in auto-sync</span>
+                    </div>
+                </div>
+
+                <!-- SnapTrade -->
+                <div class="bg-zinc-900/60 border border-zinc-700/50 rounded-xl p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-white font-bold text-lg">SnapTrade — US Equities &amp; Crypto</h3>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans</span>
+                            </div>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Connect Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, and other US retail and crypto brokers via SnapTrade's hosted Connection Portal. One integration, multiple brokers. Trade activities normalize through FIFO round-trip reconstruction into the same journal workflow as every other import method.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Robinhood</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Webull</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Schwab</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Fidelity</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ E*TRADE</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Coinbase</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ FIFO round-trip reconstruction</span>
+                    </div>
+                </div>
+
+                <!-- CSV -->
+                <div class="bg-zinc-900/60 border border-zinc-700/50 rounded-xl p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-white font-bold text-lg">CSV Upload — 8 Broker Formats</h3>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans · Free</span>
+                            </div>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Upload a CSV export from your broker and SignalDeck parses it with broker-aware logic — preambles, footers, multi-section statements, and quoted tokenization handled per format. Futures get automatic contract multiplier resolution (Tradovate and NinjaTrader) for correct P&L. Fill-level FIFO reconstruction for platforms that export individual fills rather than completed round-trips.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Schwab</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">TD Ameritrade</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">IBKR Activity CSV</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">MetaTrader</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Vanguard</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Tradovate</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">NinjaTrader</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Generic</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- What Broker Import Gives You -->
-    <section class="py-24 border-b border-zinc-900">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">MT4/MT5 Import vs Generic Broker Import vs Manual Logging</h2>
-            <p class="text-zinc-400 text-center text-sm mb-10 max-w-2xl mx-auto">Not all broker imports are equal. The real differentiator with MT4/MT5 import is live account balance sync — your position sizing stays accurate without manual updates. Both MT4/MT5 and generic broker imports return fill-level data without stop loss.</p>
+    <!-- Comparison Table -->
+    <section class="py-20 border-b border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-2 text-center">Import Method Comparison</h2>
+            <p class="text-zinc-500 text-sm text-center mb-10">MT4/MT5 is the only method with real-time balance sync — that's the meaningful differentiator for prop firm and forex traders.</p>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead>
                         <tr class="border-b border-zinc-800">
                             <th class="text-left py-3 px-4 text-zinc-500 font-mono uppercase text-xs tracking-wider">Feature</th>
-                            <th class="text-center py-3 px-4 text-emerald-400 font-semibold">MT4/MT5 Import<br><span class="text-zinc-500 font-normal text-[10px]">(SignalDeck via MetaApi)</span></th>
-                            <th class="text-center py-3 px-4 text-zinc-400 font-semibold">Generic Broker Import<br><span class="text-zinc-500 font-normal text-[10px]">(TraderSync 950+ brokers)</span></th>
-                            <th class="text-center py-3 px-4 text-zinc-400 font-semibold">Manual / CSV Entry</th>
+                            <th class="text-center py-3 px-4 text-emerald-400 font-semibold text-xs">MT4/MT5<br><span class="text-zinc-500 font-normal">MetaApi · Elite</span></th>
+                            <th class="text-center py-3 px-4 text-zinc-300 font-semibold text-xs">IBKR<br><span class="text-zinc-500 font-normal">Flex · All Plans</span></th>
+                            <th class="text-center py-3 px-4 text-zinc-300 font-semibold text-xs">cTrader<br><span class="text-zinc-500 font-normal">OAuth · All Plans</span></th>
+                            <th class="text-center py-3 px-4 text-zinc-300 font-semibold text-xs">SnapTrade<br><span class="text-zinc-500 font-normal">Aggregator · All</span></th>
+                            <th class="text-center py-3 px-4 text-zinc-300 font-semibold text-xs">CSV<br><span class="text-zinc-500 font-normal">8 Formats · All</span></th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-zinc-900">
                         <tr class="bg-zinc-900/30">
-                            <td class="py-3 px-4 text-zinc-400">Time to log a trade</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">Automatic</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">Automatic</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">2–3 min</td>
+                            <td class="py-3 px-4 text-zinc-400">Fills, P&L, price imported</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
                         </tr>
                         <tr>
-                            <td class="py-3 px-4 text-zinc-400">P&L and execution data</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-zinc-400">Real-time balance sync</td>
+                            <td class="py-3 px-4 text-center text-emerald-400 font-semibold">✓ Real-time</td>
+                            <td class="py-3 px-4 text-center text-zinc-500">EOD card</td>
+                            <td class="py-3 px-4 text-center text-zinc-600">—</td>
+                            <td class="py-3 px-4 text-center text-zinc-600">—</td>
+                            <td class="py-3 px-4 text-center text-zinc-600">—</td>
                         </tr>
                         <tr class="bg-zinc-900/30">
+                            <td class="py-3 px-4 text-zinc-400">Auto-sync (ongoing)</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓ Automatic</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Opt-in</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Opt-in</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Opt-in</td>
+                            <td class="py-3 px-4 text-center text-zinc-600">Manual upload</td>
+                        </tr>
+                        <tr>
                             <td class="py-3 px-4 text-zinc-400">Stop loss captured</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">Manual (after import)</td>
-                            <td class="py-3 px-4 text-center text-rose-400">Rarely (fills only)</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓ (required)</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 text-zinc-400">R-Multiple calculable</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">After adding SL</td>
-                            <td class="py-3 px-4 text-center text-rose-400">No stop = no R</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Manual after</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Manual after</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Manual after</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Manual after</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">Manual after</td>
                         </tr>
                         <tr class="bg-zinc-900/30">
-                            <td class="py-3 px-4 text-zinc-400">Live account balance sync</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓ (real-time)</td>
-                            <td class="py-3 px-4 text-center text-rose-400">No</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">Manual update</td>
+                            <td class="py-3 px-4 text-zinc-400">FIFO round-trip reconstruction</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓ (NinjaTrader/Tradovate)</td>
                         </tr>
                         <tr>
-                            <td class="py-3 px-4 text-zinc-400">Kelly Criterion uses real equity</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓ (always current)</td>
-                            <td class="py-3 px-4 text-center text-rose-400">No</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">Only if updated</td>
+                            <td class="py-3 px-4 text-zinc-400">Idempotent re-import</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-center text-zinc-400">N/A</td>
                         </tr>
                         <tr class="bg-zinc-900/30">
-                            <td class="py-3 px-4 text-zinc-400">Trade rationale / thesis</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">Post Mortem review</td>
-                            <td class="py-3 px-4 text-center text-rose-400">Not captured</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 text-zinc-400">Psychological context</td>
-                            <td class="py-3 px-4 text-center text-zinc-400">Post Mortem review</td>
-                            <td class="py-3 px-4 text-center text-rose-400">Not captured</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓ (behavioral tags)</td>
-                        </tr>
-                        <tr class="bg-zinc-900/30">
-                            <td class="py-3 px-4 text-zinc-400">SQN calculable</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
-                            <td class="py-3 px-4 text-center text-rose-400">Requires R (see above)</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                            <td class="py-3 px-4 text-zinc-400">Plan required</td>
+                            <td class="py-3 px-4 text-center text-purple-400">Elite ($50/mo)</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">All plans</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">All plans</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">All plans</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">All plans</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <p class="text-zinc-500 text-sm mt-6 leading-relaxed">Why MT4/MT5 import is still better than most: it automatically captures fills, P&L, symbol, volume, and price — eliminating manual entry of execution data. The real differentiator is live balance sync: SignalDeck reads your actual MT4/MT5 account equity in real time so Kelly Criterion sizing is always based on what you actually have, not a manually entered number. Stop loss still needs to be added after import for R-Multiple — but you save significant time on the execution data side, and your balance is never stale.</p>
-        </div>
-    </section>
-
-    <!-- Who Needs Import -->
-    <section class="py-24 border-b border-zinc-900">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-10 text-center">Choose Based on What You Actually Need</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-                    <h3 class="text-white font-bold text-lg mb-4">Use TraderSync if:</h3>
-                    <ul class="space-y-3 text-sm text-zinc-400">
-                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>You need import from a non-MT4/MT5 broker (stocks, US equities, 950+ broker coverage)</span></li>
-                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>Your primary goal is P&L tracking and tax reporting</span></li>
-                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>You need multi-account aggregation across many different platforms</span></li>
-                        <li class="flex items-start gap-3"><span class="text-blue-400 mt-0.5">→</span><span>You want AI coaching feedback (Cypher)</span></li>
-                    </ul>
-                    <div class="mt-6 pt-5 border-t border-zinc-800">
-                        <p class="text-zinc-500 text-xs">Best for: <a href="../compare/tradersync/index.html" class="text-blue-400 hover:text-blue-300">TraderSync</a> (950+ brokers) · Tradervue (80+ brokers) · TradesViz</p>
-                    </div>
-                </div>
-                <div class="bg-zinc-900 border border-emerald-500/20 rounded-xl p-6">
-                    <h3 class="text-white font-bold text-lg mb-4">Use SignalDeck if:</h3>
-                    <ul class="space-y-3 text-sm text-zinc-400">
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You trade on MT4 or MT5 and want automatic trade import with live balance sync</span></li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want live account balance sync so position sizing uses your real current equity</span></li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want R-Multiple, SQN scoring, and Kelly Criterion calculated automatically from imported trades</span></li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want a strategy backtester with Walk-Forward Analysis and Monte Carlo</span></li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">→</span><span>You want a structured Post Mortem review on every closed trade</span></li>
-                    </ul>
-                    <div class="mt-6 pt-5 border-t border-zinc-800">
-                        <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 text-sm transition-colors">Start free during beta →</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="py-24 border-b border-zinc-900">
+    <section class="py-20 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
             <div class="space-y-5">
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-                    <p class="text-white font-semibold mb-2">Does SignalDeck have broker auto-import?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — SignalDeck supports MT4 and MT5 trade import via MetaApi. Connect your account and trades import automatically (fills, P&L, symbol, volume, price). Live account balance sync is also included. Manual entry and CSV import remain available for non-MT4/MT5 platforms.</p>
+                    <p class="text-white font-semibold mb-2">What brokers does SignalDeck support?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">MT4/MT5 via MetaApi (Elite, with live balance sync), Interactive Brokers via Flex Web Service (all plans), cTrader via OAuth (all plans), SnapTrade aggregator covering Robinhood, Webull, Schwab, Fidelity, E*TRADE, and Coinbase (all plans), plus CSV upload in 8 broker formats including Tradovate and NinjaTrader (all plans, free).</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-                    <p class="text-white font-semibold mb-2">Does MT4/MT5 import capture the stop loss for R-Multiple?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">No — the MetaApi history-deals endpoint returns execution data (fills) but not the stop loss from the original order. Stop loss still needs to be added manually after import for R-Multiple to be calculable. The import saves time on execution data; R-Multiple requires the post-trade review step where you add your planned stop.</p>
+                    <p class="text-white font-semibold mb-2">Does the stop loss import automatically?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">No — across all import methods, stop loss requires manual entry after import for R-Multiple calculation. Broker data returns fills and P&L, not order-level SL/TP. The import saves time on execution data; the stop loss and trade rationale come from your post-trade review.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-                    <p class="text-white font-semibold mb-2">What is live account balance sync and why does it matter for position sizing?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck syncs your MT4/MT5 account balance in real time. Your Kelly Criterion recommendation and fixed-R risk sizing always reflect your actual current equity — not a number you typed in last month. After a drawdown, your sizing adjusts automatically. This is something no journal that relies on manual balance entry can replicate.</p>
+                    <p class="text-white font-semibold mb-2">What is live balance sync and why does it matter?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">MT4/MT5 import via MetaApi reads your live account equity in real time. Kelly Criterion sizing and prop firm drawdown headroom always reflect your actual current balance — not a number you typed in last month. After a drawdown, your sizing adjusts automatically. This is exclusive to the MT4/MT5 integration and the Elite plan.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How does IBKR Flex import work?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Set up a Flex Query in IBKR Account Management (Flex Web Service is free), then either paste your Flex token into SignalDeck's guided connect wizard or upload a Flex XML file directly. SignalDeck handles FIFO round-trip reconstruction for scale-in/out and flip-through-zero positions. Opt-in auto-sync keeps your journal current.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Can I import NinjaTrader or Tradovate trades?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen.</p>
                 </div>
             </div>
         </div>

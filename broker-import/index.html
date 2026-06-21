@@ -136,17 +136,24 @@
                 Now Live
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-                Import From Any Broker<br><span class="text-blue-400">Into SignalDeck.</span>
+                Your funded account,<br><span class="text-blue-400">synced live.</span>
             </h1>
             <p class="text-xl text-zinc-400 leading-relaxed">
-                MT4/MT5 via MetaApi with live balance sync. Interactive Brokers via Flex Web Service. cTrader via OAuth — works with any cTrader broker: IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets, and 250+ more. SnapTrade covers 30+ brokers across US, Canada, Europe and Australia. Or upload a CSV in any of 8 broker formats.
+                Connect your MT4/MT5 prop firm account once. Every trade imports the second it closes and your drawdown headroom updates automatically against your real live balance — not a number you typed in last month. Also covers cTrader (IC Markets, Pepperstone, FP Markets, FxPro, Fusion + 250 more), Interactive Brokers, and CSV.
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
-                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ MT4/MT5</span>
-                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Interactive Brokers</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ MT4/MT5 — live balance sync</span>
                 <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ cTrader — IC Markets · Pepperstone · FP Markets · FxPro · 250+ brokers</span>
-                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ SnapTrade — Robinhood · Schwab · Questrade · Trading 212 · 30+ brokers</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ Interactive Brokers</span>
                 <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">✓ CSV — 8 Formats</span>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a href="https://app.sgnldk.com/register"
+                   onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Broker Import Hero' });"
+                   class="px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-semibold transition-colors">
+                    Start Free — Import Your First Account
+                </a>
+                <span class="text-zinc-500 text-sm">Free during beta · No credit card</span>
             </div>
         </div>
     </section>
@@ -154,8 +161,8 @@
     <!-- Import Methods -->
     <section class="py-20 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold text-white mb-2 text-center">Five Ways to Connect</h2>
-            <p class="text-zinc-500 text-sm text-center mb-12">Every method imports fills, P&L, symbol, volume, and price. Stop loss is added in the post-trade review for R-Multiple.</p>
+            <h2 class="text-2xl font-bold text-white mb-2 text-center">Connect your broker in under two minutes</h2>
+            <p class="text-zinc-500 text-sm text-center mb-12">Every method imports fills, P&amp;L, symbol, volume, and price automatically. Add your stop loss in review for R-Multiple.</p>
 
             <div class="space-y-6">
 
@@ -163,18 +170,27 @@
                 <div class="bg-zinc-900/60 border border-emerald-500/30 rounded-xl p-6">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
-                            <div class="flex items-center gap-3 mb-1">
-                                <h3 class="text-white font-bold text-lg">MT4 / MT5 via MetaApi</h3>
+                            <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                <h3 class="text-white font-bold text-lg">MT4 / MT5 — Live Account Sync</h3>
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-900/50 text-purple-300 border border-purple-700/50 uppercase tracking-wide">Elite Plan</span>
+                                <span class="text-[10px] text-zinc-500">Free to start during beta</span>
                             </div>
-                            <p class="text-zinc-400 text-sm leading-relaxed">The only import method with <strong class="text-white">real-time account balance sync</strong>. Trades import the moment they close. Your live equity feeds Kelly Criterion sizing and prop firm drawdown headroom automatically — not a number you typed in last month. The default choice for forex and prop firm traders on MT4 or MT5.</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">The only method that reads your <strong class="text-white">live equity in real time</strong>. Every trade imports the second it closes and your prop firm drawdown gate plus Kelly position sizing recalculate against your actual current balance — automatically. After a losing trade, your headroom updates before you place the next one. Built for FTMO, Apex, MyFundedFX, Topstep, and The5ers accounts on MT4 or MT5.</p>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mb-4">
                         <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Real-time balance sync</span>
                         <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Automatic on close</span>
                         <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Prop firm drawdown gate</span>
                         <span class="px-2 py-1 rounded bg-zinc-800 text-zinc-500 border border-zinc-700">Stop loss: manual after import</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://app.sgnldk.com/register"
+                           onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'MT5 Import CTA' });"
+                           class="px-4 py-2 rounded-lg bg-purple-600/30 hover:bg-purple-600/50 text-purple-300 text-sm font-semibold border border-purple-700/50 transition-colors">
+                            Connect Your MT5 Account →
+                        </a>
+                        <span class="text-zinc-600 text-xs">Free to try during beta</span>
                     </div>
                 </div>
 
@@ -204,17 +220,25 @@
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
                             <div class="flex items-center gap-3 mb-1">
-                                <h3 class="text-white font-bold text-lg">cTrader — OAuth Import</h3>
+                                <h3 class="text-white font-bold text-lg">cTrader — Connect Any cTrader Broker (Free)</h3>
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans</span>
                             </div>
-                            <p class="text-zinc-400 text-sm leading-relaxed">Connect your cTrader account via OAuth 2.0. Deals import with paginated history, idempotent upsert preserves any notes or tags you've added, and realized P&L comes from cTrader's authoritative grossProfit. Opt-in auto-sync keeps your journal current without re-importing duplicates.</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">One connection covers every cTrader broker — <strong class="text-white">IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets</strong>, and 250+ more. Link via secure OAuth and your full trade history imports with opt-in auto-sync. Re-import anytime — your notes and tags are never overwritten. Available on every plan, including free.</p>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ OAuth connect</span>
-                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Full deal history</span>
-                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Idempotent — safe to re-import</span>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mb-4">
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ IC Markets · Pepperstone · FP Markets · FxPro</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ 250+ cTrader brokers</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ OAuth — secure, no password shared</span>
+                        <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Safe to re-import</span>
                         <span class="px-2 py-1 rounded bg-zinc-800 text-emerald-400 border border-zinc-700">✓ Opt-in auto-sync</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://app.sgnldk.com/register"
+                           onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'cTrader Import CTA' });"
+                           class="px-4 py-2 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 text-sm font-semibold border border-emerald-700/40 transition-colors">
+                            Connect cTrader Free →
+                        </a>
                     </div>
                 </div>
 
@@ -223,10 +247,10 @@
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
                             <div class="flex items-center gap-3 mb-1">
-                                <h3 class="text-white font-bold text-lg">SnapTrade — US Equities &amp; Crypto</h3>
+                                <h3 class="text-white font-bold text-lg">SnapTrade — 30+ Brokers Worldwide</h3>
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans</span>
                             </div>
-                            <p class="text-zinc-400 text-sm leading-relaxed">Connect Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, and other US retail and crypto brokers via SnapTrade's hosted Connection Portal. One integration, multiple brokers. Trade activities normalize through FIFO round-trip reconstruction into the same journal workflow as every other import method.</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">For US, Canadian, European, and Australian retail and crypto brokers. Connect Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Questrade, Wealthsimple, Trading 212, DEGIRO, AJ Bell, CommSec, and more via SnapTrade's hosted portal. One integration, multiple brokers. FIFO round-trip reconstruction included.</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-2 text-xs font-mono">
@@ -483,11 +507,11 @@
             <div class="space-y-5">
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">What brokers does SignalDeck support?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">MT4/MT5 via MetaApi (Elite, with live balance sync), Interactive Brokers via Flex Web Service (all plans), cTrader via OAuth (all plans), SnapTrade aggregator covering Robinhood, Webull, Schwab, Fidelity, E*TRADE, and Coinbase (all plans), plus CSV upload in 8 broker formats including Tradovate and NinjaTrader (all plans, free).</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">For prop firm and forex traders: MT4/MT5 via MetaApi with live balance sync (Elite — works with FTMO, Apex, MyFundedFX, Topstep, The5ers), and cTrader via OAuth covering IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets and 250+ brokers (all plans, free). Also: Interactive Brokers via Flex Web Service (all plans), SnapTrade for US/Canada/Europe/Australia retail and crypto brokers including Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Questrade, Trading 212, and DEGIRO (all plans), and CSV upload in 8 formats including Tradovate and NinjaTrader (all plans).</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Does the stop loss import automatically?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">No — across all import methods, stop loss requires manual entry after import for R-Multiple calculation. Broker data returns fills and P&L, not order-level SL/TP. The import saves time on execution data; the stop loss and trade rationale come from your post-trade review.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Your fills, P&amp;L, volume, and execution prices import automatically. Adding your stop loss takes about 10 seconds in the post-trade review — it's what powers your R-Multiple. Broker feeds return execution data, not order-level SL/TP, so the stop and your trade rationale come from your own review. This keeps your R-Multiple based on the stop you actually intended, not a moved one.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">What is live balance sync and why does it matter?</p>
@@ -502,6 +526,20 @@
                     <p class="text-zinc-400 text-sm leading-relaxed">Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold text-white mb-3">Stop guessing your drawdown headroom.</h2>
+            <p class="text-zinc-400 mb-8">Connect your account and let SignalDeck track your live balance, position sizing, and prop firm limits automatically.</p>
+            <a href="https://app.sgnldk.com/register"
+               onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Broker Import Footer CTA' });"
+               class="inline-flex px-8 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-semibold transition-colors">
+                Start Free — No Card Required
+            </a>
+            <p class="text-zinc-600 text-xs mt-4">Free during beta. Paid plans from $30/mo when billing launches.</p>
         </div>
     </section>
 

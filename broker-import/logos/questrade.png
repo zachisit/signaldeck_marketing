@@ -1,0 +1,1640 @@
+ <!DOCTYPE html> <html lang="en" class="primary-font-loading primary-heading-font-loading sec-heading-font-loading"> <head> <meta charset="utf-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="nagios-site-verification" content="www.questrade.com" /> <link rel="icon" type="image/x-icon" href="/favicon.ico"> <link rel="icon" type="image/x-icon" href="/favicon-32x32.ico"> <link rel="icon" type="image/x-icon" href="/favicon-48x48.ico"> <link rel="icon" type="image/x-icon" href="/favicon-96x96.ico"> <link rel="icon" type="image/x-icon" href="/favicon-144x144.ico"> <link rel="icon" type="image/x-icon" href="/favicon.svg"> <link rel="icon" type="image/x-icon" href="/favicon-32x32.svg"> <link rel="icon" type="image/x-icon" href="/favicon-48x48.svg"> <link rel="icon" type="image/x-icon" href="/favicon-96x96.svg"> <link rel="icon" type="image/x-icon" href="/favicon-144x144.svg"> <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" as="style" crossorigin="anonymous" onload="this.rel='stylesheet'"> <!-- Adobe roc-grotesk font --> <link rel="stylesheet" href="https://use.typekit.net/oie3udl.css"> <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"> <!-- Material Icons --> <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"></noscript> <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.fonts.ready.then(function () {
+                document.querySelectorAll('.material-symbols-outlined').forEach(function (icon) {
+                    // Reset width and height after font loads
+                    icon.style.height = 'initial';
+                    icon.style.width = 'initial';
+                });
+            });
+        });
+    </script> <title>
+	Page not found
+</title> <script>
+                (function(d, h){
+                    var apiKey = "da76a418edd861f46bdf2fb5ae20093b";
+                    
+                    // TODO: Set a timeout in milliseconds for the anti-flicker.
+                    var timeout = 1000;
+                    
+                    // Hides the page and loads the script.
+                    var id = "amp-exp-css";
+                    try {
+                        if (!d.getElementById(id)) {
+                            var st = d.createElement("style");
+                            st.id = id;
+                            st.innerText = "* { visibility: hidden !important; background-image: none !important; }";
+                            h.appendChild(st);
+                            window.setTimeout(function () {st.remove()}, timeout);
+                            var sc = d.createElement("script");
+                            sc.src = "https://cdn.amplitude.com/script/"+apiKey+".experiment.js";
+                            sc.async = true;
+                            sc.onerror = function () {st.remove()};
+                            h.insertBefore(sc, d.currentScript || h.lastChild);
+                        }
+                    } catch(e) {console.error(e)}
+                })(document, document.head);
+            </script> <script src="https://cdn.amplitude.com/script/da76a418edd861f46bdf2fb5ae20093b.experiment.js"></script> <!-- OneTrust Cookies Consent Notice start for questrade.com --> <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99771a87-5f28-4d67-a83f-fc7fdd119e57/OtAutoBlock.js"></script> <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99771a87-5f28-4d67-a83f-fc7fdd119e57"></script> <script type="text/javascript">
+                function OptanonWrapper() {
+                    const pageLanguage = "en"
+
+                    if (!!pageLanguage && pageLanguage === "fr")
+                        OneTrust.changeLanguage('fr');
+                    }
+            </script> <!-- OneTrust Cookies Consent Notice end for questrade.com --> <script>
+    (async function() {
+        try {
+
+            // AMPLITUDE FEATURE FLAGS INITIALIZATION
+            window.amplitudeExperiment = Experiment.initializeWithAmplitudeAnalytics("client-J1A6nZPW8y60uem6YQj4uRIqEzvTgCDQ");
+
+            // Initialization finished
+            if (!window.amplitudeExperiment) {
+                console.error("ERROR: Initialization silently failed and returned undefined!");
+                return; // Stop execution to prevent further crashes
+            }
+            // Attempting to fetch variants
+            await window.amplitudeExperiment.fetch();
+
+            // Fetch successful! Resolving namespaces
+            window.amplitudeFlags = window.amplitudeFlags || {};
+            window.isAmplitudeReady = true;
+
+            // FINAL SUCCESS: amplitudeReady dispatched to Sitefinity widgets
+            document.dispatchEvent(new Event('amplitudeReady'));
+
+        } catch (error) {
+            console.error("FATAL AMPLITUDE ERROR has occurred", error);
+        }
+    })();
+</script> <script>window.dataLayer = window.dataLayer || [];window.dataLayer.push({"language":"english","application":"qcom","line_of_business":"investing","page_location":"https://www.questrade.com/404-page-not-found","page_title":"Page not found","page_name":"qcom:en:404-page-not-found","category":"404-page-not-found","uniquevv":"CF58F7B7FDED4C629F1EDDCD3B4DA647","digitalDataLoaded":"true","page.language":"english","page.name":"qcom:en:404-page-not-found","page.environment":"prod","user.uniqueVV":"CF58F7B7FDED4C629F1EDDCD3B4DA647"});</script><!-- Google Tag Manager --><script>(function(w, d, s, l, i) {w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';j.async = true;j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth=pZ5T8cGX-ibbGTaHcvL08Q&gtm_preview=env-2&gtm_cookies_win=x';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class', 'optanon-category-C0001');f.parentNode.insertBefore(j, f);})(window, document, 'script', 'dataLayer', 'GTM-W968DCV');</script> <script>
+        window.addEventListener('pagehide', () => {
+            amplitude.setTransport('beacon') 
+            // Sets https transport to use `sendBeacon` API
+            amplitude.flush()
+            },
+        );
+        </script> <!--<script type="text/javascript">
+            window.targetGlobalSettings = {
+                secureOnly: true,--> <!--crossDomain: "enabled",--> <!--telemetryEnabled: false,--> <!--serverDomain: "target.questrade.com",--> <!--overrideMboxEdgeServer: false--> <!--};
+                    function targetPageParams() {
+                        return {
+                            "at_property": "6589d8e1-deb3-3822-7066-c5d5931b0c2d"
+                            };
+                    }
+                </script>--> <script type="text/javascript">
+            	    function targetPageParams() {return {"at_property": "6589d8e1-deb3-3822-7066-c5d5931b0c2d"};}
+                </script>  <script async="async" src="https://static.srcspot.com/libs/claribel.js" type="application/javascript"></script> <meta name="robots" content="noindex" /><meta property="og:title" content="Page not found" /><meta property="og:url" content="" /><meta property="og:type" content="website" /><meta property="og:site_name" content="Questrade" /><script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+        const navButton = document.querySelector(".mega-header-seo__body--mobile-menu-icon");
+
+
+        navButton.addEventListener('click', () => {
+            const bannerButton = document.querySelector("#close-banner-btn-en");
+            if (bannerButton) {
+                bannerButton.click();
+            }
+        });
+
+    });
+</script><style type="text/css" media="all">input[type="search"] {
+  /* 1. Removes the native "capsule" look of the input itself */
+  -webkit-appearance: none;
+  appearance: none;
+  
+  /* 2. Fixes an issue where Safari adds a corner radius by default */
+  border-radius: 0; 
+}
+
+/* 3. Hides the "X" cancel button */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+/* 4. Hides the magnifying glass icon (if the browser adds one) */
+input[type="search"]::-webkit-search-results-button {
+  display: none;
+}
+
+/* 5. Hides any extra decorations or spacing the OS adds */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+
+@media (min-width: 991px) {
+  .mega-header-seo:not(.scrolling-down) li.mega-seo-menu__top-nav-item:nth-child(4) {
+    margin-right: 8px !important;
+  }
+}
+
+</style><style type="text/css" media="all">/** AMPLITUDE TEST **/
+
+/* --- Top bar: match "scrolled" flex gap in default (top of page) state ---- */
+/* Beats: .mega-seo-menu { gap: 4px } and .mega-seo-menu { gap: 8px !important } */
+[data-qt-mega-nav='condensed-menu'] .mega-seo-menu--condensed-menu,
+[data-qt-mega-nav='condensed-menu'] .mega-seo-menu.mega-seo-menu--condensed-menu {
+  gap: 20px !important;
+}
+
+/* --- v8: Direct-link <a> items (Why Questrade, Learning) -------------------
+   In v8 these are plain <a class="mega-seo-menu__top-nav-item--link-direct ...">
+   elements with no button wrapper and no panel div, so AccessibleMegaMenuSEO
+   does not attach togglePanel to them. The rules below mirror the sizing of
+   button.mega-seo-menu__top-nav-item--link so they render identically. ------- */
+[data-qt-mega-nav='condensed-menu'] .mega-seo-menu__top-nav-item--link-direct {
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mega-header-seo:not(.scrolling-down)
+  [data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu__top-nav-item--link-direct {
+  height: 73px;
+}
+
+.mega-header-seo.scrolling-down
+  [data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu__top-nav-item--link-direct {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0;
+}
+
+/* ============== Start Trading panel (2-column) — inline fallbacks ======= */
+/* <ul> child order: 1 search, 2 Start Trading, 3 Why, 4 Programs, 5 Learning */
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .bg-grey-100 {
+  background-color: #fff !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 32px 32px;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .bg-grey-100
+  > div:first-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 72px;
+  align-items: flex-start;
+  max-width: 900px;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .bg-grey-100
+  > div:first-of-type
+  > div:first-of-type {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .mega-seo-menu__panel-group--link-heading:first-of-type {
+  display: block;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .mega-seo-menu__panel-container--wrapper-cards__subheading {
+  margin: 0;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .bg-grey-100
+  a.mega-seo-menu__panel-group--link-subheading__account {
+  color: #5c5c5c;
+  font-weight: 400;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .bg-grey-100
+  > div:first-of-type
+  > div:nth-of-type(2) {
+  flex: 0 1 auto;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(2)
+  .bg-grey-100
+  > div:first-of-type
+  > div:nth-of-type(2)
+  .mega-seo-menu__panel-group--link-heading {
+  display: inline-block;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* ============== Programs and Promotions panel — inline fallbacks ========= */
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(4)
+  .bg-grey-100 {
+  background-color: #fff !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 32px 32px;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(4)
+  .bg-grey-100
+  > div {
+  max-width: 420px;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(4)
+  .bg-grey-100
+  .mega-seo-menu__panel-container--wrapper-cards__subheading:first-of-type {
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px;
+  line-height: 1.3;
+  font-size: 1rem;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(4)
+  .bg-grey-100
+  p.mega-seo-menu__panel-container--wrapper-cards__subheading:not(:first-of-type) {
+  margin: 0;
+}
+
+[data-qt-mega-nav='condensed-menu']
+  .mega-seo-menu
+  > li.mega-seo-menu__top-nav-item:nth-child(4)
+  .bg-grey-100
+  a.mega-seo-menu__panel-group--link-subheading__account {
+  color: #5c5c5c;
+  font-weight: 400;
+}
+
+/* --- Desktop: remove core 50/50 grey–white panel gradient (layout/_menu-seo.scss
+     .menu-seo__panel @ desktop) so the dropdown reads as one full-width white band. --- */
+@media (min-width: 992px) {
+  [data-qt-mega-nav='condensed-menu'] .mega-seo-menu__panel,
+  [data-qt-mega-nav='condensed-menu'] .mega-seo-menu__panel.open {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+}
+</style><style type="text/css" media="all">/** AMPLITUDE TEST **/
+/**wrapper styles for the condensed mega nav feature flag **/
+
+#ff-mega-nav-experiment {
+  position: relative;
+  width: 100%;
+}
+
+/*
+ * While Amplitude is unresolved (.ff-ff--amp-lock without .ff-ff--resolved), hide the live <nav> so users do not see the default <ul> flash before the condensed swap.
+ */
+#ff-mega-nav-experiment.ff-ff--amp-lock:not(.ff-ff--resolved) #ff-mega-nav-root {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Hidden source for condensed <ul> when using <div>. Keeps the duplicate menu off-screen if an editor strips the `hidden` attribute. */
+#ff-mega-nav-template-condensed.ff-mega-nav-condensed-source,
+.ff-mega-nav-condensed-source {
+  display: none !important;
+}
+</style><style type="text/css" media="all">@media (max-width: 767px) {
+  #banner-global .base-layout {
+    padding-left: 0 !important;
+    padding-right: 2px !important;
+  }
+
+  #banner-global .banner__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: 4px;
+  }
+
+  #banner-global .banner__text {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  #banner-global .banner__text::before,
+  #banner-global .banner__text-title::before,
+  #banner-global .banner__text-title a::before,
+  #banner-global .banner__content::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  #banner-global .banner__text-title {
+    margin: 0 0 8px;
+    line-height: 1.3;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  #banner-global .banner__text-title i,
+  #banner-global .banner__text-title .icon,
+  #banner-global .banner__text-title svg,
+  #banner-global .banner__text-title .material-symbols-outlined,
+  #banner-global .banner__text > i:first-child,
+  #banner-global .banner__text > .icon:first-child,
+  #banner-global .banner__text > svg:first-child,
+  #banner-global .banner__text > .material-symbols-outlined:first-child {
+    display: none !important;
+  }
+
+  #banner-global .banner__text-description {
+    font-size: 14px !important;
+    line-height: 1.55;
+    margin: 0 0 10px;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  #banner-global .banner__text-action {
+    margin-top: 2px;
+  }
+
+  #banner-global .banner__btn-close {
+    align-self: flex-start;
+    margin-top: 0;
+    margin-right: -2px;
+    padding: 0;
+    line-height: 1;
+  }
+}</style><link href="/Resources/qcom/dist/styleGuide2024.css" media="all" rel="stylesheet" type="text/css" /><link rel="stylesheet" href="/Resources/qcom/dist/main.css?v=639166182380000000" /><script type="text/javascript" src="/Resources/qcom/dist/fallbackFontsStyling.bundle.js"></script><style type="text/css" media="all">.mega-seo-menu{margin: 0px;}</style><style type="text/css" media="all">
+
+@media only screen and (max-width: 564px) {
+  .hero--tertiary__2 .hero__image-wrapper {
+    top: 0px;
+  }
+  
+  .hero--tertiary__2 {
+	position: relative;
+  }
+}</style></head> <body> <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W968DCV&gtm_auth=pZ5T8cGX-ibbGTaHcvL08Q&gtm_preview=env-2&gtm_cookies_win=x"  height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>  
+
+
+
+<div >
+    <div ><section id="banner-global" class="banner bg-green-100 banner--s-global hidden-feature-flag" role="dialog" data-close-target="banner"><div class="base-layout"><div class="banner__content"><div class="banner__text"><h2 class="banner__text-title"><a href="/account-selection" data-qt-label="Open an account button" data-qt="btnOpenAnAccount" aria-label="Open an account" data-qt-event="oaa" data-qt-ui="btn:main navigation|open an account" style="text-decoration: underline; display: inline-block">
+ <p class="ff-open-sans margin-y-0 fs-300 fw-600 lh-500 color-grey-700">$300 Offer Extended</p></a>
+ </h2><p class="banner__text-description">New customers get up to $300 to open and fund their first self-directed account using code GET300. Ends June 22.
+                    <a class="link" href="https://wealth.questrade.com/get300" aria-label="See details" style="text-decoration: underline">
+See details.
+                    </a>
+ </p><a class="banner__text-action" data-qt-label="Open an account button" data-qt="btnOpenAnAccount" aria-label="Open an account" data-qt-event="oaa" data-qt-ui="btn:main navigation|open an account" href="/account-selection">Open an Account</a>
+ </div><button data-close-target="banner-global" class="js-close-target banner__btn-close">Close</button></div></div></section></div>    
+
+</div>
+
+
+
+                <script defer src="/Resources/qcom/dist/main.bundle.js?v=639166182380000000" type="text/javascript"></script>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto+Slab:wght@100;300;400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');">
+
+<div id="Contentplaceholder1_TC9C1EDED049_Col00" class="sf_colsIn p-relative" data-sf-element="Container" data-placeholder-label="Top banner">
+</div>
+<style type="text/css">
+    .sfPageEditor .editorView {
+        display: block;
+        width: 200px;
+    }
+
+    .sfPageEditor .editorView-menu {
+        display: block;
+        width: 300px;
+    }
+
+    .sfPageEditor .editorView-mobile {
+        display: block;
+        width: 40px;
+    }
+
+    .sfPageEditor .editorView-login-mobile {
+        display: block !important;
+        width: 200px;
+    }
+
+    .sfPageEditor .mega-header-seo {
+        display: block !important;
+    }
+
+    .sfPageEditor .mega-header-seo {
+        position: static !important;
+        z-index: 1000 !important;
+    }
+</style>
+
+<header class="mega-header-seo">
+    <div class="mega-header-seo--masthead">
+        <div class="mega-header-seo__wrapper">
+            <div class="mega-header-seo__body">
+                <div id="Contentplaceholder1_TC9C1EDED055_Col00" class="sf_colsIn d-flex flex-1 editorView" data-sf-element="Container" data-placeholder-label="QcomLogo">
+<div >
+    <div ><div class="d-flex"><a class="mega-header-seo__logo" href="/"><img alt="Questrade logo" class="hidden-seo-sm" src="/images/librariesprovider11/default-album/logos/questrade-logo-desktop.svg "><svg class="hidden-seo-lg hidden-seo-md" width="42" height="32" viewBox="0 0 42 32" fill="none">
+<path d="M15.0525 17.1659C17.9688 11.7957 21.8099 7.73079 25.3006 5.84378L21.795 0.324447C21.5191 -0.108149 21.079 -0.108149 20.818 0.324447L1.63456 30.5614C1.35859 30.994 1.58981 31.1208 2.08953 31.1208H11.2412C11.0995 27.2125 12.2705 22.2601 15.0525 17.1659Z" fill="#3EA448"></path>
+<path d="M26.4945 9.28111C24.615 8.25183 20.5575 12.0632 17.4324 17.7988C14.3147 23.527 13.3078 29.009 15.1873 30.0457C16.5523 30.7841 18.8495 28.8374 21.3034 25.6377V18.3134C21.3034 17.5527 21.7807 17.135 22.1387 17.7988L24.1824 21.6623C24.2122 21.6176 24.2271 21.5803 24.2569 21.5355C27.3821 15.7999 28.3815 10.3179 26.4945 9.28111Z" fill="#3EA448"></path>
+<path d="M40.9931 30.5612L33.2512 18.3516C32.5799 20.6488 31.5879 23.0803 30.2752 25.4894C29.589 26.7424 28.8581 27.9209 28.0898 29.0322L29.5517 31.1206H40.5382C41.0379 31.1206 41.2691 30.9938 40.9931 30.5612Z" fill="#3EA448"></path>
+</svg></a>
+</div></div>    
+
+</div></div>
+                <div id="Contentplaceholder1_TC9C1EDED055_Col01" class="sf_colsIn d-flex hidden-seo-md hidden-seo-sm editorView" data-sf-element="Container" data-placeholder-label="Search">
+
+
+<form role="search" id="55c759cf-c6de-47ff-8722-ae66186e8aaa">
+    <div class="form-group-seo form-group-seo--search">
+        <span class="material-symbols-outlined search-masthead__icon" aria-hidden="true">search</span>
+        <input title="Search input" id="93e91b43-96d3-44f6-b238-14ec008a38c6" placeholder="Search" class="search-masthead" type="search" aria-label="Search Questrade" value="" data-qt="txtSearch" />
+    </div>
+    
+    <input type="hidden" data-sf-role="resultsUrl" value="/search" />
+    <input type="hidden" data-sf-role="indexCatalogue" value="questrade-new-search-index" />
+    <input type="hidden" data-sf-role="wordsMode" value="AllWords" />
+    <input type="hidden" data-sf-role="disableSuggestions" value='false' />
+    <input type="hidden" data-sf-role="minSuggestionLength" value="3" />
+    <input type="hidden" data-sf-role="suggestionFields" value="Title,Content" />
+    <input type="hidden" data-sf-role="language" value="en" />
+    <input type="hidden" data-sf-role="suggestionsRoute" value="/restapi/search/suggestions" />
+    <input type="hidden" data-sf-role="searchTextBoxId" value='#93e91b43-96d3-44f6-b238-14ec008a38c6' />
+    <input type="hidden" data-sf-role="searchButtonId" value='#238ff0b1-b062-4338-b840-ac8a234a516e' />
+</form></div>
+                <div id="Contentplaceholder1_TC9C1EDED055_Col02" class="sf_colsIn d-flex mega-header-seo__body--login hidden-seo-sm editorView" data-sf-element="Container" data-placeholder-label="Log in">
+<div >
+    <div ><a class="btn-tertiary btn-tertiary--light btn--l" data-qt-event="login" data-qt-label="Login" data-qt-ui="link:main navigation|login" data-qt="btnLogin" href="https://login.questrade.com" aria-label="Log in">Log in</a></div>    
+
+</div></div>
+                <div id="Contentplaceholder1_TC9C1EDED055_Col03" class="sf_colsIn d-flex mega-header-seo__body--btn editorView" data-sf-element="Container" data-placeholder-label="OpenAccount">
+<div >
+    <div ><div id="ff-margin-nav-oaa-experiment" class="ff-margin-nav-oaa-experiment ff-ff--amp-lock" data-ff-flag-key="cro-qcom-hp-margin-power" data-ff-condensed-variant="on" data-ff-treatment-variant="on">
+<div id="ff-margin-nav-oaa-root" aria-hidden="true">
+<a id="open-an-account-nav" class="ff-margin-nav-oaa-slot btn-primary btn-primary--light btn--responsive" data-qt-label="Open an account button" href="/account-selection" data-qt="btnOpenAnAccount" aria-label="Open an account" data-qt-event="oaa" data-qt-ui="btn:main navigation|open an account">Open an account</a>
+</div>
+<div id="ff-margin-nav-oaa-template-treatment" class="ff-margin-nav-oaa-treatment-source" hidden="" aria-hidden="true">
+<a class="margin-nav-oaa-btn btn-primary btn-primary--dark btn--responsive" data-qt-label="Open a Margin account" href="https://myportal.questrade.com/open-account-application?acctype=margin&amp;prodtype=sd" data-qt="btnOpenAMarginAccount" aria-label="Open a Margin account" data-qt-event="oaa" data-qt-ui="btn:main navigation|open a margin account" style="background-color: rgba(61, 165, 66, 1)">Open a Margin
+account</a>
+</div>
+<div id="ff-custom-indexing-nav-oaa-template-treatment" class="ff-custom-indexing-nav-oaa-treatment-source" hidden="" aria-hidden="true" data-ff-flag-key="cro-qcom-hp-custom-indexing" data-ff-treatment-variant="on">
+<a class="ci-nav-oaa-btn btn-primary btn-primary--dark btn--responsive" data-qt-label="Customize an index" href="https://myportal.questrade.com/open-account-application/custom-indexing" data-qt="btnCustomizeAnIndex" aria-label="Customize an index" data-qt-event="custom-indexing" data-qt-ui="btn:main navigation|customize an index" style="background-color: rgba(61, 165, 66, 1)">Customize an index</a>
+</div>
+</div></div>    
+
+</div></div>
+                <div id="Contentplaceholder1_TC9C1EDED055_Col04" class="sf_colsIn editorView-mobile mega-header-seo__body--mobile-menu-icon" data-sf-element="Container" data-placeholder-label="Menu Button (Mobile)">
+<div >
+    <div ><span id="toggle-mobile-nav" class="material-symbols-outlined vertical-align--middle mega-header-seo__body--mobile-menu-icon" aria-hidden="true">menu</span></div>    
+
+</div></div>
+                <button class="mega-header-seo__body--sticky-button"><span
+                        class="material-symbols-outlined vertical-align--middle mega-header-seo__body--sticky-icon"
+                        aria-hidden="true" aria-label="expand menu" style="height: initial; width: initial"
+                        aria-expanded="false">menu</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="mega-header-seo__wrapper mega-header-seo__wrapper--navbar">
+        <div class="mega-header-seo__body">
+            <div id="Contentplaceholder1_TC9C1EDED055_Col05" class="sf_colsIn flex-1 editorView-menu" data-sf-element="Container" data-placeholder-label="MegaMenu">
+<div >
+    <div ><div id="ff-mega-nav-experiment" class="ff-mega-nav-experiment ff-ff--amp-lock" data-ff-flag-key="qcom_experiment_mega-navigation-v1" data-ff-condensed-variant="on">
+<nav id="ff-mega-nav-root" aria-label="Main navigation" class="mega-header-seo__nav" data-ff-mega="single">
+<button class="hidden-seo-lg mega-header-seo__nav-back-button fixed-legal-600 fixed-legal-600--compact"><span class="material-symbols-outlined size-32" aria-hidden="true">chevron_left</span>
+Back
+</button>
+<ul class="mega-seo-menu">
+    <li class="mega-seo-menu__top-nav-item hidden-global-lg">
+    <div class="mega-seo-menu__search-mbl"><input class="mega-seo-menu__search-mbl--input" type="text" name="search" placeholder="Search" aria-label="Search"></div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item">
+    <button class="mega-seo-menu__top-nav-item--link"><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Self-Directed Investing">Self-Directed
+    Investing
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="mega-seo-menu__panel-container--wrapper mega-seo-menu__panel-group border-bottom border-width-100 border-grey-400">
+    <div>
+    <a href="/self-directed-investing" aria-label="Self-Directed Investing" class="mega-seo-menu__panel-group--link-heading">Self-Directed
+    Investing
+    </a>
+    <p class="padding-top-200 padding-bottom-200 padding-bottom-lg-500 caption-legal">
+    Whatever your financial goal may be, we have an account
+    that can help you get there.
+    </p>
+    </div>
+    <a class="mega-seo-menu__panel-group--link-subheading__arrow hidden-seo-md hidden-seo-sm" href="/self-directed-investing" aria-label="Self-Directed Investing">Go to Self-Directed
+    Investing
+    <span class="material-symbols-outlined float-right" aria-hidden="true"><img src="/images/librariesprovider11/default-album/icons/arrow_forward.svg" alt="" aria-hidden="true" width="24" height="24"></span></a>
+    </div>
+    <div class="bg-grey-100">
+    <ul class="flexbox f-wrap d-row-lg d-col gap-600-lg padding-x-lg-800 padding-y-lg-600 padding-left-0" style="width: 812px">
+        <li class="flexbox d-col w-p100 w-p30-lg">
+        <div class=" margin-right-400">
+        <p class="margin-y-0 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        Investment Products
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/investment-products/stocks" aria-label="Stocks" class="mega-seo-menu__panel-group--link-subheading__account">Stocks</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/investment-products/etfs" aria-label="ETFs" class="mega-seo-menu__panel-group--link-subheading__account">ETFs</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/investment-products/options" aria-label="Options" class="mega-seo-menu__panel-group--link-subheading__account">Options</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/investment-products" aria-label="Investment Products" class="mega-seo-menu__panel-group--link-subheading__account">All
+        Investment
+        Products</a>
+        </p>
+        </div>
+        </li>
+        <li class="flexbox d-col w-p100 w-p30-lg">
+        <div>
+        <p class="margin-y-0 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        Trading Platforms
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/trading-platforms/questrade-trading" aria-label="Questrade Trading" class="mega-seo-menu__panel-group--link-subheading__account">Questrade
+        Trading</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/trading-platforms/questmobile" aria-label="QuestMobile" class="mega-seo-menu__panel-group--link-subheading__account">QuestMobile</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/questrade-pro" aria-label="Questrade Pro" class="mega-seo-menu__panel-group--link-subheading__account">Questrade Pro</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/trading-platforms/edge" aria-label="Questrade Edge" class="mega-seo-menu__panel-group--link-subheading__account">Questrade
+        Edge</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/trading-platforms/edge-mobile" aria-label="Edge Mobile" class="mega-seo-menu__panel-group--link-subheading__account">Edge
+        Mobile</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/trading-platforms/questrade-global" aria-label="Questrade Global" class="mega-seo-menu__panel-group--link-subheading__account">Questrade
+        Global</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/trading-platforms" aria-label="Trading Platforms" class="mega-seo-menu__panel-group--link-subheading__account">All
+        trading
+        platforms</a>
+        </p>
+        </div>
+        </li>
+        <li class="flexbox d-col w-p100 w-p30-lg order-5 order-0-lg">
+        <div>
+        <p class="margin-y-0 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        Now Available
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/active-trader#flexible-trading" aria-label="Active Traders | Flexible Trading" class="mega-seo-menu__panel-group--link-subheading__account">Extended
+        Trading Hours</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/fractional-shares" aria-label="Fractional Shares" class="mega-seo-menu__panel-group--link-subheading__account">Fractional
+        Shares</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/securities-lending-program" aria-label="Securities Lending Program" class="mega-seo-menu__panel-group--link-subheading__account">Securities
+        Lending Program</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/overnight-trading" aria-label="Overnight Trading" class="mega-seo-menu__panel-group--link-subheading__account">Overnight
+        Trading</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/dawn-of-investing" aria-label="Dawn of Investing" class="mega-seo-menu__panel-group--link-subheading__account">Dawn of Investing</a>
+        </p>
+        </div>
+        </li>
+        <li class="flexbox d-col w-p100 w-p30-lg">
+        <div class=" margin-right-400">
+        <p class="margin-y-0 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        For active traders
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/active-trader#platforms-and-tools" aria-label="Platforms and tools" class="mega-seo-menu__panel-group--link-subheading__account">Platforms
+        and
+        tools</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/active-trader#flexible-trading" aria-label="Flexible trading" class="mega-seo-menu__panel-group--link-subheading__account">Flexible
+        trading</a>
+        </p>
+        </div>
+        </li>
+        <li class="flexbox d-col w-p100 w-p30-lg">
+        <div>
+        <p class="margin-y-0 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        Tools
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/tools#news" aria-label="News" class="mega-seo-menu__panel-group--link-subheading__account">News,
+        insights
+        &amp; research</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/tools#tradingTools" aria-label="Trading tools" class="mega-seo-menu__panel-group--link-subheading__account">Investing
+        and
+        trading tools</a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/self-directed-investing/tools/tradingview" aria-label="Trading View" class="mega-seo-menu__panel-group--link-subheading__account">TradingView
+        </a>
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/partner-centre" aria-label="Partners center" class="mega-seo-menu__panel-group--link-subheading__account">Partners
+        center</a>
+        </p>
+        </div>
+        </li>
+        <li class="flexbox d-col w-p100 w-p30-lg order-5 order-0-lg">
+        <div>
+        <p class="margin-y-0 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        Coming Soon
+        </p>
+        <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+        <a href="/quest-metals" aria-label="queQuest Metals" class="mega-seo-menu__panel-group--link-subheading__account">Quest Metals</a>
+        </p>
+        </div>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <button class="mega-seo-menu__top-nav-item--link "><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Questwealth Portfolios">Questwealth
+    Portfolios
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="mega-seo-menu__panel-container--wrapper mega-seo-menu__panel-group border-bottom border-width-100 border-grey-400">
+    <div class=" ">
+    <a href="/questwealth-portfolios" aria-label="Questwealth Portfolios" class="mega-seo-menu__panel-group--link-heading">Questwealth
+    Portfolios
+    </a>
+    <p class="padding-top-200 padding-bottom-600 padding-bottom-lg-500 caption-legal">
+    Get a
+    diversified low-fee portfolio managed by a team of
+    experts so you can get to your goals
+    faster.
+    </p>
+    </div>
+    <a class="mega-seo-menu__panel-group--link-subheading__arrow hidden-seo-md hidden-seo-sm" href="/questwealth-portfolios" aria-label="Questwealth Portfolios">Go to Questwealth
+    Portfolios
+    <span class="material-symbols-outlined float-right" aria-hidden="true"><img src="/images/librariesprovider11/default-album/icons/arrow_forward.svg" alt="" aria-hidden="true" width="24" height="24">
+    </span></a>
+    </div>
+    <div class="mega-seo-menu__panel-container--wrapper-cards">
+    <ul>
+        <li class="d-flex ">
+        <a href="/questwealth-portfolios/etf-portfolios" aria-label="ETF Portfolios" class="mega-seo-menu__panel-group--cards margin-bottom-lg-200 margin-right-lg-200 padding-top-md-500 padding-top-sm-500">
+        <span class="mega-seo-menu__panel-group--link-subheading">ETF
+        Portfolios</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Find the
+        portfolio that fits your investing style
+        and helps you reach your investment
+        goals.
+        </p>
+        </a>
+        <a href="/questwealth-portfolios/features" aria-label="Features" class="mega-seo-menu__panel-group--cards margin-bottom-lg-200  ">
+        <span class="mega-seo-menu__panel-group--link-subheading">Features</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Actively
+        managed, proven returns, real-time
+        rebalancing, everything you need to help
+        your
+        savings grow.
+        </p>
+        </a>
+        </li>
+        <li class="d-flex">
+        <a href="/questwealth-portfolios/socially-responsible-investing" aria-label="SRI Portfolios" class="mega-seo-menu__panel-group--cards">
+        <span class="mega-seo-menu__panel-group--link-subheading">SRI
+        Portfolios</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Invest in
+        companies that focus on environmental,
+        social and corporate governance
+        qualities.
+        </p>
+        </a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <button class="mega-seo-menu__top-nav-item--link "><a href="/custom-indexing" class="mega-seo-menu__top-nav-item--link__title" aria-label="Custom Indexing">Custom Indexing
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true" style="display: none"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel" style="display: none" aria-hidden="true">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="mega-seo-menu__panel-container--wrapper mega-seo-menu__panel-group border-bottom border-width-100 border-grey-400">
+    <a class="mega-seo-menu__panel-group--link-subheading__arrow hidden-seo-md hidden-seo-sm" href="/custom-indexing" aria-label="Custom Indexing">&nbsp;</a>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <button class="mega-seo-menu__top-nav-item--link "><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Account types">Account types
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="mega-seo-menu__panel-container--wrapper mega-seo-menu__panel-group border-bottom border-width-100 border-grey-400">
+    <div>
+    <a href="/account-types" aria-label="Account Types" class="mega-seo-menu__panel-group--link-heading">Account
+    Types
+    </a>
+    <p class="padding-top-200 padding-bottom-600 padding-bottom-lg-500 caption-legal">
+    Whatever
+    your financial goal may be, we have an account that can
+    help you get there.
+    </p>
+    </div>
+    <a class="mega-seo-menu__panel-group--link-subheading__arrow hidden-seo-md hidden-seo-sm" href="/account-types" aria-label="Account Types">Go to Account
+    Types
+    <span class="material-symbols-outlined float-right" aria-hidden="true"><img src="/images/librariesprovider11/default-album/icons/arrow_forward.svg" alt="" aria-hidden="true" width="24" height="24">
+    </span></a>
+    </div>
+    <div class="mega-seo-menu__panel-container--wrapper-cards">
+    <p class="padding-bottom-lg-400 padding-bottom-100 padding-top-500 padding-top-lg-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    Investment accounts
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/tfsa" aria-label="Tax-Free Savings Account (TFSA)" class="mega-seo-menu__panel-group--link-subheading__account">Tax-Free
+    Savings Account
+    (TFSA)</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/rrsp" aria-label="Registered Retirement Savings Plan (RRSP)" class="mega-seo-menu__panel-group--link-subheading__account">Registered
+    Retirement
+    Savings Plan (RRSP)</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/fhsa" aria-label="First Home Savings Account (FHSA)" class="mega-seo-menu__panel-group--link-subheading__account">First
+    Home Savings Account
+    (FHSA)</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/resp" aria-label="Registered Education Savings Plan (RESP)" class="mega-seo-menu__panel-group--link-subheading__account">Registered
+    Education
+    Savings Plan (RESP)</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/lira" aria-label="Locked-in Retirement Account (LIRA)" class="mega-seo-menu__panel-group--link-subheading__account">Locked-in
+    Retirement Account (LIRA)</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/cash" aria-label="Cash Account" class="mega-seo-menu__panel-group--link-subheading__account">Cash
+    Account</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types/margin" aria-label="Margin Account" class="mega-seo-menu__panel-group--link-subheading__account">Margin
+    Account</a>
+    </p>
+    <p class="padding-y-lg-300 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types" aria-label="Account types" class="mega-seo-menu__panel-group--link-subheading__account">All
+    account types</a>
+    </p>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <button class="mega-seo-menu__top-nav-item--link "><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Pricing">Pricing
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="mega-seo-menu__panel-container--wrapper mega-seo-menu__panel-group border-bottom border-width-100 border-grey-400">
+    <div>
+    <a href="/pricing" aria-label="Pricing" class="mega-seo-menu__panel-group--link-heading">Pricing</a>
+    <p class="padding-top-200 padding-bottom-600 padding-bottom-lg-500 caption-legal">
+    Low fees.
+    No hidden fees. Keep more of your money with Canada's
+    low-cost leader in online
+    investing.
+    </p>
+    </div>
+    <a class="mega-seo-menu__panel-group--link-subheading__arrow hidden-seo-md hidden-seo-sm" href="/pricing" aria-label="Pricing">Go to Pricing
+    <span class="material-symbols-outlined float-right" aria-hidden="true"><img src="/images/librariesprovider11/default-album/icons/arrow_forward.svg" alt="" aria-hidden="true" width="24" height="24">
+    </span></a>
+    </div>
+    <div class="mega-seo-menu__panel-container--wrapper-cards">
+    <ul>
+        <li class="d-flex">
+        <a href="/pricing/self-directed-commissions-plans-fees" aria-label="Self-Directed Investing" class="mega-seo-menu__panel-group--cards margin-right-lg-200 padding-top-md-500 padding-top-sm-500">
+        <span class="mega-seo-menu__panel-group--link-subheading">Self-Directed
+        Investing</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        See
+        Questrade's low fees for trading, market
+        data and margin trading.
+        </p>
+        </a>
+        <a href="/pricing/questwealth-portfolios-fees" aria-label="Questwealth Portfolio Pricing" class="mega-seo-menu__panel-group--cards margin-bottom-lg-200">
+        <span class="mega-seo-menu__panel-group--link-subheading">Questwealth
+        Portfolio
+        Pricing</span>
+        <p class=" mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Low-fees and
+        no unnecessary fees on diversified ETF
+        portfolios.
+        </p>
+        </a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <button class="mega-seo-menu__top-nav-item--link "><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Learning">Learning
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="mega-seo-menu__panel-container--wrapper mega-seo-menu__panel-group border-bottom border-width-100 border-grey-400">
+    <div>
+    <a href="/learning" aria-label="Learning" class="mega-seo-menu__panel-group--link-heading">Learning</a>
+    <p class="padding-top-200 padding-bottom-600 padding-bottom-lg-500 caption-legal">
+    Sound
+    investment decisions are built on a foundation of
+    knowledge. Come hone your investing
+    expertise.
+    </p>
+    </div>
+    <a class="mega-seo-menu__panel-group--link-subheading__arrow hidden-seo-md hidden-seo-sm" href="/learning" aria-label="Learning">Go to Learning
+    <span class="material-symbols-outlined float-right" aria-hidden="true"><img src="/images/librariesprovider11/default-album/icons/arrow_forward.svg" alt="" aria-hidden="true" width="24" height="24">
+    </span></a>
+    </div>
+    <div class="mega-seo-menu__panel-container--wrapper-cards">
+    <ul>
+        <li class="d-flex ">
+        <a href="/learning/questrade-basics" aria-label="Questrade Basics" class="mega-seo-menu__panel-group--cards margin-right-lg-200 padding-top-md-500 padding-top-sm-500">
+        <span class="mega-seo-menu__panel-group--link-subheading ">Questrade
+        Basics</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        See
+        Questrade's low fees for trading, market
+        data and margin trading.
+        </p>
+        </a>
+        <a href="/learning/the-markets " aria-label="The Markets " class="mega-seo-menu__panel-group--cards margin-bottom-lg-200 ">
+        <span class="mega-seo-menu__panel-group--link-subheading ">The
+        Markets</span>
+        <p class=" mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Learn about
+        what happens in the markets and the
+        theories that can help explain why it
+        moves
+        the way it does.
+        </p>
+        </a>
+        </li>
+        <li class="d-flex ">
+        <a href="/learning/platform-tutorials " aria-label="Platform Tutorials " class="mega-seo-menu__panel-group--cards margin-bottom-lg-200 margin-right-lg-200 ">
+        <span class="mega-seo-menu__panel-group--link-subheading ">Platform
+        Tutorials</span>
+        <p class=" mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Learn the
+        ins and outs of the trading platforms
+        and other available investing tools.
+        </p>
+        </a>
+        <a href="/learning/goal-tracking " aria-label="Goal Tracking " class="mega-seo-menu__panel-group--cards margin-bottom-lg-200 ">
+        <span class="mega-seo-menu__panel-group--link-subheading ">Goal
+        Tracking</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Figure out
+        where you want your investing to take
+        you, and how to make a plan that gets
+        you
+        there.
+        </p>
+        </a>
+        </li>
+        <li class="d-flex ">
+        <a href="/learning/investment-concepts " aria-label="Investment Concepts " class="mega-seo-menu__panel-group--cards margin-right-lg-200 ">
+        <span class="mega-seo-menu__panel-group--link-subheading ">Investment
+        Concepts</span>
+        <p class="mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        The theory,
+        strategies, ideas and calculations you
+        can use to make smart investing
+        strategies.
+        </p>
+        </a>
+        <a href="/learning/support#faqs" aria-label="FAQs " class="mega-seo-menu__panel-group--cards ">
+        <span class="mega-seo-menu__panel-group--link-subheading ">FAQs</span>
+        <p class=" mega-seo-menu__panel-group--cards__copy padding-top-200 padding-top-lg-400">
+        Quick
+        answers to your most common questions.
+        </p>
+        </a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </li>
+</ul>
+<div class="dropdownLang__mbl-menu hidden-global-lg">
+<div class="dropdownLang__mbl-select">
+<div class="dropdownLang__mbl-trigger">English
+</div>
+<div class="dropdownLang__mbl-options">
+<p class="dropdownLang__mbl-system-fr">We noticed your browser/system language is set to
+French. Would
+you like to browse Questrade.com in French?
+</p>
+<a class="dropdownLang__mbl-option dropdownLang__mbl-option--en" data-qt-event="language" data-qt-label="toggle to english" data-qt-ui="link:main navigation:language toggle:English" aria-label="View english version" href="/home?language=en" data-sf-ec-immutable="">English</a>
+<a class="dropdownLang__mbl-option dropdownLang__mbl-option--fr" data-qt-event="language" data-qt-label="toggle to francais" data-qt-ui="link:main navigation:language toggle:francais" aria-label="Voir la version française" href="/fr/home?language=fr" data-sf-ec-immutable="">Français</a>
+</div>
+</div>
+</div>
+</nav>
+<div id="ff-mega-nav-template-condensed" class="ff-mega-nav-condensed-source" hidden="" aria-hidden="true">
+<ul class="mega-seo-menu mega-seo-menu--condensed-menu" data-qt-mega-nav-variant="condensed-menu">
+    <li class="mega-seo-menu__top-nav-item hidden-global-lg">
+    <div class="mega-seo-menu__search-mbl"><input class="mega-seo-menu__search-mbl--input" type="text" name="search" placeholder="Search" aria-label="Search"></div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item">
+    <button class="mega-seo-menu__top-nav-item--link" type="button"><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Start Trading">Start Trading
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel" style="background-color: rgba(255, 255, 255, 1) !important">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="bg-grey-100 padding-x-lg-800 padding-y-lg-600" style="background-color: rgba(255, 255, 255, 1); width: 100%">
+    <div style="display: flex; max-width: 500px">
+    <div style="min-width: 0">
+    <p class="margin-y-0 mega-seo-menu__panel-container--wrapper-cards__subheading"><a href="/self-directed-investing" aria-label="Self-Directed Investing" style="font-weight: 700; color: rgba(26, 26, 26, 1); margin: 0 0 16px; line-height: 1.3; font-size: 1rem">Self-Directed Investing</a></p>
+    <p class="margin-y-0 padding-top-lg-10 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading" style="margin: 0">
+    <a href="/self-directed-investing/trading-platforms" aria-label="Platforms and Apps" class="mega-seo-menu__panel-group--link-subheading__account" style="color: rgba(92, 92, 92, 1); font-weight: 400">Platforms and Apps</a>
+    </p>
+    <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading" style="margin: 0">
+    <a href="/self-directed-investing/tools" aria-label="Tools and Partners" class="mega-seo-menu__panel-group--link-subheading__account" style="color: rgba(92, 92, 92, 1); font-weight: 400">Tools and Partners</a>
+    </p>
+    <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading" style="margin: 0">
+    <a href="/self-directed-investing/investment-products" aria-label="Investing Products" class="mega-seo-menu__panel-group--link-subheading__account" style="color: rgba(92, 92, 92, 1); font-weight: 400">Investing Products</a>
+    </p>
+    </div>
+    <div style="min-width: 160px; display: flex">
+    <p class="margin-y-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/pricing" aria-label="Pricing and Fees" style="display: inline-block; font-weight: 700; color: rgba(26, 26, 26, 1); margin: 0; line-height: 1.3; font-size: 1rem">Pricing and Fees</a></p>
+    <p class="margin-y-0 mega-seo-menu__panel-container--wrapper-cards__subheading">
+    <a href="/account-types" aria-label="Account Types" style="display: inline-block; font-weight: 700; color: rgba(26, 26, 26, 1); margin: 0; line-height: 1.3; font-size: 1rem">Account Types</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <a href="/about-us/why-questrade" class="mega-seo-menu__top-nav-item--link-direct mega-seo-menu__top-nav-item--link__title" aria-label="Why Questrade">Why Questrade
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true" style="display: none"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span>
+    </a>
+    </li>
+    <li class="mega-seo-menu__top-nav-item">
+    <button class="mega-seo-menu__top-nav-item--link" type="button"><a class="mega-seo-menu__top-nav-item--link__title" aria-label="Programs and Promotions">Programs and Promotions
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span></a>
+    </button>
+    <div class="mega-seo-menu__panel">
+    <div class="mega-seo-menu__panel-container d-flex">
+    <div class="bg-grey-100 padding-x-lg-800 padding-y-lg-600" style="background-color: rgba(255, 255, 255, 1); width: 100%">
+    <div style="max-width: 420px">
+    <p class="margin-y-0 mega-seo-menu__panel-container--wrapper-cards__subheading" style="font-weight: 700; color: rgba(26, 26, 26, 1); margin: 0 0 16px; line-height: 1.3; font-size: 1rem"><a href="/about-us/programs-promotions" aria-label="Programs and Promotions" style="font-weight: 700; color: rgba(26, 26, 26, 1); margin: 0 0 16px; line-height: 1.3; font-size: 1rem">Programs and Promotions</a></p>
+    <p class="margin-y-0 padding-top-lg-10 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading" style="margin: 0">
+    <a href="/questrade-plus" aria-label="Questrade Plus" class="mega-seo-menu__panel-group--link-subheading__account" style="color: rgba(92, 92, 92, 1); font-weight: 400">Questrade Plus</a>
+    </p>
+    <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading" style="margin: 0">
+    <a href="/reserve" aria-label="Reserve" class="mega-seo-menu__panel-group--link-subheading__account" style="color: rgba(92, 92, 92, 1); font-weight: 400">Reserve</a>
+    </p>
+    <p class="margin-y-0 padding-top-lg-0 padding-y-200 mega-seo-menu__panel-container--wrapper-cards__subheading" style="margin: 0">
+    <a href="/affiliates/overview" aria-label="Become an Affiliate" class="mega-seo-menu__panel-group--link-subheading__account" style="color: rgba(92, 92, 92, 1); font-weight: 400">Become an Affiliate</a>
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="mega-seo-menu__top-nav-item ">
+    <a href="/learning" class="mega-seo-menu__top-nav-item--link-direct mega-seo-menu__top-nav-item--link__title" aria-label="Learning">Learning
+    <span class="mega-seo-menu__top-nav-item--link__icon material-symbols-outlined size-18 vertical-align--middle" aria-hidden="true" style="display: none"><img width="18" height="18" src="/images/librariesprovider11/default-album/icons/chevron_right.svg" alt="" aria-hidden="true"></span>
+    </a>
+    </li>
+</ul>
+</div>
+</div></div>    
+
+</div>
+            </div>
+            <div id="Contentplaceholder1_TC9C1EDED055_Col06" class="sf_colsIn d-flex editorView hidden-seo-sm hidden-seo-md" data-sf-element="Container" data-placeholder-label="LanguageToggle"></div>
+            <div id="Contentplaceholder1_TC9C1EDED055_Col07" class="sf_colsIn d-flex mega-header-seo__body--login--mobile hidden-seo-md editorView" data-sf-element="Container" data-placeholder-label="Log in (Mobile)">
+<div >
+    <div ><a class="btn-secondary btn-secondary--light btn--w-full hidden-seo-md hidden-seo-lg" data-qt-event="login" data-qt-label="Login" data-qt-ui="link:main navigation|login" data-qt="btnLogin" href="https://login.questrade.com" aria-label="Log in">Log in</a></div>    
+
+</div></div>
+        </div>
+</header><main>
+    <div id="Contentplaceholder1_TC9C1EDED036_Col00" class="sf_colsIn" data-sf-element="main content" data-placeholder-label="main content"><div id="Contentplaceholder1_TC9C1EDED037_Col00" class="sf_colsIn" data-sf-element="Container" data-placeholder-label="Banner">
+</div>
+<div id="Contentplaceholder1_TC9C1EDED038_Col00" class="sf_colsIn container" data-sf-element="Container" data-placeholder-label="Body">
+<div >
+    <div ><div class="col-sm-12 col-md-12 col-lg-12 text-center p-t-l p-b-l"><h1 class="display-1 primary-green p-b-m">404</h1><h2 class="subhead-1 subhead-1--light p-b-m">Oops! We can't find the page you're looking for.</h2><div class="divider__horizontal--dotted m-b-0"></div><h3 class="subhead-1 subhead-1--light p-t-m p-b-m">Here are some helpful links.</h3><a class="primary-btn m-b-m" href="/home" aria-label="questrade homepage">Get back to homepage</a>
+ <div><a class="tertiary-link p-b-s" href="/sitemap" aria-label="site
+ map">Check out the sitemap<span class="tertiary-link__icon tertiary-link__icon--right icon icon__chevron-right"></span></a></div><div><a class="tertiary-link" href="/learning" aria-label="Learning">Visit the resource centre<span class="tertiary-link__icon tertiary-link__icon--right icon icon__chevron-right"></span></a></div></div></div>    
+
+</div>
+</div>
+</div>
+</main><footer>
+    <div id="Contentplaceholder1_TC9C1EDED039_Col00" class="sf_colsIn footer-seo" data-sf-element="footer content" data-placeholder-label="footer content">
+<div >
+    <div ><div class="footer-seo__container-nav">
+<div class="footer-seo__container-nav--wrapper padding-sm-800">
+<div class="grid-layout grid-layout--footer-full-width">
+<div class="grid-col-sm-1 grid-col-xs-md-8 grid-col-md-8 grid-col-lg-3"><a class="lazy-img lazy-img--simple  footer-seo__logo " href="/" aria-label="Questrade Home"><img alt="Questrade logo in footer" src="/images/librariesprovider11/default-album/logos/questrade-logo.svg" width="150" height="70"></a>
+<div class=" footer-seo__container-nav--wrapper__content">
+<p class="footer-seo__legal--copy margin-top-lg-600 margin-top-500 margin-bottom-lg-600 margin-bottom-500 color-grey-600">
+We care deeply about making Canadians much more financially successful and secure</p>
+</div>
+<a data-qt-label="Open an account button" href="/account-selection" data-qt="btnOpenAnAccount" aria-label="Open an account" data-qt-event="oaa" class="btn-primary btn-primary--light btn--s btn--w-full--xs" data-qt-ui="btn:footer|open an account">Open an account
+</a>
+</div>
+<div class="grid-col-sm-1 grid-col-xs-md-3 grid-col-md-3 grid-col-lg-3 ">
+<div class="footer-seo__tabs-button color-grey-700 padding-top-sm-700 padding-bottom-400 padding-bottom-md-300">
+Trade &amp; Invest</div>
+<div class="footer-seo__tabs--content">
+<ul class="footer-seo__tabs--list">
+    <li class="footer-seo__tabs--item"><a class="footer-seo__tabs--link color-grey-700 " href="/self-directed-investing">Self-directed investing</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/questwealth-portfolios" aria-label="Questwealth Portfolios">Managed
+    Investing</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/self-directed-investing/active-trader" aria-label="Active Trader">For Active Traders</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/questrade-plus" aria-label="Questrade Plus">Questrade Plus</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/self-directed-investing/investment-products" aria-label="Investment products">Investment products</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/self-directed-investing/trading-platforms" aria-label="Trading platforms">Trading
+    platforms</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/self-directed-investing/tools/tradingview" aria-label="TradingView ">TradingView </a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/pricing" aria-label="Pricing">pricing</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/learning" aria-label="Learning">Learning Centre</a>
+    </li>
+</ul>
+</div>
+</div>
+<div class="grid-col-sm-1 grid-col-xs-md-3 grid-col-md-3 grid-col-lg-3 ">
+<div class="footer-seo__tabs-button color-grey-700 padding-bottom-400 padding-bottom-md-300">Account
+Types</div>
+<div class="footer-seo__tabs--content">
+<ul class="footer-seo__tabs--list">
+    <li class="footer-seo__tabs--item"><a class="footer-seo__tabs--link color-grey-700 " href="/account-types/tfsa" aria-label="Tax-Free Savings Account (TFSA)">Tax-Free Savings
+    Account (TFSA)</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/account-types/rrsp" aria-label="Registered Retirement Savings Plan (RRSP)">Registered Retirement Savings
+    Plan (RRSP)</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/account-types/fhsa" aria-label="First Home Saving Account (FHSA)">First Home Saving Account (FHSA)</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/account-types/resp" aria-label="Registered Education Savings Plan (RESP)">Registered Education Savings Plan
+    (RESP)</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/account-types" aria-label="Account types">All account types</a>
+    </li>
+</ul>
+</div>
+</div>
+<div class="grid-col-sm-1 grid-col-xs-md-3  grid-col-md-3 grid-col-lg-3 footer-seo--affiliation ">
+<div class="footer-seo__tabs-button color-grey-700 padding-bottom-400 padding-bottom-md-300">Company
+</div>
+<div class="footer-seo__tabs--content">
+<ul class="footer-seo__tabs--list">
+    <li class="footer-seo__tabs--item"><a class="footer-seo__tabs--link color-grey-700 " href="/about-us" aria-label="About Us">About Us</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/affiliates/overview" aria-label="Affiliate Program">Affiliate Program</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700" href="/about-us/programs-promotions" aria-label="Programs &amp; Promotions">Programs &amp; Promotions</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700" href="/reserve" aria-label="Questrade Reserve">Questrade Reserve</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700" href="/about-us/why-questrade" aria-label="Why Questrade">Why Questrade</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700" href="/about-us/press-and-media" aria-label="Press &amp; Media">Press &amp; Media</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/partner-centre" aria-label="Partners Centre">Partners Centre</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/about-us/careers" aria-label="Careers">Careers</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " id="accessabilityWidget" tabindex="0" aria-label="Click for Accessibility">Accessibility Tool</a>
+    </li>
+    <li class="footer-seo__tabs--item padding-top-300"><a class="footer-seo__tabs--link color-grey-700 " href="/learning/support" aria-label="Support">Support</a>
+    </li>
+</ul>
+</div>
+</div>
+<div class="grid-col-sm-1 grid-col-xs-md-8 grid-col-md-8 grid-col-lg-3 ">
+<div class="footer-seo__logos padding-top-sm-400"><a href="https://www.ciro.ca/" aria-label="Canadian Investment Regulatory Organization (CIRO) (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img class="lazy-img lazy-img--simple footer-seo__logos--item " src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/images/librariesprovider11/default-album/logos/clip-path-group-tablet_mobile.svg "></a>
+<a href="https://www.cipf.ca/" aria-label="CIPF (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img class="lazy-img lazy-img--simple footer-seo__logos--item padding-top-lg-500 padding-left-md-700 padding-left-sm-800" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/images/librariesprovider11/default-album/logos/canadian-investor-protection-fund-cipf-vector-logo-2023-tablet_mobile.svg" alt="Canadian Investor Protection Fund - CIPF logo"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-seo__container-discl">
+<div class="footer-seo__container-discl--wrapper padding-to-sm-500">
+<ul class="footer-seo__legal--list">
+    <li class="footer-seo__legal--item "><a class="footer-seo__legal--item__link" href="/disclosure/legal-notice-and-disclosures" aria-label="Legal and Disclosures">Legal notices
+    &amp; disclosures</a>
+    </li>
+    <li class="footer-seo__legal--item"><a class="footer-seo__legal--item__link" href="/disclosure/privacy-policy-and-security/privacy-centre" aria-label="Privacy Centre">Privacy &amp; Security</a>
+    </li>
+    <li class="footer-seo__legal--item"><a class="footer-seo__legal--item__link" href="/sitemap" aria-label="Site map">Site map</a>
+    </li>
+    <li class="footer-seo__legal--item"><a class="footer-seo__legal--item__link" href="/disclosure/legal-notice-and-disclosures/2018/07/26/accessibility" aria-label="Accessibility Statement">Accessibility Statement</a>
+    </li>
+    <li class="footer-seo__legal--item"><a class="footer-seo__legal--item__link" href="https://www.ciro.ca/office-investor/know-your-advisor-advisor-report" aria-label="CIRO AdvisorReport">CIRO AdvisorReport</a>
+    </li>
+</ul>
+<p class="footer-seo__legal--copy padding-bottom-500">Questrade Wealth Management Inc. (QWM) and Questrade,
+Inc. are wholly owned subsidiaries of Questrade Financial Group Inc. Questrade, Inc. is a registered
+investment dealer, a member of the Canadian Investment Regulatory Organization (CIRO)
+and a member of the Canadian Investor Protection Fund (CIPF), the benefits of which are limited to the
+activities undertaken by Questrade, Inc. QWM is not a member of CIRO or the CIPF. Questrade, Inc.
+provides administrative, trade execution,
+custodial and reporting services to you. QWM is a registered Portfolio Manager, Investment Fund Manager,
+and Exempt Market Dealer and is responsible for managing your account and the investment portfolios
+within it by providing trade instructions
+to Questrade, Inc. Questwealth Portfolios® is a service provided by QWM.</p>
+<p class="footer-seo__legal--copy padding-bottom-500 padding-bottom-md-600">This webpage is being provided
+to you for information purposes only, and should not be used or construed as investment, tax or
+financial advice.</p>
+<div class="footer-seo__legal">
+<p class=" footer-seo__legal--copy footer-seo__legal--copy__rights padding-bottom-sm-500 padding-bottom-md-500">
+&copy; <span class="footer__copyright-year">2025</span>, Questrade, Inc. All Rights
+Reserved.</p>
+<div class=" footer-seo__legal--icons"><a class=" footer-seo__legal--icons__item" href=" https://www.instagram.com/questrade" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><span class="instagram-20 margin-right-500"></span></a>
+<a class=" footer-seo__legal--icons__item" href="https://www.tiktok.com/@questrade" target="_blank" rel="noopener noreferrer" aria-label="TikTok (opens in a new tab)"><span class="tiktok-20 margin-right-500"></span></a>
+<a class=" footer-seo__legal--icons__item" href="https://www.linkedin.com/company/questrade" target="_blank" rel="noopener noreferrer" aria-label="Linkedin (opens in a new tab)"><span class="linkedin-20 margin-right-500"></span></a>
+<a class=" footer-seo__legal--icons__item" href="https://www.youtube.com/user/Questrade" target="_blank" rel="noopener noreferrer" aria-label="Youtube (opens in a new tab)"><span class="youtube-20 margin-right-500"></span></a>
+<a class=" footer-seo__legal--icons__item" href="https://twitter.com/questrade" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) (opens in a new tab)"><span class="twitter-20 margin-right-500"></span></a>
+<a class=" footer-seo__legal--icons__item" href="https://www.facebook.com/questrade" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><span class="facebook-20 "></span></a>
+</div>
+</div>
+</div>
+</div>
+</div></div>    
+
+</div></div>
+</footer>
+<script async>
+    window.addEventListener('load', () => {
+        (function(d){
+            var s = d.createElement("script");
+            /* uncomment the following line to override default position*/
+            /* s.setAttribute("data-position", 3);*/
+            /* uncomment the following line to override default size (values: small, large)*/
+            /* s.setAttribute("data-size", "small");*/
+            /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+            /* s.setAttribute("data-language", "language");*/
+            /* uncomment the following line to override color set via widget (e.g., #053f67)*/
+            /* s.setAttribute("data-color", "#053e67");*/
+            /* uncomment the following line to override type set via widget (1=person, 2=chair, 3=eye, 4=text)*/
+            /* s.setAttribute("data-type", "1");*/
+            /* s.setAttribute("data-statement_text:", "Our Accessibility Statement");*/
+            /* s.setAttribute("data-statement_url", "http://www.example.com/accessibility")";*/
+            /* uncomment the following line to override support on mobile devices*/
+            /* s.setAttribute("data-mobile", true);*/
+            /* uncomment the following line to set custom trigger action for accessibility menu*/
+            s.setAttribute("data-trigger", "accessabilityWidget")
+            s.setAttribute("data-account", "WGXnDlhd6x");
+            s.setAttribute("src", "https://cdn.userway.org/widget.js");
+            (d.body || d.head).appendChild(s);
+        })(document)
+    });
+</script>
+<script async src="https://gc-web-messenger.questrade.com/chat/qt-messenger-widget.js" id="investingGenesysSourceScript"></script>
+
+<script async>
+    window.openChat = function () {
+        window.Genesys("command", "Messenger.open");
+    }
+</script>
+
+
+
+
+
+<script async src="/Resources/qcom/dist/lazyLoad.bundle.js"></script>
+
+
+
+
+
+<script async>
+    (function () {
+        fetch("/404-page-not-found/ClearSessionStorage/")
+    })();
+</script>
+
+
+ <script type="text/javascript">
+/** AMPLITUDE TEST **/
+/**
+ * Variant "on" replaces the default <ul> in #ff-mega-nav-root with a clone
+ * Expects: MainMaster "amplitudeReady" / window.isAmplitudeReady.
+ * Optional: #ff-mega-nav-experiment data-ff-flag-key and data-ff-condensed-variant override. After the swap, dispatch "ffMegaNavResolved". If the main bundle instantiates
+ * AccessibleMegaMenuSEO on DOMContentLoaded, load this file *before* that bundle so the visible <ul> is the final one; otherwise listen for ffMegaNavResolved and re-init the megamenu on #ff-mega-nav-root.
+ * Panel toggle init is handled by the standalone "Product Navigation" script (v8).
+ * REMOVE THIS SCRIPT when the QUEST-10705 feature flag is retired.
+ */
+(function () {
+  'use strict';
+
+  const root = document.getElementById('ff-mega-nav-experiment');
+  const nav = document.getElementById('ff-mega-nav-root');
+  /** Condensed <ul> source: <template id="ff-mega-nav-template-condensed"> (preferred) or a hidden
+   *  <div id="ff-mega-nav-template-condensed" hidden> wrapping the same <ul> if the CMS strips <template>. */
+  function getCondensedMarkupHost() {
+    return document.getElementById('ff-mega-nav-template-condensed');
+  }
+
+  function getCondensedMarkupNode() {
+    const el = getCondensedMarkupHost();
+    if (!el) return null;
+    if (el.tagName === 'TEMPLATE') {
+      return el.content.querySelector('ul.mega-seo-menu--condensed-menu');
+    }
+    return el.querySelector('ul.mega-seo-menu--condensed-menu');
+  }
+
+  function hasCondensedMarkup() {
+    return getCondensedMarkupNode() != null;
+  }
+
+  if (!root || !nav) return;
+
+  /* Until the flag resolves, keep the live nav out of the accessibility tree (matches CSS hide). */
+  nav.setAttribute('aria-hidden', 'true');
+
+  const FLAG_KEY = root.getAttribute('data-ff-flag-key') || 'qcom_experiment_mega-navigation-v1';
+  const VARIANT_ON = root.getAttribute('data-ff-condensed-variant') || 'on';
+  const FALLBACK_MS = 5000;
+
+  let finished = false;
+  let failSafe = null;
+  let pollId = null;
+  let defaultMenuSnapshot = null;
+
+  function getMenuUl() {
+    return nav.querySelector('ul.mega-seo-menu');
+  }
+
+  function ensureDefaultSnapshot() {
+    if (defaultMenuSnapshot != null) return;
+    const ul = getMenuUl();
+    if (ul && !ul.classList.contains('mega-seo-menu--condensed-menu')) {
+      defaultMenuSnapshot = ul.cloneNode(true);
+    }
+  }
+
+  function replaceWithCondensedMenu() {
+    ensureDefaultSnapshot();
+    const live = getMenuUl();
+    if (!live || live.classList.contains('mega-seo-menu--condensed-menu')) return;
+    const raw = getCondensedMarkupNode();
+    if (!raw) return;
+    const next = raw.cloneNode(true);
+    live.replaceWith(next);
+    nav.setAttribute('data-qt-mega-nav', 'condensed-menu');
+  }
+
+  function replaceWithDefaultMenu() {
+    const live = getMenuUl();
+    if (!live) return;
+    if (!live.classList.contains('mega-seo-menu--condensed-menu')) return;
+    if (!defaultMenuSnapshot) return;
+    live.replaceWith(defaultMenuSnapshot.cloneNode(true));
+    nav.removeAttribute('data-qt-mega-nav');
+  }
+
+  function normalizeVariantId(v) {
+    if (v == null) return null;
+    if (typeof v === 'string') return v.trim();
+    if (v.value != null) return String(v.value).trim();
+    if (v.key != null) return String(v.key).trim();
+    if (v.payload) {
+      const p = v.payload.variant || v.payload.value || v.payload.key;
+      if (p != null) return String(p).trim();
+    }
+    return null;
+  }
+
+  function getVariant() {
+    const raw =
+      window.amplitudeFlags?.[FLAG_KEY] ??
+      (typeof window.amplitudeExperiment?.variant === 'function'
+        ? window.amplitudeExperiment.variant(FLAG_KEY)
+        : null) ??
+      null;
+    if (raw == null) return null;
+    if (typeof raw === 'string') return raw.trim() || null;
+    return normalizeVariantId(raw);
+  }
+
+  function pushGtm(variantId, source) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'feature_flag_active',
+        feature_flag: FLAG_KEY,
+        variant: variantId,
+        feature_flag_source: source,
+      });
+    } catch (_) {
+      /* ignore */
+    }
+  }
+
+  function setVisibility(useCondensed, source) {
+    if (finished) return;
+    finished = true;
+    if (failSafe != null) {
+      clearTimeout(failSafe);
+      failSafe = null;
+    }
+    if (pollId != null) {
+      clearInterval(pollId);
+      pollId = null;
+    }
+
+    if (useCondensed) {
+      replaceWithCondensedMenu();
+      root.classList.remove('ff-ff--show-default');
+      root.classList.add('ff-ff--show-condensed');
+      pushGtm(VARIANT_ON, source);
+    } else {
+      replaceWithDefaultMenu();
+      root.classList.remove('ff-ff--show-condensed');
+      root.classList.add('ff-ff--show-default');
+      const v = getVariant();
+      pushGtm(v != null ? String(v) : 'control', source);
+    }
+
+    root.classList.remove('ff-ff--amp-lock');
+    root.classList.add('ff-ff--resolved');
+    nav.setAttribute('aria-hidden', 'false');
+
+    try {
+      window.dispatchEvent(
+        new CustomEvent('ffMegaNavResolved', {
+          detail: { useCondensed: useCondensed, flagKey: FLAG_KEY, source: source },
+        }),
+      );
+      window.dispatchEvent(
+        new CustomEvent('ffMegaNavMarkupSwapped', {
+          detail: { useCondensed: useCondensed, flagKey: FLAG_KEY, source: source, nav: nav },
+        }),
+      );
+    } catch (_) {
+      /* ignore */
+    }
+  }
+
+  function variantIsCondensed(v) {
+    if (v == null) return false;
+    return String(v).trim().toLowerCase() === String(VARIANT_ON).trim().toLowerCase();
+  }
+
+  function showDefault(source) {
+    setVisibility(false, source);
+  }
+
+  function showCondensed(source) {
+    setVisibility(true, source);
+  }
+
+  function tryDecide(source) {
+    if (finished) return;
+    const v = getVariant();
+    if (v == null) {
+      return;
+    }
+    if (variantIsCondensed(v)) {
+      if (hasCondensedMarkup()) {
+        showCondensed(source != null ? String(source) : 'amplitude');
+      } else {
+        showDefault(String(source != null ? source : 'amplitude') + '-condensed-template-missing');
+      }
+      return;
+    }
+    showDefault('amplitude-other');
+  }
+
+  function start() {
+    const tick = function () {
+      tryDecide('poll');
+    };
+
+    if (window.isAmplitudeReady) {
+      requestAnimationFrame(tick);
+      setTimeout(tick, 0);
+      for (var j = 1; j <= 20; j += 1) {
+        setTimeout(tick, j * 50);
+      }
+    }
+
+    document.addEventListener(
+      'amplitudeReady',
+      function onAmplitude() {
+        tryDecide('amplitudeReady');
+      },
+      { once: true },
+    );
+
+    pollId = setInterval(tick, 100);
+
+    failSafe = setTimeout(function () {
+      if (pollId != null) {
+        clearInterval(pollId);
+        pollId = null;
+      }
+      if (!finished) {
+        showDefault('fallback-timeout');
+      }
+    }, FALLBACK_MS);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start, { once: true });
+  } else {
+    start();
+  }
+
+  // If the flag pipeline never completed (e.g. amplitudeReady missing), the bar must not stay
+  // in a "locked" state. Unlock and keep the default <ul> (same as 5s fallback, extra safety).
+  setTimeout(function ffMegaNavStallGuard() {
+    if (finished) return;
+    showDefault('failsafe-stall-guard');
+  }, 10000);
+})();
+
+</script><script type="text/javascript">
+/**
+ * FF mega nav panel toggle init — standalone script
+ * Firefox: AccessibleMegaMenuSEO initializes on the original <ul> before the Amplitude
+ * swap, so condensed buttons get no handlers — we add them here.
+ * Chrome: Amplitude resolves first, swap happens, then AccessibleMegaMenuSEO initializes
+ * on the condensed <ul> naturally — we must not interfere.
+ * Detection: AccessibleMegaMenuSEO.create() sets aria-controls on every button it owns.
+ * At click time, if aria-controls is present we defer to AccessibleMegaMenuSEO; if not,
+ * we handle the toggle ourselves using the same class pattern (mega-seo-menu__top-nav-item--open
+ * on the <li> and .open on the panel).
+ * Uses ffPanelInitV8 flag — does not conflict with any previously deployed version.
+ * REMOVE THIS SCRIPT when the QUEST-10705 feature flag is retired.
+ */
+(function () {
+  'use strict';
+
+  function initCondensedPanelToggles(nav) {
+    var ul = nav.querySelector('ul.mega-seo-menu--condensed-menu');
+    if (!ul) return;
+
+    if (ul.dataset.ffPanelInitV8) return;
+    ul.dataset.ffPanelInitV8 = '1';
+
+    var dropdownItems = [];
+    ul.querySelectorAll('li.mega-seo-menu__top-nav-item').forEach(function (li) {
+      var panel = li.querySelector('.mega-seo-menu__panel');
+      var btn = li.querySelector('button');
+      // Dropdown panels have no style="display:none"; direct-link items have no panel at all (v8)
+      if (panel && btn && panel.style.display !== 'none') {
+        dropdownItems.push({ li: li, btn: btn, panel: panel });
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-haspopup', 'true');
+      }
+    });
+
+    function closeAll() {
+      dropdownItems.forEach(function (item) {
+        item.li.classList.remove('mega-seo-menu__top-nav-item--open');
+        item.panel.classList.remove('open');
+        item.btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    ul.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      // aria-controls is set exclusively by AccessibleMegaMenuSEO.create() — if present,
+      // it has already initialized this button and will handle the toggle itself
+      if (btn.hasAttribute('aria-controls')) return;
+      var match = dropdownItems.find(function (item) { return item.btn === btn; });
+      if (!match) return;
+      var isOpen = match.li.classList.contains('mega-seo-menu__top-nav-item--open');
+      closeAll();
+      if (!isOpen) {
+        match.li.classList.add('mega-seo-menu__top-nav-item--open');
+        match.panel.classList.add('open');
+        match.btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!ul.contains(e.target)) {
+        closeAll();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeAll();
+      }
+    });
+  }
+
+  var nav = document.getElementById('ff-mega-nav-root');
+  if (!nav) return;
+
+  // If this script loads after the swap already happened, init immediately
+  var root = document.getElementById('ff-mega-nav-experiment');
+  if (root && root.classList.contains('ff-ff--show-condensed')) {
+    initCondensedPanelToggles(nav);
+    return;
+  }
+
+  // Otherwise wait for the swap event
+  window.addEventListener('ffMegaNavMarkupSwapped', function (e) {
+    if (e.detail && e.detail.useCondensed) {
+      initCondensedPanelToggles(e.detail.nav || nav);
+    }
+  }, { once: true });
+
+})();
+
+</script><script type="text/javascript">
+
+    if (window.location.pathname.indexOf('/questwealth-portfolios') !== -1) {
+      var btn = document.getElementById('open-an-account-nav');
+      if (btn) {
+        btn.href = '/account-selection?prodtype=qwp';
+      }
+    }
+  
+</script> <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"b7cd31007e3c438b8f694a9b00221b34","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0f6cc86e95746dd',t:'MTc4MjA4NDYwMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body> </html>

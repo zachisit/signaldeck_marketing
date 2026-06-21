@@ -45,7 +45,7 @@
           "name": "Which plan includes MT4/MT5 trade import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "MT4/MT5 trade import via MetaApi is a Elite plan feature ($50/mo when billing launches in June 2026). Connect your MT4 or MT5 account and trades import automatically — fills, P&L, symbol, volume, and execution price with zero manual entry. Live account balance syncs in real time so Kelly Criterion sizing always uses your actual current equity. During beta, all features including MT4/MT5 import are free."
+            "text": "SignalDeck supports five import methods. Four are free on all plans: IBKR via Flex Web Service, cTrader via OAuth (IC Markets, Pepperstone, FP Markets, FxPro and 250+ cTrader brokers), SnapTrade aggregator (Robinhood, Webull, Schwab, Fidelity, Questrade, Trading 212 and 30+ brokers), and CSV in 8 formats. MT4/MT5 via MetaApi is Elite-only ($50/mo) — it is the only integration with real-time live balance sync for Kelly Criterion sizing and prop firm drawdown headroom. See sgnldk.com/broker-import/ for the full list."
           }
         },
         {
@@ -271,7 +271,7 @@
                         </li>
                         <li class="flex items-start gap-3 text-sm text-zinc-300">
                             <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                            <span>Broker import<br><span class="text-zinc-500 text-xs">IBKR Flex · cTrader · SnapTrade (Robinhood, Schwab, Fidelity, Coinbase) · CSV (8 formats)</span></span>
+                            <span>Broker import<br><span class="text-zinc-500 text-xs">IBKR Flex · cTrader (IC Markets, Pepperstone, 250+ brokers) · SnapTrade (Robinhood, Schwab, Questrade, Trading 212, 30+ brokers) · CSV (8 formats)</span></span>
                         </li>
                         <li class="flex items-start gap-3 text-sm text-zinc-300">
                             <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -452,8 +452,21 @@
             <div class="space-y-6">
 
                 <div class="bg-zinc-900/40 border border-emerald-500/30 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What brokers can I import from?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports five import methods — four are available on all plans (including free) and one is Elite-only:</p>
+                    <ul class="mt-3 space-y-2 text-sm text-zinc-400">
+                        <li><strong class="text-white">IBKR Flex Web Service</strong> — guided wizard, FIFO round-trip reconstruction, opt-in auto-sync, EOD balance card. All plans.</li>
+                        <li><strong class="text-white">cTrader via OAuth</strong> — works with any cTrader broker: IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets, and 250+ more. All plans.</li>
+                        <li><strong class="text-white">SnapTrade aggregator</strong> — 30+ brokers including Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Questrade, Wealthsimple, Trading 212, DEGIRO, and more. All plans.</li>
+                        <li><strong class="text-white">CSV upload — 8 formats</strong> — Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, Generic. All plans.</li>
+                        <li><strong class="text-white">MT4/MT5 via MetaApi</strong> — real-time live balance sync for Kelly Criterion sizing and prop firm drawdown headroom. <strong class="text-purple-300">Elite plan only</strong> ($50/mo).</li>
+                    </ul>
+                    <p class="mt-3 text-sm text-zinc-400"><a href="../broker-import/index.html" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">See the full broker list with logos →</a></p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-emerald-500/30 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Which plan includes MT4/MT5 trade import?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">MT4/MT5 trade import via MetaApi is a <strong class="text-white">Elite plan</strong> feature ($50/mo when billing launches). Connect your MT4 or MT5 broker account and trades import automatically — fills, P&L, symbol, volume, and execution price with zero manual entry of execution data. Live account balance syncs in real time so Kelly Criterion sizing and fixed-R calculations always reflect your actual current equity. After a drawdown, your position sizing adjusts automatically. Stop loss still requires manual entry after import for R-Multiple calculation. During beta, this feature is free for everyone.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">MT4/MT5 trade import via MetaApi is an <strong class="text-white">Elite plan</strong> feature ($50/mo when billing launches). It's the only import method with real-time live account balance sync — your equity updates the moment a trade closes, so Kelly Criterion sizing and prop firm drawdown headroom always reflect your actual current balance. Fills, P&L, symbol, and volume import automatically with no manual execution entry. Stop loss still requires manual entry after import for R-Multiple calculation. For other brokers (IBKR, cTrader, SnapTrade, CSV) see the broker import FAQ above — those are free on all plans.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-teal-400/30 rounded-xl p-6">

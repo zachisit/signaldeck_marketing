@@ -307,8 +307,15 @@
 
   <url>
     <loc>https://sgnldk.com/blog/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/blog/liquidity-hunt-trading/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <url>

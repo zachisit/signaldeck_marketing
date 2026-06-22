@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8', { 'debug_mode': true });
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal | SignalDeck</title>
+    <meta name="description" content="Your stop gets hit. Price immediately reverses. Here's the mechanics behind liquidity hunts, where they form, and how to place stops that survive them — especially on a prop firm challenge.">
+    <meta name="keywords" content="liquidity hunt, liquidity grab, stop hunt trading, stop loss hunting, smart money forex, ICT liquidity, prop firm stop loss, why does my stop keep getting hit, equal lows, equal highs">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/liquidity-hunt-trading/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/liquidity-hunt-trading/">
+    <meta property="og:title" content="Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal | SignalDeck">
+    <meta property="og:description" content="Your stop gets hit. Price immediately reverses. Here's the mechanics behind liquidity hunts, where they form, and how to place stops that survive them.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/liquidity-hunt-trading/">
+    <meta property="twitter:title" content="Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal | SignalDeck">
+    <meta property="twitter:description" content="Your stop gets hit. Price immediately reverses. Here's the mechanics behind liquidity hunts, where they form, and how to place stops that survive them.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal",
+        "description": "The mechanics behind liquidity hunts in forex and prop firm trading — where they form, why institutions engineer them, and how to place stops that survive them.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-06-22",
+        "dateModified": "2026-06-22"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a liquidity hunt in trading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A liquidity hunt (also called a stop hunt or liquidity grab) is when price briefly moves beyond a key technical level — a swing low, round number, or equal lows — to trigger the stop losses clustered there, then immediately reverses. Large participants need those resting orders as counterparty liquidity to fill their own positions. The hunt is the mechanism by which that liquidity gets collected."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I stop getting stopped out by liquidity hunts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Place your stop beyond the liquidity zone, not at it. If equal lows sit at 1.0850, retail stops cluster at 1.0848-1.0850. A hunt will push to 1.0840-1.0845 to collect them. Your stop needs to be below 1.0838 to survive, and your position size must be reduced so the wider stop still respects your R% per trade. Alternatively, wait for the hunt itself as your entry trigger rather than entering before the grab."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a liquidity hunt and a stop run?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They are the same concept with different names. 'Stop run' emphasizes the trigger mechanism (retail stop orders getting filled). 'Liquidity hunt' or 'liquidity grab' emphasizes the institutional perspective — large buyers or sellers need the liquidity those stops represent to fill their own orders. ICT (Inner Circle Trader) methodology uses 'liquidity grab' and 'liquidity sweep.' The underlying market microstructure is identical."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why do prop firm traders get hunted more than retail traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prop firm traders tend to place tighter stops because their daily loss limits create psychological pressure to protect each trade. Tight stops placed exactly at technical levels are the most predictable — and therefore the most hunted — stops in the market. Every hunt that triggers your stop costs you drawdown headroom on a funded challenge, making the psychological pressure to use tight stops worse over time. Breaking this loop requires understanding where hunts form and sizing appropriately for wider, structural stops."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal", "item": "https://sgnldk.com/blog/liquidity-hunt-trading/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-06-22" class="text-xs font-mono text-zinc-500">June 22, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal
+            </h1>
+            <p class="text-lg text-zinc-400">
+                You set your stop below support. Price dips exactly to it, takes you out, then immediately reverses in the direction you were right about. This is not bad luck. Here's the mechanism — and what to do about it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Pattern That Breaks Traders</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                You've been here. EUR/USD has been consolidating for three hours. You see clear support at 1.0850, a textbook level that held twice before. You enter long, set your stop at 1.0847 — just below the level, tight enough to keep the trade inside your 1% risk rule. Price dips to 1.0846, takes you out, then rallies 80 pips exactly where you thought it was going.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                You were right about the direction. You were right about the level. You lost the trade anyway. And the next time you see the same setup, you hesitate — because somewhere in the back of your head, you think the market is out to get you.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It is. Just not in the way you think.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What a Liquidity Hunt Actually Is</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Institutional participants — banks, market makers, large funds — execute orders in sizes that the retail order book cannot absorb cleanly. To fill a large buy order, they need a matching supply of sellers. To fill a large sell order, they need buyers. The problem is that retail traders don't voluntarily supply that liquidity in the right place at the right time.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                But retail stop losses do. When thousands of traders place their stops in predictable locations — just below a swing low, just above a round number, right under a moving average everyone watches — those stops become a pool of resting sell orders waiting to be triggered. To an institution looking to buy, that pool is exactly the liquidity they need.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                So they push price down into that pool. The stops trigger. The institutions buy from those triggered sellers. Price reverses immediately because the liquidity has been collected and the buyers have their fill. What looks like the market "taking your stop" is the market using your stop as counterparty liquidity for a large institutional order.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "The market doesn't hunt your specific stop. It hunts the cluster. You just happened to be in the cluster."
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Where Liquidity Pools Form</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Liquidity pools form wherever large numbers of traders place stops in the same location. These are the predictable zones:
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Liquidity Zone</th>
+                            <th class="px-4 py-3 text-left font-semibold">Why Stops Cluster Here</th>
+                            <th class="px-4 py-3 text-left font-semibold">Hunt Direction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Swing lows</td>
+                            <td class="px-4 py-3 text-zinc-400">Standard technical stop placement for longs</td>
+                            <td class="px-4 py-3 text-rose-400">Price sweeps below, then reverses up</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Swing highs</td>
+                            <td class="px-4 py-3 text-zinc-400">Standard stop placement for shorts</td>
+                            <td class="px-4 py-3 text-emerald-400">Price sweeps above, then reverses down</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Equal lows / highs</td>
+                            <td class="px-4 py-3 text-zinc-400">Two identical touches = a magnet for stops</td>
+                            <td class="px-4 py-3 text-zinc-300">Hunted almost every time a third test forms</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Round numbers</td>
+                            <td class="px-4 py-3 text-zinc-400">1.1000, 1.0500 — visible to every trader</td>
+                            <td class="px-4 py-3 text-zinc-300">High liquidity both sides; hunted in both directions</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Prior day highs/lows</td>
+                            <td class="px-4 py-3 text-zinc-400">Widely used reference levels for breakout traders</td>
+                            <td class="px-4 py-3 text-zinc-300">Common hunt zone during the London/NY open</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Moving averages</td>
+                            <td class="px-4 py-3 text-zinc-400">200 EMA stops are near-universal</td>
+                            <td class="px-4 py-3 text-zinc-300">Brief breach followed by fast reclaim</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Equal lows deserve special attention. When price touches the same level twice without breaking through, retail traders see "strong support" and add their longs with stops just below. The market reads this as a predictable cluster of stops on the third test — and that third test almost always becomes the hunt. Two equal lows isn't support. It's a magnet.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why This Is Especially Destructive on a Prop Firm Challenge</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                On a standard retail account, a stop-out costs you R. You regroup and take the next trade. On an <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge or Apex funded account</a>, a stop-out costs you drawdown headroom that doesn't come back. Your daily loss limit might be 5%. Your overall drawdown limit might be 10%. A single liquidity hunt that catches your stop can consume 1-2% of that budget in seconds — and leave you trading the rest of the week in survival mode, tightening your stops further, making yourself even more vulnerable to the next hunt.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This creates a destructive feedback loop: prop firm pressure → tighter stops → stops placed at obvious levels → higher hunt probability → more drawdown consumed → even more pressure. Traders who fail challenges often fail not because their strategy doesn't work, but because they never adjusted their stop placement for the reality of liquidity-driven price action.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Three Adjustments That Help</h2>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">1. Place Stops Beyond the Liquidity Zone, Not at It</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If equal lows are at 1.0850 and retail stops cluster between 1.0847 and 1.0850, a hunt typically pushes to 1.0840–1.0845 to collect them. Your stop needs to sit below 1.0838 to survive the grab. The trade-off is a wider stop — which means you must reduce your position size to keep the same R% at risk. This is not optional. A wider stop at a smaller size produces the same dollar loss on a stop-out. What it avoids is getting taken out by a two-candle hunt before the real move begins.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">2. Wait for the Hunt as Your Entry Signal</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Instead of entering before the hunt, enter after it. When price sweeps below equal lows, breaks the prior swing low with a sharp wick, and immediately closes back above the level — that close-back is your entry trigger. Your stop then sits below the wick low (the extreme of the hunt), your entry is tighter relative to the actual structure, and you're entering in the direction the institution is now positioned. This is the highest-probability version of a liquidity grab trade and it requires patience: you miss the trades where price never sweeps and just reverses cleanly, but you eliminate the trades where the hunt runs further than expected.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">3. Avoid Obvious Stop Clusters on Major News</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                High-impact events — NFP, CPI, central bank decisions — create the most violent liquidity hunts because spreads widen and thin order books allow large participants to push price aggressively. Stops placed near obvious levels going into a major news event are the easiest stops in the market to collect. Either move your stop to a structural extreme well beyond the cluster, or flatten before the event. The hunt is more predictable in these windows, not less.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Your Journal Already Has the Evidence</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If liquidity hunts are systematically hitting your stops, the pattern is in your data. Look at your Maximum Adverse Excursion (MAE) — the furthest distance price moved against you before closing the trade. If a consistent subset of your losing trades shows MAE of exactly 5–15 pips beyond a prior swing low before reversing, that's not noise. That's a structural stop-placement problem you can measure and fix.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Specifically: filter your closed losses by the price level where the stop was hit. If 60% of your long stop-outs occur within 8 pips of a prior swing low, you are systematically placing stops inside the hunt zone. Adding 10–15 pips of buffer — and sizing down proportionally — would have kept many of those trades alive long enough to reach your original target. The fix is simple once you can see the pattern. The challenge is seeing it. <a href="../mae-mfe-execution-metrics/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">MAE and MFE analysis</a> is the tool for this.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is also why <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiple tracking</a> matters here. When you normalize every trade to R, a stop-out at -1R and a stop-out at -1.4R (because you added buffer) look different on the surface — but if the -1.4R trades have significantly higher subsequent win rates (because the hunt didn't take you out), the expectancy math favors the wider stop. You can only see this if you're tracking R consistently across every trade, not dollars.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is a liquidity hunt in trading?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">A liquidity hunt (also called a stop hunt or liquidity grab) is when price briefly moves beyond a key technical level — a swing low, round number, or equal lows — to trigger the stop losses clustered there, then immediately reverses. Large participants need those resting orders as counterparty liquidity to fill their own positions. The hunt is the mechanism by which that liquidity gets collected.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I stop getting stopped out by liquidity hunts?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Place your stop beyond the liquidity zone, not at it. If equal lows sit at 1.0850, retail stops cluster at 1.0847–1.0850. A hunt will push to 1.0840–1.0845 to collect them. Your stop needs to be below 1.0838 to survive, and your position size must be reduced so the wider stop still respects your R% per trade. Alternatively, wait for the hunt itself as your entry trigger rather than entering before the grab.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the difference between a liquidity hunt and a stop run?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">They are the same concept with different names. "Stop run" emphasizes the trigger mechanism — retail stop orders getting filled. "Liquidity hunt" or "liquidity grab" emphasizes the institutional perspective: large buyers or sellers need the liquidity those stops represent to fill their own orders. ICT methodology uses "liquidity grab" and "liquidity sweep." The underlying market microstructure is identical.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why do prop firm traders get hunted more than retail traders?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Prop firm traders tend to place tighter stops because daily loss limits create psychological pressure to protect each trade. Tight stops placed exactly at technical levels are the most predictable — and therefore the most hunted — stops in the market. Every hunt that triggers your stop costs drawdown headroom on a funded challenge, making the pressure to use tight stops worse over time. Breaking this loop requires understanding where hunts form and sizing appropriately for wider, structural stops.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
+                    </a>
+                    <a href="../mae-mfe-execution-metrics/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Execution</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MAE and MFE: The Execution Metrics Most Traders Ignore</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 18, 2026</p>
+                    </a>
+                    <a href="../fixed-r-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Most Traders Risk Too Much on Every Trade (And How Fixed-R Position Sizing Fixes It)</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 22, 2026</p>
+                    </a>
+                    <a href="../what-is-r-multiple/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Find out if hunts are in your data.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck tracks MAE on every trade — the distance price moved against you before closing. If liquidity hunts are systematically taking your stops, the pattern shows up in your MAE distribution. Free during beta, no credit card required.</p>
+                <a href="https://app.sgnldk.com/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'liquidity-hunt-trading'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Import Your Trades — Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

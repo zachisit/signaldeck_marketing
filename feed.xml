@@ -30,6 +30,18 @@
     ================================================================ -->
 
     <item>
+      <title>Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal</title>
+      <link>https://sgnldk.com/blog/liquidity-hunt-trading/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/liquidity-hunt-trading/</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Your stop gets hit. Price immediately reverses. You were right about the direction — but dead.
+
+This is a liquidity hunt. Here's where they form, why institutions engineer them, and how to place stops that survive them.</description>
+      <content:encoded>Liquidity hunts happen when price briefly sweeps beyond a key level — swing lows, equal lows, round numbers — to collect retail stop losses, then immediately reverses. Understanding where pools form and how to size for wider structural stops changes how you survive prop firm drawdown limits.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01a-waves.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>MAE and MFE: The Execution Metrics Most Traders Ignore</title>
       <link>https://sgnldk.com/blog/mae-mfe-execution-metrics/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/mae-mfe-execution-metrics/</guid>

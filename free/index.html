@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Free Trading Journal with Walk-Forward &amp; Monte Carlo</title>
-    <meta name="description" content="SignalDeck is free during beta — Walk-Forward Analysis, Monte Carlo, SQN, Kelly Criterion, MT4/MT5 import, structured Post Mortem. No credit card required.">
+    <meta name="description" content="SignalDeck is free during beta — Walk-Forward Analysis, Monte Carlo, SQN, Kelly Criterion, multi-broker import (IBKR, cTrader 250+ brokers, SnapTrade 30+ brokers, MT4/MT5), structured Post Mortem. No credit card.">
     <meta name="keywords" content="free trading journal, best free trading journal, free trading journal backtester, free forex trading journal, free stock trading journal, free trading journal MT4, free trading journal with analytics, trading journal free tier, no cost trading journal 2026">
     <meta name="author" content="SignalDeck">
 
@@ -74,10 +74,10 @@
         },
         {
           "@type": "Question",
-          "name": "Does the free version include MT4/MT5 import?",
+          "name": "What brokers can I import from with the free version?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. During beta, MT4/MT5 trade import via MetaApi is fully included at no cost. Trades import automatically — fills, P&L, symbol, volume, and execution price with no manual entry. Live account balance syncs in real time so Kelly Criterion sizing always uses your current equity. Stop loss still requires manual entry after import for R-Multiple calculation."
+            "text": "All five import methods are included during beta. Four are on every plan: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with live balance sync is Elite ($50/mo) but fully unlocked during beta. See sgnldk.com/broker-import/ for the full list."
           }
         },
         {
@@ -195,7 +195,7 @@
                 The most complete free<br class="hidden sm:block"> trading journal in 2026.
             </h1>
             <p class="mt-4 max-w-3xl mx-auto text-xl text-zinc-400 font-mono">
-                Walk-Forward Analysis. Monte Carlo simulation. SQN scoring. Kelly Criterion. MT4/MT5 import. Structured Post Mortem. All free — no paywalls, no trial periods, no credit card.
+                Walk-Forward Analysis. Monte Carlo simulation. SQN scoring. Kelly Criterion. Multi-broker import (IBKR, cTrader 250+, SnapTrade 30+, MT4/MT5). Structured Post Mortem. All free — no paywalls, no credit card.
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-4">
                 <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer"
@@ -244,8 +244,8 @@
 
                 <div class="bg-zinc-900/50 border border-emerald-500/30 rounded-xl p-6">
                     <div class="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">Import</div>
-                    <h3 class="text-base font-bold text-white mb-2">MT4/MT5 Auto-Import</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Connect any MetaTrader 4 or MetaTrader 5 account via MetaApi. Fills, P&L, symbol, and volume import automatically with no manual entry. Live balance syncs in real time.</p>
+                    <h3 class="text-base font-bold text-white mb-2">Multi-Broker Import</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Connect IBKR via Flex Web Service, cTrader (IC Markets, Pepperstone, FP Markets, FxPro + 250 brokers), SnapTrade (Robinhood, Schwab, Questrade, Trading 212 + 30 more), CSV in 8 formats, or MT4/MT5 via MetaApi with live balance sync. <a href="../broker-import/index.html" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">All supported brokers →</a></p>
                 </div>
 
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
@@ -359,13 +359,13 @@
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/40">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">MT4/MT5 Import + Live Balance</td>
-                            <td class="px-4 py-3 text-center bg-emerald-500/10 text-emerald-500 font-bold">✅</td>
-                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only</td>
-                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only</td>
-                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
-                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Import only</td>
-                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Multi-Broker Import <a href="../broker-import/index.html" class="text-emerald-500 text-xs hover:underline">(IBKR · cTrader · SnapTrade · MT4/MT5)</a></td>
+                            <td class="px-4 py-3 text-center bg-emerald-500/10 text-emerald-500 font-bold">✅ 5 methods</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ 900+ but no cTrader OAuth</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ ~500 brokers</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ 80+ legacy</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ CSV + some import</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ CSV only</td>
                         </tr>
                         <tr class="border-t border-zinc-800">
                             <td class="px-4 py-3 text-zinc-300 font-medium">R-Value as Core Framework</td>
@@ -402,7 +402,7 @@
                     </div>
                     <h2 class="text-2xl font-bold text-white mb-4">Free during beta.<br>Start now, no credit card.</h2>
                     <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        SignalDeck is building this alongside serious traders. Every feature — Walk-Forward Analysis, Monte Carlo, grid-search optimizer, MT4/MT5 import, R-value framework, Post Mortem protocol — is fully unlocked at no cost during beta.
+                        SignalDeck is building this alongside serious traders. Every feature — Walk-Forward Analysis, Monte Carlo, grid-search optimizer, multi-broker import (IBKR, cTrader, SnapTrade, MT4/MT5), R-value framework, Post Mortem protocol — is fully unlocked at no cost during beta.
                     </p>
                     <p class="text-zinc-500 text-sm leading-relaxed">
                         Paid plans launch around June 2026: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo). Early beta testers were grandfathered. New accounts join one of these tiers at launch.
@@ -431,7 +431,7 @@
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-emerald-400 mt-0.5">✓</span>
-                            <span class="text-zinc-300">MT4/MT5 import + live balance sync</span>
+                            <span class="text-zinc-300">Multi-broker import — IBKR, cTrader (250+ brokers), SnapTrade (30+), CSV, MT4/MT5 live sync</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-emerald-400 mt-0.5">✓</span>
@@ -477,13 +477,13 @@
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
-                    <h3 class="text-base font-bold text-white mb-2">Does the free version include MT4/MT5 import?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. MT4/MT5 import via MetaApi is fully included during beta. Trades import automatically — fills, P&L, symbol, volume, execution price, no manual entry. Live account balance syncs in real time for accurate Kelly Criterion sizing. Stop loss still requires manual entry after import for R-Multiple calculation (MetaApi fills don't carry order-level SL/TP data).</p>
+                    <h3 class="text-base font-bold text-white mb-2">What brokers can I import from?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">All five import methods are included during beta. Four are available on every plan including the post-beta Free tier: IBKR via Flex Web Service, cTrader via OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade aggregator (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with real-time live balance sync is the Elite plan ($50/mo). During beta all five methods are fully unlocked. <a href="../broker-import/index.html" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">See all supported brokers →</a></p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What free trading journal supports forex?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports forex natively and is free during beta. Pip-level precision, lot sizes, session tracking (London/NY/Asia), DXY context, swap fees, R-Multiple in pips, and the full analytics stack (SQN, Kelly Criterion, Post Mortem). MT4 and MT5 accounts connect via MetaApi for automatic import. No other free trading journal supports forex at this depth.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports forex natively and is free during beta. Pip-level precision, lot sizes, session tracking (London/NY/Asia), DXY context, swap fees, R-Multiple in pips, and the full analytics stack (SQN, Kelly Criterion, Post Mortem). Connect via cTrader OAuth (IC Markets, Pepperstone, FP Markets + 250 brokers) or MT4/MT5 via MetaApi for automatic trade import. No other free trading journal supports forex at this depth.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-orange-500/20 rounded-xl p-6">

@@ -30,6 +30,20 @@
     ================================================================ -->
 
     <item>
+      <title>How to Pass an FTMO Challenge Using a Trading Journal</title>
+      <link>https://sgnldk.com/blog/how-to-pass-ftmo-challenge/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/how-to-pass-ftmo-challenge/</guid>
+      <pubDate>Fri, 26 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Most traders who fail an FTMO challenge have a real edge. They fail because they entered trades without knowing their real-time distance to the daily loss limit.
+
+This guide covers the full journaling workflow: how to validate your edge with Walk-Forward Analysis and Monte Carlo before you pay the fee, how to size positions for the 5% daily and 10% maximum drawdown rules, what to track live during every session, and the five-point pre-trade gate that stops violations before they happen.
+
+https://sgnldk.com/blog/how-to-pass-ftmo-challenge/</description>
+      <content:encoded>Most FTMO challenge failures are drawdown violations, not strategy failures. A journal that syncs live from MT5, tracks both drawdown limits in real time, and runs Monte Carlo on your trade history before you pay the fee changes that. Five-step workflow inside.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01k-interference.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Liquidity Hunts: Why Your Stop Gets Hit Right Before the Reversal</title>
       <link>https://sgnldk.com/blog/liquidity-hunt-trading/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/liquidity-hunt-trading/</guid>

@@ -288,7 +288,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Blog
 - URL: https://sgnldk.com/blog/
-- Content: 15 published articles covering forex trade journaling (pips vs R-multiples), profit factor, R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, Walk-Forward Analysis, journal account balance accuracy, MAE/MFE execution metrics, trading expectancy, FTMO challenge rules, and grid search parameter optimization. Topics target serious retail traders who want institutional analytics applied to their own trade data.
+- Content: 16 published articles covering how to pass an FTMO challenge using a trading journal, forex trade journaling (pips vs R-multiples), profit factor, R-Multiple tracking, SQN scoring, win rate vs expectancy, strategy decay detection, Fixed-R position sizing, Kelly Criterion position sizing, Monte Carlo simulation, Walk-Forward Analysis, journal account balance accuracy, MAE/MFE execution metrics, trading expectancy, FTMO challenge rules, liquidity hunts, and grid search parameter optimization. Topics target serious retail traders who want institutional analytics applied to their own trade data.
 
 ### Blog: Profit Factor Explained: The Simplest Metric for System Evaluation
 - URL: https://sgnldk.com/blog/best-forex-trading-journal/

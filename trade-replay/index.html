@@ -12,9 +12,9 @@
     <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Trade Replay vs Post Mortem Analysis | SignalDeck</title>
-    <meta name="description" content="Trade replay shows what happened. Post Mortem tells you why. An honest comparison of trade replay vs structured post-trade review.">
-    <meta name="keywords" content="trade replay software, trade replay tool, trading replay journal, TradingView replay, TradeZella replay, trade review software, trade analysis software, post mortem trading vs replay">
+    <title>Trade Replay for Forex & Futures | Backtester Signal Chart | SignalDeck</title>
+    <meta name="description" content="SignalDeck plots every backtested entry and exit as arrows on a real price chart — per-trade zoom and full-period aggregate view. Plus structured Post Mortem for real trades. Free during beta.">
+    <meta name="keywords" content="trade replay software, trade replay tool, trading replay journal, backtester signal chart, forex trade replay, futures trade replay, TradingView replay, trade review software, trade analysis software, post mortem trading vs replay">
     <meta name="author" content="SignalDeck">
 
     <link rel="canonical" href="https://sgnldk.com/trade-replay/">
@@ -22,8 +22,8 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgnldk.com/trade-replay/">
-    <meta property="og:title" content="Trade Replay vs Post Mortem Analysis | SignalDeck">
-    <meta property="og:description" content="Trade replay shows you what happened. Post Mortem analysis tells you why. Which one actually improves your trading?">
+    <meta property="og:title" content="Trade Replay & Backtester Signal Chart | SignalDeck">
+    <meta property="og:description" content="SignalDeck plots every backtested entry and exit on a real price chart — per-trade zoom and full-period aggregate view. Plus 5-step Post Mortem for real trades. Free during beta.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01d-equity-curve.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
@@ -59,7 +59,7 @@
                 "name": "What trading journal has trade replay?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "TradeZella has the most feature-rich built-in trade replay in a trading journal. TradingView offers a standalone bar replay tool. SignalDeck does not have trade replay — SignalDeck focuses on forensic Post Mortem analysis of real trades rather than simulated replay."
+                    "text": "TradeZella has bar-by-bar live replay of your past closed trades. SignalDeck has a backtester signal chart — after running a backtest, every entry and exit is plotted as colored arrows on a real LightweightCharts price chart, with per-trade zoom and a full-period aggregate view across all signals. TradingView offers a standalone bar replay tool. The key difference: SignalDeck's visual chart shows backtested signals (rule-based, all historical opportunities); TradeZella's replay shows only trades you actually took."
                 }
             }
         ]
@@ -112,10 +112,10 @@
                 Honest comparison
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-                Trade Replay Shows You What Happened.<br><span class="text-blue-400">Post Mortem Tells You Why.</span>
+                See Every Entry and Exit.<br><span class="text-blue-400">On the Actual Price Chart.</span>
             </h1>
             <p class="text-xl text-zinc-400 leading-relaxed">
-                Both matter. They're not the same thing. Here's an honest breakdown of what trade replay does, where it falls short, and what structured Post Mortem analysis does instead — so you can choose the right tool for where you actually are in your development.
+                SignalDeck's backtester plots every entry and exit as colored arrows on a real price chart — per-trade zoom and a full-period aggregate view across all signals. Then the 5-step Post Mortem protocol diagnoses your real trades. Both tools, one platform.
             </p>
         </div>
     </section>
@@ -162,27 +162,102 @@
         </div>
     </section>
 
+    <!-- SignalDeck Signal Chart -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-4">SignalDeck feature</div>
+                <h2 class="text-3xl font-bold text-white mb-4">The Backtester Signal Chart</h2>
+                <p class="text-zinc-400 leading-relaxed max-w-2xl">SignalDeck's backtester automatically visualizes every entry and exit from your rule-based strategy on the real price chart. It's not interactive bar-by-bar replay — it's a complete signal overlay after the backtest runs.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold">↑</span>
+                        <div>
+                            <p class="text-white text-sm font-semibold mb-1">LONG entries — green arrow below bar</p>
+                            <p class="text-zinc-400 text-sm">Every rule-triggered long entry plotted at the exact bar it fired. Zoom to any individual trade to see the entry in context.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold">↓</span>
+                        <div>
+                            <p class="text-white text-sm font-semibold mb-1">Winning exits — green arrow above bar</p>
+                            <p class="text-zinc-400 text-sm">Profitable exits marked green so you can see exactly where the strategy took profit across the full period.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 text-sm font-bold">↓</span>
+                        <div>
+                            <p class="text-white text-sm font-semibold mb-1">Losing exits — red arrow above bar</p>
+                            <p class="text-zinc-400 text-sm">Losses marked red so you can visually cluster where the strategy breaks down in different market conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-mono">1×</span>
+                        <div>
+                            <p class="text-white text-sm font-semibold mb-1">Per-trade zoom — 20-day window per signal</p>
+                            <p class="text-zinc-400 text-sm">Click any trade to zoom the chart to that signal with 20 bars of padding. See each entry and exit in isolation.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-mono">∑</span>
+                        <div>
+                            <p class="text-white text-sm font-semibold mb-1">Aggregate view — all signals on one chart</p>
+                            <p class="text-zinc-400 text-sm">Full-period overlay showing every trade on the complete price history. Spot clustering, drawdown zones, and regime sensitivity at a glance.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-mono">5m</span>
+                        <div>
+                            <p class="text-white text-sm font-semibold mb-1">Intraday-aware resolution</p>
+                            <p class="text-zinc-400 text-sm">Auto-selects 5-minute bars for same-day trades, 15-minute for multi-day, daily for longer holds. The chart always shows the right granularity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-zinc-800">
+                <p class="text-zinc-500 text-sm mb-4">Works across all 16 built-in strategies — EMA Crossover, MACD, RSI Mean Reversion, Donchian Channel, Bollinger Band, and more. Every strategy produces a signal chart alongside Walk-Forward Analysis and Monte Carlo results.</p>
+                <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','trade_replay_beta_click',{'button_location':'signal_chart_section'});"
+                    class="inline-block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all text-sm">
+                    Try the Backtester — Free
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Choose Based on Stage -->
     <section class="py-24 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-white mb-10 text-center">Choose Based on Where You Are</h2>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-                    <h3 class="text-white font-bold text-lg mb-3">Use trade replay if:</h3>
+                    <h3 class="text-white font-bold text-lg mb-3">Use interactive replay if:</h3>
                     <ul class="space-y-2 text-sm text-zinc-400">
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span><span>You're new to a strategy and need to build pattern recognition</span></li>
                         <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span><span>You want risk-free screen time before trading live</span></li>
-                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span><span>You're testing a new setup on historical data interactively</span></li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-500 mt-0.5">→</span><span>You're testing a new setup on historical data manually</span></li>
                     </ul>
-                    <p class="text-zinc-600 text-xs mt-4 font-mono">Best: TradeZella · TradingView</p>
+                    <p class="text-zinc-600 text-xs mt-4 font-mono">Best: TradeZella · TradingView bar replay</p>
                 </div>
-                <div class="bg-zinc-900 border border-blue-500/20 rounded-xl p-6">
+                <div class="bg-zinc-900 border border-blue-500/30 rounded-xl p-6">
+                    <h3 class="text-white font-bold text-lg mb-3">Use signal chart backtesting if:</h3>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want to test a rule-based strategy on historical data</span></li>
+                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want every entry/exit plotted as arrows on the real chart</span></li>
+                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want Walk-Forward Analysis and Monte Carlo alongside the chart</span></li>
+                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want per-trade zoom and aggregate view in one workflow</span></li>
+                    </ul>
+                    <p class="text-zinc-600 text-xs mt-4 font-mono">Best: <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">SignalDeck</a> — free during beta</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-white font-bold text-lg mb-3">Use Post Mortem analysis if:</h3>
                     <ul class="space-y-2 text-sm text-zinc-400">
-                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You have real trade history and want to understand your errors</span></li>
-                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want to separate process quality from P&L outcomes</span></li>
-                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want R-value, SQN scoring, and institutional analytics</span></li>
-                        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span>You want to quantify the cost of specific behavioral patterns</span></li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-400 mt-0.5">→</span><span>You have real trade history and want to diagnose your errors</span></li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-400 mt-0.5">→</span><span>You want to separate process quality from P&L outcomes</span></li>
+                        <li class="flex items-start gap-2"><span class="text-zinc-400 mt-0.5">→</span><span>You want R-value, SQN scoring, and behavioral tagging</span></li>
                     </ul>
                     <p class="text-zinc-600 text-xs mt-4 font-mono">Best: <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">SignalDeck</a> — free during beta</p>
                 </div>
@@ -197,7 +272,7 @@
             <div class="space-y-5">
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">What trading journal has trade replay?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">TradeZella has the most feature-rich built-in trade replay in a trading journal. TradingView offers a standalone bar replay tool. SignalDeck does not have trade replay — it focuses on forensic Post Mortem analysis of real trades.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">TradeZella has the most feature-rich built-in interactive replay (bar-by-bar). TradingView offers a standalone bar replay tool. SignalDeck's backtester plots every entry and exit as colored arrows on a real price chart — per-trade zoom and a full-period aggregate view across all signals. Different tools for different goals: TradeZella for interactive replay, SignalDeck for rule-based backtesting with visual signal charts.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Is trade replay or post mortem better for improvement?</p>
@@ -205,7 +280,11 @@
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Does SignalDeck have trade replay?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">No. SignalDeck focuses on forensic analysis of real trades through the 5-step Post Mortem protocol, R-value analytics, SQN scoring, and behavioral tagging. If trade replay is your primary requirement, TradeZella is the right tool.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — SignalDeck's backtester includes a signal chart that plots every entry and exit as colored arrows on the real price chart. Per-trade view zooms to each individual signal; aggregate view overlays all signals across the full backtest period. It's not bar-by-bar interactive replay — it's a post-backtest visualization layer on top of rule-based strategy testing, paired with Walk-Forward Analysis and Monte Carlo.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What's the difference between SignalDeck's signal chart and TradeZella's replay?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">TradeZella's replay is interactive: you step through price bars manually and place simulated trades. SignalDeck's backtester runs the full strategy automatically on historical data, then visualizes every signal on the chart with colored arrows (LONG entries = green arrowUp, exits = green/red arrowDown based on outcome). It auto-selects bar resolution: 5-minute for intraday signals, daily for multi-day holds.</p>
                 </div>
             </div>
         </div>
@@ -214,8 +293,8 @@
     <!-- CTA -->
     <section class="py-24">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-white mb-4">Ready to analyze your real trades?</h2>
-            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">The 5-step Post Mortem, R-value analytics, SQN scoring, and behavioral tagging — all included free during beta.</p>
+            <h2 class="text-3xl font-bold text-white mb-4">Backtest your strategy. Review your real trades.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">Signal chart backtesting with Walk-Forward Analysis, Monte Carlo, and the 5-step Post Mortem — all included free during beta.</p>
             <a href="https://app.sgnldk.com" onclick="if(!navigator.webdriver) gtag('event','trade_replay_beta_click',{'button_location':'cta'});" target="_blank" rel="noopener noreferrer"
                 class="inline-block px-10 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                 Join the Beta — Free

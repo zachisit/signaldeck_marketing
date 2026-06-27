@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Walk-Forward Analysis for Traders — Validate Your Edge | SignalDeck</title>
+    <meta name="description" content="Walk-Forward Analysis splits your backtest into in-sample and out-of-sample windows to detect curve-fitting. SignalDeck is the only trading journal that runs it automatically.">
+    <meta name="keywords" content="walk-forward analysis trading, walk forward optimization, backtesting walk forward, WFA trading, out-of-sample backtest, curve fitting trading, overfitting trading strategy, strategy validation trading">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/walk-forward-analysis/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/walk-forward-analysis/">
+    <meta property="og:title" content="Walk-Forward Analysis for Traders — Validate Your Edge | SignalDeck">
+    <meta property="og:description" content="Walk-Forward Analysis splits your backtest into in-sample and out-of-sample windows to detect curve-fitting. SignalDeck is the only trading journal that runs it automatically.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01m-walk-forward.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/walk-forward-analysis/">
+    <meta property="twitter:title" content="Walk-Forward Analysis for Traders — Validate Your Edge | SignalDeck">
+    <meta property="twitter:description" content="Walk-Forward Analysis splits your backtest into in-sample and out-of-sample windows to detect curve-fitting. SignalDeck is the only trading journal that runs it automatically.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01m-walk-forward.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Trading journal with built-in Walk-Forward Analysis, Monte Carlo simulation, and grid-search parameter optimization. The only journal that validates your edge before you risk capital.",
+      "operatingSystem": "Web"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Walk-Forward Analysis in trading?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Walk-Forward Analysis (WFA) is a backtesting method that splits historical data into an in-sample window (used for optimization) and an out-of-sample window (never seen during optimization). The strategy is optimized on in-sample data, then tested on out-of-sample data. If the strategy profits on both, it has demonstrated real generalization. If it only works in-sample, it is likely curve-fitted and will fail live. WFA is the standard test for overfit detection in quantitative trading." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SignalDeck run Walk-Forward Analysis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "SignalDeck splits your backtest data 80% in-sample and 20% out-of-sample. It optimizes strategy parameters on the in-sample window using grid search, then tests the best parameters on the out-of-sample window. The result is a Pass or Likely Overfitted verdict plus a Walk-Forward Efficiency ratio (out-of-sample R / in-sample R). A WFE above 0.6 is a strong result." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is curve-fitting in trading strategies?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Curve-fitting (also called overfit) occurs when a strategy is tuned so precisely to historical data that it no longer generalizes to new data. The strategy appears profitable in backtesting because its parameters were chosen to match past price action, but fails in live trading because future price action is different. Walk-Forward Analysis is the standard test to detect curve-fitting before you risk capital." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Walk-Forward Analysis available in other trading journals?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Walk-Forward Analysis with automated out-of-sample testing and a Pass/Fail verdict is exclusive to SignalDeck among trading journal platforms. Other journals (TradesViz, Tradervue, Trademetria, Edgewonk, TradeZella) offer basic trade statistics but do not run WFA, Monte Carlo simulation, or grid-search parameter optimization." }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Walk-Forward Analysis", "item": "https://sgnldk.com/walk-forward-analysis/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981', 400: '#34d399' },
+                        rose: { 500: '#f43f5e' },
+                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../backtester/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Backtester</a>
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../backtester/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Backtester</a>
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-mono mb-6">
+                Exclusive to SignalDeck · No other trading journal runs this
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Walk-Forward Analysis.<br>
+                <span class="text-purple-400">The Test That Actually Means Something.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 leading-relaxed">
+                A backtest profit means your strategy worked on data it was built from. Walk-Forward Analysis tests it on data it's never seen — that's the only number that matters.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://app.sgnldk.com"
+                    onclick="if(!navigator.webdriver) gtag('event', 'wfa_cta_click', {'button_location': 'hero'});"
+                    target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-purple-900/20">
+                    Run WFA Free — Beta Access
+                </a>
+                <a href="../backtester/index.html" class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
+                    Full Backtester →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is WFA -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        What Walk-Forward Analysis Is<br>
+                        <span class="text-purple-400">and Why It Matters</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Standard backtesting optimizes strategy parameters on historical data and reports the result. The problem: those parameters were chosen because they worked on that specific history. When you run the same strategy on new data — the next month, the next quarter — the parameters often fall apart. This is curve-fitting, and it's why most backtested strategies fail live.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Walk-Forward Analysis solves this by creating a genuine out-of-sample test. Your historical data is split: 80% in-sample (optimization window) and 20% out-of-sample (validation window). The strategy is optimized only on the in-sample data. Then it runs, unchanged, on the out-of-sample period — data it has never influenced.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        If the strategy generates positive R in both windows, it has shown it can generalize to new conditions. That's the closest thing to a live test you can run before going live. If it only works in-sample, you've caught a curve-fitted strategy before it costs you real capital.
+                    </p>
+                </div>
+
+                <!-- Visual: WFA split diagram -->
+                <div class="space-y-4">
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                        <p class="text-xs font-mono text-zinc-500 mb-4 uppercase tracking-wider">How the split works</p>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-blue-400">IN-SAMPLE (80%) — Optimization window</span>
+                                    <span class="text-zinc-500">Jan–Oct</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 rounded-full h-3">
+                                    <div class="bg-blue-500/70 h-3 rounded-full" style="width:80%"></div>
+                                </div>
+                                <p class="text-[10px] font-mono text-zinc-600 mt-1">Parameters are chosen here. Strategy is fitted to this data.</p>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-purple-400">OUT-OF-SAMPLE (20%) — Validation window</span>
+                                    <span class="text-zinc-500">Nov–Dec</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 rounded-full h-3">
+                                    <div class="bg-purple-500/70 h-3 rounded-full" style="width:20%"></div>
+                                </div>
+                                <p class="text-[10px] font-mono text-zinc-600 mt-1">Same parameters run here — never seen during optimization.</p>
+                            </div>
+                        </div>
+                        <div class="mt-5 bg-zinc-950 border border-zinc-700 rounded-lg p-4">
+                            <p class="text-xs font-mono text-zinc-400 mb-2">Walk-Forward Efficiency (WFE)</p>
+                            <p class="text-zinc-400 text-sm">WFE = out-of-sample R ÷ in-sample R. A WFE above <span class="text-white font-semibold">0.60</span> indicates robust generalization. Below 0.3 suggests overfit. SignalDeck calculates this automatically.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-zinc-900 border border-emerald-500/20 rounded-xl p-4">
+                            <p class="text-xs font-mono text-zinc-500 mb-2 uppercase">✓ PASS verdict</p>
+                            <div class="space-y-1 text-xs font-mono">
+                                <div class="flex justify-between"><span class="text-zinc-500">In-sample</span><span class="text-emerald-400">+42R</span></div>
+                                <div class="flex justify-between"><span class="text-zinc-500">Out-of-sample</span><span class="text-emerald-400">+11R</span></div>
+                                <div class="flex justify-between"><span class="text-zinc-500">WFE</span><span class="text-blue-400">0.68</span></div>
+                            </div>
+                            <p class="text-[10px] font-mono text-emerald-500/70 mt-3">Edge generalizes. Safe to trade.</p>
+                        </div>
+                        <div class="bg-zinc-900 border border-rose-500/20 rounded-xl p-4">
+                            <p class="text-xs font-mono text-zinc-500 mb-2 uppercase">✗ FAIL verdict</p>
+                            <div class="space-y-1 text-xs font-mono">
+                                <div class="flex justify-between"><span class="text-zinc-500">In-sample</span><span class="text-emerald-400">+38R</span></div>
+                                <div class="flex justify-between"><span class="text-zinc-500">Out-of-sample</span><span class="text-rose-400">-4R</span></div>
+                                <div class="flex justify-between"><span class="text-zinc-500">WFE</span><span class="text-rose-400">-0.10</span></div>
+                            </div>
+                            <p class="text-[10px] font-mono text-rose-500/70 mt-3">Curve-fitted. Would fail live.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full validation suite -->
+    <section class="py-24 bg-zinc-900/20 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-bold text-white mb-4">WFA Is One Part of a Full Validation Suite</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">WFA tells you the edge is real. Monte Carlo tells you if your account can survive it. Grid search tells you the parameters are robust, not cherry-picked.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-purple-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-purple-500/10 transition-all"></div>
+                    <div class="relative z-10">
+                        <div class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
+                            <span class="text-purple-400 text-sm font-bold">01</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-3">Walk-Forward Analysis</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-4">80/20 in-sample/out-of-sample split. Pass/Fail verdict. WFE ratio. Detects curve-fitting before it costs you money.</p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-xs font-mono">
+                            <div class="flex justify-between mb-1"><span class="text-zinc-500">Question answered</span></div>
+                            <span class="text-purple-400">Is the edge real or fitted?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-amber-500/10 transition-all"></div>
+                    <div class="relative z-10">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4">
+                            <span class="text-amber-400 text-sm font-bold">02</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-3">Monte Carlo Simulation</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-4">1,000 randomized trade-sequence runs. The 5th percentile result is your worst-case drawdown under bad luck — the one your historical sequence happened to avoid.</p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-xs font-mono">
+                            <div class="flex justify-between mb-1"><span class="text-zinc-500">Question answered</span></div>
+                            <span class="text-amber-400">Can my account survive it?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-blue-500/10 transition-all"></div>
+                    <div class="relative z-10">
+                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                            <span class="text-blue-400 text-sm font-bold">03</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-3">Grid-Search Optimization</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-4">Tests every parameter combination in a defined range. Surfaces the robust region — where a range of parameters all work — not just the single best-fit point.</p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-xs font-mono">
+                            <div class="flex justify-between mb-1"><span class="text-zinc-500">Question answered</span></div>
+                            <span class="text-blue-400">Are these the robust params?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WFA live result -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        What a Passing WFA Looks Like<br>
+                        <span class="text-purple-400">in Practice</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Here's a real example: an EMA 9/21 crossover strategy on EURUSD H1. In-sample optimization found the best parameters and returned +41R. The same parameters, run untouched on the out-of-sample window, returned +10.8R — a WFE of 0.74. Verdict: Pass.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Compare that to a RSI strategy on the same data: +44R in-sample, then -2.1R out-of-sample. WFE: -0.05. Verdict: Likely Overfitted. The RSI parameters were tuned to the past. The EMA parameters generalized. You know this before you ever go live.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        This is why WFA is the standard test in professional quant shops — and why it's been missing from retail trading tools until now. SignalDeck runs the full in-sample/out-of-sample split automatically, on your instrument and timeframe.
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-purple-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-40 group-hover:opacity-80 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex items-center justify-between mb-5 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-500">Walk-Forward Analysis Results</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-zinc-900 border border-emerald-500/20 rounded-xl p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-mono text-zinc-400">EMA 9/21 · EURUSD · 1H</span>
+                                    <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">✓ PASS</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 text-center">
+                                    <div><p class="text-[10px] font-mono text-zinc-500">In-Sample</p><p class="text-sm font-mono font-bold text-emerald-400">+41R</p></div>
+                                    <div><p class="text-[10px] font-mono text-zinc-500">Out-of-Sample</p><p class="text-sm font-mono font-bold text-emerald-400">+10.8R</p></div>
+                                    <div><p class="text-[10px] font-mono text-zinc-500">WFE</p><p class="text-sm font-mono font-bold text-blue-400">0.74</p></div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-900 border border-rose-500/20 rounded-xl p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-mono text-zinc-400">RSI 14 OB/OS · EURUSD · 1H</span>
+                                    <span class="text-xs font-mono text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">✗ OVERFITTED</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 text-center">
+                                    <div><p class="text-[10px] font-mono text-zinc-500">In-Sample</p><p class="text-sm font-mono font-bold text-emerald-400">+44R</p></div>
+                                    <div><p class="text-[10px] font-mono text-zinc-500">Out-of-Sample</p><p class="text-sm font-mono font-bold text-rose-400">-2.1R</p></div>
+                                    <div><p class="text-[10px] font-mono text-zinc-500">WFE</p><p class="text-sm font-mono font-bold text-rose-400">-0.05</p></div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-[10px] font-mono text-zinc-500">MC 5th %ile Drawdown (EMA strategy)</p>
+                                <p class="text-sm font-mono font-bold text-amber-400 mt-1">-9.2R worst case</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is Walk-Forward Analysis in trading?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">WFA splits your historical data into an in-sample optimization window and an out-of-sample validation window. Parameters are optimized on in-sample data, then run unchanged on out-of-sample data. If the strategy profits on both, the edge generalizes. If it fails out-of-sample, it was curve-fitted to the past and will likely fail live.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How does SignalDeck run Walk-Forward Analysis?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck splits your backtest data 80% in-sample and 20% out-of-sample. Grid-search optimization runs on the in-sample window to find the best parameters. Those same parameters are then tested on the out-of-sample window. The result is a Pass or Likely Overfitted verdict plus a WFE ratio. WFE above 0.60 is a strong result.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is curve-fitting and why is it dangerous?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Curve-fitting is when a strategy's parameters are tuned so precisely to historical data that it no longer works on new data. It looks great in backtesting but fails live. Walk-Forward Analysis is the standard test to detect it — if a strategy can't profit on data it hasn't seen, it isn't real.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Is WFA available in other trading journals?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">No. Walk-Forward Analysis with automated out-of-sample testing and a Pass/Fail verdict is exclusive to SignalDeck among trading journal platforms. Other journals track trade statistics but don't run WFA, Monte Carlo, or grid-search optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Run Walk-Forward Analysis on your strategy. Free.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">WFA, Monte Carlo, grid-search optimization, R-Multiple analytics, and MT5 auto-import — all included during beta. Know if your edge is real before you risk real capital.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="if(!navigator.webdriver) gtag('event', 'wfa_cta_click', {'button_location': 'bottom_cta'});"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-purple-900/20">
+                Start Free — Beta Access
+            </a>
+            <p class="mt-4 text-xs text-zinc-600 font-mono">Free during beta. No credit card required.</p>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../backtester/index.html" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../r-multiple-trading/index.html" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt5-trading-journal/index.html" class="hover:text-zinc-400">MT5 Journal</a> |
+                <a href="../compare/index.html" class="hover:text-zinc-400">Compare</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> |
+                <a href="../discord.html" class="hover:text-zinc-400">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>R-Multiple Trading — Track Your Edge, Not Your P&L | SignalDeck</title>
+    <meta name="description" content="R-Multiple measures every trade as a multiple of planned risk. Combined with SQN scoring and Kelly Criterion, it tells you whether your trading edge is real and how much to size.">
+    <meta name="keywords" content="R multiple trading, R multiple trading journal, R value trading, risk reward ratio trading, SQN score trading, System Quality Number, Kelly criterion position sizing, trading expectancy, trade expectancy calculator">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/r-multiple-trading/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/r-multiple-trading/">
+    <meta property="og:title" content="R-Multiple Trading — Track Your Edge, Not Your P&L | SignalDeck">
+    <meta property="og:description" content="R-Multiple measures every trade as a multiple of planned risk. Combined with SQN scoring and Kelly Criterion, it tells you whether your trading edge is real and how much to size.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/r-multiple-trading/">
+    <meta property="twitter:title" content="R-Multiple Trading — Track Your Edge, Not Your P&L | SignalDeck">
+    <meta property="twitter:description" content="R-Multiple measures every trade as a multiple of planned risk. Combined with SQN scoring and Kelly Criterion, it tells you whether your trading edge is real and how much to size.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SignalDeck",
+      "applicationCategory": "FinanceApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Trading journal built on the R-Multiple framework. Tracks expectancy, SQN score, and Kelly Criterion position sizing from your live trade data.",
+      "operatingSystem": "Web"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is R-Multiple in trading?",
+          "acceptedAnswer": { "@type": "Answer", "text": "R-Multiple (or R-value) expresses every trade result as a multiple of the initial risk taken (1R). If you risk $100 on a trade and make $240, the result is +2.4R. If you lose $80 (cutting before your stop), the result is -0.8R. R normalizes all trades to the same unit regardless of position size or dollar amount — making your edge measurable across instruments, account sizes, and strategies." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is SQN score and how is it calculated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "SQN (System Quality Number) measures the quality of a trading system by combining expectancy and its consistency. The formula is: SQN = (average R / standard deviation of R) × sqrt(number of trades). Scores below 1.6 indicate a weak system, 1.6–2.0 is average, 2.0–3.0 is good, and above 3.0 is excellent. SQN is more meaningful than win rate alone because it accounts for how consistent the edge is, not just the average." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Kelly Criterion work for position sizing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Kelly Criterion calculates the optimal fraction of capital to risk per trade based on your actual win rate and reward-to-risk ratio. If your win rate is 45% and your average win is 2.5R, Kelly says to risk approximately 8.4% per trade for maximum long-term growth. Most traders use a fraction of Kelly (half-Kelly or quarter-Kelly) to reduce variance. SignalDeck calculates Kelly from your live journal data and updates it as your statistics evolve." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is R-Multiple better than tracking P&L?",
+          "acceptedAnswer": { "@type": "Answer", "text": "P&L is noise when position sizes vary. A $500 win on a 0.1-lot trade and a $500 win on a 1.0-lot trade represent fundamentally different edges — the first is +5R, the second is +0.5R. Tracking P&L hides this distinction. R-Multiple normalizes every trade to your planned risk, so your expectancy, win rate, and edge metrics are meaningful regardless of how much you're trading. This lets you compare strategies, instruments, and sessions on equal footing." }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "R-Multiple Trading", "item": "https://sgnldk.com/r-multiple-trading/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981', 400: '#34d399' },
+                        rose: { 500: '#f43f5e' },
+                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../position-sizing/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Position Sizing</a>
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../position-sizing/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Position Sizing</a>
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-6">
+                R-Multiple · SQN · Kelly Criterion · Expectancy
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Stop Tracking P&L.<br>
+                <span class="text-emerald-400">Start Tracking Your Edge.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 leading-relaxed">
+                P&L tells you what happened. R-Multiple tells you whether you have an edge. SQN tells you how strong it is. Kelly tells you how much to risk. This is the framework serious traders use.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://app.sgnldk.com"
+                    onclick="if(!navigator.webdriver) gtag('event', 'r_multiple_cta_click', {'button_location': 'hero'});"
+                    target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
+                    Start Tracking Free — Beta
+                </a>
+                <a href="../walk-forward-analysis/index.html" class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
+                    Walk-Forward Analysis →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is R-Multiple -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        What R-Multiple Is<br>
+                        <span class="text-emerald-400">and Why P&L Lies</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Before you enter a trade, you define your stop loss — the point where you're wrong. The distance from entry to stop, expressed in dollars, is 1R. Every trade result is then measured as a multiple of that: +2.4R means you made 2.4x your risk. −0.8R means you closed before your stop and lost less than planned.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        This matters because P&L is meaningless without context. A $500 win on a 0.1-lot position is +5R — a great trade. A $500 win on a 1.0-lot position is +0.5R — a mediocre one. Tracking P&L treats these the same. R tracks the quality of your decisions, not the scale of your bets.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Expectancy — the average R per trade across your sample — is the number that matters most. A positive expectancy means your system makes money over time. A negative expectancy means no amount of position sizing saves you. Know your expectancy before you scale.
+                    </p>
+                </div>
+
+                <!-- Visual: R-comparison -->
+                <div class="space-y-4">
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                        <p class="text-xs font-mono text-zinc-500 mb-4 uppercase tracking-wider">The same $500 win — different edges</p>
+                        <div class="space-y-3">
+                            <div class="bg-zinc-950 border border-emerald-500/20 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <div>
+                                        <p class="text-xs font-mono text-zinc-500">0.1 lot · $100 risk (1R)</p>
+                                        <p class="text-sm font-bold text-white">$500 win</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-xl font-mono font-bold text-emerald-400">+5.0R</p>
+                                        <p class="text-[10px] font-mono text-emerald-500/70">Excellent trade</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-950 border border-amber-500/20 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <div>
+                                        <p class="text-xs font-mono text-zinc-500">1.0 lot · $1,000 risk (1R)</p>
+                                        <p class="text-sm font-bold text-white">$500 win</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-xl font-mono font-bold text-amber-400">+0.5R</p>
+                                        <p class="text-[10px] font-mono text-amber-500/70">Mediocre trade</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs font-mono text-zinc-600 text-center pt-1">Same P&L. Completely different edges. R sees the difference.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                        <p class="text-xs font-mono text-zinc-500 mb-3 uppercase tracking-wider">Expectancy formula</p>
+                        <div class="bg-zinc-950 border border-zinc-700 rounded-lg p-4 font-mono text-sm text-center mb-3">
+                            <span class="text-zinc-400">E = (Win Rate × Avg Win R) − (Loss Rate × Avg Loss R)</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+                            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-zinc-500 mb-1">45% win rate · +2.5R avg win · 0.9R avg loss</p>
+                                <p class="text-emerald-400 font-bold">E = +0.63R per trade ✓</p>
+                            </div>
+                            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-zinc-500 mb-1">55% win rate · +1.0R avg win · 1.2R avg loss</p>
+                                <p class="text-rose-400 font-bold">E = −0.04R per trade ✗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SQN + Kelly -->
+    <section class="py-24 bg-zinc-900/20 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-bold text-white mb-4">From Expectancy to Edge Confidence</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Expectancy tells you if you make money per trade. SQN tells you how confident to be in that number. Kelly tells you how much to risk.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- SQN -->
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-amber-500/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-amber-500/10 transition-all"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-2">SQN Score</h3>
+                        <p class="text-xs font-mono text-zinc-500 mb-4">System Quality Number — Van Tharp method</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                            A 0.5R expectancy with high variance is less reliable than a 0.3R expectancy with tight consistency. SQN captures both: expectancy divided by its standard deviation, scaled by sample size. More trades, tighter variance, higher expectancy — all push SQN up.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2">
+                                <span class="text-xs font-mono text-zinc-500">Below 1.6</span>
+                                <span class="text-xs font-mono text-rose-400">Poor — avoid trading this system</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2">
+                                <span class="text-xs font-mono text-zinc-500">1.6 – 2.0</span>
+                                <span class="text-xs font-mono text-amber-400">Average — tradable with discipline</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2">
+                                <span class="text-xs font-mono text-zinc-500">2.0 – 3.0</span>
+                                <span class="text-xs font-mono text-emerald-400">Good — reliable edge</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2">
+                                <span class="text-xs font-mono text-zinc-500">Above 3.0</span>
+                                <span class="text-xs font-mono text-blue-400">Excellent — institutional-grade</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kelly -->
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-blue-500/10 transition-all"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-2">Kelly Criterion</h3>
+                        <p class="text-xs font-mono text-zinc-500 mb-4">Optimal risk per trade from your own statistics</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                            Kelly Criterion uses your actual win rate and reward-to-risk ratio to calculate the mathematically optimal fraction of capital to risk per trade. It's not a generic "1% rule" — it's calibrated to your specific edge. As your live journal data grows, SignalDeck updates Kelly automatically.
+                        </p>
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4">
+                            <p class="text-xs font-mono text-zinc-500 mb-3">Example: 45% win rate, 2.5R avg win, 0.9R avg loss</p>
+                            <div class="space-y-2 text-xs font-mono">
+                                <div class="flex justify-between">
+                                    <span class="text-zinc-500">Full Kelly</span>
+                                    <span class="text-white font-bold">8.4% per trade</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-zinc-500">Half-Kelly (recommended)</span>
+                                    <span class="text-emerald-400 font-bold">4.2% per trade</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-zinc-500">Quarter-Kelly (conservative)</span>
+                                    <span class="text-blue-400 font-bold">2.1% per trade</span>
+                                </div>
+                            </div>
+                            <p class="text-[10px] font-mono text-zinc-600 mt-3">Updates live as your journal data grows. No manual recalculation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live R dashboard -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        All of This, Live.<br>
+                        <span class="text-emerald-400">From Your Actual Trade History.</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        SignalDeck doesn't ask you to calculate any of this manually. Connect your MT5 broker — trades import automatically. Add your stop loss to each imported trade — R-Multiple, expectancy, SQN, and Kelly are calculated instantly and update with every new trade you add.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        The dashboard breaks down your edge by instrument, session, day of week, and setup tag. A strategy that works on EURUSD might underperform on GBPUSD. A session edge on London open might decay by New York close. R-analytics surface these patterns in your actual data — not theoretical curves.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>R-Multiple on every trade — automatically from your stop and fill price</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Expectancy, SQN, and Kelly update live as your sample grows</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Edge breakdown by instrument, session, setup tag, and day</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Behavioral tags — FOMO, hesitation, revenge — overlaid on R-data</span></li>
+                    </ul>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-40 group-hover:opacity-80 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6 shadow-2xl">
+                        <div class="flex items-center justify-between mb-5 border-b border-zinc-800/50 pb-4">
+                            <span class="text-xs font-mono text-zinc-500">R-Analytics Dashboard · 63 trades</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-[10px] font-mono text-zinc-500 mb-1">Expectancy</p>
+                                <p class="text-xl font-mono font-bold text-emerald-400">+0.47R</p>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-[10px] font-mono text-zinc-500 mb-1">SQN Score</p>
+                                <p class="text-xl font-mono font-bold text-amber-400">2.4</p>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-[10px] font-mono text-zinc-500 mb-1">Win Rate</p>
+                                <p class="text-xl font-mono font-bold text-blue-400">43.8%</p>
+                            </div>
+                            <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-3">
+                                <p class="text-[10px] font-mono text-zinc-500 mb-1">Kelly (half)</p>
+                                <p class="text-xl font-mono font-bold text-emerald-400">3.9%</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Edge by session</p>
+                            <div class="flex justify-between items-center bg-zinc-900 border border-zinc-800 rounded px-3 py-2">
+                                <span class="text-xs font-mono text-zinc-400">London Open</span>
+                                <span class="text-xs font-mono font-bold text-emerald-400">+0.81R avg</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-900 border border-zinc-800 rounded px-3 py-2">
+                                <span class="text-xs font-mono text-zinc-400">NY Session</span>
+                                <span class="text-xs font-mono font-bold text-emerald-400">+0.52R avg</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-zinc-900 border border-zinc-800 rounded px-3 py-2">
+                                <span class="text-xs font-mono text-zinc-400">Asian Session</span>
+                                <span class="text-xs font-mono font-bold text-rose-400">-0.18R avg</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-mono text-zinc-600 mt-3 text-center">Asian session is destroying your edge — stop trading it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is R-Multiple in trading?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">R-Multiple expresses every trade result as a multiple of your planned risk (1R). If you risk $100 and make $240, the result is +2.4R. R normalizes all trades to the same unit regardless of position size, instrument, or dollar amount — making your edge measurable across strategies and account sizes.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is SQN score?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SQN (System Quality Number) measures the quality of a trading system by combining expectancy and its consistency. Scores below 1.6 indicate a weak system, 2.0–3.0 is good, and above 3.0 is excellent. SQN is more meaningful than win rate alone because it accounts for how consistent the edge is, not just the average return per trade.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Why is R-Multiple better than tracking P&L?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">P&L varies with position size. A $500 win on a 0.1-lot trade (+5R) and a $500 win on a 1.0-lot trade (+0.5R) represent completely different edges. Tracking P&L treats them the same. R normalizes all trades to the same quality scale so your expectancy and edge metrics are accurate regardless of how aggressively you're trading.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How does Kelly Criterion work?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Kelly Criterion calculates the optimal fraction of capital to risk per trade based on your actual win rate and reward-to-risk ratio. SignalDeck calculates Kelly from your live journal data and updates it as your statistics evolve. Most traders use half-Kelly to reduce variance while still sizing toward their actual edge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Know your edge. Size to it. Free during beta.</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">R-Multiple on every trade, live expectancy, SQN scoring, Kelly Criterion position sizing, and Walk-Forward Analysis for strategy validation — all from your actual trade history.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="if(!navigator.webdriver) gtag('event', 'r_multiple_cta_click', {'button_location': 'bottom_cta'});"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-block px-10 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
+                Start Free — Beta Access
+            </a>
+            <p class="mt-4 text-xs text-zinc-600 font-mono">Free during beta. No credit card required.</p>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../walk-forward-analysis/index.html" class="hover:text-zinc-400">Walk-Forward Analysis</a> |
+                <a href="../position-sizing/index.html" class="hover:text-zinc-400">Position Sizing</a> |
+                <a href="../mt5-trading-journal/index.html" class="hover:text-zinc-400">MT5 Journal</a> |
+                <a href="../backtester/index.html" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> |
+                <a href="../discord.html" class="hover:text-zinc-400">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

@@ -250,6 +250,18 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com/mt4-journal/
 - Content: SEO landing page targeting "MT4 trading journal", "MT5 trading journal", "best trading journal with MT4 import", "MT4 trade log", "MetaTrader trading journal" keywords. Covers: how MT4/MT5 import works via MetaApi (4-step process: connect account, trades import automatically, add stop loss for R-Multiple, live balance syncs on connect), what imports automatically (fills, P&L, symbol, volume, commission, swap, timestamps, live balance/equity/margin/leverage), what requires manual entry after import (stop loss — MetaApi API limitation, not SignalDeck limitation), analytics stack (R-value framework, Walk-Forward Analysis, Monte Carlo, SQN, Kelly Criterion, 5-step Post Mortem), native instrument support (XAUUSD, NAS100, GER40, US500, EURUSD, all FX). Supported brokers include any MT4/MT5 server (FTMO, IC Markets, Pepperstone, Exness, MyFundedFX, The5ers, Apex). FAQ covers: MT4 import support, stop loss limitation, live balance sync explained, supported brokers, best MT4 trading journal, MT5 for prop firm accounts.
 
+### MT5 Trading Journal
+- URL: https://sgnldk.com/mt5-trading-journal/
+- Content: Dedicated landing page for MT5 traders on any retail broker (IC Markets, Pepperstone, Exness, Eightcap, and 250+ others) — not just prop firm challenge accounts. Auto-import via MetaApi pulls fills, P&L, symbol, volume, commission, swap, timestamps, and live balance/equity/margin/leverage. R-analytics dashboard shows expectancy, SQN, profit factor, Kelly Criterion filtered by instrument, session, and strategy tag. Walk-Forward Analysis and 1,000-path Monte Carlo simulation for edge validation. Explicit FAQ: "Is SignalDeck only for prop firm traders? No." Targets "mt5 trading journal" query.
+
+### Walk-Forward Analysis
+- URL: https://sgnldk.com/walk-forward-analysis/
+- Content: Exclusive SignalDeck feature page for detecting overfitted strategies before going live. Explains the 80/20 in-sample/out-of-sample split, WFE ratio (out-of-sample performance ÷ in-sample performance), and Pass/Fail verdicts with real examples (EMA 9/21 EURUSD WFE 0.74 → PASS; RSI 14 EURUSD WFE -0.05 → OVERFITTED). Full validation suite: Walk-Forward Analysis + 1,000-path Monte Carlo + grid-search parameter optimization. Positions WFA as a SignalDeck exclusive — no other retail trading journal offers this. Targets "walk-forward analysis trading", "strategy overfitting", "backtest validation" queries.
+
+### R-Multiple Trading
+- URL: https://sgnldk.com/r-multiple-trading/
+- Content: Landing page explaining the R-Multiple framework as SignalDeck's core organizing principle. R normalizes position size: $500 win on 0.1 lot = +5R (excellent) vs $500 win on 1.0 lot = +0.5R (mediocre). Covers expectancy calculation, SQN scoring tiers (<1.6 poor to >3.0 excellent), Kelly Criterion sizing (full/half/quarter-kelly example: 45% WR + 2.5R avg win → Half-Kelly 4.2%), and live dashboard showing edge breakdown by session and instrument. Targets "r multiple trading", "r multiple forex", "trading expectancy calculator" queries.
+
 ### University Clubs
 - URL: https://sgnldk.com/clubs.html
 - Content: Free access program for student-managed investment funds

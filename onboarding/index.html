@@ -216,8 +216,9 @@
             <div class="flex gap-5">
                 <div class="flex flex-col items-center">
                     <div class="step-number bg-violet-600 text-white">3</div>
+                    <div class="step-connector" style="--from-color: #7c3aed; --to-color: #d97706;"></div>
                 </div>
-                <div class="flex-1">
+                <div class="flex-1 pb-10">
                     <h2 class="text-lg font-bold text-white mb-1 mt-0.5">Read your analytics</h2>
                     <p class="text-zinc-400 text-sm mb-5">Once trades are in, the dashboard surfaces your edge automatically.</p>
 
@@ -245,6 +246,65 @@
                        target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-lg transition-colors text-sm">
                         Open Analytics
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex gap-5">
+                <div class="flex flex-col items-center">
+                    <div class="step-number bg-amber-600 text-white">4</div>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-lg font-bold text-white mb-1 mt-0.5">Set up your public profile</h2>
+                    <p class="text-zinc-400 text-sm mb-5">Your public profile is a shareable page that shows your verified performance stats — win rate, SQN, R:R, and equity curve. You control what's visible.</p>
+
+                    <div class="bg-zinc-900/60 border border-amber-500/25 rounded-xl p-5 mb-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-amber-900/40 border border-amber-700/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white text-xs font-semibold">Display name &amp; bio</p>
+                                    <p class="text-zinc-500 text-xs mt-0.5">Who you are as a trader</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-amber-900/40 border border-amber-700/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white text-xs font-semibold">Stats visibility</p>
+                                    <p class="text-zinc-500 text-xs mt-0.5">Choose what others can see</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-amber-900/40 border border-amber-700/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white text-xs font-semibold">Shareable link</p>
+                                    <p class="text-zinc-500 text-xs mt-0.5">sgnldk.com/u/yourname</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://app.sgnldk.com/profile"
+                       onclick="if(!navigator.webdriver) gtag('event', 'onboarding_social_profile_click', {event_category: 'onboarding'});"
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors text-sm">
+                        Set Up Profile
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
                         </svg>

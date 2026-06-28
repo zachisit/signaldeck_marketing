@@ -74,9 +74,8 @@
     <!-- Nav -->
     <nav class="border-b border-zinc-800/60 bg-zinc-950">
         <div class="max-w-3xl mx-auto px-6">
-            <div class="flex items-center gap-3 h-14">
-                <img src="../img/logo-horizontal-light.svg" class="h-5 w-5 object-contain" alt="SignalDeck">
-                <span class="text-white font-bold tracking-tight">SignalDeck</span>
+            <div class="flex items-center h-14">
+                <img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
             </div>
         </div>
     </nav>
@@ -329,37 +328,41 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 flex flex-col">
                     <div class="flex items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
                         </svg>
                         <span class="text-white text-sm font-semibold">Backtester</span>
                     </div>
-                    <p class="text-zinc-400 text-xs leading-relaxed">Replay your setup against historical data before you risk real capital. Validate before you trade.</p>
+                    <p class="text-zinc-400 text-xs leading-relaxed mb-3">Replay your setup against historical data before you risk real capital. Validate before you trade.</p>
+                    <a href="https://sgnldk.com/backtester/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 text-xs font-medium mt-auto transition-colors">Learn more →</a>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 flex flex-col">
                     <div class="flex items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                         <span class="text-white text-sm font-semibold">Would I Pass?</span>
                     </div>
-                    <p class="text-zinc-400 text-xs leading-relaxed">Simulate your real trade history against prop firm rules. Know if you'd pass before you pay the fee.</p>
+                    <p class="text-zinc-400 text-xs leading-relaxed mb-3">Simulate your real trade history against prop firm rules. Know if you'd pass before you pay the fee.</p>
+                    <a href="https://sgnldk.com/would-i-pass/" target="_blank" rel="noopener noreferrer" class="text-rose-400 hover:text-rose-300 text-xs font-medium mt-auto transition-colors">Learn more →</a>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 flex flex-col">
                     <div class="flex items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
                         </svg>
                         <span class="text-white text-sm font-semibold">Post Mortem</span>
                     </div>
-                    <p class="text-zinc-400 text-xs leading-relaxed">AI-powered trade review. Upload your chart, tag your entry, and get structured feedback on execution quality.</p>
+                    <p class="text-zinc-400 text-xs leading-relaxed mb-3">AI-powered trade review. Upload your chart, tag your entry, and get structured feedback on execution quality.</p>
+                    <a href="https://sgnldk.com/post-mortem/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 text-xs font-medium mt-auto transition-colors">Learn more →</a>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                <!-- TODO: no landing page or blog post exists for Live Drawdown Monitor — add to content backlog -->
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 flex flex-col">
                     <div class="flex items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
@@ -369,17 +372,19 @@
                     <p class="text-zinc-400 text-xs leading-relaxed">Real-time drawdown tracking against prop firm thresholds. Know exactly where you stand before you blow a rule.</p>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 flex flex-col">
                     <div class="flex items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.656 4.5 4.72V19.5a.75.75 0 001.5 0V4.72c0-.508.345-.959.905-1.05A48.549 48.549 0 0112 3.375a48.549 48.549 0 015.595.296c.56.09.905.541.905 1.049V19.5a.75.75 0 001.5 0V4.72c0-1.064-.807-2.02-1.907-2.148A49.032 49.032 0 0012 2.25z"/>
                         </svg>
                         <span class="text-white text-sm font-semibold">Position Sizing</span>
                     </div>
-                    <p class="text-zinc-400 text-xs leading-relaxed">Calculator that uses your account balance and risk % to output exact lot sizes. No more mental math at the open.</p>
+                    <p class="text-zinc-400 text-xs leading-relaxed mb-3">Calculator that uses your account balance and risk % to output exact lot sizes. No more mental math at the open.</p>
+                    <a href="https://sgnldk.com/position-sizing/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 text-xs font-medium mt-auto transition-colors">Learn more →</a>
                 </div>
 
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                <!-- TODO: no landing page or blog post exists for New Trade Logic — add to content backlog -->
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 flex flex-col">
                     <div class="flex items-center gap-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>

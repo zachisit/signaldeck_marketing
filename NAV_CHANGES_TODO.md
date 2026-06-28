@@ -34,6 +34,15 @@ For subpages (forex/, jobs/, plans/, compare/) use relative paths:
 
 ---
 
+## Content Gaps — Onboarding Page Feature Grid
+
+Two cards in the "Everything Else Worth Knowing" section on `onboarding/index.html` have no landing page or blog post to link to. Each needs either a dedicated landing page or a blog post before a "Learn more →" link can be added.
+
+- [ ] **Live Drawdown Monitor** — create `/live-drawdown-monitor/` landing page OR a blog post covering real-time prop firm drawdown tracking. Then update the card in `onboarding/index.html` (search for `TODO: no landing page or blog post exists for Live Drawdown Monitor`).
+- [ ] **New Trade Logic** — create a landing page or blog post covering pre-trade logging (setup, bias, screenshot). Then update the card in `onboarding/index.html` (search for `TODO: no landing page or blog post exists for New Trade Logic`).
+
+---
+
 ## 3. Files to update
 
 - [ ] `index.html` — nav + footer

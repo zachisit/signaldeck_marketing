@@ -30,6 +30,20 @@
     ================================================================ -->
 
     <item>
+      <title>TradeZella Backtesting Review: Replay vs. Rule-Based Testing Explained</title>
+      <link>https://sgnldk.com/blog/tradezella-backtesting-review/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/tradezella-backtesting-review/</guid>
+      <pubDate>Mon, 30 Jun 2026 12:00:00 +0000</pubDate>
+      <description>TradeZella has "backtesting" — but it's trade replay. It replays your closed trades. It doesn't test a rule set on historical data.
+
+Here's the difference and why it matters before you risk real capital.
+
+https://sgnldk.com/blog/tradezella-backtesting-review/</description>
+      <content:encoded>TradeZella calls it backtesting — it's actually trade replay. You watch your own closed trades scroll forward. That's not a rule set running against historical data. Here's the distinction, why it matters for prop firm traders, and what genuine rule-based backtesting looks like.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01e-monte-carlo.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>How to Pass an FTMO Challenge Using a Trading Journal</title>
       <link>https://sgnldk.com/blog/how-to-pass-ftmo-challenge/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/how-to-pass-ftmo-challenge/</guid>

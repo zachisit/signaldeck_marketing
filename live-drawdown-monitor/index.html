@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Drawdown Monitor for Prop Firm Traders | SignalDeck</title>
+    <meta name="description" content="Track your live drawdown against prop firm daily loss limits and max drawdown in real time. Know your remaining headroom before you blow a rule.">
+    <meta name="keywords" content="live drawdown monitor, prop firm drawdown tracker, daily loss limit tracker, max drawdown monitoring, prop firm drawdown limit, MT5 drawdown monitor, real time drawdown tracker, FTMO drawdown tracker, prop firm daily loss limit, drawdown tracking trading journal">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/live-drawdown-monitor/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/live-drawdown-monitor/">
+    <meta property="og:title" content="Live Drawdown Monitor for Prop Firm Traders | SignalDeck">
+    <meta property="og:description" content="Track your live equity drawdown against prop firm thresholds in real time. Know your remaining daily loss and max drawdown headroom before you violate a rule.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/live-drawdown-monitor/">
+    <meta property="twitter:title" content="Live Drawdown Monitor | SignalDeck">
+    <meta property="twitter:description" content="Real-time drawdown tracking against prop firm rules. Know your remaining headroom before you blow the daily loss limit or max drawdown.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a live drawdown monitor?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A live drawdown monitor tracks your account equity in real time and shows how far you are from breaching a drawdown rule — such as a prop firm daily loss limit (e.g. 4%) or maximum drawdown (e.g. 10%). Unlike post-trade reporting, it shows your current headroom while positions are open, so you can close or reduce exposure before a rule is violated rather than after."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between daily loss limit and max drawdown in prop firms?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The daily loss limit is a reset-each-day rule — most prop firms (FTMO, Apex, MyForexFunds) allow 4–5% loss per calendar day. Max drawdown is a cumulative rule — it tracks from the highest balance your account has ever reached (trailing) or from the starting balance (static), and ends your account if breached. Trailing max drawdown (used by Apex and many others) is tighter because it moves up with your profits but never moves down. SignalDeck tracks both in real time against your live balance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does SignalDeck track drawdown in real time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck connects to your broker via live sync (MT5 Elite, cTrader OAuth, IBKR Flex, SnapTrade) and pulls your current account balance and open P&L continuously. It computes your intraday drawdown from today's starting balance and your overall drawdown from your account peak, then displays both against the limits you configure for your prop firm. The monitor updates automatically — no manual refresh required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which prop firms does the drawdown monitor support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck's drawdown monitor is firm-agnostic — you configure the daily loss limit % and max drawdown % for your specific firm's rules. This covers FTMO (5% daily / 10% max), Apex Trader Funding (trailing drawdown model), MyForexFunds, E8 Funding, The Funded Trader, and any other firm that publishes its drawdown rules. The monitor then tracks your live account against those thresholds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens when I'm close to the daily loss limit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck shows your remaining headroom as a percentage and a dollar amount. When you are within 1% of the daily loss limit, the monitor highlights the threshold. The appropriate response depends on your firm's rules and your open positions — most experienced prop traders close or reduce exposure when they are within 0.5% of the daily limit to avoid accidental breaches from spread or overnight gaps."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../prop-firm/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Prop Firm</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-16 border-b border-zinc-900 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <p class="text-xs font-mono text-red-400 uppercase tracking-[0.2em] mb-4">Prop Firm Risk Management</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
+                Live Drawdown Monitor
+            </h1>
+            <p class="text-xl text-zinc-400 mb-3">Know your remaining headroom. Before you blow a rule.</p>
+            <p class="text-zinc-500 text-sm max-w-xl mx-auto leading-relaxed">Most traders find out they breached the daily loss limit when they try to place the next trade. SignalDeck shows you the number before that happens — updated continuously from your live broker connection.</p>
+            <div class="mt-8">
+                <a href="https://app.sgnldk.com" onclick="if(!navigator.webdriver) gtag('event','ldm_hero_cta_click');" target="_blank" rel="noopener noreferrer"
+                    class="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors">
+                    Track your drawdown — Free
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What it tracks -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-3 text-center">Two Numbers That Can End Your Account</h2>
+            <p class="text-zinc-400 text-center mb-12 max-w-xl mx-auto">Prop firms enforce two separate drawdown rules. Most traders monitor neither in real time — until it's too late.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-red-900/40 rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-red-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Daily Loss Limit</p>
+                            <p class="text-red-400 text-xs font-mono">Resets each calendar day</p>
+                        </div>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">A cap on how much you can lose in a single trading day — typically 4–5% of account balance. Common across FTMO, Apex, E8, and most funded programs. Breach it once and the account is terminated, regardless of your overall P&L.</p>
+                    <div class="bg-zinc-950 rounded-lg p-3 font-mono text-xs text-zinc-400 space-y-1">
+                        <div class="flex justify-between"><span>Account balance</span><span class="text-white">$100,000</span></div>
+                        <div class="flex justify-between"><span>Daily limit (5%)</span><span class="text-red-400">$5,000</span></div>
+                        <div class="flex justify-between"><span>Used today</span><span class="text-zinc-300">$3,200</span></div>
+                        <div class="flex justify-between border-t border-zinc-800 pt-1"><span>Remaining</span><span class="text-emerald-400 font-bold">$1,800</span></div>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 border border-orange-900/40 rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-orange-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Max Drawdown</p>
+                            <p class="text-orange-400 text-xs font-mono">Static or trailing — never resets</p>
+                        </div>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">A lifetime cap measured from peak equity (trailing) or starting balance (static). Trailing drawdown — used by Apex and others — moves up as your balance grows but never moves down. A $110k balance with a 10% trailing rule means your floor is $99k — permanently, even if you give back the profits.</p>
+                    <div class="bg-zinc-950 rounded-lg p-3 font-mono text-xs text-zinc-400 space-y-1">
+                        <div class="flex justify-between"><span>Peak balance</span><span class="text-white">$108,400</span></div>
+                        <div class="flex justify-between"><span>Max drawdown (10%)</span><span class="text-orange-400">$10,840</span></div>
+                        <div class="flex justify-between"><span>Current balance</span><span class="text-zinc-300">$101,200</span></div>
+                        <div class="flex justify-between border-t border-zinc-800 pt-1"><span>Remaining</span><span class="text-emerald-400 font-bold">$3,360</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-3">How the Live Drawdown Monitor Works</h2>
+            <p class="text-zinc-400 mb-10 leading-relaxed">SignalDeck pulls your live balance from your connected broker and computes both drawdown metrics continuously. No spreadsheet. No checking the prop firm dashboard mid-trade.</p>
+            <div class="space-y-6">
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-900/50 border border-red-700/40 flex items-center justify-center font-mono text-xs font-bold text-red-300">1</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Connect your broker</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Link MT5 via Elite MetaApi connection, cTrader via OAuth, or IBKR via Flex Web Service. SignalDeck starts pulling live balance and open P&L immediately after the handshake completes.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-900/50 border border-red-700/40 flex items-center justify-center font-mono text-xs font-bold text-red-300">2</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Configure your firm's rules</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Set your daily loss limit percentage and max drawdown percentage in Risk Profile. SignalDeck stores these per account — each challenge or funded account can have its own rules.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-900/50 border border-red-700/40 flex items-center justify-center font-mono text-xs font-bold text-red-300">3</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Monitor remaining headroom in real time</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">The dashboard shows your current drawdown vs. your limit — as a percentage and a dollar amount. You see the remaining runway at a glance without navigating away from your chart or opening a second platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why real-time matters -->
+    <section class="py-20 border-b border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-6">Why Post-Trade Reporting Isn't Enough</h2>
+            <p class="text-zinc-400 leading-relaxed mb-6">Most trading journals — and even most prop firm dashboards — show you your drawdown after the trading session ends. You log the trades, the journal calculates the damage. That's useful for review, but it doesn't protect you while the market is open.</p>
+            <p class="text-zinc-400 leading-relaxed mb-6">The scenario that ends most funded accounts: a losing morning, a tight stop that gets run, and a position that moves against you before you can close it. By the time you check the prop firm dashboard, you're already over the daily limit by 0.3%.</p>
+            <p class="text-zinc-400 leading-relaxed">Live monitoring solves this. When you know your remaining headroom is $800 and your open position has $650 of unrealized risk, you have a real number to act on — not a rule you're guessing at.</p>
+            <div class="mt-8 bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+                <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">TradesViz vs SignalDeck on drawdown tracking</p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-red-400 font-mono text-xs mt-0.5 flex-shrink-0">✗</span>
+                        <p class="text-zinc-400 text-sm">TradesViz added "prop firm compliance tracking" in 2026. It shows rule violations after they occur — retrospective only.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-emerald-400 font-mono text-xs mt-0.5 flex-shrink-0">✓</span>
+                        <p class="text-zinc-400 text-sm">SignalDeck's live balance sync shows remaining daily loss limit and drawdown headroom before you place the next trade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Tracking Your Prop Firm Drawdown</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed">Connect your MT5, cTrader, or IBKR account and see your live drawdown numbers alongside your journal. Free during beta — every feature included.</p>
+            <a href="https://app.sgnldk.com" onclick="if(!navigator.webdriver) gtag('event','ldm_cta_click',{'button_location':'body'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors">
+                Connect your broker — Free
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is a live drawdown monitor?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">A live drawdown monitor tracks your account equity in real time and shows how far you are from breaching a drawdown rule — such as a prop firm daily loss limit or maximum drawdown. Unlike post-trade reporting, it shows your current headroom while positions are open, so you can act before a rule is violated rather than after.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is the difference between daily loss limit and max drawdown?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">The daily loss limit resets each calendar day — most prop firms allow 4–5% loss per day. Max drawdown is a lifetime cumulative rule measured from your highest balance (trailing) or starting balance (static). Trailing max drawdown moves up with your profits but never moves down — it's tighter than it looks because a profitable run permanently raises your floor.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Which brokers and prop firm accounts does SignalDeck support?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck connects via MT5 Elite (MetaApi), cTrader OAuth (IC Markets, Pepperstone, FxPro, 250+ brokers), IBKR Flex Web Service, and SnapTrade (30+ brokers). Prop firm challenge accounts on any of these platforms are supported — including FTMO, Apex Trader Funding, E8 Funding, The Funded Trader, and others that run on MT5 or cTrader infrastructure.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Do I have to manually enter my drawdown limits?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — you configure your firm's specific rules (daily loss limit % and max drawdown %) in the Risk Profile settings. SignalDeck then calculates the dollar thresholds from your live account balance automatically. This keeps the monitor accurate even if you deposit, withdraw, or scale the account.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What happens when I get close to the daily loss limit?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">The monitor shows your remaining headroom as a percentage and dollar amount. Most experienced prop firm traders close or reduce exposure when within 0.5% of the daily limit — spread on a re-entry or a small overnight gap can breach the limit on open positions. Having the exact number visible makes that call obvious rather than guesswork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related features -->
+    <section class="py-12 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest text-center mb-6">Related SignalDeck Features</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="../would-i-pass/index.html" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
+                    <div class="text-rose-400 font-mono text-[10px] uppercase tracking-widest mb-2">Simulation</div>
+                    <div class="text-white text-sm font-semibold mb-1">Would I Pass?</div>
+                    <div class="text-zinc-500 text-xs">Simulate your trade history against prop firm rules before you pay the challenge fee.</div>
+                </a>
+                <a href="../position-sizing/index.html" class="bg-zinc-900/50 border border-emerald-500/20 rounded-lg p-4 hover:border-emerald-500/40 transition-colors">
+                    <div class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-2">Risk Control</div>
+                    <div class="text-white text-sm font-semibold mb-1">Position Sizing</div>
+                    <div class="text-zinc-500 text-xs">Calculate exact lot sizes from account balance and risk % — no mental math at the open.</div>
+                </a>
+                <a href="../prop-firm/index.html" class="bg-zinc-900/50 border border-amber-500/20 rounded-lg p-4 hover:border-amber-500/40 transition-colors">
+                    <div class="text-amber-400 font-mono text-[10px] uppercase tracking-widest mb-2">Prop Firm</div>
+                    <div class="text-white text-sm font-semibold mb-1">Prop Firm Trading Journal</div>
+                    <div class="text-zinc-500 text-xs">Full guide to SignalDeck's prop firm features — drawdown, challenge tracking, and rule gates.</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> | <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a></p>
+            <p class="mt-1"><a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

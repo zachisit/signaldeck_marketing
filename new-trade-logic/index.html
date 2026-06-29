@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>New Trade Logic: Pre-Trade Planning Journal | SignalDeck</title>
+    <meta name="description" content="Log your setup, bias, and entry criteria before placing a trade. Enforce pre-trade discipline with a structured checklist and build a searchable setup library.">
+    <meta name="keywords" content="pre-trade checklist, trade planning tool, trade entry journal, trading setup log, pre-trade analysis, trade plan template, trading entry checklist, trade setup template, pre-trade planning, trading journal entry criteria, prop firm trading discipline">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/new-trade-logic/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/new-trade-logic/">
+    <meta property="og:title" content="Pre-Trade Planning & Entry Checklist | New Trade Logic | SignalDeck">
+    <meta property="og:description" content="Log your setup, bias, and entry criteria before placing a trade. Enforce pre-trade discipline and build a searchable setup library with SignalDeck's New Trade Logic.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/new-trade-logic/">
+    <meta property="twitter:title" content="Pre-Trade Planning Journal | New Trade Logic | SignalDeck">
+    <meta property="twitter:description" content="Log your setup, bias, and entry criteria before you place the trade. Enforce discipline before execution — not just after.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a pre-trade checklist?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A pre-trade checklist is a structured list of conditions that must be met before entering a trade. Items typically include: trend direction confirmed, setup valid at timeframe, key level identified, risk defined (entry/stop/target), and position size calculated. The purpose is to enforce consistency — every entry uses the same decision criteria, not gut feel. SignalDeck's New Trade Logic lets you build a custom checklist and requires completion before the trade is logged."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why should I plan trades before entering them?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-trade planning forces you to commit to entry criteria, target, and stop before emotions are involved. When the trade moves against you, you have a written record of the original thesis — either the thesis is still valid and you hold, or it's invalid and you exit. Without a written plan, most traders change their stop mid-trade, exit winners too early, and hold losers too long. Planning before entry is the structural fix for all three."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a trade setup library?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A trade setup library is a searchable archive of your pre-trade plans linked to their actual outcomes. Each entry captures your setup name, bias, signal, screenshot, and checklist at entry time — then the actual trade data is attached when the position closes. Over 50+ trades, you can filter by setup type and see which setups have positive expectancy and which don't. This is how you build an evidence-based edge rather than relying on pattern recognition memory alone."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is New Trade Logic different from just adding notes to a trade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Adding notes after the trade is influenced by the outcome. If you won, your notes will rationalize why it was a good entry. If you lost, your notes will highlight what went wrong. New Trade Logic captures the pre-entry state — your setup, bias, screenshot, and checklist — before you know the result. This gives you unbiased data: you can later see if your pre-trade thesis was correct, regardless of whether the trade was profitable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does New Trade Logic work with prop firm challenge accounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Prop firm traders benefit particularly from pre-trade checklists because challenge rules (daily loss limit, max drawdown, consistency rules) require disciplined execution — not just a profitable edge. Adding a checklist item for 'within daily loss limit headroom' before every entry adds a mechanical gate that forces you to check the drawdown monitor before placing a trade. SignalDeck's Risk Profile settings let you configure these limits per account."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b' },
+                    },
+                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../backtester/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Backtester</a>
+                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-24 pb-16 border-b border-zinc-900 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <p class="text-xs font-mono text-violet-400 uppercase tracking-[0.2em] mb-4">New Trade Logic</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
+                Pre-Trade Planning &amp; Entry Checklist
+            </h1>
+            <p class="text-xl text-zinc-400 mb-3">Document the plan before you place the trade.</p>
+            <p class="text-zinc-500 text-sm max-w-xl mx-auto leading-relaxed">Most traders review trades after the fact. The traders who improve faster use a pre-trade checklist — logging their setup, bias, and entry criteria before execution, while the thesis is still uncontaminated by the outcome.</p>
+            <div class="mt-8">
+                <a href="https://app.sgnldk.com" onclick="if(!navigator.webdriver) gtag('event','ntl_hero_cta_click');" target="_blank" rel="noopener noreferrer"
+                    class="inline-block px-8 py-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-lg transition-colors">
+                    Start planning trades — Free
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What you log -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-3 text-center">What You Log Before Entry</h2>
+            <p class="text-zinc-400 text-center mb-12 max-w-xl mx-auto">Six fields. Each one forces a decision before capital is at risk.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-7 h-7 rounded-md bg-violet-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z"/>
+                            </svg>
+                        </div>
+                        <p class="text-white text-sm font-semibold">Setup Name</p>
+                    </div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">Assign a strategy tag before entry. Links this trade to your backtested setup — so you can compare theoretical edge vs. live execution over time.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-7 h-7 rounded-md bg-violet-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/>
+                            </svg>
+                        </div>
+                        <p class="text-white text-sm font-semibold">Directional Bias</p>
+                    </div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">Long or short — and the reasoning behind it. Committing this in writing before entry exposes bias-driven trades: if you can't articulate the thesis, the trade shouldn't happen.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-7 h-7 rounded-md bg-violet-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"/>
+                            </svg>
+                        </div>
+                        <p class="text-white text-sm font-semibold">Entry Signal</p>
+                    </div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">The specific trigger that caused you to act. Selecting from your configured signal list (breakout, pullback, reversal, etc.) builds a searchable dataset of which signals produce positive expectancy.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-7 h-7 rounded-md bg-violet-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                            </svg>
+                        </div>
+                        <p class="text-white text-sm font-semibold">Screenshot</p>
+                    </div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">Chart capture at the moment of entry — not the chart you pulled up an hour later to review. The pre-entry screenshot shows the actual setup, not a rationalized version of it.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-7 h-7 rounded-md bg-violet-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <p class="text-white text-sm font-semibold">Entry Checklist</p>
+                    </div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">Your configured list of conditions that must be checked before entering. Each item is binary — checked or skipped. The completion rate across all trades shows how consistently you follow your own rules.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-7 h-7 rounded-md bg-violet-950/60 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+                            </svg>
+                        </div>
+                        <p class="text-white text-sm font-semibold">Pre-Trade Notes</p>
+                    </div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">Freeform notes written before entry. Context about news, level confluences, or hesitations. Contrast these against your Post Mortem notes to see how accurate your pre-trade read was.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before vs After -->
+    <section class="py-20 border-b border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-3">Before vs After: Why the Order Matters</h2>
+            <p class="text-zinc-400 mb-8 leading-relaxed">Post-trade journaling is outcome-contaminated. You review the trade after you know whether it won or lost, and your analysis is colored by that result. Pre-trade logging captures your actual decision-making process.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="bg-zinc-900 border border-zinc-700 rounded-xl p-5">
+                    <p class="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-3">Post-trade only (most traders)</p>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-red-400 flex-shrink-0 mt-0.5">✗</span>Notes written after knowing the result</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400 flex-shrink-0 mt-0.5">✗</span>Winner analysis: "setup was clean, I was right"</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400 flex-shrink-0 mt-0.5">✗</span>Loser analysis: "market was random, stop too tight"</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400 flex-shrink-0 mt-0.5">✗</span>No baseline to compare against — did you follow the plan?</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-900 border border-violet-700/40 rounded-xl p-5">
+                    <p class="text-violet-400 text-xs font-mono uppercase tracking-widest mb-3">Pre-trade + post-trade (SignalDeck)</p>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 flex-shrink-0 mt-0.5">✓</span>Setup, bias, and checklist locked in before entry</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 flex-shrink-0 mt-0.5">✓</span>Winner analysis: "did execution match the plan?"</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 flex-shrink-0 mt-0.5">✓</span>Loser analysis: "was the thesis valid? was the process correct?"</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 flex-shrink-0 mt-0.5">✓</span>Post Mortem directly references the pre-entry plan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup library -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-6">Build a Searchable Setup Library</h2>
+            <p class="text-zinc-400 leading-relaxed mb-6">Every pre-trade plan is attached to its actual outcome. After 50+ trades, filter your journal by setup name to see which of your setups have positive expectancy — and which are pattern-matching noise that looks like a system.</p>
+            <p class="text-zinc-400 leading-relaxed mb-6">Most traders know their win rate. Very few know which specific setup type drives that win rate. A trader with 60% win rate and three setup types might find that one produces 78% wins and the other two produce 48%. Eliminating the underperforming setups is one of the highest-leverage improvements available — but only once you can see the data broken out.</p>
+            <p class="text-zinc-400 leading-relaxed">New Trade Logic creates that dataset automatically. Log the setup before entry, attach to the outcome, and the analytics tab shows performance by setup type, signal type, and checklist completion rate.</p>
+            <div class="mt-8">
+                <a href="../analytics/index.html" class="text-violet-400 hover:text-violet-300 transition-colors text-sm">See how SignalDeck's analytics layer uses this data →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Start Logging the Plan Before the Trade</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed">Free during beta — every feature included. Connect your broker or start with manual trade entry. No credit card required.</p>
+            <a href="https://app.sgnldk.com" onclick="if(!navigator.webdriver) gtag('event','ntl_cta_click',{'button_location':'body'});" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-8 py-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-lg transition-colors">
+                Open SignalDeck — Free
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is a pre-trade checklist?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">A structured list of conditions that must be met before entering a trade — trend direction confirmed, setup valid, key level identified, risk defined, position size calculated. The purpose is consistency: every entry uses the same decision criteria, not a different gut-feel each session.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Why should I plan trades before entering?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Pre-trade planning forces you to commit to entry criteria, target, and stop before emotions are involved. When the trade moves against you, you have a written record of the original thesis — either it's still valid and you hold, or it's invalid and you exit. Without a written plan, most traders move stops mid-trade, exit winners early, and hold losers hoping for recovery.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How is this different from adding notes after the trade closes?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Notes added after entry are outcome-contaminated — your analysis is colored by knowing whether you won or lost. Pre-trade logging captures the actual decision-making state before execution. You can later compare what you planned vs. what happened, which produces the clearest signal about execution quality.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Can I use this for prop firm challenge accounts?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — and it's especially useful. Adding a checklist item for "daily loss limit headroom confirmed" before every entry creates a mechanical gate that forces you to check the live drawdown monitor before placing the trade. Prop firm account failures are mostly process failures, not edge failures — pre-trade checklists address process directly.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is a trade setup library and how do I build one?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">A setup library is a searchable archive of pre-trade plans linked to outcomes. In SignalDeck, every trade tagged with a setup name or strategy becomes part of that setup's performance record. After 50+ trades, filter by setup type in Analytics to see which setups have positive expectancy. Most traders find that 1–2 setups carry their win rate while 2–3 others destroy it — removing the underperformers is the highest-leverage improvement available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related features -->
+    <section class="py-12 border-t border-zinc-900 bg-zinc-900/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest text-center mb-6">Related SignalDeck Features</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="../post-mortem/index.html" class="bg-zinc-900/50 border border-sky-500/20 rounded-lg p-4 hover:border-sky-500/40 transition-colors">
+                    <div class="text-sky-400 font-mono text-[10px] uppercase tracking-widest mb-2">Post-Trade</div>
+                    <div class="text-white text-sm font-semibold mb-1">Post Mortem</div>
+                    <div class="text-zinc-500 text-xs">AI-powered structured trade review. Compare actual execution against your pre-trade plan.</div>
+                </a>
+                <a href="../backtester/index.html" class="bg-zinc-900/50 border border-amber-500/20 rounded-lg p-4 hover:border-amber-500/40 transition-colors">
+                    <div class="text-amber-400 font-mono text-[10px] uppercase tracking-widest mb-2">Backtester</div>
+                    <div class="text-white text-sm font-semibold mb-1">Strategy Backtester</div>
+                    <div class="text-zinc-500 text-xs">Validate a setup's edge on historical data before you commit live capital to it.</div>
+                </a>
+                <a href="../analytics/index.html" class="bg-zinc-900/50 border border-blue-500/20 rounded-lg p-4 hover:border-blue-500/40 transition-colors">
+                    <div class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-2">Analytics</div>
+                    <div class="text-white text-sm font-semibold mb-1">Trade Analytics</div>
+                    <div class="text-zinc-500 text-xs">SQN, expectancy, and MAE/MFE broken out by setup type, signal, and checklist completion.</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
+        <div class="max-w-xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> | <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a></p>
+            <p class="mt-1"><a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

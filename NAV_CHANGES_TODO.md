@@ -38,8 +38,8 @@ For subpages (forex/, jobs/, plans/, compare/) use relative paths:
 
 Two cards in the "Everything Else Worth Knowing" section on `onboarding/index.html` have no landing page or blog post to link to. Each needs either a dedicated landing page or a blog post before a "Learn more →" link can be added.
 
-- [ ] **Live Drawdown Monitor** — create `/live-drawdown-monitor/` landing page OR a blog post covering real-time prop firm drawdown tracking. Then update the card in `onboarding/index.html` (search for `TODO: no landing page or blog post exists for Live Drawdown Monitor`).
-- [ ] **New Trade Logic** — create a landing page or blog post covering pre-trade logging (setup, bias, screenshot). Then update the card in `onboarding/index.html` (search for `TODO: no landing page or blog post exists for New Trade Logic`).
+- [x] **Live Drawdown Monitor** — `/live-drawdown-monitor/index.html` created 2026-06-29. Onboarding card updated with "Learn more →" link. Sitemap + llms.txt + llms-full.txt updated.
+- [x] **New Trade Logic** — `/new-trade-logic/index.html` created 2026-06-29. Onboarding card updated with "Learn more →" link. Sitemap + llms.txt + llms-full.txt updated.
 
 ---
 

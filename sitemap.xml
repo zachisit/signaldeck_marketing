@@ -247,7 +247,13 @@
 
   <url>
     <loc>https://sgnldk.com/brand_ambassadors/paperwork/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-07-02</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/gr3fter/</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.70</priority>
   </url>
 

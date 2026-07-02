@@ -154,12 +154,60 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.82 -->
+            <div class="pl-8 relative" id="v1-0-82">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.82-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 2, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.82 unifies broker imports into a single guided flow, teaches cTrader to bring in your stop-loss and take-profit, and cleans up plan-limit messaging across the app.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">One import flow for every broker</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Import without the detour</strong> &mdash; connecting cTrader, SnapTrade, or Interactive Brokers now opens a single guided modal &mdash; pick a broker, connect, review, import &mdash; right from the Import Trades button, no trip through Settings required.</li>
+                            <li><strong class="text-zinc-200">Already-imported, clearly marked</strong> &mdash; trades you've already brought in show up in their own read-only list, with existing ones automatically updated when their status changes (like a position closing).</li>
+                            <li><strong class="text-zinc-200">Built for real review</strong> &mdash; a responsive review table, clear step progress, and an obvious in-progress state make reviewing dozens of trades before import painless on any screen size.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">cTrader gets smarter</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Your stop and target, imported</strong> &mdash; open cTrader positions now bring in their real stop-loss and take-profit, so R-multiple and 1.5R breakeven calculate automatically instead of showing "N/A".</li>
+                            <li><strong class="text-zinc-200">Correct lot sizes on indices and gold</strong> &mdash; US500, NAS100, GER40, and gold positions now import with the right lot size and unit count instead of a nonsensical fraction.</li>
+                            <li><strong class="text-zinc-200">Clearer errors when cTrader hiccups</strong> &mdash; a slow or unreachable cTrader server now surfaces a specific, actionable message instead of a generic failure.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Clearer messages, everywhere</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Plan limits that make sense</strong> &mdash; hitting a plan limit now tells you plainly what you've hit and how to upgrade, instead of a raw technical error.</li>
+                            <li><strong class="text-zinc-200">Real error messages</strong> &mdash; error toasts across the app now show the actual problem instead of a generic placeholder.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Polish &amp; reliability</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Prices land immediately</strong> &mdash; every imported trade now gets a real current price right away instead of waiting on the next background refresh.</li>
+                            <li><strong class="text-zinc-200">Smarter scanner</strong> &mdash; four strategies that were quietly never running now execute on schedule, and strategy assignment on scanner-found setups is more consistent.</li>
+                            <li><strong class="text-zinc-200">Steadier onboarding &amp; calendar</strong> &mdash; the final onboarding step now retries automatically on a hiccup, and a quick-navigation bug in the accountability calendar is fixed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.81 -->
             <div class="pl-8 relative" id="v1-0-81">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.81-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jun 29, 2026</span>
                 </div>
 

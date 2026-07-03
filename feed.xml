@@ -16,15 +16,18 @@
 
     <!-- ================================================================
          FEDICA PIPELINE SETUP (one-time):
-           Content source → Description
-           Hashtags → (add globally in Fedica UI if desired)
+           Content source -> Description
+           Hashtags -> (add globally in Fedica UI if desired)
          NEW POST WORKFLOW:
            1. Add <item> block below (newest first)
-           2. Write tweet text in <description> — keep under ~230 chars,
-              Fedica appends the link automatically
-           3. Put full excerpt in <content:encoded>
-           4. Set <enclosure> to the post OG image URL
-           5. git push — Fedica detects within ~5 min and posts to X
+           2. Write tweet text in <description> -- keep under ~230 chars.
+              DO NOT include the URL -- Fedica appends it automatically
+              from the <link> tag. Including the URL produces a duplicate.
+           3. Do NOT use double-hyphen (--) or emdash in copy -- use a
+              single hyphen (-) or rewrite the sentence.
+           4. Put full excerpt in <content:encoded>
+           5. Set <enclosure> to the post OG image URL
+           6. git push -- Fedica detects within ~5 min and posts to X/Bluesky/LinkedIn
          PAST POSTS: <description> left blank intentionally.
          Fedica only fires on items NEW after the pipeline is connected.
     ================================================================ -->

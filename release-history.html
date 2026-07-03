@@ -38,7 +38,7 @@
       "headline": "SignalDeck Release Notes",
       "description": "Full changelog and version history for the SignalDeck trading journal and strategy backtester. Covers Google OAuth, 3-step onboarding, Walk-Forward Analysis, Monte Carlo simulation, CSV import, public profiles, and all feature releases since 2025.",
       "url": "https://sgnldk.com/release-history.html",
-      "dateModified": "2026-06-12",
+      "dateModified": "2026-07-03",
       "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -154,12 +154,58 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.83 -->
+            <div class="pl-8 relative" id="v1-0-83">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.83-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 3, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.83 turns the Runs screen into a real performance dashboard, brings MetaTrader 5 into the unified import flow, and stamps every import with a visible audit trail inside the trade.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">A strategy performance dashboard, not a log</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Your best strategies, at a glance</strong> &mdash; the Runs screen now shows one card per strategy with closed trades: equity sparkline, net P&amp;L, Sharpe, Max Drawdown, and Profit Factor, all computed from your real trade history.</li>
+                            <li><strong class="text-zinc-200">Click straight to the filtered trades</strong> &mdash; clicking any strategy card jumps to Trade History pre-filtered to that strategy, so drilling into your winning and losing periods is one click away.</li>
+                            <li><strong class="text-zinc-200">Scanner history still there for superusers</strong> &mdash; the legacy scanner-run log is available behind a dedicated &ldquo;View Run History&rdquo; button rather than cluttering the main screen.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MetaTrader 5 joins the unified import flow</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">One Import button for all brokers</strong> &mdash; MT5 now opens in the same guided modal as cTrader, SnapTrade, and Interactive Brokers — pick a date range, review your trades, import in one step.</li>
+                            <li><strong class="text-zinc-200">Connect a new account without leaving</strong> &mdash; adding a new MetaApi account now happens inside the modal, not on a separate screen you have to navigate back from.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Every import, permanently logged</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Import badge in Change History</strong> &mdash; every trade imported through any broker connection (MT5, cTrader, SnapTrade, IBKR, Tradovate, CSV) now shows an &ldquo;Imported from &lt;broker&gt;&rdquo; entry with a distinct Import badge in the trade's Change History.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">More at a glance</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">% away from your target</strong> &mdash; Trade History now shows how far each open trade is from its price target, side-aware for both LONG and SHORT positions.</li>
+                            <li><strong class="text-zinc-200">cTrader import finally shows new trades</strong> &mdash; a server-side cap on the cTrader history API was silently dropping trades beyond the first fetch window; chunking the request into weekly segments fixes it.</li>
+                            <li><strong class="text-zinc-200">Chart drag that stays stable</strong> &mdash; dragging a stop, target, or alert line on the trade detail chart no longer squishes the candlesticks or throws away your vertical zoom.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.82 -->
             <div class="pl-8 relative" id="v1-0-82">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.82-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 2, 2026</span>
                 </div>
 

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules | SignalDeck</title>
+    <meta name="description" content="Most MT5 prop firm journals run on stale numbers. SignalDeck connects directly to your MT5 account — live balance sync, real-time drawdown headroom, and Kelly sizing that updates as your funded account moves.">
+    <meta name="keywords" content="mt5 prop firm journal, mt5 trading journal prop firm, prop firm journal mt5, metatrader 5 trading journal, ftmo mt5 journal, mt5 drawdown tracker, prop firm drawdown tracking, mt5 kelly criterion">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/mt5-prop-firm-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/mt5-prop-firm-journal/">
+    <meta property="og:title" content="MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules | SignalDeck">
+    <meta property="og:description" content="Live MT5 balance sync means your position sizing and drawdown headroom update automatically as your funded account balance changes. Here is how the full workflow fits together.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/mt5-prop-firm-journal/">
+    <meta property="twitter:title" content="MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules | SignalDeck">
+    <meta property="twitter:description" content="Live MT5 balance sync means your position sizing and drawdown headroom update automatically as your funded account balance changes.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place",
+        "description": "How to use SignalDeck as your MT5 prop firm journal -- live balance sync, real-time drawdown headroom, R-multiple normalization, and Walk-Forward Analysis before you pay the challenge fee.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-07-03",
+        "dateModified": "2026-07-03"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the best trading journal for MT5 prop firm traders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The best MT5 prop firm journal is one that syncs live from your MetaTrader 5 account, tracks both your daily loss limit and maximum drawdown in real time, and normalizes your performance using R-multiples rather than pips or dollars. SignalDeck connects directly to MT5 via MetaApi -- trades import automatically, your live account balance syncs with every connection, and that balance feeds your Kelly Criterion position sizing and drawdown headroom display."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck sync automatically with MetaTrader 5?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SignalDeck connects to MT5 via MetaApi and imports your trades automatically. You can enable per-account auto-sync so trades flow in without any manual action. Your live account balance also syncs on each connection, which means your Kelly Criterion sizing and drawdown headroom calculations always reflect your current funded balance -- not your starting balance from weeks ago."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does SignalDeck track prop firm drawdown rules?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SignalDeck displays your real-time drawdown headroom against both the daily loss limit and maximum drawdown rules of your prop firm challenge. As your live MT5 balance updates, the headroom figures recalculate automatically. The Would I Pass simulator lets you run your actual trade history against FTMO, Apex, Topstep, and other firm rules to see whether you would have passed historically -- before risking the challenge fee."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use Walk-Forward Analysis in SignalDeck before attempting an FTMO challenge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Walk-Forward Analysis in SignalDeck tests your strategy on data it has never seen by splitting your trade history into rolling optimization and test windows. If your edge does not hold on the out-of-sample windows, it is likely curve-fitted. Running WFA on your MT5 trade history before paying for a challenge tells you whether your results are real or a product of favorable sequencing. A strategy that passes WFA has meaningfully higher odds of surviving the 30-day challenge window."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules", "item": "https://sgnldk.com/blog/mt5-prop-firm-journal/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-07-03" class="text-xs font-mono text-zinc-500">July 3, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Most MT5 prop firm traders are running on stale numbers. Their journal has their starting balance from week one. Their sizing does not know they are down 3% on the funded account. Here is how to fix that.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Stale Balance Problem</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                You passed your FTMO Phase 1 with a $100,000 account. You import that starting balance into your journal, set your Kelly Criterion to 1.5%, and start trading the funded account.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Three weeks in, you have had two rough weeks. Your funded account is sitting at $94,200. But your journal still thinks you have $100,000. So every position size it suggests is 6% too large relative to your actual equity. Your drawdown headroom calculation is wrong. Your daily loss limit display is wrong. The sizing that felt right at $100k is now quietly pushing you closer to a violation than you realize.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is not a journaling failure. It is a data freshness failure. And it is the default state for every prop firm trader using a journal that does not pull a live balance from MT5.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "Your sizing should know where your account stands today -- not where it started."
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Live MT5 Sync Actually Changes</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../../mt5-trading-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SignalDeck connects to your MT5 account</a> via MetaApi. When you enable auto-sync on an account, two things happen automatically: your trades import without any CSV export, and your live account balance updates on every connection.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                That live balance is not just a display number. It feeds three downstream calculations that matter for prop firm trading:
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Calculation</th>
+                            <th class="px-4 py-3 text-left font-semibold">Without live sync</th>
+                            <th class="px-4 py-3 text-left font-semibold">With live sync</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Kelly position size</td>
+                            <td class="px-4 py-3 text-rose-400">Based on starting balance</td>
+                            <td class="px-4 py-3 text-emerald-400">Recalculates against current balance</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Daily loss headroom</td>
+                            <td class="px-4 py-3 text-rose-400">Fixed dollar figure from start</td>
+                            <td class="px-4 py-3 text-emerald-400">Updates as balance changes</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Max drawdown floor</td>
+                            <td class="px-4 py-3 text-rose-400">Calculated from stale equity</td>
+                            <td class="px-4 py-3 text-emerald-400">Reflects live account position</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The compounding effect is meaningful. A trader who is down 4% on a $100k account and sizing positions as if they still have $100k is systematically over-risking. Over a 30-day challenge window with 3-4 trades per day, that gap in sizing accuracy is a significant contributor to violations.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Tracking Drawdown in Real Time</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO's rules</a> give you a 5% daily loss limit and a 10% maximum drawdown. Apex Trader uses a trailing drawdown. Topstep has a daily loss limit that resets each morning. The specific mechanics differ by firm, but every prop firm challenge has a floor that, once breached, ends your account immediately.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The failure mode is almost always the same: a trader enters a position without a clear picture of how much headroom they actually have left that day. They are not being reckless -- they simply do not have the number in front of them at the moment they click buy.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck's drawdown monitor pulls your live MT5 balance and shows you your remaining daily and total headroom as a live figure before every trade. It is not a retrospective report after the session ends. It is the number you see before you enter.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">R-Multiple Tracking Across Currency Pairs</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Prop firm traders often run multiple pairs simultaneously -- EURUSD, GBPJPY, XAUUSD, and others. Comparing performance across those pairs in pips is meaningless. A 30-pip winner on EURUSD and a 30-pip winner on GBPJPY represent completely different dollar values and risk-adjusted returns.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                R-multiple normalization removes the currency noise. Every trade becomes a multiple of the initial risk: +2R means you made twice your risk, -1R means you lost your planned risk, regardless of the pair or the pip value. When you filter your performance by R-multiple, you can directly compare a EURUSD scalp to a XAUUSD swing and ask the same question of both: is this setup generating positive expectancy over time?
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This matters for challenge prep specifically. If your XAUUSD setups are running at +0.3R expectancy and your EURUSD setups are at +0.8R, you should know that before you decide which pairs to trade during a funded evaluation. That answer is in your data. It requires R-multiple tracking to see it.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Walk-Forward Analysis Before You Pay the Fee</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A standard backtest on your full trade history tells you what already happened. <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> tells you whether your edge generalizes to data it has not seen before.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The process: SignalDeck splits your trade history into rolling windows, optimizes on the in-sample portion, and tests the resulting parameters on the out-of-sample portion. It repeats this across multiple windows. If your strategy shows consistent positive expectancy on the out-of-sample windows, the edge is likely real. If performance collapses on unseen data, you have curve-fitting -- and a 30-day funded challenge will expose that.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                An FTMO Phase 1 costs $155 to $1,080 depending on account size. Running Walk-Forward Analysis on your MT5 trade history before paying that fee costs nothing. If the WFA results say the edge is not robust, you save the challenge cost and another month of exposure. If WFA confirms the edge holds, you enter the challenge with a data-backed reason for confidence -- not just a feeling that the last two months went well.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Would I Pass Simulator</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Before attempting a live challenge, <a href="../../would-i-pass/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">the Would I Pass simulator</a> runs your actual MT5 trade history through the specific rules of your target firm. You pick the firm, the account size, and the evaluation period. SignalDeck replays your trades in sequence and tells you whether you would have passed, and exactly where you would have been stopped out if not.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is not a generic risk estimate. It uses your real trades -- the actual sequence, the actual daily P&L, the actual drawdown path. If your history shows three instances where you would have blown the daily limit on the same type of setup, you know the specific pattern to either fix or avoid before you attempt the evaluation.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Full MT5 Prop Firm Workflow</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Here is how all of these pieces fit together in a single pre-challenge process:
+            </p>
+
+            <div class="space-y-4 mb-8">
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">1</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Connect your MT5 account</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Enable auto-sync. Your trades import automatically and your live balance updates on every connection. No CSV exports, no manual entry.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">2</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Run Would I Pass on your history</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Replay your actual trade sequence against your target firm's rules. Find the violations in your history before they happen on a live account.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">3</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Run Walk-Forward Analysis</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Confirm that your edge holds on data it has not seen. A strategy that fails WFA is not ready for a funded evaluation -- regardless of how the recent months looked.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">4</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Trade the challenge with live headroom visible</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Your daily loss limit and max drawdown headroom update in real time as your MT5 balance moves. Size every position against your actual current equity -- not last month's starting balance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the best trading journal for MT5 prop firm traders?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The best MT5 prop firm journal is one that syncs live from your MetaTrader 5 account, tracks both your daily loss limit and maximum drawdown in real time, and normalizes your performance using R-multiples rather than pips or dollars. SignalDeck connects directly to MT5 via MetaApi -- trades import automatically, your live account balance syncs with every connection, and that balance feeds your Kelly Criterion position sizing and drawdown headroom display.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Does SignalDeck sync automatically with MetaTrader 5?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes. SignalDeck connects to MT5 via MetaApi and imports your trades automatically. You can enable per-account auto-sync so trades flow in without any manual action. Your live account balance also syncs on each connection, which means your Kelly Criterion sizing and drawdown headroom calculations always reflect your current funded balance -- not your starting balance from weeks ago.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How does SignalDeck track prop firm drawdown rules?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">SignalDeck displays your real-time drawdown headroom against both the daily loss limit and maximum drawdown rules of your prop firm challenge. As your live MT5 balance updates, the headroom figures recalculate automatically. The Would I Pass simulator lets you run your actual trade history against FTMO, Apex, Topstep, and other firm rules to see whether you would have passed historically -- before risking the challenge fee.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Can I use Walk-Forward Analysis in SignalDeck before attempting an FTMO challenge?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes. Walk-Forward Analysis in SignalDeck tests your strategy on data it has never seen by splitting your trade history into rolling optimization and test windows. If your edge does not hold on the out-of-sample windows, it is likely curve-fitted. Running WFA on your MT5 trade history before paying for a challenge tells you whether your results are real or a product of favorable sequencing. A strategy that passes WFA has meaningfully higher odds of surviving the 30-day challenge window.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
+                    </a>
+                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Edge Validation</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
+                    </a>
+                    <a href="../how-to-pass-ftmo-challenge/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Pass an FTMO Challenge Using a Trading Journal</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 26, 2026</p>
+                    </a>
+                    <a href="../mae-mfe-execution-metrics/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Execution</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MAE and MFE: The Execution Metrics Most Traders Ignore</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 18, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Connect your MT5 account and see your live headroom.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">Import your trades automatically, track your real-time drawdown headroom, and run Walk-Forward Analysis before your next challenge. Free during beta, no credit card required.</p>
+                <a href="https://app.sgnldk.com/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'mt5-prop-firm-journal'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Import Your MT5 Trades -- Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

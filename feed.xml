@@ -30,6 +30,20 @@
     ================================================================ -->
 
     <item>
+      <title>MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place</title>
+      <link>https://sgnldk.com/blog/mt5-prop-firm-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/mt5-prop-firm-journal/</guid>
+      <pubDate>Thu, 03 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Your Kelly sizing is stale if it is based on your starting balance -- not your live funded balance.
+
+SignalDeck syncs directly from MT5. Sizing updates as your balance moves.
+
+https://sgnldk.com/blog/mt5-prop-firm-journal/</description>
+      <content:encoded>Most MT5 prop firm traders size positions against a stale starting balance. SignalDeck connects directly to MT5 -- live balance sync means your Kelly sizing, drawdown headroom, and daily limit display all update as your funded account moves. Walk-Forward Analysis and the Would I Pass simulator included.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01f-drawdown.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>TradeZella Backtesting Review: Replay vs. Rule-Based Testing Explained</title>
       <link>https://sgnldk.com/blog/tradezella-backtesting-review/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/tradezella-backtesting-review/</guid>

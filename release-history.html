@@ -154,12 +154,52 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.84 -->
+            <div class="pl-8 relative" id="v1-0-84">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.84-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 4, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.84 finishes moving MetaTrader 5 and cTrader entirely into the unified Import modal, and cleans up a batch of import-review rough edges reported by early testers.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">MetaTrader 5 and cTrader, fully in the modal</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">One home for every broker action</strong> &mdash; connecting, reconnecting, deleting, previewing, and importing MT5 and cTrader accounts all now happen inside the same Import modal as every other broker. The old Settings-page broker panels are gone.</li>
+                            <li><strong class="text-zinc-200">Reconnect and Delete, right where you import</strong> &mdash; a disconnected MetaTrader account can be reconnected or removed directly from the modal, with your account list and balance updating immediately &mdash; no page reload required.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">A cleaner, more honest import review</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">No more phantom "nothing to import"</strong> &mdash; the review step no longer flashes a false empty state while your trades are still loading.</li>
+                            <li><strong class="text-zinc-200">Click into any reviewed trade</strong> &mdash; MetaTrader import review rows are now clickable, opening the same detail panel you'd see anywhere else in the app.</li>
+                            <li><strong class="text-zinc-200">Nothing left behind</strong> &mdash; MetaTrader trade history now pages through your full account history instead of silently stopping at the first 1,000 deals.</li>
+                            <li><strong class="text-zinc-200">Re-import says what actually happened</strong> &mdash; re-importing trades that haven't changed now correctly reports them as skipped instead of falsely claiming they were updated.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Truer numbers, everywhere</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">R-multiple on every closed trade</strong> &mdash; the R value on closed trades now always reflects your real exit, fixing missing or wrong-sign R across every broker import path.</li>
+                            <li><strong class="text-zinc-200">No more "NaNh ago"</strong> &mdash; the "Trades Needing Notes" dashboard widget now shows a real age for every trade.</li>
+                            <li><strong class="text-zinc-200">Funding Account filter explains itself</strong> &mdash; when there's nothing to filter by yet, the Funding Account dropdown now says so instead of leaving you guessing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.83 -->
             <div class="pl-8 relative" id="v1-0-83">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.83-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 3, 2026</span>
                 </div>
 

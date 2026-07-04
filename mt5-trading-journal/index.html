@@ -272,6 +272,100 @@
         </div>
     </section>
 
+    <!-- How MT5 Sync Works: MetaApi vs EA vs File Import -->
+    <section class="py-20 bg-zinc-900/30 border-b border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-5">
+                    Not All MT5 Sync Is Equal
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-4">
+                    Live Connection vs. EA Script vs. File Import
+                </h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">
+                    Most MT5 trading journals connect via an Expert Advisor script or CSV export. SignalDeck uses MetaApi - a persistent server-side connection that sees your account in real time, not just after trades close.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- File Import -->
+                <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                    <div class="text-xs font-mono text-zinc-500 mb-3 uppercase tracking-wide">File / CSV Import</div>
+                    <div class="text-sm font-semibold text-zinc-300 mb-5">Edgewonk, Tradervue</div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">Manual export required after every session</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">No open positions - closed trades only</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">No live balance - you enter it manually</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">No real-time drawdown tracking</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- EA Plugin -->
+                <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                    <div class="text-xs font-mono text-zinc-500 mb-3 uppercase tracking-wide">EA Plugin Sync</div>
+                    <div class="text-sm font-semibold text-zinc-300 mb-5">TradesViz, TradeZella</div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-amber-500 mt-0.5 text-base">~</span>
+                            <span class="text-zinc-400">Auto-pushes closed trades when MT5 is open</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">No open positions or live equity</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">EA must be installed and running on your terminal</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-zinc-600 mt-0.5 text-base">✗</span>
+                            <span class="text-zinc-500">Stale balance - no drawdown headroom awareness</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- MetaApi - SignalDeck -->
+                <div class="relative bg-blue-950/30 border border-blue-500/40 rounded-xl p-6 shadow-lg shadow-blue-900/10">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wide">SignalDeck</span>
+                    </div>
+                    <div class="text-xs font-mono text-blue-400 mb-3 mt-1 uppercase tracking-wide">Persistent Live Connection</div>
+                    <div class="text-sm font-semibold text-zinc-300 mb-5">MetaApi · Any MT5 Broker</div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5 text-base">✓</span>
+                            <span class="text-zinc-300">Closed trades import automatically, no EA needed</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5 text-base">✓</span>
+                            <span class="text-zinc-300">Open positions visible in real time</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5 text-base">✓</span>
+                            <span class="text-zinc-300">Live account equity - 1R updates with every P&L change</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-0.5 text-base">✓</span>
+                            <span class="text-zinc-300">Real-time drawdown headroom for prop firm accounts</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center text-xs font-mono text-zinc-600 mt-6">
+                MetaApi is a server-side broker bridge - SignalDeck connects to it once and your journal stays live whether or not MT5 is open on your machine.
+            </p>
+        </div>
+    </section>
+
     <!-- Section 2: R-Framework -->
     <section class="py-24 bg-zinc-900/20 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">

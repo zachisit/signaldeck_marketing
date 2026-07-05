@@ -154,12 +154,57 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.85 -->
+            <div class="pl-8 relative" id="v1-0-85">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.85-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 5, 2026</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.85 makes every broker connection more resilient to hiccups, brings Tradovate imports up to par with the rest, and closes a rough edge in onboarding that was quietly stranding new signups.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Broker connections that heal themselves</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Rate limits and blips no longer break a connect</strong> &mdash; SnapTrade, Interactive Brokers, and Tradovate now automatically retry transient rate-limit and server errors instead of failing the connection outright.</li>
+                            <li><strong class="text-zinc-200">Reconnect in one click</strong> &mdash; a broken cTrader or Tradovate connection now offers a Reconnect button right on the card, no more deleting the connection and starting over from scratch.</li>
+                            <li><strong class="text-zinc-200">Auto-sync fails gracefully</strong> &mdash; when a broker token expires in the background, the automatic sync now quietly flags the connection for reconnection instead of erroring out on every cycle forever.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Tradovate catches up to every other broker</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Assign strategies right at import</strong> &mdash; Tradovate imports now get the same per-trade strategy picker already available for SnapTrade, cTrader, IBKR, and MetaTrader 5.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Onboarding, smoothed out</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Reserved usernames no longer strand you</strong> &mdash; picking a username like &ldquo;admin&rdquo; or &ldquo;support&rdquo; used to show a false-positive &ldquo;available!&rdquo; checkmark, then silently fail on save. It's now caught up front, with a clear reason.</li>
+                            <li><strong class="text-zinc-200">Pick Pro or Elite, free, for now</strong> &mdash; while paid plans are still rolling out, new signups can choose the Pro or Elite tier at no cost during onboarding.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Smaller things you'll notice</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Strategy and tags on the Close Trade screen</strong> &mdash; closing a trade (and its summary afterward) now shows the strategy and tags right in the header.</li>
+                            <li><strong class="text-zinc-200">A gentle nudge toward auto-sync</strong> &mdash; importing a CSV from MetaTrader or Interactive Brokers now offers a one-time, dismissible suggestion to connect that broker directly instead of re-importing by hand.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.84 -->
             <div class="pl-8 relative" id="v1-0-84">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.84-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 4, 2026</span>
                 </div>
 

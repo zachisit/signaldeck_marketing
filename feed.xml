@@ -36,7 +36,7 @@
       <title>Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk Per Trade</title>
       <link>https://sgnldk.com/blog/kelly-criterion-position-sizing/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/kelly-criterion-position-sizing/</guid>
-      <pubDate>Sun, 06 Jul 2026 12:00:00 +0000</pubDate>
+      <pubDate>Mon, 06 Jul 2026 12:00:00 +0000</pubDate>
       <description>The 2% rule came from nowhere and knows nothing about your system. Kelly Criterion outputs the right risk size from your actual edge - and in SignalDeck, it recalculates when your funded balance changes after a drawdown.</description>
       <content:encoded>Kelly Criterion calculates the mathematically optimal position size from your win rate and R-ratio -- not a generic rule. The formula, worked example, half-Kelly safety margin, and data requirements. For prop firm traders: SignalDeck syncs your live MT5 balance via MetaApi so Kelly recalculates automatically as your funded account moves after a losing session.</content:encoded>
       <enclosure url="https://sgnldk.com/assets/banner-01b-waves-candles.png" length="0" type="image/png"/>

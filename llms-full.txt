@@ -186,6 +186,10 @@ Verdict: Largest competitor by user count. SignalDeck's decisive advantage is pr
 URL: https://sgnldk.com
 Target queries: trading journal, institutional analytics, SQN score, R-value trading journal, free trading journal, win rate vs expectancy, trading consistency, trading accountability, trading mistakes, plan adherence, best free trading journal 2026
 
+### Start (X/Social Landing Page)
+URL: https://sgnldk.com/start/
+Target queries: trading journal for prop firm traders, trading journal for serious traders, trading journal free, MT5 drawdown tracker, R-multiple trading journal, Win Rate Velocity, edge auditor trading
+
 ### Common Stock
 URL: https://sgnldk.com/stocks/
 Target queries: stock trading journal, equity trading analytics, R-value stock journal

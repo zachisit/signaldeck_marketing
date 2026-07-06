@@ -150,6 +150,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com
 - Content: Product overview, key metrics demo (Risk Leakage, Win Rate Velocity, SQN Score, Expectancy). Win rate bridge section explains why win rate misleads (40% win rate can be profitable while 75% bleeds accounts) and bridges to R-value as the real metric. Accountability Calendar section ("Trading Accountability, Every Day") presents the calendar as a trading accountability layer — visual audit trail of P&L, journal entries, and post-mortem completion per day. Public profile section ("Trading accountability you can share — verified, not screenshot") frames the public profile as a trading accountability layer that removes excuses. Feature cards: 07 // IMPORT (MT4/MT5 trade import via MetaApi — automatic fills, P&L, live balance sync; pills: Live Balance Sync, Real-Time Equity for Sizing, Zero Fill Entry, P&L Auto-Populated, Kelly Criterion Stays Current, Drawdown-Adjusted Sizing) and 08 // BACKTEST tile (16 built-in strategies, Walk-Forward Analysis, Monte Carlo, grid-search optimizer, benchmark overlay, journal equity link, Kelly/fixed-risk sizing, trailing stops), dedicated backtester deep-dive section, university program
 
+### Start (X/Social Landing Page)
+- URL: https://sgnldk.com/start/
+- Content: Dedicated cold-traffic landing page for visitors arriving from X (Twitter) and social. Two-track layout: prop firm traders (live MT5 drawdown sync via MetaApi, daily loss limit tracking, pre-trade risk gate, challenge simulator) and edge-driven retail traders (R-multiples, Win Rate Velocity, Monte Carlo, Walk-Forward Analysis). Minimal nav, three GA4-tracked CTAs, no homepage distractions. Targets traders who are done with spreadsheets and treat trading as a craft. Links to app.sgnldk.com for registration.
+
 ### Common Stock
 - URL: https://sgnldk.com/stocks/
 - Content: How SignalDeck serves equity/stock traders with R-value analytics, execution quality tracking, and strategy decay detection

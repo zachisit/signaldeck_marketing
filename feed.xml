@@ -16,19 +16,19 @@
 
     <!-- ================================================================
          FEDICA PIPELINE SETUP (one-time):
-           Content source -> Description
-           Hashtags -> (add globally in Fedica UI if desired)
+           Content source - Description
+           Hashtags - (add globally in Fedica UI if desired)
          NEW POST WORKFLOW:
-           1. Add <item> block below (newest first)
-           2. Write tweet text in <description> -- keep under ~230 chars.
-              DO NOT include the URL -- Fedica appends it automatically
-              from the <link> tag. Including the URL produces a duplicate.
-           3. Do NOT use double-hyphen (--) or emdash in copy -- use a
+           1. Add item block below (newest first)
+           2. Write tweet text in description - keep under ~230 chars.
+              DO NOT include the URL - Fedica appends it automatically
+              from the link tag. Including the URL produces a duplicate.
+           3. Do NOT use double-hyphen or emdash in copy - use a
               single hyphen (-) or rewrite the sentence.
-           4. Put full excerpt in <content:encoded>
-           5. Set <enclosure> to the post OG image URL
-           6. git push -- Fedica detects within ~5 min and posts to X/Bluesky/LinkedIn
-         PAST POSTS: <description> left blank intentionally.
+           4. Put full excerpt in content:encoded
+           5. Set enclosure to the post OG image URL
+           6. git push - Fedica detects within ~5 min and posts to X/Bluesky/LinkedIn
+         PAST POSTS: description left blank intentionally.
          Fedica only fires on items NEW after the pipeline is connected.
     ================================================================ -->
 
@@ -38,7 +38,7 @@
       <guid isPermaLink="false">https://sgnldk.com/blog/kelly-criterion-position-sizing/#2026-07-06</guid>
       <pubDate>Mon, 06 Jul 2026 12:00:00 +0000</pubDate>
       <description>The 2% rule came from nowhere and knows nothing about your system. Kelly Criterion outputs the right risk size from your actual edge - and in SignalDeck, it recalculates when your funded balance changes after a drawdown.</description>
-      <content:encoded>Kelly Criterion calculates the mathematically optimal position size from your win rate and R-ratio -- not a generic rule. The formula, worked example, half-Kelly safety margin, and data requirements. For prop firm traders: SignalDeck syncs your live MT5 balance via MetaApi so Kelly recalculates automatically as your funded account moves after a losing session.</content:encoded>
+      <content:encoded>Kelly Criterion calculates the mathematically optimal position size from your win rate and R-ratio - not a generic rule. The formula, worked example, half-Kelly safety margin, and data requirements. For prop firm traders: SignalDeck syncs your live MT5 balance via MetaApi so Kelly recalculates automatically as your funded account moves after a losing session.</content:encoded>
       <enclosure url="https://sgnldk.com/assets/banner-01b-waves-candles.png" length="0" type="image/png"/>
     </item>
 
@@ -180,16 +180,6 @@ Plot them on a scatter and you'll see whether your entries and exits are actuall
       <description></description>
       <content:encoded>Walk-forward analysis tests whether your optimized strategy actually works on data it has never seen - or whether your backtest just memorized the past.</content:encoded>
       <enclosure url="https://sgnldk.com/assets/banner-01m-walk-forward.png" length="0" type="image/png"/>
-    </item>
-
-    <item>
-      <title>Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk</title>
-      <link>https://sgnldk.com/blog/kelly-criterion-position-sizing/</link>
-      <guid isPermaLink="true">https://sgnldk.com/blog/kelly-criterion-position-sizing/</guid>
-      <pubDate>Wed, 13 May 2026 13:48:45 +0000</pubDate>
-      <description></description>
-      <content:encoded>Kelly Criterion calculates the mathematically optimal bet size from YOUR win rate and YOUR win/loss ratio - not someone else's rules. The formula, a worked example, why most traders use half-Kelly, and how many trades you need before trusting the output.</content:encoded>
-      <enclosure url="https://sgnldk.com/assets/banner-01b-waves-candles.png" length="0" type="image/png"/>
     </item>
 
     <item>

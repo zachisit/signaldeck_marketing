@@ -51,7 +51,7 @@
             "url": "https://sgnldk.com"
         },
         "datePublished": "2026-05-13",
-        "dateModified": "2026-05-20"
+        "dateModified": "2026-07-05"
     }
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
@@ -348,10 +348,25 @@ Half-Kelly = 11.5%
                 In practice: calculate expectancy to confirm you have an edge, use SQN to confirm that edge is consistent and reliable, and then apply Kelly (fractionally) to determine the position size that maximizes your compounded growth. Each metric is a prerequisite for the next.
             </p>
 
+            <!-- Prop Firm Kelly -->
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Kelly Criterion for Prop Firm Funded Accounts</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                There is a practical problem with Kelly sizing that most prop firm traders run into without noticing: your funded account balance changes every time you close a losing trade, but the position size your journal calculates usually does not.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Suppose you start a funded account with $100,000. Your Kelly percentage — after applying half-Kelly — works out to 1.5%, meaning you risk $1,500 per trade. You set that in your journal and start trading. After a difficult week you are sitting at $93,000, but your journal still shows $100,000 as the reference balance. Your "1.5% risk" is now actually 1.6% of current capital, and as the drawdown deepens, the divergence grows.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is not a sizing mistake. It is a data freshness problem. The Kelly formula is only as accurate as the balance it divides into. A stale starting balance produces stale position sizes — and in a funded account where the trailing drawdown limit moves against you even on green days, stale sizing can accelerate the blowup before you notice the drift.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The fix is a live balance feed. When your journal pulls your account balance directly from MT5 via MetaApi on every sync, your Kelly sizing stays accurate automatically — no manual recalculation needed. A losing session that drops your funded balance by $4,000 recalibrates your risk per trade before you enter the next one. <a href="../mt5-prop-firm-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">This is part of how the full MT5 prop firm journal workflow fits together.</a>
+            </p>
+
             <!-- How SignalDeck Calculates -->
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Calculates Kelly Automatically</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                SignalDeck computes Kelly Criterion, half-Kelly, expectancy, SQN, and R-multiple in real-time from your closed trade journal — no spreadsheets, no manual inputs. As you log trades, your Kelly percentage updates automatically and is visible alongside your other system metrics.
+                SignalDeck computes Kelly Criterion, half-Kelly, expectancy, SQN, and R-multiple in real-time from your closed trade journal — no spreadsheets, no manual inputs. For prop firm traders connected via MT5 or MT4, your live account balance syncs through MetaApi on every connection, so the Kelly percentage always reflects your current funded balance rather than the starting figure from week one.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 You can filter by strategy, tag, date range, or asset class to see how your Kelly percentage differs across different setups. If your "Breakout" strategy has a Kelly of 18% and your "Counter-trend" strategy shows 3%, you have a clear, data-driven basis for how much confidence to place in each — and where to concentrate capital. <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Try it free during beta.</a>

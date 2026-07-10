@@ -154,12 +154,59 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.88 -->
+            <div class="pl-8 relative" id="v1-0-88">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.88-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 10, 2026 6:53AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.88 brings automatic campaign clustering to every broker we support, closes out a round of futures P&amp;L accuracy fixes, and hardens the login path after a brief outage earlier this week.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Campaign clustering, everywhere</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Automatic re-entry grouping for every broker</strong> &mdash; MetaTrader has long linked related re-entries into one campaign automatically. That same detection now runs for CSV, SnapTrade, cTrader, and Interactive Brokers imports too, each tuned to that broker's typical trading cadence.</li>
+                            <li><strong class="text-zinc-200">One consistent "Link as one campaign" prompt</strong> across every import flow.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Futures, more accurate</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Live P/L from the moment you log a trade</strong> &mdash; futures trades now get an immediate live quote instead of showing 0.00% until the next price update.</li>
+                            <li><strong class="text-zinc-200">Live P/L in dollars and in ticks</strong> now shown right on Trade Details for open futures positions.</li>
+                            <li><strong class="text-zinc-200">MFE/MAE now tracked for futures</strong> on close, alongside your existing stock and forex trades.</li>
+                            <li><strong class="text-zinc-200">Entry-time validation no longer blocks futures or crypto trades</strong> that happen outside NYSE stock-market hours.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Sign-in, hardened</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Login reliability improvements</strong> following a brief sign-in disruption earlier this week &mdash; we've closed the gap structurally and added new automated checks so it can't recur.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Also in this release</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Clearer close-trade labels</strong> &mdash; "Estimated Outcome" is now just "Outcome," and "Risk Unit" now reads "R Multiple."</li>
+                            <li><strong class="text-zinc-200">Scanner Run Details is easier to scan</strong> &mdash; each strategy's section now collapses independently instead of showing every ticker at once.</li>
+                            <li><strong class="text-zinc-200">Clearer MT5 login messaging</strong> &mdash; we now tell you plainly when a broker has permanently rejected your credentials versus when a connection is still in progress, plus a heads-up about MetaQuotes-Demo server limitations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.87 -->
             <div class="pl-8 relative" id="v1-0-87">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.87-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 8, 2026 10:15AM</span>
                 </div>
 

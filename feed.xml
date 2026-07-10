@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>Why Prop Firm Traders Keep Blowing Evaluations (And How to Stop It)</title>
+      <link>https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/</guid>
+      <pubDate>Fri, 10 Jul 2026 12:00:00 +0000</pubDate>
+      <description>If you keep failing prop firm challenges, it is almost never the strategy. Five risk-process failures blow evaluations - and each one is fixable before you pay the next fee. Validate the edge, then track live drawdown headroom.</description>
+      <content:encoded>Prop firm pass rates are low, but the failures share a shape - and it is rarely the strategy. Five repeatable risk-process failures blow evaluations: attempting without a validated edge, not knowing your live drawdown headroom, position sizing built for the target instead of the rules, trading differently under pressure, and having no pre-trade gate. This guide covers each failure mode and the specific fix, from Walk-Forward and Monte Carlo validation to a five-point pre-trade check you run before every entry.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01f-drawdown.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Kelly Criterion for Traders: Let Your Own Data Tell You How Much to Risk Per Trade</title>
       <link>https://sgnldk.com/blog/kelly-criterion-position-sizing/</link>
       <guid isPermaLink="false">https://sgnldk.com/blog/kelly-criterion-position-sizing/#2026-07-06</guid>

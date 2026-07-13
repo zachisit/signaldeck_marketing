@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>FTMO Trailing vs. Static Drawdown: The Reset Clock Trap</title>
+      <link>https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 +0000</pubDate>
+      <description>FTMO runs two formats with two different drawdown models. The 2-Step keeps a fixed floor; the 1-Step trails your highest closing balance and locks it in. Mix them up and you misjudge your headroom at the worst possible moment.</description>
+      <content:encoded>FTMO offers a 2-Step Challenge and a 1-Step Challenge, and their maximum-loss rules run on different clocks. The 2-Step uses a static 10% floor anchored to your initial balance, so profit banks real buffer. The 1-Step trails on an end-of-day basis, ratcheting the floor up to your highest closing balance and never back down - so a strong day can shrink the room you have left. This guide breaks down both models with worked $100K examples, the daily-limit reset clock, how the distinction changes position sizing, and what your journal must track for each.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01n-trailing-drawdown.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Why Prop Firm Traders Keep Blowing Evaluations (And How to Stop It)</title>
       <link>https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/</guid>

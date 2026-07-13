@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-N · Trailing Drawdown</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+/* Decorative top band */
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+/* Bold accent bar along the bottom */
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+/* The 1500x500 design stage, vertically centered */
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Trailing<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Drawdown.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">High-Water Mark · Reset Clock · Loss Buffer</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">FTMO · Static vs Trailing · Live Balance Sync · R-Multiple</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const rng = prng(5417);
+  const N = 180;
+  const equity = [0];
+  for (let i = 1; i < N; i++) equity.push(equity[i - 1] + (rng() - 0.40) * 22);
+
+  /* Running peak = high-water mark */
+  const peak = [];
+  let pk = equity[0];
+  for (let i = 0; i < N; i++) { pk = Math.max(pk, equity[i]); peak.push(pk); }
+
+  const minE = Math.min(...equity), maxE = Math.max(...peak);
+  const range = maxE - minE;
+  /* Trailing drawdown floor sits a fixed distance below the high-water mark */
+  const trailGap = range * 0.28;
+  const trail = peak.map(v => v - trailGap);
+
+  const yMin = Math.min(minE, Math.min(...trail));
+  const yRange = maxE - yMin;
+  const toX = i => 30 + (i / (N - 1)) * 850;
+  const toY = v => 55 + ((maxE - v) / yRange) * 390;
+
+  const defs = el(svg, 'defs', {});
+  /* Corridor fill between high-water mark and trailing floor */
+  const cg = el(defs, 'linearGradient', { id: 'cg', x1: '0', y1: '0', x2: '0', y2: '1' });
+  el(cg, 'stop', { offset: '0%', 'stop-color': '#f0b90b', 'stop-opacity': '0.14' });
+  el(cg, 'stop', { offset: '100%', 'stop-color': '#f43f5e', 'stop-opacity': '0.20' });
+
+  /* Equity fill gradient */
+  const eqg = el(defs, 'linearGradient', { id: 'eqg', x1: '0', y1: '0', x2: '0', y2: '1' });
+  el(eqg, 'stop', { offset: '0%', 'stop-color': '#3b82f6', 'stop-opacity': '0.22' });
+  el(eqg, 'stop', { offset: '100%', 'stop-color': '#3b82f6', 'stop-opacity': '0.0' });
+
+  /* Grid */
+  [0.25, 0.5, 0.75].forEach(f => {
+    const y = (55 + f * 390).toFixed(1);
+    el(svg, 'line', { x1: 0, y1: y, x2: 920, y2: y, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 8', opacity: 0.4 });
+  });
+
+  /* Corridor: area between the high-water mark and the trailing floor */
+  let corr = '';
+  peak.forEach((v, i) => { corr += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  for (let i = N - 1; i >= 0; i--) { corr += 'L' + toX(i).toFixed(1) + ',' + toY(trail[i]).toFixed(1) + ' '; }
+  corr += 'Z';
+  el(svg, 'path', { d: corr, fill: 'url(#cg)', stroke: 'none' });
+
+  /* Equity curve fill */
+  let eqFill = '';
+  equity.forEach((v, i) => { eqFill += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  eqFill += `L${toX(N-1).toFixed(1)},500 L${toX(0).toFixed(1)},500 Z`;
+  el(svg, 'path', { d: eqFill, fill: 'url(#eqg)', stroke: 'none' });
+
+  /* Trailing floor (rose, dashed) — the line that ends the challenge */
+  let trailD = '';
+  trail.forEach((v, i) => { trailD += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  el(svg, 'path', { d: trailD, stroke: '#f43f5e', 'stroke-width': 2, fill: 'none', opacity: 0.75, 'stroke-dasharray': '7 5' });
+
+  /* High-water mark (amber, dashed) — the peak the drawdown trails */
+  let peakD = '';
+  peak.forEach((v, i) => { peakD += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  el(svg, 'path', { d: peakD, stroke: '#f0b90b', 'stroke-width': 2, fill: 'none', opacity: 0.85, 'stroke-dasharray': '6 4' });
+
+  /* Equity curve */
+  let eqD = '';
+  equity.forEach((v, i) => { eqD += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  el(svg, 'path', { d: eqD, stroke: '#3b82f6', 'stroke-width': 6, fill: 'none', opacity: 0.1, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  el(svg, 'path', { d: eqD, stroke: '#60a5fa', 'stroke-width': 2.5, fill: 'none', opacity: 0.9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+})();
+</script>
+</body>
+</html>

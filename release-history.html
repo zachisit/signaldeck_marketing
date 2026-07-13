@@ -154,12 +154,75 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.89 -->
+            <div class="pl-8 relative" id="v1-0-89">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.89-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 12, 2026 10:28PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.89 brings Tradovate online as a fully live broker connection, fixes imported trades showing the wrong time of day, makes your Trade History sortable, and closes out a batch of smaller accuracy and polish fixes.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Tradovate is live</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Connect your Tradovate futures account</strong> &mdash; OAuth connect, preview, and import, with P&amp;L validated to the cent against your broker's own numbers.</li>
+                            <li><strong class="text-zinc-200">Auto-sync keeps your trades current</strong> without you having to manually re-import.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Imported trades now show your real local time</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Fixed a timezone bug affecting every broker import</strong> &mdash; imported entry and exit times were showing in UTC instead of your own timezone, which could even shift a trade onto the wrong calendar day for evening fills. Now every broker (Tradovate, IBKR, cTrader, SnapTrade, MetaTrader) shows the time you actually made the trade, in the preview and after import alike.</li>
+                            <li><strong class="text-zinc-200">Current Price now tells you the truth</strong> &mdash; a fresh import used to show an empty clock icon next to the price with no explanation. It now clearly says "seeded from entry" until a real live quote comes in, and futures prices now update live right after import instead of waiting on the next refresh cycle.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Trade History, sortable</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Sort by Entry Date, P/L %, or % to Target</strong> &mdash; click any column header to re-order your trades, even across pages.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">CSV import: two new broker formats</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">cTrader account-statement exports</strong> and <strong class="text-zinc-200">TradingView/EasyMarkets order-history exports</strong> are now supported CSV import presets, with your broker's own reported P&amp;L carried through instead of recalculated.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Manage your strategies</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Rename or delete strategies</strong> right from the Strategies screen &mdash; deleting one that's linked to trades shows you exactly which trades will be affected before you confirm.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Also in this release</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Fixed a chart display bug</strong> where the reward/risk zone on a trade's chart could bleed outside the chart and cover the modal header.</li>
+                            <li><strong class="text-zinc-200">Manually-entered trade times are now used correctly</strong> in your MFE/MAE excursion charts instead of defaulting to midnight.</li>
+                            <li><strong class="text-zinc-200">Same-day futures trades</strong> now reliably show their chart and MFE/MAE instead of coming back empty.</li>
+                            <li><strong class="text-zinc-200">Creating a duplicate-name tag</strong> now tells you clearly instead of silently discarding your chosen color.</li>
+                            <li><strong class="text-zinc-200">The New Trade Account field</strong> now updates live when you switch accounts from the header, and stays visible so you always know which account you're logging to.</li>
+                            <li><strong class="text-zinc-200">cTrader fixes</strong> &mdash; newly-closed trades now reliably show up in the import preview, and an expired session on delete now shows a clean "please sign in again" instead of a confusing error.</li>
+                            <li><strong class="text-zinc-200">AI Review formatting fix</strong> &mdash; a rendering bug that could leave a large empty block after your first recommendation is now fixed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.88 -->
             <div class="pl-8 relative" id="v1-0-88">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.88-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 10, 2026 6:53AM</span>
                 </div>
 

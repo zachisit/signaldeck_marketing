@@ -154,12 +154,52 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.91 -->
+            <div class="pl-8 relative" id="v1-0-91">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.91-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 16, 2026 5:53AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.91 is a focused polish release for broker connections and trade importing &mdash; a cleaner, more trustworthy Import Trades review table, a Tradovate fix so demo accounts actually import, and a lighter onboarding flow.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">A cleaner Import Trades review table</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Readable numbers everywhere</strong> &mdash; account balances now show thousands separators, and price and P&amp;L values are cleanly rounded instead of showing long floating-point tails.</li>
+                            <li><strong class="text-zinc-200">Know which account a trade came from</strong> &mdash; the review table shows the masked account number instead of a raw ID, and groups rows by account when you're importing from more than one.</li>
+                            <li><strong class="text-zinc-200">It remembers your choices</strong> &mdash; the modal keeps a narrowed account selection instead of re-checking every account each time you open it, and long strategy names no longer push the table sideways.</li>
+                            <li><strong class="text-zinc-200">Live sync status</strong> &mdash; when a connected broker finishes syncing while the Import Trades modal is open, newly available trades now appear without closing and reopening.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Broker connection fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Tradovate demo accounts now import</strong> &mdash; accounts on Tradovate's demo host are correctly discovered and imported instead of silently returning zero trades.</li>
+                            <li><strong class="text-zinc-200">MetaTrader connections behave</strong> &mdash; a brand-new MT5 connection no longer briefly shows as "Disconnected," the broker-server dropdown is no longer clipped inside the modal, and there's now a show/hide toggle on the password field.</li>
+                            <li><strong class="text-zinc-200">cTrader statement imports</strong> now detect the instrument type per symbol, so a statement mixing stocks, forex, crypto, and metals is categorized correctly.</li>
+                            <li><strong class="text-zinc-200">Stock tickers import intact</strong> &mdash; short ticker symbols are no longer accidentally truncated during import.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Lighter onboarding</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Onboarding no longer pushes a broker connection</strong> up front. Instead, once you're in, the Today hub shows a gentle nudge to connect a broker whenever you haven't yet.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.90 -->
             <div class="pl-8 relative" id="v1-0-90">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.90-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 14, 2026 7:48AM</span>
                 </div>
 

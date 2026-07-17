@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>MT5 Trading Journal with Live Sync (Not EA Import)</title>
+      <link>https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Most MT5 journals sync through an installed Expert Advisor - closed trades only, no open positions, no live balance. A MetaApi session sees your account in real time. In a prop challenge, the connection method is the difference.</description>
+      <content:encoded>"We sync with MT5" can mean two very different things. An Expert Advisor is a script inside your terminal that writes trades out when they close - so it sees closed trades only, needs the terminal running, and never knows your live balance or open positions. SignalDeck connects through MetaApi instead: a broker-side session that reads your open positions and live account balance without an EA and without your terminal open. That matters because prop firm drawdown rules are evaluated on equity, including floating P and L - so a closed-trade log is blind at the exact moment a position is open and your headroom is on the line. This guide breaks down EA import vs a MetaApi session, why open-position visibility decides challenges, and what "live" honestly does and does not mean.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01p-live-sync.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>FTMO Trailing vs. Static Drawdown: The Reset Clock Trap</title>
       <link>https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/</guid>

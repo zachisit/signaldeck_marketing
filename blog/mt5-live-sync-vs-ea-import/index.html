@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MT5 Trading Journal with Live Sync (Not EA Import) | SignalDeck</title>
+    <meta name="description" content="Most MT5 journals sync through an installed Expert Advisor — closed trades only, no open positions, no live balance. SignalDeck connects via a MetaApi session that sees your account in real time. Here is why it matters in a prop challenge.">
+    <meta name="keywords" content="mt5 live sync, mt5 trading journal live sync, metaapi mt5 journal, mt5 journal without ea, ea import vs api, mt5 open positions sync, live balance mt5 journal, mt5 trading journal">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/">
+    <meta property="og:title" content="MT5 Trading Journal with Live Sync (Not EA Import) | SignalDeck">
+    <meta property="og:description" content="An EA-based journal only writes closed trades. A MetaApi session sees open positions, live balance, and real-time drawdown headroom. Here is why the connection method decides your prop challenge.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01p-live-sync.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/">
+    <meta property="twitter:title" content="MT5 Trading Journal with Live Sync (Not EA Import) | SignalDeck">
+    <meta property="twitter:description" content="An EA-based journal only writes closed trades. A MetaApi session sees open positions, live balance, and real-time drawdown headroom.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01p-live-sync.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "MT5 Trading Journal with Live Sync (Not EA Import)",
+        "description": "Why the way a journal connects to MetaTrader 5 matters: an installed Expert Advisor writes closed trades only, while a MetaApi session sees open positions, live balance, and real-time drawdown headroom.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the difference between EA-based MT5 sync and MetaApi sync?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An Expert Advisor (EA) is a script that runs inside your MetaTrader 5 terminal and writes trade data out when trades close. It only sees closed trades, and it only runs while your terminal is open. MetaApi is a broker-side API connection: SignalDeck opens a session to your account that can see open positions and read your live account balance without your terminal running. The practical difference is that an EA journal shows you history after the fact, while a MetaApi session can reflect the current state of your account."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck need an Expert Advisor installed in MetaTrader 5?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. SignalDeck connects to MetaTrader 5 through MetaApi using your investor or trading credentials. There is no EA to install, no script to keep attached to a chart, and no requirement to leave your terminal running. Trades import automatically and your account balance syncs on each connection."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does open-position visibility matter for a prop firm challenge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prop firm drawdown rules are evaluated on equity, which includes open floating profit and loss, not just closed trades. A journal that only imports closed trades cannot show your live drawdown headroom while a position is open, which is exactly the moment you need it. Because a MetaApi session can read your open positions and live balance, SignalDeck can show your remaining daily and total headroom before your next trade rather than after the session ends."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do TradesViz and TradeZella sync MT5 with an EA or an API?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Per their public documentation as of early 2026 (not independently verified), several popular journals sync MetaTrader through a terminal-side script or Expert Advisor rather than a persistent broker-side API session. That approach captures closed trades but generally does not provide open-position or live-balance awareness. Verify the current connection method directly with any vendor before relying on it, since these implementations change."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "MT5 Trading Journal with Live Sync (Not EA Import)", "item": "https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-07-17" class="text-xs font-mono text-zinc-500">July 17, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                MT5 Trading Journal with Live Sync (Not EA Import)
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Most MT5 journals sync through an installed Expert Advisor. It captures your closed trades and nothing else — no open positions, no live balance, no drawdown headroom while a trade is running. In a prop firm challenge, that gap is exactly where accounts get lost. Here is what changes when the journal connects a different way.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How EA-Based MT5 Sync Actually Works</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                An Expert Advisor is a script that runs inside your MetaTrader 5 terminal. In a journaling context, its job is narrow: when a trade closes, it writes that trade out so your journal can read it. That is genuinely useful for building a trade log without manual CSV exports. But it comes with three structural limits that most traders never think about until a challenge is on the line.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                An EA-based sync is constrained by what an in-terminal script can see and when it can run:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-rose-400">
+                <li><span class="text-white font-medium">Closed trades only.</span> The EA records positions after they close. While a trade is open, it contributes nothing to your journal.</li>
+                <li><span class="text-white font-medium">Terminal must be running.</span> If MetaTrader is closed — or the VPS drops — the EA is not writing anything. Trades that close in that window can be missed entirely.</li>
+                <li><span class="text-white font-medium">No live balance or equity.</span> The journal knows what your account looked like at the last closed trade, not what it looks like right now with floating P&L included.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Per their public documentation as of early 2026 (not independently verified), several well-known journals — including <a href="../../compare/tradesviz/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">TradesViz</a> and <a href="../../compare/tradezella/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">TradeZella</a> — sync MetaTrader through a terminal-side script rather than a persistent broker-side API session. Connection methods change, so verify the current approach directly with any vendor. The point here is not that EA import is broken — it is that "we sync with MT5" can mean two very different things.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What a MetaApi Session Sees That an EA Cannot</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck connects to MetaTrader 5 through <span class="font-mono text-teal-400">MetaApi</span> — a broker-side API. Instead of a script living inside your terminal, SignalDeck opens a session directly to your account. That session can read your open positions and your live account balance, and it does not depend on your terminal being open. Your trades import automatically, and your balance syncs on each connection.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The difference is not cosmetic. It changes what the journal can actually tell you:
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Capability</th>
+                            <th class="px-4 py-3 text-left font-semibold">EA / terminal import</th>
+                            <th class="px-4 py-3 text-left font-semibold">MetaApi session</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Closed trade history</td>
+                            <td class="px-4 py-3 text-emerald-400">Yes</td>
+                            <td class="px-4 py-3 text-emerald-400">Yes</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Open positions</td>
+                            <td class="px-4 py-3 text-rose-400">No</td>
+                            <td class="px-4 py-3 text-emerald-400">Yes</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Live account balance</td>
+                            <td class="px-4 py-3 text-rose-400">Stale until next close</td>
+                            <td class="px-4 py-3 text-emerald-400">Syncs on connection</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Runs with terminal closed</td>
+                            <td class="px-4 py-3 text-rose-400">No</td>
+                            <td class="px-4 py-3 text-emerald-400">Yes</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Balance-aware position sizing</td>
+                            <td class="px-4 py-3 text-rose-400">Uses last-known balance</td>
+                            <td class="px-4 py-3 text-emerald-400">Uses current balance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "A closed-trade log tells you what already happened. A live session tells you where you stand right now — which is the number you actually trade against."
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why the Connection Method Decides Prop Challenges</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Prop firm drawdown rules are evaluated on <span class="text-white font-medium">equity</span>, not just closed P&L. Your equity includes the floating profit and loss of every open position. That is the whole reason a stop that gets hit during a news spike can end a challenge that your closed-trade log said was comfortably in the green an hour earlier.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A journal that only imports closed trades is structurally blind at the exact moment that matters: while a position is open. It cannot show your live drawdown headroom against a <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">daily loss limit or maximum drawdown rule</a> when you have floating exposure, because it does not know your floating exposure. You find out where you stood only after the trade closes — which is too late to change the decision.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Because a MetaApi session reads your live balance, SignalDeck can carry that number into two calculations that a stale balance quietly corrupts:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Drawdown headroom.</span> Your remaining daily and total buffer is shown against your current balance, not last week's starting figure.</li>
+                <li><span class="text-white font-medium">Position sizing.</span> A trader down 4% on a $100k account who still sizes as if they hold $100k is systematically over-risking. Live balance feeds <a href="../kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly-based sizing</a> so the suggested size tracks your real equity.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                For the full picture of how live balance flows into drawdown tracking, R-multiple normalization, and the Would I Pass simulator, see our companion guide on using SignalDeck as an <a href="../mt5-prop-firm-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a>.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What "Live" Does and Does Not Mean</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It is worth being precise, because "real-time" gets overused. SignalDeck's MetaApi session is not a tick-by-tick feed wired into a live chart. What it does is maintain a broker-side connection that imports trades automatically and refreshes your account balance and open positions on each connection — without an EA and without your terminal running. The practical result is that the numbers you size and manage risk against reflect the current state of your account rather than a snapshot frozen at your last closed trade.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                That is the honest bar to hold any MT5 journal to. Not "does it say MT5 on the feature list," but: does it know your account is open right now, and does it know what your balance is today?
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Connecting Your MT5 Account</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                There is no EA to download and no chart to attach. The connection is credential-based:
+            </p>
+
+            <div class="space-y-4 mb-8">
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">1</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Add your MT5 account</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Enter your login, server, and investor or trading password. SignalDeck opens a MetaApi session — no script, no terminal dependency.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">2</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Enable auto-sync</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Turn on per-account auto-sync so closed trades flow in automatically and your balance refreshes on each connection.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">3</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Trade against live headroom</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Your drawdown buffer and suggested position size track your current balance — so you size against where the account is, not where it started.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the difference between EA-based MT5 sync and MetaApi sync?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">An Expert Advisor (EA) is a script that runs inside your MetaTrader 5 terminal and writes trade data out when trades close. It only sees closed trades, and it only runs while your terminal is open. MetaApi is a broker-side API connection: SignalDeck opens a session to your account that can see open positions and read your live account balance without your terminal running. The practical difference is that an EA journal shows you history after the fact, while a MetaApi session can reflect the current state of your account.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Does SignalDeck need an Expert Advisor installed in MetaTrader 5?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">No. SignalDeck connects to MetaTrader 5 through MetaApi using your investor or trading credentials. There is no EA to install, no script to keep attached to a chart, and no requirement to leave your terminal running. Trades import automatically and your account balance syncs on each connection.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why does open-position visibility matter for a prop firm challenge?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Prop firm drawdown rules are evaluated on equity, which includes open floating profit and loss, not just closed trades. A journal that only imports closed trades cannot show your live drawdown headroom while a position is open, which is exactly the moment you need it. Because a MetaApi session can read your open positions and live balance, SignalDeck can show your remaining daily and total headroom before your next trade rather than after the session ends.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Do TradesViz and TradeZella sync MT5 with an EA or an API?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Per their public documentation as of early 2026 (not independently verified), several popular journals sync MetaTrader through a terminal-side script or Expert Advisor rather than a persistent broker-side API session. That approach captures closed trades but generally does not provide open-position or live-balance awareness. Verify the current connection method directly with any vendor before relying on it, since these implementations change.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradesviz/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradesViz</p>
+                        <p class="text-zinc-500 text-xs mt-2">How the MT5 connection and live-balance features line up</p>
+                    </a>
+                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradeZella</p>
+                        <p class="text-zinc-500 text-xs mt-2">Live sync, prop firm tooling, and edge validation side by side</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../mt5-prop-firm-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 3, 2026</p>
+                    </a>
+                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
+                    </a>
+                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Prop Firm Trading Journal: Prove Your Edge Before You Pay the Fee</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 15, 2026</p>
+                    </a>
+                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Edge Validation</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Connect MT5 the right way — no EA required.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">Open a MetaApi session, import your trades automatically, and size against your live balance. Free during beta, no credit card required. Pro is $30/mo when billing launches.</p>
+                <a href="https://app.sgnldk.com/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'mt5-live-sync-vs-ea-import'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Connect Your MT5 Account -- Free
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

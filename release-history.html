@@ -154,12 +154,49 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.93 -->
+            <div class="pl-8 relative" id="v1-0-93">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.93-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 21, 2026 5:35AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.93 ships a new market-context screen for the Today hub, splits Today into two focused tabs, and fixes a filter bug that was quietly ignoring parts of your Analytics setup.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Know the macro backdrop before you trade</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">New Market Posture (Morning Macro) card</strong> reads the overall market regime from price and volume across ~20 sector and thematic ETFs &mdash; sector leadership, defensive-vs-cyclical tilt, credit conditions, and a volatility read &mdash; with an opt-in live premarket overlay.</li>
+                            <li><strong class="text-zinc-200">Today is now split into two tabs</strong>: "Market" for context (Market Posture, On the Radar, Latest News) and "Your Book" for your own trading tasks (Snapshot, Needs You Today, Daily Ritual, Open Positions), so you're not scrolling past one to get to the other.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Analytics filters actually filter now</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Tag include/exclude and other advanced filters</strong> (funding account, trading style, strategy, signal, date range) now correctly apply across the Overview, Standard, and Quant analytics tabs &mdash; previously several of these silently had no effect.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Account &amp; sign-in fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Switching trading accounts no longer shows stale data</strong> &mdash; the previous account's P&amp;L and stats used to linger for a couple of minutes after switching.</li>
+                            <li><strong class="text-zinc-200">"Continue with Google" on Sign In no longer creates a new account</strong> when the email doesn't match an existing one &mdash; you'll be pointed to Create Account instead.</li>
+                            <li><strong class="text-zinc-200">Onboarding now self-heals</strong> if the final "finish setup" step gets dropped mid-flight, instead of leaving you stuck restarting from step one.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.92 -->
             <div class="pl-8 relative" id="v1-0-92">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.92-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 17, 2026 8:18AM</span>
                 </div>
 

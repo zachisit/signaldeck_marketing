@@ -154,12 +154,49 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.94 -->
+            <div class="pl-8 relative" id="v1-0-94">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.94-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Jul 22, 2026 4:46PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.94 makes it easier to see the strategy behind every scan, smooths trade management for broker-imported positions, and cleans up your CSV exports.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">See the strategy behind every scan</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">New "View Strategy" button in Scanner Run Details</strong> opens the full strategy definition right on top of the run, so you can check exactly what fired a signal without leaving the screen.</li>
+                            <li><strong class="text-zinc-200">Run history for your connected strategies</strong> &mdash; if you author or are tagged to a strategy, you now get a scoped view of its scanner runs and results, not just admins.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Smarter trade management</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Adding a Stop Loss or Target to an imported trade now creates alerts automatically</strong> &mdash; the same way it does when you enter a trade manually.</li>
+                            <li><strong class="text-zinc-200">Closed trades are now truly read-only on the chart</strong> &mdash; stop, target, and take-profit lines can no longer be dragged or changed after a trade is closed.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Cleaner exports &amp; broker fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">CSV exports keep numbers as numbers</strong> &mdash; negative and decimal values no longer get a leading apostrophe, so they sort, filter, and chart correctly in Excel and Google Sheets.</li>
+                            <li><strong class="text-zinc-200">cTrader import now shows the right connection status</strong> after you delete a connection, instead of a contradictory "no accounts connected" message.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.93 -->
             <div class="pl-8 relative" id="v1-0-93">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.93-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Jul 21, 2026 5:35AM</span>
                 </div>
 

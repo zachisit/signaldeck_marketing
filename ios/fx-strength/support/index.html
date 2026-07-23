@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FX Strength Support — Help &amp; FAQ</title>
+    <meta name="description" content="Support and FAQ for FX Strength — Currency Meter. How the strength ranking works, data freshness, Free vs Pro, managing your subscription, and how to get help.">
+    <meta name="keywords" content="FX Strength support, FX Strength FAQ, FX Strength app help, currency strength meter help">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/ios/fx-strength/support/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/ios/fx-strength/support/">
+    <meta property="og:title" content="FX Strength Support — Help &amp; FAQ">
+    <meta property="og:description" content="How the strength ranking works, data freshness, Free vs Pro, managing your subscription, and how to get help.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/ios/fx-strength/support/">
+    <meta property="twitter:title" content="FX Strength Support — Help &amp; FAQ">
+    <meta property="twitter:description" content="How the strength ranking works, data freshness, Free vs Pro, managing your subscription, and how to get help.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How does FX Strength calculate currency strength?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Each currency's strength is the average of its percentage move against every other major currency over the selected timeframe — not just one pair. A currency ranked #1 is broadly appreciating against the whole major basket, not just strong against a single counterpart." }
+            },
+            {
+                "@type": "Question",
+                "name": "How fresh is the rate data in FX Strength?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The baseline data source is the European Central Bank's reference-rate feed, published once per business day. Where a live delayed feed is configured, the app supplements today's reading with a value delayed by roughly 15 minutes; historical data always comes from the ECB feed. The app works fully offline from its local cache between refreshes." }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between Free and Pro?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Free shows 4 currencies on the daily timeframe. Pro unlocks all 8 currencies, the weekly and monthly timeframes, the pair heatmap, strength history charts, strongest/weakest alerts, and watermark-free trade-card export." }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I cancel my FX Strength Pro subscription?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Open Settings on your iOS device, tap your name at the top, tap Subscriptions, select FX Strength Pro, and tap Cancel Subscription. You keep Pro access until the end of the current billing period. All billing is handled by Apple, not SignalDeck." }
+            },
+            {
+                "@type": "Question",
+                "name": "I reinstalled the app or got a new device — how do I get my Pro subscription back?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Open FX Strength, tap the lock icon on any Pro feature to open the paywall, and tap Restore Purchases. As long as you're signed into the same Apple ID that made the original purchase, your subscription will be restored automatically." }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        indigo: {
+                            500: '#6366f1',
+                            400: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        .prose h2 { font-size: 1.125rem; font-weight: 700; color: #fff; margin-top: 0; margin-bottom: 0.5rem; }
+        .prose p { margin-bottom: 0; line-height: 1.7; }
+        .prose a { color: #60a5fa; text-decoration: underline; }
+        .prose a:hover { color: #93c5fd; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../../../index.html" class="flex items-center gap-2">
+                    <img src="../../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                </a>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../privacy/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Privacy</a>
+                    <a href="../terms/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Terms</a>
+                    <a href="../../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">SignalDeck Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../privacy/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Privacy</a>
+            <a href="../terms/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Terms</a>
+            <a href="../../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">SignalDeck Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-20 pb-16 border-b border-zinc-900 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase tracking-widest mb-6">FX Strength Support</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+                Get help with FX Strength.
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-xl mx-auto">
+                FX Strength — Currency Meter ranks the 8 major currencies from strongest to weakest, every day. Answers to common questions are below; for anything else, reach out directly.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-8">Frequently Asked Questions</h2>
+
+            <div class="space-y-4">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>How does FX Strength calculate currency strength?</h2>
+                    <p>Each currency's strength is the average of its percentage move against every other major currency over the selected timeframe — not just one pair. A currency ranked #1 is broadly appreciating against the whole major basket, not just strong against a single counterpart.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>How fresh is the rate data?</h2>
+                    <p>The baseline source is the European Central Bank's reference-rate feed, published once per business day. Where a live delayed feed is configured, today's reading is supplemented with a value delayed by roughly 15 minutes — historical days always come from the ECB feed. The app works fully offline from its local cache between refreshes, and always shows you how current the data is.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>What's the difference between Free and Pro?</h2>
+                    <p><strong class="text-zinc-300">Free</strong> — today's ranking for 4 currencies, updated once daily. <strong class="text-zinc-300">Pro</strong> ($7.99/mo or $69.99/yr, 7-day free trial) — all 8 currencies, daily/weekly/monthly timeframes, the pair heatmap, strength history charts, strongest/weakest alerts, and watermark-free trade-card export.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>How do I cancel my Pro subscription?</h2>
+                    <p>Open Settings on your iOS device → tap your name → Subscriptions → FX Strength Pro → Cancel Subscription. You keep Pro access until the end of the current billing period. All billing, renewals, and cancellations are handled entirely by Apple — see our <a href="../terms/">Terms of Use</a> for details.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>I reinstalled the app or got a new device — how do I get Pro back?</h2>
+                    <p>Open FX Strength, tap any locked Pro feature to open the paywall, and tap <strong class="text-zinc-300">Restore Purchases</strong>. As long as you're signed into the same Apple ID that made the original purchase, your subscription restores automatically — no new account or login needed, since the app has no account system at all.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>Why does the app say rates are stale or delayed?</h2>
+                    <p>If FX Strength can't reach its data source (offline, or the source is temporarily unavailable), it falls back to the most recent cached reading and flags it as stale so you're never shown outdated data without knowing it. It automatically refreshes the next time it can reach the network — pull down on the list to force a refresh.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>Does FX Strength collect my personal data?</h2>
+                    <p>No. There's no account, no sign-in, and no analytics or tracking SDKs in the app. See the full <a href="../privacy/">Privacy Policy</a> for exactly what network calls the app makes and why.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact channels -->
+    <section class="py-16 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-8 text-center">Still need help?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">LinkedIn</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+                        Bug reports, feature requests, and general questions about FX Strength.
+                    </p>
+                    <a href="https://www.linkedin.com/company/sgnldk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
+                        linkedin.com/company/sgnldk →
+                    </a>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-indigo-500/50 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Discord</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+                        Fastest way to reach the team directly — no ticket queue.
+                    </p>
+                    <a href="../../../discord.html" class="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">
+                        Join the Discord →
+                    </a>
+                </div>
+
+            </div>
+            <p class="text-center text-sm text-zinc-500 mt-8">
+                FX Strength is made by <a href="../../../index.html" class="text-blue-400 hover:text-blue-300">SignalDeck</a>, a trading journal for forex and prop firm traders.
+            </p>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | FX Strength — Currency Meter
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../../index.html" class="hover:text-zinc-400" title="SignalDeck Home">SignalDeck</a> |
+                <a href="../support/" class="hover:text-zinc-400" title="FX Strength Support">Support</a> |
+                <a href="../privacy/" class="hover:text-zinc-400" title="FX Strength Privacy">Privacy</a> |
+                <a href="../terms/" class="hover:text-zinc-400" title="FX Strength Terms">Terms</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="../../../discord.html" title="SignalDeck Discord Community">Discord</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../../yup.js"></script>
+</body>
+</html>

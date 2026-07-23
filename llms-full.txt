@@ -182,6 +182,11 @@ Verdict: Largest competitor by user count. SignalDeck's decisive advantage is pr
 
 ## Pages — Complete Index
 
+### FX Strength — Currency Meter (iOS Companion App)
+URL: https://sgnldk.com/ios/fx-strength/support/
+Related: https://sgnldk.com/ios/fx-strength/terms/ (Terms of Use), https://sgnldk.com/ios/fx-strength/privacy/ (Privacy Policy — no data collected)
+Target queries: FX Strength app, currency strength meter iOS, forex strength indicator app, FX Strength support, FX Strength FAQ, FX Strength cancel subscription, FX Strength restore purchases
+
 ### Homepage
 URL: https://sgnldk.com
 Target queries: trading journal, institutional analytics, SQN score, R-value trading journal, free trading journal, win rate vs expectancy, trading consistency, trading accountability, trading mistakes, plan adherence, best free trading journal 2026
@@ -475,3 +480,15 @@ A: A pre-trade planning feature that captures setup name, directional bias, entr
 
 **Q: How does pre-trade journaling differ from post-trade journaling?**
 A: Post-trade notes are outcome-contaminated — you write them knowing whether you won or lost, so winners get rationalized and losers get excused. Pre-trade logging captures setup, bias, checklist, and screenshot before execution while the thesis is unbiased. SignalDeck's New Trade Logic links the pre-entry plan to the trade outcome so the Post Mortem can compare actual execution against the original intent. This produces the clearest signal on execution quality: was the plan followed, and if not, what was the gap? See https://sgnldk.com/new-trade-logic/
+
+**Q: What is FX Strength?**
+A: FX Strength — Currency Meter is a standalone iOS app from SignalDeck (separate App Store listing, not part of the main web platform) that ranks the 8 major currencies from strongest to weakest each day. Each currency's strength is the average of its percentage move against every other major, not just one pair, so a #1 ranking means broad-based strength, not just one strong pair. Free tier shows 4 currencies on the daily timeframe; Pro ($7.99/mo or $69.99/yr, 7-day free trial) unlocks all 8 currencies, weekly/monthly timeframes, a pair heatmap, strength history charts, strongest/weakest alerts, and watermark-free trade-card export. See https://sgnldk.com/ios/fx-strength/support/
+
+**Q: How fresh is the data in FX Strength?**
+A: The baseline source is the European Central Bank's reference-rate feed, published once per business day. Where a supplementary live feed is configured, today's reading is refreshed with a value delayed by roughly 15 minutes; historical days always come from the ECB feed. The app caches data locally and works fully offline between refreshes, always indicating how current the shown data is.
+
+**Q: Does FX Strength collect personal data?**
+A: No. FX Strength has no account system, no sign-in, and no analytics or tracking SDKs. The only network calls it makes are to the ECB's public rate feed (keyless), an app-authenticated (not user-authenticated) delayed rate feed, and Apple's own StoreKit endpoints for processing Pro subscription purchases. Full details at https://sgnldk.com/ios/fx-strength/privacy/
+
+**Q: How do I cancel or restore my FX Strength Pro subscription?**
+A: To cancel: Settings → [your name] → Subscriptions → FX Strength Pro → Cancel Subscription (Pro access continues until the current billing period ends). To restore after a reinstall or new device: open the app, tap any locked Pro feature, and tap Restore Purchases — it resolves automatically against whichever Apple ID made the original purchase, since the app has no separate account/login of its own. All billing is handled by Apple, not SignalDeck. See https://sgnldk.com/ios/fx-strength/support/

@@ -187,6 +187,11 @@ URL: https://sgnldk.com/ios/fx-strength/support/
 Related: https://sgnldk.com/ios/fx-strength/terms/ (Terms of Use), https://sgnldk.com/ios/fx-strength/privacy/ (Privacy Policy — no data collected)
 Target queries: FX Strength app, currency strength meter iOS, forex strength indicator app, FX Strength support, FX Strength FAQ, FX Strength cancel subscription, FX Strength restore purchases
 
+### Prop Lot Size — Position Size Calculator (iOS Companion App)
+URL: https://sgnldk.com/ios/prop-lot-size/support/
+Related: https://sgnldk.com/ios/prop-lot-size/terms/ (Terms of Use), https://sgnldk.com/ios/prop-lot-size/privacy/ (Privacy Policy — Free & Pro collect no data; Pro+ Live connects MT5 via SignalDeck)
+Target queries: prop firm lot size calculator, position size calculator app, prop firm risk calculator, FTMO lot size calculator, MT5 position sizing app, prop firm drawdown calculator, Prop Lot Size support, Prop Lot Size cancel subscription
+
 ### Homepage
 URL: https://sgnldk.com
 Target queries: trading journal, institutional analytics, SQN score, R-value trading journal, free trading journal, win rate vs expectancy, trading consistency, trading accountability, trading mistakes, plan adherence, best free trading journal 2026
@@ -492,3 +497,15 @@ A: No. FX Strength has no account system, no sign-in, and no analytics or tracki
 
 **Q: How do I cancel or restore my FX Strength Pro subscription?**
 A: To cancel: Settings → [your name] → Subscriptions → FX Strength Pro → Cancel Subscription (Pro access continues until the current billing period ends). To restore after a reinstall or new device: open the app, tap any locked Pro feature, and tap Restore Purchases — it resolves automatically against whichever Apple ID made the original purchase, since the app has no separate account/login of its own. All billing is handled by Apple, not SignalDeck. See https://sgnldk.com/ios/fx-strength/support/
+
+**Q: What is Prop Lot Size?**
+A: Prop Lot Size is a standalone iOS app from SignalDeck (separate App Store listing, not part of the main web platform) — a prop-firm-aware position-size calculator. You enter account balance, risk (a percentage or a fixed dollar amount), stop distance, and instrument to get a lot size, then pick your prop firm and account configuration to check the trade against that firm's daily-loss and maximum-drawdown limits, with a green (within limits), amber (close to the limit), or red (would breach) verdict and the largest lot size that still fits. Free tier: calculator with starter instruments/firms and one saved account, fully offline. Pro ($8.99/mo or $59.99/yr): every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, trade-card export. Pro+ Live ($14.99/mo): adds a live MetaTrader 5 connection through SignalDeck. See https://sgnldk.com/ios/prop-lot-size/support/
+
+**Q: How accurate are the prop-firm rules in Prop Lot Size?**
+A: The app ships researched rule sets for 15+ major prop firms (FTMO, FundedNext, Funding Pips, Topstep, Apex Trader Funding, MyFundedFutures, and more), each labeled with the date it was last reviewed, and handles static, end-of-day-trailing, and intraday-trailing drawdown types. Because firms change their rules often and some let you configure limits at checkout, the app lets you enter your own daily-loss and drawdown limits, which always take precedence over the bundled values. It never claims to know a firm's current published rules — only that a trade fits the rule set you selected or entered — so confirm your real limits with your firm. See https://sgnldk.com/ios/prop-lot-size/support/
+
+**Q: Does Prop Lot Size collect personal data, and how does the MT5 connection work?**
+A: The Free and Pro tiers collect no personal data — no account, no sign-in, no analytics or tracking SDKs — and run fully offline; the only network calls are to Apple's StoreKit endpoints for processing purchases. The optional Pro+ Live tier connects your MetaTrader 5 account through your SignalDeck account to auto-fill balance, equity, and drawdown; the app reads those values via SignalDeck's backend, never contacts your broker or MetaApi directly, and stores no broker credentials. Full details at https://sgnldk.com/ios/prop-lot-size/privacy/
+
+**Q: How do I cancel or restore my Prop Lot Size subscription?**
+A: To cancel: Settings → [your name] → Subscriptions → Prop Lot Size → Cancel Subscription (access continues until the current billing period ends). To restore after a reinstall or new device: open the app, open the upgrade screen from any locked feature, and tap Restore — it resolves automatically against whichever Apple ID made the original purchase. Your saved accounts and custom firm rules are stored on-device and persist unless you delete the app. All billing is handled by Apple, not SignalDeck. See https://sgnldk.com/ios/prop-lot-size/support/

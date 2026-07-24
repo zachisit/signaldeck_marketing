@@ -28,6 +28,27 @@
   </url>
 
   <url>
+    <loc>https://sgnldk.com/ios/prop-lot-size/support/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/ios/prop-lot-size/privacy/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <priority>0.30</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://sgnldk.com/ios/prop-lot-size/terms/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <priority>0.30</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
     <loc>https://sgnldk.com/analytics/</loc>
     <lastmod>2026-06-18</lastmod>
     <priority>0.80</priority>

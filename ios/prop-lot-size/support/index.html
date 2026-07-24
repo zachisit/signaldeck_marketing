@@ -59,12 +59,17 @@
             {
                 "@type": "Question",
                 "name": "What's the difference between Free, Pro, and Pro+ Live?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Free includes the calculator with a starter set of USD-quoted instruments and firms and one saved account, fully offline. Pro ($8.99/mo or $59.99/yr) unlocks every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, and trade-card export — still fully offline. Pro+ Live ($14.99/mo) adds a live MetaTrader 5 connection through SignalDeck that auto-fills your balance, equity, and drawdown for a real-time remaining-room guard." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Free includes the calculator with a starter set of USD-quoted instruments and firms and one saved account, and is ad-supported. Pro ($8.99/mo or $59.99/yr) unlocks every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, and trade-card export, and removes ads. Pro+ Live ($14.99/mo) adds a live MetaTrader 5 connection through SignalDeck that auto-fills your balance, equity, and drawdown for a real-time remaining-room guard. Your calculator inputs stay on your device on every tier." }
             },
             {
                 "@type": "Question",
                 "name": "How do I connect my MetaTrader 5 account?",
                 "acceptedAnswer": { "@type": "Answer", "text": "The live connection is part of the Pro+ Live tier. You sign in with your SignalDeck account, and the app reads your linked MT5 account's balance, equity, and drawdown through SignalDeck's backend to fill the calculator automatically. The app never asks for your broker login and never contacts your broker directly — everything goes through SignalDeck." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Prop Lot Size have ads, and how do I remove them?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The free tier shows a single banner ad, served through Google AdMob. Any paid subscription (Pro or Pro+ Live) removes ads entirely. The advertising SDK never has access to your trading inputs, which stay on your device on every tier." }
             },
             {
                 "@type": "Question",
@@ -187,7 +192,7 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
                     <h2>What's the difference between Free, Pro, and Pro+ Live?</h2>
-                    <p><strong class="text-zinc-300">Free</strong> — the calculator with a starter set of USD-quoted instruments and firms and one saved account, fully offline. <strong class="text-zinc-300">Pro</strong> ($8.99/mo or $59.99/yr) — every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, and trade-card export, still fully offline. <strong class="text-zinc-300">Pro+ Live</strong> ($14.99/mo) — adds a live MetaTrader 5 connection through SignalDeck that auto-fills your balance, equity, and drawdown for a real-time remaining-room guard.</p>
+                    <p><strong class="text-zinc-300">Free</strong> — the calculator with a starter set of USD-quoted instruments and firms and one saved account, ad-supported. <strong class="text-zinc-300">Pro</strong> ($8.99/mo or $59.99/yr) — every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, and trade-card export, with no ads. <strong class="text-zinc-300">Pro+ Live</strong> ($14.99/mo) — adds a live MetaTrader 5 connection through SignalDeck that auto-fills your balance, equity, and drawdown for a real-time remaining-room guard. Your calculator inputs stay on your device on every tier.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
@@ -206,8 +211,13 @@
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
+                    <h2>Are there ads, and how do I remove them?</h2>
+                    <p>The free tier shows a single banner ad, served through Google AdMob. <strong class="text-zinc-300">Any paid subscription — Pro or Pro+ Live — removes ads entirely.</strong> The advertising SDK never has access to your trading inputs; your balances, risk, and firm details stay on your device on every tier.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 prose text-zinc-400">
                     <h2>Does Prop Lot Size collect my personal data?</h2>
-                    <p>On Free and Pro, no — there's no account, no sign-in, and no analytics or tracking SDKs, and everything runs offline. The optional Pro+ Live tier connects to your SignalDeck account to read your MT5 balance and drawdown. See the full <a href="../privacy/">Privacy Policy</a> for exactly what the app does and doesn't handle.</p>
+                    <p>Your trading inputs never leave your device on any tier — no account or sign-in on Free and Pro. The free tier is ad-supported (Google AdMob collects device-level data to serve ads; upgrading removes it), and the optional Pro+ Live tier connects to your SignalDeck account to read your MT5 balance and drawdown. See the full <a href="../privacy/">Privacy Policy</a> for exactly what the app does and doesn't handle.</p>
                 </div>
 
             </div>

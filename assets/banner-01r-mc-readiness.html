@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-R · Monte Carlo Readiness</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+/* Decorative top band */
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+/* Bold accent bar along the bottom */
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+/* The 1500x500 design stage, vertically centered */
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:50px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Would You<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Pass?</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">1,000 Simulated Attempts · Before the Fee</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Monte Carlo · Pass Probability · Drawdown Limit</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const rng = prng(40100);
+  const N = 150, PATHS = 90;
+
+  /* Plot frame within the stage */
+  const X0 = 20, X1 = 890;        /* left blends off-canvas; right fades under headline */
+  const toX = i => X0 + (i / (N - 1)) * (X1 - X0);
+
+  /* Value-space limits: profit target above, drawdown floor below start (0) */
+  const TARGET = 100;             /* profit target in value units */
+  const FLOOR  = -70;             /* drawdown limit in value units */
+  const VMAX = 150, VMIN = -110;  /* y-axis extents for headroom */
+  const yTop = 60, yBot = 430;
+  const toY = v => yTop + ((VMAX - v) / (VMAX - VMIN)) * (yBot - yTop);
+
+  /* Generate paths with a small positive edge; classify pass / breach.
+     Low drift + wide step variance = a genuine fan of outcomes: most drift
+     up toward the target, a minority breach the floor. */
+  const paths = [];
+  for (let p = 0; p < PATHS; p++) {
+    const drift = 0.01 + rng() * 0.035;  /* mild, uneven positive expectancy */
+    const path = [0];
+    let breached = false, passed = false;
+    for (let i = 1; i < N; i++) {
+      const v = path[i - 1] + (rng() - 0.5 + drift) * 14;
+      path.push(v);
+      if (v <= FLOOR) breached = true;
+      if (v >= TARGET && !breached) passed = true;
+    }
+    paths.push({ path, breached, passed });
+  }
+
+  const defs = el(svg, 'defs', {});
+  const glow = el(defs, 'radialGradient', { id: 'glow', cx: '0.5', cy: '0.5', r: '0.5' });
+  el(glow, 'stop', { offset: '0%', 'stop-color': '#2dd4bf', 'stop-opacity': '0.9' });
+  el(glow, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0.0' });
+
+  /* Start line (zero) */
+  el(svg, 'line', { x1: 0, y1: toY(0).toFixed(1), x2: X1 + 30, y2: toY(0).toFixed(1), stroke: '#3f3f46', 'stroke-width': 1, opacity: 0.5 });
+
+  /* Profit-target ceiling — emerald dashed */
+  el(svg, 'line', { x1: 0, y1: toY(TARGET).toFixed(1), x2: X1 + 30, y2: toY(TARGET).toFixed(1), stroke: '#10b981', 'stroke-width': 1.5, 'stroke-dasharray': '7 6', opacity: 0.65 });
+  /* Drawdown-limit floor — rose dashed */
+  el(svg, 'line', { x1: 0, y1: toY(FLOOR).toFixed(1), x2: X1 + 30, y2: toY(FLOOR).toFixed(1), stroke: '#f43f5e', 'stroke-width': 1.5, 'stroke-dasharray': '7 6', opacity: 0.6 });
+
+  /* Individual simulated paths — breach = rose, pass = emerald, else faint blue */
+  paths.forEach(({ path, breached, passed }) => {
+    const color = breached ? '#f43f5e' : (passed ? '#10b981' : '#60a5fa');
+    const op = breached ? 0.09 : (passed ? 0.10 : 0.05);
+    let d = '';
+    path.forEach((v, i) => { d += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+    el(svg, 'path', { d, stroke: color, 'stroke-width': 1, fill: 'none', opacity: op, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  });
+
+  /* Median path (blue) — the expected trajectory */
+  const med = [];
+  for (let i = 0; i < N; i++) {
+    const vals = paths.map(p => p.path[i]).sort((a, b) => a - b);
+    med.push(vals[Math.floor(PATHS / 2)]);
+  }
+  let md = '';
+  med.forEach((v, i) => { md += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toY(v).toFixed(1) + ' '; });
+  el(svg, 'path', { d: md, stroke: '#60a5fa', 'stroke-width': 7, fill: 'none', opacity: 0.12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  el(svg, 'path', { d: md, stroke: '#60a5fa', 'stroke-width': 2.6, fill: 'none', opacity: 0.95, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+
+  /* Endpoint cloud, coloured by outcome */
+  paths.forEach(({ path, breached, passed }) => {
+    const fin = path[N - 1];
+    el(svg, 'circle', { cx: toX(N - 1).toFixed(1), cy: toY(fin).toFixed(1), r: 2.4, fill: breached ? '#f43f5e' : (passed ? '#10b981' : '#60a5fa'), opacity: 0.4 });
+  });
+
+  /* Leading pulse on the median endpoint */
+  const lx = toX(N - 1), ly = toY(med[N - 1]);
+  el(svg, 'circle', { cx: lx, cy: ly, r: 24, fill: 'url(#glow)' });
+  el(svg, 'circle', { cx: lx, cy: ly, r: 5, fill: '#2dd4bf' });
+})();
+</script>
+</body>
+</html>

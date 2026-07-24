@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Privacy Policy — FX Strength (by SignalDeck)</title>
-    <meta name="description" content="FX Strength Privacy Policy. FX Strength collects no personal data — no account, no sign-in, no analytics, no tracking.">
+    <meta name="description" content="FX Strength Privacy Policy. No account, no sign-in, no analytics. Free tier shows non-personalized ads (no tracking, no ATT prompt) via Google AdMob.">
     <meta name="author" content="SignalDeck">
 
     <link rel="canonical" href="https://sgnldk.com/ios/fx-strength/privacy/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgnldk.com/ios/fx-strength/privacy/">
     <meta property="og:title" content="Privacy Policy — FX Strength (by SignalDeck)">
-    <meta property="og:description" content="FX Strength collects no personal data — no account, no sign-in, no analytics, no tracking.">
+    <meta property="og:description" content="No account, no sign-in, no analytics. Free tier shows non-personalized ads (no tracking) via Google AdMob.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
@@ -32,7 +32,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sgnldk.com/ios/fx-strength/privacy/">
     <meta property="twitter:title" content="Privacy Policy — FX Strength">
-    <meta property="twitter:description" content="FX Strength collects no personal data — no account, no sign-in, no analytics, no tracking.">
+    <meta property="twitter:description" content="No account, no sign-in, no analytics. Free tier shows non-personalized ads (no tracking) via Google AdMob.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01a-waves.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,10 +116,10 @@
         <div class="max-w-3xl mx-auto px-6">
             <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">FX Strength · Legal</p>
             <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-            <p class="text-sm font-mono text-zinc-500 mb-5">Effective date: July 23, 2026 &nbsp;·&nbsp; Last updated: July 23, 2026</p>
+            <p class="text-sm font-mono text-zinc-500 mb-5">Effective date: July 23, 2026 &nbsp;·&nbsp; Last updated: July 24, 2026</p>
             <span class="badge">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                Data collected: none
+                No account · No tracking · No IDFA
             </span>
         </div>
     </section>
@@ -132,12 +132,12 @@
                 FX Strength — Currency Meter ("FX Strength", "the App", "we", "us", or "our") is an iOS app developed by SignalDeck. This Privacy Policy explains what information the App does and does not collect.
             </p>
             <p>
-                <strong class="text-zinc-300">The short version: FX Strength does not collect any personal data.</strong> There is no account, no sign-in, and nothing you enter or view in the App is sent to us or stored on any server we control.
+                <strong class="text-zinc-300">The short version: FX Strength has no account, no sign-in, and no analytics or tracking SDKs.</strong> Nothing you enter or view in the App is sent to us or stored on any server we control. The one thing that changed since this policy's first version: Free-tier users now see a small, <strong class="text-zinc-300">non-personalized</strong> banner ad (Section 3) — we deliberately did not opt into the ad-personalization/device-tracking path, so this does not require Apple's App Tracking Transparency permission and does not use your device's advertising identifier (IDFA). Pro subscribers never see ads.
             </p>
 
-            <h2>1. Information We Collect</h2>
+            <h2>1. Information We Collect Directly</h2>
             <p>
-                None. FX Strength has no account system, no user-generated content, and no analytics or tracking SDKs embedded in the App. We do not know who you are, and we have no way to identify individual users.
+                None. FX Strength has no account system, no user-generated content, and no analytics or tracking SDKs of our own embedded in the App. We do not know who you are, and we have no way to identify individual users from anything the App itself does. Section 3 covers what our advertising partner (Google AdMob) may process independently to serve non-personalized ads — that data does not pass through us and is governed by Google's own privacy policy, not ours.
             </p>
 
             <h2>2. Network Access</h2>
@@ -148,39 +148,51 @@
                 <li><strong class="text-zinc-300">European Central Bank reference-rate feed</strong> — a free, public, keyless endpoint. This request carries no parameters that identify you or your device.</li>
                 <li><strong class="text-zinc-300">SignalDeck's delayed FX rate feed</strong> (where configured) — authenticated with an API key that identifies the <em>app</em>, not you personally. No request body or parameter sent to this feed carries anything user-specific.</li>
                 <li><strong class="text-zinc-300">Apple's StoreKit / App Store endpoints</strong> — used solely to process Pro subscription purchases. Apple's own <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a> governs this data, not ours; we never see your payment details.</li>
+                <li><strong class="text-zinc-300">Google AdMob / User Messaging Platform</strong> (Free tier only) — serves the banner ad and, in the EEA/UK, the consent form described in Section 3. Governed by Google's privacy policy, not ours.</li>
             </ul>
 
-            <h2>3. Local Notifications</h2>
+            <h2>3. Advertising (Free Tier Only)</h2>
+            <p>
+                Free-tier users see a small banner ad at the bottom of the strength list, served by <strong class="text-zinc-300">Google AdMob</strong>. Pro subscribers never see ads — this is one of Pro's benefits. A few specific commitments about how this works:
+            </p>
+            <ul>
+                <li><strong class="text-zinc-300">Non-personalized only.</strong> Every ad request is explicitly flagged non-personalized (<code>npa=1</code>). We do not request Apple's App Tracking Transparency permission, do not read your device's advertising identifier (IDFA), and do not build an ad profile of you. Ads are served contextually, not based on your activity across other apps or websites.</li>
+                <li><strong class="text-zinc-300">Consent (EEA/UK).</strong> Google's User Messaging Platform (UMP) presents a consent form to users in the EEA/UK before any ad-related processing begins, as required by local law. Outside those regions, this step is skipped automatically.</li>
+                <li><strong class="text-zinc-300">What Google may still process.</strong> Even without personalization, serving an ad inherently involves some data — the ad request itself, coarse location (derived from IP, not GPS), device type, and app/ad-network identifiers used for fraud prevention, frequency capping, and Apple's SKAdNetwork attribution. This is processed by Google under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>, not ours — we don't receive or store it. See Google's own <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">AdMob data disclosure</a> for details.</li>
+                <li><strong class="text-zinc-300">No mediation networks beyond Google (for now).</strong> If we later enable AdMob mediation with additional ad networks, this section will be updated to name them before that ships.</li>
+            </ul>
+
+            <h2>4. Local Notifications</h2>
             <p>
                 If you enable Pro alerts, notifications are scheduled entirely on-device using Apple's local notification framework. No notification content or scheduling data is sent to any server.
             </p>
 
-            <h2>4. Local Storage &amp; Offline Cache</h2>
+            <h2>5. Local Storage &amp; Offline Cache</h2>
             <p>
                 The App caches the most recently fetched rate data on your device so it works offline between refreshes. This cache never leaves your device and is not accessible to us.
             </p>
 
-            <h2>5. Third-Party Services</h2>
+            <h2>6. Third-Party Services</h2>
             <p>
-                Beyond the network destinations listed in Section 2, the App does not integrate any third-party SDK — no analytics, no crash reporting, no advertising network, no social login.
+                Beyond the network destinations listed in Section 2 and Google AdMob/UMP (Section 3), the App does not integrate any third-party SDK — no analytics, no crash reporting, no social login.
             </p>
 
-            <h2>6. Children's Privacy</h2>
+            <h2>7. Children's Privacy</h2>
             <p>
-                The App is rated 4+ and, since it collects no personal information from any user regardless of age, poses no age-specific privacy risk. It is not directed at children and contains no features (chat, social, user-generated content) relevant to child safety.
+                The App is rated 4+. We collect no personal information from any user regardless of age, and ads are always requested non-personalized with no age signal sent — AdMob is configured accordingly. The App is not directed at children and contains no features (chat, social, user-generated content) relevant to child safety.
             </p>
 
-            <h2>7. Your Rights</h2>
+            <h2>8. Your Rights</h2>
             <p>
-                Because FX Strength collects no personal data, there is nothing for us to access, correct, delete, or export on your behalf. Uninstalling the App removes its local on-device cache. If you subscribed to Pro, manage or cancel that subscription directly through Apple (Settings → [your name] → Subscriptions) — SignalDeck has no visibility into or control over your Apple ID data.
+                Because FX Strength itself collects no personal data, there is nothing for us to access, correct, delete, or export on your behalf. Uninstalling the App removes its local on-device cache. If you subscribed to Pro, manage or cancel that subscription directly through Apple (Settings → [your name] → Subscriptions) — SignalDeck has no visibility into or control over your Apple ID data. For any rights regarding data Google's ad-serving may process independently (Section 3), see Google's own <a href="https://myaccount.google.com/privacycheckup" target="_blank" rel="noopener noreferrer">privacy controls</a> or their <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
             </p>
 
-            <h2>8. Changes to This Policy</h2>
+            <h2>9. Changes to This Policy</h2>
             <p>
-                We may update this Privacy Policy if the App's data practices change — for example, if a future version adds an optional account system. When we do, we will update the "Last updated" date at the top of this page and, for material changes, note it in the App Store "What's New" notes.
+                We may update this Privacy Policy if the App's data practices change — for example, if a future version adds an optional account system or additional ad mediation networks. When we do, we will update the "Last updated" date at the top of this page and, for material changes, note it in the App Store "What's New" notes.
             </p>
 
-            <h2>9. Contact</h2>
+            <h2>10. Contact</h2>
             <p>
                 Questions about this policy? Reach us via our <a href="../support/">support page</a>, our general <a href="../../../contact.html">contact page</a>, or connect with us on <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
             </p>

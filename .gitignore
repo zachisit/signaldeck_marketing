@@ -4,3 +4,6 @@ implementation_handoffs/
 
 # Local audit/planning files
 seo_audit.csv
+
+# Claude Code session state and worktrees — never site content
+.claude/

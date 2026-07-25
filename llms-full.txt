@@ -192,6 +192,11 @@ URL: https://sgnldk.com/ios/prop-lot-size/support/
 Related: https://sgnldk.com/ios/prop-lot-size/terms/ (Terms of Use), https://sgnldk.com/ios/prop-lot-size/privacy/ (Privacy Policy — trading inputs never leave the device; free tier is ad-supported via AdMob and any paid plan removes ads; Pro+ Live connects MT5 via SignalDeck)
 Target queries: prop firm lot size calculator, position size calculator app, prop firm risk calculator, FTMO lot size calculator, MT5 position sizing app, prop firm drawdown calculator, Prop Lot Size support, Prop Lot Size cancel subscription
 
+### Market Posture — Morning Macro Regime Read (iOS Companion App)
+URL: https://sgnldk.com/ios/market-posture/support/
+Related: https://sgnldk.com/ios/market-posture/terms/ (Terms of Use), https://sgnldk.com/ios/market-posture/privacy/ (Privacy Policy — no account, no analytics SDKs; a signed Apple subscription token is sent only to verify Pro access and contains no identity), https://sgnldk.com/ios/market-posture/privacy-choices/ (Your Privacy Choices — remove ads, EEA/UK ad consent, iOS tracking controls, do-not-sell/share, delete data)
+Target queries: market regime app, risk on risk off indicator, premarket market internals iOS, sector rotation app, market breadth app, Market Posture support, Market Posture cancel subscription, Market Posture restore purchases
+
 ### Homepage
 URL: https://sgnldk.com
 Target queries: trading journal, institutional analytics, SQN score, R-value trading journal, free trading journal, win rate vs expectancy, trading consistency, trading accountability, trading mistakes, plan adherence, best free trading journal 2026

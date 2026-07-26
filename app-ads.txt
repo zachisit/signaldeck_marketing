@@ -1,0 +1,5 @@
+# app-ads.txt — authorizes Google/AdMob to sell ad inventory for SignalDeck's iOS apps.
+# One record covers every app under AdMob publisher pub-6155623578457954
+# (Prop Lot Size, FX Strength, Market Posture, and future companion apps).
+# Spec: https://iabtechlab.com/ads-txt/  ·  Served from https://sgnldk.com/app-ads.txt
+google.com, pub-6155623578457954, DIRECT, f08c47fec0942fa0

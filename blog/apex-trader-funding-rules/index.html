@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apex Trader Funding Rules Explained (2026): The Trailing Drawdown Trap | SignalDeck</title>
+    <meta name="description" content="Apex's trailing drawdown follows your intraday high-water mark — which is why traders blow accounts after a winning session, not a losing one. See exactly how the trailing limit works, a worked $50K example, and what your journal must track in real time.">
+    <meta name="keywords" content="Apex Trader Funding rules, Apex Trader Funding drawdown, Apex trailing drawdown explained, how to pass Apex challenge, Apex Trader Funding journal, Apex evaluation rules">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/apex-trader-funding-rules/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/apex-trader-funding-rules/">
+    <meta property="og:title" content="Apex Trader Funding Rules Explained (2026): The Trailing Drawdown Trap | SignalDeck">
+    <meta property="og:description" content="Apex's trailing drawdown follows your intraday high-water mark — which is why traders blow accounts after a winning session, not a losing one. See exactly how the trailing limit works, a worked $50K example, and what your journal must track in real time.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01s-trailing-ratchet.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/apex-trader-funding-rules/">
+    <meta property="twitter:title" content="Apex Trader Funding Rules Explained (2026): The Trailing Drawdown Trap | SignalDeck">
+    <meta property="twitter:description" content="Apex's trailing drawdown follows your intraday high-water mark — which is why traders blow accounts after a winning session, not a losing one. See exactly how the trailing limit works, a worked $50K example, and what your journal must track in real time.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01s-trailing-ratchet.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Apex Trader Funding Rules Explained: Trailing Drawdown, Targets, and How to Track Your Progress",
+        "description": "Apex Trader Funding uses a trailing drawdown that follows your intraday high-water mark, then locks. Here's how it works with a worked $50K example, why it ends accounts after winning sessions, what your journal must track, and how Monte Carlo estimates your pass probability before you pay.",
+        "author": {
+            "@type": "Organization",
+            "name": "SignalDeck"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "SignalDeck",
+            "url": "https://sgnldk.com"
+        },
+        "datePublished": "2026-07-27",
+        "dateModified": "2026-07-27"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Apex Trader Funding trailing drawdown?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Apex trailing drawdown is a maximum loss limit that follows your account's high-water mark upward as your balance grows, keeping a fixed dollar buffer beneath your peak. On a $50,000 evaluation the trailing amount is commonly cited as $2,500. As your unrealized or realized equity makes new highs, the drawdown floor rises with it; once your account gains enough, the floor stops trailing and locks in place. Verify the exact amount, trailing basis, and lock threshold for your plan directly at apextraderfunding.com — Apex changes its rules and promotions frequently."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the Apex trailing drawdown trail intraday or end of day?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On Apex evaluation and performance accounts, the trailing drawdown has historically trailed based on your intraday peak, including unrealized (open-trade) profit, rather than only your end-of-day closed balance. That means an open position that spikes in your favor and then gives the gains back can raise your trailing floor before you lock the profit in. Apex has offered different plan types over time, so confirm whether your specific plan trails on intraday unrealized equity or end-of-day balance directly with Apex before trading."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the profit target for the Apex evaluation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Apex evaluation profit targets scale with account size. A $50,000 account has commonly carried a $3,000 target, and larger accounts carry proportionally larger targets. Apex has at various times removed the minimum-trading-days requirement for the evaluation, allowing a pass in as few sessions as your trading permits, but this has changed before. Confirm the current target and any minimum-day rule for your exact plan at apextraderfunding.com, because these specifics change often."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I track my Apex trailing drawdown in real time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need to track two moving numbers: your current high-water mark (the peak your drawdown trails) and your live distance to the trailing floor beneath it. Because Apex trails on intraday peaks, a spreadsheet updated at end of day tells you where you were, not where you are. A journal that syncs your account balance, records your running peak, and shows distance-to-limit before each entry is the reliable approach. Express the distance in R-multiples so you know how many losing trades of your standard size the buffer can absorb."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What percentage of traders pass the Apex Trader Funding evaluation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Apex does not publish an official, current evaluation pass rate, and third-party estimates for futures prop evaluations broadly are low — often cited in the single-digit to low-double-digit percent range, though these figures are not independently verified and vary by source. The dominant failure cause is the trailing drawdown being breached after a peak gain, not a losing streak. A trader with genuine positive expectancy and position sizes matched to the trailing buffer has a materially higher probability of passing than the broad average implies."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Apex Trader Funding Rules Explained: Trailing Drawdown, Targets, and How to Track Your Progress", "item": "https://sgnldk.com/blog/apex-trader-funding-rules/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-07-27" class="text-xs font-mono text-zinc-500">July 27, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Apex Trader Funding Rules Explained: Trailing Drawdown, Targets, and How to Track Your Progress
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Most traders who blow an Apex account do it right after a good session, not a bad one. The reason is the trailing drawdown — a loss limit that follows your intraday high-water mark upward and then quietly sits there when you give the gains back. Here is how the rule actually works, a worked $50K example, and what your journal has to track to keep you inside it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Apex Trader Funding is one of the largest futures-focused evaluation firms. You trade CME products — most people run ES and NQ index futures, with CL crude and the micros (MES, MNQ, MCL) common on smaller accounts — inside an evaluation, hit a profit target without breaking a drawdown limit, and convert to a funded Performance Account (PA). The rules are simpler than FTMO's two-clock structure, but the single rule that matters most, the trailing drawdown, behaves in a way that surprises traders coming from static-limit firms.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This article explains the rules as they generally apply to the standard Apex evaluation. Apex changes account specs, targets, and promotions often — treat this as orientation, not as a substitute for the current terms at <a href="https://apextraderfunding.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">apextraderfunding.com</a>. Verify every number below against your specific plan before you trade. For the CFD/forex equivalent of this rule set, see our <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules breakdown</a> — the drawdown model there is different in an important way we will contrast below.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Apex Trader Funding at a Glance</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Apex runs a single-phase evaluation. There is no Phase 1 / Phase 2 split like FTMO — you hit the profit target once, without breaching the trailing drawdown, and you qualify for a PA. Account sizes and their headline specs are commonly structured like this (verify current values with Apex):
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Account</th>
+                            <th class="px-4 py-3 text-left font-semibold">Profit Target</th>
+                            <th class="px-4 py-3 text-left font-semibold">Trailing Drawdown</th>
+                            <th class="px-4 py-3 text-left font-semibold">Contracts (approx.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">$25,000</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">$1,500</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">$1,500</td>
+                            <td class="px-4 py-3 text-zinc-400">4</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">$50,000</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">$3,000</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">$2,500</td>
+                            <td class="px-4 py-3 text-zinc-400">10</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">$100,000</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">$6,000</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">$3,000</td>
+                            <td class="px-4 py-3 text-zinc-400">14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Two things to notice. First, the trailing drawdown does not scale linearly with account size — the $100K account has a larger target but a proportionally tighter drawdown-to-target ratio than the $50K, which changes how aggressively you can size. Second, there is no daily loss limit in the FTMO sense; the trailing drawdown is the constraint you live and die by. Apex has at times run monthly promotions that discount evaluation fees heavily, which is why the $50K is the most popular starting account. Confirm the live figures before you buy.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Trailing Drawdown: How It Actually Works</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                A trailing drawdown is a maximum loss limit that moves. Instead of being anchored to your starting balance forever (that is a <em>static</em> drawdown, which is what FTMO's overall limit uses), it follows your account's high-water mark upward, staying a fixed dollar amount beneath your peak. On a $50K Apex account that fixed amount is commonly $2,500.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The critical detail: on Apex evaluations the drawdown has historically trailed your <span class="font-semibold text-white">intraday peak, including unrealized profit on open positions</span> — not just your closed end-of-day balance. Your high-water mark ticks up the moment your open trade is in profit, and the drawdown floor rises with it. When price comes back, the floor does not come back down. Here is a worked $50K example:
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Event</th>
+                            <th class="px-4 py-3 text-left font-semibold">Balance / Peak Equity</th>
+                            <th class="px-4 py-3 text-left font-semibold">Trailing Floor</th>
+                            <th class="px-4 py-3 text-left font-semibold">Buffer Left</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Start</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$50,000</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$47,500</td>
+                            <td class="px-4 py-3 text-zinc-400">$2,500</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300">Open trade spikes +$1,800 (unrealized)</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400">$51,800 peak</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$49,300</td>
+                            <td class="px-4 py-3 text-zinc-400">$2,500</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300">Give it all back, close flat at $50,000</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$50,000</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">$49,300</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">$700</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                You closed the day at breakeven — zero realized profit — yet your loss buffer shrank from $2,500 to $700. You did nothing "wrong" by a P&L measure, but the trailing floor locked in the peak of your open trade. That is the mechanic that catches every trader migrating from a static-drawdown firm.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                There is a second half to the rule that works in your favor. The trailing floor <span class="font-semibold text-white">stops trailing once it reaches a fixed level</span> — commonly described as the point where the floor would sit at your starting balance plus a small buffer (often cited as roughly $100 above the initial balance). After that lock, the drawdown becomes static: further profits no longer drag the floor up, and you finally have room to breathe. The banner at the top of this page shows exactly this shape — the floor ratchets up with each new high, then freezes flat.
+            </p>
+            <blockquote class="border-l-2 border-rose-500/50 pl-4 italic text-zinc-400 mb-6">
+                FTMO's overall limit is static from day one — anchored to your starting balance. Apex's trails your peak and then locks. The practical consequence: on Apex, your most dangerous moment is not a losing streak. It is the hour after a big unrealized gain, before you have locked enough profit to freeze the floor.
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Profit Targets, Minimum Days, and the PA</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                The evaluation goal is to reach the profit target — $3,000 on a $50K account — without the trailing floor ever touching your equity. Apex has, at various times, removed the minimum-trading-days requirement on the evaluation, meaning you can theoretically pass in a single session if your trading gets you there. This has changed before and may change again; do not assume there is (or is not) a minimum-day rule without checking your plan terms.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Passing the evaluation converts you to a Performance Account (PA) — a funded account trading Apex's capital. The PA carries its own rules that differ from the evaluation, and this is where many traders get tripped up a second time:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-semibold text-white">The trailing drawdown still applies on the PA</span> until it locks, using the same peak-tracking logic you learned in the evaluation.</li>
+                <li><span class="font-semibold text-white">Consistency and safety-net rules</span> govern payouts — Apex has historically limited how much of your total profit a single day can represent, and required a minimum balance buffer before withdrawals. These payout rules are separate from the pass/fail drawdown and change periodically.</li>
+                <li><span class="font-semibold text-white">Minimum trading days for payout eligibility</span> often exist on the PA even when the evaluation has none.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                In other words: the skill that passes the evaluation (surviving the trailing drawdown) is necessary but not sufficient to get paid. Verify the current PA and payout rules directly with Apex — this is the area that changes most.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The #1 Way Traders Blow Apex Accounts</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                It is not the losing streak. It is the round-trip. A trader is up $2,000 unrealized on an NQ position mid-morning, the trailing floor has climbed to within a few hundred dollars of their current equity, price reverses, and they hold — waiting for it to come back — until the floor catches the equity and the account is done. The psychology is the trap: giving back an open gain does not <em>feel</em> like a loss, so traders do not defend the buffer the way they would defend cash.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Three specific behaviors drive most of these blowups:
+            </p>
+            <ol class="list-decimal list-inside space-y-3 text-zinc-300 mb-6">
+                <li class="pl-2"><span class="font-semibold text-white">Not banking the peak.</span> The trailing floor rewards traders who take profit near their highs and punishes those who let winners round-trip. If your floor has ratcheted to $500 below equity, a full-size adverse move ends the account — even from a break-even starting point on the session.</li>
+                <li class="pl-2"><span class="font-semibold text-white">Sizing to the target instead of to the buffer.</span> On a $50K account with a $2,500 floor, trading 10 contracts on ES means a handful of points against you consumes the entire buffer. The fix is to size each trade so a full stop-out is a small fraction of your remaining buffer — the same discipline as <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a>, applied to a floor that moves.</li>
+                <li class="pl-2"><span class="font-semibold text-white">Revenge-adding after giving back a gain.</span> Watching the buffer shrink from a round-trip and then sizing <em>up</em> to "get it back" is how a $700 buffer becomes a $0 buffer in one trade.</li>
+            </ol>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Every one of these is visible in journal data after the fact — the gap between your session's peak equity and your closing equity, the R-size of the trade that breached, whether the entry was on-plan. The traders who stop repeating the pattern are the ones who put those numbers in front of themselves <em>during</em> the session, not in a post-mortem.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Your Journal Should Log During an Apex Evaluation</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                A generic trade journal that logs entries and exits after the close is not enough for a trailing-drawdown account. Because the floor moves with your intraday peak, you need the drawdown-specific numbers live. The fields that matter:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-semibold text-white">Running high-water mark:</span> the peak equity of the account so far — this is the anchor the trailing floor hangs beneath. Track whether it moved on realized or unrealized profit.</li>
+                <li><span class="font-semibold text-white">Distance to the trailing floor:</span> dollars of buffer remaining right now — the single most important number on the account. It should be visible before you enter each trade, and in <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> so you know how many standard-risk trades the buffer can absorb.</li>
+                <li><span class="font-semibold text-white">R-per-trade:</span> your realized and unrealized result per position expressed in R, so a "big win" that is actually 6R of open risk sitting on the table is legible for what it is.</li>
+                <li><span class="font-semibold text-white">Peak-to-close giveback:</span> per session, how much open profit you round-tripped. This is the metric that predicts a trailing-drawdown blowup before it happens.</li>
+                <li><span class="font-semibold text-white">Session log for day count:</span> even if the evaluation has no minimum, the PA payout rules may — so log trading days from the start.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Tracking account balance correctly is its own discipline — most traders journal balance in a way that hides exactly the peak-tracking you need here. Our guide on <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">how to journal your account balance</a> covers the fields and update cadence that make trailing-drawdown tracking reliable rather than a lagging spreadsheet.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Using Monte Carlo to Estimate Your Pass Probability</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Before you pay an evaluation fee, you can estimate your odds using the trade history you already have. That is what <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> does: it takes your historical R-multiples, reshuffles their order across 1,000+ simulated paths, and shows the distribution of outcomes plausible for a trader with your edge and variance.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Applied to Apex, the question is specific: across 1,000 simulated evaluations using my actual trade sequence and position sizing, what fraction of paths reach the $3,000 target before the equity — tracked at its running peak — ever falls to the trailing floor? A trailing floor makes this a genuinely different simulation from a static-limit firm, because a path can pass the target and still fail if it peaked high and gave too much back along the way.
+            </p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Simulated Pass Rate</th>
+                            <th class="px-4 py-3 text-left font-semibold">Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Above 60%</td>
+                            <td class="px-4 py-3 text-emerald-400">Your edge and sizing are well-matched to the trailing buffer — attempt with confidence</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">40% – 60%</td>
+                            <td class="px-4 py-3 text-blue-400">Reasonable; budget for more than one fee per funded account on average</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">25% – 40%</td>
+                            <td class="px-4 py-3 text-yellow-400">Marginal — reduce contract size to widen the buffer before attempting</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Below 25%</td>
+                            <td class="px-4 py-3 text-rose-400">Do not attempt yet — your sizing or giveback pattern is misaligned with the trailing drawdown</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Minimum input: about 30 trades taken in conditions similar to how you will trade the evaluation. Below that, the simulation reflects small-sample noise more than your real edge. If you do not yet have 30 qualifying futures trades, collect them on a demo or micros before paying for a full-size account.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Supports Futures Prop Traders</h2>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                A note on platform honesty first, because Apex is futures and much of the journaling market is forex-first. Apex accounts run on platforms like Tradovate, Rithmic, and NinjaTrader — not MetaTrader. SignalDeck's import support reflects that mixed reality:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-semibold text-white">Tradovate sync:</span> if your Apex account runs on Tradovate, your fills can sync into SignalDeck directly. Many Apex traders use Tradovate — but not all, so confirm your own platform.</li>
+                <li><span class="font-semibold text-white">NinjaTrader and universal CSV import:</span> NinjaTrader exports and a general CSV importer cover the platforms we do not sync natively, including Rithmic-based setups. CSV is the universal fallback — any platform that can export trade history can be journaled.</li>
+                <li><span class="font-semibold text-white">Live MT4/MT5 sync</span> exists for the forex/CFD side of our audience via MetaApi, but that is not the Apex path — we call that out so you are not misled into expecting MetaTrader sync for a futures account.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Where SignalDeck earns its place on an Apex account is the analytics layer on top of whatever import you use:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
+                <li><span class="font-semibold text-white">Balance-aware journaling</span> that records your running peak and distance-to-floor, so the trailing drawdown is a live number, not a mental calculation.</li>
+                <li><span class="font-semibold text-white">R-multiple stats</span> across your history, so trade size and giveback are legible in units of risk rather than raw dollars.</li>
+                <li><span class="font-semibold text-white">Monte Carlo (Pro, $30/mo):</span> 1,000-path simulation on your logged trades to estimate your evaluation pass probability before you pay the fee.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                For a broader look at how journaling tools stack up for funded-challenge traders, see the <a href="../best-trading-journal-prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> comparison.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the Apex Trader Funding trailing drawdown?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The Apex trailing drawdown is a maximum loss limit that follows your account's high-water mark upward as your balance grows, keeping a fixed dollar buffer beneath your peak. On a $50,000 evaluation the trailing amount is commonly cited as $2,500. As your unrealized or realized equity makes new highs, the drawdown floor rises with it; once your account gains enough, the floor stops trailing and locks in place. Verify the exact amount, trailing basis, and lock threshold for your plan directly at apextraderfunding.com — Apex changes its rules and promotions frequently.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">Does the Apex trailing drawdown trail intraday or end of day?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">On Apex evaluation and performance accounts, the trailing drawdown has historically trailed based on your intraday peak, including unrealized (open-trade) profit, rather than only your end-of-day closed balance. That means an open position that spikes in your favor and then gives the gains back can raise your trailing floor before you lock the profit in. Apex has offered different plan types over time, so confirm whether your specific plan trails on intraday unrealized equity or end-of-day balance directly with Apex before trading.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is the profit target for the Apex evaluation?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Apex evaluation profit targets scale with account size. A $50,000 account has commonly carried a $3,000 target, and larger accounts carry proportionally larger targets. Apex has at various times removed the minimum-trading-days requirement for the evaluation, allowing a pass in as few sessions as your trading permits, but this has changed before. Confirm the current target and any minimum-day rule for your exact plan at apextraderfunding.com, because these specifics change often.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I track my Apex trailing drawdown in real time?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">You need to track two moving numbers: your current high-water mark (the peak your drawdown trails) and your live distance to the trailing floor beneath it. Because Apex trails on intraday peaks, a spreadsheet updated at end of day tells you where you were, not where you are. A journal that syncs your account balance, records your running peak, and shows distance-to-limit before each entry is the reliable approach. Express the distance in R-multiples so you know how many losing trades of your standard size the buffer can absorb.</p>
+                    </div>
+                    <div>
+                        <p class="text-white font-semibold mb-2">What percentage of traders pass the Apex Trader Funding evaluation?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Apex does not publish an official, current evaluation pass rate, and third-party estimates for futures prop evaluations broadly are low — often cited in the single-digit to low-double-digit percent range, though these figures are not independently verified and vary by source. The dominant failure cause is the trailing drawdown being breached after a peak gain, not a losing streak. A trader with genuine positive expectancy and position sizes matched to the trailing buffer has a materially higher probability of passing than the broad average implies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
+                <p class="text-zinc-500 text-sm mb-6">Running-peak drawdown tracking and Monte Carlo pass-probability are built for prop firm challengers specifically.</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-1">TraderSync has no Monte Carlo simulation and no running-peak drawdown distance widget for trailing-limit accounts.</p>
+                    </a>
+                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
+                        <p class="text-zinc-500 text-xs mt-1">TradeZella has no Monte Carlo simulation for challenge readiness and no trailing-drawdown headroom tracking.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
+                    </a>
+                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
+                        <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
+                    </a>
+                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
+                    </a>
+                    <a href="../journal-account-balance/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Journal Your Account Balance (and Why Most Traders Do It Wrong)</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Know your pass probability before you pay.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck runs 1,000 Monte Carlo paths on your actual trade history against a trailing-drawdown limit, and tracks your running-peak headroom during the evaluation. Monte Carlo is a Pro ($30/mo) feature — free during beta.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'apex-trader-funding-rules'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta — Free
+                    </a>
+                    <a href="../../plans/index.html"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

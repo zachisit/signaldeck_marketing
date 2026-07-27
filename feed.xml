@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>Apex Trader Funding Rules Explained: The Trailing Drawdown Trap</title>
+      <link>https://sgnldk.com/blog/apex-trader-funding-rules/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/apex-trader-funding-rules/</guid>
+      <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Apex's trailing drawdown follows your intraday high-water mark, then locks - which is why traders blow accounts after a good session, not a bad one. A worked $50K example, plus what your journal must track live.</description>
+      <content:encoded>Most traders who blow an Apex Trader Funding account do it right after a good session, not a bad one. The reason is the trailing drawdown - a maximum loss limit that follows your account's intraday high-water mark upward, including unrealized profit on open trades, and then sits there when you give the gains back. Worked $50K example: you spike +$1,800 on an open position, so your peak equity hits $51,800 and the trailing floor climbs with it. You close flat at $50,000 - zero realized profit - yet your loss buffer shrank from $2,500 to $700, because the floor locked in the peak of a trade you round-tripped. That is the mechanic that catches every trader coming from a static-drawdown firm like FTMO, whose overall limit is anchored to the starting balance from day one. The good news is the Apex floor stops trailing once your account gains enough, then becomes static. This guide breaks down the account specs and profit targets, the intraday-peak trailing rule with a full worked example, the Performance Account and payout rules, the three behaviors that cause most blowups, the exact fields your journal must log live (running peak, distance-to-floor in R, peak-to-close giveback), and how to run 1,000 Monte Carlo paths on your own trade history to estimate your pass probability before you pay the fee. Verify all current numbers at apextraderfunding.com - Apex changes its rules often.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01s-trailing-ratchet.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>How to Use Monte Carlo to Decide If You Are Ready for a Prop Firm Challenge</title>
       <link>https://sgnldk.com/blog/prop-firm-monte-carlo-readiness/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/prop-firm-monte-carlo-readiness/</guid>

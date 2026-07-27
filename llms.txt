@@ -284,7 +284,7 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 
 ### Jobs
 - URL: https://sgnldk.com/jobs/
-- Content: Open positions (Software Engineering, Product & Growth for Forex and Crypto, Quantitative Strategy, Social Media Manager, Instagram Social Media Intern)
+- Content: Open positions (Software Engineering, Product & Growth for Forex and Crypto, Quantitative Strategy, Social Media Growth Intern (for academic credit), Social Media Manager, Instagram Social Media Intern)
 
 ### Jobs: Software Engineering Intern (Full Stack)
 - URL: https://sgnldk.com/jobs/software-engineering-intern-full-stack.html
@@ -301,6 +301,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Jobs: Quantitative Strategy Associate Internship
 - URL: https://sgnldk.com/jobs/quantitative-strategy-associate-internship.html
 - Content: Quant strategy internship for a private family office. Review live common stock models for performance gaps and mathematical drift, lead research and foundational modeling for new Forex and Crypto strategy arms, and use proprietary backtesting infrastructure to forward-test models before live deployment. Requires quantitative finance background, Python or R, and statistical knowledge. Remote, 20 hrs/week, unpaid.
+
+### Jobs: Social Media Growth Intern (For Academic Credit)
+- URL: https://sgnldk.com/jobs/social-media-growth-intern.html
+- Content: A for-credit, mentored internship built for Content Creation, communications, journalism, and marketing students (e.g. via ASU Cronkite's MCO 294 or the equivalent). The intern owns SignalDeck's audience growth from near-zero — primarily on X/Twitter, expandable to LinkedIn, TikTok, YouTube Shorts, and Bluesky — planning the content calendar, repurposing long-form video into short-form clips, running community engagement, and reporting weekly on analytics. Explicitly structured so the student is the primary beneficiary: weekly 1:1 founder mentorship, real capstone deliverables (published strategy, live analytics, documented follower/engagement growth), supervisor sign-off and hours tracking, and coordination with the school's internship coordinator for credit approval. Unpaid, remote, one semester (~10–15 hrs/week). Outcomes: portfolio case study, LinkedIn recommendation, end-to-end creator-economy reps. Application form: https://forms.gle/5EZU9brwz6JgBHeB7
 
 ### Jobs: Social Media Manager
 - URL: https://sgnldk.com/jobs/social-media-manager.html

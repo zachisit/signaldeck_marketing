@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: Letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  :root {
+    --bg:#09090b; --panel:#18181b; --panel2:#202023; --border:#27272a;
+    --text:#d4d4d8; --white:#fafafa; --muted:#71717a;
+    --blue:#3b82f6; --emerald:#10b981; --amber:#f59e0b; --purple:#a855f7;
+  }
+  html,body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; }
+  .page{ width:8.5in; height:10.75in; padding:0.5in 0.6in 0.3in; position:relative; overflow:hidden; }
+  .mono{ font-family:'JetBrains Mono',monospace; }
+  .header{ display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:18px; }
+  .header img{ height:26px; }
+  .badge{ font-size:8.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#a5b4fc; background:rgba(30,58,138,.4); border:1px solid rgba(59,130,246,.35); border-radius:5px; padding:3px 7px; }
+  h1{ color:var(--white); font-size:23px; font-weight:800; line-height:1.15; letter-spacing:-.01em; margin-bottom:6px; }
+  h1 .sub{ color:var(--muted); font-weight:500; font-size:17px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:7px; margin:9px 0 16px; }
+  .chip{ font-size:10.5px; border-radius:6px; padding:4px 9px; border:1px solid var(--border); background:var(--panel); color:var(--text); }
+  .chip.emerald{ color:var(--emerald); background:rgba(16,185,129,.1); border-color:rgba(16,185,129,.25); }
+  .chip.purple{ color:var(--purple); background:rgba(168,85,247,.1); border-color:rgba(168,85,247,.25); }
+  .chip.amber{ color:var(--amber); background:rgba(245,158,11,.1); border-color:rgba(245,158,11,.25); }
+  .grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:16px; }
+  .card{ background:var(--panel); border:1px solid var(--border); border-radius:11px; padding:15px 16px; }
+  .card.accent{ background:rgba(16,185,129,.05); border-color:rgba(16,185,129,.22); }
+  h2{ color:var(--white); font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:9px; }
+  h2 .dot{ color:var(--blue); }
+  p{ font-size:11.5px; line-height:1.55; color:var(--text); }
+  ul{ list-style:none; }
+  li{ font-size:11px; line-height:1.5; padding-left:15px; position:relative; margin-bottom:7px; color:var(--text); }
+  li::before{ content:"—"; position:absolute; left:0; color:var(--blue); }
+  li b{ color:var(--white); font-weight:600; }
+  .section-gap{ margin-top:12px; }
+  .mentor{ display:flex; gap:12px; align-items:flex-start; }
+  .mentor .avatar{ width:42px; height:42px; border-radius:9px; background:linear-gradient(135deg,#1e3a8a,#0b1220); border:1px solid rgba(59,130,246,.4); display:flex; align-items:center; justify-content:center; color:#93c5fd; font-weight:800; font-size:16px; flex-shrink:0; }
+  .proof a{ color:#93c5fd; text-decoration:none; }
+  .proof li b{ color:var(--white); }
+  .cta{ margin-top:16px; background:var(--panel2); border:1px solid var(--border); border-radius:11px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .cta .txt{ font-size:11.5px; color:var(--text); }
+  .cta .txt b{ color:var(--white); }
+  .cta .link{ font-size:11px; color:#93c5fd; }
+  .apply{ background:var(--blue); color:#fff; font-weight:600; font-size:12px; border-radius:7px; padding:9px 18px; white-space:nowrap; }
+  .footer{ margin-top:16px; border-top:1px solid var(--border); padding-top:10px; display:flex; justify-content:space-between; color:var(--muted); font-size:9.5px; }
+  .lead{ color:#e4e4e7; font-size:12px; line-height:1.55; }
+  .kv{ font-size:10.5px; color:var(--muted); }
+  .kv b{ color:var(--text); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img src="../../img/logo-horizontal-light.svg" alt="SignalDeck">
+    <span class="badge">Internship Overview · For Academic Credit</span>
+  </div>
+
+  <h1>Social Media Growth Intern <span class="sub">(For Academic Credit)</span></h1>
+  <p class="lead">A for-credit, mentored internship for Content Creation and communications students. Own a real brand's audience growth from near-zero, work 1:1 with the founder, and graduate with a portfolio of measurable results — the exact skill the creator economy hires for.</p>
+
+  <div class="chips">
+    <span class="chip">📍 Remote</span>
+    <span class="chip emerald">🎓 For Academic Credit</span>
+    <span class="chip purple">💼 Unpaid + Mentored</span>
+    <span class="chip amber">📣 Social Media &amp; Content</span>
+    <span class="chip">🗓 One Semester · 20 hrs/week</span>
+  </div>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <h2><span class="dot">▍</span> About SignalDeck</h2>
+        <p>SignalDeck is a trading-analytics and journaling platform for serious retail and prop-firm traders — institutional-grade performance analytics applied to a trader's own data. We're an early-stage FinTech building our audience from the ground up, which makes this a rare chance to own real growth rather than inherit a machine that already runs itself.</p>
+      </div>
+
+      <div class="card section-gap">
+        <h2><span class="dot">▍</span> What You'll Own</h2>
+        <ul>
+          <li><b>Content calendar</b> across X/Twitter (primary), plus LinkedIn, TikTok, YouTube Shorts &amp; Bluesky.</li>
+          <li><b>Create &amp; repurpose</b> — turn long-form video and course content into short-form clips, hooks &amp; carousels.</li>
+          <li><b>Community growth</b> — replies, comment strategy, and organic engagement to expand reach.</li>
+          <li><b>Measure &amp; report</b> — weekly analytics on growth, engagement &amp; what's working.</li>
+        </ul>
+      </div>
+
+      <div class="card accent section-gap">
+        <h2 style="color:#6ee7b7;">🎓 Built for Academic Credit</h2>
+        <p style="margin-bottom:8px;">Designed to be taken for credit through your program's internship course (e.g. ASU Cronkite <b style="color:#fff;">MCO&nbsp;294</b> or equivalent). Structured so <b style="color:#fff;">you are the primary beneficiary</b> — learning, mentorship &amp; portfolio, not free labor.</p>
+        <ul>
+          <li>Weekly <b>1:1 founder mentorship</b> — strategy, feedback &amp; coaching.</li>
+          <li><b>Supervisor sign-off &amp; hours tracking</b> — we complete the evaluations, learning agreements &amp; reviews your credit requires.</li>
+          <li>We coordinate directly with your <b>internship coordinator</b> for credit approval before you start.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2><span class="dot">▍</span> Your Mentor</h2>
+        <div class="mentor">
+          <div class="avatar">SD</div>
+          <div>
+            <p><b style="color:#fff;">The Founder</b> — Systems Architect with ~20 years in distributed systems, now building SignalDeck end-to-end: product, brand, and its content engine. You'll work with the person making the calls, with a direct say in the brand's early direction.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card section-gap proof">
+        <h2><span class="dot">▍</span> This Is a Real Content Operation</h2>
+        <ul>
+          <li><b>YouTube</b> — @SignalDeck: livestreams, an 8-episode SEO course &amp; a Shorts pipeline.</li>
+          <li><b>X / Twitter</b> — <a>@sgnldk</a>: the channel you'll help grow.</li>
+          <li><b>Blog</b> — sgnldk.com/blog: SEO-driven trader education.</li>
+          <li><b>LinkedIn</b> — /company/sgnldk.</li>
+        </ul>
+      </div>
+
+      <div class="card section-gap">
+        <h2><span class="dot">▍</span> You'll Walk Away With</h2>
+        <ul>
+          <li>A <b>portfolio case study</b> of real audience growth.</li>
+          <li>A <b>LinkedIn recommendation</b> tied to numbers you moved.</li>
+          <li>End-to-end <b>creator-economy reps</b> in one semester.</li>
+        </ul>
+      </div>
+
+      <div class="card section-gap">
+        <h2><span class="dot">▍</span> Logistics</h2>
+        <p class="kv"><b>Location:</b> Remote &nbsp;·&nbsp; <b>Comp:</b> Unpaid, for credit<br>
+        <b>Commitment:</b> 20 hrs/week &nbsp;·&nbsp; <b>Term:</b> One semester</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="txt"><b>Apply:</b> forms.gle/5EZU9brwz6JgBHeB7 &nbsp;—&nbsp; mention your school &amp; internship course so we can coordinate credit.<br><span class="link">Full posting: sgnldk.com/jobs/social-media-growth-intern.html</span></div>
+    <span class="apply">Apply Now →</span>
+  </div>
+
+  <div class="footer">
+    <span class="mono">© 2026 SignalDeck</span>
+    <span class="mono">sgnldk.com &nbsp;·&nbsp; Social Media Growth Intern (For Academic Credit)</span>
+  </div>
+
+</div>
+</body>
+</html>

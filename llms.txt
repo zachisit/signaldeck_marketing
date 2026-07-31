@@ -209,11 +209,32 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Free Tools Hub
 - URL: https://sgnldk.com/tools/
 - Content: Free trading-tools hub — 8 calculators, all free/instant/no-signup, built on the R-value framework, each funneling to journaling real trades in SignalDeck: Position Size (/position-sizing/), R-Multiple (/tools/r-multiple-calculator/), Drawdown Recovery (/tools/drawdown-recovery-calculator/), Kelly Criterion (/tools/kelly-criterion-calculator/), Expectancy (/tools/expectancy-calculator/), Pip Value (/tools/pip-value-calculator/), Prop-Firm Payout (/tools/prop-firm-payout-calculator/), and the prop-firm "Would I Pass?" rule checker (/would-i-pass/). Target queries: free trading tools, trading calculators, position size calculator, kelly criterion calculator, expectancy calculator, drawdown recovery calculator, pip value calculator.
+### R-Multiple Calculator (Free Tool)
 - URL: https://sgnldk.com/tools/r-multiple-calculator/
 - Content: Free R-multiple calculator — enter entry, stop, exit (long or short) to get the trade's R-multiple and reward-to-risk ratio; optional account + risk% returns position size and $ P&L. Target queries: R-multiple calculator, how to calculate R-multiple, risk reward calculator, reward to risk ratio.
+### Would I Pass? Prop Firm Rule Checker (Free Tool)
 - URL: https://sgnldk.com/would-i-pass/
 - Content: Free instant "Would I Pass?" prop-firm rule checker — enter your run (net profit, biggest day, drawdown, trading days) and it checks against FTMO, Topstep, Apex, MyFundedFutures, FundedNext, The5ers, FXIFY and Take Profit Trader: profit target, max drawdown (static vs trailing), daily loss limit, minimum trading days, and the consistency rule (best day < 40–50% of profit). Per-firm rules-at-a-glance table. Edge-validation framing: know your edge survives the rules before paying the challenge fee. Target queries: would i pass FTMO, prop firm challenge calculator, prop firm consistency rule, max drawdown checker.
 
+### Drawdown Recovery Calculator (Free Tool)
+- URL: https://sgnldk.com/tools/drawdown-recovery-calculator/
+- Content: Enter a drawdown percentage and get the exact gain required to return to break-even. Makes the asymmetry concrete: a 20% drawdown needs a 25% gain, a 50% drawdown needs 100%, and the curve steepens fast beyond that. Free, instant, no signup. Target queries: drawdown recovery calculator, gain needed to break even, recover from drawdown, drawdown math trading.
+
+### Trading Expectancy Calculator (Free Tool)
+- URL: https://sgnldk.com/tools/expectancy-calculator/
+- Content: Enter win rate, average win and average loss to get expected profit per trade in both currency and R, plus a 100-trade projection. The fastest way to see that a low win rate with large winners can beat a high win rate with large losers. Free, instant, no signup. Target queries: expectancy calculator, expected profit per trade, trading expectancy formula calculator, R expectancy.
+
+### Kelly Criterion Calculator (Free Tool)
+- URL: https://sgnldk.com/tools/kelly-criterion-calculator/
+- Content: Enter win rate and reward-to-risk to get full, half and quarter-Kelly position fractions, with an explicit no-edge warning when the inputs imply negative expectancy. Half-Kelly is presented as the practical default given estimation error. Free, instant, no signup. Target queries: kelly criterion calculator, optimal position size, half kelly, quarter kelly, kelly formula trading.
+
+### Pip Value Calculator (Free Tool)
+- URL: https://sgnldk.com/tools/pip-value-calculator/
+- Content: Enter position size and pip size (0.0001, or 0.01 for JPY pairs) to get pip value in the account currency, with standard/mini/micro lot presets. Addresses the pip-definition confusion that breaks position sizing on JPY crosses and metals. Free, instant, no signup. Target queries: pip value calculator, forex pip value, pip worth per lot, JPY pip value, xauusd pip value.
+
+### Prop Firm Payout Calculator (Free Tool)
+- URL: https://sgnldk.com/tools/prop-firm-payout-calculator/
+- Content: Enter profit and pick a firm — FTMO, Topstep, Apex, FundedNext, The5ers — or set a custom split, to see take-home after the profit share. Splits are presented as commonly published figures and should be verified with the firm, since terms change. Free, instant, no signup. Target queries: prop firm payout calculator, profit split calculator, ftmo payout, topstep payout, apex profit split.
 ### Prop Firm Traders
 - URL: https://sgnldk.com/prop-firm/
 - Content: Dedicated landing page for prop firm challenge and funded account traders. Keywords: prop firm challenge tracker, funded account drawdown tracker, daily drawdown limit trading journal, prop firm consistency rule, funded trader accountability. Feature pills include "Drawdown Limit Tracker" and "Consistency Rule Compliance". Covers: MT4/MT5 auto-import via MetaApi (trades import automatically — fills, P&L, symbol, volume, price), live account balance sync (funded equity updates in real time so Kelly sizing is never stale), R-Multiple framework mirrors prop firm risk rules (daily drawdown limits, max drawdown rules, consistency requirements align with 1R-per-trade sizing), Walk-Forward Analysis + Monte Carlo to validate edge before a challenge (costs $200–$1,000+ — know before you pay), native instrument support for NAS100/XAUUSD/GER40/US500/US30/forex, live stop monitoring, challenge vs funded phase comparison, SQN edge validation before scaling, 5-step Post Mortem for recurring discipline errors. FAQ: best journal for prop firm traders, MT4/MT5 support, live balance sync for funded accounts, walk-forward before challenge, daily loss limit alignment, challenge vs funded tracking, instrument support. Targets FTMO, MyFundedFX, Apex, The5ers participants.
@@ -313,6 +334,18 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Jobs: Instagram Social Media Intern
 - URL: https://sgnldk.com/jobs/instagram-social-media-intern.html
 - Content: Pre-seed startup Instagram role. Launch a brand-new SignalDeck Instagram account from zero followers and own daily execution of Reels, Stories, and carousels targeted to the ICP (serious retail traders across stocks, futures, forex, crypto). Work 1:1 with the founder. North-star metric: drive the company's first 10 paying users (not vanity metrics) — SignalDeck is free during beta with paid tiers (Free / Pro $30 / Elite $50) launching ~June 2026, so the role builds the audience and funnel that converts to paid. Unpaid, remote, 1–3 months depending on fit. Application form: https://forms.gle/5EZU9brwz6JgBHeB7
+
+### Jobs: QA Analyst Intern
+- URL: https://sgnldk.com/jobs/qa-analyst-intern.html
+- Content: Open role at SignalDeck, listed on the careers index at https://sgnldk.com/jobs/. Early-stage startup position working directly with the founder. See the role page for scope, time commitment, compensation basis and the application link.
+
+### Jobs: Brand Partner Research Intern (X/Twitter)
+- URL: https://sgnldk.com/jobs/brand-partner-research-intern.html
+- Content: Open role at SignalDeck, listed on the careers index at https://sgnldk.com/jobs/. Early-stage startup position working directly with the founder. See the role page for scope, time commitment, compensation basis and the application link.
+
+### Jobs: Short-Form Video Editor
+- URL: https://sgnldk.com/jobs/short-form-video-editor.html
+- Content: Open role at SignalDeck, listed on the careers index at https://sgnldk.com/jobs/. Early-stage startup position working directly with the founder. See the role page for scope, time commitment, compensation basis and the application link.
 
 ### Release History
 - URL: https://sgnldk.com/release-history.html
@@ -428,6 +461,30 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 ### Blog: What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric
 - URL: https://sgnldk.com/blog/what-is-r-multiple/
 - Content: R-Multiple defines the amount risked on a trade — entry price to stop, multiplied by position size — as 1R, and expresses every outcome as a multiple of that unit. A trade that gains three times the amount risked is +3R; a full stop-out is −1R. Because the unit is the risk taken rather than a currency amount, R normalizes results across instruments, position sizes, account sizes and time, which is what makes a gold scalp and a EURUSD swing comparable in a single distribution and a trade from last year comparable to one from this morning. The article's core argument is that R is not one metric among many but the INPUT that makes the others computable: expectancy is the mean of the R distribution, SQN is mean R divided by the standard deviation of R scaled by sample size, Kelly Criterion derives position size from the win rate and average win/loss ratio that R makes measurable, and Monte Carlo resamples the R-sequence to produce a drawdown distribution. Without a consistent risk unit none of those numbers can be computed honestly. Covers the formula and worked calculation, benchmark expectations by strategy type (scalping, day trading, swing and trend approaches carry structurally different R profiles, so a 'good' R-multiple is only meaningful within a strategy class), how R connects to Walk-Forward Analysis as the unit in which out-of-sample results are compared, and why R is especially load-bearing in prop firm trading, where drawdown headroom expressed in R tells the trader how many standard-size losing trades the remaining buffer can absorb. FAQ: what R-Multiple is, how to calculate it, what a good R-Multiple is, how it relates to SQN, and why SignalDeck uses it as the core metric. Target queries: R-multiple trading, what is R-multiple, R-value trading, 1R risk unit, risk reward ratio, expectancy R-multiple, trading risk unit, R-multiple position sizing.
+
+### FTMO Trading Journal (Landing Page)
+- URL: https://sgnldk.com/ftmo-trading-journal/
+- Content: Dedicated landing page for FTMO challenge and funded traders. Covers MT4/MT5 auto-import via MetaApi so trades and live account balance arrive without manual entry, the R-Multiple framework applied to challenge trading (distance to the daily loss limit and the maximum drawdown expressed in R, so the trader knows how many standard-size losing trades the remaining buffer absorbs), and Walk-Forward Analysis plus Monte Carlo run on the trader's own history to validate an edge BEFORE the evaluation fee is paid rather than discovering the answer by failing. Positions the product against the core FTMO failure mode: most traders who fail have a real edge and lose the account to position sizing and drawdown blindness, not to a broken strategy. Cross-links the FTMO challenge rules breakdown, the trailing-vs-static drawdown explainer, and the how-to-pass workflow. FTMO rules are hedged as subject to change and readers are told to verify directly with FTMO. Target queries: ftmo trading journal, ftmo journal app, trading journal for ftmo, ftmo challenge tracker, mt5 journal ftmo, ftmo drawdown tracker.
+
+### Market News
+- URL: https://sgnldk.com/news/
+- Content: Per-symbol market news surfaced inside the journal across stocks, CFDs, metals and crypto. Rather than a general market feed, headlines are scoped to the symbols the trader actually holds and shown from around the entry time, sentiment-tagged, so a trade can be reviewed against the news environment that existed when it was taken instead of reconstructed from memory weeks later. The use case is post-mortem accuracy: distinguishing a setup that failed on its own merits from one that was overrun by a scheduled release or a headline. Elite plan feature. Target queries: trading journal news feed, per symbol market news, trade news context, sentiment tagged headlines, market news trading journal.
+
+### Support — 1:1 Discord With the Founder
+- URL: https://sgnldk.com/compare/support/
+- Content: Support comparison page. SignalDeck's support model is direct 1:1 Discord access to the founder with no ticket queue and no chatbot, which is feasible because the community is intentionally small. Compares that model against TraderSync, Edgewonk, TradeZella and Tradervue, whose support runs through email or help-desk systems. Competitor support characterizations are drawn from public documentation and reviews as of early 2026 and are flagged as not independently verified. Target queries: signaldeck support, trading journal support comparison, tradersync support, edgewonk support, tradezella support, tradervue support.
+
+### Contact
+- URL: https://sgnldk.com/contact.html
+- Content: Contact routes for the SignalDeck team: LinkedIn for company and partnership enquiries, and Discord for real-time support with direct founder access. There is no ticket-queue support channel by design. Target queries: contact signaldeck, signaldeck support contact, signaldeck linkedin, signaldeck discord.
+
+### Privacy Policy
+- URL: https://sgnldk.com/privacy.html
+- Content: How SignalDeck collects, uses and protects user data on the trading journal platform, including trade data, broker connection credentials handled through the MetaApi integration, and analytics. Companion pages exist per iOS app with stricter scopes (FX Strength and Prop Lot Size keep trading inputs on-device; Market Posture uses no account and no analytics SDKs). Target queries: signaldeck privacy policy, trading journal data privacy, is my trade data private, signaldeck data collection.
+
+### Terms of Service
+- URL: https://sgnldk.com/terms.html
+- Content: Terms governing use of the SignalDeck trading journal platform, including account terms, subscription and billing conditions across the Free, Pro and Elite tiers, and acceptable use. Note that SignalDeck is a journaling and analytics tool, not a broker, signal service or investment adviser. Target queries: signaldeck terms of service, trading journal terms, signaldeck subscription terms.
 
 ### Brand Ambassador — PAP€RWORK (@gr3fter)
 - URL: https://sgnldk.com/brand_ambassadors/paperwork/

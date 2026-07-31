@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-T · Outlier Concentration</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+/* Decorative top band */
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+/* Bold accent bar along the bottom */
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+/* The 1500x500 design stage, vertically centered */
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Profitable Without<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">a Journal?</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Drop Your Top 5 Trades &middot; Is It Still an Edge?</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Concentration &middot; Regime &middot; Edge Decay &middot; R-Multiple</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  const rng = prng(40721);
+  const N = 132;
+
+  /* Per-trade R-multiples. The base distribution has slightly NEGATIVE
+     expectancy - the account is carried entirely by five outlier winners.
+     This is the "Trader B" profile from the article. */
+  const R = [];
+  for (let i = 0; i < N; i++) {
+    const win = rng() < 0.42;
+    R.push(win ? 0.35 + rng() * 1.25 : -(0.55 + rng() * 0.75));
+  }
+
+  /* Five outliers, spread across the history so the concentration is not
+     a single lucky streak but a handful of scattered tail events. */
+  const OUT = [17, 46, 68, 97, 121];
+  OUT.forEach((idx, k) => { R[idx] = 7.2 + k * 0.9 + rng() * 1.4; });
+
+  /* Two equity curves: everything, and everything minus the top 5. */
+  const full = [0], less = [0];
+  for (let i = 0; i < N; i++) {
+    full.push(full[i] + R[i]);
+    less.push(less[i] + (OUT.includes(i) ? 0 : R[i]));
+  }
+
+  /* ---- geometry ---------------------------------------------------- */
+  const X0 = 30, X1 = 940;
+  const toX = i => X0 + (i / N) * (X1 - X0);
+
+  /* Equity curves occupy the upper band, R bars the lower band. */
+  const EQ_TOP = 48, EQ_BOT = 292;
+  const eMax = Math.max(...full, ...less), eMin = Math.min(...full, ...less, 0);
+  const eRange = (eMax - eMin) || 1;
+  const toEY = v => EQ_TOP + ((eMax - v) / eRange) * (EQ_BOT - EQ_TOP);
+
+  const ZERO = 408;                 // R-bar baseline
+  const rMax = Math.max(...R.map(Math.abs));
+  const BAR_UP = 84, BAR_DN = 46;   // px available above / below the baseline
+  const toBarH = r => (Math.abs(r) / rMax) * (r > 0 ? BAR_UP : BAR_DN);
+
+  const defs = el(svg, 'defs', {});
+
+  /* Right-edge fade. Everything is drawn inside a masked group so the chart
+     dissolves into the panel instead of stopping at a hard vertical edge. */
+  const fg = el(defs, 'linearGradient', { id: 'fadeg', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(fg, 'stop', { offset: '0%',  'stop-color': '#fff', 'stop-opacity': '1' });
+  el(fg, 'stop', { offset: '52%', 'stop-color': '#fff', 'stop-opacity': '1' });
+  el(fg, 'stop', { offset: '100%', 'stop-color': '#fff', 'stop-opacity': '0' });
+  const mask = el(defs, 'mask', { id: 'fade' });
+  el(mask, 'rect', { x: 0, y: 0, width: 1500, height: 500, fill: 'url(#fadeg)' });
+  const g = el(svg, 'g', { mask: 'url(#fade)' });
+
+  /* Fill under the full-equity curve */
+  const eqg = el(defs, 'linearGradient', { id: 'eqg', x1: '0', y1: '0', x2: '0', y2: '1' });
+  el(eqg, 'stop', { offset: '0%', 'stop-color': '#3b82f6', 'stop-opacity': '0.24' });
+  el(eqg, 'stop', { offset: '100%', 'stop-color': '#3b82f6', 'stop-opacity': '0.0' });
+
+  /* Wedge between the two curves - the profit that exists only because of the outliers */
+  const gapg = el(defs, 'linearGradient', { id: 'gapg', x1: '0', y1: '0', x2: '0', y2: '1' });
+  el(gapg, 'stop', { offset: '0%', 'stop-color': '#10b981', 'stop-opacity': '0.15' });
+  el(gapg, 'stop', { offset: '100%', 'stop-color': '#10b981', 'stop-opacity': '0.03' });
+
+  /* Grid */
+  [0.25, 0.5, 0.75, 1].forEach(f => {
+    const y = (EQ_TOP + f * (EQ_BOT - EQ_TOP)).toFixed(1);
+    el(g, 'line', { x1: 0, y1: y, x2: 920, y2: y, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 8', opacity: 0.4 });
+  });
+
+  /* The wedge: area between full equity and ex-outlier equity */
+  let wedge = '';
+  for (let i = 0; i <= N; i++) wedge += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toEY(full[i]).toFixed(1) + ' ';
+  for (let i = N; i >= 0; i--) wedge += 'L' + toX(i).toFixed(1) + ',' + toEY(less[i]).toFixed(1) + ' ';
+  wedge += 'Z';
+  el(g, 'path', { d: wedge, fill: 'url(#gapg)', stroke: 'none' });
+
+  /* Full equity fill */
+  let eqFill = '';
+  for (let i = 0; i <= N; i++) eqFill += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toEY(full[i]).toFixed(1) + ' ';
+  eqFill += 'L' + toX(N).toFixed(1) + ',' + EQ_BOT + ' L' + toX(0).toFixed(1) + ',' + EQ_BOT + ' Z';
+  el(g, 'path', { d: eqFill, fill: 'url(#eqg)', stroke: 'none' });
+
+  /* Ex-outlier equity: rose, dashed - drifts below flat */
+  let lessD = '';
+  for (let i = 0; i <= N; i++) lessD += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toEY(less[i]).toFixed(1) + ' ';
+  el(g, 'path', { d: lessD, stroke: '#f43f5e', 'stroke-width': 2, fill: 'none', opacity: 0.8, 'stroke-dasharray': '7 5' });
+
+  /* Break-even reference */
+  el(g, 'line', { x1: X0, y1: toEY(0).toFixed(1), x2: 920, y2: toEY(0).toFixed(1), stroke: '#3f3f46', 'stroke-width': 1, opacity: 0.55 });
+
+  /* Full equity curve: glow + line */
+  let fullD = '';
+  for (let i = 0; i <= N; i++) fullD += (i === 0 ? 'M' : 'L') + toX(i).toFixed(1) + ',' + toEY(full[i]).toFixed(1) + ' ';
+  el(g, 'path', { d: fullD, stroke: '#3b82f6', 'stroke-width': 6, fill: 'none', opacity: 0.1, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  el(g, 'path', { d: fullD, stroke: '#60a5fa', 'stroke-width': 2.5, fill: 'none', opacity: 0.92, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+
+  /* Terminal pulse on the full curve */
+  el(g, 'circle', { cx: toX(N).toFixed(1), cy: toEY(full[N]).toFixed(1), r: 9, fill: '#2dd4bf', opacity: 0.16 });
+  el(g, 'circle', { cx: toX(N).toFixed(1), cy: toEY(full[N]).toFixed(1), r: 4, fill: '#2dd4bf', opacity: 0.95 });
+
+  /* ---- per-trade R bars -------------------------------------------- */
+  el(g, 'line', { x1: 0, y1: ZERO, x2: 920, y2: ZERO, stroke: '#3f3f46', 'stroke-width': 1, opacity: 0.7 });
+
+  const bw = ((X1 - X0) / N) * 0.58;
+  for (let i = 0; i < N; i++) {
+    const r = R[i], h = toBarH(r), x = toX(i) - bw / 2;
+    const outlier = OUT.includes(i);
+    el(g, 'rect', {
+      x: x.toFixed(1),
+      y: (r > 0 ? ZERO - h : ZERO).toFixed(1),
+      width: bw.toFixed(1),
+      height: Math.max(h, 1).toFixed(1),
+      rx: 1,
+      fill: outlier ? '#10b981' : (r > 0 ? '#3b82f6' : '#f43f5e'),
+      opacity: outlier ? 0.95 : (r > 0 ? 0.42 : 0.4)
+    });
+    /* Tick above each outlier so the five carrying trades read instantly */
+    if (outlier) {
+      el(g, 'circle', { cx: toX(i).toFixed(1), cy: (ZERO - h - 11).toFixed(1), r: 2.6, fill: '#10b981', opacity: 0.9 });
+    }
+  }
+})();
+</script>
+</body>
+</html>

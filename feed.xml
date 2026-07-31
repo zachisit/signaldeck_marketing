@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>Do You Need a Trading Journal If You Are Already Profitable?</title>
+      <link>https://sgnldk.com/blog/do-you-need-a-trading-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/do-you-need-a-trading-journal/</guid>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>The most common objection to journaling: I am already profitable without one. Here is an honest answer - what profit alone cannot prove, a 10 minute concentration test for your broker statement, and when skipping it is correct.</description>
+      <content:encoded>The most common objection to keeping a trading journal is that it is unnecessary once you are making money, and it usually comes from credible people with real track records. That deserves a real answer rather than a sales pitch. Net profit is an output. It is one number summarising thousands of decisions across one particular sequence of market conditions, and it structurally cannot separate a durable edge from a favourable regime, a broad edge from a handful of outliers, or good sizing from lucky sizing. It also has no derivative: it tells you where you have been, not which way you are moving, which is why a strategy that began decaying six months ago can still show a healthy lifetime figure. Three questions profit alone cannot answer: which of my setups actually makes money, is my edge decaying right now, and how bad can this realistically get. That last one matters most to experienced traders, because your worst observed drawdown is a single sample from a distribution and the typical bad path may be far deeper. Before deciding anything, run the concentration test on data you already have: export your closed trades, sum the net profit, delete the top five winners, and sum the remainder. If what is left is still profitable you have a broad edge with big winners on top. If it is negative, your entire result is five trades. Both profiles report the same headline number and only one is repeatable. The article also covers the four fields that make a log worth keeping (setup tag, result in R, planned versus actual risk, one line of context), the roughly 30 trades per setup you need before drawing conclusions, and the three cases where not journaling is genuinely correct: trading on a desk whose risk system already computes attribution, running a fully systematic live versus backtest pipeline, or trading too infrequently for any sample to mean anything. In all three you already perform the function under a different name.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01t-outlier-concentration.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Apex Trader Funding Rules Explained: The Trailing Drawdown Trap</title>
       <link>https://sgnldk.com/blog/apex-trader-funding-rules/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/apex-trader-funding-rules/</guid>

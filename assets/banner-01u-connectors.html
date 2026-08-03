@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SignalDeck — Banner 01-U · Connectors</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:70px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Does It<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Connect?</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">MT5 &middot; Tradovate &middot; Rithmic &middot; cTrader &middot; CSV</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Live Sync &middot; Terminal Export &middot; File Import</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  const defs = el(svg, 'defs', {});
+
+  const glowLive = el(defs, 'radialGradient', { id: 'glowLive', cx: '0.5', cy: '0.5', r: '0.5' });
+  el(glowLive, 'stop', { offset: '0%', 'stop-color': '#2dd4bf', 'stop-opacity': '0.85' });
+  el(glowLive, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0' });
+
+  const glowHub = el(defs, 'radialGradient', { id: 'glowHub', cx: '0.5', cy: '0.5', r: '0.5' });
+  el(glowHub, 'stop', { offset: '0%', 'stop-color': '#3b82f6', 'stop-opacity': '0.5' });
+  el(glowHub, 'stop', { offset: '100%', 'stop-color': '#3b82f6', 'stop-opacity': '0' });
+
+  /* Hub: the journal, positioned in the visible (non-faded) zone */
+  const hub = { x: 250, y: 250 };
+
+  /* Platform nodes: mix of live (solid line, teal pulse) and CSV (dashed line, rose hollow) */
+  /* Label position is explicit per node to keep every label inside the 0-780px visible band */
+  const nodes = [
+    { label: 'MT4/MT5',      nx: 560, ny: 90,  live: true,  anchor: 'start', lx: 14,  ly: 4  },
+    { label: 'Tradovate',    nx: 650, ny: 195, live: true,  anchor: 'start', lx: 14,  ly: 4  },
+    { label: 'cTrader',      nx: 650, ny: 310, live: true,  anchor: 'start', lx: 14,  ly: 4  },
+    { label: 'IBKR',         nx: 560, ny: 410, live: true,  anchor: 'start', lx: 14,  ly: 4  },
+    { label: 'NinjaTrader',  nx: 250, ny: 55,  live: false, anchor: 'middle', lx: 0,  ly: -18 },
+    { label: 'Rithmic',      nx: 130, ny: 385, live: false, anchor: 'end',   lx: -14, ly: 4  },
+    { label: 'CSV / Generic',nx: 90,  ny: 205, live: false, anchor: 'middle', lx: 0,  ly: 26 },
+  ];
+
+  el(svg, 'circle', { cx: hub.x, cy: hub.y, r: 70, fill: 'url(#glowHub)' });
+
+  nodes.forEach((n) => {
+    if (n.live) {
+      el(svg, 'line', { x1: hub.x, y1: hub.y, x2: n.nx, y2: n.ny, stroke: '#2dd4bf', 'stroke-width': 2, opacity: 0.55 });
+      el(svg, 'circle', { cx: n.nx, cy: n.ny, r: 16, fill: 'url(#glowLive)' });
+      el(svg, 'circle', { cx: n.nx, cy: n.ny, r: 5, fill: '#2dd4bf' });
+    } else {
+      el(svg, 'line', { x1: hub.x, y1: hub.y, x2: n.nx, y2: n.ny, stroke: '#f43f5e', 'stroke-width': 1.5, 'stroke-dasharray': '5 7', opacity: 0.4 });
+      el(svg, 'circle', { cx: n.nx, cy: n.ny, r: 5, fill: '#09090b', stroke: '#f43f5e', 'stroke-width': 2, opacity: 0.85 });
+    }
+
+    el(svg, 'text', {
+      x: n.nx + n.lx, y: n.ny + n.ly, 'text-anchor': n.anchor,
+      'font-family': 'JetBrains Mono, monospace', 'font-size': '15', 'font-weight': '700',
+      fill: n.live ? '#5eead4' : '#71717a', 'letter-spacing': '0.02em'
+    }).textContent = n.label;
+  });
+
+  /* Journal hub node on top */
+  el(svg, 'circle', { cx: hub.x, cy: hub.y, r: 24, fill: '#0f0f12', stroke: '#3b82f6', 'stroke-width': 2.5 });
+  el(svg, 'circle', { cx: hub.x, cy: hub.y, r: 7, fill: '#60a5fa' });
+  el(svg, 'text', {
+    x: hub.x, y: hub.y + 46, 'text-anchor': 'middle',
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700',
+    fill: '#93c5fd', 'letter-spacing': '0.08em'
+  }).textContent = 'JOURNAL';
+})();
+</script>
+</body>
+</html>

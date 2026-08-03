@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>Which Trading Platforms Can a Journal Actually Sync With?</title>
+      <link>https://sgnldk.com/blog/trading-journal-platform-support/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/trading-journal-platform-support/</guid>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Every journal claims broker support, and almost none say what kind. MT4/MT5, Tradovate, Rithmic, NinjaTrader, cTrader, IBKR - what connects live, what needs CSV, and what CSV-only still gives you.</description>
+      <content:encoded>Every trading journal's landing page lists analytics features, and almost none are precise about what "syncs with your broker" actually means. There are three connection types on the market and they are not interchangeable: a broker-side API session that sees open positions and live balance, a terminal-side script or EA that only writes closed trades while the terminal runs, and CSV file import that sees everything the export contains but only after the fact. This guide is the honest platform-by-platform matrix. MT4 and MT5 connect live through MetaApi (Elite plan) - no EA, real-time balance sync. Tradovate syncs directly for futures, with one carve-out: many but not all Apex and Topstep evaluation accounts restrict outside API access regardless of the underlying platform, so CSV is the path there instead. NinjaTrader and Rithmic-based setups go through CSV export, with a named NinjaTrader format that handles futures contract multipliers automatically. cTrader connects live via OAuth across any cTrader broker, IBKR connects through the free Flex Web Service, and SnapTrade aggregates 30+ retail brokers. Below that tier - Indian F&O brokers on proprietary dealer terminals, in-house desk platforms with closed accounting stacks - generic CSV is the honest answer, not a dead end. The piece also lays out exactly what CSV-only import still gives you: R-multiples, per-setup expectancy, SQN, and Monte Carlo all run fine on imported history. What it cannot give you is live drawdown headroom while a position is still open, because that requires reading your account's current state, not its history. Closes with a five-question compatibility checklist to run against any vendor before paying for a journal.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01u-connectors.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Do You Need a Trading Journal If You Are Already Profitable?</title>
       <link>https://sgnldk.com/blog/do-you-need-a-trading-journal/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/do-you-need-a-trading-journal/</guid>

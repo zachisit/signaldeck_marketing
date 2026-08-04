@@ -154,12 +154,64 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.100 -->
+            <div class="pl-8 relative" id="v1-0-100">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.100-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Aug 4, 2026 6:31PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>v1.0.100 fixes the single most common frustration with broker importing: a trade you imported while it was still open, that has since closed. Until now SignalDeck would quietly skip it and leave the position open in your journal forever. Now it imports the close &mdash; from every broker, and from CSV.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Importing a position that has since closed</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A trade you imported while it was open now updates when it closes</strong> &mdash; across MetaTrader 5, cTrader, SnapTrade, Interactive Brokers and Tradovate. Previously it was treated as a duplicate and skipped, leaving the position open in your journal indefinitely.</li>
+                            <li><strong class="text-zinc-200">CSV imports can close an open trade too.</strong> Re-import your broker's export after a position closes and SignalDeck matches it to the open trade and closes it, instead of silently ignoring the row.</li>
+                            <li><strong class="text-zinc-200">Type a historical stop and watch the R-multiple appear live</strong> on the exit card, so you can reconstruct the risk on a trade you have already closed.</li>
+                            <li><strong class="text-zinc-200">Clearing a field in the import Details window now sticks</strong> &mdash; emptying a stop or target used to silently do nothing.</li>
+                            <li><strong class="text-zinc-200">Closed rows no longer show controls that only make sense on a live position.</strong></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Broker syncing actually runs</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Automatic syncing was failing on every connection</strong> because of an internal error that surfaced the moment a sync touched your account settings. Fixed for every broker.</li>
+                            <li><strong class="text-zinc-200">A SnapTrade connection that has gone stale can now be reconnected</strong> instead of sitting there looking healthy while quietly returning nothing.</li>
+                            <li><strong class="text-zinc-200">A SnapTrade connection that finished with no accounts attached no longer offers a "Continue to review" button</strong> that dead-ends at an empty list.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Borg</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The feed no longer reports members' winning trades as stop-outs</strong> &mdash; and percentage returns were being shown 100 times too small.</li>
+                            <li><strong class="text-zinc-200">A new 1W range</strong> on the performance chart, plus tighter feed spacing and a live "Streaming" indicator.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Reliability &amp; fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Trailing stops now update correctly on Mondays and after market holidays.</strong> The calculation was looking at "yesterday" as a calendar day, landing on a weekend or holiday, and silently writing nothing.</li>
+                            <li><strong class="text-zinc-200">MetaTrader 5 outages now surface as a clear message instead of an endless spinner</strong>, and SignalDeck alerts us the moment its MetaTrader service credentials go bad.</li>
+                            <li><strong class="text-zinc-200">Pressing Escape closes the window you are actually looking at</strong>, not the one behind it.</li>
+                            <li><strong class="text-zinc-200">Forex prices restored</strong> after our market-data provider retired the endpoint they were coming from.</li>
+                            <li><strong class="text-zinc-200">The admin account view is now tabbed</strong>, and AI weekly reviews render headings and PDF spacing correctly.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.99 -->
             <div class="pl-8 relative" id="v1-0-99">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.99-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 1, 2026 12:38PM</span>
                 </div>
 

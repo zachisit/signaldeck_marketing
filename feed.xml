@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>Trading Your Own Capital: The Metrics That Matter When Nobody Is Enforcing a Drawdown Rule</title>
+      <link>https://sgnldk.com/blog/trading-own-capital-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/trading-own-capital-journal/</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A prop firm's drawdown limit is a subsidy, not a constraint - it computes your risk and enforces it whether you feel like it or not. Trading your own money, nothing does. How to build the equivalent yourself.</description>
+      <content:encoded>Most journaling advice is written for funded traders, because prop firms hand writers a convenient villain: a hard drawdown limit with a number attached. If the money in the account is yours, none of that applies, and nearly every article on this blog frames the value of a journal around a rule you do not have. This one does not. The starting point is that a prop firm's drawdown limit is better understood as a subsidy than a constraint: the firm pays to compute, in real time, how far you are from a loss you cannot come back from, how much of today's budget you have already spent, and whether the trade you are about to open is compatible with both - then enforces the answer without asking your opinion at 2am. Trading your own capital you keep all the upside a funded trader gives away, and you lose the one mechanism that was doing your risk management when you did not feel like doing it. So steal the mechanism, not the rule. The piece covers how to derive a self-imposed drawdown limit that actually binds, using a Monte Carlo resample of your own R-multiples and reading the P10 worst-decile drawdown rather than picking a round number (a worked example shows why a casual "I stop at 10%" rule sits inside a strategy's ordinary variance, fires during a perfectly normal bad stretch, and trains you to override it). It lays out the four metrics that replace "did I pass?" - per-setup expectancy, SQN, rolling-versus-lifetime divergence, and planned-versus-actual risk adherence, the last of which funded traders get policed for free and self-funded traders almost never track. It covers position sizing with fixed-R as the floor and Kelly as a ceiling you should never approach, why sizing off account percentage rather than fixed dollars matters once your balance compounds or takes a withdrawal, the failure mode unique to self-funded traders (nothing stops the 3x size trade at 2am except a mechanical pre-trade gate), and precisely which numbers deposits and withdrawals corrupt: R-multiples survive intact, every percentage-based figure and the raw equity curve do not. Closes with the extra fields worth logging now if you might ever attempt a funded challenge later.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01w-self-limit.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Which Trading Platforms Can a Journal Actually Sync With?</title>
       <link>https://sgnldk.com/blog/trading-journal-platform-support/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/trading-journal-platform-support/</guid>

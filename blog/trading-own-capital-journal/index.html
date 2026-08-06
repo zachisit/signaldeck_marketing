@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trading Your Own Capital: The Metrics That Matter With No Drawdown Rule | SignalDeck</title>
+    <meta name="description" content="No prop firm is enforcing a limit on your account. Here is how to set a drawdown line that actually binds, the four metrics that replace &quot;did I pass?&quot;, and how to keep R-multiples honest across deposits and withdrawals.">
+    <meta name="keywords" content="trading own capital journal, retail trader journal, self funded trader metrics, personal trading account journal, trading without a prop firm, self imposed drawdown limit">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/trading-own-capital-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/trading-own-capital-journal/">
+    <meta property="og:title" content="Trading Your Own Capital: The Metrics That Matter When Nobody Is Enforcing a Drawdown Rule">
+    <meta property="og:description" content="A prop firm's drawdown limit is a discipline subsidy you do not get when the money is yours. Here is how to build the equivalent yourself — and the four numbers that replace &quot;did I pass?&quot;">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01w-self-limit.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/trading-own-capital-journal/">
+    <meta property="twitter:title" content="Trading Your Own Capital: The Metrics That Matter When Nobody Is Enforcing a Drawdown Rule">
+    <meta property="twitter:description" content="No firm is watching your account. Set a drawdown limit from your own Monte Carlo P10, not a round number — plus the four metrics that replace &quot;did I pass?&quot;">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01w-self-limit.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Trading Your Own Capital: The Metrics That Matter When Nobody Is Enforcing a Drawdown Rule",
+        "description": "How self-funded traders replace an externally enforced prop-firm drawdown rule with a self-imposed limit derived from Monte Carlo, four metrics that replace pass/fail, position sizing without a rulebook, and how to keep R-multiples comparable across deposits and withdrawals.",
+        "author": { "@type": "Organization", "name": "SignalDeck" },
+        "publisher": { "@type": "Organization", "name": "SignalDeck", "url": "https://sgnldk.com" },
+        "datePublished": "2026-08-07",
+        "dateModified": "2026-08-07"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Do I need a trading journal if I trade my own money?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need one more than a funded trader does, not less. A prop firm already computes your drawdown, your daily loss, and your distance to a hard limit, and it enforces all three whether you look at them or not. Trading your own capital, none of that exists unless you build it. The journal is not paperwork in that situation — it is the only place your risk limit is written down and the only mechanism that will tell you your edge is decaying before your balance does. If you never want to attempt a funded challenge, the journal is still what turns a year of trades into an answer about which of your setups actually makes money."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What drawdown limit should I set for myself?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Derive it from your own trade history rather than picking a round number. Run a Monte Carlo resample of your R-multiples across 1,000 or more simulated sequences and read the P10 maximum drawdown — the depth that the worst 10% of plausible paths reach. A limit set below that number will fire during an ordinary bad stretch and train you to ignore it; a limit set far above it does nothing. Practically: set your per-trade risk so the P10 drawdown lands comfortably inside what you can tolerate, then put your review line just beyond the P10. If you have fewer than 30 to 50 trades, you do not have enough data for this yet — use a conservative fixed percentage and revisit once you do."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do deposits and withdrawals affect R-multiple tracking?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "R-multiples themselves are unaffected, which is exactly why they are the right unit for a self-funded account. An R-multiple is the trade's result divided by the risk you took on that trade, so it does not care what your balance was that day. What capital events do break is everything measured as a percentage of the account: percentage returns, drawdown depth as a percent of balance, and the shape of a raw equity curve, all of which show phantom jumps on the day money moves. The fix is to log every deposit and withdrawal as a dated capital event, keep performance analytics in R, and read percentage figures only between capital events rather than across them."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What metrics matter most for a self-funded trader?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Four, in this order: expectancy per setup in R, which tells you whether an edge exists at all; SQN, which tells you how reliable that edge is relative to its variance; the divergence between your rolling window and your lifetime numbers, which is the earliest warning that an edge is decaying; and planned-versus-actual risk adherence, which is the only one that measures you rather than the strategy. The fourth is the one funded traders get for free from their firm and self-funded traders almost never track — and it is usually where the money goes."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Trading Your Own Capital: The Metrics That Matter When Nobody Is Enforcing a Drawdown Rule", "item": "https://sgnldk.com/blog/trading-own-capital-journal/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        teal: { 400: '#2dd4bf' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-08-07" class="text-xs font-mono text-zinc-500">August 7, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Journaling</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Trading Your Own Capital: The Metrics That Matter When Nobody Is Enforcing a Drawdown Rule
+            </h1>
+            <p class="text-lg text-zinc-400">
+                Most journaling advice is written for funded traders, because prop firms hand writers a convenient villain: a hard drawdown limit with a number attached. If the money in the account is yours, none of that applies. There is no limit, no daily reset, no email when you breach something. That sounds like freedom, and in one specific way it is a disadvantage — so here is how to rebuild the useful part yourself.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                We asked several hundred traders one question over the past two months: <span class="italic text-zinc-400">"what are you trading right now, prop firm or personal?"</span> A large share of the answers were some version of <span class="font-mono text-teal-400">"own capital"</span>, <span class="font-mono text-teal-400">"self trading"</span>, <span class="font-mono text-teal-400">"mine tho"</span>. Which was a useful thing to learn about our own writing, because nearly every article on this blog frames the value of a journal around a rule those traders do not have.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This one does not. Nothing below assumes a challenge, an evaluation, or a firm.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Hidden Advantage of a Prop Rule (and Why You Should Steal It)</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A prop firm's drawdown limit is usually described as a constraint. It is more accurately a subsidy. The firm pays to compute, in real time, three things most traders will not compute for themselves: how far you are from a loss you cannot come back from, how much of today's budget you have already spent, and whether the position you are about to open is compatible with both. Then it enforces the answer without asking your opinion at 2am.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                That enforcement is the entire value. It is not that funded traders are more disciplined — it is that the cost of indiscipline arrives immediately and impersonally, instead of six weeks later disguised as a bad month. When you trade your own capital you keep all the upside a funded trader gives away, and you lose the one mechanism that was doing your risk management when you did not feel like doing it.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "A limit you can move is not a limit. The point of writing it down before the drawdown starts is that the version of you inside the drawdown is not the one you want negotiating with it."
+            </blockquote>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                So steal the mechanism, not the rule. You do not need FTMO's 10%, or Apex's trailing floor, or anybody's daily loss cap. You need <em>a</em> number, derived from your own data, written down somewhere that is not your head, and checked before you size a trade rather than after you close one.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Setting a Self-Imposed Drawdown Limit That Actually Binds</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Most self-imposed limits are round numbers picked because they sound serious. "I stop at 10%." The problem with a round number is that it has no relationship to how your strategy actually behaves, so it fails in one of two directions: it either fires constantly during perfectly normal variance, which teaches you to override it, or it sits so far below your realistic worst case that it never fires at all.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The better source is your own trade history. Take your closed trades as a sequence of <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a>, then <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">resample that sequence across 1,000 or more simulated paths</a>. Your edge stays intact — the same trades, in different orders — and what you get back is a distribution of maximum drawdowns rather than the single one you happened to live through. Read the <span class="font-mono text-purple-400">P10</span>: the depth that the worst 10% of plausible paths reach.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Illustrative worked example. Say 60 trades, expectancy <span class="font-mono text-emerald-400">+0.18R</span>, risking 1% of the account per trade:
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Simulated max drawdown</th>
+                            <th class="px-4 py-3 text-left font-semibold">In R</th>
+                            <th class="px-4 py-3 text-left font-semibold">At 1% risk</th>
+                            <th class="px-4 py-3 text-left font-semibold">What it means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Median path</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">6.2R</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">~6.2%</td>
+                            <td class="px-4 py-3 text-zinc-400">A completely ordinary bad stretch</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">P10 (worst decile)</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">11.4R</td>
+                            <td class="px-4 py-3 text-rose-400 font-mono">~11.4%</td>
+                            <td class="px-4 py-3 text-zinc-400">Unpleasant, but well inside normal</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Your "I stop at 10%" rule</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">10R</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">10%</td>
+                            <td class="px-4 py-3 text-rose-400">Fires on a normal bad stretch</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The round number is inside the strategy's ordinary variance. You will hit it doing nothing wrong, override it, and from then on the limit is decoration. The fix is not to raise the limit — it is to change the input. Drop risk to <span class="font-mono text-emerald-400">0.7%</span> per trade and the same P10 lands near 8%, comfortably inside a 10% line that now only trips when something is genuinely off. You size to make the limit survivable, then the limit means something. Numbers here are illustrative; run yours.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Two practical notes. Below roughly 30 to 50 trades per setup you do not have enough data for this and should use a deliberately conservative fixed percentage instead. And write the limit down as a sentence with an action attached — "at &minus;8R from equity high I cut size in half and review the last 20 trades" beats "I stop at 10%", because it survives contact with the moment it applies.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Four Metrics That Replace "Did I Pass?"</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A challenge gives you a binary at the end of it. Self-funded, there is no end and no binary, which is why so many independent traders fall back on account balance as the only scoreboard — and balance is a terrible scoreboard, because it moves for reasons that have nothing to do with whether you traded well this month.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                Four numbers do the job instead:
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Metric</th>
+                            <th class="px-4 py-3 text-left font-semibold">The question it answers</th>
+                            <th class="px-4 py-3 text-left font-semibold">Red flag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Expectancy per setup</td>
+                            <td class="px-4 py-3 text-zinc-400">Does an edge exist, and in which setup?</td>
+                            <td class="px-4 py-3 text-zinc-400">One setup carrying every other one</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">SQN</td>
+                            <td class="px-4 py-3 text-zinc-400">How reliable is that edge against its own variance?</td>
+                            <td class="px-4 py-3 text-zinc-400">Positive expectancy, SQN under 1.5</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Rolling vs. lifetime</td>
+                            <td class="px-4 py-3 text-zinc-400">Is the edge still there, or only historically there?</td>
+                            <td class="px-4 py-3 text-zinc-400">Last 30 trades well below lifetime</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Planned vs. actual risk</td>
+                            <td class="px-4 py-3 text-zinc-400">Am I trading the plan I wrote?</td>
+                            <td class="px-4 py-3 text-rose-400">Actual risk above plan on losing days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The first two are strategy questions and well covered elsewhere — see <a href="../trading-expectancy/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy</a> and <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> for the mechanics. The third is the early-warning system: comparing a rolling 30-trade window against your lifetime figures is how you notice <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">an edge decaying</a> while it is still a small problem.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The fourth is the one that matters most here and gets tracked least. Planned-versus-actual risk adherence measures you, not the strategy: for each trade, the risk you intended versus the risk you actually took. Funded traders get this policed for free. Self-funded, it is invisible unless you log both numbers — and the pattern it exposes is remarkably consistent. Risk creeps up on losing days and after losing days. That single correlation, visible only in your own log, explains a large share of accounts that die with a positive-expectancy strategy still attached to them.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Position Sizing Without a Rulebook</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                With no firm dictating maximum size, sizing becomes a decision you make several times a day, which means it degrades under exactly the conditions where it matters. Two bounds keep it stable.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <span class="text-white font-medium">The floor is fixed-R.</span> Every trade risks the same fraction of the account, so results across trades become directly comparable and no single position can dominate the record. <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Fixed-R sizing</a> is not optimal in a growth-maximising sense, and that is the point — it is robust to being wrong about your edge, which is the situation you are usually in.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <span class="text-white font-medium">The ceiling is Kelly.</span> The <a href="../kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly criterion</a> gives the mathematically growth-optimal fraction given your edge, and it is useful mainly as an upper bound you should never approach. Full Kelly assumes you know your win rate and payoff ratio exactly; you do not, and the penalty for overestimating is severe and asymmetric. Half Kelly or less is the practical zone, and if your fixed-R number is already well below it, that is a healthy sign rather than timidity.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                One more thing that separates own-capital accounts from funded ones: <span class="text-white font-medium">size off account percentage, not fixed dollars</span>. A funded account's balance is roughly static between payouts. Yours compounds, and it also takes withdrawals. If "1R = $200" was set when the account was $20,000 and the account is now $31,000, you are quietly trading at 0.65% while believing you are at 1%; run it the other way after a drawdown and you are at 1.4% while believing the same thing. Recomputing 1R from current equity keeps the risk you think you are taking equal to the risk you are taking, and keeps your <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">account balance and journal in the same reality</a>.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Failure Mode Unique to Self-Funded Traders</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                There is one failure mode that a funded trader is structurally protected from and you are not: nothing stops you. At 2am, after a bad session, at three times normal size, on an instrument you do not trade, there is no daily loss limit to hit, no account to breach, no automated flatten. The only thing standing between you and that trade is you, at the exact moment you are least qualified for the job.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is not a discipline lecture, because discipline is not a plan. It is an argument for a mechanical pre-trade gate — a small set of conditions you check before sizing, in the same order, every time:
+            </p>
+            <div class="space-y-4 mb-8">
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">1</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Where am I against my self-imposed floor right now?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">A single number, in R, from your equity high. If you have to work it out manually you will skip it on the day it matters.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">2</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Is this a setup that appears in my log with a positive expectancy?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">If the setup tag does not already exist, this is a new experiment and should be sized like one.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">3</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Is the size I am about to take equal to the size I planned?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">The question that catches revenge sizing, because revenge trades almost never fail steps 1 and 2 — they fail this one.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The journal is the enforcement layer here, and it works through a slightly unglamorous mechanism: knowing the trade will be logged, tagged, and visible in a comparison you will run next week changes what you are willing to do at 2am. That is the whole trick. It is also the reason a log you keep only when things are going well is worth close to nothing.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Withdrawals, Deposits and Why They Wreck Your R Math</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Funded accounts have clean capital histories. Personal accounts do not: you top up after a rough quarter, you pull money out for something unrelated, and you fund the account in stages rather than all at once. Every one of those events corrupts a specific set of numbers, and it is worth being precise about which.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                <span class="text-white font-medium">R-multiples survive intact.</span> An R-multiple is the trade's result divided by the risk taken on that trade, so it is indifferent to your balance. A +2R trade is +2R whether the account held $5,000 or $50,000 that day. This is the strongest argument for R as the primary unit of a self-funded log — it is the only common metric that a deposit cannot distort.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                <span class="text-white font-medium">Everything percentage-based breaks.</span> Specifically:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Percentage return</span> — a $10,000 deposit into a $20,000 account looks like a 50% gain to any naive calculation.</li>
+                <li><span class="text-white font-medium">Drawdown depth as a percent of balance</span> — a withdrawal shrinks the denominator, so an unchanged dollar drawdown suddenly reads much deeper.</li>
+                <li><span class="text-white font-medium">The raw equity curve</span> — vertical steps on capital-event days that are not trading results, which quietly poison any drawdown statistic computed from that curve, including a Monte Carlo run on it.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The handling is straightforward. Log every deposit and withdrawal as a dated capital event rather than letting it disappear into the balance. Keep performance analytics in R. When you do want percentage figures, compute them between capital events, not across them, and use a time-weighted return if you want one number for the year. Recompute your 1R from equity after each event, so the sizing you are using matches the account you actually have — this is the same discipline as the sizing point above, and forgetting it after a withdrawal is one of the more common ways a well-managed account starts silently over-risking.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Track If You Ever Plan to Attempt a Challenge Later</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Plenty of self-funded traders eventually take a shot at a funded account, usually for the leverage rather than the discipline. If that is possible for you, a few extra fields cost nothing now and turn a future evaluation into a formality rather than an experiment.
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Daily P&amp;L in R, not just per-trade R.</span> Almost every firm's hard constraint is a daily loss limit, and a daily series is the only way to know how often yours would have breached one.</li>
+                <li><span class="text-white font-medium">Maximum intraday excursion, not just closed results.</span> Trailing-drawdown firms measure your equity high including open profit. A flat day that spiked +2R and gave it back is a non-event in your log and a real cost under those rules.</li>
+                <li><span class="text-white font-medium">The distribution of your daily results, not just the total.</span> Several firms apply consistency rules where a single outsized day disqualifies an otherwise passing account.</li>
+                <li><span class="text-white font-medium">Trades per day and time-of-day tags.</span> Minimum-trading-day requirements are easy to satisfy and easy to fail by accident.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                With that data present, the readiness question stops being a guess: run the same Monte Carlo you used to set your personal floor, overlay the firm's actual drawdown limit and profit target, and read the share of paths that pass. That is the <a href="../prop-firm-monte-carlo-readiness/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">full readiness workflow</a>, and the traders who breeze through evaluations are almost always the ones who had a real log before they had a challenge. Rules vary by firm and change often — verify current terms directly with the firm before paying an evaluation fee.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                And if you never attempt one, none of the above was wasted. It is the same log, answering the same question the firm would have been asking on your behalf: how much can this realistically lose, and am I sized for that.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">Do I need a trading journal if I trade my own money?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">You need one more than a funded trader does, not less. A prop firm already computes your drawdown, your daily loss, and your distance to a hard limit, and it enforces all three whether you look at them or not. Trading your own capital, none of that exists unless you build it. The journal is not paperwork in that situation — it is the only place your risk limit is written down and the only mechanism that will tell you your edge is decaying before your balance does. If you never want to attempt a funded challenge, the journal is still what turns a year of trades into an answer about which of your setups actually makes money.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What drawdown limit should I set for myself?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Derive it from your own trade history rather than picking a round number. Run a Monte Carlo resample of your R-multiples across 1,000 or more simulated sequences and read the P10 maximum drawdown — the depth that the worst 10% of plausible paths reach. A limit set below that number will fire during an ordinary bad stretch and train you to ignore it; a limit set far above it does nothing. Practically: set your per-trade risk so the P10 drawdown lands comfortably inside what you can tolerate, then put your review line just beyond the P10. If you have fewer than 30 to 50 trades, you do not have enough data for this yet — use a conservative fixed percentage and revisit once you do.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do deposits and withdrawals affect R-multiple tracking?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">R-multiples themselves are unaffected, which is exactly why they are the right unit for a self-funded account. An R-multiple is the trade's result divided by the risk you took on that trade, so it does not care what your balance was that day. What capital events do break is everything measured as a percentage of the account: percentage returns, drawdown depth as a percent of balance, and the shape of a raw equity curve, all of which show phantom jumps on the day money moves. The fix is to log every deposit and withdrawal as a dated capital event, keep performance analytics in R, and read percentage figures only between capital events rather than across them.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What metrics matter most for a self-funded trader?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Four, in this order: expectancy per setup in R, which tells you whether an edge exists at all; SQN, which tells you how reliable that edge is relative to its variance; the divergence between your rolling window and your lifetime numbers, which is the earliest warning that an edge is decaying; and planned-versus-actual risk adherence, which is the only one that measures you rather than the strategy. The fourth is the one funded traders get for free from their firm and self-funded traders almost never track — and it is usually where the money goes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-2">Analytics depth and R-multiple handling side by side</p>
+                    </a>
+                    <a href="../../compare/edgewonk/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. Edgewonk</p>
+                        <p class="text-zinc-500 text-xs mt-2">Where a desktop journal ends and simulation begins</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../do-you-need-a-trading-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Do You Need a Trading Journal If You're Already Profitable?</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 31, 2026</p>
+                    </a>
+                    <a href="../fixed-r-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Fixed-R Position Sizing</p>
+                        <p class="text-zinc-500 text-xs mt-2">Why every trade should risk the same amount</p>
+                    </a>
+                    <a href="../kelly-criterion-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Kelly Criterion Position Sizing</p>
+                        <p class="text-zinc-500 text-xs mt-2">The growth-optimal ceiling, and why to stay under it</p>
+                    </a>
+                    <a href="../trading-expectancy/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Trading Expectancy Explained</p>
+                        <p class="text-zinc-500 text-xs mt-2">The per-setup number that tells you if an edge exists</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">No firm is watching your drawdown. Something should be.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">R-multiples, per-setup expectancy, SQN and Monte Carlo on your own trade history — no prop account required. Free tier on every plan; Pro is $30/mo and Elite (MT4/MT5 live sync) is $50/mo when billing launches.</p>
+                <a href="https://app.sgnldk.com/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'trading-own-capital-journal'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta -- Free
+                </a>
+                <a href="../../plans/index.html"
+                    class="inline-block ml-3 px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all">
+                    See Plans &rarr;
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

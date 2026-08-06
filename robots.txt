@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
+# Internal design mockups & working files — not content
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /tmp-x-content-grid-search.txt
 Sitemap: https://sgnldk.com/sitemap.xml
 
 # LLM context files

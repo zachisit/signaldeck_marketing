@@ -155,12 +155,57 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.101 -->
+            <div class="pl-8 relative" id="v1-0-101">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.101-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Aug 7, 2026 9:43AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>The backtester was built for stocks. Run it on forex or crypto and it would quietly give you the wrong answer &mdash; or, for Bitcoin, no answer at all. v1.0.101 rebuilds it to understand what you are actually trading.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtesting forex &amp; crypto, properly</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">You can now backtest Bitcoin.</strong> Any asset priced above your starting capital used to size to zero and open no trades at all &mdash; the results came back empty with no explanation. Position sizes can now be fractional.</li>
+                            <li><strong class="text-zinc-200">Forex costs are modelled as a spread, not a per-share commission.</strong> A stock-style commission on a position of tens of thousands of currency units was charging roughly 1% of the account on every single trade, quietly burying every forex strategy.</li>
+                            <li><strong class="text-zinc-200">Profit is reported in dollars, whatever the pair is quoted in.</strong> USD/JPY and crosses like EUR/GBP were reporting results in yen and pounds while labelling them dollars.</li>
+                            <li><strong class="text-zinc-200">Risk-adjusted metrics use the right trading calendar.</strong> Sharpe and CAGR were calculated against US stock market hours. Crypto trades around the clock, so its Sharpe was understated by more than half.</li>
+                            <li><strong class="text-zinc-200">Leverage and margin are modelled</strong>, with a stop-out level matched to what retail forex brokers actually use. A trade you could not afford to margin is now reported as blocked rather than silently shrunk to a size you never intended.</li>
+                            <li><strong class="text-zinc-200">Far more crypto pairs are available</strong>, instead of a fixed list of ten.</li>
+                            <li><strong class="text-zinc-200">The setup screen adapts to the instrument</strong> and tells you up front if a symbol will not work &mdash; instead of after the run.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Monitoring that can actually see an outage</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">On August 5 our server ran out of memory and SignalDeck was down for about two hours before a user told us.</strong> Our health check never touched the database, so it kept reporting a cheerful green while every page that needed data was failing.</li>
+                            <li><strong class="text-zinc-200">There is now a health check that actually queries the database</strong> and fails loudly when it cannot, plus memory-pressure alerting on the server itself.</li>
+                            <li><strong class="text-zinc-200">Our alerting now tells us when a monitor has stopped reporting</strong> &mdash; or has never reported at all. The alert script for this outage had been written, reviewed and merged months earlier, and simply never installed. A monitor that is not running looks exactly like one that runs and finds nothing wrong.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Everyday improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Search your strategies by name on the Runs screen</strong>, alongside the existing author and type filters.</li>
+                            <li><strong class="text-zinc-200">Filter the Today screen's upcoming events by impact and currency</strong>, so you only see what moves the pairs you trade.</li>
+                            <li><strong class="text-zinc-200">The app loads faster</strong> &mdash; a hundred scripts no longer block the first paint.</li>
+                            <li><strong class="text-zinc-200">Number-key shortcuts no longer fire while a window is still loading</strong>, which could switch you to a tab that had not finished opening.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.100 -->
             <div class="pl-8 relative" id="v1-0-100">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.100-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 4, 2026 6:31PM</span>
                 </div>
 

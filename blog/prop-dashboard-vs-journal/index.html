@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prop Firm Dashboard vs Journal: Why They Disagree | SignalDeck</title>
+    <meta name="description" content="Commissions, swap, open P&amp;L, the reset clock and rejected fills all put a gap between your journal and the firm's dashboard. How to tie the two out in ten minutes.">
+    <meta name="keywords" content="prop firm dashboard vs journal, prop firm balance mismatch, why is my prop firm P&L different, funded account reconciliation, prop firm equity vs balance, commissions swaps prop account">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/prop-dashboard-vs-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/prop-dashboard-vs-journal/">
+    <meta property="og:title" content="Prop Firm Dashboard vs Journal: Why They Disagree | SignalDeck">
+    <meta property="og:description" content="Commissions, swap, open P&amp;L, the reset clock and rejected fills all put a gap between your journal and the firm's dashboard. How to tie the two out in ten minutes.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01v-reconcile.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/prop-dashboard-vs-journal/">
+    <meta property="twitter:title" content="Prop Firm Dashboard vs Journal: Why They Disagree | SignalDeck">
+    <meta property="twitter:description" content="Commissions, swap, open P&amp;L, the reset clock and rejected fills all put a gap between your journal and the firm's dashboard. How to tie the two out in ten minutes.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01v-reconcile.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why Your Prop Firm Dashboard and Your Journal Disagree (and Which One to Trust)",
+        "description": "The five reasons a funded account's dashboard shows a different number than your journal - commissions, swap and financing, unrealized P&L, the firm's daily reset timezone and partial or rejected fills - plus a ten-minute reconciliation that resolves a worked $312 discrepancy and turns your journal into a headroom number you can trust before entry.",
+        "author": { "@type": "Organization", "name": "SignalDeck" },
+        "publisher": { "@type": "Organization", "name": "SignalDeck", "url": "https://sgnldk.com" },
+        "datePublished": "2026-08-10",
+        "dateModified": "2026-08-10",
+        "image": "https://sgnldk.com/assets/banner-01v-reconcile.png"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why is my prop firm balance different from my journal?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Almost always one of five things, usually more than one at once. Commissions and fees the firm deducts that your journal recorded at gross prices; swap, financing or carry on positions held past the rollover; unrealized profit and loss on positions that are still open, which the firm counts in equity and a closed-trade journal ignores entirely; the firm's daily reset happening on its clock rather than yours, so a late trade lands in a different day's bucket; and partial or rejected fills where you journaled the size you intended instead of the size you got. Work through those five in order and the gap resolves in nearly every case. If it does not, request the account statement from the firm rather than arguing from the dashboard, because the dashboard is a summary and the statement is the ledger."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does unrealized profit count toward my drawdown?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At most firms with an equity-based drawdown rule, yes, in both directions, and this is the single most common way an account is lost by surprise. If the rule references equity rather than closed balance, an open position moving against you consumes drawdown in real time and can breach the limit before you have closed anything. On a trailing drawdown, unrealized profit is usually worse than neutral: a spike in open profit can raise the high-water mark the floor trails from, so giving that profit back leaves you closer to the limit than before the spike. Some firms measure the high-water mark on closed balance instead, which behaves very differently. Check which one your firm's rule names, in writing, before you rely on either interpretation - terms differ by firm and change."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When does the daily loss limit reset?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On the firm's clock, which is frequently not your clock and frequently not midnight where you live. FTMO's published materials describe the daily loss being evaluated against a balance and equity snapshot taken at the start of the firm's server day in CE(S)T; several futures-focused firms use a 5:00 p.m. New York boundary that matches the CME session rollover. The practical consequence is that a trade opened in the last hour of your evening can be scored in tomorrow's bucket, or the day's loss you thought you had escaped can still be counted. Find the exact reset time and timezone in your firm's rules, then set your journal to the same boundary so its daily figures and the dashboard's line up. Reset times vary by firm and change - verify directly with the firm before trading."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do commissions count toward the daily loss limit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes at essentially every firm, because the limit is computed from your account balance or equity, and commissions, fees and swap are debited from that balance like any other cost. This matters most for high-frequency and scalping styles, where round-turn costs on a heavy day can be a meaningful fraction of the daily budget before a single trade has gone wrong. If your journal logs gross entry and exit prices without a per-trade cost field, your daily loss figure is systematically smaller than the one the firm is enforcing, and it is smallest exactly on your busiest days."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which number does the firm actually enforce?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The firm's. Its dashboard is not an opinion about your account, it is the account, and the breach is processed from that number whether or not your records agree. That does not make your journal pointless - it changes its job. Your journal's job is not to hold the authoritative balance, it is to predict the firm's number accurately enough that you know your headroom before you enter a trade rather than after the firm has told you. A journal that reconciles to the dashboard at the end of each day earns the right to be trusted during the day, which is the only time the number is actually useful."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Why Your Prop Firm Dashboard and Your Journal Disagree (and Which One to Trust)", "item": "https://sgnldk.com/blog/prop-dashboard-vs-journal/" }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        teal: { 400: '#2dd4bf' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-08-10" class="text-xs font-mono text-zinc-500">August 10, 2026</time>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Why Your Prop Firm Dashboard and Your Journal Disagree (and Which One to Trust)
+            </h1>
+            <p class="text-lg text-zinc-400">
+                You are mid-evaluation. Your journal says you are up $1,240 on the day and have plenty of daily loss budget left. The firm's dashboard says $928 and a smaller cushion than you expected. One of those numbers is going to decide whether you still have an account tomorrow, and it is not the one you keep.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The most enthusiastic response we got from funded traders this year was a request for one specific thing: the ability to see, in real time, how close a strategy is to violating maximum drawdown. It is the right thing to want. But a headroom number you do not trust is worse than no number at all, because it gets used. So before any of that is useful, the two ledgers have to tie out.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A discrepancy between your journal and the firm's dashboard is almost never a mystery and almost never the firm making an error. It is five specific, boring, entirely predictable things. Here they are, in the order they are worth checking.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Five Reasons the Two Numbers Differ</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Every gap we have looked at decomposes into some combination of the following. They stack, which is why a discrepancy rarely resolves on the first guess.
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Cause</th>
+                            <th class="px-4 py-3 text-left font-semibold">Direction</th>
+                            <th class="px-4 py-3 text-left font-semibold">Who tends to be hit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Commissions &amp; fees</td>
+                            <td class="px-4 py-3 text-zinc-400">Journal reads better</td>
+                            <td class="px-4 py-3 text-zinc-400">Scalpers, high trade counts</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Swap / financing / carry</td>
+                            <td class="px-4 py-3 text-zinc-400">Usually journal reads better</td>
+                            <td class="px-4 py-3 text-zinc-400">Anyone holding past rollover</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Unrealized P&amp;L</td>
+                            <td class="px-4 py-3 text-zinc-400">Either direction, moves live</td>
+                            <td class="px-4 py-3 text-rose-400">Swing traders, anyone with size open</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Daily reset timezone</td>
+                            <td class="px-4 py-3 text-zinc-400">Shifts P&amp;L between days</td>
+                            <td class="px-4 py-3 text-zinc-400">Late-session and overnight traders</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Partial / rejected fills</td>
+                            <td class="px-4 py-3 text-zinc-400">Either direction</td>
+                            <td class="px-4 py-3 text-zinc-400">Anyone trading news or thin books</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Notice what is not on this list: the firm miscalculating. It happens, and it is worth escalating when the evidence is clean, but it is the last hypothesis rather than the first, and the tie-out below is what produces the evidence.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Balance vs. Equity vs. "Trailing Threshold"</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Before reconciling anything, you have to know which of three numbers the rule actually references, because most dashboards display all three and most traders watch the wrong one.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                <span class="text-white font-medium">Balance</span> is closed trades only: what the account would be worth if you never opened another position and every current one vanished. <span class="text-white font-medium">Equity</span> is balance plus the current mark on everything still open. <span class="text-white font-medium">The trailing threshold</span> is a floor the firm computes, usually as a fixed distance below the highest point the account has reached, and the important question is which of the first two it trails from.
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Number</th>
+                            <th class="px-4 py-3 text-left font-semibold">Includes open positions?</th>
+                            <th class="px-4 py-3 text-left font-semibold">Why it matters to you</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Balance</td>
+                            <td class="px-4 py-3 text-zinc-400">No</td>
+                            <td class="px-4 py-3 text-zinc-400">What a closed-trade journal naturally matches</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Equity</td>
+                            <td class="px-4 py-3 text-zinc-400">Yes, marked live</td>
+                            <td class="px-4 py-3 text-rose-400">What most drawdown rules are enforced on</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-300 font-mono">Trailing threshold</td>
+                            <td class="px-4 py-3 text-zinc-400">Depends on the firm</td>
+                            <td class="px-4 py-3 text-zinc-400">The actual line; moves up, sometimes locks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The distinction between a static and a trailing floor changes your risk arithmetic more than any other rule the firm has, and it is worth reading <a href="../ftmo-trailing-vs-static-drawdown/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">the two side by side</a> if you have not. Trailing implementations differ meaningfully between firms too: <a href="../apex-trader-funding-rules/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Apex's floor ratchets up with each new high and then stops trailing</a> at a defined point, which is a different exposure profile from a floor that trails forever. Rules may change - verify current terms directly with the firm before trading.
+            </p>
+            <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
+                "If you cannot say, from memory, whether your firm's high-water mark is set on balance or on equity, you do not currently know what your worst-case trade costs you."
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Timezone Trap</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A daily loss limit is only meaningful alongside a definition of "daily," and that definition belongs to the firm. FTMO's published materials describe the daily loss being evaluated against a snapshot taken at the start of the firm's server day in CE(S)T; a number of futures-focused firms instead use a 5:00 p.m. New York boundary, which lines up with the CME session rollover rather than the calendar. Neither is likely to be midnight where you are sitting.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The consequences are concrete. A losing trade closed at 17:05 New York, under a 5:00 p.m. reset, is charged to a day that has barely started, and your journal - which almost certainly buckets by local calendar date - shows it in yesterday. Two things then go wrong at once: yesterday looks worse than the firm thinks and today looks better, so the budget you believe you have this morning is overstated by exactly that trade. The traders who get caught here are not careless; they are trading a session that straddles the boundary.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The fix is mechanical. Find the reset time and timezone in the firm's rules, in writing, and set your journal's day boundary to match it rather than to your local midnight. Then check it again at the daylight-saving changeover, because a server day defined in CE(S)T and one defined in New York time drift apart for two weeks a year and the drift is silent.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Unrealized P&amp;L: The Gap That Ends Accounts</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Of the five causes, this is the one that does more than distort a report. If the firm's rule is written on equity, an open position is consuming your drawdown right now, in real time, and a journal that records trades when they close is blind for exactly as long as the position is open - which is exactly the interval in which the account can be lost.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                On a trailing rule it is worse than blindness. A position that runs +3R intraday and comes back to flat is, in a closed-trade journal, a non-event: no entry, no result, nothing to review. Under a trailing floor that tracks equity highs, that same non-event may have ratcheted your floor up by the full excursion, so you finish the day with an unchanged balance and materially less room than you started with. Nothing in your log will ever tell you this happened.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is the practical case for a live connection rather than an end-of-day import. A journal fed by a periodic CSV or an EA that writes closed trades cannot show you an open-position drawdown, because the data does not exist until the trade is finished - a distinction we went through in detail in <a href="../mt5-live-sync-vs-ea-import/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">live sync versus EA import</a>. If you take one thing from this article: the number you most need during an evaluation is the one a closed-trade journal structurally cannot produce.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How to Reconcile in Ten Minutes</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Do this at the end of the firm's day, not yours. You need three artifacts: the broker or platform statement for the period, the firm's dashboard figure, and your journal's figure for the same window.
+            </p>
+            <div class="space-y-4 mb-8">
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">1</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Align the window first</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Same start and end instant, on the firm's clock. Reconciling two different days is the most common way an hour gets wasted on a discrepancy that does not exist.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">2</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Match trade counts before amounts</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">If the statement has seven fills and your journal has six, stop - you have a missing or partial fill, not a pricing difference, and no amount of arithmetic will find it.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">3</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Walk the adjustment stack in order</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Costs, then carry, then fill quantity, then open positions. Each one is a single subtraction, and the running total tells you when you are done.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">4</div>
+                    <div>
+                        <p class="text-white font-semibold mb-1">Record the residual, every day</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">A residual that is near zero and randomly signed is rounding. A residual that is small and always the same sign is a systematic error in your journal, and it will grow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-4">
+                A worked example, on a $100,000 funded account. The journal says <span class="font-mono text-emerald-400">+$1,240</span>; the dashboard says <span class="font-mono text-rose-400">+$928</span>; the gap is $312.
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Step</th>
+                            <th class="px-4 py-3 text-left font-semibold">Adjustment</th>
+                            <th class="px-4 py-3 text-left font-semibold">Running</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Journal, closed trades at gross prices</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">&mdash;</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">$1,240</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-400">Commissions, 20 round turns at $4.20</td>
+                            <td class="px-4 py-3 text-rose-400 font-mono">&minus;$84</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">$1,156</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Swap on the position held past rollover</td>
+                            <td class="px-4 py-3 text-rose-400 font-mono">&minus;$63</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">$1,093</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-400">Partial fill: journaled 2.0 lots, filled 1.8</td>
+                            <td class="px-4 py-3 text-rose-400 font-mono">&minus;$95</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">$998</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Open position marked at the snapshot</td>
+                            <td class="px-4 py-3 text-rose-400 font-mono">&minus;$70</td>
+                            <td class="px-4 py-3 text-teal-400 font-mono">$928</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-white font-medium">Firm dashboard equity</td>
+                            <td class="px-4 py-3 text-zinc-300 font-mono">&mdash;</td>
+                            <td class="px-4 py-3 text-teal-400 font-mono">$928 &check;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It ties out, and the ten minutes bought something beyond a matching number: three of those four lines are permanent corrections. Add a per-trade cost field, log swap as its own entry, journal filled quantity rather than intended quantity, and tomorrow's reconciliation is one line long. The fourth line, the open position, never goes away - it is not an error, it is the live component, and the only fix for it is a journal that sees open positions.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Do When They Still Disagree</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Sometimes the stack does not close. The order of operations from there is unromantic but effective.
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Request the account statement, not a dashboard screenshot.</span> The dashboard is a rendered summary; the statement is the ledger the summary was computed from, and discrepancies usually become obvious the moment you have line items.</li>
+                <li><span class="text-white font-medium">Check for a platform-side versus firm-side clock difference.</span> Your broker terminal's server time and the firm's evaluation clock are two separate things and are frequently not the same.</li>
+                <li><span class="text-white font-medium">Look for an inactivity, consistency or scaling adjustment.</span> Several firms apply account-level changes that are not trades and therefore appear nowhere in your fills.</li>
+                <li><span class="text-white font-medium">Escalate with the reconciliation attached.</span> A support ticket that shows a four-line tie-out and a labelled residual is treated very differently from one that says the numbers look wrong.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                And then accept the governing principle, because arguing with it is expensive: <span class="text-white font-medium">the firm's number is the one that gets enforced.</span> Your journal is not a competing ledger and it will not win a dispute. Its job is to predict the firm's number closely enough, and early enough, that you never need to have the dispute. That is a lower bar than being right, and a far more useful one.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It is also worth being honest about what a persistent gap means for everything downstream. If your <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">journal's account balance is drifting from reality</a>, then every percentage figure, every drawdown depth and every position size derived from that balance is wrong by the same drift, quietly, in the same direction, all month.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Building a Headroom Number You Can Actually Trust Before Entry</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Reconciliation is not the goal. The goal is the thing it makes possible: a single number, available before you size a trade, that says how much room the firm's rule leaves you right now. Four inputs produce it.
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Current equity</span>, including open positions, not balance.</li>
+                <li><span class="text-white font-medium">The governing floor</span> - the trailing threshold if there is one, otherwise the static limit, computed the way the firm computes it.</li>
+                <li><span class="text-white font-medium">Today's spend against the daily limit</span>, bucketed on the firm's clock and net of costs.</li>
+                <li><span class="text-white font-medium">The cost of the trade you are about to take</span>, in the same units, at full stop-loss.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Headroom is the smaller of the two distances - to the overall floor and to the daily limit - and the pre-trade question is simply whether one full stop still leaves you inside both. Expressed in R rather than dollars it becomes portable across account sizes: "I have 4.1R to the daily limit and 11.6R to the floor" is a sentence you can act on at speed, in a way that "$4,100 and $11,600" is not.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                None of that arithmetic is difficult. What makes it hard in practice is that all four inputs have to be correct simultaneously, on a clock that is not yours, including positions that have not closed yet - which is why the reconciliation comes first, and why a journal that only sees closed trades cannot get you there no matter how carefully you keep it. If you are working toward an evaluation rather than inside one, the same four inputs run against your own history are what turn <a href="../prop-firm-monte-carlo-readiness/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">readiness into a measurable probability</a> instead of a guess, and they are the same reason <a href="../why-prop-firm-traders-blow-evaluations/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">most evaluations are failed on rules rather than on strategy</a>. Firm-specific mechanics differ - <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">the FTMO ruleset</a> is a reasonable place to see how the pieces fit together, but confirm your own firm's current terms before relying on any of it.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">Why is my prop firm balance different from my journal?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Almost always one of five things, usually more than one at once. Commissions and fees the firm deducts that your journal recorded at gross prices; swap, financing or carry on positions held past the rollover; unrealized profit and loss on positions that are still open, which the firm counts in equity and a closed-trade journal ignores entirely; the firm's daily reset happening on its clock rather than yours, so a late trade lands in a different day's bucket; and partial or rejected fills where you journaled the size you intended instead of the size you got. Work through those five in order and the gap resolves in nearly every case. If it does not, request the account statement from the firm rather than arguing from the dashboard, because the dashboard is a summary and the statement is the ledger.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Does unrealized profit count toward my drawdown?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">At most firms with an equity-based drawdown rule, yes, in both directions, and this is the single most common way an account is lost by surprise. If the rule references equity rather than closed balance, an open position moving against you consumes drawdown in real time and can breach the limit before you have closed anything. On a trailing drawdown, unrealized profit is usually worse than neutral: a spike in open profit can raise the high-water mark the floor trails from, so giving that profit back leaves you closer to the limit than before the spike. Some firms measure the high-water mark on closed balance instead, which behaves very differently. Check which one your firm's rule names, in writing, before you rely on either interpretation - terms differ by firm and change.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">When does the daily loss limit reset?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">On the firm's clock, which is frequently not your clock and frequently not midnight where you live. FTMO's published materials describe the daily loss being evaluated against a balance and equity snapshot taken at the start of the firm's server day in CE(S)T; several futures-focused firms use a 5:00 p.m. New York boundary that matches the CME session rollover. The practical consequence is that a trade opened in the last hour of your evening can be scored in tomorrow's bucket, or the day's loss you thought you had escaped can still be counted. Find the exact reset time and timezone in your firm's rules, then set your journal to the same boundary so its daily figures and the dashboard's line up. Reset times vary by firm and change - verify directly with the firm before trading.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Do commissions count toward the daily loss limit?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes at essentially every firm, because the limit is computed from your account balance or equity, and commissions, fees and swap are debited from that balance like any other cost. This matters most for high-frequency and scalping styles, where round-turn costs on a heavy day can be a meaningful fraction of the daily budget before a single trade has gone wrong. If your journal logs gross entry and exit prices without a per-trade cost field, your daily loss figure is systematically smaller than the one the firm is enforcing, and it is smallest exactly on your busiest days.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Which number does the firm actually enforce?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The firm's. Its dashboard is not an opinion about your account, it is the account, and the breach is processed from that number whether or not your records agree. That does not make your journal pointless - it changes its job. Your journal's job is not to hold the authoritative balance, it is to predict the firm's number accurately enough that you know your headroom before you enter a trade rather than after the firm has told you. A journal that reconciles to the dashboard at the end of each day earns the right to be trusted during the day, which is the only time the number is actually useful.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-2">Import handling and how each treats open positions</p>
+                    </a>
+                    <a href="../../compare/tradesviz/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradesViz</p>
+                        <p class="text-zinc-500 text-xs mt-2">Sync claims, cost fields and analytics depth</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../journal-account-balance/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Journal Needs Your Account Balance</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
+                    </a>
+                    <a href="../ftmo-trailing-vs-static-drawdown/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Trailing vs. Static Drawdown</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 13, 2026</p>
+                    </a>
+                    <a href="../apex-trader-funding-rules/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Apex Trader Funding Rules Explained</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 27, 2026</p>
+                    </a>
+                    <a href="../why-prop-firm-traders-blow-evaluations/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Prop Firm Traders Blow Evaluations</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 10, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Your headroom is only useful if it reconciles.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">Know the number the firm is about to enforce, before you enter. Free tier on every plan; Pro is $30/mo and Elite (MT4/MT5 live sync) is $50/mo when billing launches.</p>
+                <a href="https://app.sgnldk.com/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'prop-dashboard-vs-journal'});"
+                    class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Join the Beta -- Free
+                </a>
+                <a href="../../plans/index.html"
+                    class="inline-block ml-3 px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all">
+                    See Plans &rarr;
+                </a>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

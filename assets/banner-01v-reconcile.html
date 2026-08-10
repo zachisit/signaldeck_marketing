@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-V · Reconcile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:70px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Two Numbers.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">One Account.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Commissions &middot; Swap &middot; Open P&amp;L &middot; Reset Clock</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">The firm&rsquo;s number governs &middot; Yours should predict it</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  /* deterministic pseudo-random so the render is reproducible */
+  let s = 20260810;
+  function rnd() { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; }
+
+  const defs = el(svg, 'defs', {});
+
+  const gradLine = el(defs, 'linearGradient', { id: 'gradLine', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradLine, 'stop', { offset: '0%',   'stop-color': '#3b82f6' });
+  el(gradLine, 'stop', { offset: '62%',  'stop-color': '#60a5fa' });
+  el(gradLine, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+
+  const gradGap = el(defs, 'linearGradient', { id: 'gradGap', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradGap, 'stop', { offset: '0%',   'stop-color': '#f43f5e', 'stop-opacity': '0.16' });
+  el(gradGap, 'stop', { offset: '100%', 'stop-color': '#f43f5e', 'stop-opacity': '0.02' });
+
+  const glow = el(defs, 'radialGradient', { id: 'glowPulse' });
+  el(glow, 'stop', { offset: '0%',   'stop-color': '#2dd4bf', 'stop-opacity': '0.55' });
+  el(glow, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0' });
+
+  /* faint grid */
+  for (let gy = 90; gy <= 430; gy += 68) {
+    el(svg, 'line', { x1: 0, y1: gy, x2: 1500, y2: gy, stroke: '#18181b', 'stroke-width': 1 });
+  }
+
+  /* ---- the firm's number: the true, adjusted equity path ---- */
+  const N = 150, x0 = 60, xEnd = 1075, baseY = 358;
+  const GAP = 66, xAdj = 560, xMerge = 668;
+
+  /* how far the journal sits above the firm's number at a given x */
+  function gapAt(x) {
+    if (x <= xAdj) return GAP;
+    if (x >= xMerge) return 0;
+    const u = (x - xAdj) / (xMerge - xAdj);
+    return GAP * (1 - u);
+  }
+
+  const firm = [], journal = [];
+  let v = 0;
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    v += 0.95 + (rnd() - 0.5) * 5.6;
+    const x = x0 + t * (xEnd - x0);
+    const y = baseY - v;
+    firm.push([x, y]);
+    journal.push([x, y - gapAt(x)]);
+  }
+
+  const path = (p) => p.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ');
+
+  /* the discrepancy itself, shaded between the two lines until they tie out */
+  const upto = journal.filter(q => q[0] <= xMerge);
+  const back = firm.filter(q => q[0] <= xMerge).reverse();
+  el(svg, 'path', { d: path(upto) + ' ' + path(back).replace(/^M/, 'L') + ' Z', fill: 'url(#gradGap)' });
+
+  /* the firm's dashboard line */
+  el(svg, 'path', {
+    d: path(firm), fill: 'none', stroke: '#f43f5e',
+    'stroke-width': 2.4, 'stroke-dasharray': '9 7', opacity: 0.8, 'stroke-linecap': 'round'
+  });
+
+  /* your journal line, converging onto it after the adjustments */
+  el(svg, 'path', {
+    d: path(journal), fill: 'none', stroke: 'url(#gradLine)',
+    'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'
+  });
+
+  /* ---- the adjustment stack ---- */
+  const at = journal.reduce((a, b) => (Math.abs(b[0] - xAdj) < Math.abs(a[0] - xAdj) ? b : a));
+  const yJ = at[1], yF = yJ + GAP;
+
+  el(svg, 'line', {
+    x1: xAdj, y1: yJ, x2: xAdj, y2: yF,
+    stroke: '#f59e0b', 'stroke-width': 1.6, 'stroke-dasharray': '3 4', opacity: 0.85
+  });
+
+  el(svg, 'text', {
+    x: xAdj + 16, y: yJ - 10,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700',
+    fill: '#fbbf24', 'letter-spacing': '0.09em'
+  }).textContent = 'ADJUSTMENTS';
+
+  /* labels sit left of the bracket, inside the shaded gap where nothing else runs */
+  ['commissions', 'swap / financing', 'unrealized P&L'].forEach(function (label, i) {
+    const y = yJ + 19 + i * 20;
+    el(svg, 'line', { x1: xAdj - 7, y1: y, x2: xAdj + 7, y2: y, stroke: '#f59e0b', 'stroke-width': 1.6, opacity: 0.8 });
+    el(svg, 'text', {
+      x: xAdj - 16, y: y + 4,
+      'font-family': 'JetBrains Mono, monospace', 'font-size': '12',
+      fill: '#a1a1aa', 'letter-spacing': '0.04em', 'text-anchor': 'end'
+    }).textContent = label;
+  });
+
+  /* the gap, named */
+  el(svg, 'text', {
+    x: xAdj + 16, y: yF - 7,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700',
+    fill: '#fb7185', 'letter-spacing': '0.05em'
+  }).textContent = '$312';
+
+  /* ---- which line is which ---- */
+  el(svg, 'text', {
+    x: 62, y: journal[0][1] - 18,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '14', 'font-weight': '700',
+    fill: '#60a5fa', 'letter-spacing': '0.09em'
+  }).textContent = 'YOUR JOURNAL';
+  el(svg, 'text', {
+    x: 62, y: firm[0][1] + 28,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '14', 'font-weight': '700',
+    fill: '#fb7185', 'letter-spacing': '0.09em'
+  }).textContent = 'FIRM DASHBOARD';
+
+  /* tie-out marker where the two agree */
+  const m = firm.reduce((a, b) => (Math.abs(b[0] - xMerge) < Math.abs(a[0] - xMerge) ? b : a));
+  el(svg, 'circle', { cx: m[0], cy: m[1], r: 5, fill: 'none', stroke: '#2dd4bf', 'stroke-width': 2 });
+  el(svg, 'text', {
+    x: m[0] + 14, y: m[1] - 14,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '12', 'font-weight': '700',
+    fill: '#2dd4bf', 'letter-spacing': '0.06em'
+  }).textContent = 'RECONCILED';
+
+  /* live pulse at the right end */
+  const last = firm[firm.length - 1];
+  el(svg, 'circle', { cx: last[0], cy: last[1], r: 22, fill: 'url(#glowPulse)' });
+  el(svg, 'circle', { cx: last[0], cy: last[1], r: 5.5, fill: '#2dd4bf' });
+})();
+</script>
+</body>
+</html>

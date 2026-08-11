@@ -163,6 +163,7 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
+                    <a href="demo/index.html" onclick="gtag('event','cta_click',{cta_location:'nav_demo_desktop',page:'homepage'})" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
                     <a href="free/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
                     <a href="plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
                     <a href="compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
@@ -177,6 +178,7 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="demo/index.html" onclick="gtag('event','cta_click',{cta_location:'nav_demo_mobile',page:'homepage'})" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
             <a href="free/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
             <a href="plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
             <a href="compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
@@ -205,9 +207,13 @@
                 Live MT5 Sync · Pre-Trade Risk Gate · Walk-Forward Backtesting · R-Multiple / SQN / Monte Carlo / Kelly
             </p>
 
-            <div class="mt-10 flex justify-center gap-4">
+            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="https://app.sgnldk.com/register" onclick="gtag('event','cta_click',{cta_location:'hero',page:'homepage'})" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                     Start Free — No Card Required
+                </a>
+                <a href="demo/index.html" onclick="gtag('event','cta_click',{cta_location:'hero_demo',page:'homepage'})" class="inline-flex items-center gap-2 px-8 py-3 border border-zinc-700 hover:border-zinc-500 text-white font-medium rounded-lg transition-all">
+                    <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Watch the Demo
                 </a>
             </div>
 

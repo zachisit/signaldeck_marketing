@@ -201,6 +201,11 @@ Target queries: market regime app, risk on risk off indicator, premarket market 
 URL: https://sgnldk.com
 Target queries: trading journal, institutional analytics, SQN score, R-value trading journal, free trading journal, win rate vs expectancy, trading consistency, trading accountability, trading mistakes, plan adherence, best free trading journal 2026
 
+### Product Demo (Video Walkthrough)
+URL: https://sgnldk.com/demo/
+Content: Demo page with a YouTube walkthrough of the SignalDeck platform above the fold, followed by written sections: connecting a live account (MT5 via MetaApi, cTrader/IBKR/SnapTrade), the pre-trade risk gate (live drawdown headroom vs prop firm daily loss limit and max drawdown), R-Multiple/SQN analytics, and Walk-Forward backtesting (overfitting detection, Monte Carlo, grid search). Includes the asset-class grid (forex, CFD/indices, futures, crypto, stocks) and a dedicated free-signup CTA.
+Target queries: SignalDeck demo, trading journal demo, trading journal walkthrough, MT5 journal video, backtester demo, prop firm journal demo, watch trading journal video
+
 ### Start (X/Social Landing Page)
 URL: https://sgnldk.com/start/
 Target queries: trading journal for prop firm traders, trading journal for serious traders, trading journal free, MT5 drawdown tracker, R-multiple trading journal, Win Rate Velocity, edge auditor trading

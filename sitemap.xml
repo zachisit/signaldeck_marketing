@@ -403,6 +403,13 @@
   </url>
 
   <url>
+    <loc>https://sgnldk.com/blog/backtest-vs-live-divergence/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://sgnldk.com/blog/prop-dashboard-vs-journal/</loc>
     <lastmod>2026-08-11</lastmod>
     <priority>0.80</priority>

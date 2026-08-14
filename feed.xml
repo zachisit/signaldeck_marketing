@@ -33,6 +33,16 @@
     ================================================================ -->
 
     <item>
+      <title>Your Backtest Said 2.1 SQN and Live Says 0.6: Diagnosing Backtest-to-Live Divergence</title>
+      <link>https://sgnldk.com/blog/backtest-vs-live-divergence/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/backtest-vs-live-divergence/</guid>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A 2.1 SQN backtest and a 0.6 SQN live run might just be a small sample, not two different strategies. How to rule out variance, then rank the six real causes - slippage, commissions, look-ahead bias, data quality, regime change, latency.</description>
+      <content:encoded>A backtest cleared every filter - 2,000 trades, a System Quality Number north of 2, a clean equity curve. Three months live, the same rules are producing 0.6. That gap does not by itself say whether the strategy is broken, the backtest was wrong, or the live sample is simply too small yet to say anything. The piece works through it in order. First, rule out variance: the standard error of a mean shrinks with the square root of sample size, not linearly, so a 40-trade live sample carries roughly seven times the standard error of a 2,000-trade backtest - a live SQN that looks dramatically worse can still sit inside that wider confidence interval. If the sample has grown past a hundred or so trades and the intervals still do not overlap, it moves to the six real causes, ranked by how often they are the culprit: slippage and spread the backtest under-modeled, commission modeling that was flat-rated or missing, look-ahead bias using information not available at decision time, survivorship and data quality problems in the historical feed, genuine regime change, and execution latency between signal and fill - the last two are the hardest to prove and the ones reached for first out of convenience. Covers measuring actual slippage by logging expected fill against realized fill on every trade and feeding the measured distribution back into the backtest's cost model; the overfitting tell, where an in-sample-only backtest with no walk-forward validation is not a mystery to diagnose but the out-of-sample test arriving three months late; distinguishing regime change from a broken strategy with rolling expectancy against the lifetime figure, and why the correct response is opposite (reduce size and wait vs. stop and rebuild); the reconciliation loop of re-running the backtest with measured live costs and comparing corrected curves within a statistical tolerance band; and the five fields worth logging now - expected vs. actual fill price, latency, real commission per trade, and a strategy tag linking every live trade back to its backtest version - so the next divergence is answerable in minutes instead of requiring this whole forensic process again.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01aa-divergence.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
       <title>Why Your Prop Firm Dashboard and Your Journal Disagree (and Which One to Trust)</title>
       <link>https://sgnldk.com/blog/prop-dashboard-vs-journal/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/prop-dashboard-vs-journal/</guid>

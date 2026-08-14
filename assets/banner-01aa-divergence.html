@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AA · Divergence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Backtest Said 2.1.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Live Says 0.6.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Slippage &middot; Commissions &middot; Look-Ahead &middot; Regime</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Rule out variance first &middot; Then rank the six causes</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+
+  /* deterministic pseudo-random so the render is reproducible */
+  let s = 20260814;
+  function rnd() { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; }
+
+  const defs = el(svg, 'defs', {});
+
+  /* backtest line: blue -> purple gradient */
+  const gradBacktest = el(defs, 'linearGradient', { id: 'gradBacktest', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradBacktest, 'stop', { offset: '0%',   'stop-color': '#3b82f6' });
+  el(gradBacktest, 'stop', { offset: '62%',  'stop-color': '#60a5fa' });
+  el(gradBacktest, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+
+  /* the widening divergence, shaded rose */
+  const gradGap = el(defs, 'linearGradient', { id: 'gradGap', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradGap, 'stop', { offset: '0%',   'stop-color': '#f43f5e', 'stop-opacity': '0.02' });
+  el(gradGap, 'stop', { offset: '100%', 'stop-color': '#f43f5e', 'stop-opacity': '0.20' });
+
+  const glow = el(defs, 'radialGradient', { id: 'glowPulse' });
+  el(glow, 'stop', { offset: '0%',   'stop-color': '#2dd4bf', 'stop-opacity': '0.55' });
+  el(glow, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0' });
+
+  /* faint grid */
+  for (let gy = 90; gy <= 430; gy += 68) {
+    el(svg, 'line', { x1: 0, y1: gy, x2: 1500, y2: gy, stroke: '#18181b', 'stroke-width': 1 });
+  }
+
+  /* ---- two equity paths: they start together, then live falls away ---- */
+  const N = 150, x0 = 60, xEnd = 950, baseY = 300;
+  const xSplit = 380;   /* where the curves start to separate */
+  const xDetect = 660;  /* where the divergence is flagged (teal pulse) */
+
+  /* how far live sits below backtest at a given x, growing after the split */
+  function gapAt(x) {
+    if (x <= xSplit) return 0;
+    const u = Math.min(1, (x - xSplit) / (xEnd - xSplit));
+    return 190 * Math.pow(u, 1.35);
+  }
+
+  const backtest = [], live = [];
+  let vB = 0, vL = 0;
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    const x = x0 + t * (xEnd - x0);
+    vB += 1.55 + (rnd() - 0.5) * 5.2;
+    const yB = baseY - vB;
+    backtest.push([x, yB]);
+
+    /* live tracks backtest closely pre-split, then decays and gets choppier */
+    const decay = gapAt(x);
+    const choppiness = x > xSplit ? 3.6 : 1.6;
+    vL = vB - decay + (rnd() - 0.5) * choppiness * 4;
+    live.push([x, baseY - vL]);
+  }
+
+  const path = (p) => p.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ');
+
+  /* the shaded divergence region, from the split point onward */
+  const bFrom = backtest.filter(q => q[0] >= xSplit);
+  const lFrom = live.filter(q => q[0] >= xSplit).slice().reverse();
+  el(svg, 'path', { d: path(bFrom) + ' ' + path(lFrom).replace(/^M/, 'L') + ' Z', fill: 'url(#gradGap)' });
+
+  /* live results line (rose, dashed - the underperformer) */
+  el(svg, 'path', {
+    d: path(live), fill: 'none', stroke: '#f43f5e',
+    'stroke-width': 2.6, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', opacity: 0.9
+  });
+
+  /* backtest line (blue/purple gradient, solid, on top) */
+  el(svg, 'path', {
+    d: path(backtest), fill: 'none', stroke: 'url(#gradBacktest)',
+    'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'
+  });
+
+  /* split marker: where the two curves stop agreeing */
+  const sp = backtest.reduce((a, b) => (Math.abs(b[0] - xSplit) < Math.abs(a[0] - xSplit) ? b : a));
+  el(svg, 'line', { x1: xSplit, y1: sp[1] - 10, x2: xSplit, y2: sp[1] + 40, stroke: '#f59e0b', 'stroke-width': 1.6, 'stroke-dasharray': '3 4', opacity: 0.8 });
+  el(svg, 'text', {
+    x: xSplit + 10, y: sp[1] - 16,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '12', 'font-weight': '700',
+    fill: '#fbbf24', 'letter-spacing': '0.08em'
+  }).textContent = 'DIVERGENCE STARTS';
+
+  /* teal pulse marker where the gap is first flagged */
+  const det = live.reduce((a, b) => (Math.abs(b[0] - xDetect) < Math.abs(a[0] - xDetect) ? b : a));
+  el(svg, 'circle', { cx: det[0], cy: det[1], r: 24, fill: 'url(#glowPulse)' });
+  el(svg, 'circle', { cx: det[0], cy: det[1], r: 5.5, fill: 'none', stroke: '#2dd4bf', 'stroke-width': 2 });
+  el(svg, 'text', {
+    x: det[0] + 15, y: det[1] + 5,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '12', 'font-weight': '700',
+    fill: '#2dd4bf', 'letter-spacing': '0.06em'
+  }).textContent = 'FLAGGED';
+
+  /* ---- which line is which ---- */
+  el(svg, 'text', {
+    x: 62, y: backtest[0][1] - 20,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '14', 'font-weight': '700',
+    fill: '#60a5fa', 'letter-spacing': '0.09em'
+  }).textContent = 'BACKTEST · 2.1 SQN';
+  el(svg, 'text', {
+    x: 62, y: baseY + 26,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '14', 'font-weight': '700',
+    fill: '#fb7185', 'letter-spacing': '0.09em'
+  }).textContent = 'LIVE · 0.6 SQN';
+
+  /* live pulse at the right end of the live line */
+  const lastLive = live[live.length - 1];
+  el(svg, 'circle', { cx: lastLive[0], cy: lastLive[1], r: 5.5, fill: '#f43f5e' });
+  const lastB = backtest[backtest.length - 1];
+  el(svg, 'circle', { cx: lastB[0], cy: lastB[1], r: 5.5, fill: '#60a5fa' });
+})();
+</script>
+</body>
+</html>

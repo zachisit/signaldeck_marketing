@@ -155,12 +155,73 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.102 -->
+            <div class="pl-8 relative" id="v1-0-102">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.102-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Aug 14, 2026 5:16AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Two things dominate this release. There is a new Market Review that reads the whole market at once and tells you what is actually driving it. And your open positions now update when they should &mdash; a run of fixes to prices, freshness and the trade table that together close a gap you could see on screen.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Market Review &mdash; what is driving the market today</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A cross-asset read in one place.</strong> Market Review decodes the drivers behind the current move, classifies the regime you are trading in, and maps where money is rotating.</li>
+                            <li><strong class="text-zinc-200">It reads real yields, not just headline rates</strong> &mdash; inflation-adjusted yields, breakevens and nominals, so a move in rates is separated from a move in inflation expectations.</li>
+                            <li><strong class="text-zinc-200">It classifies, it never tells you what to buy.</strong> That boundary is enforced by the software itself rather than left to editorial judgement &mdash; Market Review is built so it cannot issue a buy or sell call.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Your open positions actually update now</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Trade History refreshes while you are watching it.</strong> The table used to load once and then sit there &mdash; no updates arrived until you reloaded the page.</li>
+                            <li><strong class="text-zinc-200">Typing in the search or filter box no longer freezes your prices.</strong> A guard meant to avoid interrupting you was suppressing every refresh for as long as a filter field had focus.</li>
+                            <li><strong class="text-zinc-200">The &ldquo;last updated&rdquo; time tells the truth.</strong> It could read as much as a day stale, and would keep ageing a timestamp the server had already told it to discard &mdash; confidently wrong rather than blank.</li>
+                            <li><strong class="text-zinc-200">Futures prices no longer freeze during open hours.</strong> A bad reading of the market clock left futures prices stuck for over fourteen hours straight through prime trading.</li>
+                            <li><strong class="text-zinc-200">Trailing stops on managed positions move again</strong>, and stop checks now run reliably before the open rather than competing with live pricing.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Broker imports you can trust</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">We now tell you when a broker connection is syncing on its own.</strong> Connecting cTrader or SnapTrade turns on background syncing, which then imports trades you never ticked. That was intended &mdash; but nothing said so, the checkboxes implied otherwise, and the off switch was not on any screen. It is now shown in the import flow, with a working toggle.</li>
+                            <li><strong class="text-zinc-200">cTrader stock, index and crypto CFDs show their real size.</strong> They were importing with a size of &ldquo;N/A&rdquo; and an unrealised P&amp;L of zero. Existing trades are repaired too.</li>
+                            <li><strong class="text-zinc-200">A freshly connected MT5 account no longer hides your newest trades.</strong> The broker reports itself ready before it has finished sending history; if it is still catching up you now get a clear notice instead of a quietly incomplete list.</li>
+                            <li><strong class="text-zinc-200">The import review no longer shows another broker&rsquo;s trades</strong>, and a stop or target typed as 0 no longer rejects the whole import.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Everyday improvements</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Forex commission fills itself in from your lot size.</strong> Enter the fee once and it becomes a per-lot rate &mdash; change the lot size and the commission follows, with the working shown so the number never changes behind your back.</li>
+                            <li><strong class="text-zinc-200">Your saved trade filters survive logging out.</strong> They were being wiped every time, because the only way to stop them leaking between accounts on a shared browser was to delete them.</li>
+                            <li><strong class="text-zinc-200">You should not get logged out mid-session any more</strong> &mdash; the silent session refresh now recovers instead of dropping you at the login screen.</li>
+                            <li><strong class="text-zinc-200">Portfolio strategy cards collapse</strong> in the Run Details view.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Behind the scenes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The daily scanner and the heaviest background work moved off our application server</strong> onto dedicated infrastructure. That server was running out of memory; this is what stops the outages before they start.</li>
+                            <li><strong class="text-zinc-200">More of our own alerts now reach a human.</strong> Several ran to an inbox nobody watched, and one alarm threshold was set so high it could never usefully fire.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.101 -->
             <div class="pl-8 relative" id="v1-0-101">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.101-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 7, 2026 9:43AM</span>
                 </div>
 

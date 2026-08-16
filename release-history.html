@@ -155,12 +155,72 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.103 -->
+            <div class="pl-8 relative" id="v1-0-103">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.103-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Aug 16, 2026 10:48AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A correctness release. Background syncing from your broker is now something you switch on rather than something that happens to you, accountability partner invites actually reach the person you sent them to, and a run of backtester fixes removes results that were quietly impossible.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Broker auto-sync is now off until you turn it on</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Connecting cTrader or SnapTrade no longer starts importing on its own.</strong> Background syncing used to switch itself on the moment you connected, which is how trades you never ticked in the import review turned up later. You now opt in.</li>
+                            <li><strong class="text-zinc-200">Existing connections have been switched off.</strong> If you were relying on background syncing, turn it back on &mdash; it is one toggle.</li>
+                            <li><strong class="text-zinc-200">The toggle is per connection.</strong> Settings now has a switch on each broker connection, so you can leave one account syncing and keep another manual.</li>
+                            <li><strong class="text-zinc-200">Reconnecting never re-arms it.</strong> The default applies only when a connection is first created, so re-authorising a broker cannot quietly turn syncing back on.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Accountability partner invites actually send</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The invite was never being sent.</strong> You would name a partner, the card would say &ldquo;Pending&rdquo;, and no email ever went out. It now sends &mdash; and the card tells you the truth about whether an invite is genuinely in flight.</li>
+                            <li><strong class="text-zinc-200">A failed invite is now visible instead of silent.</strong> Delivery is monitored, and an address that bounces a day or two later is heard rather than leaving you on a permanent &ldquo;Pending&rdquo;.</li>
+                            <li><strong class="text-zinc-200">You are told when your partner accepts</strong>, and an invite that has expired no longer offers a confirm button that cannot work.</li>
+                            <li><strong class="text-zinc-200">A partner declining now leaves a trace</strong> you can see, rather than resetting quietly with no record it ever happened.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtester correctness</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Trailing stops no longer produce fills the market never traded.</strong> They were being seeded from price action before your entry, which could record an exit at a price that never existed after you were in.</li>
+                            <li><strong class="text-zinc-200">Walk-forward analysis keeps its indicator warm-up.</strong> The history an indicator needs to settle was being discarded, so out-of-sample windows were judged against half-formed readings.</li>
+                            <li><strong class="text-zinc-200">Strategy comparison correlations are aligned by date.</strong> They were being computed across mismatched equity curves, which made unrelated strategies look far more alike than they are.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Fixes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">cTrader crypto pairs were being filed as forex and left unpriced.</strong> Pairs like BCHUSD were misread on import, so real positions sat without a price. Classification is fixed and existing trades are repaired.</li>
+                            <li><strong class="text-zinc-200">Deleted trades no longer count as open positions</strong> when a scanner portfolio rebalances.</li>
+                            <li><strong class="text-zinc-200">Promo code owners get a heads-up.</strong> If someone signs up with your code, you now receive an email once they finish setting up.</li>
+                            <li><strong class="text-zinc-200">The admin user stats table has been slimmed</strong> to the columns that are actually used.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Behind the scenes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Another background job moved off our application server</strong> onto dedicated infrastructure &mdash; the one that keeps our list of tradeable crypto pairs current, which is what stops the misclassification above from recurring.</li>
+                            <li><strong class="text-zinc-200">Routine maintenance stopped paging us as if it were an outage</strong>, and our own quality checks now refuse to run when they are older than the system they are checking, rather than reporting confident nonsense.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.102 -->
             <div class="pl-8 relative" id="v1-0-102">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.102-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 14, 2026 5:16AM</span>
                 </div>
 

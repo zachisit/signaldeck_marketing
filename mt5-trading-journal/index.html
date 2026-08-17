@@ -69,6 +69,16 @@
           "@type": "Question",
           "name": "Can I backtest my MT5 strategy in SignalDeck?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. SignalDeck's strategy backtester lets you define rules (e.g. EMA crossover, RSI threshold) and test them against historical data. Walk-Forward Analysis splits your data 80/20 in-sample/out-of-sample and returns a Pass or Likely Overfitted verdict — so you know whether the edge is real or curve-fitted before you risk capital on it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is MT4/MT5 import free or a paid plan feature?",
+          "acceptedAnswer": { "@type": "Answer", "text": "MT4/MT5 import via MetaApi is an Elite plan feature ($50/mo) — it is the only integration with real-time live balance sync for Kelly Criterion sizing and prop firm drawdown headroom. Four other import methods (IBKR, cTrader OAuth for 250+ brokers, SnapTrade for 30+ brokers, and CSV in 8 formats) are free on every plan. See sgnldk.com/broker-import/ for the full list." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does SignalDeck cost with live MT5 balance sync?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Live MT5 balance sync is included on the Elite plan ($50/mo), and all features are free during beta — existing beta testers were grandfathered, new accounts join Free / Pro $30 / Elite $50 when billing launches in June 2026. The strategy backtester, Walk-Forward Analysis, SQN scoring, and Kelly Criterion sizing are unlocked at no cost during beta regardless of plan." }
         }
       ]
     }
@@ -543,6 +553,14 @@
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Can I backtest my MT5 strategy in SignalDeck?</p>
                     <p class="text-zinc-400 text-sm leading-relaxed">Yes. The strategy backtester lets you define rules and test them on historical data. Walk-Forward Analysis splits data 80/20 and returns a Pass or Likely Overfitted verdict — so you know whether the edge generalizes before you scale capital.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Is MT4/MT5 import free or a paid plan feature?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">MT4/MT5 import via MetaApi is an Elite plan feature ($50/mo) — the only integration with real-time live balance sync for Kelly Criterion sizing and prop firm drawdown headroom. Four other import methods (IBKR, cTrader OAuth for 250+ brokers, SnapTrade for 30+ brokers, and CSV in 8 formats) are free on every plan. See <a href="../broker-import/" class="text-blue-400 hover:text-blue-300 transition-colors">the full broker list</a> for details.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">How much does SignalDeck cost with live MT5 balance sync?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Live MT5 balance sync is an Elite plan feature ($50/mo), and every feature — including it — is free during beta. Existing beta testers are grandfathered; new accounts join Free / Pro $30 / Elite $50 when billing launches in June 2026. The backtester, Walk-Forward Analysis, and Kelly Criterion sizing are unlocked at no cost during beta on any plan.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Is SignalDeck only for prop firm traders?</p>

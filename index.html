@@ -83,7 +83,40 @@
         ]
     }
     </script>
-    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is SignalDeck?",
+                "acceptedAnswer": { "@type": "Answer", "text": "SignalDeck is a trading journal and strategy backtester built for prop firm and serious retail traders. It syncs live MT5 account balance so you know your exact drawdown headroom before you enter a trade, and pairs that with institutional-level analytics — R-Multiple, SQN scoring, Kelly Criterion sizing, Walk-Forward Analysis, and Monte Carlo simulation." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is SignalDeck free?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. SignalDeck is free during beta with every feature unlocked, including the strategy backtester, Walk-Forward Analysis, Monte Carlo simulation, SQN scoring, and Kelly Criterion sizing. Existing beta testers are grandfathered; new accounts join Free / Pro $30 / Elite $50 when billing launches in June 2026." }
+            },
+            {
+                "@type": "Question",
+                "name": "Which brokers does SignalDeck support?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Five import methods: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, and 250+ brokers), SnapTrade aggregator (Robinhood, Webull, Schwab, Fidelity, Questrade, and 30+ more), CSV in 8 formats, and MT4/MT5 via MetaApi with live balance sync (Elite plan)." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck have a strategy backtester?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes — define rules and test them on up to 5 years of historical data. Walk-Forward Analysis splits your data 80/20 in-sample/out-of-sample and returns a Pass or Likely Overfitted verdict, and 1,000-path Monte Carlo simulation models your worst-case drawdown before you risk real capital." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SignalDeck work with MT4/MT5?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Connect any MT4 or MT5 broker account via MetaApi and closed trades import automatically — symbol, volume, fill price, and P&L — with live account balance sync for accurate Kelly Criterion sizing and prop firm drawdown headroom." }
+            }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1640,6 +1673,34 @@
                             Learn About the Program
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-zinc-800">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-5">
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What is SignalDeck?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck is a trading journal and strategy backtester built for prop firm and serious retail traders. It syncs live MT5 account balance so you know your exact drawdown headroom before you enter a trade, and pairs that with institutional-level analytics — R-Multiple, SQN scoring, Kelly Criterion sizing, Walk-Forward Analysis, and Monte Carlo simulation.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Is SignalDeck free?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. SignalDeck is free during beta with every feature unlocked, including the strategy backtester, Walk-Forward Analysis, Monte Carlo simulation, SQN scoring, and Kelly Criterion sizing. Existing beta testers are grandfathered; new accounts join Free / Pro $30 / Elite $50 when billing launches in June 2026. See <a href="plans/" class="text-blue-400 hover:text-blue-300 transition-colors">plans and pricing</a> for details.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Which brokers does SignalDeck support?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Five import methods: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, and 250+ brokers), SnapTrade aggregator (Robinhood, Webull, Schwab, Fidelity, Questrade, and 30+ more), CSV in 8 formats, and MT4/MT5 via MetaApi with live balance sync (Elite plan). See <a href="broker-import/" class="text-blue-400 hover:text-blue-300 transition-colors">the full broker list</a>.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck have a strategy backtester?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — define rules and test them on up to 5 years of historical data. Walk-Forward Analysis splits your data 80/20 in-sample/out-of-sample and returns a Pass or Likely Overfitted verdict, and 1,000-path Monte Carlo simulation models your worst-case drawdown before you risk real capital. See the <a href="backtester/" class="text-blue-400 hover:text-blue-300 transition-colors">backtester walkthrough</a>.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Does SignalDeck work with MT4/MT5?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. Connect any MT4 or MT5 broker account via MetaApi and closed trades import automatically — symbol, volume, fill price, and P&L — with live account balance sync for accurate Kelly Criterion sizing and prop firm drawdown headroom. See the <a href="mt5-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 trading journal page</a> for the full workflow.</p>
                 </div>
             </div>
         </div>

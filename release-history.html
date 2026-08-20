@@ -155,12 +155,80 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.104 -->
+            <div class="pl-8 relative" id="v1-0-104">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.104-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Aug 20, 2026 12:13AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Scanner strategies now enter and exit the way you would actually trade them &mdash; at the next session&rsquo;s open, not at a close that had already happened when the signal fired. Alongside that: the strategies you build yourself can finally be run and closed, and backtest percentages now tell you what you really kept after costs.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Scanner strategies fill at the next open</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A signal no longer fills at the bar that produced it.</strong> Entries and exits are now recorded at the <em>next</em> session&rsquo;s open, which is the earliest moment you could have acted on the signal yourself. The old behaviour credited a price that had already passed.</li>
+                            <li><strong class="text-zinc-200">The day a signal fired is now recorded separately from the day it filled</strong>, so you can see the gap between the two instead of having them collapsed into one date.</li>
+                            <li><strong class="text-zinc-200">Portfolio strategies work the same way</strong>, and a deferred exit survives a mid-week market holiday rather than getting stranded.</li>
+                            <li><strong class="text-zinc-200">Intraday strategies are deliberately left alone</strong> &mdash; a next-open fill makes no sense for them.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Strategies you build yourself</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">You can now run a saved rule strategy straight from the Backtester.</strong> Building one and then having nowhere to press go was, reasonably, confusing.</li>
+                            <li><strong class="text-zinc-200">Rule strategies can close a position.</strong> Exit conditions were being written down but never compiled, so a strategy could open a trade and then hold it forever.</li>
+                            <li><strong class="text-zinc-200">A maximum holding period now actually takes effect</strong> instead of being quietly ignored.</li>
+                            <li><strong class="text-zinc-200">RSI now matches the built-in strategies.</strong> Rule strategies were using a different calculation, so the same idea scored differently depending on how you had built it. Results for saved RSI strategies may shift &mdash; the app tells you where this applies.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Backtest percentages are net of costs</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A trade that made money on price but lost it to commission is no longer counted as a win.</strong> Win and loss percentages, payoff and Kelly were being computed from the raw price move while the win/loss verdict already accounted for costs &mdash; so the two disagreed.</li>
+                            <li><strong class="text-zinc-200">Runs with no costs are unchanged</strong>, and past saved results are left exactly as they were. A fresh run of an old backtest can now report slightly different numbers, and the new ones are the honest ones.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Position sizing</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Scanner portfolio positions were being rounded to whole shares.</strong> The sizing maths was correct to four decimal places, but the database column was storing whole numbers and silently rounding &mdash; putting positions up to 22% away from their intended weight. The column now stores what the app calculates.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Smaller things you will notice</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Edited notes show when they were last edited</strong>, so you can tell a fresh thought from an old one.</li>
+                            <li><strong class="text-zinc-200">Advanced Filters shows which account you are looking at.</strong> The account filter lived only in the top navigation, which made a filtered list look like a broken one.</li>
+                            <li><strong class="text-zinc-200">CSV exports label the size column &ldquo;Shares/Lots&rdquo;</strong> so it reads correctly for forex as well as stocks. The exported values are unchanged.</li>
+                            <li><strong class="text-zinc-200">Strategies show when they were created</strong>, and the Runs screen got a pass over its empty states, filters and modal sizing.</li>
+                            <li><strong class="text-zinc-200">Accountability partners get a reminder before the invite expires</strong>, and a partner accepting now updates your screen the moment it happens.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Behind the scenes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">We found a database change that had been recorded as applied but never actually ran</strong> &mdash; the cause of the sizing bug above &mdash; and built a check that compares the live database against what the code expects, so the next one surfaces on its own.</li>
+                            <li><strong class="text-zinc-200">Code that only ever runs in production is now checked before it ships.</strong> Several background jobs could only have failed once live, because every test bypassed the path that starts them.</li>
+                            <li><strong class="text-zinc-200">A date-handling bug class was audited out.</strong> Comparing a local date against a UTC one is wrong for a few hours each day &mdash; and invisible on our servers, which run on UTC.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.103 -->
             <div class="pl-8 relative" id="v1-0-103">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.103-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 16, 2026 10:48AM</span>
                 </div>
 

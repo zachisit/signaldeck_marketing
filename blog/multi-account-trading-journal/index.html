@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Multiple Trading Accounts Journal: How to Track Three Funded Accounts and a Personal One | SignalDeck</title>
+    <meta name="description" content="Summing P&amp;L across four accounts hides the one that just breached. Why edge lives at the strategy level and risk lives at the account level, how R makes different account sizes comparable, and the correlation math behind running one strategy across four firms.">
+    <meta name="keywords" content="multiple trading accounts journal, track multiple prop firm accounts, multiple funded accounts management, copy trading journal, trading multiple accounts same strategy, aggregate trading performance">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/multi-account-trading-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/multi-account-trading-journal/">
+    <meta property="og:title" content="Multiple Trading Accounts Journal: How to Track Three Funded Accounts and a Personal One | SignalDeck">
+    <meta property="og:description" content="Summing P&amp;L across four accounts hides the one that just breached. Why edge lives at the strategy level and risk lives at the account level, how R makes different account sizes comparable, and the correlation math behind running one strategy across four firms.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01ab-multi-account.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/multi-account-trading-journal/">
+    <meta property="twitter:title" content="Multiple Trading Accounts Journal: How to Track Three Funded Accounts and a Personal One | SignalDeck">
+    <meta property="twitter:description" content="Summing P&amp;L across four accounts hides the one that just breached. Why edge lives at the strategy level and risk lives at the account level, how R makes different account sizes comparable, and the correlation math behind running one strategy across four firms.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01ab-multi-account.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Running Three Funded Accounts and a Personal One: How to Journal Multiple Accounts Without Losing the Plot",
+        "description": "A single blended P&L figure is the wrong output for a multi-account trader, because each account carries its own size, its own rulebook and its own drawdown clock. This piece separates strategy-level truth from account-level truth, shows why R-multiples are the only unit that makes a 20K evaluation comparable to a 150K funded account, works through the correlation math of running one strategy across four firms, tabulates what actually differs between rulebooks, covers the lot-rounding and slippage divergence that copy trading introduces, and gives a readiness test for whether the next account adds expected income or just expected fee spend.",
+        "author": { "@type": "Organization", "name": "SignalDeck" },
+        "publisher": { "@type": "Organization", "name": "SignalDeck", "url": "https://sgnldk.com" },
+        "datePublished": "2026-08-21",
+        "dateModified": "2026-08-21",
+        "image": "https://sgnldk.com/assets/banner-01ab-multi-account.png"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I track multiple prop firm accounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tag every trade with the account it belongs to at import time, not later from memory, and keep two separate views rather than one blended one. The account-level view answers risk questions - how much drawdown headroom is left, which rulebook applies, how close this account is to a payout threshold - and it has to be scoped to one account at a time because each account has its own size and its own limits. The strategy-level view answers edge questions - which setups make money, at what expectancy, in which sessions - and that view should span every account, because a setup you traded 40 times across four accounts gives you a far better sample than 10 trades on one. The mistake is keeping only the blended dollar total, which answers neither question. If your journal has an account or funding-account field, populate it on every trade and make the account filter part of your normal reading routine."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I combine P&L across accounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For your tax return and your household budget, yes. For any decision about risk, no. A combined figure is an average across accounts with different sizes and different rulebooks, and averages hide breaches. Four accounts at plus 3,200, plus 1,400, minus 1,900 and plus 800 sum to a respectable plus 3,500 for the month - but if that minus 1,900 sat on a 20,000 dollar evaluation with a 6 percent maximum loss, the account was gone at minus 1,200 and the aggregate never mentioned it. The number that matters per account is not its P&L, it is its remaining distance to its own limit, which is a different number on every account and cannot be summed. Combine for income reporting. Never combine for risk."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is running the same strategy on several accounts risky?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is not diversification, and the common mistake is treating it as though it were. Four accounts running identical signals are one position expressed four times: the same losing day debits all four simultaneously, so nothing offsets anything. The expected outcome does not change, but the spread of outcomes widens by roughly the square root of the number of accounts. If a single account has a 65 percent chance of reaching payout, four independent accounts would average 2.6 survivors with a standard deviation near one; four perfectly correlated accounts average the same 2.6 but with a standard deviation near two, because the real outcomes are all four or none. That is fine if you sized for it and paid the evaluation fees knowing they can be lost together. It is not fine if you added accounts believing the risk was being spread."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I compare performance across different account sizes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Convert everything to R, where 1R is the cash you risked on that specific trade on that specific account. A 50,000 dollar account risking 1 percent puts 500 dollars at risk and a plus 2R winner returns 1,000 dollars; a 150,000 dollar account risking 0.5 percent puts 750 dollars at risk and the same plus 2R winner returns 1,500 dollars. In dollars the second account looks like the better strategy, when in fact both trades performed identically and only the sizing differed. Once every trade is expressed in R, a 20,000 dollar evaluation and a 150,000 dollar funded account produce directly comparable numbers, and you can pool them into one honest sample for expectancy. There is also a diagnostic hiding in this: if the same setup produces a materially different average R on two accounts, the difference is almost never edge, it is execution or sizing - different fills, different spreads, or a lot size that had to be rounded."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many funded accounts is too many?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The honest test is arithmetic rather than ambition: does the next account add more expected income than expected cost, given that it fails at the same time as all the others? Estimate the expected fee cost of getting one account funded, which is the evaluation fee divided by your realistic pass rate rather than the sticker price - a 250 dollar evaluation at a 40 percent pass rate costs about 625 dollars in expected fees per funded account. Then estimate what a funded account actually returns you per month after payout splits, and how many months it typically survives before a breach. If that product does not comfortably exceed the expected fee cost, the next account is a subscription rather than an investment. The second constraint is operational: every account adds a rulebook, a reset time and a reconciliation to your week, and traders usually hit the point where they stop reading the rules carefully well before they hit the point where the math stops working."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Running Three Funded Accounts and a Personal One", "item": "https://sgnldk.com/blog/multi-account-trading-journal/" }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        teal: { 400: '#2dd4bf' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-08-21" class="text-xs font-mono text-zinc-500">August 21, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Prop Firms</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Running Three Funded Accounts and a Personal One: How to Journal Multiple Accounts Without Losing the Plot
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                Four accounts running one strategy is not four bets. It is one bet placed four times, with four different rulebooks deciding independently whether you are still allowed to place it. The journaling problem that follows is specific: the single blended number most journals show you is the one number that cannot answer any question you actually have.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Multi-account trading has become the default shape of a serious retail career. A trader passes an evaluation, adds a second firm to spread payout risk, keeps a personal account for the setups the firms restrict, and within a year is running four rulebooks in parallel. Nothing about that is unreasonable. What breaks is the measurement layer: almost every journal, and almost every spreadsheet a trader builds themselves, treats the account as a label rather than as a boundary.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This piece is about where that boundary has to be hard and where it has to be permeable. The short version: your <span class="text-white font-medium">edge lives at the strategy level</span> and should be measured across every account you own, while your <span class="text-white font-medium">risk lives at the account level</span> and can never be measured across accounts at all. Blend the first and you throw away sample size. Blend the second and you find out about a breach from the firm's email rather than from your own numbers.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">1. The Aggregation Trap</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Start with a month that looks fine. Four accounts, one strategy, and a blended figure that any trader would happily report:
+            </p>
+
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full text-sm border border-zinc-800 rounded-lg overflow-hidden">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Account</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Size</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Month P&amp;L</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Its own limit</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-400">
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">Funded A</td>
+                            <td class="px-4 py-3 font-mono text-xs">$100,000</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$3,200</td>
+                            <td class="px-4 py-3 font-mono text-xs">trailing, $5,000</td>
+                            <td class="px-4 py-3 text-xs">Healthy</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">Funded B</td>
+                            <td class="px-4 py-3 font-mono text-xs">$50,000</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$1,400</td>
+                            <td class="px-4 py-3 font-mono text-xs">trailing, $2,500</td>
+                            <td class="px-4 py-3 text-xs">Healthy</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">Evaluation C</td>
+                            <td class="px-4 py-3 font-mono text-xs">$20,000</td>
+                            <td class="px-4 py-3 font-mono text-xs text-rose-500">&minus;$1,900</td>
+                            <td class="px-4 py-3 font-mono text-xs">static 6%, $1,200</td>
+                            <td class="px-4 py-3 text-xs text-rose-500">Breached and gone</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">Personal D</td>
+                            <td class="px-4 py-3 font-mono text-xs">$15,000</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$800</td>
+                            <td class="px-4 py-3 font-mono text-xs">self-imposed</td>
+                            <td class="px-4 py-3 text-xs">Healthy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The blended total is <span class="font-mono text-white">+$3,500</span>. It is also completely uninformative. Account C died at &minus;$1,200 and then kept trading in the trader's spreadsheet for another $700 of losses that the firm had already stopped counting. The aggregate not only failed to flag the breach, it absorbed it: a healthy-looking month contains a dead account, a lost evaluation fee, and a reset decision nobody has made yet.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The structural reason is worth stating precisely, because it is not a reporting preference. <span class="text-white font-medium">P&amp;L is additive; risk headroom is not.</span> Every account's meaningful risk number is its own remaining distance to its own limit &mdash; a different figure on every account, and zero on the one that has already breached &mdash; and those distances are denominated against different balances under different rules. There is no arithmetic that combines them into a portfolio figure, because there is no shared limit for the combination to be measured against. A summed P&amp;L implies one exists.
+            </p>
+            <blockquote class="border-l-2 border-blue-500 pl-5 my-8 text-zinc-400 italic">
+                A blended equity curve across accounts with different rulebooks is not a portfolio view. It is an average that can be green on a month where you lost an account.
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">2. Strategy-Level Truth vs Account-Level Truth</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The fix is not "keep four separate journals." That solves the risk problem and creates a worse one, because it fragments your sample exactly where you need it whole.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Consider a setup you traded 40 times last quarter, spread across four accounts. Read per account, that is four samples of ten trades &mdash; four figures too noisy to act on, and four traders' worth of temptation to draw conclusions anyway. Read at the strategy level, it is one sample of 40, which is still modest but is the difference between an estimate and a guess. Setups, sessions, instruments, and time-of-day patterns are all properties of the strategy. They do not care which firm's money funded them.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                So you need both readings from one dataset:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Account-scoped view</span> &mdash; equity curve, current and maximum drawdown, distance to limit, days to reset, progress toward a payout threshold. Always one account at a time. Never summed.</li>
+                <li><span class="text-white font-medium">Strategy-scoped view</span> &mdash; expectancy, <a href="../profit-factor-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">profit factor</a>, <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a>, win rate by setup and session. Always pooled across accounts, and only ever in R.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The practical requirement this creates is a single field, populated on every trade, that says which account it belongs to &mdash; captured at import rather than reconstructed later. Everything above is a filter on that one field. Without it, both views are unavailable, and what you have instead is the blended number from section 1.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">3. R-Multiple Is What Makes Accounts Comparable</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Pooling across accounts only works if the unit survives the pooling, and dollars do not. Two accounts, same setup, same execution:
+            </p>
+
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full text-sm border border-zinc-800 rounded-lg overflow-hidden">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Account</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Risk per trade</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">1R in cash</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Same +2R trade pays</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-400">
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">$50,000 funded</td>
+                            <td class="px-4 py-3 font-mono text-xs">1.0%</td>
+                            <td class="px-4 py-3 font-mono text-xs">$500</td>
+                            <td class="px-4 py-3 font-mono text-xs">$1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">$150,000 funded</td>
+                            <td class="px-4 py-3 font-mono text-xs">0.5%</td>
+                            <td class="px-4 py-3 font-mono text-xs">$750</td>
+                            <td class="px-4 py-3 font-mono text-xs">$1,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                In dollars, the larger account appears to be running the better strategy by a 50% margin. In <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> both trades are identical: +2.0R. The dollar gap is a sizing artifact and carries no information about edge whatsoever. Rank your accounts by dollar P&amp;L and you will reliably conclude that your biggest account holds your best strategy, which is a tautology dressed up as an insight.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Once R is the unit, a second and more useful diagnostic appears. If the same setup produces <span class="font-mono text-white">+0.42R</span> average on one account and <span class="font-mono text-white">+0.11R</span> on another over a comparable number of trades, that gap is not edge &mdash; the signals were the same. It is execution: different fills, wider spreads at one broker, a slower copier, or a lot size that had to be rounded (section 6). <span class="text-white font-medium">Divergence in R across accounts running one strategy is a mechanical fault report, and it is invisible in dollars</span> because the account sizes differ anyway.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                One caution on computing 1R correctly across accounts: R is the cash you risked on <em class="text-zinc-300">that trade on that account</em>, not a fixed percentage you intended to risk. If a stop was moved, or a fill was worse than the signal price, or a lot size was rounded up, the real 1R differs from the planned one. See <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> for the sizing side of this.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">4. Correlated Blowups: Four Accounts Is One Bet</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The most common unexamined assumption in multi-account trading is that adding accounts spreads risk. It does the opposite of what that phrase implies. If four accounts take the same signals, a losing day debits all four simultaneously and in proportion. Nothing offsets anything. The correlation between them is not high, it is approximately <span class="font-mono text-white">1.0</span> by construction, and correlation of 1.0 is the definition of a single position.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It is worth being precise about what does and does not change, because the intuition that "more accounts means more chances" is half right. Suppose one account has a 65% chance of reaching a payout before hitting its drawdown limit. Run four:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">If the accounts were independent</span> &mdash; you would expect 2.6 survivors, with a standard deviation of about 0.95. Outcomes cluster near the middle: two or three usually make it.</li>
+                <li><span class="text-white font-medium">Perfectly correlated, as they actually are</span> &mdash; you still expect 2.6 survivors, but the standard deviation is about 1.91. The real distribution is barbell-shaped: 65% of the time all four survive, 35% of the time none do.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The expected value is unchanged and the spread roughly doubles &mdash; it scales with the square root of the number of accounts. This is the honest description of what stacking accounts does: it is a leverage decision, not a diversification decision. That can be a perfectly rational trade, and plenty of good traders make it deliberately. It is only dangerous when it is made accidentally, by someone who believed the accounts were hedging each other.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The fee arithmetic follows the same shape. Four evaluations paid for at once are not four independent lottery tickets; on the bad path they are lost in the same week, along with the reset fees to get back. Whatever the current promotional price of the evaluations, budget them as a single correlated line item rather than four small ones. Modelling this properly is what <a href="../prop-firm-monte-carlo-readiness/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo readiness testing</a> is for, with the modification described in section 7.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">5. Per-Account Rule Tracking</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A single mental model cannot cover four rulebooks, and the differences are not cosmetic &mdash; they change which trade you are allowed to take today. The categories that actually vary:
+            </p>
+
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full text-sm border border-zinc-800 rounded-lg overflow-hidden">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">What differs</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Why one model cannot cover it</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-400">
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 text-xs text-white font-medium">Drawdown model</td>
+                            <td class="px-4 py-3 text-xs">Static floors sit still; trailing floors follow your high-water mark and can move up after a good day, tightening your headroom precisely when you feel safest. Some trail and then lock at a threshold. <a href="../ftmo-trailing-vs-static-drawdown/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Trailing vs static</a> covers the mechanics.</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 text-xs text-white font-medium">Drawdown basis</td>
+                            <td class="px-4 py-3 text-xs">Measured on balance or on equity, intraday or end-of-day. An open position that is temporarily underwater breaches one basis and is invisible to another.</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 text-xs text-white font-medium">Daily loss limit and reset time</td>
+                            <td class="px-4 py-3 text-xs">The daily clock resets in the firm's timezone, not yours. Two firms with the same limit can have their reset hours apart, so one account's fresh day is another's late session.</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 text-xs text-white font-medium">Consistency rules</td>
+                            <td class="px-4 py-3 text-xs">Some firms cap what share of total profit any single day may contribute. A large winner can satisfy one account's target while making another's payout ineligible.</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 text-xs text-white font-medium">Payout threshold, split and cadence</td>
+                            <td class="px-4 py-3 text-xs">Determines when it is rational to de-risk an account. Two accounts identical in P&amp;L can be at opposite ends of their payout cycles.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-xs text-white font-medium">Instrument, news and weekend restrictions</td>
+                            <td class="px-4 py-3 text-xs">A setup that is fine on the personal account may be prohibited on two of the three funded ones, which means the same signal produces different trades.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Rules vary by firm, by account configuration, and they change &mdash; treat the categories above as a checklist to verify rather than as a statement about any particular firm, and read each firm's current rulebook directly before trading. The journaling implication is that every trade needs its account recorded, so that when a rule changes you can immediately see which positions and which strategies are affected instead of reconstructing it from memory. Our <a href="../apex-trader-funding-rules/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Apex</a> and <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO</a> breakdowns work through two firms in detail and are useful mainly as illustrations of how differently two rulebooks can be built.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">6. The Copy-Trading Wrinkle</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Most multi-account traders eventually run a copier so one execution reaches every account. Identical signals do not produce identical results, and the divergence is systematic rather than random:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Slippage and spread differ per broker</span> &mdash; the same market order fills at different prices across firms, and the gap widens exactly when it hurts most, in fast conditions.</li>
+                <li><span class="text-white font-medium">Copier latency</span> &mdash; follower accounts enter after the master by some interval, which on short-stop strategies is a meaningful share of 1R.</li>
+                <li><span class="text-white font-medium">Lot rounding</span> &mdash; the one that surprises people. Minimum lot size is typically 0.01, so proportional scaling breaks at small sizes. A 0.03 lot position on a $100K account scaled to a $20K account should be 0.006 lots; rounded up to the 0.01 minimum, that account is carrying <span class="font-mono text-white">67% more risk</span> than intended, on every trade, permanently.</li>
+                <li><span class="text-white font-medium">Commission and swap schedules</span> &mdash; different per firm, so net R diverges from gross R by a different amount on each account.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                All of which means one thing for your journal: <span class="text-white font-medium">import each account's own fills.</span> Do not copy the master account's trade records across and relabel them. If you do, every follower account's journal shows the master's prices, the divergence above becomes invisible, and the R-gap diagnostic from section 3 &mdash; which is precisely how you would have detected a mis-scaled copier &mdash; is destroyed by the import method itself.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">7. Scaling Sensibly: Does the Fifth Account Pay for Itself?</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                "Add another account" is treated as an obviously good move because the upside is easy to picture and the cost is spread across a year of small charges. The readiness question is narrower: does the next account add more expected income than expected cost, given that it fails at the same time as all the others?
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The expected fee cost of a funded account is not the evaluation price. It is the evaluation price divided by your realistic pass rate. At a $250 evaluation and a 40% pass rate, each funded account costs about <span class="font-mono text-white">$625</span> in expected fees before it earns anything &mdash; and the pass rate to use is your own historical one, not the one you are hoping for. Against that, put what a funded account actually returns per month after the payout split, multiplied by how many months an account of yours typically survives before a breach. If those two numbers are close, the account is a subscription rather than an investment.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                If you model this with Monte Carlo &mdash; and for a portfolio of accounts you should &mdash; there is one modelling error that makes multi-account setups look far safer than they are. The instinct is to simulate four accounts independently. That is the wrong model, because it quietly assumes the diversification that section 4 showed does not exist. <span class="text-white font-medium">Resample one trade sequence, then apply that same sequence to all four accounts with each account's own size and its own rules</span>, and count how often each survives. The survivor distribution that falls out is barbell-shaped rather than clustered, and it is the honest one.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                There is also a non-quantitative ceiling that arrives sooner. Every account adds a rulebook to remember, a reset time in someone else's timezone, and a reconciliation against the firm's dashboard to do each week. Most traders stop reading the rules carefully well before the arithmetic stops working, and a breach caused by a rule you forgot costs exactly as much as one caused by a bad strategy.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Log, Specifically</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                None of the above is recoverable after the fact if the fields were never captured. Beyond whatever you already record:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">The account, on every trade</span> &mdash; set at import, not typed in later. This is the field every view in this article filters on.</li>
+                <li><span class="text-white font-medium">Cash at risk on that account</span> &mdash; so 1R is the real risked amount for that account's size, not a percentage you intended.</li>
+                <li><span class="text-white font-medium">The firm and account configuration</span> &mdash; because the rulebook is a property of the account, and rulebooks change.</li>
+                <li><span class="text-white font-medium">Signal price and actual fill</span> &mdash; both, per account, so copier slippage is computed rather than assumed.</li>
+                <li><span class="text-white font-medium">Realized lot size</span> &mdash; the size that actually executed after rounding, which is what determines your true risk on the smallest account.</li>
+                <li><span class="text-white font-medium">Strategy or setup tag</span> &mdash; the field that lets you pool across accounts without pooling the risk.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Handles It, and What It Does Not Do Yet</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                SignalDeck carries two independent account dimensions on every trade, which map onto the two questions above. The <span class="text-white font-medium">broker</span> is created automatically per connection &mdash; one per MetaTrader login and server, one per cTrader account, one per linked brokerage &mdash; so imported fills arrive already separated by where they came from. The <span class="text-white font-medium">funding account</span> is a label you create yourself in Settings ("FTMO 100K", "Apex 50K", "Personal"), for the times when whose money it is and where it executed are not the same thing.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                An account selector in the top navigation scopes the whole application to one account: dashboard statistics, the equity and drawdown figures, the calendar and year heatmap, the economic-calendar view, and CSV and report exports all respect it. Clear it and you are back to the pooled, strategy-level reading. On MetaTrader imports, the risk percentage on each trade is computed against that connection's own balance as read at import time, so a trade on the $20K account is scored against $20K rather than against a single global figure.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Two limits worth stating plainly, because knowing them is the difference between a journal you can trust and one you assume too much of. First, the risk profile &mdash; account size and maximum risk percent per trade &mdash; is currently a single user-level setting rather than one per funding account, so pre-trade risk prompts are not yet per-account. Second, SignalDeck does not encode each firm's specific drawdown rule: you get that account's real equity curve, maximum drawdown and current drawdown, not "your trailing threshold is $412 away." The firm's own dashboard remains the authoritative number for headroom, and reconciling the two is its own discipline &mdash; see <a href="../prop-dashboard-vs-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">why your journal and the firm's dashboard disagree</a>. What the journal is for is the part the dashboard cannot tell you: whether the strategy underneath all four accounts is actually worth running.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I track multiple prop firm accounts?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Tag every trade with the account it belongs to at import time, not later from memory, and keep two separate views rather than one blended one. The account-level view answers risk questions - how much drawdown headroom is left, which rulebook applies, how close this account is to a payout threshold - and it has to be scoped to one account at a time because each account has its own size and its own limits. The strategy-level view answers edge questions - which setups make money, at what expectancy, in which sessions - and that view should span every account, because a setup you traded 40 times across four accounts gives you a far better sample than 10 trades on one. The mistake is keeping only the blended dollar total, which answers neither question. If your journal has an account or funding-account field, populate it on every trade and make the account filter part of your normal reading routine.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Should I combine P&amp;L across accounts?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">For your tax return and your household budget, yes. For any decision about risk, no. A combined figure is an average across accounts with different sizes and different rulebooks, and averages hide breaches. Four accounts at plus 3,200, plus 1,400, minus 1,900 and plus 800 sum to a respectable plus 3,500 for the month - but if that minus 1,900 sat on a 20,000 dollar evaluation with a 6 percent maximum loss, the account was gone at minus 1,200 and the aggregate never mentioned it. The number that matters per account is not its P&amp;L, it is its remaining distance to its own limit, which is a different number on every account and cannot be summed. Combine for income reporting. Never combine for risk.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Is running the same strategy on several accounts risky?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">It is not diversification, and the common mistake is treating it as though it were. Four accounts running identical signals are one position expressed four times: the same losing day debits all four simultaneously, so nothing offsets anything. The expected outcome does not change, but the spread of outcomes widens by roughly the square root of the number of accounts. If a single account has a 65 percent chance of reaching payout, four independent accounts would average 2.6 survivors with a standard deviation near one; four perfectly correlated accounts average the same 2.6 but with a standard deviation near two, because the real outcomes are all four or none. That is fine if you sized for it and paid the evaluation fees knowing they can be lost together. It is not fine if you added accounts believing the risk was being spread.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How do I compare performance across different account sizes?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Convert everything to R, where 1R is the cash you risked on that specific trade on that specific account. A 50,000 dollar account risking 1 percent puts 500 dollars at risk and a plus 2R winner returns 1,000 dollars; a 150,000 dollar account risking 0.5 percent puts 750 dollars at risk and the same plus 2R winner returns 1,500 dollars. In dollars the second account looks like the better strategy, when in fact both trades performed identically and only the sizing differed. Once every trade is expressed in R, a 20,000 dollar evaluation and a 150,000 dollar funded account produce directly comparable numbers, and you can pool them into one honest sample for expectancy. There is also a diagnostic hiding in this: if the same setup produces a materially different average R on two accounts, the difference is almost never edge, it is execution or sizing - different fills, different spreads, or a lot size that had to be rounded.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How many funded accounts is too many?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">The honest test is arithmetic rather than ambition: does the next account add more expected income than expected cost, given that it fails at the same time as all the others? Estimate the expected fee cost of getting one account funded, which is the evaluation fee divided by your realistic pass rate rather than the sticker price - a 250 dollar evaluation at a 40 percent pass rate costs about 625 dollars in expected fees per funded account. Then estimate what a funded account actually returns you per month after payout splits, and how many months it typically survives before a breach. If that product does not comfortably exceed the expected fee cost, the next account is a subscription rather than an investment. The second constraint is operational: every account adds a rulebook, a reset time and a reconciliation to your week, and traders usually hit the point where they stop reading the rules carefully well before they hit the point where the math stops working.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-2">Per-account scoping, multi-connection imports and how R is computed</p>
+                    </a>
+                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradeZella</p>
+                        <p class="text-zinc-500 text-xs mt-2">Account filtering, prop-firm workflows and validation tooling</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firms</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
+                        <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
+                    </a>
+                    <a href="../prop-dashboard-vs-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firms</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Prop Firm Dashboard and Your Journal Disagree (and Which One to Trust)</p>
+                        <p class="text-zinc-500 text-xs mt-2">August 10, 2026</p>
+                    </a>
+                    <a href="../prop-firm-monte-carlo-readiness/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Quant</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Use Monte Carlo Simulation to Decide If You Are Ready for a Prop Firm Challenge</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 24, 2026</p>
+                    </a>
+                    <a href="../what-is-r-multiple/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 1, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Four accounts running one strategy is one bet.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">Import every account separately, scope the whole dashboard to one of them with a single click, then clear the filter to read the strategy across all four in R. Free tier on every plan; Pro is $30/mo and Elite (MT4/MT5 live sync, Market News, AI weekly review) is $50/mo when billing launches.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'multi-account-trading-journal'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/index.html"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

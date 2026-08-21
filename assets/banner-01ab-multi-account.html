@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AB · Multi-Account</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Four Accounts.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">One Bet.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Own Size &middot; Own Rules &middot; Own Drawdown Clock</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Edge lives at the strategy level &middot; Risk lives at the account level</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic pseudo-random so the render is reproducible */
+  let s = 20260821;
+  function rnd() { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; }
+
+  const defs = el(svg, 'defs', {});
+
+  /* aggregate line: blue -> purple gradient */
+  const gradAgg = el(defs, 'linearGradient', { id: 'gradAgg', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradAgg, 'stop', { offset: '0%',   'stop-color': '#3b82f6' });
+  el(gradAgg, 'stop', { offset: '62%',  'stop-color': '#60a5fa' });
+  el(gradAgg, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+
+  /* the four feeds fading as they converge into the aggregate */
+  const gradFeed = el(defs, 'linearGradient', { id: 'gradFeed', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradFeed, 'stop', { offset: '0%',   'stop-color': '#3f3f46', 'stop-opacity': '0.15' });
+  el(gradFeed, 'stop', { offset: '100%', 'stop-color': '#60a5fa', 'stop-opacity': '0.55' });
+
+  const glow = el(defs, 'radialGradient', { id: 'glowPulse' });
+  el(glow, 'stop', { offset: '0%',   'stop-color': '#2dd4bf', 'stop-opacity': '0.55' });
+  el(glow, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0' });
+
+  const glowBreach = el(defs, 'radialGradient', { id: 'glowBreach' });
+  el(glowBreach, 'stop', { offset: '0%',   'stop-color': '#f43f5e', 'stop-opacity': '0.5' });
+  el(glowBreach, 'stop', { offset: '100%', 'stop-color': '#f43f5e', 'stop-opacity': '0' });
+
+  const path = (p) => p.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ');
+
+  /* ---------- four per-account panels, each with its OWN floor ---------- */
+  /* drift/vol are per account; account 3 is the one that goes through its floor */
+  const ACCTS = [
+    { label: 'FTMO 100K',   size: '2-step · trailing',  drift:  1.35, vol: 3.0, floor: -46, breach: false },
+    { label: 'APEX 50K',    size: 'trailing threshold', drift:  0.95, vol: 3.6, floor: -40, breach: false },
+    { label: '5%ERS 20K',   size: 'static drawdown',    drift: -0.85, vol: 4.4, floor: -34, breach: true  },
+    { label: 'PERSONAL',    size: 'self-imposed limit', drift:  1.10, vol: 2.6, floor: -44, breach: false }
+  ];
+
+  const px0 = 212, pxEnd = 478;      /* sparkline x-range inside each row */
+  const rowY = [88, 190, 292, 394];  /* baseline of each row */
+  const rowH = 74;
+  const N = 64;
+
+  const feedEnds = [];
+
+  ACCTS.forEach((a, idx) => {
+    const yBase = rowY[idx];
+
+    /* row rule + label block */
+    el(svg, 'line', { x1: 60, y1: yBase + 34, x2: 500, y2: yBase + 34, stroke: '#18181b', 'stroke-width': 1 });
+    txt(svg, {
+      x: 60, y: yBase - 6,
+      'font-family': 'JetBrains Mono, monospace', 'font-size': '14', 'font-weight': '700',
+      fill: a.breach ? '#fb7185' : '#a1a1aa', 'letter-spacing': '0.09em'
+    }, a.label);
+    txt(svg, {
+      x: 60, y: yBase + 13,
+      'font-family': 'JetBrains Mono, monospace', 'font-size': '10.5',
+      fill: '#3f3f46', 'letter-spacing': '0.05em'
+    }, a.size);
+
+    /* each account's own floor - the point of the picture */
+    const yFloor = yBase + Math.abs(a.floor) * 0.42;
+    el(svg, 'line', {
+      x1: px0, y1: yFloor, x2: pxEnd, y2: yFloor,
+      stroke: '#f43f5e', 'stroke-width': 1.4, 'stroke-dasharray': '4 5',
+      opacity: a.breach ? 0.85 : 0.35
+    });
+
+    /* the account's own equity path */
+    const pts = [];
+    let v = 0;
+    for (let i = 0; i < N; i++) {
+      const t = i / (N - 1);
+      const x = px0 + t * (pxEnd - px0);
+      v += a.drift + (rnd() - 0.5) * a.vol * 2.1;
+      /* the breaching account keeps sinking through the back half */
+      if (a.breach && t > 0.45) v -= 1.5;
+      pts.push([x, yBase + 6 - v * 0.42]);
+    }
+    el(svg, 'path', {
+      d: path(pts), fill: 'none',
+      stroke: a.breach ? '#f43f5e' : '#52525b',
+      'stroke-width': a.breach ? 2.4 : 2,
+      'stroke-linejoin': 'round', 'stroke-linecap': 'round',
+      opacity: a.breach ? 0.95 : 0.75
+    });
+
+    const last = pts[pts.length - 1];
+    el(svg, 'circle', { cx: last[0], cy: last[1], r: 3.6, fill: a.breach ? '#f43f5e' : '#71717a' });
+    feedEnds.push(last);
+
+    if (a.breach) {
+      el(svg, 'circle', { cx: last[0], cy: last[1], r: 22, fill: 'url(#glowBreach)' });
+      txt(svg, {
+        x: px0 + 2, y: yFloor + 17,
+        'font-family': 'JetBrains Mono, monospace', 'font-size': '11', 'font-weight': '700',
+        fill: '#fb7185', 'letter-spacing': '0.07em'
+      }, 'THROUGH ITS OWN FLOOR');
+    }
+  });
+
+  /* ---------- the four feeds converge into one aggregate ---------- */
+  const junction = [600, 250];
+  feedEnds.forEach((f) => {
+    const cx = (f[0] + junction[0]) / 2;
+    el(svg, 'path', {
+      d: 'M' + f[0].toFixed(1) + ' ' + f[1].toFixed(1) +
+         ' C' + cx.toFixed(1) + ' ' + f[1].toFixed(1) + ',' +
+                cx.toFixed(1) + ' ' + junction[1] + ',' +
+                junction[0] + ' ' + junction[1],
+      fill: 'none', stroke: 'url(#gradFeed)', 'stroke-width': 1.6
+    });
+  });
+
+  /* ---------- the aggregate curve: green, and lying ---------- */
+  const ax0 = junction[0], axEnd = 990, aBase = junction[1];
+  const agg = [];
+  let av = 0;
+  for (let i = 0; i < 90; i++) {
+    const t = i / 89;
+    const x = ax0 + t * (axEnd - ax0);
+    av += 1.5 + (rnd() - 0.5) * 4.4;
+    agg.push([x, aBase - av * 0.62]);
+  }
+  el(svg, 'path', {
+    d: path(agg), fill: 'none', stroke: 'url(#gradAgg)',
+    'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'
+  });
+
+  txt(svg, {
+    x: ax0 + 6, y: aBase + 30,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '14', 'font-weight': '700',
+    fill: '#60a5fa', 'letter-spacing': '0.09em'
+  }, 'AGGREGATE  +14.2R');
+  txt(svg, {
+    x: ax0 + 6, y: aBase + 49,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '11',
+    fill: '#3f3f46', 'letter-spacing': '0.05em'
+  }, 'one number, four rulebooks');
+
+  /* junction marker */
+  el(svg, 'circle', { cx: junction[0], cy: junction[1], r: 20, fill: 'url(#glowPulse)' });
+  el(svg, 'circle', { cx: junction[0], cy: junction[1], r: 5, fill: 'none', stroke: '#2dd4bf', 'stroke-width': 2 });
+
+  /* the amber caption: aggregate is green while an account is already gone */
+  const lastAgg = agg[agg.length - 1];
+  el(svg, 'circle', { cx: lastAgg[0], cy: lastAgg[1], r: 5.5, fill: '#a855f7' });
+  el(svg, 'line', {
+    x1: 508, y1: 44, x2: 508, y2: 452,
+    stroke: '#f59e0b', 'stroke-width': 1.4, 'stroke-dasharray': '3 5', opacity: 0.55
+  });
+  txt(svg, {
+    x: 518, y: 42,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '12', 'font-weight': '700',
+    fill: '#fbbf24', 'letter-spacing': '0.08em'
+  }, 'SUMMING HIDES THE BREACH');
+})();
+</script>
+</body>
+</html>

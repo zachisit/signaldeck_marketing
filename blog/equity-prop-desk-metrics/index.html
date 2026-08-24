@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Equity Prop Desk Traders Should Actually Track (It Isn't Win Rate) | SignalDeck</title>
+    <meta name="description" content="A +$4,100 month where four railroad names made $12,600 and everything else lost $8,500 is not a good month, it is one sector call. Attribution, return on capital deployed, correlated-cluster concentration, borrow cost and execution benchmarks - the desk metric set and how to build it.">
+    <meta name="keywords" content="equity prop trader metrics, proprietary equity trading journal, prop desk performance tracking, day trading firm metrics, equities trader scorecard, prop desk risk metrics">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/equity-prop-desk-metrics/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/equity-prop-desk-metrics/">
+    <meta property="og:title" content="What Equity Prop Desk Traders Should Actually Track (It Isn't Win Rate) | SignalDeck">
+    <meta property="og:description" content="A +$4,100 month where four railroad names made $12,600 and everything else lost $8,500 is not a good month, it is one sector call. Attribution, return on capital deployed, correlated-cluster concentration, borrow cost and execution benchmarks - the desk metric set and how to build it.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01y-attribution.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/blog/equity-prop-desk-metrics/">
+    <meta property="twitter:title" content="What Equity Prop Desk Traders Should Actually Track (It Isn't Win Rate) | SignalDeck">
+    <meta property="twitter:description" content="A +$4,100 month where four railroad names made $12,600 and everything else lost $8,500 is not a good month, it is one sector call. Attribution, return on capital deployed, correlated-cluster concentration, borrow cost and execution benchmarks - the desk metric set and how to build it.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01y-attribution.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What Equity Prop Desk Traders Should Actually Track (It Isn't Win Rate)",
+        "description": "Desk trading changes what is worth measuring, because the capital is not yours and the question stops being whether you made money. This piece works through the equity desk metric set: P&L attribution by name, sector and catalyst; return on capital deployed as the number that separates two traders with identical P&L; correlated-cluster concentration, where four separately-sized positions turn out to be one factor bet; borrow and locate cost as a per-trade field rather than a monthly bill; and execution benchmarks, including an honest account of which ones a journal can compute without a market data feed and which it cannot.",
+        "author": { "@type": "Organization", "name": "SignalDeck" },
+        "publisher": { "@type": "Organization", "name": "SignalDeck", "url": "https://sgnldk.com" },
+        "datePublished": "2026-08-24",
+        "dateModified": "2026-08-24",
+        "image": "https://sgnldk.com/assets/banner-01y-attribution.png"
+    }
+    </script>
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What metrics do proprietary equity traders track?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Five things that retail journals mostly do not cover, plus the standard expectancy set underneath them. First, P&L attribution by name, sector and catalyst, so a month can be decomposed into which decisions actually produced the result rather than reported as one net figure. Second, return on capital deployed, because two traders with the same P&L and very different average buying power are not equally good and should not receive the same allocation. Third, correlated exposure, measured as clusters rather than as a position count, since four separately-sized industrial names are one factor bet and not four independent ones. Fourth, financing and borrow cost per trade, which on hard-to-borrow shorts can consume a large share of the gross edge and is usually invisible because it arrives as a monthly bill. Fifth, execution quality against a benchmark - arrival price or interval VWAP on a real desk, or at minimum fill against your own trigger price. Win rate appears nowhere on that list, because on a desk it is close to meaningless: it says nothing about size, capital consumed, or whether the winners and losers were the same bet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is prop desk performance measured?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "By return on the capital and risk the firm allocated to you, not by gross P&L. A desk is allocating a scarce resource - buying power, risk limits, borrow, and in some seats a share of the firm's own balance sheet - so the operative question is what each trader returns per unit of that resource. In practice that means P&L set against average capital deployed and against risk actually taken, expectancy in R so trades of different sizes are comparable, drawdown and its recovery profile, and the stability of the return rather than its peak. Concentration matters at the desk level too, because a firm running ten traders who all like the same sector does not have ten books, it has one. The traders who last are generally not the ones with the highest single-month P&L, they are the ones whose returns can be given more capital without the risk profile falling apart."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is return on capital deployed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Profit divided by the average capital actually tied up producing it, rather than by the account size or the allocation on paper. Two traders both finish a month at plus 40,000 dollars. The first ran an average of 2,000,000 dollars of long exposure to get there, a 2.0 percent return on deployed capital. The second averaged 600,000 dollars, which is 6.7 percent. Identical on the P&L report and more than three times apart on the metric that decides who should get more buying power next quarter. Average deployed capital has to be time-weighted rather than taken from peak or from month-end, since a position held for two days does not consume the same capital as one held for three weeks. The metric also disciplines a specific bad habit, which is parking large amounts of capital in low-conviction positions that neither lose money nor earn their keep."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do prop desk traders keep their own journals?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Many do not need to, and it is worth saying so plainly. If your firm's risk stack computes attribution, exposure and financing continuously and shows it to you daily, a second tool is duplication rather than insight. The traders who do keep their own records tend to be in one of three situations: the firm's system reports position and risk but not decision quality, so there is no record of why a trade was taken or what was expected of it; the trader wants continuity across seats, since firm systems do not travel and a track record that lives only in an employer's database disappears with the job; or the trader runs a personal book alongside the desk seat and needs the two measured the same way. The honest test is whether you can already answer, from your firm's screens, what your return on deployed capital was last month and which correlated cluster your largest drawdown came from. If yes, you do not need another tool."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "What Equity Prop Desk Traders Should Actually Track", "item": "https://sgnldk.com/blog/equity-prop-desk-metrics/" }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
+                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
+                        purple: { 500: '#a855f7', 400: '#c084fc' },
+                        emerald: { 500: '#10b981' },
+                        rose: { 500: '#f43f5e' },
+                        teal: { 400: '#2dd4bf' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Article Header -->
+    <section class="relative pt-24 pb-8 border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-08-24" class="text-xs font-mono text-zinc-500">August 24, 2026</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Equities</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                What Equity Prop Desk Traders Should Actually Track (It Isn't Win Rate)
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                When the capital is not yours, the question stops being &ldquo;did I make money&rdquo; and becomes &ldquo;what did I return on what I was given, and was it one idea or seven.&rdquo; That is a different measurement problem, and most of the metrics a retail journal puts on its front page do not address it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-6">
+
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                A note on scope before the metrics. A great many desks already compute all of this continuously, in a risk system built for exactly this purpose, and if yours does then a second tool is duplication rather than insight &mdash; a point worth taking seriously enough that it gets <a href="#firm-system" class="text-blue-400 hover:text-blue-300 transition-colors">its own section near the end</a>. This piece is written for the seats where that is not true: smaller desks, remote and funded equity seats, individual books inside a firm whose system reports position and risk but never decision quality, and traders who want a record that survives a change of employer.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">1. What Changes When the Capital Is Not Yours</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Retail metrics answer a personal question: is this working, should I keep doing it. Desk metrics answer an allocation question: what should this trader be given next quarter, and what is the risk of giving it. Three consequences follow, and they reorder the whole scorecard.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <span class="text-white font-medium">Net P&amp;L stops being the headline.</span> It is the output of a process, and on its own it cannot distinguish a repeatable edge from one good sector call. <span class="text-white font-medium">Capital becomes a denominator rather than a background fact</span>, because the firm is allocating a scarce resource and cares what you return per unit of it. And <span class="text-white font-medium">positions stop being independent</span>: a book is not a list of trades, it is a set of exposures, several of which are usually the same exposure wearing different tickers.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../why-win-rate-is-lying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Win rate</a> survives none of this. It says nothing about size, nothing about capital consumed, and nothing about whether your winners and your losers were the same bet. It is the first number most journals show and close to the last one a desk would ask for.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">2. Attribution: Which Decisions Actually Produced the Month</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Take a month that closes at <span class="font-mono text-emerald-500">+$4,100</span>. Reported as one figure it is a modest, unremarkable, perfectly acceptable month. Decomposed by name it is something else entirely:
+            </p>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full text-sm border border-zinc-800 rounded-lg overflow-hidden">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Name</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Sector</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">P&amp;L</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Catalyst</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-400">
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs text-blue-400">UNP</td>
+                            <td class="px-4 py-3 text-xs text-blue-400">Rail</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$5,200</td>
+                            <td class="px-4 py-3 text-xs">Freight volume data</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs text-blue-400">NSC</td>
+                            <td class="px-4 py-3 text-xs text-blue-400">Rail</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$3,100</td>
+                            <td class="px-4 py-3 text-xs">Freight volume data</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs text-blue-400">CSX</td>
+                            <td class="px-4 py-3 text-xs text-blue-400">Rail</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$2,400</td>
+                            <td class="px-4 py-3 text-xs">Sector sympathy</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs text-blue-400">ODFL</td>
+                            <td class="px-4 py-3 text-xs text-blue-400">Trucking</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$1,900</td>
+                            <td class="px-4 py-3 text-xs">Sector sympathy</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">MSFT</td>
+                            <td class="px-4 py-3 text-xs">Software</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$700</td>
+                            <td class="px-4 py-3 text-xs">Earnings</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">PFE</td>
+                            <td class="px-4 py-3 text-xs">Pharma</td>
+                            <td class="px-4 py-3 font-mono text-xs text-rose-500">&minus;$4,300</td>
+                            <td class="px-4 py-3 text-xs">Guidance</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">KO</td>
+                            <td class="px-4 py-3 text-xs">Staples</td>
+                            <td class="px-4 py-3 font-mono text-xs text-rose-500">&minus;$4,900</td>
+                            <td class="px-4 py-3 text-xs">Mean reversion</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The four transport names produced <span class="font-mono text-emerald-500">+$12,600</span>. Everything else lost <span class="font-mono text-rose-500">&minus;$8,500</span>. This was not a +$4,100 month; it was one correct sector call carrying a book that was otherwise bleeding, and the net figure is the only presentation of it that hides that.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Three attribution axes are worth carrying, and only the first is standard:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">By name</span> &mdash; the base layer. Concentration of P&amp;L into very few names is the single most common finding, and it is the same <a href="../do-you-need-a-trading-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">outlier-concentration test</a> that decides whether an edge is real or is three lucky trades.</li>
+                <li><span class="text-white font-medium">By sector</span> &mdash; the equities-specific axis with no forex equivalent. This is what turns seven trades into two decisions.</li>
+                <li><span class="text-white font-medium">By catalyst</span> &mdash; earnings, guidance, M&amp;A, index events, macro prints, pure technicals. The axis nobody logs and the one that most reliably explains why a strategy stops working, because catalysts come in regimes.</li>
+            </ul>
+            <blockquote class="border-l-2 border-blue-500 pl-5 my-8 text-zinc-400 italic">
+                A net P&amp;L figure is a summary of a book you have not read. Attribution is reading it.
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">3. Return on Capital Deployed</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Two traders on the same desk, same month, same P&amp;L:
+            </p>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full text-sm border border-zinc-800 rounded-lg overflow-hidden">
+                    <thead class="bg-zinc-900">
+                        <tr>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Trader</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Month P&amp;L</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Avg capital deployed</th>
+                            <th class="text-left px-4 py-3 text-zinc-300 font-semibold border-b border-zinc-800">Return on deployed</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-400">
+                        <tr class="border-b border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-xs">A</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$40,000</td>
+                            <td class="px-4 py-3 font-mono text-xs">$2,000,000</td>
+                            <td class="px-4 py-3 font-mono text-xs">2.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">B</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">+$40,000</td>
+                            <td class="px-4 py-3 font-mono text-xs">$600,000</td>
+                            <td class="px-4 py-3 font-mono text-xs text-emerald-500">6.7%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Identical on the P&amp;L report, more than three times apart on the number that decides who should get more buying power. If the desk has a fixed pool to allocate, B is where the next dollar goes, and A's result depends on continuing to receive an allocation that is producing 2%.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Two implementation details matter. Average deployed capital must be <span class="text-white font-medium">time-weighted</span>, not taken from the peak or from month-end &mdash; a position held two days does not consume what one held three weeks does, and using a snapshot rewards whoever happened to be flat on the measurement date. And it should be measured against capital <span class="text-white font-medium">actually tied up</span> rather than the allocation on paper, because the gap between the two is itself the finding. The habit this metric disciplines is specific: parking size in low-conviction positions that neither lose money nor earn their keep.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">4. Concentration: When Five Positions Are One Bet</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Return to the month in section 2. UNP, NSC and CSX are railroads. ODFL is trucking. Four positions, each sized independently, each risking say 1% of the book &mdash; and a trader who believes they are carrying 1% per idea is in fact carrying roughly 4% on a single question about freight volumes. It worked, which is why nobody looked. The month it does not work, three or four stops resolve on the same morning.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                This is the measurement gap that separates a desk book from a retail one, and it is invisible to every position-count-based risk rule. &ldquo;No more than six open positions&rdquo; and &ldquo;no more than 2% per name&rdquo; are both satisfied by a book that is one bet. What is needed instead is exposure grouped into <span class="text-white font-medium">correlated clusters</span>, with the risk summed inside each cluster rather than across the position list.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Long/short books get the same problem in a subtler form. Long four industrials against short two staples is not market-neutral and is not two positions &mdash; it is a single cyclical-versus-defensive factor bet with a beta that is nowhere in the position list. Netting gross exposure to something small does not make a book neutral; it makes the factor concentration harder to see.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The practical version of this is a pre-trade check rather than a monthly report. The useful question is not &ldquo;was I concentrated last month,&rdquo; it is &ldquo;does the order I am about to send join a cluster that is already heavy,&rdquo; asked at the moment the size is still editable.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">5. Borrow and Locate as Per-Trade Fields</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Short financing is the cost most likely to be missing from a trader's own record, because it does not arrive per trade. It arrives as a monthly financing line that nobody attributes back to the positions that caused it, which means the strategy's measured expectancy is gross and its real expectancy is something lower that nobody has calculated.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The arithmetic is unforgiving on tight names. A $100,000 short held 21 days at a 40% annualized borrow rate costs <span class="font-mono text-white">100,000 &times; 0.40 &times; 21/365 = $2,301</span>. If the strategy's average winning short makes $3,000 gross, borrow has taken roughly three quarters of the edge, and the journal that records only entry and exit price will never show it. Rates on hard-to-borrow names range from a few basis points to triple digits annualized, move daily, and differ between prime brokers &mdash; so treat any single figure as an example rather than a benchmark and take the real number from your own locate desk.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Three fields close the gap: the borrow rate at entry, whether the locate was general collateral or hard-to-borrow, and the accrued financing at exit. With those, short expectancy can be computed net, and the common finding &mdash; that the hard-to-borrow subset has materially worse net expectancy than the general-collateral subset despite better gross numbers &mdash; becomes visible instead of theoretical.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">6. Execution Quality, and Which Benchmarks You Can Actually Compute</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                On a real desk, execution is measured against a market benchmark: arrival price (the mid at the moment the decision was made) or interval VWAP (the volume-weighted average over the working period). Both require a market data feed alongside your fills, which is exactly why they live in the firm's execution stack rather than in any journal.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                It is worth being precise about the distinction, because the two answer different questions. Benchmarked slippage asks whether your <span class="text-white font-medium">execution</span> was good relative to what the market offered. Trigger-based slippage &mdash; the difference between your fill and the price your own order was supposed to trigger at &mdash; asks whether your <span class="text-white font-medium">plan survived contact</span>. The second is computable from your own records with no market data at all, and for a discretionary trader it is arguably the more actionable of the two: it catches stops that fill three cents through on thin names, limit orders that never get the price you assumed when you sized the position, and the systematic gap between the trade you designed and the trade you got.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                <a href="../mae-mfe-execution-metrics/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">MAE and MFE</a> sit alongside it and need no feed either. On intraday equity books the highest-value cut is MAE by liquidity band: if adverse excursion on your thinner names is consistently deeper before the eventual winners resolve, the stop is being placed against a spread rather than against an invalidation level, and the fix is sizing rather than a tighter stop.
+            </p>
+
+            <h2 id="firm-system" class="text-2xl font-bold text-white mt-12 mb-4">7. When Your Firm's System Already Does This</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Then use it. A desk risk stack that computes attribution, exposure and financing continuously is better at this than any journal will be, because it sits on the fills and the market data and updates in real time. One equity trader we spoke to described his firm as running &ldquo;its own trading terminal and its own accounting and metrics &mdash; closed ecosystem,&rdquo; and for that seat the honest answer is that a second tool adds nothing.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                The test is concrete. Can you answer, from screens you already have: what was my return on deployed capital last month, and which correlated cluster produced my largest drawdown? If yes, stop here. If the system reports position and risk but never <span class="text-white font-medium">decision quality</span> &mdash; what you expected of a trade, why you took it, what the catalyst was, whether you followed the plan &mdash; that gap is real, and it is the one an individual record fills. The other two cases are portability, since a track record living in an employer's database does not travel when you do, and traders running a personal book alongside a desk seat who need both measured the same way.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Log, Specifically</h2>
+            <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
+                <li><span class="text-white font-medium">Sector and catalyst per trade</span> &mdash; the two attribution axes that cannot be reconstructed later from a fill file.</li>
+                <li><span class="text-white font-medium">Capital deployed and holding period</span> &mdash; together these give time-weighted average deployed capital, which no exit price implies.</li>
+                <li><span class="text-white font-medium">Borrow rate at entry and accrued financing at exit</span> &mdash; plus the general-collateral or hard-to-borrow flag.</li>
+                <li><span class="text-white font-medium">Trigger price alongside fill price</span> &mdash; both, or trigger-based slippage is unavailable forever.</li>
+                <li><span class="text-white font-medium">Expected R and thesis at entry</span> &mdash; the decision-quality record, and the part no firm system holds.</li>
+                <li><span class="text-white font-medium">MAE and MFE</span> &mdash; with a liquidity or ADV band, so the stop-placement cut is possible.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Handles It, and What It Does Not</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                One part of this list SignalDeck does natively and, as far as we know, unusually. <span class="text-white font-medium">The concentration check in section 4 is built in and it runs before the trade, not after.</span> When you enter a symbol on the New Trade form, your open equity book is grouped into correlated clusters by sector, and if the prospective position joins a cluster that is already heavy you are told so while the size is still editable &mdash; with the combined dollar, R and percent-of-account exposure for that cluster. The sector is resolved automatically from the ticker's SIC classification rather than typed by you, which matters because self-labelling is precisely where this check fails: the source's own worked example is <span class="font-mono text-white">UNP + NSC</span>, both SIC 4011 railroads, flagged as one exposure. Where a ticker cannot be resolved, the position still counts toward total open risk but joins no cluster, and nothing silently guesses.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Also present: MAE and MFE per trade, trigger-based execution metrics (fill against your stop or limit trigger, limit penetration, price improvement, exit slippage), per-strategy aggregation with the positions each strategy is currently holding, and the R, expectancy, <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> and Monte Carlo layer underneath all of it.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                Four gaps, stated plainly because this audience will find them in ten minutes anyway. <span class="text-white font-medium">Sector is not stored on a trade</span> &mdash; it is resolved live for the open book, which is what makes the pre-trade check work, but it means there is no historical P&amp;L-by-sector report; the section 2 table is something you would build from a tagged export today. <span class="text-white font-medium">There is no return-on-capital-deployed metric</span>; the inputs are in the data but the calculation is yours. <span class="text-white font-medium">There are no borrow, locate or financing fields</span> &mdash; those go in tags and notes, which is workable for the flag and awkward for the rate. And <span class="text-white font-medium">execution is benchmarked against your own trigger, never against arrival price or VWAP</span>, because SignalDeck does not ingest a market data feed alongside your fills. Catalyst is a tag rather than a first-class field, which works well enough in practice but will not sort itself.
+            </p>
+            <p class="text-zinc-300 leading-relaxed mb-6">
+                That is the honest boundary as of August 2026. If your firm's stack already answers the two questions in section 7, none of this is for you. If it does not, the pre-trade cluster check is the piece worth having on its own.
+            </p>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-white font-semibold mb-2">What metrics do proprietary equity traders track?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Five things that retail journals mostly do not cover, plus the standard expectancy set underneath them. First, P&amp;L attribution by name, sector and catalyst, so a month can be decomposed into which decisions actually produced the result rather than reported as one net figure. Second, return on capital deployed, because two traders with the same P&amp;L and very different average buying power are not equally good and should not receive the same allocation. Third, correlated exposure, measured as clusters rather than as a position count, since four separately-sized industrial names are one factor bet and not four independent ones. Fourth, financing and borrow cost per trade, which on hard-to-borrow shorts can consume a large share of the gross edge and is usually invisible because it arrives as a monthly bill. Fifth, execution quality against a benchmark - arrival price or interval VWAP on a real desk, or at minimum fill against your own trigger price. Win rate appears nowhere on that list, because on a desk it is close to meaningless: it says nothing about size, capital consumed, or whether the winners and losers were the same bet.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">How is prop desk performance measured?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">By return on the capital and risk the firm allocated to you, not by gross P&amp;L. A desk is allocating a scarce resource - buying power, risk limits, borrow, and in some seats a share of the firm's own balance sheet - so the operative question is what each trader returns per unit of that resource. In practice that means P&amp;L set against average capital deployed and against risk actually taken, expectancy in R so trades of different sizes are comparable, drawdown and its recovery profile, and the stability of the return rather than its peak. Concentration matters at the desk level too, because a firm running ten traders who all like the same sector does not have ten books, it has one. The traders who last are generally not the ones with the highest single-month P&amp;L, they are the ones whose returns can be given more capital without the risk profile falling apart.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">What is return on capital deployed?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Profit divided by the average capital actually tied up producing it, rather than by the account size or the allocation on paper. Two traders both finish a month at plus 40,000 dollars. The first ran an average of 2,000,000 dollars of long exposure to get there, a 2.0 percent return on deployed capital. The second averaged 600,000 dollars, which is 6.7 percent. Identical on the P&amp;L report and more than three times apart on the metric that decides who should get more buying power next quarter. Average deployed capital has to be time-weighted rather than taken from peak or from month-end, since a position held for two days does not consume the same capital as one held for three weeks. The metric also disciplines a specific bad habit, which is parking large amounts of capital in low-conviction positions that neither lose money nor earn their keep.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-white font-semibold mb-2">Do prop desk traders keep their own journals?</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Many do not need to, and it is worth saying so plainly. If your firm's risk stack computes attribution, exposure and financing continuously and shows it to you daily, a second tool is duplication rather than insight. The traders who do keep their own records tend to be in one of three situations: the firm's system reports position and risk but not decision quality, so there is no record of why a trade was taken or what was expected of it; the trader wants continuity across seats, since firm systems do not travel and a track record that lives only in an employer's database disappears with the job; or the trader runs a personal book alongside the desk seat and needs the two measured the same way. The honest test is whether you can already answer, from your firm's screens, what your return on deployed capital was last month and which correlated cluster your largest drawdown came from. If yes, you do not need another tool.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Cards -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TraderSync</p>
+                        <p class="text-zinc-500 text-xs mt-2">Equity coverage, exposure grouping and how execution metrics are computed</p>
+                    </a>
+                    <a href="../../compare/tradesviz/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradesViz</p>
+                        <p class="text-zinc-500 text-xs mt-2">Attribution depth, tagging and what each tool automates</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 border-t border-zinc-800 pt-12">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../do-you-need-a-trading-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Do You Need a Trading Journal If You're Already Profitable?</p>
+                        <p class="text-zinc-500 text-xs mt-2">July 31, 2026</p>
+                    </a>
+                    <a href="../mae-mfe-execution-metrics/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Metrics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MAE and MFE: The Execution Metrics Most Traders Ignore</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 18, 2026</p>
+                    </a>
+                    <a href="../why-win-rate-is-lying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Metrics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Win Rate Is Lying to You (And What to Track Instead)</p>
+                        <p class="text-zinc-500 text-xs mt-2">March 30, 2026</p>
+                    </a>
+                    <a href="../trading-expectancy/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Metrics</span>
+                        <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Trading Expectancy Formula: Why It Beats Win Rate Every Time</p>
+                        <p class="text-zinc-500 text-xs mt-2">June 12, 2026</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-3">Your P&amp;L is not your scorecard.</h3>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">Get told that UNP and NSC are one exposure before you send the order, not after three stops resolve on the same morning. Free tier on every plan; Pro is $30/mo and Elite (MT4/MT5 live sync, Market News, AI weekly review) is $50/mo when billing launches.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'equity-prop-desk-metrics'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/index.html"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    </div>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../../yup.js"></script>
+</body>
+</html>

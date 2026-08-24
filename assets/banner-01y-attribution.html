@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-Y · Attribution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Five Positions.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">One Bet.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Attribution &middot; Capital Efficiency &middot; Concentration</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">A flat P&amp;L is not a flat book</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  const defs = el(svg, 'defs', {});
+  const glow = el(defs, 'radialGradient', { id: 'glowC' });
+  el(glow, 'stop', { offset: '0%',   'stop-color': '#f43f5e', 'stop-opacity': '0.5' });
+  el(glow, 'stop', { offset: '100%', 'stop-color': '#f43f5e', 'stop-opacity': '0' });
+
+  /* ---------- LEFT: the flat net P&L bar, decomposed ---------- */
+  /* One trader's month nets +$4,100. The decomposition shows it is not
+     five independent contributions - four names are the same sector bet. */
+  const NAMES = [
+    { sym: 'UNP',  pl:  +5200, cluster: 'rail' },
+    { sym: 'NSC',  pl:  +3100, cluster: 'rail' },
+    { sym: 'CSX',  pl:  +2400, cluster: 'rail' },
+    { sym: 'ODFL', pl:  +1900, cluster: 'rail' },
+    { sym: 'MSFT', pl:   +700, cluster: 'other' },
+    { sym: 'PFE',  pl:  -4300, cluster: 'other' },
+    { sym: 'KO',   pl:  -4900, cluster: 'other' },
+  ];
+
+  const X0 = 62, BAR_W = 74, GAP = 22;
+  const ZERO_Y = 268, PX_PER_K = 0.0182 * 1000 / 1000 * 26;  /* px per $1k */
+  const k = v => (v / 1000) * 26;
+
+  /* zero axis */
+  el(svg, 'line', { x1: 30, y1: ZERO_Y, x2: 800, y2: ZERO_Y, stroke: '#3f3f46', 'stroke-width': 1.4, opacity: 0.7 });
+
+  NAMES.forEach((n, i) => {
+    const x = X0 + i * (BAR_W + GAP);
+    const h = Math.abs(k(n.pl));
+    const y = n.pl >= 0 ? ZERO_Y - h : ZERO_Y;
+    const isRail = n.cluster === 'rail';
+    const color = n.pl >= 0 ? '#10b981' : '#f43f5e';
+    el(svg, 'rect', {
+      x: x.toFixed(1), y: y.toFixed(1), width: BAR_W, height: h.toFixed(1),
+      fill: color, rx: 3, opacity: isRail ? 0.85 : 0.45
+    });
+    /* rail members get a blue outline: the cluster the book did not notice */
+    if (isRail) {
+      el(svg, 'rect', {
+        x: x.toFixed(1), y: y.toFixed(1), width: BAR_W, height: h.toFixed(1),
+        fill: 'none', stroke: '#60a5fa', 'stroke-width': 1.6, rx: 3, opacity: 0.9
+      });
+    }
+    txt(svg, {
+      x: (x + BAR_W / 2).toFixed(1), y: (n.pl >= 0 ? ZERO_Y + 20 : ZERO_Y - 10).toFixed(1),
+      'text-anchor': 'middle', 'font-family': 'JetBrains Mono, monospace',
+      'font-size': '12', 'font-weight': '700', fill: isRail ? '#93c5fd' : '#52525b'
+    }, n.sym);
+  });
+
+  /* the cluster bracket over the four railroads */
+  const bx0 = X0 - 8;
+  const bx1 = X0 + 4 * (BAR_W + GAP) - GAP + 8;
+  el(svg, 'line', { x1: bx0, y1: 96, x2: bx1, y2: 96, stroke: '#60a5fa', 'stroke-width': 1.8, opacity: 0.9 });
+  el(svg, 'line', { x1: bx0, y1: 96, x2: bx0, y2: 108, stroke: '#60a5fa', 'stroke-width': 1.8, opacity: 0.9 });
+  el(svg, 'line', { x1: bx1, y1: 96, x2: bx1, y2: 108, stroke: '#60a5fa', 'stroke-width': 1.8, opacity: 0.9 });
+  txt(svg, {
+    x: ((bx0 + bx1) / 2).toFixed(1), y: 84, 'text-anchor': 'middle',
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700',
+    fill: '#93c5fd', 'letter-spacing': '0.08em'
+  }, 'SIC 4011 - RAILROADS');
+  txt(svg, {
+    x: ((bx0 + bx1) / 2).toFixed(1), y: 66, 'text-anchor': 'middle',
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '11',
+    fill: '#3f3f46', 'letter-spacing': '0.05em'
+  }, '4 names, 1 exposure');
+
+  /* net line + label */
+  const net = NAMES.reduce((a, n) => a + n.pl, 0);
+  const netY = ZERO_Y - k(net);
+  el(svg, 'line', {
+    x1: 30, y1: netY.toFixed(1), x2: 800, y2: netY.toFixed(1),
+    stroke: '#fbbf24', 'stroke-width': 1.5, 'stroke-dasharray': '5 6', opacity: 0.85
+  });
+  txt(svg, {
+    x: 795, y: (netY - 11).toFixed(1), 'text-anchor': 'end',
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '12', 'font-weight': '700',
+    fill: '#fbbf24', 'letter-spacing': '0.08em'
+  }, 'NET +$4,100 \u00b7 "a fine month"');
+
+  /* the concentration pulse on the heaviest cluster member */
+  el(svg, 'circle', { cx: X0 + BAR_W / 2, cy: ZERO_Y - k(5200) - 4, r: 22, fill: 'url(#glowC)' });
+  el(svg, 'circle', { cx: X0 + BAR_W / 2, cy: ZERO_Y - k(5200) - 4, r: 5, fill: 'none', stroke: '#f43f5e', 'stroke-width': 2 });
+
+  /* bottom caption */
+  txt(svg, {
+    x: 62, y: 452,
+    'font-family': 'JetBrains Mono, monospace', 'font-size': '12', 'font-weight': '700',
+    fill: '#fb7185', 'letter-spacing': '0.08em'
+  }, 'THE NET HID THE CONCENTRATION');
+})();
+</script>
+</body>
+</html>

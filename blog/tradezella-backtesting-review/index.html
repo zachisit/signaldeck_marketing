@@ -470,25 +470,35 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-zinc-800 mt-16 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <a href="../../index.html">
-                <img src="../../img/logo-horizontal-light.svg" alt="SignalDeck" loading="lazy" class="h-6 opacity-60 hover:opacity-100 transition-opacity">
-            </a>
-            <div class="flex gap-6 text-xs text-zinc-600">
-                <a href="../../privacy.html" class="hover:text-zinc-400 transition-colors">Privacy</a>
-                <a href="../../terms.html" class="hover:text-zinc-400 transition-colors">Terms</a>
-                <a href="../../contact.html" class="hover:text-zinc-400 transition-colors">Contact</a>
-                <a href="../index.html" class="hover:text-zinc-400 transition-colors">Blog</a>
-            </div>
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
         </div>
     </footer>
 
     <script>
-    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-        var menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    });
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
+    <script src="../../yup.js"></script>
 </body>
 </html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AC · Two Clocks</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Two Firms.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Two Clocks.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Topstep &middot; The5ers &middot; Same Word, Different Rule</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">One floor ratchets up and locks &middot; the other never moves at all</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic pseudo-random so the render is reproducible */
+  let s = 20260828;
+  function rnd() { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; }
+
+  const defs = el(svg, 'defs', {});
+
+  const gradEq = el(defs, 'linearGradient', { id: 'gradEq', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(gradEq, 'stop', { offset: '0%',   'stop-color': '#3b82f6' });
+  el(gradEq, 'stop', { offset: '62%',  'stop-color': '#60a5fa' });
+  el(gradEq, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+
+  const glowLock = el(defs, 'radialGradient', { id: 'glowLock' });
+  el(glowLock, 'stop', { offset: '0%',   'stop-color': '#f59e0b', 'stop-opacity': '0.45' });
+  el(glowLock, 'stop', { offset: '100%', 'stop-color': '#f59e0b', 'stop-opacity': '0' });
+
+  const glowPulse = el(defs, 'radialGradient', { id: 'glowPulse' });
+  el(glowPulse, 'stop', { offset: '0%',   'stop-color': '#2dd4bf', 'stop-opacity': '0.5' });
+  el(glowPulse, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0' });
+
+  const path = (p) => p.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ');
+
+  const X0 = 250, X1 = 720, DAYS = 5;
+  const dayX = (d) => X0 + (d / DAYS) * (X1 - X0);
+
+  /* ======================================================================
+     PANEL A - TOPSTEP: the floor is what moves.
+     MLL starts $2,000 under, ratchets UP to each new end-of-day close,
+     never down, and LOCKS once it reaches the starting balance.
+     ====================================================================== */
+  const yZeroA = 200, kA = 0.0335;          /* dollars -> px */
+  const yA = (v) => yZeroA - v * kA;
+
+  txt(svg, { x: 60, y: 128, 'font-family': 'JetBrains Mono, monospace', 'font-size': '15',
+             'font-weight': '700', fill: '#a1a1aa', 'letter-spacing': '0.1em' }, 'TOPSTEP');
+  txt(svg, { x: 60, y: 148, 'font-family': 'JetBrains Mono, monospace', 'font-size': '10.5',
+             fill: '#52525b', 'letter-spacing': '0.05em' }, 'max loss limit');
+  txt(svg, { x: 60, y: 165, 'font-family': 'JetBrains Mono, monospace', 'font-size': '10.5',
+             'font-weight': '700', fill: '#fb7185', 'letter-spacing': '0.05em' }, 'TRAILS EOD, THEN LOCKS');
+  el(svg, 'line', { x1: 60, y1: 178, x2: 205, y2: 178, stroke: '#18181b', 'stroke-width': 1 });
+
+  /* start-balance reference: the level the floor can never climb past */
+  el(svg, 'line', { x1: X0, y1: yA(0), x2: X1, y2: yA(0),
+                    stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '2 6' });
+  txt(svg, { x: X0 - 8, y: yA(0) + 4, 'text-anchor': 'end',
+             'font-family': 'JetBrains Mono, monospace', 'font-size': '10',
+             fill: '#3f3f46', 'letter-spacing': '0.04em' }, '$50,000');
+
+  /* end-of-day closes -> the ratchet. day 3 is a down day: floor holds. */
+  const CLOSES = [600, 1100, 900, 1700, 2400];
+  let mll = -2000, locked = false;
+  const floorPts = [[X0, yA(mll)]];
+  const lockMark = [];
+  CLOSES.forEach((c, i) => {
+    const xe = dayX(i + 1);
+    floorPts.push([xe, yA(mll)]);                 /* hold across the day */
+    if (!locked) {
+      const cand = c - 2000;
+      if (cand >= 0) { mll = 0; locked = true; lockMark.push(xe); }
+      else if (cand > mll) mll = cand;            /* ratchets up only */
+    }
+    floorPts.push([xe, yA(mll)]);                 /* step at the close */
+  });
+  floorPts.push([X1, yA(mll)]);
+
+  /* intraday equity: one big spike on day 2 that earns NO floor credit */
+  const eqA = [];
+  let vA = 0, prevClose = 0;
+  for (let d = 0; d < DAYS; d++) {
+    const target = CLOSES[d];
+    for (let i = 0; i < 26; i++) {
+      const t = i / 25;
+      const x = dayX(d) + (t / DAYS) * (X1 - X0);
+      vA = prevClose + (target - prevClose) * t + (rnd() - 0.5) * 300;
+      if (d === 1) vA += Math.sin(t * Math.PI) * 900;   /* the unrealized spike */
+      eqA.push([x, yA(vA)]);
+    }
+    prevClose = target;
+  }
+
+  el(svg, 'path', { d: path(eqA), fill: 'none', stroke: 'url(#gradEq)', 'stroke-width': 2.6,
+                    'stroke-linejoin': 'round', 'stroke-linecap': 'round', opacity: 0.9 });
+  el(svg, 'path', { d: path(floorPts), fill: 'none', stroke: '#f43f5e', 'stroke-width': 2.2,
+                    'stroke-linejoin': 'miter', opacity: 0.9 });
+
+  /* the spike annotation - unrealized peak the floor ignores */
+  const spikeIdx = 26 + 13;
+  const sp = eqA[spikeIdx];
+  el(svg, 'circle', { cx: sp[0], cy: sp[1], r: 3.4, fill: '#60a5fa' });
+  el(svg, 'line', { x1: sp[0], y1: sp[1], x2: sp[0], y2: yA(-1400),
+                    stroke: '#3f3f46', 'stroke-width': 1, 'stroke-dasharray': '2 4' });
+  txt(svg, { x: sp[0] + 8, y: sp[1] - 7, 'font-family': 'JetBrains Mono, monospace',
+             'font-size': '10.5', fill: '#71717a', 'letter-spacing': '0.04em' },
+      'intraday peak - floor ignores it');
+
+  /* the lock */
+  if (lockMark.length) {
+    const lx = lockMark[0];
+    el(svg, 'circle', { cx: lx, cy: yA(0), r: 20, fill: 'url(#glowLock)' });
+    el(svg, 'circle', { cx: lx, cy: yA(0), r: 4.6, fill: 'none', stroke: '#f59e0b', 'stroke-width': 2 });
+    txt(svg, { x: lx + 12, y: yA(0) + 22, 'font-family': 'JetBrains Mono, monospace',
+               'font-size': '11', 'font-weight': '700', fill: '#fbbf24', 'letter-spacing': '0.07em' },
+        'LOCKS AT START BALANCE');
+  }
+  txt(svg, { x: X0 + 4, y: yA(-2000) + 18, 'font-family': 'JetBrains Mono, monospace',
+             'font-size': '11', 'font-weight': '700', fill: '#fb7185', 'letter-spacing': '0.06em' },
+      'THE FLOOR IS WHAT MOVES');
+
+  /* ======================================================================
+     PANEL B - THE5ERS: the floor never moves. The DAILY limit re-anchors.
+     ====================================================================== */
+  const yZeroB = 398, kB = 5.2;             /* percent -> px */
+  const yB = (v) => yZeroB - v * kB;
+
+  txt(svg, { x: 60, y: 352, 'font-family': 'JetBrains Mono, monospace', 'font-size': '15',
+             'font-weight': '700', fill: '#a1a1aa', 'letter-spacing': '0.1em' }, 'THE5ERS');
+  txt(svg, { x: 60, y: 372, 'font-family': 'JetBrains Mono, monospace', 'font-size': '10.5',
+             fill: '#52525b', 'letter-spacing': '0.05em' }, 'max loss  /  daily loss');
+  txt(svg, { x: 60, y: 389, 'font-family': 'JetBrains Mono, monospace', 'font-size': '10.5',
+             'font-weight': '700', fill: '#fb7185', 'letter-spacing': '0.05em' }, 'STATIC 10%, NEVER MOVES');
+  el(svg, 'line', { x1: 60, y1: 402, x2: 205, y2: 402, stroke: '#18181b', 'stroke-width': 1 });
+
+  el(svg, 'line', { x1: X0, y1: yB(0), x2: X1, y2: yB(0),
+                    stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '2 6' });
+  txt(svg, { x: X0 - 8, y: yB(0) + 4, 'text-anchor': 'end',
+             'font-family': 'JetBrains Mono, monospace', 'font-size': '10',
+             fill: '#3f3f46', 'letter-spacing': '0.04em' }, 'start');
+
+  /* the one flat floor - the whole point of this panel */
+  el(svg, 'line', { x1: X0, y1: yB(-10), x2: X1, y2: yB(-10),
+                    stroke: '#f43f5e', 'stroke-width': 2.4, opacity: 0.9 });
+  txt(svg, { x: X0 + 4, y: yB(-10) + 17, 'font-family': 'JetBrains Mono, monospace',
+             'font-size': '11', 'font-weight': '700', fill: '#fb7185', 'letter-spacing': '0.06em' },
+      '-10%  ABSOLUTE  (SAME LINE ALL PROGRAM)');
+
+  /* equity, tracked as daily closes */
+  const CLOSES_B = [2.1, 4.4, 3.0, 6.2, 8.1];
+  const eqB = [];
+  let prevB = 0;
+  for (let d = 0; d < DAYS; d++) {
+    const target = CLOSES_B[d];
+    for (let i = 0; i < 26; i++) {
+      const t = i / 25;
+      const x = dayX(d) + (t / DAYS) * (X1 - X0);
+      const v = prevB + (target - prevB) * t + (rnd() - 0.5) * 1.15;
+      eqB.push([x, yB(v)]);
+    }
+    prevB = target;
+  }
+  el(svg, 'path', { d: path(eqB), fill: 'none', stroke: 'url(#gradEq)', 'stroke-width': 2.6,
+                    'stroke-linejoin': 'round', 'stroke-linecap': 'round', opacity: 0.9 });
+
+  /* the moving part: a fresh 5% daily floor re-anchored to each prior close */
+  let anchor = 0;
+  for (let d = 0; d < DAYS; d++) {
+    const xa = dayX(d), xb = dayX(d + 1);
+    el(svg, 'line', { x1: xa, y1: yB(anchor - 5), x2: xb, y2: yB(anchor - 5),
+                      stroke: '#f59e0b', 'stroke-width': 1.6, 'stroke-dasharray': '5 4', opacity: 0.8 });
+    el(svg, 'line', { x1: xa, y1: yB(-11.4), x2: xa, y2: yB(11),
+                      stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '2 5' });
+    anchor = CLOSES_B[d];
+  }
+  el(svg, 'line', { x1: X1, y1: yB(-11.4), x2: X1, y2: yB(11),
+                    stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '2 5' });
+  txt(svg, { x: X0 + 4, y: yB(-6.6) + 14, 'font-family': 'JetBrains Mono, monospace',
+             'font-size': '11', 'font-weight': '700', fill: '#fbbf24', 'letter-spacing': '0.06em' },
+      '-5% DAILY, RE-ANCHORS 00:00 UTC+3');
+
+  const lastB = eqB[eqB.length - 1];
+  el(svg, 'circle', { cx: lastB[0], cy: lastB[1], r: 18, fill: 'url(#glowPulse)' });
+  el(svg, 'circle', { cx: lastB[0], cy: lastB[1], r: 4.4, fill: 'none', stroke: '#2dd4bf', 'stroke-width': 2 });
+
+  /* ---------- the caption that ties the two panels together ---------- */
+  txt(svg, { x: 60, y: 250, 'font-family': 'JetBrains Mono, monospace', 'font-size': '12',
+             'font-weight': '700', fill: '#fbbf24', 'letter-spacing': '0.08em' }, 'SAME WORD');
+  txt(svg, { x: 60, y: 269, 'font-family': 'JetBrains Mono, monospace', 'font-size': '12',
+             'font-weight': '700', fill: '#fbbf24', 'letter-spacing': '0.08em' }, '"DRAWDOWN"');
+  txt(svg, { x: 60, y: 292, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11',
+             fill: '#52525b', 'letter-spacing': '0.05em' }, 'two different');
+  txt(svg, { x: 60, y: 308, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11',
+             fill: '#52525b', 'letter-spacing': '0.05em' }, 'numbers to track');
+})();
+</script>
+</body>
+</html>

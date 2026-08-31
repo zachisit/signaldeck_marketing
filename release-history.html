@@ -155,12 +155,56 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.106 -->
+            <div class="pl-8 relative" id="v1-0-106">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.106-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Aug 31, 2026 10:10AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Two big ones this release: you can now backtest futures properly, and the whole app finally works the way it should on a phone.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Futures backtesting, done properly</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Futures are now a real instrument in the backtester.</strong> Previously a futures symbol was quietly treated as a stock &mdash; which meant the numbers you got back were wrong in a way that was easy to miss. Now ES, NQ, CL, GC and the rest are recognised, sized and priced as futures contracts.</li>
+                            <li><strong class="text-zinc-200">Contract multipliers are applied end to end</strong>, so P&amp;L, R-multiple and position notional reflect what one contract actually controls rather than one &ldquo;share&rdquo; of it.</li>
+                            <li><strong class="text-zinc-200">Continuous contracts are built for you.</strong> Rather than hitting a wall at each expiry, the backtester stitches contracts together at the volume crossover and back-adjusts the difference, so a multi-year futures test runs on one continuous price series.</li>
+                            <li><strong class="text-zinc-200">Futures get their own cost, margin and annualisation models</strong> &mdash; commissions per contract, initial and maintenance margin, and the right number of trading hours per year for the asset class.</li>
+                            <li><strong class="text-zinc-200">The configuration screen understands futures too:</strong> an instrument picker, a per-contract commission field, and roll metadata showing exactly which contracts were used and where each roll happened. Genuinely ambiguous root symbols are flagged before you run, not after.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Actually usable on a phone</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Ten separate fixes went into making the app genuinely responsive.</strong> Most people use SignalDeck on mobile, and it had been quietly desktop-first for too long.</li>
+                            <li><strong class="text-zinc-200">Tapping a number field no longer zooms the page</strong> on iOS, and every numeric input now brings up the right keyboard.</li>
+                            <li><strong class="text-zinc-200">Modals fit the screen and scroll correctly</strong> &mdash; no more content clipped off the top or bottom, and the page behind a modal stays put instead of scrolling away underneath it.</li>
+                            <li><strong class="text-zinc-200">Buttons and controls are properly sized for thumbs</strong>, and hover-only styling no longer sticks on touch devices.</li>
+                            <li><strong class="text-zinc-200">Wide tables and the Futures tab now fit a phone screen</strong> instead of pushing the layout sideways. Desktop is pixel-for-pixel unchanged &mdash; every fix is scoped to small screens and touch input.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Under the hood: your trades stay yours</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Automation can no longer close a trade that did not explicitly opt in.</strong> Every trade now carries an explicit flag saying whether it is system-managed, and the server refuses any automated close against a trade that is not &mdash; so a bug in the automation cannot reach your own positions.</li>
+                            <li><strong class="text-zinc-200">Editing a trade lets you change its strategy again</strong> &mdash; that field was being silently dropped on save.</li>
+                            <li><strong class="text-zinc-200">CSV import no longer reports &ldquo;0 trades imported&rdquo;</strong> on files it should have accepted.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.105 -->
             <div class="pl-8 relative" id="v1-0-105">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.105-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 21, 2026 9:08AM</span>
                 </div>
 

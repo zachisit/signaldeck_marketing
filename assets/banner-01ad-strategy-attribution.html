@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AD · Strategy Attribution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        343 Trades.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Down $11,516.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Attribution &middot; Sample Size &middot; Forward Testing</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">A balance cannot name the strategy</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic PRNG so a re-render is byte-stable */
+  let _s = 20260831;
+  const rnd = () => { _s = (_s * 1664525 + 1013904223) % 4294967296; return _s / 4294967296; };
+
+  const defs = el(svg, 'defs', {});
+  const glow = el(defs, 'radialGradient', { id: 'glowT' });
+  el(glow, 'stop', { offset: '0%',   'stop-color': '#2dd4bf', 'stop-opacity': '0.55' });
+  el(glow, 'stop', { offset: '100%', 'stop-color': '#2dd4bf', 'stop-opacity': '0' });
+
+  const X0 = 62, X1 = 792;
+  const ZERO_Y = 252;
+  const PX_PER_D = 200 / 11516;          /* -11,516 lands 200px below zero */
+  const y = v => ZERO_Y - v * PX_PER_D;
+
+  /* zero axis */
+  el(svg, 'line', { x1: 34, y1: ZERO_Y, x2: X1 + 10, y2: ZERO_Y, stroke: '#3f3f46', 'stroke-width': 1.4, opacity: 0.75 });
+  txt(svg, { x: 34, y: ZERO_Y - 9, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11', fill: '#3f3f46', 'letter-spacing': '0.06em' }, 'BREAK EVEN');
+
+  /* build a cumulative path that ends exactly at `end` */
+  function path(n, end, drift) {
+    const steps = [];
+    let acc = 0;
+    for (let i = 0; i < n; i++) { const v = drift + (rnd() - 0.5) * 2.2; steps.push(v); acc += v; }
+    const pts = [];
+    let run = 0;
+    for (let i = 0; i < n; i++) {
+      run += steps[i];
+      pts.push([X0 + (X1 - X0) * ((i + 1) / n), run / acc * end]);
+    }
+    pts.unshift([X0, 0]);
+    return pts;
+  }
+  const d = pts => pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + y(p[1]).toFixed(1)).join(' ');
+
+  /* ---------- the flagship: 343 trades, dense line, ends -$11,516 ---------- */
+  const flag = path(343, -11516, -0.62);
+  el(svg, 'path', { d: d(flag), fill: 'none', stroke: '#f43f5e', 'stroke-width': 2.6, 'stroke-linejoin': 'round', opacity: 0.95 });
+
+  /* ---------- the one he was not watching: 22 trades, discrete markers, ends +$9,748 ---------- */
+  const bull = path(22, 9748, 0.74);
+  el(svg, 'path', { d: d(bull), fill: 'none', stroke: '#10b981', 'stroke-width': 2.4, 'stroke-linejoin': 'round', opacity: 0.9 });
+  bull.forEach((p, i) => { if (i) el(svg, 'circle', { cx: p[0].toFixed(1), cy: y(p[1]).toFixed(1), r: 3.4, fill: '#09090b', stroke: '#10b981', 'stroke-width': 1.8 }); });
+
+  /* ---------- the combined line: the only number a balance shows ---------- */
+  const comb = flag.map((p, i) => {
+    const t = (p[0] - X0) / (X1 - X0);
+    const j = Math.min(bull.length - 1, Math.round(t * (bull.length - 1)));
+    return [p[0], p[1] + bull[j][1]];
+  });
+  el(svg, 'path', { d: d(comb), fill: 'none', stroke: '#60a5fa', 'stroke-width': 2.2, 'stroke-dasharray': '7 5', opacity: 0.85 });
+
+  /* end-of-run labels */
+  txt(svg, { x: X1 + 12, y: y(-11516) + 5, 'font-family': 'JetBrains Mono, monospace', 'font-size': '15', 'font-weight': '700', fill: '#f43f5e' }, '-$11,516');
+  txt(svg, { x: X1 + 12, y: y(-11516) + 24, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11', fill: '#881337' }, '343 trades - PF 0.85');
+  txt(svg, { x: X1 + 12, y: y(9748) + 5, 'font-family': 'JetBrains Mono, monospace', 'font-size': '15', 'font-weight': '700', fill: '#10b981' }, '+$9,748');
+  txt(svg, { x: X1 + 12, y: y(9748) + 24, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11', fill: '#065f46' }, '22 trades - PF 2.00');
+
+  /* strategy names, on the curves */
+  txt(svg, { x: 200, y: y(-4200) + 30, 'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700', fill: '#fb7185', 'letter-spacing': '0.06em' }, 'HIGH-TIGHT FLAG BREAKOUT');
+  txt(svg, { x: 200, y: y(-4200) + 47, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11', fill: '#52525b', 'letter-spacing': '0.05em' }, 'the one he believed in');
+  txt(svg, { x: 206, y: y(6100) - 16, 'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700', fill: '#34d399', 'letter-spacing': '0.06em' }, 'BULL FLAG BREAKOUT');
+  txt(svg, { x: 206, y: y(6100) + 1, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11', fill: '#52525b', 'letter-spacing': '0.05em' }, 'the one he was not watching');
+
+  /* the combined callout - the number a balance would have shown */
+  const cEnd = comb[comb.length - 1];
+  el(svg, 'circle', { cx: cEnd[0].toFixed(1), cy: y(cEnd[1]).toFixed(1), r: 26, fill: 'url(#glowT)' });
+  el(svg, 'circle', { cx: cEnd[0].toFixed(1), cy: y(cEnd[1]).toFixed(1), r: 5, fill: '#2dd4bf' });
+  el(svg, 'line', { x1: 470, y1: 318, x2: 470, y2: 290, stroke: '#3b82f6', 'stroke-width': 1.2, opacity: 0.55 });
+  txt(svg, { x: 470, y: 336, 'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700', fill: '#93c5fd', 'letter-spacing': '0.06em' }, 'COMBINED  -$1,768');
+  txt(svg, { x: 470, y: 353, 'font-family': 'JetBrains Mono, monospace', 'font-size': '11', fill: '#52525b', 'letter-spacing': '0.05em' }, 'all a balance ever shows you');
+
+  /* the caption */
+  el(svg, 'line', { x1: 62, y1: 462, x2: 470, y2: 462, stroke: '#f59e0b', 'stroke-width': 1.6, 'stroke-dasharray': '5 4', opacity: 0.75 });
+  txt(svg, { x: 62, y: 452, 'font-family': 'JetBrains Mono, monospace', 'font-size': '13', 'font-weight': '700', fill: '#f59e0b', 'letter-spacing': '0.07em' }, 'ONE NET NUMBER, TWO OPPOSITE VERDICTS');
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AF · Two Records</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Your Statement<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Is Not a Journal.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Category Error &middot; Planned Risk &middot; Reconstruction</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">It records what happened, never why</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic PRNG so a re-render is byte-stable (unused here - layout is fixed) */
+  let _s = 20260904;
+  const rnd = () => { _s = (_s * 1664525 + 1013904223) % 4294967296; return _s / 4294967296; };
+
+  const MONO = 'JetBrains Mono, monospace';
+  const X_LABEL = 52, X_STMT = 336, X_LOG = 524;
+  const ROW0 = 116, STEP = 32;
+  const SHARED = 6;                          /* first 6 fields exist in both records */
+
+  const ROWS = [
+    ['Instrument',        'EURUSD',      'EURUSD'],
+    ['Position size',     '0.80 lot',    '0.80 lot'],
+    ['Entry / exit',      '1.08472',     '1.08472'],
+    ['Timestamps',        '14:32:07',    '14:32:07'],
+    ['Fees and swap',     '-$4.20',      '-$4.20'],
+    ['Realised P&L',      '+$221.60',    '+$221.60'],
+    ['Why you entered',   null,          'London Reversal'],
+    ['Intended risk',     null,          '$250  =  1R'],
+    ['Signals you passed',null,          '2 that session'],
+    ['Rule you broke',    null,          'none - waited']
+  ];
+
+  /* column headers */
+  txt(svg, { x: X_STMT, y: 78, 'font-family': MONO, 'font-size': '12', 'font-weight': '700',
+             fill: '#71717a', 'letter-spacing': '0.13em' }, 'BROKER STATEMENT');
+  txt(svg, { x: X_LOG, y: 78, 'font-family': MONO, 'font-size': '12', 'font-weight': '700',
+             fill: '#60a5fa', 'letter-spacing': '0.13em' }, 'YOUR LOG');
+
+  el(svg, 'line', { x1: X_LABEL, y1: 92, x2: 736, y2: 92, stroke: '#27272a', 'stroke-width': 1.2 });
+
+  ROWS.forEach(function (r, i) {
+    const y = ROW0 + i * STEP;
+    const missing = r[1] === null;
+
+    txt(svg, { x: X_LABEL, y: y, 'font-family': MONO, 'font-size': '13',
+               fill: missing ? '#a1a1aa' : '#52525b', 'letter-spacing': '0.04em' }, r[0]);
+
+    if (missing) {
+      /* the statement has no column for this - draw the absence, do not leave it blank */
+      el(svg, 'line', { x1: X_STMT, y1: y - 5, x2: X_STMT + 26, y2: y - 5,
+                        stroke: '#f43f5e', 'stroke-width': 2, 'stroke-dasharray': '4 3', opacity: 0.85 });
+      txt(svg, { x: X_LOG, y: y, 'font-family': MONO, 'font-size': '13', 'font-weight': '700',
+                 fill: '#60a5fa', 'letter-spacing': '0.04em' }, r[2]);
+    } else {
+      txt(svg, { x: X_STMT, y: y, 'font-family': MONO, 'font-size': '13',
+                 fill: '#71717a', 'letter-spacing': '0.04em' }, r[1]);
+      txt(svg, { x: X_LOG, y: y, 'font-family': MONO, 'font-size': '13',
+                 fill: '#52525b', 'letter-spacing': '0.04em' }, r[2]);
+    }
+  });
+
+  /* divider between what both records share and what only one of them holds */
+  const DIV_Y = ROW0 + SHARED * STEP - 18;
+  el(svg, 'line', { x1: X_LABEL, y1: DIV_Y, x2: 736, y2: DIV_Y,
+                    stroke: '#f59e0b', 'stroke-width': 1.5, 'stroke-dasharray': '5 4', opacity: 0.7 });
+
+  /* the rose bracket down the four rows the statement cannot hold */
+  const B_TOP = DIV_Y + 8, B_BOT = ROW0 + 9 * STEP + 7, BX = X_STMT + 44;
+  el(svg, 'path', { d: 'M' + BX + ' ' + B_TOP + ' L' + (BX + 9) + ' ' + B_TOP +
+                       ' L' + (BX + 9) + ' ' + B_BOT + ' L' + BX + ' ' + B_BOT,
+                    fill: 'none', stroke: '#f43f5e', 'stroke-width': 1.4, opacity: 0.7 });
+  txt(svg, { x: BX + 18, y: (B_TOP + B_BOT) / 2 - 6, 'font-family': MONO, 'font-size': '11',
+             'font-weight': '700', fill: '#fb7185', 'letter-spacing': '0.06em' }, 'NO COLUMN');
+  txt(svg, { x: BX + 18, y: (B_TOP + B_BOT) / 2 + 9, 'font-family': MONO, 'font-size': '11',
+             fill: '#881337', 'letter-spacing': '0.05em' }, 'your broker');
+  txt(svg, { x: BX + 18, y: (B_TOP + B_BOT) / 2 + 24, 'font-family': MONO, 'font-size': '11',
+             fill: '#881337', 'letter-spacing': '0.05em' }, 'never knew');
+
+  /* caption */
+  txt(svg, { x: X_LABEL, y: 462, 'font-family': MONO, 'font-size': '13', 'font-weight': '700',
+             fill: '#f59e0b', 'letter-spacing': '0.07em' }, 'SAME TRADE, TWO RECORDS');
+  txt(svg, { x: X_LABEL, y: 479, 'font-family': MONO, 'font-size': '11',
+             fill: '#52525b', 'letter-spacing': '0.05em' }, 'only one of them can be scored');
+})();
+</script>
+
+</body>
+</html>

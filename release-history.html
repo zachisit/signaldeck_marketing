@@ -155,12 +155,67 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.107 -->
+            <div class="pl-8 relative" id="v1-0-107">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.107-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Sep 6, 2026 12:57PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A reliability release. The dashboard and trade list stopped loading for some people first thing in the morning &mdash; that is fixed, along with a clear separation between the trades you place and the ones our automated strategies place on their own.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Things that were breaking, now fixed</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Your dashboard no longer fails to load in the morning.</strong> A trade waiting to fill at the market open had no entry price yet, and the return calculation could not cope with that &mdash; so the whole dashboard errored out. Same root cause had been breaking the trade list.</li>
+                            <li><strong class="text-zinc-200">Closing a trade while it is still loading now actually closes it.</strong> Previously the details popup would spring back open a moment later, because the close did not cancel the request already in flight.</li>
+                            <li><strong class="text-zinc-200">Trade History updates immediately after an edit.</strong> If a change moved a trade out of your current filter, the row used to linger until you refreshed the page.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Your numbers are yours alone</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Automated strategy trades no longer mix into your personal stats.</strong> Positions opened by our scanner were being counted in your dashboard, your public profile, your drawdown and your rolling metrics as though you had placed them yourself.</li>
+                            <li><strong class="text-zinc-200">Risk alerts and your accountability partner ignore automated trades.</strong> They were firing as if you had broken your own rules.</li>
+                            <li><strong class="text-zinc-200">Your weekly AI review counts the right trades.</strong> Swing traders were seeing &ldquo;zero closed trades&rdquo; for weeks they had clearly traded &mdash; the review was looking at when trades were opened rather than when they closed.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Privacy and correctness</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Closed a gap where post-mortem review data was not properly scoped to its owner.</strong> Found and fixed internally; we have no indication it was ever exploited.</li>
+                            <li><strong class="text-zinc-200">Strategy performance figures are now strictly per-account</strong>, closing a path where one account&rsquo;s strategy could surface under another&rsquo;s.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Groundwork: your own strategies, running live</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The machinery for promoting one of your backtests into a live scanner strategy has landed.</strong> A promoted strategy gets its own isolation and timeouts so it cannot affect anything else, and any trades it opens belong to you rather than to a shared service account.</li>
+                            <li><strong class="text-zinc-200">This is switched off for now.</strong> The plumbing is in place and tested; we are turning it on once per-user trade ownership has been through a full live cycle. Nothing changes for you yet.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Behind the scenes</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A batch of scanner accuracy fixes.</strong> Rotation strategies now rebalance once a completed month rather than drifting daily, one strategy&rsquo;s exit signal was never firing at all, and a stop-loss calculation was silently losing the data it needed.</li>
+                            <li><strong class="text-zinc-200">Duplicate positions can no longer stack up.</strong> A repeated buy signal on a symbol already held used to open another position every time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.106 -->
             <div class="pl-8 relative" id="v1-0-106">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.106-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Aug 31, 2026 10:10AM</span>
                 </div>
 

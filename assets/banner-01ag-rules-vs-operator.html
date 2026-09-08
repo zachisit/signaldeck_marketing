@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AG · Rules vs Operator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        A Backtest Scores<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">The Rules, Not You.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Slippage &middot; Skipped Signals &middot; Early Exits</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">The gap between the two curves is the operator</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic PRNG so a re-render is byte-stable */
+  let _s = 20260908;
+  const rnd = () => { _s = (_s * 1664525 + 1013904223) % 4294967296; return _s / 4294967296; };
+
+  const MONO = 'JetBrains Mono, monospace';
+  const X0 = 60, X1 = 900, Y_BASE = 430, N = 120;
+
+  /* defs: gradients for the two curves and the gap fill */
+  const defs = el(svg, 'defs', {});
+  const g1 = el(defs, 'linearGradient', { id: 'gBack', x1: '0', y1: '0', x2: '1', y2: '0' });
+  el(g1, 'stop', { offset: '0',   'stop-color': '#3b82f6' });
+  el(g1, 'stop', { offset: '1',   'stop-color': '#a855f7' });
+  const g2 = el(defs, 'linearGradient', { id: 'gGap', x1: '0', y1: '0', x2: '0', y2: '1' });
+  el(g2, 'stop', { offset: '0', 'stop-color': '#a855f7', 'stop-opacity': '0.20' });
+  el(g2, 'stop', { offset: '1', 'stop-color': '#3b82f6', 'stop-opacity': '0.03' });
+
+  /* faint grid */
+  for (let i = 0; i <= 5; i++) {
+    const y = 150 + i * 56;
+    el(svg, 'line', { x1: X0, y1: y, x2: X1, y2: y, stroke: '#18181b', 'stroke-width': 1 });
+  }
+
+  /* --- build the two equity curves ---------------------------------- */
+  /* backtest: smooth, compounding, no friction */
+  const back = [], live = [];
+  let b = 0, l = 0, drag = 0;
+  for (let i = 0; i <= N; i++) {
+    const t = i / N;
+    b += 0.9 + 0.55 * Math.sin(t * 5.1) + 0.28 * Math.sin(t * 13.7);
+    /* the operator's drag accumulates: slippage every fill, plus discrete misses */
+    drag += 0.30;
+    if (i === 28 || i === 61 || i === 94) drag += 11;   /* skipped signals / overrides */
+    l = b - drag - 2.4 * Math.max(0, Math.sin(t * 9.3));
+    back.push([X0 + t * (X1 - X0), Y_BASE - b * 1.62]);
+    live.push([X0 + t * (X1 - X0), Y_BASE - l * 1.62]);
+  }
+  const path = pts => pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+
+  /* shaded gap between the records */
+  el(svg, 'path', {
+    d: path(back) + ' L' + live[live.length - 1][0].toFixed(1) + ' ' + live[live.length - 1][1].toFixed(1) +
+       ' ' + path(live.slice().reverse()).replace(/^M/, 'L') + ' Z',
+    fill: 'url(#gGap)', stroke: 'none'
+  });
+
+  el(svg, 'path', { d: path(back), fill: 'none', stroke: 'url(#gBack)', 'stroke-width': 3.4, 'stroke-linecap': 'round' });
+  el(svg, 'path', { d: path(live), fill: 'none', stroke: '#52525b', 'stroke-width': 2.6,
+                    'stroke-linecap': 'round', 'stroke-dasharray': '7 5' });
+
+  /* markers where the operator diverged */
+  [28, 61, 94].forEach(i => {
+    el(svg, 'circle', { cx: live[i][0], cy: live[i][1], r: 5.5, fill: '#09090b', stroke: '#f43f5e', 'stroke-width': 2.2 });
+  });
+
+  /* curve labels */
+  txt(svg, { x: back[N][0] - 8, y: back[N][1] - 16, 'text-anchor': 'end', 'font-family': MONO,
+             'font-size': 15, 'font-weight': 700, fill: '#a855f7' }, 'BACKTEST');
+  txt(svg, { x: live[N][0] - 8, y: live[N][1] + 28, 'text-anchor': 'end', 'font-family': MONO,
+             'font-size': 15, 'font-weight': 700, fill: '#71717a' }, 'EXECUTED');
+
+  /* the gap callout */
+  const mid = 78;
+  el(svg, 'line', { x1: back[mid][0], y1: back[mid][1] + 4, x2: live[mid][0], y2: live[mid][1] - 4,
+                    stroke: '#f43f5e', 'stroke-width': 1.6, 'stroke-dasharray': '3 3' });
+  txt(svg, { x: back[mid][0] + 14, y: (back[mid][1] + live[mid][1]) / 2 + 5, 'font-family': MONO,
+             'font-size': 13, 'font-weight': 700, fill: '#f43f5e' }, 'THE OPERATOR');
+
+  /* axis hint */
+  txt(svg, { x: X0, y: 468, 'font-family': MONO, 'font-size': 12, fill: '#3f3f46' }, 'SAME RULES  ·  SAME SIGNALS  ·  ONE HUMAN IN BETWEEN');
+})();
+</script>
+
+</body>
+</html>

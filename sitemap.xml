@@ -404,27 +404,34 @@
 
   <url>
     <loc>https://sgnldk.com/blog/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
+    <loc>https://sgnldk.com/blog/minimum-viable-trading-journal/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://sgnldk.com/blog/backtest-vs-journal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/broker-statement-vs-trading-journal/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/why-journal-trades/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -557,7 +564,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/mae-mfe-execution-metrics/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>

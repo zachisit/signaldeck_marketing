@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AI · Consistency</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:70px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Consistency Is<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Not a Virtue.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">&sigma;(R) &middot; SQN &middot; sample size</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">A tight cluster of losses is maximally consistent</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic PRNG so a re-render is byte-stable */
+  let _s = 20260914;
+  const rnd = () => { _s = (_s * 1664525 + 1013904223) % 4294967296; return _s / 4294967296; };
+  /* Box-Muller off the same deterministic stream */
+  const gauss = () => Math.sqrt(-2 * Math.log(1 - rnd())) * Math.cos(2 * Math.PI * rnd());
+
+  const MONO = 'JetBrains Mono, monospace';
+
+  /* R -> y.  zero line at 300, 46px per R */
+  const ZERO = 300, PER_R = 46;
+  const yR = r => ZERO - r * PER_R;
+
+  /* faint grid behind everything */
+  for (let r = -2; r <= 4; r++) {
+    el(svg, 'line', { x1: 60, y1: yR(r), x2: 770, y2: yR(r),
+                      stroke: r === 0 ? '#27272a' : '#141417', 'stroke-width': 1 });
+  }
+  txt(svg, { x: 40, y: yR(0) + 4, 'font-family': MONO, 'font-size': 11,
+             fill: '#3f3f46', 'text-anchor': 'end' }, '0R');
+  txt(svg, { x: 40, y: yR(3) + 4, 'font-family': MONO, 'font-size': 11,
+             fill: '#27272a', 'text-anchor': 'end' }, '3R');
+
+  /* ---- one panel of trade outcomes -------------------------------- */
+  function panel(x0, w, label, sub, rs, meanR, sigma, accent) {
+    /* one-sigma band around the mean */
+    el(svg, 'rect', { x: x0, y: yR(meanR + sigma), width: w,
+                      height: Math.max(2, yR(meanR - sigma) - yR(meanR + sigma)),
+                      fill: accent, 'fill-opacity': 0.05 });
+    /* the mean itself */
+    el(svg, 'line', { x1: x0, y1: yR(meanR), x2: x0 + w, y2: yR(meanR),
+                      stroke: '#f59e0b', 'stroke-width': 1.5, 'stroke-dasharray': '7 5',
+                      'stroke-opacity': 0.75 });
+
+    rs.forEach((r, i) => {
+      const cx = x0 + 16 + (i + 0.5) * ((w - 32) / rs.length);
+      const c = r > 0 ? '#10b981' : '#f43f5e';
+      el(svg, 'line', { x1: cx, y1: yR(0), x2: cx, y2: yR(r),
+                        stroke: c, 'stroke-width': 1, 'stroke-opacity': 0.22 });
+      el(svg, 'circle', { cx: cx, cy: yR(r), r: 4.2, fill: c, 'fill-opacity': 0.85 });
+    });
+
+    txt(svg, { x: x0, y: 64, 'font-family': MONO, 'font-size': 14, 'font-weight': 700,
+               fill: accent, 'letter-spacing': '0.16em' }, label);
+    txt(svg, { x: x0, y: 86, 'font-family': MONO, 'font-size': 12,
+               fill: '#52525b' }, sub);
+  }
+
+  /* LEFT — fourteen losses in a very tight band. Maximally consistent. */
+  const tight = [];
+  for (let i = 0; i < 14; i++) tight.push(-0.92 + gauss() * 0.11);
+  panel(60, 330, 'PERFECTLY CONSISTENT',
+        'σ 0.11R  ·  mean −0.92R  ·  n 14', tight, -0.92, 0.11, '#f43f5e');
+
+  /* RIGHT — wide, lumpy, and net positive. */
+  const wide = [];
+  for (let i = 0; i < 40; i++) {
+    let r = 0.28 + gauss() * 1.35;
+    if (r < -1.05) r = -1.0 + rnd() * 0.05;   /* a stop is a floor */
+    if (r > 4.1) r = 4.1;
+    wide.push(r);
+  }
+  panel(440, 330, 'WILDLY INCONSISTENT',
+        'σ 1.35R  ·  mean +0.28R  ·  n 40', wide, 0.28, 1.35, '#10b981');
+
+  /* the verdict line */
+  txt(svg, { x: 60, y: 452, 'font-family': MONO, 'font-size': 13, 'font-weight': 700,
+             fill: '#f59e0b', 'letter-spacing': '0.05em' },
+      'THE LEFT PANEL IS THE MORE CONSISTENT SYSTEM.');
+  txt(svg, { x: 60, y: 474, 'font-family': MONO, 'font-size': 12,
+             fill: '#52525b', 'letter-spacing': '0.04em' },
+      'IT IS ALSO THE ONLY ONE OF THE TWO THAT LOSES MONEY ON EVERY TRADE.');
+})();
+</script>
+
+</body>
+</html>

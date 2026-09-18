@@ -155,12 +155,58 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.110 -->
+            <div class="pl-8 relative" id="v1-0-110">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.110-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Sep 18, 2026 3:32PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Two things in this release you can see, and one you shouldn&rsquo;t have to. The automated strategies stopped trading on days the market was shut, positions caught by a stock split stopped reporting nonsense, and there is now a screen for promoting a backtest into a strategy you can follow.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Live Strategies</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">You can promote an eligible backtest into a live strategy</strong> and manage it from a new Live Strategies screen &mdash; status, run health, pause and revoke, all in one place.</li>
+                            <li><strong class="text-zinc-200">A new comparison view puts live results next to the backtest that justified them.</strong> Trade counts are normalised on both sides, so you are comparing like with like rather than a finished backtest against a strategy that is still running.</li>
+                            <li><strong class="text-zinc-200">Promoted strategies are not being executed by the daily scan yet.</strong> You can promote, review and manage them now; the switch that lets them actually trade comes in a later release, once the rate-limit work behind it is finished. We would rather tell you that than let you assume otherwise.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Positions caught by a stock split</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">A position you held through a split was showing a badly wrong unrealized P&amp;L</strong> &mdash; the entry price was the raw price from the day you opened, the current price came from the post-split feed, and everything built from the two was garbage. One position read &minus;66% on what was really a +36% trade.</li>
+                            <li><strong class="text-zinc-200">Those positions now carry a warning next to the number</strong> instead of presenting it as fact. We flag it rather than quietly rewriting your entry price &mdash; the figure is marked as untrustworthy until the repricing decision is made properly.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">The scanner and the market holiday</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The automated strategies booked trades dated to a day the market never opened.</strong> The guard meant to stop this read a live status that reports &ldquo;extended hours&rdquo; at 6am on any weekday &mdash; so it caught weekends and missed weekday holidays entirely.</li>
+                            <li><strong class="text-zinc-200">It now runs off a real exchange calendar</strong>, and the trades that were already booked on that date have had their entry and exit dates moved to the next session that actually existed.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Smaller things</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Copy button on the Original Stop</strong> in the trade details modal, matching the one already on the edited stop.</li>
+                            <li><strong class="text-zinc-200">The daily scan got considerably cheaper to run</strong> &mdash; it had been re-fetching the same market data roughly 330 times per cycle, once for every strategy, when once per cycle was enough.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.109 -->
             <div class="pl-8 relative" id="v1-0-109">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.109-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Sep 14, 2026 11:29PM</span>
                 </div>
 

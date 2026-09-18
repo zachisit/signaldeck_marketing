@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AE · Cohort</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:70px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Screenshots<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Are Not Data.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">expectancy &middot; risk adherence &middot; tag discipline</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Students show you the trades they remember</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+
+  /* deterministic PRNG so a re-render is byte-stable */
+  let _s = 20260918;
+  const rnd = () => { _s = (_s * 1664525 + 1013904223) % 4294967296; return _s / 4294967296; };
+  /* Box-Muller off the same deterministic stream */
+  const gauss = () => Math.sqrt(-2 * Math.log(1 - rnd())) * Math.cos(2 * Math.PI * rnd());
+
+  const MONO = 'JetBrains Mono, monospace';
+
+  /* ---- grid geometry: 3 columns x 4 rows of student sparklines ----- */
+  const COLS = [60, 305, 550], ROWS = [62, 152, 242, 332];
+  const CW = 195, SPARK_H = 50, N = 44;
+
+  /* One student: a 44-trade cumulative-R walk drawn inside its cell.
+     `lit` = a student who volunteered their screenshots.               */
+  function student(cx, cy, name, drift, vol, lit) {
+    const cum = [0];
+    for (let i = 1; i < N; i++) cum.push(cum[i - 1] + drift + gauss() * vol);
+
+    const lo = Math.min(...cum), hi = Math.max(...cum);
+    const span = Math.max(hi - lo, 1.2);
+    const top = cy + 16, bot = top + SPARK_H;
+    const yv = v => bot - ((v - lo) / span) * SPARK_H;
+    const xv = i => cx + (i / (N - 1)) * CW;
+
+    const end = cum[N - 1];
+    const up = end >= 0;
+    const stroke = lit ? (up ? '#10b981' : '#f43f5e') : '#3f3f46';
+    const op = lit ? 1 : 0.5;
+
+    /* the cell itself — lit students get a faint panel behind them */
+    if (lit) {
+      el(svg, 'rect', { x: cx - 12, y: cy - 4, width: CW + 30, height: SPARK_H + 34,
+                        rx: 5, fill: '#10b981', 'fill-opacity': 0.045,
+                        stroke: '#10b981', 'stroke-opacity': 0.28, 'stroke-width': 1 });
+    }
+
+    /* break-even reference */
+    el(svg, 'line', { x1: cx, y1: yv(0), x2: cx + CW, y2: yv(0),
+                      stroke: lit ? '#27272a' : '#18181b', 'stroke-width': 1,
+                      'stroke-dasharray': '4 4' });
+
+    let d = '';
+    cum.forEach((v, i) => { d += (i ? 'L' : 'M') + xv(i).toFixed(1) + ' ' + yv(v).toFixed(1); });
+    el(svg, 'path', { d: d, fill: 'none', stroke: stroke, 'stroke-width': lit ? 2.1 : 1.2,
+                      'stroke-opacity': op, 'stroke-linejoin': 'round' });
+
+    if (lit) el(svg, 'circle', { cx: xv(N - 1), cy: yv(end), r: 3.6,
+                                 fill: stroke, 'fill-opacity': 0.95 });
+
+    txt(svg, { x: cx, y: cy + 8, 'font-family': MONO, 'font-size': 11,
+               'font-weight': lit ? 700 : 400,
+               fill: lit ? '#a1a1aa' : '#27272a', 'letter-spacing': '0.1em' }, name);
+    txt(svg, { x: cx + CW, y: cy + 8, 'font-family': MONO, 'font-size': 11,
+               'font-weight': lit ? 700 : 400, 'text-anchor': 'end',
+               fill: lit ? stroke : '#27272a' },
+        (end >= 0 ? '+' : '') + end.toFixed(1) + 'R');
+  }
+
+  /* Twelve students. Three volunteered a screenshot — those three are the
+     only ones the coach has seen, and all three of them are up.         */
+  const LIT = new Set([1, 6, 8]);
+  const ROSTER = [
+    ['S-01', -0.06, 0.34], ['S-02',  0.21, 0.30], ['S-03', -0.11, 0.38],
+    ['S-04', -0.02, 0.29], ['S-05', -0.14, 0.41], ['S-06', -0.05, 0.33],
+    ['S-07',  0.18, 0.27], ['S-08', -0.09, 0.36], ['S-09',  0.24, 0.31],
+    ['S-10', -0.13, 0.35], ['S-11', -0.04, 0.30], ['S-12', -0.16, 0.39],
+  ];
+
+  ROSTER.forEach(([name, drift, vol], i) => {
+    const cx = COLS[i % 3], cy = ROWS[Math.floor(i / 3)];
+    student(cx, cy, name, drift, vol, LIT.has(i));
+  });
+
+  /* the verdict line */
+  txt(svg, { x: 60, y: 448, 'font-family': MONO, 'font-size': 13, 'font-weight': 700,
+             fill: '#f59e0b', 'letter-spacing': '0.05em' },
+      'THE THREE THEY SHOWED YOU ARE THE THREE THAT WENT WELL.');
+  txt(svg, { x: 60, y: 470, 'font-family': MONO, 'font-size': 12,
+             fill: '#52525b', 'letter-spacing': '0.04em' },
+      'THE COHORT IS NINE OTHER STUDENTS, AND IT IS NOT DOING WHAT THEY ARE.');
+})();
+</script>
+
+</body>
+</html>

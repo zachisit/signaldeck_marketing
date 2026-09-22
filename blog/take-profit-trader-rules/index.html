@@ -227,7 +227,8 @@
             <p class="text-zinc-300 leading-relaxed mb-6">Take Profit Trader runs a three-stage structure. You start
             on a <strong class="text-white">Test</strong> account, which is simulated and has no withdrawals. Passing
             it moves you to <strong class="text-white">PRO</strong>, which is still a simulated environment but pays
-            real money, with withdrawals available from day one at an 80/20 split in your favour. Above that sits
+            real money, with withdrawals available from day one at an 80/20 split in your favour - of whatever sits
+            above the buffer zone, which is the part covered further down. Above that sits
             <strong class="text-white">PRO+</strong>, a live-market account at a 90/10 split with no buffer
             requirement.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">That progression is well documented everywhere. What tends
@@ -322,8 +323,9 @@
 
             <p class="text-zinc-300 leading-relaxed mb-6">Notice the ratio. On the $25,000 account the profit target
             and the drawdown are the same number, so you have exactly one account-width of room to make one
-            account-width of money. On the $150,000 account the target is twice the drawdown. The larger accounts are
-            arithmetically harder in that specific sense, which is worth knowing before assuming the bigger number is
+            account-width of money. On the $100,000 and $150,000 accounts the target is twice the drawdown, which is where the
+            ratio settles rather than continuing to climb. Every account above the smallest is arithmetically harder
+            in that specific sense, which is worth knowing before assuming the bigger number is
             the better deal. Figures are as published by the firm in 2026; prop rules change frequently, so verify
             the current specification directly with Take Profit Trader before you buy anything.</p>
 
@@ -400,8 +402,9 @@
             happen.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">On a funded PRO account, your drawdown is assessed intraday.
             Every tick counts. The worst moment of your session is the moment you are judged on.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">Now run one session through both rules. Take the $50,000
-            account above, with the floor sitting at $48,800:</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Now run one session through both rules. Take the same $50,000
+            account, opening a session at $50,000 flat with its floor already at $48,800 - trailed there by an
+            earlier day's $50,800 high, as in the walkthrough above:</p>
 
             <div class="overflow-x-auto mb-6">
                 <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
@@ -423,15 +426,15 @@
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
                             <td class="px-4 py-3 font-mono text-zinc-400">16:00 close</td>
                             <td class="px-4 py-3 font-mono text-emerald-400">$50,900</td>
-                            <td class="px-4 py-3 text-emerald-400 font-semibold">Pass - up $900</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">Pass - up $900 on the day</td>
                             <td class="px-4 py-3 text-zinc-500">never reached</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p class="text-zinc-300 leading-relaxed mb-6">Same trades. Same floor. Same trader. One rule records a
-            good day and the other ends the account before lunch. Nothing about your behaviour needs to change
+            <p class="text-zinc-300 leading-relaxed mb-6">Same trades. Same floor at the moment that decides it. Same
+            trader. One rule records a good day and the other ends the account before lunch. Nothing about your behaviour needs to change
             between the Test and PRO for this to happen to you - and that is exactly why it catches people. They
             reasonably conclude that passing demonstrated something about their risk control, when what it
             demonstrated is that their <em>closing balances</em> stayed above a line. The Test never asked the
@@ -464,7 +467,8 @@
             closing figure alone cannot distinguish them. Expressing both in
             <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a>
             is what makes the comparison portable across contract sizes and account sizes, which matters here because
-            the whole point is to carry a conclusion from a $50,000 Test to a $150,000 funded account.</p>
+            the whole point is to carry a conclusion from a Test to the funded account that follows it, and onto a
+            different account size later if you trade one.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">If you want to go further than a single count of near
             misses, this is a natural place for
             <a href="../prop-firm-monte-carlo-readiness/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo resampling of your own trade sequence</a>:
@@ -511,6 +515,8 @@
             which we keep honest precisely because getting this wrong wastes people's time.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Other Rules, Briefly</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">All of the following are per the firm's published FAQ as
+            of September 2026, and are the items most likely to have moved by the time you read this.</p>
             <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
                 <li><strong class="text-white">No daily loss limit.</strong> Unusual among futures firms and
                 genuinely less restrictive - but it means one session can carry you the entire distance to the
@@ -518,12 +524,12 @@
                 <li><strong class="text-white">Consistency rule on the Test only.</strong> No single day may produce
                 50% or more of the account's profit target. The firm describes it as non-punitive, and it does not
                 apply on PRO.</li>
-                <li><strong class="text-white">Three minimum trading days</strong> on the Test, reduced from five.</li>
+                <li><strong class="text-white">Three minimum trading days</strong> on the Test.</li>
                 <li><strong class="text-white">News trading</strong> is permitted on the Test but restricted around
                 specific major events once funded - a rule that changes at the same boundary as the drawdown, and
                 is far easier to breach by accident.</li>
                 <li><strong class="text-white">Copy trading</strong> is allowed, across up to five accounts.</li>
-                <li><strong class="text-white">Resets</strong> from around $79 depending on account size.</li>
+                <li><strong class="text-white">Resets</strong> from $79, depending on account size.</li>
                 <li><strong class="text-white">PRO+</strong> requires at least one trade per week to stay active.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">Two of those - the drawdown assessment and the news

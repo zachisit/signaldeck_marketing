@@ -155,12 +155,52 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.112 -->
+            <div class="pl-8 relative" id="v1-0-112">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.112-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Sep 24, 2026 9:21PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>A new strategy goes into forward testing, resuming a paused strategy now actually resumes it, and a sweep through the codebase fixed a batch of things that were quietly wrong &mdash; most of them about whose clock and whose trades a number was counting.</p>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Strategies</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Bullish Engulf Reversal enters forward paper testing.</strong> A strict engulfing-reversal setup on a dynamic universe, entering on the open with a trailing chandelier stop. It is paper only, so it runs live next to the rest of the book before anyone relies on it.</li>
+                            <li><strong class="text-zinc-200">Resuming an auto-paused strategy now reaches the scanner.</strong> Before, Resume could show a strategy as Active while the scanner's own safety breaker kept skipping it. Both sides now read the same reset point.</li>
+                            <li><strong class="text-zinc-200">Live Strategies now lives inside Runs.</strong> It moved out of the top navigation, and old links still land in the right place.</li>
+                            <li><strong class="text-zinc-200">New strategies record who made them and when.</strong> The deployed date defaults to your own local date, so an evening create in the US no longer comes out as tomorrow.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Stops</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Seven spring-low strategies were padding their stops twice.</strong> They now apply the buffer once, as designed.</li>
+                            <li><strong class="text-zinc-200">A stop can no longer be set equal to the entry price.</strong> When a strategy is meant to have a stop but none could be computed, you get an alert instead of silence.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Your time zone, your trades</h4>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Daily risk limits count your day, not New York's.</strong> Max-trades and daily-loss alerts now use the time zone in your profile, and account alerts reset at your own midnight.</li>
+                            <li><strong class="text-zinc-200">Borg only shows people's own trades.</strong> Automated scanner positions no longer appear in shared trade links, history or member profiles, and the vs-SPY comparison now counts imported closes it used to drop.</li>
+                            <li><strong class="text-zinc-200">Clicking a trade when the request fails no longer shows the wrong trade.</strong> The details window now closes cleanly with an error instead of showing the previous trade's numbers with the tabs frozen.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.111 -->
             <div class="pl-8 relative" id="v1-0-111">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.111-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Sep 19, 2026 11:30PM</span>
                 </div>
 

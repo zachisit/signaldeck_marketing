@@ -92,6 +92,16 @@ Tags: FOMO, hesitation, revenge trading, overconfidence, following the plan, plu
 Each tag accumulates average R-multiple data over time — quantifying the financial cost of each psychological pattern.
 Integrated into the Post Mortem workflow on every trade review.
 
+### AI Assistant Connector (MCP server, v1.0.114, every plan)
+SignalDeck runs an official MCP (Model Context Protocol) server at https://app.sgnldk.com/api/mcp so users can connect the AI assistant they already use (Claude via claude.ai, Claude Desktop or Claude Code, and ChatGPT) to their journal.
+- Connection: OAuth sign-in with a consent screen (claude.ai, ChatGPT), or a personal access token created in Settings → AI assistants (MCP) (Claude Code, Claude Desktop). Connected apps and tokens can be revoked at any time; a password change or reset revokes every connection.
+- 54 tools. Reads: trades (filtered lists, detail, change history, open positions), dashboard stats (R, SQN, expectancy), per-strategy performance, tags, brokers, funding accounts, journal entries, calendar summaries, goals, daily market review, backtests (full results incl. WFA/Monte Carlo where the plan includes them), live strategies, backtest-vs-live comparison, scanner runs and signals, portfolio heat, review queue. Read-only checks: trade compliance (FTMO preset, generic or custom rules) and concentration.
+- Writes (opt-in): create/edit/close trades and connected groups, notes, tags, signals, entry checklist, post-mortems, price and pip-distance alerts, screenshots (inline or one-time upload link), journal entries and mood.
+- Deletes (separate opt-in on top of write): trades (requires confirming the symbol; no restore), notes, tags, alerts, screenshots, journal entries.
+- Guardrails: acts only on the connected user's own data; never touches brokers, billing or settings; the automated scanner's managed trades cannot be changed; hourly write limits; edits to broker-imported fields warn that a re-import will overwrite them; P&L/R math is the same code the app uses.
+- Plan: available on every plan including Free; plan limits (e.g. screenshots per trade, premium stats) still apply.
+Differentiator: as of September 2026 no compared competitor (TraderSync, Edgewonk, TradeZella, Tradervue, TradesViz, Myfxbook) offers an official MCP connector. TraderSync (Cypher), TradeZella (Zella AI) and TradesViz (AI Coach/Chat) have in-app AI only; Edgewonk has automated Edge Finder analysis; Tradervue has no AI; Myfxbook has only a community-built MCP server.
+
 ### Live Position Alerts (in-journal)
 Four alert types on OPEN positions — all delivered inside the journal:
 1. Break-even alerts — fires when price reaches your entry; prompts you to move the stop to break-even.
@@ -299,6 +309,11 @@ Content: Title: "Trading Consistency Isn't Built on Willpower. It's Built on Dat
 URL: https://sgnldk.com/position-sizing/
 Target queries: position size calculator, forex position size calculator, stop loss position size
 Content: Working JavaScript calculator with Stocks/Forex/CFD modes. Stocks: shares = dollar risk ÷ stop distance. Forex: lot size = dollar risk ÷ (pip distance × pip value). CFD: contracts = dollar risk ÷ point distance. Explains Fixed-R formula and how SignalDeck automates R-Multiple and Kelly Criterion.
+
+### AI Assistant Connector (MCP)
+URL: https://sgnldk.com/mcp/
+Target queries: AI trading journal, trading journal MCP, Claude trading journal, ChatGPT trading journal, connect ChatGPT to trading journal
+Content: Landing page for the MCP server: example conversations, read/write/delete permission model, pre-trade compliance via the assistant, backtest-vs-live explanations, setup for claude.ai, ChatGPT, Claude Code and Claude Desktop, full tool reference, comparison vs in-app AI chat and CSV-to-chatbot workflows, FAQ.
 
 ### Trade Replay
 URL: https://sgnldk.com/trade-replay/

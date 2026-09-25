@@ -42,6 +42,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Can I connect Claude or ChatGPT to my trading journal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With SignalDeck, yes. As of September 2026 it is the only journal in this comparison with an official MCP connector. TraderSync, TradeZella and TradesViz each have their own built-in AI, but none lets you bring the assistant you already use. SignalDeck's MCP server gives Claude or ChatGPT 54 tools over your journal: trades, R stats, backtests, pre-trade compliance checks and, with your permission, logging, editing and closing trades. It is available on every plan, including Free."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is SignalDeck a Myfxbook alternative?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -228,7 +236,7 @@
     <!-- Hero -->
     <section class="relative pt-24 pb-16 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-widest mb-6">New v1.0.74: Multi-Broker Import — IBKR · cTrader · SnapTrade (30+) · CSV · MT4/MT5</span>
+            <a href="../mcp/index.html" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-purple-500/10 text-purple-300 border border-purple-500/30 uppercase tracking-widest mb-6 hover:bg-purple-500/20 transition-colors">New v1.0.114: AI Assistant Connector (MCP) · Claude · ChatGPT →</a>
             <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
                 Not All Trading Journals Know You're Live
             </h1>
@@ -243,6 +251,40 @@
                 <a href="tradesviz/index.html" class="px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors font-mono text-xs">SignalDeck vs TradesViz →</a>
                 <a href="myfxbook/index.html" class="px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors font-mono text-xs">SignalDeck vs Myfxbook →</a>
                 <a href="support/index.html" class="px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors font-mono text-xs">Support Comparison →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant (MCP) Highlight -->
+    <section class="py-12 border-b border-zinc-900 bg-purple-500/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-purple-400">New v1.0.114 · Every plan</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Bring your own AI: Claude and ChatGPT, connected to your journal.</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        Several journals ship their own AI chat, but it only runs inside their app, on their model, often with a daily question cap. SignalDeck runs an MCP server instead. The assistant you already use can read your trades, R stats and backtests, check a new trade against your prop firm rules, and, with your permission, log, edit and close trades and write post-mortems. It's the only journal in this comparison with an official MCP connector (as of September 2026).
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-purple-300 border border-purple-500/20">54 MCP Tools</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-purple-300 border border-purple-500/20">Claude · ChatGPT · Claude Code</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Read / Write / Delete Permissions</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">Pre-Trade Compliance Check</span>
+                    </div>
+                    <a href="../mcp/index.html" class="text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">How the AI assistant connector works →</a>
+                </div>
+                <div class="flex-shrink-0 bg-zinc-900 border border-zinc-700 rounded-xl p-5 font-mono text-xs w-full md:w-72">
+                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-zinc-800">
+                        <span class="text-zinc-500 uppercase tracking-wider">Claude · SignalDeck</span>
+                        <span class="text-purple-400 font-bold text-[10px]">MCP</span>
+                    </div>
+                    <div class="bg-blue-600/15 border border-blue-500/25 rounded px-2 py-1.5 text-[10px] text-zinc-300 mb-2">Which setup lost me the most R this month?</div>
+                    <div class="text-[9px] text-zinc-500 mb-2"><span class="text-purple-400">▸</span> get_strategy_performance</div>
+                    <div class="bg-zinc-800/60 border border-zinc-700 rounded px-2 py-1.5 text-[10px] text-zinc-300">"Late-day reversal": 11 trades, <span class="text-rose-400">-6.4R</span>. Want me to tag them for review?</div>
+                </div>
             </div>
         </div>
     </section>
@@ -512,6 +554,38 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <!-- ===== TIER 0: AI Assistant Connector (MCP) (new, top) ===== -->
+                        <tr class="border-t-2 border-purple-500/30">
+                            <td colspan="7" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-purple-400 bg-purple-500/5 font-bold">⚡ AI Assistant Connector (MCP) — New v1.0.114 · Every plan · <a href="../mcp/index.html" class="underline hover:text-purple-300">How it works →</a></td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-purple-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Official MCP Connector (Claude / ChatGPT)</td>
+                            <td class="px-4 py-3 text-center bg-purple-500/10 text-emerald-500 font-bold">✅ 54 tools</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-purple-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Claude / ChatGPT Can Log, Edit &amp; Close Trades</td>
+                            <td class="px-4 py-3 text-center bg-purple-500/10 text-emerald-500 font-bold">✅ With your permission</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-purple-500/5">
+                            <td class="px-4 py-3 text-zinc-300 font-medium">Built-in AI Features</td>
+                            <td class="px-4 py-3 text-center bg-purple-500/10 text-emerald-500 font-bold">✅ AI Post Mortems · Weekly Review</td>
+                            <td class="px-4 py-3 text-center text-emerald-500">✅ Cypher</td>
+                            <td class="px-4 py-3 text-center text-yellow-500">⚠️ Edge Finder</td>
+                            <td class="px-4 py-3 text-center text-emerald-500">✅ Zella AI</td>
+                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
+                            <td class="px-4 py-3 text-center text-emerald-500">✅ AI Coach / Chat</td>
+                        </tr>
 
                         <!-- ===== TIER 0: Market News (new, top) ===== -->
                         <tr class="border-t-2 border-teal-400/30">
@@ -1001,6 +1075,11 @@
 
             <div class="space-y-6">
 
+                <div class="bg-zinc-900/40 border border-purple-500/30 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I connect Claude or ChatGPT to my trading journal?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">With SignalDeck, yes. As of September 2026 it's the only journal in this comparison with an official MCP connector. TraderSync (Cypher), TradeZella (Zella AI) and TradesViz (AI Coach) each have their own built-in AI. Edgewonk has automated Edge Finder analysis, and Tradervue has no AI. None of them let you bring the assistant you already use. SignalDeck's <a href="../mcp/index.html" class="text-purple-400 hover:text-purple-300">AI assistant connector</a> gives Claude or ChatGPT 54 tools over your journal: trades, R stats, backtests, pre-trade compliance checks and, with your permission, logging, editing and closing trades. It's on every plan, including Free.</p>
+                </div>
+
                 <div class="bg-zinc-900/40 border border-blue-500/30 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck have a strategy backtester?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">Yes — and it's the most complete backtester available inside any trading journal. A handful of competitors (TraderSync, TradesViz, TradeZella) offer basic backtesting, but SignalDeck is the only one with Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for drawdown risk modeling, grid-search parameter optimization across up to 500 combinations, and an SPY/QQQ benchmark overlay — all in the same workflow. Run any of 16 built-in strategies (SMA Crossover, RSI Mean Reversion, EMA, Bollinger Bands, MACD, and more) over up to 5 years of historical data with configurable stop types, position sizing (Kelly, fixed-risk, equal-weight), and commission/slippage modeling. And the truly unique feature: link any backtest directly to a live journal strategy and overlay your real equity curve against the backtest result to see exactly where your live execution diverges from theory.</p>
@@ -1070,6 +1149,7 @@
                 <a href="../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
                 <a href="../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
                 <a href="../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">

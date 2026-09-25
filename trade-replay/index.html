@@ -303,6 +303,34 @@
         </div>
     </section>
 
+    <!-- AI Assistant (MCP) callout -->
+    <section class="py-16 border-t border-zinc-900 bg-zinc-950">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="relative bg-zinc-900/40 border border-purple-500/30 rounded-2xl p-8 sm:p-10 overflow-hidden">
+                <div class="absolute -top-20 -right-20 w-56 h-56 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3">
+                        <div class="inline-flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-purple-300 font-bold">New · Replay + AI assistant</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-3">Replay the trade, then have your assistant write it up.</h2>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-5">After a replay, tell Claude or ChatGPT what you saw. It can add the note, set tags and fill in the post-mortem on that trade in SignalDeck.</p>
+                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'trade-replay'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                            Connect Claude or ChatGPT to SignalDeck
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <div class="md:col-span-2 bg-zinc-950 border border-zinc-800 rounded-xl p-4 font-mono text-[11px]">
+                        <div class="text-[9px] text-zinc-600 uppercase tracking-widest mb-2">You ask</div>
+                        <div class="bg-blue-600/15 border border-blue-500/25 rounded px-3 py-2 text-zinc-200 leading-relaxed">&ldquo;Add a note to trade 4821: entry was early, should have waited for the retest.&rdquo;</div>
+                        <div class="mt-3 text-[9px] text-zinc-600">Claude · ChatGPT · 54 tools · every plan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="border-t border-zinc-800 bg-zinc-950 py-12">
         <div class="max-w-2xl mx-auto px-4 text-center text-xs text-zinc-600 font-mono">
             <p>&copy; 2026 SignalDeck | All systems operational</p>
@@ -313,6 +341,7 @@
                 <a href="../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
                 <a href="../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
                 <a href="../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |

@@ -17,7 +17,7 @@
     <!-- Primary Meta Tags -->
     <title>SignalDeck — Forex & Futures Trading Journal | MT5 Backtester</title>
     <meta name="description" content="Forex & futures trading journal with MT5 sync, backtesting, R-Multiples, and Walk-Forward Analysis. Prop firm ready. Free plan, no card required.">
-    <meta name="keywords" content="trading journal, futures trading journal, ES NQ futures journal, MT4 MT5 trading journal, Walk-Forward Analysis, strategy backtester, SQN score, Kelly criterion, R-value trading, free trading journal, AI trading journal, best trading journal 2026">
+    <meta name="keywords" content="trading journal, futures trading journal, ES NQ futures journal, MT4 MT5 trading journal, Walk-Forward Analysis, strategy backtester, SQN score, Kelly criterion, R-value trading, free trading journal, AI trading journal, trading journal MCP, Claude trading journal, ChatGPT trading journal, best trading journal 2026">
     <meta name="author" content="SignalDeck">
     <link rel="canonical" href="https://sgnldk.com/">
     <meta name="robots" content="index, follow">
@@ -58,7 +58,7 @@
             "description": "Free plan available. Pro $30/mo · Elite $50/mo (includes MT4/MT5 import, live balance sync + AI Weekly Review)."
         },
         "description": "Professional-grade trading journal and strategy backtester built around R-Multiple methodology. Features SQN scoring, Kelly Criterion position sizing, 1,000-path Monte Carlo drawdown simulation, Walk-Forward Analysis, grid-search parameter optimization, structured 5-step Post Mortem reviews, execution quality analysis (MAE/MFE, entry/exit slippage), behavioral tagging, and a social trading layer (Borg). Supports common stocks, forex, CFD/indices, crypto, and futures (ES/NQ/CL/GC) natively.",
-        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Market News (per-symbol headlines, news at trade entry, sentiment-tagged), Native forex support, Native crypto support, Native CFD support, Native futures support (ES/NQ/CL/GC with tick math and Globex monitoring), Strategy backtester, Forward testing scanner",
+        "featureList": "MT4/MT5 trade import via MetaApi (automatic fills + P&L), Real-time account balance sync for accurate position sizing, R-Multiple tracking, SQN scoring, Walk-Forward Analysis, Monte Carlo simulation, grid-search parameter optimization, Kelly Criterion position sizing, Structured Post Mortem protocol, Execution quality analysis, Behavioral tagging, Social trading leaderboards, Market News (per-symbol headlines, news at trade entry, sentiment-tagged), Native forex support, Native crypto support, Native CFD support, Native futures support (ES/NQ/CL/GC with tick math and Globex monitoring), Strategy backtester, Forward testing scanner, AI assistant connector (MCP server) for Claude and ChatGPT with 54 tools for reading and managing the journal",
         "screenshot": "https://sgnldk.com/assets/banner-01a-waves.png",
         "softwareVersion": "1.0"
     }
@@ -107,6 +107,11 @@
                 "@type": "Question",
                 "name": "Does SignalDeck have a strategy backtester?",
                 "acceptedAnswer": { "@type": "Answer", "text": "Yes — define rules and test them on up to 5 years of historical data. Walk-Forward Analysis splits your data 80/20 in-sample/out-of-sample and returns a Pass or Likely Overfitted verdict, and 1,000-path Monte Carlo simulation models your worst-case drawdown before you risk real capital." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use Claude or ChatGPT with SignalDeck?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. SignalDeck runs an MCP server, so Claude (claude.ai, Claude Desktop, Claude Code) and ChatGPT can connect to your journal. The assistant can read your trades, R stats and backtests, run pre-trade compliance checks, and, with your permission, log, edit and close trades and write post-mortems. Deleting is a separate opt-in. Available on every plan, including Free." }
             },
             {
                 "@type": "Question",
@@ -197,6 +202,7 @@
 
                 <div class="hidden md:flex items-center gap-4">
                     <a href="demo/index.html" onclick="gtag('event','cta_click',{cta_location:'nav_demo_desktop',page:'homepage'})" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="mcp/index.html" onclick="gtag('event','cta_click',{cta_location:'nav_mcp_desktop',page:'homepage'})" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-white transition-colors">AI Assistant <span class="px-1 py-px rounded text-[8px] font-bold bg-purple-500 text-white uppercase tracking-wide">New</span></a>
                     <a href="free/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
                     <a href="plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
                     <a href="compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
@@ -212,6 +218,7 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
             <a href="demo/index.html" onclick="gtag('event','cta_click',{cta_location:'nav_demo_mobile',page:'homepage'})" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="mcp/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">AI Assistant <span class="ml-1 px-1 py-px rounded text-[8px] font-bold bg-purple-500 text-white uppercase tracking-wide">New</span></a>
             <a href="free/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
             <a href="plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
             <a href="compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
@@ -237,7 +244,7 @@
                 SignalDeck syncs your live MT5 account in real time so you know your exact drawdown headroom before every trade — not after the violation that costs you the evaluation.
             </p>
             <p class="mt-3 max-w-3xl mx-auto text-sm text-zinc-500 font-mono">
-                Live MT5 Sync · Pre-Trade Risk Gate · Walk-Forward Backtesting · R-Multiple / SQN / Monte Carlo / Kelly
+                Live MT5 Sync · Pre-Trade Risk Gate · Walk-Forward Backtesting · R-Multiple / SQN / Monte Carlo / Kelly · <a href="mcp/index.html" class="text-purple-400 hover:text-purple-300">Claude &amp; ChatGPT via MCP</a>
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -327,6 +334,67 @@
     </div>
 </div>
             
+        </div>
+    </section>
+
+    <!-- AI Assistant (MCP) section -->
+    <section class="py-24 border-t border-zinc-800 bg-zinc-950 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl -mr-40 -mt-40 pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center gap-8">
+
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                        <span class="text-[10px] font-mono font-bold text-purple-300 uppercase tracking-widest">New · AI Assistants (MCP) · Every plan</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Your journal, inside <span style="background: linear-gradient(to right, #60a5fa, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent;">Claude &amp; ChatGPT.</span></h2>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-4">
+                        Connect the AI assistant you already use to SignalDeck. It reads your real trades, R-multiples and backtests, and checks a new trade against your prop firm rules before you take it. With your permission, it logs the trade, trails the stop, closes it and writes the post-mortem.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Journaling stops being data entry. Tell your assistant what happened, and your journal stays complete.
+                    </p>
+                    <ul class="space-y-3 font-mono text-sm text-zinc-400 mb-8">
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">&gt;</span>54 tools: trades, stats, backtests, risk checks, journal</li>
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">&gt;</span>Read by default. Write and delete are separate opt-ins.</li>
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">&gt;</span>Journal only: never your broker, billing or settings</li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="mcp/index.html" onclick="gtag('event','cta_click',{cta_location:'home_mcp_section',page:'homepage'})" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-all shadow-lg shadow-purple-900/30">
+                            See what it can do
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="mcp/index.html#setup" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg border border-zinc-700 hover:border-zinc-500 text-white transition-all">
+                            2-minute setup
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-12 lg:mt-0 relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur opacity-30"></div>
+                    <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
+                        <div class="bg-zinc-950 px-4 py-3 border-b border-zinc-800 flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Claude · connected to SignalDeck</span>
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-600">MCP</span>
+                        </div>
+                        <div class="p-5 space-y-3 text-sm">
+                            <div class="flex justify-end"><div class="max-w-[85%] bg-blue-600/20 border border-blue-500/30 rounded-lg px-3 py-2 text-zinc-200">Closed my EUR/USD short at 1.0812. Stopped out early on news. Log it and do the post-mortem.</div></div>
+                            <div class="font-mono text-[10px] space-y-1">
+                                <div class="text-zinc-500"><span class="text-emerald-400">▸ write</span> close_trade <span class="text-zinc-600">#4907 @ 1.0812 · reason: news</span></div>
+                                <div class="text-zinc-500"><span class="text-emerald-400">▸ write</span> upsert_post_mortem <span class="text-zinc-600">news_avoidance · lesson_learned</span></div>
+                            </div>
+                            <div class="max-w-[92%] bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-zinc-300 leading-relaxed">Done: <span class="text-rose-400 font-semibold">-0.6R</span>. That's your third news-window loss this month (-2.1R total). Want me to tag all three "news" so they show up together in your review?</div>
+                            <div class="flex justify-end"><div class="max-w-[85%] bg-blue-600/20 border border-blue-500/30 rounded-lg px-3 py-2 text-zinc-200">Yes, tag them.</div></div>
+                            <div class="font-mono text-[10px] text-zinc-500"><span class="text-emerald-400">▸ write</span> set_trade_tags <span class="text-zinc-600">× 3 trades · + "news"</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -1698,6 +1766,10 @@
                     <p class="text-white font-semibold mb-2">Does SignalDeck have a strategy backtester?</p>
                     <p class="text-zinc-400 text-sm leading-relaxed">Yes — define rules and test them on up to 5 years of historical data. Walk-Forward Analysis splits your data 80/20 in-sample/out-of-sample and returns a Pass or Likely Overfitted verdict, and 1,000-path Monte Carlo simulation models your worst-case drawdown before you risk real capital. See the <a href="backtester/" class="text-blue-400 hover:text-blue-300 transition-colors">backtester walkthrough</a>.</p>
                 </div>
+                <div class="bg-zinc-900/50 border border-purple-500/30 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Can I use Claude or ChatGPT with SignalDeck?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. SignalDeck runs an MCP server, so Claude (claude.ai, Claude Desktop, Claude Code) and ChatGPT can connect to your journal. The assistant can read your trades, R stats and backtests, run pre-trade compliance checks, and, with your permission, log, edit and close trades and write post-mortems. Deleting is a separate opt-in. It's on every plan, including Free. See <a href="mcp/" class="text-purple-400 hover:text-purple-300 transition-colors">how the AI assistant connector works</a>.</p>
+                </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Does SignalDeck work with MT4/MT5?</p>
                     <p class="text-zinc-400 text-sm leading-relaxed">Yes. Connect any MT4 or MT5 broker account via MetaApi and closed trades import automatically — symbol, volume, fill price, and P&L — with live account balance sync for accurate Kelly Criterion sizing and prop firm drawdown headroom. See the <a href="mt5-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 trading journal page</a> for the full workflow.</p>
@@ -1733,6 +1805,7 @@
                 <a href="walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
                 <a href="live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
                 <a href="trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">

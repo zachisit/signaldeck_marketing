@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
+    <title>AI Trading Journal for Claude &amp; ChatGPT (MCP) | SignalDeck</title>
+    <meta name="description" content="Connect Claude or ChatGPT to your trading journal. Ask about your R stats, check a trade against your risk rules, log and close trades, write post-mortems. 54 MCP tools, on every plan.">
+    <meta name="keywords" content="AI trading journal, trading journal MCP, MCP server trading, Claude trading journal, ChatGPT trading journal, trading journal Claude connector, ChatGPT connector trading journal, AI trade journal assistant, Model Context Protocol trading, trading journal API AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sgnldk.com/mcp/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sgnldk.com/mcp/">
+    <meta property="og:title" content="Your Trading Journal, Inside Claude &amp; ChatGPT | SignalDeck MCP">
+    <meta property="og:description" content="Connect an AI assistant to your journal. It reads your trades, R stats and backtests, checks new trades against your risk rules, and, with your permission, logs, edits and closes trades.">
+    <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
+    <meta property="og:site_name" content="SignalDeck">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sgnldk.com/mcp/">
+    <meta property="twitter:title" content="Your Trading Journal, Inside Claude &amp; ChatGPT | SignalDeck MCP">
+    <meta property="twitter:description" content="Connect an AI assistant to your journal. It reads your trades, R stats and backtests, and, with your permission, logs, edits and closes trades.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"SignalDeck MCP: AI Assistant Connector for Your Trading Journal","url":"https://sgnldk.com/mcp/","description":"SignalDeck's MCP server connects Claude and ChatGPT to your trading journal. 54 tools cover reading trades, R-multiple stats, backtests and live strategies, pre-trade risk checks, and, with explicit permission, logging, editing and closing trades.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is MCP?","acceptedAnswer":{"@type":"Answer","text":"MCP (Model Context Protocol) is an open standard that lets an AI assistant like Claude or ChatGPT call tools in another app. SignalDeck runs an MCP server, so a connected assistant can read your journal and, if you allow it, make changes to it on your behalf."}},
+    {"@type":"Question","name":"Which AI assistants work with SignalDeck?","acceptedAnswer":{"@type":"Answer","text":"Claude (claude.ai, Claude Desktop and Claude Code) and ChatGPT. claude.ai and ChatGPT connect with a sign-in and approval screen; Claude Code and Claude Desktop can also connect with a personal access token created in SignalDeck Settings. Any MCP client that supports remote HTTP servers with OAuth or bearer tokens can connect the same way."}},
+    {"@type":"Question","name":"Can the assistant change or delete my trades?","acceptedAnswer":{"@type":"Answer","text":"Only if you allow it. Read access is the default. Write access (log, edit and close trades, notes, tags, post-mortems, alerts, screenshots, journal entries) is a separate permission you grant when you connect. Deleting is a further opt-in on top of that, and deleting a trade also requires confirming its symbol, because a deleted trade cannot be restored."}},
+    {"@type":"Question","name":"Can the assistant place trades at my broker?","acceptedAnswer":{"@type":"Answer","text":"No. The assistant works inside your SignalDeck journal only. It never touches your broker, billing or account settings, and it can never change the automated scanner's managed positions."}},
+    {"@type":"Question","name":"Which plan includes the AI assistant connector?","acceptedAnswer":{"@type":"Answer","text":"Every plan, including Free. Your plan's normal limits still apply through the assistant, for example screenshots per trade and premium analytics fields."}},
+    {"@type":"Question","name":"How do I disconnect an assistant?","acceptedAnswer":{"@type":"Answer","text":"In SignalDeck, go to Settings, then AI assistants (MCP). Revoke a personal access token, or disconnect an app under Connected apps. Access stops immediately. Changing or resetting your password also cuts off every existing connection."}}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"AI Assistant (MCP)","item":"https://sgnldk.com/mcp/"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b',
+                            900: '#18181b',
+                            850: '#202023',
+                        },
+                        blue: {
+                            500: '#3b82f6',
+                            400: '#60a5fa',
+                        },
+                        purple: {
+                            500: '#a855f7',
+                            400: '#c084fc',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <a href="../index.html"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
+                    <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
+            <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/30">
+
+    <!-- Hero -->
+    <section class="relative pt-24 pb-16 border-b border-zinc-900 overflow-hidden">
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
+                <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                <span class="text-[10px] font-mono font-bold text-purple-300 uppercase tracking-widest">New · AI Assistants (MCP) · Every plan</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
+                Your trading journal,<br>
+                <span style="background: linear-gradient(to right, #60a5fa, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent;">inside Claude &amp; ChatGPT.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400">
+                Connect your AI assistant to SignalDeck. It reads your real trades, R-multiples and backtests. It checks a new trade against your risk rules before you take it. With your permission, it logs the trade, moves the stop, closes it and writes the post-mortem.
+            </p>
+            <p class="mt-3 max-w-3xl mx-auto text-sm text-zinc-500 font-mono">
+                54 tools · Claude · ChatGPT · Claude Code · read / write / delete permissions you control
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://app.sgnldk.com/register"
+                    onclick="if(!navigator.webdriver) gtag('event', 'cta_click', {cta_location: 'hero', page: 'mcp'});"
+                    class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                    Start Free &amp; Connect Your Assistant
+                </a>
+                <a href="#setup" class="inline-flex items-center gap-2 px-8 py-3 border border-zinc-700 hover:border-zinc-500 text-white font-medium rounded-lg transition-all">
+                    Setup takes 2 minutes
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+            </div>
+
+            <!-- Mock conversation -->
+            <div class="mt-14 max-w-3xl mx-auto text-left relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-40"></div>
+                <div class="relative bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden">
+                    <div class="bg-zinc-950 px-4 py-3 border-b border-zinc-800 flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Assistant · connected to SignalDeck</span>
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-600">read + write</span>
+                    </div>
+                    <div class="p-5 space-y-4 text-sm">
+                        <div class="flex justify-end">
+                            <div class="max-w-[85%] bg-blue-600/20 border border-blue-500/30 rounded-lg px-4 py-2.5 text-zinc-200">
+                                Thinking about long NQ at 18,420, stop 18,380, 2 contracts. Does that fit my FTMO rules?
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 font-mono text-[11px]">
+                            <div class="text-zinc-500"><span class="text-purple-400">▸ tool</span> get_portfolio_heat</div>
+                            <div class="text-zinc-500"><span class="text-purple-400">▸ tool</span> check_trade_compliance <span class="text-zinc-600">preset=ftmo</span></div>
+                        </div>
+                        <div class="max-w-[90%] bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-300 leading-relaxed">
+                            It passes, but it's tight. You already have <span class="text-white font-semibold">1.6% open risk</span> on ES and GC. This trade adds 0.8%, which puts worst-case daily loss at <span class="text-amber-400 font-semibold">4.1% of your 5% limit</span>. One contract keeps you under 3.7%. Want me to log it at 1 contract?
+                        </div>
+                        <div class="flex justify-end">
+                            <div class="max-w-[85%] bg-blue-600/20 border border-blue-500/30 rounded-lg px-4 py-2.5 text-zinc-200">
+                                Yes, 1 contract. Tag it "A+ setup".
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 font-mono text-[11px]">
+                            <div class="text-zinc-500"><span class="text-emerald-400">▸ write</span> create_trade <span class="text-zinc-600">NQ · LONG · 1 @ 18,420 · stop 18,380</span></div>
+                            <div class="text-zinc-500"><span class="text-emerald-400">▸ write</span> set_trade_tags <span class="text-zinc-600">["A+ setup"]</span></div>
+                        </div>
+                        <div class="max-w-[90%] bg-zinc-950 border border-emerald-500/20 rounded-lg px-4 py-3 text-zinc-300">
+                            Logged. Trade #5132 is open in your journal with a 1R of $800.<span class="cursor-blink text-zinc-500">▍</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 text-[11px] text-zinc-600 text-center font-mono">Illustrative conversation. Numbers come from your own journal and risk rules.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ask -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div>
+                    <h2 class="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-4">Read · your real data</h2>
+                    <h3 class="text-3xl font-bold text-white mb-6">
+                        Ask your journal the questions<br>
+                        <span class="text-blue-500">a dashboard can't answer.</span>
+                    </h3>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Dashboards answer the questions someone designed them for. An assistant with your trade history can answer the one you actually have today, in plain English, from the same numbers the app shows you: R-multiples, SQN, expectancy, strategy breakdowns, your calendar and your goals.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        It reads open positions, full trade history with notes and post-mortems, your review queue, backtests and live strategy runs. It only ever sees your own account.
+                    </p>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-300">"Which of my setups actually makes money in R, and which ones just feel good?"</div>
+                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-300">"Compare my Friday afternoon trades to the rest of the week."</div>
+                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-300">"What's in my review queue? Draft the missing notes for the trades without them."</div>
+                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-300">"Is my breakout strategy tracking its backtest since I promoted it, or drifting?"</div>
+                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-300">"Am I on pace for my journaling and P&amp;L goals this month?"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="order-2 md:order-1 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-zinc-800">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <span class="text-zinc-400 uppercase tracking-widest text-[10px]">Journal writes · this session</span>
+                        </div>
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-300">update_trade <span class="text-zinc-500">#5132 stop → 18,420</span></span><span class="text-emerald-400">✓</span></div>
+                            <div class="flex items-center justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-300">close_trade <span class="text-zinc-500">#5132 @ 18,510</span></span><span class="text-emerald-400">+2.25R</span></div>
+                            <div class="flex items-center justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-300">upsert_post_mortem <span class="text-zinc-500">#5132</span></span><span class="text-emerald-400">✓</span></div>
+                            <div class="flex items-center justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-300">attach_trade_screenshot <span class="text-zinc-500">exit</span></span><span class="text-emerald-400">✓</span></div>
+                            <div class="flex items-center justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-300">add_journal_entry <span class="text-zinc-500">mood: good</span></span><span class="text-emerald-400">✓</span></div>
+                        </div>
+                        <div class="mt-4 bg-amber-500/5 border border-amber-500/20 rounded px-3 py-2 text-[10px] text-zinc-400">
+                            <span class="text-amber-400 font-bold">Every write:</span> the assistant shows you the exact change and asks before it's made.
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-xs font-mono text-emerald-400 uppercase tracking-[0.2em] mb-4">Write · with your permission</h2>
+                    <h3 class="text-3xl font-bold text-white mb-6">
+                        It doesn't just talk about<br>
+                        <span class="text-emerald-400">your journal. It keeps it.</span>
+                    </h3>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Journaling fails when it's a chore. Tell your assistant what happened and it does the data entry: log the trade, trail the stop, close it with the exit reason, fill in the post-mortem, attach the chart and write the day's entry.
+                    </p>
+                    <ul class="space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">&gt;</span><span>Open, edit and close trades, including connected groups</span></li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">&gt;</span><span>Notes, tags, signals, entry checklists and post-mortems</span></li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">&gt;</span><span>Price and pip-distance alerts on open trades</span></li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">&gt;</span><span>Screenshots: the file goes straight to your journal, not through the model</span></li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400">&gt;</span><span>Daily journal entries and mood</span></li>
+                    </ul>
+                    <p class="text-zinc-500 text-sm leading-relaxed mt-6">
+                        P&amp;L, R-multiple and slippage are calculated by the same code the app uses, so a trade closed by your assistant is identical to one closed by hand.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-trade risk -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div>
+                    <h2 class="text-xs font-mono text-amber-400 uppercase tracking-[0.2em] mb-4">Pre-trade · prop firm ready</h2>
+                    <h3 class="text-3xl font-bold text-white mb-6">
+                        A second opinion<br>
+                        <span class="text-amber-400">before the order, not after.</span>
+                    </h3>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Your assistant can run the same pre-trade checks as the app. It projects a new trade against your open book and your prop firm or custom rules, and flags concentration in a single symbol or strategy. It all happens in the conversation where you're already thinking through the trade.
+                    </p>
+                    <ul class="space-y-3 font-mono text-sm text-zinc-400">
+                        <li class="flex items-start gap-2"><span class="text-amber-400">&gt;</span><span>Portfolio heat across every open position</span></li>
+                        <li class="flex items-start gap-2"><span class="text-amber-400">&gt;</span><span>Compliance check: FTMO preset, generic or your own rules</span></li>
+                        <li class="flex items-start gap-2"><span class="text-amber-400">&gt;</span><span>Concentration check by symbol and strategy</span></li>
+                    </ul>
+                    <p class="text-zinc-500 text-sm mt-6">Checks are read-only. Nothing is logged unless you ask. <a href="../prop-firm/index.html" class="text-amber-400 hover:text-amber-300 underline underline-offset-2">Prop firm features →</a></p>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-amber-500/10 to-rose-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
+                            <span class="text-zinc-400 uppercase tracking-widest text-[10px]">check_trade_compliance · FTMO</span>
+                            <span class="px-2 py-0.5 text-[9px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded">WARN</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-400">Max daily loss (5%)</span><span class="text-amber-400">4.1% worst case</span></div>
+                            <div class="flex justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-400">Max total loss (10%)</span><span class="text-emerald-400">6.2% worst case</span></div>
+                            <div class="flex justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-400">Index exposure</span><span class="text-amber-400">3 of 4 positions</span></div>
+                            <div class="flex justify-between bg-zinc-900 rounded px-3 py-2"><span class="text-zinc-400">Open heat after entry</span><span class="text-white">2.4%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Backtest vs live -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="order-2 md:order-1 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6 shadow-2xl font-mono text-xs">
+                        <div class="text-zinc-400 uppercase tracking-widest text-[10px] mb-4 pb-3 border-b border-zinc-800">get_live_strategy_comparison · Breakout v3</div>
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div></div><div class="text-zinc-500 text-[10px]">BACKTEST</div><div class="text-zinc-500 text-[10px]">LIVE</div>
+                            <div class="text-left text-zinc-400 py-1.5">Win rate</div><div class="bg-zinc-900 rounded py-1.5 text-zinc-300">48%</div><div class="bg-zinc-900 rounded py-1.5 text-zinc-300">46%</div>
+                            <div class="text-left text-zinc-400 py-1.5">Avg R</div><div class="bg-zinc-900 rounded py-1.5 text-zinc-300">+0.42</div><div class="bg-zinc-900 rounded py-1.5 text-amber-400">+0.18</div>
+                            <div class="text-left text-zinc-400 py-1.5">Max DD</div><div class="bg-zinc-900 rounded py-1.5 text-zinc-300">-8.1R</div><div class="bg-zinc-900 rounded py-1.5 text-zinc-300">-5.4R</div>
+                        </div>
+                        <div class="mt-4 bg-purple-500/5 border border-purple-500/20 rounded px-3 py-2 text-[10px] text-zinc-400">
+                            <span class="text-purple-400 font-bold">Assistant:</span> Win rate holds, but average R is less than half the backtest. Your exits are cutting winners early.
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-xs font-mono text-purple-400 uppercase tracking-[0.2em] mb-4">Backtests · live strategies</h2>
+                    <h3 class="text-3xl font-bold text-white mb-6">
+                        Theory vs. reality,<br>
+                        <span class="text-purple-400">explained in plain English.</span>
+                    </h3>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Your assistant can read every backtest you've run, including Walk-Forward and Monte Carlo results on plans that include them. It can also read how each promoted strategy has performed live since promotion, and scanner runs and signals too. Ask it why live results are drifting and it has the numbers to answer.
+                    </p>
+                    <p class="text-zinc-500 text-sm">
+                        <a href="../backtester/index.html" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Strategy backtester →</a>
+                        <span class="mx-2 text-zinc-700">·</span>
+                        <a href="../walk-forward-analysis/index.html" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Walk-Forward Analysis →</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Permissions & safety -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-4">Permissions &amp; safety</h2>
+                <h3 class="text-3xl font-bold text-white mb-4">You decide what it can touch.</h3>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Three permission levels, chosen when you connect. The defaults are conservative, and nothing reaches your broker.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-zinc-900/40 border border-blue-500/30 rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-3"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span><h4 class="text-lg font-bold text-white">Read</h4><span class="ml-auto text-[9px] font-mono text-blue-400 uppercase tracking-widest">Default</span></div>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Trades, stats, strategies, journal, calendar, goals, backtests, live runs and pre-trade checks. Nothing changes.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-emerald-500/30 rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-3"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><h4 class="text-lg font-bold text-white">Write</h4><span class="ml-auto text-[9px] font-mono text-emerald-400 uppercase tracking-widest">Opt in</span></div>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Open, edit and close trades. Add notes, tags, signals, checklists, post-mortems, alerts, screenshots and journal entries. The assistant confirms each change with you first.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-rose-500/30 rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-3"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span><h4 class="text-lg font-bold text-white">Delete</h4><span class="ml-auto text-[9px] font-mono text-rose-400 uppercase tracking-widest">Separate opt in</span></div>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Off unless you tick it on top of write. Deleting a trade also means typing back its symbol, because a deleted trade can't be restored.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 max-w-4xl mx-auto text-sm text-zinc-400">
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Journal only.</strong> No broker orders, no billing, no account settings.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Your account only.</strong> A connection can never see or change another user's data.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Automated book is off limits.</strong> The scanner's managed positions can't be changed.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Hourly write limits.</strong> A runaway assistant can't rewrite your journal in bulk.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Revoke in one click.</strong> Settings → AI assistants (MCP) lists every token and connected app.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Password change cuts everything.</strong> Resetting or changing your password revokes every connection.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Imported trades warn.</strong> Editing a broker-synced field tells you the next re-import will overwrite it.</span></div>
+                <div class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Standard OAuth sign-in.</strong> PKCE, short-lived access tokens and a consent screen that shows exactly what you're granting.</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup -->
+    <section id="setup" class="py-24 bg-zinc-900/20 border-t border-zinc-900 scroll-mt-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-4">Setup</h2>
+                <h3 class="text-3xl font-bold text-white mb-4">Connect in about two minutes.</h3>
+                <p class="text-zinc-400 max-w-2xl mx-auto">You need a SignalDeck account (the free plan works). Then pick your assistant.</p>
+            </div>
+            <div class="mb-8 max-w-2xl mx-auto bg-zinc-950 border border-zinc-800 rounded-xl px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest flex-shrink-0">Server URL</span>
+                <code class="font-mono text-sm text-blue-300 break-all">https://app.sgnldk.com/api/mcp</code>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-7 flex flex-col">
+                    <h4 class="text-lg font-bold text-white mb-1">Claude &amp; ChatGPT</h4>
+                    <p class="text-xs font-mono text-zinc-500 mb-5">claude.ai · ChatGPT · sign-in flow</p>
+                    <ol class="space-y-3 text-sm text-zinc-400 list-decimal list-outside pl-5 flex-1">
+                        <li>In your assistant's settings, add a <strong class="text-white">custom connector</strong> and paste the server URL.</li>
+                        <li>Sign in to SignalDeck when prompted.</li>
+                        <li>On the consent screen, choose read, write and (optionally) delete, then <strong class="text-white">Approve</strong>.</li>
+                    </ol>
+                    <p class="mt-5 text-xs text-zinc-500">Custom connectors may need a paid assistant plan or developer mode, depending on the provider.</p>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-7 flex flex-col">
+                    <h4 class="text-lg font-bold text-white mb-1">Claude Code</h4>
+                    <p class="text-xs font-mono text-zinc-500 mb-5">terminal · personal access token</p>
+                    <ol class="space-y-3 text-sm text-zinc-400 list-decimal list-outside pl-5">
+                        <li>In SignalDeck: <strong class="text-white">Settings → AI assistants (MCP)</strong>. Create a token and tick write or delete if you want them.</li>
+                        <li>Run:</li>
+                    </ol>
+                    <pre class="mt-3 bg-zinc-900 border border-zinc-800 rounded-lg p-3 text-[10px] leading-relaxed text-zinc-300 font-mono overflow-x-auto">claude mcp add --transport http \
+  signaldeck https://app.sgnldk.com/api/mcp \
+  --header "Authorization: Bearer sd_pat_…"</pre>
+                    <p class="mt-4 text-xs text-zinc-500">Ask it to call <code class="text-zinc-400">whoami</code> to confirm the account.</p>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-7 flex flex-col">
+                    <h4 class="text-lg font-bold text-white mb-1">Claude Desktop</h4>
+                    <p class="text-xs font-mono text-zinc-500 mb-5">desktop app · token or connector</p>
+                    <ol class="space-y-3 text-sm text-zinc-400 list-decimal list-outside pl-5 flex-1">
+                        <li>Create a token in <strong class="text-white">Settings → AI assistants (MCP)</strong>.</li>
+                        <li>Copy the ready-made <strong class="text-white">Claude Desktop</strong> config snippet shown next to your new token into Claude Desktop's config.</li>
+                        <li>Restart Claude Desktop. SignalDeck appears in your tools.</li>
+                    </ol>
+                    <p class="mt-5 text-xs text-zinc-500">Tokens are shown once. Revoke them any time from the same screen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool reference -->
+    <section class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-4">54 tools</h2>
+                <h3 class="text-3xl font-bold text-white mb-4">Everything the assistant can do.</h3>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Each tool runs the same code as the matching screen in the app, so the numbers always agree.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 text-sm">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>Trades &amp; stats</h4>
+                    <p class="text-zinc-400 leading-relaxed">List and filter trades, full trade detail and change history, open positions, dashboard stats (R, SQN, expectancy), per-strategy performance, tags, brokers and funding accounts.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span>Risk &amp; review</h4>
+                    <p class="text-zinc-400 leading-relaxed">Portfolio heat, trade compliance check (FTMO, generic or custom rules), concentration check, and the review queue of trades missing notes, post-mortems or stops.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-400"></span>Backtests &amp; strategies</h4>
+                    <p class="text-zinc-400 leading-relaxed">Backtest history and full results, live strategies, backtest-vs-live comparison, scanner runs and buy signals.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-teal-400"></span>Journal &amp; calendar</h4>
+                    <p class="text-zinc-400 leading-relaxed">Read, add and edit journal entries and mood. Monthly and yearly calendar summaries, your journaling and P&amp;L goals, and the daily market review.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Trade lifecycle <span class="text-[9px] font-mono text-emerald-400 uppercase">write</span></h4>
+                    <p class="text-zinc-400 leading-relaxed">Create a trade, edit size, stop, target and fees, close it with exit reason and intended stop, and close a connected group in one step.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-bold mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Trade details <span class="text-[9px] font-mono text-emerald-400 uppercase">write</span></h4>
+                    <p class="text-zinc-400 leading-relaxed">Notes, tags, signals, entry checklist, post-mortem, price and pip alerts, and screenshots (inline or through a one-time upload link).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why different -->
+    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">Why this is different</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">Plenty of tools have an AI chat box. Very few let the AI you already use work directly with your journal.</p>
+            <div class="overflow-x-auto rounded-xl border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead class="bg-zinc-900 text-zinc-400 text-left">
+                        <tr>
+                            <th class="px-5 py-4">Approach</th>
+                            <th class="px-5 py-4">What the AI can do with your journal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800 text-zinc-300">
+                        <tr class="bg-blue-500/5">
+                            <td class="px-5 py-4 font-medium text-white">SignalDeck MCP</td>
+                            <td class="px-5 py-4 text-emerald-400">Your choice of Claude or ChatGPT reads your full history and backtests, runs risk checks, and logs, edits and closes trades under permissions you control</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Built-in AI chat in a journal</td>
+                            <td class="px-5 py-4 text-amber-400">Works only inside that app, with the vendor's chosen model and often a daily question cap. You can't bring the assistant you already use.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Export a CSV and paste it into a chatbot</td>
+                            <td class="px-5 py-4 text-amber-400">A one-off snapshot that goes stale immediately. No live positions, no backtests, and nothing flows back into the journal.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-4">Post-trade journal with no AI access</td>
+                            <td class="px-5 py-4 text-zinc-500">Nothing. You do the data entry and the analysis yourself.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-zinc-600 mt-3">Competitor features change. Verify current specs on their sites. <a href="../compare/index.html" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-zinc-950 border border-purple-500/30 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute -top-16 -right-16 w-48 h-48 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-xl">
+                    <h2 class="text-3xl font-bold text-white mb-4">Stop copy-pasting trades into a chatbot.</h2>
+                    <p class="text-zinc-400 mb-8">Give your assistant the real journal instead: live positions, R-multiples, backtests and your own rules. Available on every plan, including Free.</p>
+                    <a href="https://app.sgnldk.com/register"
+                        onclick="if(!navigator.webdriver) gtag('event', 'cta_click', {cta_location: 'cta_block', page: 'mcp'});"
+                        class="inline-flex px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Start free, then connect your assistant
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is MCP?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">MCP (Model Context Protocol) is an open standard that lets an AI assistant call tools in another app. SignalDeck runs an MCP server, so a connected assistant can read your journal and, if you allow it, make changes to it on your behalf.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which AI assistants work with SignalDeck?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Claude (claude.ai, Claude Desktop and Claude Code) and ChatGPT. claude.ai and ChatGPT connect with a sign-in and approval screen. Claude Code and Claude Desktop can also use a personal access token from Settings. Any MCP client that supports remote HTTP servers with OAuth or bearer tokens can connect the same way.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can the assistant change or delete my trades?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Only if you allow it. Read access is the default. Write access is a separate permission you grant when you connect, and the assistant is instructed to show you each change and get your confirmation first. Deleting is a further opt-in on top of write, and deleting a trade also requires confirming its symbol, because a deleted trade can't be restored.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can it place trades at my broker?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">No. The assistant works inside your SignalDeck journal only. It never touches your broker, billing or account settings, and it can never change the automated scanner's managed positions.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which plan includes it?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Every plan, including Free. Your plan's normal limits still apply through the assistant. For example, Free allows one screenshot per trade, and premium analytics fields stay premium. <a href="../plans/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">See plans →</a></p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What if I edit a trade that was imported from my broker?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">The change is made, and the assistant tells you which fields came from the broker sync. The next forced re-import from MT5, cTrader, SnapTrade, IBKR or Tradovate will overwrite those fields. Manual and CSV trades never warn.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How do I disconnect an assistant?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">In SignalDeck, go to <strong class="text-white">Settings → AI assistants (MCP)</strong>. Revoke a personal access token, or disconnect an app under Connected apps, and access stops immediately. Changing or resetting your password also cuts off every existing connection. Logging out of the web app does not.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related pages -->
+    <section class="py-12 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 text-sm">
+                <a href="../analytics/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Trade analytics →</a>
+                <a href="../post-mortem/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Post-mortems →</a>
+                <a href="../prop-firm/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Prop-firm traders →</a>
+                <a href="../backtester/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Backtester →</a>
+                <a href="../alerts/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Position alerts →</a>
+                <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Plans →</a>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta. We're building this alongside serious traders, partnering with operators who actually use the tools to refine the forensic analytics and institutional-grade scanners we're shipping. Paid plans (Free / Pro $30 / Elite $50) launch after beta.</p>
+            <a href="https://app.sgnldk.com"
+                onclick="if(!navigator.webdriver) gtag('event', 'cta_click', {'event_category': 'engagement', 'event_label': 'Beta Signup - MCP (footer)'});"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap">
+                Beta Signup Here
+            </a>
+            <p class="mt-12 text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
+                <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> |
+                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../discord.html">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+    <script src="../yup.js"></script>
+</body>
+</html>

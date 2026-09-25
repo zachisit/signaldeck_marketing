@@ -42,6 +42,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Which plan includes the AI assistant connector (MCP)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every plan, including Free. Connect Claude or ChatGPT to your journal through SignalDeck's MCP server: 54 tools for reading trades, stats and backtests, running pre-trade compliance checks, and, with your permission, logging, editing and closing trades. Your plan's normal limits still apply through the assistant, for example screenshots per trade and premium analytics fields."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Which plan includes MT4/MT5 trade import?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -227,7 +235,7 @@
                 Start Free. Upgrade When You're Winning.
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
-                Free plan with unlimited trades. Pro and Elite unlock the full analytics stack and live MT5 sync.<br class="hidden md:block"> No credit card required to start.
+                Free plan with unlimited trades and the Claude &amp; ChatGPT connector. Pro and Elite unlock the full analytics stack and live MT5 sync.<br class="hidden md:block"> No credit card required to start.
             </p>
         </div>
     </section>
@@ -282,6 +290,10 @@
                         <li class="flex items-start gap-3 text-sm text-zinc-300">
                             <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                             1 screenshot per trade
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-zinc-300">
+                            <svg class="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <span><a href="../mcp/index.html" class="text-white font-bold underline decoration-purple-500/40 hover:decoration-purple-400">AI assistant connector (MCP)</a> <span class="px-1 py-px rounded text-[8px] font-bold bg-purple-500 text-white uppercase tracking-wide align-middle">New</span><br><span class="text-zinc-500 text-xs">Claude &amp; ChatGPT · 54 tools · read, write &amp; delete permissions you control</span></span>
                         </li>
                         <li class="flex items-start gap-3 text-sm text-zinc-300">
                             <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -453,6 +465,11 @@
 
             <div class="space-y-6">
 
+                <div class="bg-zinc-900/40 border border-purple-500/30 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Which plan includes the AI assistant connector (MCP)?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Every plan, including Free. Connect Claude or ChatGPT to your journal through SignalDeck's MCP server. It has 54 tools for reading trades, stats and backtests, running pre-trade compliance checks, and, with your permission, logging, editing and closing trades. Your plan's normal limits still apply through the assistant, for example screenshots per trade and premium analytics fields. <a href="../mcp/index.html" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">How it works →</a></p>
+                </div>
+
                 <div class="bg-zinc-900/40 border border-emerald-500/30 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What brokers can I import from?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports five import methods — four are available on all plans (including free) and one is Elite-only:</p>
@@ -535,6 +552,7 @@
                 <a href="../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
                 <a href="../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
                 <a href="../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">

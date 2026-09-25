@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AK · Gap Through the Stop</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+/* Decorative top band */
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+/* Bold accent bar along the bottom */
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+/* The 1500x500 design stage, vertically centered */
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:48px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:74px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Your Stop<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Can Gap.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Planned -1.0R · Filled -2.6R</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#71717a;letter-spacing:0.04em;">Stock Trading Journal · Planned vs Realized R</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(x, y, s, fill, size, anchor, weight) {
+    const t = el(svg, 'text', { x, y, fill, 'font-size': size, 'font-family': "'JetBrains Mono',monospace",
+      'text-anchor': anchor || 'start', 'font-weight': weight || 700, 'letter-spacing': '0.08em' });
+    t.textContent = s; return t;
+  }
+  function prng(seed) {
+    let s = seed >>> 0;
+    return () => { s = Math.imul(s ^ (s >>> 16), 0x45d9f3b); s = Math.imul(s ^ (s >>> 16), 0x45d9f3b); s ^= s >>> 16; return (s >>> 0) / 0xffffffff; };
+  }
+  const rng = prng(40117);
+
+  /* Daily bars. Entry on bar ENTRY at 84.20, stop 81.70 (1R = $2.50/share).
+     Earnings after the close of bar GAP-1; bar GAP opens at 77.70 = -2.6R. */
+  const ENTRY_P = 84.20, STOP_P = 81.70, GAP_P = 77.70;
+  const bars = [];
+  let c = 77.0;
+  for (let i = 0; i < 11; i++) {             /* the base-and-breakout into entry */
+    const o = c; c = c + 0.66 + (rng() - 0.5) * 0.9;
+    bars.push({ o, c, h: Math.max(o, c) + rng() * 0.8, l: Math.min(o, c) - rng() * 0.8 });
+  }
+  bars[10].c = ENTRY_P; bars[10].h = Math.max(bars[10].h, ENTRY_P + 0.4);
+  const ENTRY = 10;
+  for (let i = 0; i < 4; i++) {              /* drifts sideways above the stop */
+    const o = c = (i === 0 ? ENTRY_P : c); c = o + (rng() - 0.55) * 1.3;
+    c = Math.max(c, 82.6);
+    bars.push({ o, c, h: Math.max(o, c) + rng() * 0.7, l: Math.max(Math.min(o, c) - rng() * 0.7, 82.2) });
+  }
+  const GAP = bars.length;
+  bars.push({ o: GAP_P, c: 76.9, h: 78.3, l: 76.1 });    /* the earnings gap bar */
+  bars.push({ o: 76.9, c: 77.8, h: 78.6, l: 76.4 });
+  bars.push({ o: 77.8, c: 77.2, h: 78.4, l: 76.7 });
+
+  const N = bars.length;
+  const pMin = 74.5, pMax = 88.5;
+  const X0 = 40, X1 = 790;
+  const bw = (X1 - X0) / N;
+  const toX = i => X0 + bw * (i + 0.5);
+  const toY = p => 50 + ((pMax - p) / (pMax - pMin)) * 400;
+
+  /* grid */
+  [0.25, 0.5, 0.75].forEach(f => {
+    const y = (50 + f * 400).toFixed(1);
+    el(svg, 'line', { x1: 0, y1: y, x2: 920, y2: y, stroke: '#27272a', 'stroke-width': 1, 'stroke-dasharray': '4 8', opacity: 0.4 });
+  });
+
+  /* the gap void between the last close above the stop and the gap open */
+  const lastC = bars[GAP - 1].c;
+  const gx0 = toX(GAP - 1) + bw * 0.32, gx1 = toX(GAP) - bw * 0.32;
+  el(svg, 'rect', { x: gx0.toFixed(1), y: toY(lastC).toFixed(1), width: (gx1 - gx0).toFixed(1),
+    height: (toY(GAP_P) - toY(lastC)).toFixed(1), fill: '#f43f5e', opacity: 0.10 });
+
+  /* entry line and stop line */
+  const ey = toY(ENTRY_P), sy = toY(STOP_P), gy = toY(GAP_P);
+  el(svg, 'line', { x1: toX(ENTRY) - bw * 0.4, y1: ey, x2: 880, y2: ey, stroke: '#60a5fa', 'stroke-width': 1.5, 'stroke-dasharray': '3 5', opacity: 0.7 });
+  el(svg, 'line', { x1: toX(ENTRY) - bw * 0.4, y1: sy, x2: 880, y2: sy, stroke: '#f43f5e', 'stroke-width': 2.5, 'stroke-dasharray': '9 6', opacity: 0.9 });
+  txt(toX(GAP) - bw * 0.3, ey - 9, 'ENTRY 84.20', '#60a5fa', 11);
+  txt(toX(GAP) - bw * 0.3, sy - 9, 'STOP 81.70', '#f43f5e', 11);
+
+  /* candles */
+  bars.forEach((b, i) => {
+    const x = toX(i), up = b.c >= b.o;
+    const col = i === GAP ? '#f43f5e' : (up ? '#10b981' : '#71717a');
+    el(svg, 'line', { x1: x, y1: toY(b.h), x2: x, y2: toY(b.l), stroke: col, 'stroke-width': 1.6, opacity: 0.9 });
+    const top = toY(Math.max(b.o, b.c)), hgt = Math.max(Math.abs(toY(b.o) - toY(b.c)), 2);
+    el(svg, 'rect', { x: (x - bw * 0.3).toFixed(1), y: top.toFixed(1), width: (bw * 0.6).toFixed(1), height: hgt.toFixed(1),
+      fill: up && i !== GAP ? col : '#09090b', stroke: col, 'stroke-width': 1.6, rx: 1.5 });
+  });
+
+  /* earnings marker on the night of the gap */
+  const nx = (toX(GAP - 1) + toX(GAP)) / 2;
+  el(svg, 'line', { x1: nx, y1: 60, x2: nx, y2: 440, stroke: '#f59e0b', 'stroke-width': 1.2, 'stroke-dasharray': '2 4', opacity: 0.8 });
+  txt(nx, 54, 'EARNINGS · OVERNIGHT', '#f59e0b', 11, 'middle');
+
+  /* the gap-open fill marker */
+  el(svg, 'circle', { cx: toX(GAP), cy: gy, r: 9, fill: '#f43f5e', opacity: 0.22 });
+  el(svg, 'circle', { cx: toX(GAP), cy: gy, r: 4.2, fill: '#f43f5e' });
+  el(svg, 'line', { x1: toX(GAP), y1: gy, x2: 950, y2: gy, stroke: '#f43f5e', 'stroke-width': 1.2, opacity: 0.5 });
+  txt(toX(GAP) - bw * 0.3, toY(75.3), 'FILLED 77.70 AT THE OPEN', '#f43f5e', 11);
+
+  /* brackets: planned vs realized */
+  const bx1 = toX(N - 1) + 58, bx2 = bx1 + 20;
+  function bracket(x, y0, y1, col, label, sub) {
+    el(svg, 'path', { d: `M${x - 6},${y0} L${x},${y0} L${x},${y1} L${x - 6},${y1}`, stroke: col, 'stroke-width': 2, fill: 'none' });
+    txt(x + 8, (y0 + y1) / 2 + 2, label, col, 13);
+    if (sub) txt(x + 8, (y0 + y1) / 2 + 18, sub, '#71717a', 10, 'start', 400);
+  }
+  bracket(bx1 - 20, ey, sy, '#a1a1aa', '-1.0R', 'planned');
+  bracket(bx2 + 70, ey, gy, '#f43f5e', '-2.6R', 'realized');
+})();
+</script>
+</body>
+</html>

@@ -27,10 +27,11 @@
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01i-scatter.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/day-trading/">
-    <meta property="twitter:title" content="Best Trading Journal for Day Traders | SignalDeck">
-    <meta property="twitter:description" content="Intraday backtesting, execution quality analysis, behavioral tagging, and real-time SQN scoring for day traders. Free during beta.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/day-trading/">
+    <meta name="twitter:title" content="Best Trading Journal for Day Traders | SignalDeck">
+    <meta name="twitter:description" content="Intraday backtesting, execution quality analysis, behavioral tagging, and real-time SQN scoring for day traders. Free during beta.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01i-scatter.png">
 
     <script type="application/ld+json">
@@ -77,23 +78,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b' },
-                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
-                        emerald: { 500: '#10b981' },
-                        rose: { 500: '#f43f5e' },
-                    },
-                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://sgnldk.com/#app", "name": "SignalDeck", "url": "https://sgnldk.com/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://sgnldk.com/#org"}, "subjectOf": {"@type": "WebPage", "@id": "https://sgnldk.com/day-trading/", "name": "Best Trading Journal for Day Traders"}}
+    </script>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Best Trading Journal for Day Traders", "item": "https://sgnldk.com/day-trading/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
 
@@ -104,11 +96,11 @@
                 <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                 <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
             </div>
         </div>
     </nav>
@@ -249,7 +241,7 @@
                     <p class="text-sm text-white font-semibold mb-1">Trading ES or NQ futures? Native tick math and Globex session monitoring are built in.</p>
                     <p class="text-sm text-zinc-400">SignalDeck now supports ES (E-mini S&P 500) and NQ (E-mini Nasdaq-100) as first-class instruments — tick-aligned P&L, CME Globex session gating so alert evaluation only runs during live market hours, and front-month contract search. The same R-value framework, execution quality analysis, and behavioral tagging you use for equities applies directly to futures scalps and intraday trades.</p>
                 </div>
-                <a href="../futures/index.html" class="flex-shrink-0 px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-medium rounded-lg transition-all whitespace-nowrap">
+                <a href="../futures/" class="flex-shrink-0 px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-medium rounded-lg transition-all whitespace-nowrap">
                     ES / NQ Journal →
                 </a>
             </div>
@@ -294,6 +286,23 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is execution quality analysis for day traders?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Execution quality analysis measures the difference between your intended entry/exit and your actual fill. Entry slippage tells you how much you're paying above the intended price on market orders. Exit slippage shows how much you're giving back at close. Limit alpha measures the edge you capture by using limit orders. MAE (Maximum Adverse Excursion) and MFE (Maximum Favorable Excursion) show you how far trades moved against and in your favor before closing — identifying whether you're exiting too early or holding losers too long.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How does behavioral tagging help day traders?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Behavioral tags let you mark the psychological driver behind each trade — FOMO, hesitation, revenge trading, overconfidence, or following the plan. Over time, the journal shows you which tags correlate with negative R-multiples, which times of day produce your worst behavioral trades, and whether specific market conditions trigger predictable mistakes. This turns psychology from a vague problem into a measurable, trackable pattern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Assistant (MCP) callout -->
     <section class="py-16 border-t border-zinc-900 bg-zinc-950">
         <div class="max-w-5xl mx-auto px-6">
@@ -307,7 +316,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Keep the journal current without leaving the session.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">Between trades, tell Claude or ChatGPT what happened. It logs, closes and tags trades in SignalDeck so the review at the end of the day starts complete, and it can run a pre-trade risk check before the next entry.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'day-trading'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'day-trading'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -335,10 +344,24 @@
                 <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
-            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
-                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a></p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/" class="hover:text-zinc-400">Futures</a></p>
             <p class="mt-1"><a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
-            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
         </div>
     </footer>
 </body>

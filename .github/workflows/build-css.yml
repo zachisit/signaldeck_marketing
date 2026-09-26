@@ -1,0 +1,43 @@
+name: Build Tailwind CSS
+
+# The site uses a precompiled Tailwind stylesheet (assets/css/site.css) instead of the Play CDN.
+# Any HTML change can introduce new utility classes, so rebuild on every push that touches HTML
+# (or the Tailwind config/JS that injects classes) and commit the result if it changed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'yup.js'
+      - 'tailwind.config.js'
+      - 'assets/css/tailwind.src.css'
+      - 'package.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-css
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+      - run: npm run build:css
+      - name: Commit rebuilt CSS if it changed
+        run: |
+          if git diff --quiet -- assets/css/site.css; then
+            echo "site.css up to date"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/site.css
+          git commit -m "build: rebuild assets/css/site.css"
+          git push

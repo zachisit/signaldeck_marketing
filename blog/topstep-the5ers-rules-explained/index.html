@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Topstep and The5ers Rules: What Your Journal Must Track | SignalDeck</title>
+    <title>Topstep & The5ers Rules: What Your Journal Must Track</title>
     <meta name="description" content="Topstep trails your max loss limit end-of-day then locks it. The5ers' is static from day one. The full rule comparison and the fields your journal has to carry.">
     <meta name="keywords" content="Topstep challenge rules, The5ers challenge rules, Topstep vs FTMO, prop firm drawdown comparison, Topstep trailing drawdown, The5ers consistency rule, Topstep maximum loss limit, The5ers daily drawdown">
     <meta name="author" content="SignalDeck">
@@ -29,31 +29,38 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/topstep-the5ers-rules-explained/">
-    <meta property="twitter:title" content="Topstep and The5ers Rules: What Your Journal Must Track | SignalDeck">
-    <meta property="twitter:description" content="Topstep trails your max loss limit end-of-day then locks it. The5ers' is static from day one. The full rule comparison and the fields your journal has to carry.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/topstep-the5ers-rules-explained/">
+    <meta name="twitter:title" content="Topstep and The5ers Rules: What Your Journal Must Track | SignalDeck">
+    <meta name="twitter:description" content="Topstep trails your max loss limit end-of-day then locks it. The5ers' is static from day one. The full rule comparison and the fields your journal has to carry.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01ac-two-clocks.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Topstep and The5ers Challenge Rules: What Your Journal Needs to Track (and How They Differ From FTMO)",
-        "description": "Topstep's Maximum Loss Limit trails your end-of-day closing balance and then locks permanently; The5ers' maximum loss is static from your initial balance and it is the daily limit that moves. Here is the side-by-side rule comparison, a worked $50K Topstep example, and the firm-specific fields your journal has to carry for each.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-08-28",
-        "dateModified": "2026-08-28",
-        "image": "https://sgnldk.com/assets/banner-01ac-two-clocks.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Topstep and The5ers Challenge Rules: What Your Journal Needs to Track (and How They Differ From FTMO)",
+    "description": "Topstep's Maximum Loss Limit trails your end-of-day closing balance and then locks permanently; The5ers' maximum loss is static from your initial balance and it is the daily limit that moves. Here is the side-by-side rule comparison, a worked $50K Topstep example, and the firm-specific fields your journal has to carry for each.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-08-28",
+    "dateModified": "2026-08-28",
+    "image": "https://sgnldk.com/assets/banner-01ac-two-clocks.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/topstep-the5ers-rules-explained/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -121,44 +128,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -182,11 +153,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -194,11 +165,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -207,7 +178,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-08-28" class="text-xs font-mono text-zinc-500">August 28, 2026</time>
                 <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
@@ -229,7 +200,7 @@
                 Most traders pick a prop firm on price and account size, then discover the rules afterwards. That works right up until the moment a rule you assumed was familiar turns out to work differently, and the account is gone on a day you were up money. Topstep and The5ers are a particularly good pair for showing why, because they use nearly identical vocabulary for genuinely opposite mechanics.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                This article covers both rule sets as published by each firm, then does the part that actually matters: what changes in your position sizing and in your journal when you move between them. Figures below were read from each firm's own documentation on <span class="font-semibold text-white">August 28, 2026</span> and are cited to the page they came from. Prop firm parameters, promotions and programme names change frequently — verify every number against your specific plan at <a href="https://www.topstep.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">topstep.com</a> and <a href="https://the5ers.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">the5ers.com</a> before you trade. For the two firms we have already covered in this cluster, see the <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules breakdown</a> and the <a href="../apex-trader-funding-rules/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Apex trailing drawdown explainer</a>.
+                This article covers both rule sets as published by each firm, then does the part that actually matters: what changes in your position sizing and in your journal when you move between them. Figures below were read from each firm's own documentation on <span class="font-semibold text-white">August 28, 2026</span> and are cited to the page they came from. Prop firm parameters, promotions and programme names change frequently — verify every number against your specific plan at <a href="https://www.topstep.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">topstep.com</a> and <a href="https://the5ers.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">the5ers.com</a> before you trade. For the two firms we have already covered in this cluster, see the <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules breakdown</a> and the <a href="../apex-trader-funding-rules/" class="text-blue-400 hover:text-blue-300 transition-colors">Apex trailing drawdown explainer</a>.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Prop Firm Rules Are Not Interchangeable</h2>
@@ -503,7 +474,7 @@
                 At The5ers, yes, immediately. The 10% floor is nailed to your initial balance, so the first $500 you make on a $10,000 account genuinely widens the gap between your equity and the failure line from $1,000 to $1,500. Profits compound into safety, and you can reasonably scale size as the cushion grows.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
-                At Topstep, not until the lock. Every profitable close drags the limit up behind you, so your buffer sits at $2,000 whether you are up $200 or $1,800. You are running a fixed risk budget through the entire first stretch of the account, and the correct response is to size to the buffer rather than to the target — the same <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> discipline, with R set against $2,000 of room rather than against the $50,000 headline. On a $50K Combine, five contracts of ES is a handful of points from a meaningful share of the entire buffer.
+                At Topstep, not until the lock. Every profitable close drags the limit up behind you, so your buffer sits at $2,000 whether you are up $200 or $1,800. You are running a fixed risk budget through the entire first stretch of the account, and the correct response is to size to the buffer rather than to the target — the same <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> discipline, with R set against $2,000 of room rather than against the $50,000 headline. On a $50K Combine, five contracts of ES is a handful of points from a meaningful share of the entire buffer.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 Then there is the ratio. Topstep asks for $3,000 of profit while giving $2,000 of room — you must make 1.5 times your maximum loss. The5ers High Stakes asks for 10% while giving 10%, a 1:1 ratio. That single number is the honest starting point for "which is harder," and it favours The5ers on the arithmetic — before you weigh the fact that a single 5% day ends a High Stakes account while a $1,000 day at Topstep just sends you home early. Neither firm publishes a verified pass rate, so treat any percentage you see quoted as an estimate.
@@ -557,24 +528,24 @@
                 </table>
             </div>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Two of those deserve emphasis. <span class="font-semibold text-white">Worst intraday equity</span> is the field almost nobody logs, and it is the one that predicts a breach — it is the account-level version of the <a href="../mae-mfe-execution-metrics/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">MAE you already track per trade</a>. And the <span class="font-semibold text-white">qualifying-day counter</span> is quietly firm-specific: a day that counts at Topstep may not count at The5ers, so a single "trading days" column serving both accounts will mislead you. Recording balance in a way that supports all of this is its own discipline — our guide on <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">how to journal your account balance</a> covers the cadence that makes limit tracking reliable instead of retrospective.
+                Two of those deserve emphasis. <span class="font-semibold text-white">Worst intraday equity</span> is the field almost nobody logs, and it is the one that predicts a breach — it is the account-level version of the <a href="../mae-mfe-execution-metrics/" class="text-blue-400 hover:text-blue-300 transition-colors">MAE you already track per trade</a>. And the <span class="font-semibold text-white">qualifying-day counter</span> is quietly firm-specific: a day that counts at Topstep may not count at The5ers, so a single "trading days" column serving both accounts will mislead you. Recording balance in a way that supports all of this is its own discipline — our guide on <a href="../journal-account-balance/" class="text-blue-400 hover:text-blue-300 transition-colors">how to journal your account balance</a> covers the cadence that makes limit tracking reliable instead of retrospective.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Handles Different Firm Rulesets</h2>
             <p class="text-zinc-300 leading-relaxed mb-4">
-                Platform honesty first, because these two firms sit on opposite sides of our import coverage. The5ers runs on MetaTrader-style platforms, so live MT4/MT5 sync applies (Elite, $50/mo). Topstep is futures on its own platform stack; that path is CSV import or a supported futures connector rather than MetaTrader sync. Our <a href="../trading-journal-platform-support/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">platform support guide</a> sets out exactly what syncs live and what does not — check it against your own setup before assuming either path works.
+                Platform honesty first, because these two firms sit on opposite sides of our import coverage. The5ers runs on MetaTrader-style platforms, so live MT4/MT5 sync applies (Elite, $50/mo). Topstep is futures on its own platform stack; that path is CSV import or a supported futures connector rather than MetaTrader sync. Our <a href="../trading-journal-platform-support/" class="text-blue-400 hover:text-blue-300 transition-colors">platform support guide</a> sets out exactly what syncs live and what does not — check it against your own setup before assuming either path works.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
                 On top of whichever import you use:
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
-                <li><span class="font-semibold text-white">Per-account limit tracking.</span> Each account carries its own balance history and its own floor, so a Topstep Combine and a High Stakes account do not get summed into one misleading equity curve — the failure mode covered in our <a href="../multi-account-trading-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">multi-account journaling post</a>.</li>
-                <li><span class="font-semibold text-white">R-multiple stats</span> across your history, so buffer distance is expressible in standard losses rather than raw dollars. See <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">what an R-multiple is</a> if that framing is new.</li>
-                <li><span class="font-semibold text-white">Monte Carlo (Pro, $30/mo):</span> 1,000-path simulation on your logged trades. Because the two firms fail differently, the same trade history produces two different pass probabilities — that is the whole argument of our <a href="../prop-firm-monte-carlo-readiness/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">prop firm readiness post</a>, and it is worth running before you pay either fee.</li>
-                <li><span class="font-semibold text-white">Payout modelling</span> via the <a href="../../tools/prop-firm-payout-calculator/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">prop firm payout calculator</a>, free and no account required.</li>
+                <li><span class="font-semibold text-white">Per-account limit tracking.</span> Each account carries its own balance history and its own floor, so a Topstep Combine and a High Stakes account do not get summed into one misleading equity curve — the failure mode covered in our <a href="../multi-account-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">multi-account journaling post</a>.</li>
+                <li><span class="font-semibold text-white">R-multiple stats</span> across your history, so buffer distance is expressible in standard losses rather than raw dollars. See <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">what an R-multiple is</a> if that framing is new.</li>
+                <li><span class="font-semibold text-white">Monte Carlo (Pro, $30/mo):</span> 1,000-path simulation on your logged trades. Because the two firms fail differently, the same trade history produces two different pass probabilities — that is the whole argument of our <a href="../prop-firm-monte-carlo-readiness/" class="text-blue-400 hover:text-blue-300 transition-colors">prop firm readiness post</a>, and it is worth running before you pay either fee.</li>
+                <li><span class="font-semibold text-white">Payout modelling</span> via the <a href="../../tools/prop-firm-payout-calculator/" class="text-blue-400 hover:text-blue-300 transition-colors">prop firm payout calculator</a>, free and no account required.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                A per-firm rule library — where you pick "Topstep $50K" and the limit logic configures itself — is on the roadmap rather than shipped. Today you set the limit values on the account and SignalDeck tracks distance against them. If you want your firm prioritised, say so in <a href="../../discord.html" class="text-blue-400 hover:text-blue-300 transition-colors">Discord</a>; that is genuinely how the queue gets ordered. For a wider view of the tooling options, see the <a href="../best-trading-journal-prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> comparison, and the <a href="https://sgnldk.com/ftmo-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO-specific journal page</a> if that is the firm you are actually on.
+                A per-firm rule library — where you pick "Topstep $50K" and the limit logic configures itself — is on the roadmap rather than shipped. Today you set the limit values on the account and SignalDeck tracks distance against them. If you want your firm prioritised, say so in <a href="../../discord.html" class="text-blue-400 hover:text-blue-300 transition-colors">Discord</a>; that is genuinely how the queue gets ordered. For a wider view of the tooling options, see the <a href="../best-trading-journal-prop-firm/" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> comparison, and the <a href="https://sgnldk.com/ftmo-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO-specific journal page</a> if that is the firm you are actually on.
             </p>
 
             <!-- FAQ Section -->
@@ -609,12 +580,12 @@
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-500 text-sm mb-6">Per-account limit tracking and Monte Carlo pass-probability are built for traders running more than one firm's rulebook.</p>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradersync/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
                         <p class="text-zinc-500 text-xs mt-1">TraderSync has no Monte Carlo simulation and no per-account drawdown-distance tracking for firm-specific limits.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-1">TradeZella has no Monte Carlo simulation for challenge readiness and no headroom tracking against a moving limit.</p>
@@ -626,22 +597,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../ftmo-challenge-rules-explained/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
                         <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
                     </a>
-                    <a href="../apex-trader-funding-rules/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../apex-trader-funding-rules/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Apex Trader Funding Rules Explained: Trailing Drawdown, Targets, and How to Track Your Progress</p>
                         <p class="text-zinc-500 text-xs mt-2">July 27, 2026</p>
                     </a>
-                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../best-trading-journal-prop-firm/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
                         <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
                     </a>
-                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../monte-carlo-simulation-trading/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
                         <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
@@ -661,7 +632,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta — Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans →
                     </a>
@@ -701,10 +672,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -714,7 +699,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -724,6 +709,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

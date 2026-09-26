@@ -29,31 +29,38 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/">
-    <meta property="twitter:title" content="Why Prop Firm Traders Keep Blowing Evaluations | SignalDeck">
-    <meta property="twitter:description" content="If you keep failing prop firm challenges, it is almost never the strategy. Five risk-process failures blow evaluations — here is how to fix each one.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/">
+    <meta name="twitter:title" content="Why Prop Firm Traders Keep Blowing Evaluations | SignalDeck">
+    <meta name="twitter:description" content="If you keep failing prop firm challenges, it is almost never the strategy. Five risk-process failures blow evaluations — here is how to fix each one.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Why Prop Firm Traders Keep Blowing Evaluations (And How to Stop It)",
-        "description": "Most traders who fail prop firm challenges do not fail because their strategy stopped working. They fail on five repeatable risk-process errors: attempting without a validated edge, not knowing live drawdown headroom, position sizing built for the target instead of the rules, behavioral drift under pressure, and no pre-trade gate. This guide covers each failure mode and the fix.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-07-10",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01f-drawdown.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Prop Firm Traders Keep Blowing Evaluations (And How to Stop It)",
+    "description": "Most traders who fail prop firm challenges do not fail because their strategy stopped working. They fail on five repeatable risk-process errors: attempting without a validated edge, not knowing live drawdown headroom, position sizing built for the target instead of the rules, behavioral drift under pressure, and no pre-trade gate. This guide covers each failure mode and the fix.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-07-10",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01f-drawdown.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -122,44 +129,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -183,12 +154,12 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Blog</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Blog</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -196,12 +167,12 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Blog</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Blog</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -210,7 +181,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-07-10" class="text-xs font-mono text-zinc-500">July 10, 2026</time>
                 <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
@@ -294,10 +265,10 @@
                 The most expensive way to test a strategy is to buy a challenge with it. A backtest run on the same data you used to build the strategy will almost always look good, because you tuned the rules until it did. That is curve-fitting, and it produces an equity curve that falls apart the moment it meets data it has never seen. A funded evaluation is exactly that: unseen data, with your money on the line.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
-                Before you pay, put your history through two checks that a single backtest cannot give you. First, <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a>: optimize the rules on one window of data, then measure performance on a later window the rules never saw, and step that forward through time. If the edge does not survive out-of-sample, it was fitted, and it will not survive the challenge either.
+                Before you pay, put your history through two checks that a single backtest cannot give you. First, <a href="../walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a>: optimize the rules on one window of data, then measure performance on a later window the rules never saw, and step that forward through time. If the edge does not survive out-of-sample, it was fitted, and it will not survive the challenge either.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Second, <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a>: take your actual closed trades, shuffle the order 1,000 times, and look at the distribution of outcomes. One backtest shows you a single sequence. Monte Carlo shows you the worst-case sequence your own trades can produce. If that worst case breaches the firm's maximum drawdown, you will eventually land on that sequence in a real challenge. The point of running it first is to find that out for the price of a simulation instead of the price of a challenge.
+                Second, <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a>: take your actual closed trades, shuffle the order 1,000 times, and look at the distribution of outcomes. One backtest shows you a single sequence. Monte Carlo shows you the worst-case sequence your own trades can produce. If that worst case breaches the firm's maximum drawdown, you will eventually land on that sequence in a real challenge. The point of running it first is to find that out for the price of a simulation instead of the price of a challenge.
             </p>
 
             <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
@@ -305,7 +276,7 @@
             </blockquote>
 
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Set a minimum bar and hold yourself to it: 100+ closed trades, expectancy above zero, profit factor above 1.5, and an <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN score</a> above 2.0, confirmed out-of-sample. SignalDeck's <a href="../../would-i-pass/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Would I Pass?</a> simulator runs your history against FTMO, Apex, Topstep, and other rule sets and returns a simulated outcome. Run it before you buy anything.
+                Set a minimum bar and hold yourself to it: 100+ closed trades, expectancy above zero, profit factor above 1.5, and an <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN score</a> above 2.0, confirmed out-of-sample. SignalDeck's <a href="../../would-i-pass/" class="text-blue-400 hover:text-blue-300 transition-colors">Would I Pass?</a> simulator runs your history against FTMO, Apex, Topstep, and other rule sets and returns a simulated outcome. Run it before you buy anything.
             </p>
 
             <br>
@@ -321,7 +292,7 @@
                 The deeper problem is that the daily loss limit is calculated on open equity, not closed trades. A position floating at a $4,800 loss can breach the $5,000 daily limit before you ever close it. A journal or spreadsheet that only updates when a trade closes gives you a false sense of safety at exactly the moment the risk is highest.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The fix is a live connection to your terminal that reads open equity and calculates your remaining daily limit and overall drawdown headroom as a continuous number. See the <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">account balance journaling guide</a> for why entry-time balance is the foundation of every risk figure, and the <a href="../../live-drawdown-monitor/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">live drawdown monitor</a> for how the headroom display works against firm rules.
+                The fix is a live connection to your terminal that reads open equity and calculates your remaining daily limit and overall drawdown headroom as a continuous number. See the <a href="../journal-account-balance/" class="text-blue-400 hover:text-blue-300 transition-colors">account balance journaling guide</a> for why entry-time balance is the foundation of every risk figure, and the <a href="../../live-drawdown-monitor/" class="text-blue-400 hover:text-blue-300 transition-colors">live drawdown monitor</a> for how the headroom display works against firm rules.
             </p>
 
             <br>
@@ -331,7 +302,7 @@
                 A profit target of 10% feels like it rewards bigger size, and it does, right up until a normal losing streak arrives. If you risk 2.5% per trade on a challenge with a 5% daily limit, two stop-outs end your day. Three across two days and your maximum drawdown headroom is nearly gone. The math that gets you to the target fast is the same math that ends the account on a run of losses that your system was always going to produce.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
-                <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Fixed-R position sizing</a> sets 1R as a fixed percentage of account equity, applied to every trade. The question is what that percentage should be, and the Monte Carlo simulation from Failure Mode 1 answers it directly. Run the simulation at 0.5%, 0.75%, 1.0%, and 1.5% risk and watch how often each one breaches the maximum drawdown across 1,000 paths. Pick the highest R where the worst-case path still clears the limit with a buffer you can live with.
+                <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">Fixed-R position sizing</a> sets 1R as a fixed percentage of account equity, applied to every trade. The question is what that percentage should be, and the Monte Carlo simulation from Failure Mode 1 answers it directly. Run the simulation at 0.5%, 0.75%, 1.0%, and 1.5% risk and watch how often each one breaches the maximum drawdown across 1,000 paths. Pick the highest R where the worst-case path still clears the limit with a buffer you can live with.
             </p>
             <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-6 font-mono text-sm">
                 <p class="text-zinc-400 mb-2">Position Size (lots) =</p>
@@ -410,7 +381,7 @@
                 Put the five fixes together and they are not five separate habits. They are one loop. Validate the edge out-of-sample and against a worst-case Monte Carlo. Size Fixed-R to survive the rules, using the simulation to pick the number. Track both drawdown limits live on open equity. Tag challenge trades and watch challenge SQN against lifetime SQN. Run the five-point gate before every entry. Review each session for drift.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                None of this requires a new setup. It requires knowing where you stand against the rules at every moment and refusing to enter when the numbers say no. That is the entire difference between the traders who keep paying fees and the ones who get funded on the same strategy. For the step-by-step version applied to one firm, see <a href="../how-to-pass-ftmo-challenge/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">How to Pass an FTMO Challenge Using a Trading Journal</a> and the underlying <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules</a>.
+                None of this requires a new setup. It requires knowing where you stand against the rules at every moment and refusing to enter when the numbers say no. That is the entire difference between the traders who keep paying fees and the ones who get funded on the same strategy. For the step-by-step version applied to one firm, see <a href="../how-to-pass-ftmo-challenge/" class="text-blue-400 hover:text-blue-300 transition-colors">How to Pass an FTMO Challenge Using a Trading Journal</a> and the underlying <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules</a>.
             </p>
 
             <br>
@@ -427,7 +398,7 @@
                 <li><span class="font-semibold text-white">No pre-trade gate:</span> pre-trade planning fields plus the live drawdown distance widget put all five checks in one place before you enter</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                For a broader view of the prop-firm journaling workflow, see the <a href="../best-trading-journal-prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firms</a> guide and the <a href="../mt5-prop-firm-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a> walkthrough.
+                For a broader view of the prop-firm journaling workflow, see the <a href="../best-trading-journal-prop-firm/" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firms</a> guide and the <a href="../mt5-prop-firm-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a> walkthrough.
             </p>
 
             <!-- FAQ Section -->
@@ -462,12 +433,12 @@
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-500 text-sm mb-6">Edge validation and live drawdown tracking are built specifically for prop firm challengers.</p>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradersync/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
                         <p class="text-zinc-500 text-xs mt-1">TraderSync has no Walk-Forward Analysis and no real-time drawdown distance widget for challenge accounts.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-1">TradeZella offers trade replay, not rule-based Walk-Forward validation or live pre-trade headroom.</p>
@@ -479,22 +450,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../how-to-pass-ftmo-challenge/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../how-to-pass-ftmo-challenge/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Pass an FTMO Challenge Using a Trading Journal</p>
                         <p class="text-zinc-500 text-xs mt-2">July 3, 2026</p>
                     </a>
-                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../ftmo-challenge-rules-explained/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
                         <p class="text-zinc-500 text-xs mt-2">July 4, 2026</p>
                     </a>
-                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../walk-forward-analysis/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Edge Validation</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
                         <p class="text-zinc-500 text-xs mt-2">March 2026</p>
                     </a>
-                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../monte-carlo-simulation-trading/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
                         <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
@@ -507,7 +478,7 @@
                 <h3 class="text-xl font-bold text-white mb-3">Stop paying to find out. See how your trade history performs against the rules first.</h3>
                 <p class="text-zinc-400 mb-6 max-w-lg mx-auto">The Would I Pass? simulator runs your actual trade history against FTMO, Apex, Topstep, and other prop firm rule sets. Free, no account required. Monte Carlo and Walk-Forward Analysis are Pro ($30/mo) features, free during beta.</p>
                 <div class="flex flex-wrap justify-center gap-3">
-                    <a href="../../would-i-pass/index.html"
+                    <a href="../../would-i-pass/"
                         onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'why-prop-firm-traders-blow-evaluations', 'destination': 'would-i-pass'});"
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Run Would I Pass? Free
@@ -555,10 +526,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -568,7 +553,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -578,6 +563,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
-<title>Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck</title>
+<title>Prop Firm Payout Calculator — Profit Split Take-Home</title>
 <meta name="description" content="Free prop firm payout calculator. Enter profit and choose a firm — FTMO, Topstep, Apex, FundedNext, The5ers — or set a custom split to see your take-home.">
 <meta name="keywords" content="prop firm payout calculator, profit split calculator, prop firm profit split, trader payout calculator, how much do prop firms pay">
 <meta name="robots" content="index, follow">
@@ -16,33 +16,56 @@
 <meta property="og:title" content="Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck">
 <meta property="og:description" content="Profit + firm split → your take-home. FTMO, Topstep, Apex presets. Free.">
 <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck">
-<meta property="twitter:description" content="Profit + firm split → your take-home. FTMO, Topstep, Apex presets. Free.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sgnldk">
+<meta name="twitter:title" content="Prop Firm Payout Calculator — Profit Split Take-Home | SignalDeck">
+<meta name="twitter:description" content="Profit + firm split → your take-home. FTMO, Topstep, Apex presets. Free.">
 <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Prop Firm Payout Calculator","url":"https://sgnldk.com/tools/prop-firm-payout-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free prop firm payout calculator: enter your profit and a firm (FTMO, Topstep, Apex, FundedNext, The5ers) or a custom split to see your take-home vs the firm's share.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
-</script>
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Prop Firm Payout Calculator",
+    "url": "https://sgnldk.com/tools/prop-firm-payout-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "description": "Free prop firm payout calculator: enter your profit and a firm (FTMO, Topstep, Apex, FundedNext, The5ers) or a custom split to see your take-home vs the firm's share.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com/",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
+    </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What is a prop firm profit split?", "acceptedAnswer": {"@type": "Answer", "text": "The profit split is the share of profits you keep. Most firms pay the trader 80\u201390%; some advertise up to 100% within a capped payout ladder. Enter your profit and pick a firm (or a custom split) to see your take-home."}}, {"@type": "Question", "name": "Does this account for payout caps or fees?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 this is the straight split on a given profit amount. Real payouts can be capped per cycle, require a minimum number of winning days, or carry activation fees. Always confirm the cadence and caps with your firm."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a prop firm profit split?", "acceptedAnswer": {"@type": "Answer", "text": "The profit split is the share of profits you keep. Most firms pay the trader 80–90%; some advertise up to 100% within a capped payout ladder. Enter your profit and pick a firm (or a custom split) to see your take-home."}}, {"@type": "Question", "name": "Does this account for payout caps or fees?", "acceptedAnswer": {"@type": "Answer", "text": "No — this is the straight split on a given profit amount. Real payouts can be capped per cycle, require a minimum number of winning days, or carry activation fees. Always confirm the cadence and caps with your firm."}}, {"@type": "Question", "name": "How much do you keep from a $10,000 prop firm profit?", "acceptedAnswer": {"@type": "Answer", "text": "At an 80% split you keep $8,000 of a $10,000 profit and the firm keeps $2,000; at a 90% split you keep $9,000 and the firm keeps $1,000."}}, {"@type": "Question", "name": "Is the challenge fee deducted from the profit split?", "acceptedAnswer": {"@type": "Answer", "text": "No — the split applies to trading profit only, and the challenge fee is a separate cost you pay up front. Some firms, including FTMO, refund the evaluation fee with your first payout, so check your firm's terms to work out your true net."}}, {"@type": "Question", "name": "How can I get a higher profit split?", "acceptedAnswer": {"@type": "Answer", "text": "Most firms raise the split through a scaling plan or a paid add-on. For example, FTMO's scaling plan lifts the split from 80% to 90%, and several firms sell a higher split as an option at checkout."}}]}
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../assets/css/site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://sgnldk.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "Prop Firm Payout Calculator — Profit Split Take-Home", "item": "https://sgnldk.com/tools/prop-firm-payout-calculator/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
 <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <a href="../../" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
     <div class="flex items-center gap-4">
-      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
       <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Prop Firm Payout Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
     </div>
   </div>
 </header>
 <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
-  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../" class="hover:text-blue-300">Tools</a> · free</p>
   <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Prop Firm Payout Calculator</h1>
   <p class="text-zinc-400 text-lg mb-8">See what you actually keep. Enter your profit and pick a firm's <strong class="text-zinc-200">profit split</strong> (or set a custom one) — we'll show your take-home and the firm's cut.</p>
   <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
@@ -56,6 +79,15 @@
     <div id="out"></div>
   </div>
   <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">How it's calculated</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 mono text-sm text-white leading-relaxed">Take-home = P × S ÷ 100<br>Firm's share = P − Take-home</div>
+    <ul class="mt-4 space-y-1.5 text-sm text-zinc-400"><li><span class="mono text-zinc-200">P</span> — gross trading profit on the funded account, in dollars</li><li><span class="mono text-zinc-200">S</span> — profit split paid to the trader, in percent (e.g. 80 or 90)</li></ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-2xl font-bold text-white mb-4">Worked example</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-5 text-sm text-zinc-400 space-y-2"><p>You made <span class="mono text-zinc-200">$8,000</span> on a funded account with a <span class="mono text-zinc-200">90%</span> split.</p><p>Take-home = $8,000 × 90 ÷ 100 = <span class="mono text-emerald-400">$7,200</span>.</p><p>Firm's share = $8,000 − $7,200 = <span class="mono text-zinc-200">$800</span>. At an 80% split the same profit would pay you $6,400.</p></div>
+  </section>
   <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
     <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
     <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
@@ -64,21 +96,28 @@
   <section class="mt-10">
     <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
     <div class="flex flex-wrap gap-3 text-sm">
-      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
-      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
-      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
-      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+      <a href="../../position-sizing/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
     </div>
   </section>
   <section class="mt-12">
-    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
-    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">What is a prop firm profit split?</h3><p class="text-zinc-400">The profit split is the share of profits you keep. Most firms pay the trader 80–90%; some advertise up to 100% within a capped payout ladder. Enter your profit and pick a firm (or a custom split) to see your take-home.</p></div><div><h3 class="font-bold text-white">Does this account for payout caps or fees?</h3><p class="text-zinc-400">No — this is the straight split on a given profit amount. Real payouts can be capped per cycle, require a minimum number of winning days, or carry activation fees. Always confirm the cadence and caps with your firm.</p></div></div>
+    <h2 class="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-4 text-sm">
+      <div><h3 class="font-bold text-white">What is a prop firm profit split?</h3><p class="text-zinc-400">The profit split is the share of profits you keep. Most firms pay the trader 80–90%; some advertise up to 100% within a capped payout ladder. Enter your profit and pick a firm (or a custom split) to see your take-home.</p></div>
+      <div><h3 class="font-bold text-white">Does this account for payout caps or fees?</h3><p class="text-zinc-400">No — this is the straight split on a given profit amount. Real payouts can be capped per cycle, require a minimum number of winning days, or carry activation fees. Always confirm the cadence and caps with your firm.</p></div>
+      <div><h3 class="font-bold text-white">How much do you keep from a $10,000 prop firm profit?</h3><p class="text-zinc-400">At an 80% split you keep $8,000 of a $10,000 profit and the firm keeps $2,000; at a 90% split you keep $9,000 and the firm keeps $1,000.</p></div>
+      <div><h3 class="font-bold text-white">Is the challenge fee deducted from the profit split?</h3><p class="text-zinc-400">No — the split applies to trading profit only, and the challenge fee is a separate cost you pay up front. Some firms, including FTMO, refund the evaluation fee with your first payout, so check your firm's terms to work out your true net.</p></div>
+      <div><h3 class="font-bold text-white">How can I get a higher profit split?</h3><p class="text-zinc-400">Most firms raise the split through a scaling plan or a paid add-on. For example, FTMO's scaling plan lifts the split from 80% to 90%, and several firms sell a higher split as an option at checkout.</p></div>
+    </div>
+    <p class="mt-6 text-sm text-zinc-400">Pass first, then get paid: check your run with <a href="../../would-i-pass/" class="text-blue-400 hover:text-blue-300">Would I Pass?</a> and see how SignalDeck tracks funded accounts on the <a href="../../prop-firm/" class="text-blue-400 hover:text-blue-300">prop firm trading journal</a> page.</p>
   </section>
 </main>
 <footer class="border-t border-zinc-800 mt-16">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
     <p>&copy; 2026 SignalDeck · sgnldk.com</p>
-    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+    <p><a href="../" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/" class="hover:text-zinc-400">Blog</a> · <a href="../../" class="hover:text-zinc-400">Home</a></p>
   </div>
 </footer>
 <script>

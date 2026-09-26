@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FTMO Trailing vs. Static Drawdown Explained (2026) | SignalDeck</title>
+    <title>FTMO Trailing vs. Static Drawdown Explained (2026)</title>
     <meta name="description" content="FTMO's 1-Step Challenge trails your drawdown end-of-day; the 2-Step keeps a static floor. How each reset clock works — with worked $100K examples.">
     <meta name="keywords" content="FTMO trailing drawdown, FTMO static drawdown, FTMO 1-step vs 2-step, FTMO max drawdown reset, FTMO end of day drawdown, FTMO drawdown explained">
     <meta name="author" content="SignalDeck">
@@ -29,31 +29,38 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/">
-    <meta property="twitter:title" content="FTMO Trailing vs. Static Drawdown Explained (2026) | SignalDeck">
-    <meta property="twitter:description" content="FTMO's 1-Step Challenge trails your drawdown end-of-day; the 2-Step keeps a static floor. How each reset clock works — with worked $100K examples.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/">
+    <meta name="twitter:title" content="FTMO Trailing vs. Static Drawdown Explained (2026) | SignalDeck">
+    <meta name="twitter:description" content="FTMO's 1-Step Challenge trails your drawdown end-of-day; the 2-Step keeps a static floor. How each reset clock works — with worked $100K examples.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01n-trailing-drawdown.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "FTMO Trailing vs. Static Drawdown: The Reset Clock Trap",
-        "description": "FTMO's 1-Step Challenge uses an end-of-day trailing maximum loss; the 2-Step Challenge uses a static floor anchored to your initial balance. Here's how each model resets, why confusing them ends challenges, and what your journal must track for both.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-07-13",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01n-trailing-drawdown.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "FTMO Trailing vs. Static Drawdown: The Reset Clock Trap",
+    "description": "FTMO's 1-Step Challenge uses an end-of-day trailing maximum loss; the 2-Step Challenge uses a static floor anchored to your initial balance. Here's how each model resets, why confusing them ends challenges, and what your journal must track for both.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-07-13",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01n-trailing-drawdown.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/ftmo-trailing-vs-static-drawdown/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -121,44 +128,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -182,11 +153,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -194,11 +165,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -207,7 +178,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-07-13" class="text-xs font-mono text-zinc-500">July 13, 2026</time>
                 <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
@@ -229,7 +200,7 @@
                 "Does FTMO trail?" is one of the most searched — and most misanswered — questions in prop trading. The honest answer is: it depends which challenge you bought. FTMO offers a 2-Step Challenge and a 1-Step Challenge, and their maximum-loss rules work on completely different clocks. One is static. One trails. Getting them mixed up is how a trader with a working strategy still hands the account back.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                This article is a focused deep-dive on that single distinction. For the full set of FTMO rules — profit targets, minimum days, and how the daily and maximum limits interact — start with our <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO Challenge rules explainer</a>. Everything below reflects FTMO's public documentation at the time of writing; rules and account types change, so verify the current details directly with FTMO before you trade.
+                This article is a focused deep-dive on that single distinction. For the full set of FTMO rules — profit targets, minimum days, and how the daily and maximum limits interact — start with our <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO Challenge rules explainer</a>. Everything below reflects FTMO's public documentation at the time of writing; rules and account types change, so verify the current details directly with FTMO before you trade.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Two FTMO Formats, Two Different Drawdown Clocks</h2>
@@ -280,7 +251,7 @@
                 Static model, in one line: the floor is set once. Every dollar you earn is a dollar of extra cushion that stays yours.
             </blockquote>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The daily loss limit is the separate clock on this format: 5% of the day's starting balance, reset every midnight CET/CEST. That one <em>does</em> move — up or down — with wherever your balance opens the day. But the 10% maximum loss underneath it never budges. Two limits, two clocks: read the <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">full rules breakdown</a> for how they overlap.
+                The daily loss limit is the separate clock on this format: 5% of the day's starting balance, reset every midnight CET/CEST. That one <em>does</em> move — up or down — with wherever your balance opens the day. But the 10% maximum loss underneath it never budges. Two limits, two clocks: read the <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">full rules breakdown</a> for how they overlap.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Trailing Drawdown: How the 1-Step Floor Follows You Up</h2>
@@ -382,7 +353,7 @@
                 On a static floor, your risk budget is simple: it is the fixed distance from your equity to the initial-balance floor, and it grows as you profit. On a trailing floor, your effective risk budget is the distance to a line that keeps rising toward you. After a run-up, a trailing account gives you less durable cushion than the raw profit suggests — so the correct response is often to hold size steady or trim it, not to press.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                This is precisely the discipline that <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> enforces: you risk a constant fraction per trade rather than scaling up on a hot streak that a trailing floor is quietly eating into. Expressing your challenge P&L in <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> makes the trade-off legible — one R of give-back on a trailing account is one R of buffer you do not get back.
+                This is precisely the discipline that <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> enforces: you risk a constant fraction per trade rather than scaling up on a hot streak that a trailing floor is quietly eating into. Expressing your challenge P&L in <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> makes the trade-off legible — one R of give-back on a trailing account is one R of buffer you do not get back.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Your Journal Must Show for Each Model</h2>
@@ -398,7 +369,7 @@
                 <li><span class="font-semibold text-white">Give-back since peak (in R):</span> on a trailing account, how much banked room your recent drawdown has cost</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                For the mechanics of keeping balance-aware fields accurate intraday, see the <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">account balance journaling guide</a>, and the <a href="../mt5-prop-firm-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a> walkthrough for pulling the numbers straight from your terminal.
+                For the mechanics of keeping balance-aware fields accurate intraday, see the <a href="../journal-account-balance/" class="text-blue-400 hover:text-blue-300 transition-colors">account balance journaling guide</a>, and the <a href="../mt5-prop-firm-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a> walkthrough for pulling the numbers straight from your terminal.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Tracks Both Models</h2>
@@ -412,7 +383,7 @@
                 <li><span class="font-semibold text-white">R-multiple P&L:</span> running challenge P&L in R, so give-back on a trailing account reads as lost buffer, not just a smaller number</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Before you attempt either format, the highest-value check is the <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> — it stress-tests your actual R-distribution against the drawdown model you will be trading under. More on the FTMO-specific workflow at <a href="https://sgnldk.com/ftmo-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">sgnldk.com/ftmo-trading-journal/</a>, and a broader tool comparison in the <a href="../best-trading-journal-prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> guide.
+                Before you attempt either format, the highest-value check is the <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> — it stress-tests your actual R-distribution against the drawdown model you will be trading under. More on the FTMO-specific workflow at <a href="https://sgnldk.com/ftmo-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">sgnldk.com/ftmo-trading-journal/</a>, and a broader tool comparison in the <a href="../best-trading-journal-prop-firm/" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> guide.
             </p>
 
             <!-- FAQ Section -->
@@ -447,12 +418,12 @@
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-500 text-sm mb-6">Model-aware drawdown tracking — static and end-of-day trailing — is built for prop firm challengers specifically.</p>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradersync/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
                         <p class="text-zinc-500 text-xs mt-1">TraderSync has no real-time drawdown distance widget and no trailing-vs-static model awareness.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-1">TradeZella has no Monte Carlo simulation for testing your trade history against a firm's drawdown model.</p>
@@ -464,12 +435,12 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../ftmo-challenge-rules-explained/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
                         <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
                     </a>
-                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../best-trading-journal-prop-firm/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
                         <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
@@ -479,7 +450,7 @@
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place</p>
                         <p class="text-zinc-500 text-xs mt-2">July 3, 2026</p>
                     </a>
-                    <a href="../journal-account-balance/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../journal-account-balance/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Journal Your Account Balance (and Why Most Traders Do It Wrong)</p>
                         <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
@@ -499,7 +470,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta — Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans →
                     </a>
@@ -539,10 +510,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -552,7 +537,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -562,6 +547,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

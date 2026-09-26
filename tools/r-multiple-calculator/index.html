@@ -16,39 +16,58 @@
 <meta property="og:title" content="R-Multiple Calculator — Risk-to-Reward in R | SignalDeck">
 <meta property="og:description" content="Enter entry, stop & exit → your trade's R-multiple and reward-to-risk. Free, instant.">
 <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="R-Multiple Calculator | SignalDeck">
-<meta property="twitter:description" content="Enter entry, stop & exit → your trade's R-multiple and reward-to-risk. Free, instant.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sgnldk">
+<meta name="twitter:title" content="R-Multiple Calculator | SignalDeck">
+<meta name="twitter:description" content="Enter entry, stop & exit → your trade's R-multiple and reward-to-risk. Free, instant.">
 <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"R-Multiple Calculator","url":"https://sgnldk.com/tools/r-multiple-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free calculator that converts an entry, stop, and exit price into the trade's R-multiple and reward-to-risk ratio.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
-</script>
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "R-Multiple Calculator",
+    "url": "https://sgnldk.com/tools/r-multiple-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "description": "Free calculator that converts an entry, stop, and exit price into the trade's R-multiple and reward-to-risk ratio.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com/",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
+    </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is an R-multiple?","acceptedAnswer":{"@type":"Answer","text":"An R-multiple expresses a trade's result as a multiple of the amount you risked (1R = your initial risk, the distance from entry to stop). A trade that makes twice your risk is +2R; one that hits your stop is -1R. Because every trade is measured in R, you can compare trades of different sizes and instruments on the same scale."}},
-{"@type":"Question","name":"How do you calculate R-multiple?","acceptedAnswer":{"@type":"Answer","text":"Risk per unit = |entry − stop|. Reward per unit = exit − entry for a long (entry − exit for a short). R-multiple = reward ÷ risk. Example: buy at 100, stop at 98 (risk 2), exit at 106 (reward 6) → 6 ÷ 2 = +3R."}},
-{"@type":"Question","name":"What is a good reward-to-risk ratio?","acceptedAnswer":{"@type":"Answer","text":"Reward-to-risk is your planned R before the trade (target distance ÷ stop distance). Many traders aim for at least 2:1, but the right number depends on win rate — a 2:1 system only needs to win ~34% of the time to break even. Expectancy (win rate combined with average R) matters more than the ratio alone."}}
-]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an R-multiple?", "acceptedAnswer": {"@type": "Answer", "text": "An R-multiple expresses a trade's result as a multiple of the amount you risked (1R = your initial risk, the distance from entry to stop). A trade that makes twice your risk is +2R; one that hits your stop is -1R. Because every trade is measured in R, you can compare trades of different sizes and instruments on the same scale."}}, {"@type": "Question", "name": "How do you calculate R-multiple?", "acceptedAnswer": {"@type": "Answer", "text": "Risk per unit = |entry − stop|. Reward per unit = exit − entry for a long (entry − exit for a short). R-multiple = reward ÷ risk. Example: buy at 100, stop at 98 (risk 2), exit at 106 (reward 6) → 6 ÷ 2 = +3R."}}, {"@type": "Question", "name": "What is a good reward-to-risk ratio?", "acceptedAnswer": {"@type": "Answer", "text": "Reward-to-risk is your planned R before the trade (target distance ÷ stop distance). Many traders aim for at least 2:1, but the right number depends on win rate — a 2:1 system only needs to win ~34% of the time to break even. Expectancy (win rate combined with average R) matters more than the ratio alone."}}, {"@type": "Question", "name": "Can an R-multiple be worse than -1R?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — a trade finishes below -1R when price gaps through your stop, slippage fills you past it, or you move the stop further away. Cutting a loser before the stop gives a partial loss such as -0.5R."}}, {"@type": "Question", "name": "What is the difference between R-multiple and reward-to-risk?", "acceptedAnswer": {"@type": "Answer", "text": "Reward-to-risk is the plan before the trade (target distance ÷ stop distance); the R-multiple is the actual result after you exit (realized reward ÷ initial risk). A trade planned at 3:1 that you close at half the target distance finishes at +1.5R."}}]}
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../assets/css/site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://sgnldk.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "R-Multiple Calculator — Risk-to-Reward in R", "item": "https://sgnldk.com/tools/r-multiple-calculator/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
 
 <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <a href="../../" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
     <div class="flex items-center gap-4">
-      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
       <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - R-Multiple'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
     </div>
   </div>
 </header>
 
 <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
-  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../" class="hover:text-blue-300">Tools</a> · free</p>
   <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">R-Multiple Calculator</h1>
   <p class="text-zinc-400 text-lg mb-8">Enter your <strong class="text-zinc-200">entry, stop, and exit</strong> to get the trade's <strong class="text-zinc-200">R-multiple</strong> and reward-to-risk. R is the unit your whole journal should speak — it normalizes every trade so you can compare them apples-to-apples.</p>
 
@@ -75,6 +94,15 @@
   </div>
   <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice. Assumes a single entry and a single stop.</p>
 
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">How it's calculated</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 mono text-sm text-white leading-relaxed">Risk per unit = |E − S|<br>Reward per unit = X − E (long)  or  E − X (short)<br>R-multiple = Reward per unit ÷ Risk per unit<br>Optional: $ risk = A × r ÷ 100 · Size = $ risk ÷ Risk per unit · P&L = R × $ risk</div>
+    <ul class="mt-4 space-y-1.5 text-sm text-zinc-400"><li><span class="mono text-zinc-200">E</span> — entry price</li><li><span class="mono text-zinc-200">S</span> — stop-loss price (defines 1R)</li><li><span class="mono text-zinc-200">X</span> — exit or target price</li><li><span class="mono text-zinc-200">A, r</span> — optional account size ($) and risk per trade (%), used for the dollar risk, position size and P&L</li></ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-2xl font-bold text-white mb-4">Worked example</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-5 text-sm text-zinc-400 space-y-2"><p>You <span class="mono text-zinc-200">short</span> at <span class="mono text-zinc-200">50</span> with a stop at <span class="mono text-zinc-200">52</span> and cover at <span class="mono text-zinc-200">45</span>, on a $20,000 account risking 1%.</p><p>Risk per unit = |50 − 52| = 2. Reward per unit = 50 − 45 = 5. R-multiple = 5 ÷ 2 = <span class="mono text-emerald-400">+2.5R</span>.</p><p>$ risk = $20,000 × 1 ÷ 100 = $200 → size = $200 ÷ 2 = 100 shares → P&amp;L = 2.5 × $200 = <span class="mono text-emerald-400">+$500</span>.</p></div>
+  </section>
   <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
     <h2 class="text-2xl font-bold text-white mb-2">Every trade, in R — automatically</h2>
     <p class="text-zinc-400 mb-5">SignalDeck computes R-multiple, expectancy, and SQN across your whole journal from your imported trades — no spreadsheet. Free during beta.</p>
@@ -84,26 +112,29 @@
   <section class="mt-10">
     <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
     <div class="flex flex-wrap gap-3 text-sm">
-      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size Calculator</a>
-      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
-      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+      <a href="../../position-sizing/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size Calculator</a>
+      <a href="../../would-i-pass/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
     </div>
   </section>
 
   <section class="mt-12">
-    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
+    <h2 class="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2>
     <div class="space-y-4 text-sm">
-      <div><h3 class="font-bold text-white">What is an R-multiple?</h3><p class="text-zinc-400">Your result as a multiple of what you risked. 1R = entry-to-stop distance. +2R means you made twice your risk; -1R means you hit your stop. Measuring every trade in R lets you compare across sizes and instruments.</p></div>
-      <div><h3 class="font-bold text-white">How is it calculated?</h3><p class="text-zinc-400">Risk = |entry − stop|. Reward = exit − entry (long) or entry − exit (short). R-multiple = reward ÷ risk. Buy 100, stop 98, exit 106 → 6 ÷ 2 = +3R.</p></div>
-      <div><h3 class="font-bold text-white">What's a good reward-to-risk?</h3><p class="text-zinc-400">Planned R:R is target distance ÷ stop distance. ≥2:1 is common, but it only matters alongside win rate — expectancy (win rate × avg R) is what actually compounds.</p></div>
+      <div><h3 class="font-bold text-white">What is an R-multiple?</h3><p class="text-zinc-400">An R-multiple expresses a trade's result as a multiple of the amount you risked (1R = your initial risk, the distance from entry to stop). A trade that makes twice your risk is +2R; one that hits your stop is -1R. Because every trade is measured in R, you can compare trades of different sizes and instruments on the same scale.</p></div>
+      <div><h3 class="font-bold text-white">How do you calculate R-multiple?</h3><p class="text-zinc-400">Risk per unit = |entry − stop|. Reward per unit = exit − entry for a long (entry − exit for a short). R-multiple = reward ÷ risk. Example: buy at 100, stop at 98 (risk 2), exit at 106 (reward 6) → 6 ÷ 2 = +3R.</p></div>
+      <div><h3 class="font-bold text-white">What is a good reward-to-risk ratio?</h3><p class="text-zinc-400">Reward-to-risk is your planned R before the trade (target distance ÷ stop distance). Many traders aim for at least 2:1, but the right number depends on win rate — a 2:1 system only needs to win ~34% of the time to break even. Expectancy (win rate combined with average R) matters more than the ratio alone.</p></div>
+      <div><h3 class="font-bold text-white">Can an R-multiple be worse than -1R?</h3><p class="text-zinc-400">Yes — a trade finishes below -1R when price gaps through your stop, slippage fills you past it, or you move the stop further away. Cutting a loser before the stop gives a partial loss such as -0.5R.</p></div>
+      <div><h3 class="font-bold text-white">What is the difference between R-multiple and reward-to-risk?</h3><p class="text-zinc-400">Reward-to-risk is the plan before the trade (target distance ÷ stop distance); the R-multiple is the actual result after you exit (realized reward ÷ initial risk). A trade planned at 3:1 that you close at half the target distance finishes at +1.5R.</p></div>
     </div>
+    <p class="mt-6 text-sm text-zinc-400">Stop calculating trades one at a time: <a href="../../r-multiple-trading/" class="text-blue-400 hover:text-blue-300">R-multiple trading in SignalDeck</a> converts every journaled trade to R automatically, and the <a href="../../position-sizing/" class="text-blue-400 hover:text-blue-300">position size calculator</a> sizes the next one from your risk.</p>
   </section>
 </main>
 
 <footer class="border-t border-zinc-800 mt-16">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
     <p>&copy; 2026 SignalDeck · sgnldk.com</p>
-    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/what-is-r-multiple/index.html" class="hover:text-zinc-400">What is R-multiple?</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+    <p><a href="../" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/what-is-r-multiple/" class="hover:text-zinc-400">What is R-multiple?</a> · <a href="../../" class="hover:text-zinc-400">Home</a></p>
   </div>
 </footer>
 

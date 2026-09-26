@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
     <title>AI Trading Journal for Claude &amp; ChatGPT (MCP) | SignalDeck</title>
-    <meta name="description" content="Connect Claude or ChatGPT to your trading journal. Ask about your R stats, check a trade against your risk rules, log and close trades, write post-mortems. 54 MCP tools, on every plan.">
+    <meta name="description" content="Connect Claude or ChatGPT to your trading journal: ask about your R stats, check trades against your risk rules, log and close trades. Every plan.">
     <meta name="keywords" content="AI trading journal, trading journal MCP, MCP server trading, Claude trading journal, ChatGPT trading journal, trading journal Claude connector, ChatGPT connector trading journal, AI trade journal assistant, Model Context Protocol trading, trading journal API AI">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://sgnldk.com/mcp/">
@@ -22,24 +22,83 @@
     <meta property="og:description" content="Connect an AI assistant to your journal. It reads your trades, R stats and backtests, checks new trades against your risk rules, and, with your permission, logs, edits and closes trades.">
     <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
     <meta property="og:site_name" content="SignalDeck">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/mcp/">
-    <meta property="twitter:title" content="Your Trading Journal, Inside Claude &amp; ChatGPT | SignalDeck MCP">
-    <meta property="twitter:description" content="Connect an AI assistant to your journal. It reads your trades, R stats and backtests, and, with your permission, logs, edits and closes trades.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/mcp/">
+    <meta name="twitter:title" content="Your Trading Journal, Inside Claude &amp; ChatGPT | SignalDeck MCP">
+    <meta name="twitter:description" content="Connect an AI assistant to your journal. It reads your trades, R stats and backtests, and, with your permission, logs, edits and closes trades.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"SignalDeck MCP: AI Assistant Connector for Your Trading Journal","url":"https://sgnldk.com/mcp/","description":"SignalDeck's MCP server connects Claude and ChatGPT to your trading journal. 54 tools cover reading trades, R-multiple stats, backtests and live strategies, pre-trade risk checks, and, with explicit permission, logging, editing and closing trades.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SignalDeck MCP: AI Assistant Connector for Your Trading Journal",
+    "url": "https://sgnldk.com/mcp/",
+    "description": "SignalDeck's MCP server connects Claude and ChatGPT to your trading journal. 54 tools cover reading trades, R-multiple stats, backtests and live strategies, pre-trade risk checks, and, with explicit permission, logging, editing and closing trades.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com/",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What is MCP?","acceptedAnswer":{"@type":"Answer","text":"MCP (Model Context Protocol) is an open standard that lets an AI assistant like Claude or ChatGPT call tools in another app. SignalDeck runs an MCP server, so a connected assistant can read your journal and, if you allow it, make changes to it on your behalf."}},
-    {"@type":"Question","name":"Which AI assistants work with SignalDeck?","acceptedAnswer":{"@type":"Answer","text":"Claude (claude.ai, Claude Desktop and Claude Code) and ChatGPT. claude.ai and ChatGPT connect with a sign-in and approval screen; Claude Code and Claude Desktop can also connect with a personal access token created in SignalDeck Settings. Any MCP client that supports remote HTTP servers with OAuth or bearer tokens can connect the same way."}},
-    {"@type":"Question","name":"Can the assistant change or delete my trades?","acceptedAnswer":{"@type":"Answer","text":"Only if you allow it. Read access is the default. Write access (log, edit and close trades, notes, tags, post-mortems, alerts, screenshots, journal entries) is a separate permission you grant when you connect. Deleting is a further opt-in on top of that, and deleting a trade also requires confirming its symbol, because a deleted trade cannot be restored."}},
-    {"@type":"Question","name":"Can the assistant place trades at my broker?","acceptedAnswer":{"@type":"Answer","text":"No. The assistant works inside your SignalDeck journal only. It never touches your broker, billing or account settings, and it can never change the automated scanner's managed positions."}},
-    {"@type":"Question","name":"Which plan includes the AI assistant connector?","acceptedAnswer":{"@type":"Answer","text":"Every plan, including Free. Your plan's normal limits still apply through the assistant, for example screenshots per trade and premium analytics fields."}},
-    {"@type":"Question","name":"How do I disconnect an assistant?","acceptedAnswer":{"@type":"Answer","text":"In SignalDeck, go to Settings, then AI assistants (MCP). Revoke a personal access token, or disconnect an app under Connected apps. Access stops immediately. Changing or resetting your password also cuts off every existing connection."}}
-    ]}
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is MCP?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MCP (Model Context Protocol) is an open standard that lets an AI assistant like Claude or ChatGPT call tools in another app. SignalDeck runs an MCP server, so a connected assistant can read your journal and, if you allow it, make changes to it on your behalf."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which AI assistants work with SignalDeck?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Claude (claude.ai, Claude Desktop and Claude Code) and ChatGPT. claude.ai and ChatGPT connect with a sign-in and approval screen; Claude Code and Claude Desktop can also connect with a personal access token created in SignalDeck Settings. Any MCP client that supports remote HTTP servers with OAuth or bearer tokens can connect the same way."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can the assistant change or delete my trades?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only if you allow it. Read access is the default. Write access (log, edit and close trades, notes, tags, post-mortems, alerts, screenshots, journal entries) is a separate permission you grant when you connect. Deleting is a further opt-in on top of that, and deleting a trade also requires confirming its symbol, because a deleted trade cannot be restored."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can it place trades at my broker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The assistant works inside your SignalDeck journal only. It never touches your broker, billing or account settings, and it can never change the automated scanner's managed positions."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which plan includes it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every plan, including Free. Your plan's normal limits still apply through the assistant. For example, Free allows one screenshot per trade, and premium analytics fields stay premium."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I disconnect an assistant?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In SignalDeck, go to Settings, then AI assistants (MCP). Revoke a personal access token, or disconnect an app under Connected apps. Access stops immediately. Changing or resetting your password also cuts off every existing connection."
+            }
+        }
+    ]
+}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sgnldk.com/"},{"@type":"ListItem","position":2,"name":"AI Assistant (MCP)","item":"https://sgnldk.com/mcp/"}]}
@@ -49,44 +108,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -97,6 +120,9 @@
         .cursor-blink { animation: blink 1s step-end infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://sgnldk.com/#app", "name": "SignalDeck", "url": "https://sgnldk.com/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://sgnldk.com/#org"}, "subjectOf": {"@type": "WebPage", "@id": "https://sgnldk.com/mcp/", "name": "AI Trading Journal for Claude & ChatGPT (MCP)"}}
+    </script>
 </head>
 
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
@@ -105,16 +131,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2">
-                    <a href="../index.html"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
+                    <a href="../"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
                     <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
                 </div>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
-                    <a href="../tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
+                    <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../tools/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
                     <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -122,12 +148,12 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
-            <a href="../tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
+            <a href="../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../tools/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
             <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -299,7 +325,7 @@
                         <li class="flex items-start gap-2"><span class="text-amber-400">&gt;</span><span>Compliance check: FTMO preset, generic or your own rules</span></li>
                         <li class="flex items-start gap-2"><span class="text-amber-400">&gt;</span><span>Concentration check by symbol and strategy</span></li>
                     </ul>
-                    <p class="text-zinc-500 text-sm mt-6">Checks are read-only. Nothing is logged unless you ask. <a href="../prop-firm/index.html" class="text-amber-400 hover:text-amber-300 underline underline-offset-2">Prop firm features →</a></p>
+                    <p class="text-zinc-500 text-sm mt-6">Checks are read-only. Nothing is logged unless you ask. <a href="../prop-firm/" class="text-amber-400 hover:text-amber-300 underline underline-offset-2">Prop firm features →</a></p>
                 </div>
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-br from-amber-500/10 to-rose-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
@@ -349,9 +375,9 @@
                         Your assistant can read every backtest you've run, including Walk-Forward and Monte Carlo results on plans that include them. It can also read how each promoted strategy has performed live since promotion, and scanner runs and signals too. Ask it why live results are drifting and it has the numbers to answer.
                     </p>
                     <p class="text-zinc-500 text-sm">
-                        <a href="../backtester/index.html" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Strategy backtester →</a>
+                        <a href="../backtester/" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Strategy backtester →</a>
                         <span class="mx-2 text-zinc-700">·</span>
-                        <a href="../walk-forward-analysis/index.html" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Walk-Forward Analysis →</a>
+                        <a href="../walk-forward-analysis/" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Walk-Forward Analysis →</a>
                     </p>
                 </div>
             </div>
@@ -512,7 +538,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-xs text-zinc-600 mt-3">Competitor features change. Verify current specs on their sites. <a href="../compare/index.html" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
+            <p class="text-xs text-zinc-600 mt-3">Competitor features change. Verify current specs on their sites. <a href="../compare/" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
         </div>
     </section>
 
@@ -558,7 +584,7 @@
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Which plan includes it?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Every plan, including Free. Your plan's normal limits still apply through the assistant. For example, Free allows one screenshot per trade, and premium analytics fields stay premium. <a href="../plans/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">See plans →</a></p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Every plan, including Free. Your plan's normal limits still apply through the assistant. For example, Free allows one screenshot per trade, and premium analytics fields stay premium. <a href="../plans/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">See plans →</a></p>
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What if I edit a trade that was imported from my broker?</h3>
@@ -576,12 +602,12 @@
     <section class="py-12 border-t border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex flex-wrap gap-3 text-sm">
-                <a href="../analytics/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Trade analytics →</a>
-                <a href="../post-mortem/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Post-mortems →</a>
-                <a href="../prop-firm/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Prop-firm traders →</a>
-                <a href="../backtester/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Backtester →</a>
-                <a href="../alerts/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Position alerts →</a>
-                <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Plans →</a>
+                <a href="../analytics/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Trade analytics →</a>
+                <a href="../post-mortem/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Post-mortems →</a>
+                <a href="../prop-firm/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Prop-firm traders →</a>
+                <a href="../backtester/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Backtester →</a>
+                <a href="../alerts/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Position alerts →</a>
+                <a href="../plans/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Plans →</a>
             </div>
         </div>
     </section>
@@ -611,13 +637,27 @@
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
                 <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> |
-                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
-                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
-                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+                <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../tools/" class="hover:text-zinc-400">Tools</a> |
+                <a href="../blog/" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer">X</a> |
@@ -627,7 +667,7 @@
                 <a href="../discord.html">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -637,6 +677,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../yup.js"></script>
 </body>
 </html>

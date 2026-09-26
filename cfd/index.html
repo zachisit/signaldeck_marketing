@@ -28,10 +28,11 @@
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/cfd/">
-    <meta property="twitter:title" content="SignalDeck - Professional R-Value Trading Journal for CFD &amp; Index Traders">
-    <meta property="twitter:description" content="Track Gold, NAS100, GER40, and other CFD trades with R-Multiple analytics, SQN scoring, and structured Post Mortems. Enter broker tickers directly — no manual translation.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/cfd/">
+    <meta name="twitter:title" content="SignalDeck - Professional R-Value Trading Journal for CFD &amp; Index Traders">
+    <meta name="twitter:description" content="Track Gold, NAS100, GER40, and other CFD trades with R-Multiple analytics, SQN scoring, and structured Post Mortems. Enter broker tickers directly — no manual translation.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01b-waves-candles.png">
 
     <script type="application/ld+json">
@@ -78,6 +79,22 @@
             "@type": "Answer",
             "text": "Yes. Prop firm traders on indices and metals use SignalDeck to track challenge and funded account performance. The R-value framework is particularly useful in prop firm contexts where daily loss limits and drawdown rules make disciplined risk sizing critical."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SignalDeck monitor stops on open CFD positions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Open CFD positions are monitored in real time. When price approaches your stop, SignalDeck flags it, and when the stop is hit the trade auto-closes with the correct exit data populated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I journal CFDs and futures in the same account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If you trade NQ or GC futures alongside NAS100 or XAUUSD CFDs, SignalDeck handles both in the same journal with the correct math for each instrument type — tick-based P&L for futures, point-based for CFDs. Both use the same R-value framework."
+          }
         }
       ]
     }
@@ -87,47 +104,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        amber: {
-                            500: '#f59e0b',
-                            400: '#fbbf24',
-                            600: '#d97706',
-                            700: '#b45309',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -138,6 +116,9 @@
         .cursor-blink { animation: blink 1s step-end infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "CFD & Index Trading Journal", "item": "https://sgnldk.com/cfd/"}]}
+    </script>
 </head>
 
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-amber-500 selection:text-white">
@@ -151,11 +132,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -163,11 +144,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -482,7 +463,7 @@
                     <p class="text-sm text-white font-semibold mb-1">Also trading futures? ES, NQ, CL, and GC are now natively supported.</p>
                     <p class="text-sm text-zinc-400">If you trade NQ futures (not NAS100 CFD) or GC futures (not XAUUSD CFD), SignalDeck now handles both in the same journal with the correct math for each instrument type — tick-based P&L for futures, point-based for CFDs. Both use the same R-value framework.</p>
                 </div>
-                <a href="../futures/index.html" class="flex-shrink-0 px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-medium rounded-lg transition-all whitespace-nowrap">
+                <a href="../futures/" class="flex-shrink-0 px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-medium rounded-lg transition-all whitespace-nowrap">
                     See Futures →
                 </a>
             </div>
@@ -526,6 +507,41 @@
 
     </div>
 
+    <!-- FAQ -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What CFD instruments does SignalDeck support?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports Gold (XAUUSD), Silver (XAGUSD), NAS100, US500, US30, GER40, and other common broker CFD tickers. You enter the ticker exactly as your broker shows it — the platform automatically routes to the correct price feed.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Do I need to format CFD tickers in a special way?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">No. Enter tickers exactly as your broker displays them. XAUUSD, NAS100, GER40 — SignalDeck handles the translation to the correct data source internally. No prefix formatting, no manual configuration required.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Does SignalDeck work for prop firm traders on CFD instruments?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Prop firm traders on indices and metals use SignalDeck to track challenge and funded account performance. The R-value framework is particularly useful in prop firm contexts where daily loss limits and drawdown rules make disciplined risk sizing critical.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Does SignalDeck monitor stops on open CFD positions?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Open CFD positions are monitored in real time. When price approaches your stop, SignalDeck flags it, and when the stop is hit the trade auto-closes with the correct exit data populated.</p>
+                </div>
+
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I journal CFDs and futures in the same account?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. If you trade NQ or GC futures alongside NAS100 or XAUUSD CFDs, SignalDeck handles both in the same journal with the correct math for each instrument type — tick-based P&amp;L for futures, point-based for CFDs. Both use the same R-value framework.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- AI Assistant (MCP) callout -->
     <section class="py-16 border-t border-zinc-900 bg-zinc-950">
         <div class="max-w-5xl mx-auto px-6">
@@ -539,7 +555,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Log gold, NAS100 and GER40 trades by asking.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">A connected assistant logs CFD and index trades with your broker ticker, manages stops and targets, and reviews your leveraged-instrument performance in R, straight from Claude or ChatGPT.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'cfd'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'cfd'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -581,12 +597,26 @@
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../release-history.html" title="Release History">Release History</a> |
                 <a href="../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" title="Blog" class="hover:text-zinc-400">Blog</a> |
-                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
-                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+                <a href="../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../alerts/" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/" title="Blog" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -596,7 +626,7 @@
                 <a href="../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -606,6 +636,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../yup.js"></script>
 </body>
 </html>

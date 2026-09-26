@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MT5 Trading Journal with Live Sync (Not EA Import) | SignalDeck</title>
+    <title>MT5 Live Sync vs EA Import: How Journals Get Your Trades</title>
     <meta name="description" content="Most MT5 journals sync via an installed EA — closed trades only, no live balance. SignalDeck uses a MetaApi session that sees your account in real time.">
     <meta name="keywords" content="mt5 live sync, mt5 trading journal live sync, metaapi mt5 journal, mt5 journal without ea, ea import vs api, mt5 open positions sync, live balance mt5 journal, mt5 trading journal">
     <meta name="author" content="SignalDeck">
@@ -22,37 +22,44 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/">
-    <meta property="og:title" content="MT5 Trading Journal with Live Sync (Not EA Import) | SignalDeck">
+    <meta property="og:title" content="MT5 Live Sync vs EA Import: How Journals Get Your Trades | SignalDeck">
     <meta property="og:description" content="Most MT5 journals sync via an installed EA — closed trades only, no live balance. SignalDeck uses a MetaApi session that sees your account in real time.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01p-live-sync.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/">
-    <meta property="twitter:title" content="MT5 Trading Journal with Live Sync (Not EA Import) | SignalDeck">
-    <meta property="twitter:description" content="Most MT5 journals sync via an installed EA — closed trades only, no live balance. SignalDeck uses a MetaApi session that sees your account in real time.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/">
+    <meta name="twitter:title" content="MT5 Live Sync vs EA Import: How Journals Get Your Trades | SignalDeck">
+    <meta name="twitter:description" content="Most MT5 journals sync via an installed EA — closed trades only, no live balance. SignalDeck uses a MetaApi session that sees your account in real time.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01p-live-sync.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "MT5 Trading Journal with Live Sync (Not EA Import)",
-        "description": "Why the way a journal connects to MetaTrader 5 matters: an installed Expert Advisor writes closed trades only, while a MetaApi session sees open positions, live balance, and real-time drawdown headroom.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01p-live-sync.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "MT5 Live Sync vs EA Import: How Journals Get Your Trades",
+    "description": "Why the way a journal connects to MetaTrader 5 matters: an installed Expert Advisor writes closed trades only, while a MetaApi session sees open positions, live balance, and real-time drawdown headroom.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-07-17",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01p-live-sync.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -103,7 +110,7 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "MT5 Trading Journal with Live Sync (Not EA Import)", "item": "https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/" }
+        { "@type": "ListItem", "position": 3, "name": "MT5 Live Sync vs EA Import: How Journals Get Your Trades", "item": "https://sgnldk.com/blog/mt5-live-sync-vs-ea-import/" }
       ]
     }
     </script>
@@ -112,44 +119,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -173,11 +144,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -185,11 +156,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -198,17 +169,18 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-07-17" class="text-xs font-mono text-zinc-500">July 17, 2026</time>
                 <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
             </div>
             <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-                MT5 Trading Journal with Live Sync (Not EA Import)
+                MT5 Live Sync vs EA Import: How Journals Get Your Trades
             </h1>
             <p class="text-lg text-zinc-400">
                 Most MT5 journals sync through an installed Expert Advisor. It captures your closed trades and nothing else — no open positions, no live balance, no drawdown headroom while a trade is running. In a prop firm challenge, that gap is exactly where accounts get lost. Here is what changes when the journal connects a different way.
             </p>
+            <p class="text-zinc-400 text-sm mb-6">Looking for the product itself? See the <a href="../../mt5-trading-journal/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">MT5 trading journal</a>.</p>
         </div>
     </section>
 
@@ -229,7 +201,7 @@
                 <li><span class="text-white font-medium">No live balance or equity.</span> The journal knows what your account looked like at the last closed trade, not what it looks like right now with floating P&L included.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Per their public documentation as of early 2026 (not independently verified), several well-known journals — including <a href="../../compare/tradesviz/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">TradesViz</a> and <a href="../../compare/tradezella/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">TradeZella</a> — sync MetaTrader through a terminal-side script rather than a persistent broker-side API session. Connection methods change, so verify the current approach directly with any vendor. The point here is not that EA import is broken — it is that "we sync with MT5" can mean two very different things.
+                Per their public documentation as of early 2026 (not independently verified), several well-known journals — including <a href="../../compare/tradesviz/" class="text-blue-400 hover:text-blue-300 transition-colors">TradesViz</a> and <a href="../../compare/tradezella/" class="text-blue-400 hover:text-blue-300 transition-colors">TradeZella</a> — sync MetaTrader through a terminal-side script rather than a persistent broker-side API session. Connection methods change, so verify the current approach directly with any vendor. The point here is not that EA import is broken — it is that "we sync with MT5" can mean two very different things.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">What a MetaApi Session Sees That an EA Cannot</h2>
@@ -288,17 +260,17 @@
                 Prop firm drawdown rules are evaluated on <span class="text-white font-medium">equity</span>, not just closed P&L. Your equity includes the floating profit and loss of every open position. That is the whole reason a stop that gets hit during a news spike can end a challenge that your closed-trade log said was comfortably in the green an hour earlier.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                A journal that only imports closed trades is structurally blind at the exact moment that matters: while a position is open. It cannot show your live drawdown headroom against a <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">daily loss limit or maximum drawdown rule</a> when you have floating exposure, because it does not know your floating exposure. You find out where you stood only after the trade closes — which is too late to change the decision.
+                A journal that only imports closed trades is structurally blind at the exact moment that matters: while a position is open. It cannot show your live drawdown headroom against a <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">daily loss limit or maximum drawdown rule</a> when you have floating exposure, because it does not know your floating exposure. You find out where you stood only after the trade closes — which is too late to change the decision.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 Because a MetaApi session reads your live balance, SignalDeck can carry that number into two calculations that a stale balance quietly corrupts:
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
                 <li><span class="text-white font-medium">Drawdown headroom.</span> Your remaining daily and total buffer is shown against your current balance, not last week's starting figure.</li>
-                <li><span class="text-white font-medium">Position sizing.</span> A trader down 4% on a $100k account who still sizes as if they hold $100k is systematically over-risking. Live balance feeds <a href="../kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly-based sizing</a> so the suggested size tracks your real equity.</li>
+                <li><span class="text-white font-medium">Position sizing.</span> A trader down 4% on a $100k account who still sizes as if they hold $100k is systematically over-risking. Live balance feeds <a href="../kelly-criterion-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly-based sizing</a> so the suggested size tracks your real equity.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                For the full picture of how live balance flows into drawdown tracking, R-multiple normalization, and the Would I Pass simulator, see our companion guide on using SignalDeck as an <a href="../mt5-prop-firm-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a>.
+                For the full picture of how live balance flows into drawdown tracking, R-multiple normalization, and the Would I Pass simulator, see our companion guide on using SignalDeck as an <a href="../mt5-prop-firm-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal</a>.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">What "Live" Does and Does Not Mean</h2>
@@ -369,12 +341,12 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradesviz/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradesviz/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradesViz</p>
                         <p class="text-zinc-500 text-xs mt-2">How the MT5 connection and live-balance features line up</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-2">Live sync, prop firm tooling, and edge validation side by side</p>
@@ -386,22 +358,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../mt5-prop-firm-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../mt5-prop-firm-journal/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place</p>
                         <p class="text-zinc-500 text-xs mt-2">July 3, 2026</p>
                     </a>
-                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../ftmo-challenge-rules-explained/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
                         <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
                     </a>
-                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../best-trading-journal-prop-firm/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Prop Firm Trading Journal: Prove Your Edge Before You Pay the Fee</p>
                         <p class="text-zinc-500 text-xs mt-2">June 15, 2026</p>
                     </a>
-                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../walk-forward-analysis/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Edge Validation</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
                         <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
@@ -455,10 +427,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -468,7 +454,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -478,6 +464,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

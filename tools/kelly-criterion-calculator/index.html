@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
-<title>Kelly Criterion Calculator — Optimal Position Size | SignalDeck</title>
+<title>Kelly Criterion Calculator — Optimal Position Size</title>
 <meta name="description" content="Free Kelly Criterion calculator: enter your win rate and reward-to-risk to get full, half, and quarter-Kelly position fractions. Includes a no-edge warning.">
 <meta name="keywords" content="kelly criterion calculator, kelly formula trading, optimal position size, half kelly, kelly bet size calculator">
 <meta name="robots" content="index, follow">
@@ -16,33 +16,56 @@
 <meta property="og:title" content="Kelly Criterion Calculator — Optimal Position Size | SignalDeck">
 <meta property="og:description" content="Win rate + reward:risk → full / half / quarter Kelly. Free, instant.">
 <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Kelly Criterion Calculator — Optimal Position Size | SignalDeck">
-<meta property="twitter:description" content="Win rate + reward:risk → full / half / quarter Kelly. Free, instant.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sgnldk">
+<meta name="twitter:title" content="Kelly Criterion Calculator — Optimal Position Size | SignalDeck">
+<meta name="twitter:description" content="Win rate + reward:risk → full / half / quarter Kelly. Free, instant.">
 <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Kelly Criterion Calculator","url":"https://sgnldk.com/tools/kelly-criterion-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free Kelly Criterion calculator: enter your win rate and reward-to-risk to get full, half, and quarter-Kelly position fractions. Includes a no-edge warning.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
-</script>
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Kelly Criterion Calculator",
+    "url": "https://sgnldk.com/tools/kelly-criterion-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "description": "Free Kelly Criterion calculator: enter your win rate and reward-to-risk to get full, half, and quarter-Kelly position fractions. Includes a no-edge warning.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com/",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
+    </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What is the Kelly Criterion?", "acceptedAnswer": {"@type": "Answer", "text": "Kelly gives the bet size that maximizes long-run growth. For trading: Kelly % = W \u2212 (1 \u2212 W) / R, where W is win rate (decimal) and R is your average win divided by average loss. If it's zero or negative, the math says you have no edge \u2014 don't size up."}}, {"@type": "Question", "name": "Why do traders use half-Kelly?", "acceptedAnswer": {"@type": "Answer", "text": "Full Kelly is the growth-optimal size but extremely volatile, and it's unforgiving if your win-rate/edge estimates are even slightly off. Most traders use half- or quarter-Kelly: you give up a little growth for a large reduction in drawdown and estimation risk."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the Kelly Criterion?", "acceptedAnswer": {"@type": "Answer", "text": "Kelly gives the bet size that maximizes long-run growth. For trading: Kelly % = W − (1 − W) / R, where W is win rate (decimal) and R is your average win divided by average loss. If it's zero or negative, the math says you have no edge — don't size up."}}, {"@type": "Question", "name": "Why do traders use half-Kelly?", "acceptedAnswer": {"@type": "Answer", "text": "Full Kelly is the growth-optimal size but extremely volatile, and it's unforgiving if your win-rate/edge estimates are even slightly off. Most traders use half- or quarter-Kelly: you give up a little growth for a large reduction in drawdown and estimation risk."}}, {"@type": "Question", "name": "What is a good Kelly fraction?", "acceptedAnswer": {"@type": "Answer", "text": "Most traders use between quarter-Kelly and half-Kelly, i.e. 25–50% of the full Kelly figure. Half-Kelly keeps about three-quarters of full Kelly's long-run growth rate while roughly halving volatility, and quarter-Kelly is common when your win rate and reward:risk come from a small sample."}}, {"@type": "Question", "name": "What does a negative Kelly percentage mean?", "acceptedAnswer": {"@type": "Answer", "text": "A zero or negative Kelly percentage means your inputs show no positive expectancy, so the growth-optimal position size is zero. For example, a 35% win rate at 1.5:1 reward:risk gives 0.35 − 0.65 ÷ 1.5 = −8.33%."}}, {"@type": "Question", "name": "Is the Kelly percentage the amount to risk per trade?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — here the Kelly percentage is the fraction of your account you would lose if the trade hits its stop, not the notional size of the position. To turn it into a position size, divide that dollar risk by your stop distance per unit."}}]}
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../assets/css/site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://sgnldk.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "Kelly Criterion Calculator — Optimal Position Size", "item": "https://sgnldk.com/tools/kelly-criterion-calculator/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
 <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <a href="../../" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
     <div class="flex items-center gap-4">
-      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
       <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Kelly Criterion Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
     </div>
   </div>
 </header>
 <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
-  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../" class="hover:text-blue-300">Tools</a> · free</p>
   <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Kelly Criterion Calculator</h1>
   <p class="text-zinc-400 text-lg mb-8">The growth-optimal position fraction from your edge. Enter your <strong class="text-zinc-200">win rate</strong> and <strong class="text-zinc-200">reward-to-risk</strong> — we'll show full, half, and quarter-Kelly (and warn you if the math says you have no edge).</p>
   <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
@@ -52,6 +75,15 @@
     <div id="out"></div>
   </div>
   <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">How it's calculated</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 mono text-sm text-white leading-relaxed">Full Kelly = W − (1 − W) ÷ b<br>Half-Kelly = Full Kelly × 0.5<br>Quarter-Kelly = Full Kelly × 0.25</div>
+    <ul class="mt-4 space-y-1.5 text-sm text-zinc-400"><li><span class="mono text-zinc-200">W</span> — win rate as a decimal (55% = 0.55)</li><li><span class="mono text-zinc-200">b</span> — reward:risk — your average win divided by your average loss</li><li><span class="mono text-zinc-200">Full Kelly</span> — the fraction of capital to risk per trade; zero or negative means no edge</li></ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-2xl font-bold text-white mb-4">Worked example</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-5 text-sm text-zinc-400 space-y-2"><p>Your journal shows a <span class="mono text-zinc-200">55%</span> win rate and a <span class="mono text-zinc-200">1.5</span> reward:risk.</p><p>Full Kelly = 0.55 − 0.45 ÷ 1.5 = 0.55 − 0.30 = <span class="mono text-emerald-400">25%</span>.</p><p>Half-Kelly = <span class="mono text-zinc-200">12.5%</span>, quarter-Kelly = <span class="mono text-zinc-200">6.25%</span>. On a $10,000 account, quarter-Kelly means risking $625 per trade — still aggressive, which is why many traders cap risk well below Kelly.</p></div>
+  </section>
   <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
     <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
     <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
@@ -60,21 +92,28 @@
   <section class="mt-10">
     <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
     <div class="flex flex-wrap gap-3 text-sm">
-      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
-      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
-      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
-      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+      <a href="../../position-sizing/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
     </div>
   </section>
   <section class="mt-12">
-    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
-    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">What is the Kelly Criterion?</h3><p class="text-zinc-400">Kelly gives the bet size that maximizes long-run growth. For trading: Kelly % = W − (1 − W) / R, where W is win rate (decimal) and R is your average win divided by average loss. If it's zero or negative, the math says you have no edge — don't size up.</p></div><div><h3 class="font-bold text-white">Why do traders use half-Kelly?</h3><p class="text-zinc-400">Full Kelly is the growth-optimal size but extremely volatile, and it's unforgiving if your win-rate/edge estimates are even slightly off. Most traders use half- or quarter-Kelly: you give up a little growth for a large reduction in drawdown and estimation risk.</p></div></div>
+    <h2 class="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-4 text-sm">
+      <div><h3 class="font-bold text-white">What is the Kelly Criterion?</h3><p class="text-zinc-400">Kelly gives the bet size that maximizes long-run growth. For trading: Kelly % = W − (1 − W) / R, where W is win rate (decimal) and R is your average win divided by average loss. If it's zero or negative, the math says you have no edge — don't size up.</p></div>
+      <div><h3 class="font-bold text-white">Why do traders use half-Kelly?</h3><p class="text-zinc-400">Full Kelly is the growth-optimal size but extremely volatile, and it's unforgiving if your win-rate/edge estimates are even slightly off. Most traders use half- or quarter-Kelly: you give up a little growth for a large reduction in drawdown and estimation risk.</p></div>
+      <div><h3 class="font-bold text-white">What is a good Kelly fraction?</h3><p class="text-zinc-400">Most traders use between quarter-Kelly and half-Kelly, i.e. 25–50% of the full Kelly figure. Half-Kelly keeps about three-quarters of full Kelly's long-run growth rate while roughly halving volatility, and quarter-Kelly is common when your win rate and reward:risk come from a small sample.</p></div>
+      <div><h3 class="font-bold text-white">What does a negative Kelly percentage mean?</h3><p class="text-zinc-400">A zero or negative Kelly percentage means your inputs show no positive expectancy, so the growth-optimal position size is zero. For example, a 35% win rate at 1.5:1 reward:risk gives 0.35 − 0.65 ÷ 1.5 = −8.33%.</p></div>
+      <div><h3 class="font-bold text-white">Is the Kelly percentage the amount to risk per trade?</h3><p class="text-zinc-400">Yes — here the Kelly percentage is the fraction of your account you would lose if the trade hits its stop, not the notional size of the position. To turn it into a position size, divide that dollar risk by your stop distance per unit.</p></div>
+    </div>
+    <p class="mt-6 text-sm text-zinc-400">Turn a Kelly fraction into shares, lots or contracts with the <a href="../../position-sizing/" class="text-blue-400 hover:text-blue-300">SignalDeck position size calculator</a>, and track the win rate and reward:risk behind it in <a href="../../analytics/" class="text-blue-400 hover:text-blue-300">SignalDeck Analytics</a>.</p>
   </section>
 </main>
 <footer class="border-t border-zinc-800 mt-16">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
     <p>&copy; 2026 SignalDeck · sgnldk.com</p>
-    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+    <p><a href="../" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/" class="hover:text-zinc-400">Blog</a> · <a href="../../" class="hover:text-zinc-400">Home</a></p>
   </div>
 </footer>
 <script>

@@ -28,31 +28,38 @@
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/mt5-prop-firm-journal/">
-    <meta property="twitter:title" content="MT5 Prop Firm Journal: Drawdown and R-Multiple | SignalDeck">
-    <meta property="twitter:description" content="Most MT5 prop firm journals run on stale numbers. SignalDeck connects to your MT5 account live — real-time drawdown headroom and Kelly sizing that updates.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/mt5-prop-firm-journal/">
+    <meta name="twitter:title" content="MT5 Prop Firm Journal: Drawdown and R-Multiple | SignalDeck">
+    <meta name="twitter:description" content="Most MT5 prop firm journals run on stale numbers. SignalDeck connects to your MT5 account live — real-time drawdown headroom and Kelly sizing that updates.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place",
-        "description": "How to use SignalDeck as your MT5 prop firm journal -- live balance sync, real-time drawdown headroom, R-multiple normalization, and Walk-Forward Analysis before you pay the challenge fee.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-07-03",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01f-drawdown.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "MT5 Prop Firm Journal: Track Drawdown, R-Multiple, and Challenge Rules in One Place",
+    "description": "How to use SignalDeck as your MT5 prop firm journal -- live balance sync, real-time drawdown headroom, R-multiple normalization, and Walk-Forward Analysis before you pay the challenge fee.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-07-03",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01f-drawdown.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/mt5-prop-firm-journal/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -112,44 +119,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -173,11 +144,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -185,11 +156,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -198,7 +169,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-07-03" class="text-xs font-mono text-zinc-500">July 3, 2026</time>
                 <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
@@ -232,7 +203,7 @@
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Live MT5 Sync Actually Changes</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                <a href="../../mt5-trading-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SignalDeck connects to your MT5 account</a> via MetaApi. When you enable auto-sync on an account, two things happen automatically: your trades import without any CSV export, and your live account balance updates on every connection.
+                <a href="../../mt5-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">SignalDeck connects to your MT5 account</a> via MetaApi. When you enable auto-sync on an account, two things happen automatically: your trades import without any CSV export, and your live account balance updates on every connection.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
                 That live balance is not just a display number. It feeds three downstream calculations that matter for prop firm trading:
@@ -273,7 +244,7 @@
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Tracking Drawdown in Real Time</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO's rules</a> give you a 5% daily loss limit and a 10% maximum drawdown. Apex Trader uses a trailing drawdown. Topstep has a daily loss limit that resets each morning. The specific mechanics differ by firm, but every prop firm challenge has a floor that, once breached, ends your account immediately.
+                <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO's rules</a> give you a 5% daily loss limit and a 10% maximum drawdown. Apex Trader uses a trailing drawdown. Topstep has a daily loss limit that resets each morning. The specific mechanics differ by firm, but every prop firm challenge has a floor that, once breached, ends your account immediately.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 The failure mode is almost always the same: a trader enters a position without a clear picture of how much headroom they actually have left that day. They are not being reckless -- they simply do not have the number in front of them at the moment they click buy.
@@ -295,7 +266,7 @@
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Walk-Forward Analysis Before You Pay the Fee</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                A standard backtest on your full trade history tells you what already happened. <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> tells you whether your edge generalizes to data it has not seen before.
+                A standard backtest on your full trade history tells you what already happened. <a href="../walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> tells you whether your edge generalizes to data it has not seen before.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 The process: SignalDeck splits your trade history into rolling windows, optimizes on the in-sample portion, and tests the resulting parameters on the out-of-sample portion. It repeats this across multiple windows. If your strategy shows consistent positive expectancy on the out-of-sample windows, the edge is likely real. If performance collapses on unseen data, you have curve-fitting -- and a 30-day funded challenge will expose that.
@@ -306,7 +277,7 @@
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Would I Pass Simulator</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Before attempting a live challenge, <a href="../../would-i-pass/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">the Would I Pass simulator</a> runs your actual MT5 trade history through the specific rules of your target firm. You pick the firm, the account size, and the evaluation period. SignalDeck replays your trades in sequence and tells you whether you would have passed, and exactly where you would have been stopped out if not.
+                Before attempting a live challenge, <a href="../../would-i-pass/" class="text-blue-400 hover:text-blue-300 transition-colors">the Would I Pass simulator</a> runs your actual MT5 trade history through the specific rules of your target firm. You pick the firm, the account size, and the evaluation period. SignalDeck replays your trades in sequence and tells you whether you would have passed, and exactly where you would have been stopped out if not.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 This is not a generic risk estimate. It uses your real trades -- the actual sequence, the actual daily P&L, the actual drawdown path. If your history shows three instances where you would have blown the daily limit on the same type of setup, you know the specific pattern to either fix or avoid before you attempt the evaluation.
@@ -379,22 +350,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../ftmo-challenge-rules-explained/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
                         <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
                     </a>
-                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../walk-forward-analysis/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Edge Validation</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
                         <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
                     </a>
-                    <a href="../how-to-pass-ftmo-challenge/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../how-to-pass-ftmo-challenge/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Pass an FTMO Challenge Using a Trading Journal</p>
                         <p class="text-zinc-500 text-xs mt-2">June 26, 2026</p>
                     </a>
-                    <a href="../mae-mfe-execution-metrics/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../mae-mfe-execution-metrics/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Execution</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">MAE and MFE: The Execution Metrics Most Traders Ignore</p>
                         <p class="text-zinc-500 text-xs mt-2">June 18, 2026</p>
@@ -448,10 +419,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -461,7 +446,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -471,6 +456,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

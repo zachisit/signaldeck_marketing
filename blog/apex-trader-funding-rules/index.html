@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Apex Trader Funding Rules: Trailing Drawdown Trap | SignalDeck</title>
+    <title>Apex Trader Funding Rules: Trailing Drawdown Trap</title>
     <meta name="description" content="Apex's trailing drawdown follows your intraday high-water mark — why traders blow accounts after winning sessions. Worked $50K example and what to track.">
     <meta name="keywords" content="Apex Trader Funding rules, Apex Trader Funding drawdown, Apex trailing drawdown explained, how to pass Apex challenge, Apex Trader Funding journal, Apex evaluation rules">
     <meta name="author" content="SignalDeck">
@@ -29,31 +29,38 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/apex-trader-funding-rules/">
-    <meta property="twitter:title" content="Apex Trader Funding Rules: Trailing Drawdown Trap | SignalDeck">
-    <meta property="twitter:description" content="Apex's trailing drawdown follows your intraday high-water mark — why traders blow accounts after winning sessions. Worked $50K example and what to track.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/apex-trader-funding-rules/">
+    <meta name="twitter:title" content="Apex Trader Funding Rules: Trailing Drawdown Trap | SignalDeck">
+    <meta name="twitter:description" content="Apex's trailing drawdown follows your intraday high-water mark — why traders blow accounts after winning sessions. Worked $50K example and what to track.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01s-trailing-ratchet.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Apex Trader Funding Rules Explained: Trailing Drawdown, Targets, and How to Track Your Progress",
-        "description": "Apex Trader Funding uses a trailing drawdown that follows your intraday high-water mark, then locks. Here's how it works with a worked $50K example, why it ends accounts after winning sessions, what your journal must track, and how Monte Carlo estimates your pass probability before you pay.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-07-27",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01s-trailing-ratchet.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Apex Trader Funding Rules Explained: Trailing Drawdown, Targets, and How to Track Your Progress",
+    "description": "Apex Trader Funding uses a trailing drawdown that follows your intraday high-water mark, then locks. Here's how it works with a worked $50K example, why it ends accounts after winning sessions, what your journal must track, and how Monte Carlo estimates your pass probability before you pay.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01s-trailing-ratchet.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/apex-trader-funding-rules/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -121,44 +128,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -182,11 +153,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -194,11 +165,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -207,7 +178,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-07-27" class="text-xs font-mono text-zinc-500">July 27, 2026</time>
                 <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">Prop Firm</span>
@@ -229,7 +200,7 @@
                 Apex Trader Funding is one of the largest futures-focused evaluation firms. You trade CME products — most people run ES and NQ index futures, with CL crude and the micros (MES, MNQ, MCL) common on smaller accounts — inside an evaluation, hit a profit target without breaking a drawdown limit, and convert to a funded Performance Account (PA). The rules are simpler than FTMO's two-clock structure, but the single rule that matters most, the trailing drawdown, behaves in a way that surprises traders coming from static-limit firms.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                This article explains the rules as they generally apply to the standard Apex evaluation. Apex changes account specs, targets, and promotions often — treat this as orientation, not as a substitute for the current terms at <a href="https://apextraderfunding.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">apextraderfunding.com</a>. Verify every number below against your specific plan before you trade. For the CFD/forex equivalent of this rule set, see our <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules breakdown</a> — the drawdown model there is different in an important way we will contrast below.
+                This article explains the rules as they generally apply to the standard Apex evaluation. Apex changes account specs, targets, and promotions often — treat this as orientation, not as a substitute for the current terms at <a href="https://apextraderfunding.com" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">apextraderfunding.com</a>. Verify every number below against your specific plan before you trade. For the CFD/forex equivalent of this rule set, see our <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules breakdown</a> — the drawdown model there is different in an important way we will contrast below.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Apex Trader Funding at a Glance</h2>
@@ -330,7 +301,7 @@
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
                 <li><span class="font-semibold text-white">The trailing drawdown still applies on the PA</span> until it locks, using the same peak-tracking logic you learned in the evaluation.</li>
-                <li><span class="font-semibold text-white">Consistency and safety-net rules</span> govern <a href="../../tools/prop-firm-payout-calculator/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">payouts</a> — Apex has historically limited how much of your total profit a single day can represent, and required a minimum balance buffer before withdrawals. These payout rules are separate from the pass/fail drawdown and change periodically.</li>
+                <li><span class="font-semibold text-white">Consistency and safety-net rules</span> govern <a href="../../tools/prop-firm-payout-calculator/" class="text-blue-400 hover:text-blue-300 transition-colors">payouts</a> — Apex has historically limited how much of your total profit a single day can represent, and required a minimum balance buffer before withdrawals. These payout rules are separate from the pass/fail drawdown and change periodically.</li>
                 <li><span class="font-semibold text-white">Minimum trading days for payout eligibility</span> often exist on the PA even when the evaluation has none.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
@@ -346,7 +317,7 @@
             </p>
             <ol class="list-decimal list-inside space-y-3 text-zinc-300 mb-6">
                 <li class="pl-2"><span class="font-semibold text-white">Not banking the peak.</span> The trailing floor rewards traders who take profit near their highs and punishes those who let winners round-trip. If your floor has ratcheted to $500 below equity, a full-size adverse move ends the account — even from a break-even starting point on the session.</li>
-                <li class="pl-2"><span class="font-semibold text-white">Sizing to the target instead of to the buffer.</span> On a $50K account with a $2,500 floor, trading 10 contracts on ES means a handful of points against you consumes the entire buffer. The fix is to size each trade so a full stop-out is a small fraction of your remaining buffer — the same discipline as <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a>, applied to a floor that moves.</li>
+                <li class="pl-2"><span class="font-semibold text-white">Sizing to the target instead of to the buffer.</span> On a $50K account with a $2,500 floor, trading 10 contracts on ES means a handful of points against you consumes the entire buffer. The fix is to size each trade so a full stop-out is a small fraction of your remaining buffer — the same discipline as <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a>, applied to a floor that moves.</li>
                 <li class="pl-2"><span class="font-semibold text-white">Revenge-adding after giving back a gain.</span> Watching the buffer shrink from a round-trip and then sizing <em>up</em> to "get it back" is how a $700 buffer becomes a $0 buffer in one trade.</li>
             </ol>
             <p class="text-zinc-300 leading-relaxed mb-6">
@@ -359,18 +330,18 @@
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
                 <li><span class="font-semibold text-white">Running high-water mark:</span> the peak equity of the account so far — this is the anchor the trailing floor hangs beneath. Track whether it moved on realized or unrealized profit.</li>
-                <li><span class="font-semibold text-white">Distance to the trailing floor:</span> dollars of buffer remaining right now — the single most important number on the account. It should be visible before you enter each trade, and in <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> so you know how many standard-risk trades the buffer can absorb.</li>
+                <li><span class="font-semibold text-white">Distance to the trailing floor:</span> dollars of buffer remaining right now — the single most important number on the account. It should be visible before you enter each trade, and in <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> so you know how many standard-risk trades the buffer can absorb.</li>
                 <li><span class="font-semibold text-white">R-per-trade:</span> your realized and unrealized result per position expressed in R, so a "big win" that is actually 6R of open risk sitting on the table is legible for what it is.</li>
                 <li><span class="font-semibold text-white">Peak-to-close giveback:</span> per session, how much open profit you round-tripped. This is the metric that predicts a trailing-drawdown blowup before it happens.</li>
                 <li><span class="font-semibold text-white">Session log for day count:</span> even if the evaluation has no minimum, the PA payout rules may — so log trading days from the start.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Tracking account balance correctly is its own discipline — most traders journal balance in a way that hides exactly the peak-tracking you need here. Our guide on <a href="../journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">how to journal your account balance</a> covers the fields and update cadence that make trailing-drawdown tracking reliable rather than a lagging spreadsheet.
+                Tracking account balance correctly is its own discipline — most traders journal balance in a way that hides exactly the peak-tracking you need here. Our guide on <a href="../journal-account-balance/" class="text-blue-400 hover:text-blue-300 transition-colors">how to journal your account balance</a> covers the fields and update cadence that make trailing-drawdown tracking reliable rather than a lagging spreadsheet.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Using Monte Carlo to Estimate Your Pass Probability</h2>
             <p class="text-zinc-300 leading-relaxed mb-4">
-                Before you pay an evaluation fee, you can estimate your odds using the trade history you already have. That is what <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> does: it takes your historical R-multiples, reshuffles their order across 1,000+ simulated paths, and shows the distribution of outcomes plausible for a trader with your edge and variance.
+                Before you pay an evaluation fee, you can estimate your odds using the trade history you already have. That is what <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> does: it takes your historical R-multiples, reshuffles their order across 1,000+ simulated paths, and shows the distribution of outcomes plausible for a trader with your edge and variance.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-4">
                 Applied to Apex, the question is specific: across 1,000 simulated evaluations using my actual trade sequence and position sizing, what fraction of paths reach the $3,000 target before the equity — tracked at its running peak — ever falls to the trailing floor? A trailing floor makes this a genuinely different simulation from a static-limit firm, because a path can pass the target and still fail if it peaked high and gave too much back along the way.
@@ -425,7 +396,7 @@
                 <li><span class="font-semibold text-white">Monte Carlo (Pro, $30/mo):</span> 1,000-path simulation on your logged trades to estimate your evaluation pass probability before you pay the fee.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                For a broader look at how journaling tools stack up for funded-challenge traders, see the <a href="../best-trading-journal-prop-firm/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> comparison.
+                For a broader look at how journaling tools stack up for funded-challenge traders, see the <a href="../best-trading-journal-prop-firm/" class="text-blue-400 hover:text-blue-300 transition-colors">best trading journal for prop firm traders</a> comparison.
             </p>
 
             <!-- FAQ Section -->
@@ -460,12 +431,12 @@
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-500 text-sm mb-6">Running-peak drawdown tracking and Monte Carlo pass-probability are built for prop firm challengers specifically.</p>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradersync/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
                         <p class="text-zinc-500 text-xs mt-1">TraderSync has no Monte Carlo simulation and no running-peak drawdown distance widget for trailing-limit accounts.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-1">TradeZella has no Monte Carlo simulation for challenge readiness and no trailing-drawdown headroom tracking.</p>
@@ -477,22 +448,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../ftmo-challenge-rules-explained/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../ftmo-challenge-rules-explained/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">FTMO Challenge Rules Explained: Drawdown, Targets, and What Your Journal Needs to Track</p>
                         <p class="text-zinc-500 text-xs mt-2">June 8, 2026</p>
                     </a>
-                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../monte-carlo-simulation-trading/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
                         <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
                     </a>
-                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../best-trading-journal-prop-firm/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firm</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
                         <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
                     </a>
-                    <a href="../journal-account-balance/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../journal-account-balance/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Journal Your Account Balance (and Why Most Traders Do It Wrong)</p>
                         <p class="text-zinc-500 text-xs mt-2">May 6, 2026</p>
@@ -512,7 +483,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta — Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans →
                     </a>
@@ -552,10 +523,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -565,7 +550,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -575,6 +560,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

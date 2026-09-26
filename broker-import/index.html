@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Multi-Broker Trade Import | SignalDeck</title>
-    <meta name="description" content="Import trades from MT4/MT5, IBKR, cTrader (IC Markets, Pepperstone + 250 brokers), SnapTrade (Robinhood, Schwab + 30 more), or CSV. Free on all plans.">
+    <meta name="description" content="Import trades free on all plans from IBKR, cTrader (250+ brokers), SnapTrade (Robinhood, Schwab + 30 more) or CSV. MT4/MT5 live sync on Elite.">
     <meta name="keywords" content="trading journal broker import, IBKR trading journal, Interactive Brokers trading journal, cTrader trading journal, IC Markets trading journal, Pepperstone trading journal, MT4 MT5 trade import, Robinhood trading journal, Schwab trading journal, Questrade trading journal, Trading 212 trading journal, NinjaTrader CSV import, Tradovate CSV import, broker auto import trading journal">
     <meta name="author" content="SignalDeck">
 
@@ -23,94 +23,94 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgnldk.com/broker-import/">
     <meta property="og:title" content="Multi-Broker Trade Import | SignalDeck">
-    <meta property="og:description" content="Import trades from MT4/MT5, IBKR, cTrader (IC Markets, Pepperstone + 250 brokers), SnapTrade (Robinhood, Schwab + 30 more), or CSV. Free on all plans.">
+    <meta property="og:description" content="Import trades free on all plans from IBKR, cTrader (250+ brokers), SnapTrade (Robinhood, Schwab + 30 more) or CSV. MT4/MT5 live sync on Elite.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01j-perspective.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/broker-import/">
-    <meta property="twitter:title" content="Multi-Broker Trade Import | SignalDeck">
-    <meta property="twitter:description" content="Import trades from MT4/MT5, IBKR, cTrader (IC Markets, Pepperstone + 250 brokers), SnapTrade (Robinhood, Schwab + 30 more), or CSV. Free on all plans.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/broker-import/">
+    <meta name="twitter:title" content="Multi-Broker Trade Import | SignalDeck">
+    <meta name="twitter:description" content="Import trades free on all plans from IBKR, cTrader (250+ brokers), SnapTrade (Robinhood, Schwab + 30 more) or CSV. MT4/MT5 live sync on Elite.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01j-perspective.png">
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What brokers does SignalDeck support for trade import?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "SignalDeck supports MT4 and MT5 via MetaApi (Elite plan — includes live balance sync), Interactive Brokers via Flex Web Service (all plans), cTrader via OAuth covering any cTrader broker including IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets, BlackBull, GO Markets, and Tickmill (all plans), SnapTrade aggregator covering 30+ brokers across US, Canada, Europe and Australia including Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Questrade, Wealthsimple, Trading 212, and DEGIRO (all plans), and CSV import for 8 formats: Schwab, TD Ameritrade, IBKR Activity, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does SignalDeck support Interactive Brokers import?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. SignalDeck connects to Interactive Brokers via the free IBKR Flex Web Service — no third-party subscription required. Set up your Flex Query in IBKR Account Management, paste your token into SignalDeck, and trades import with a guided wizard. A token-less file-upload fallback is also available. Opt-in auto-sync keeps your journal current. Available on all plans."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does MT4/MT5 import capture the stop loss for R-Multiple?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No — MetaApi's history-deals API returns execution data (fills, P&L, price, volume) but not the stop loss from the original order. Stop loss still needs to be entered manually after import for R-Multiple calculation. The import saves time on execution data entry; the stop loss and trade rationale require the post-trade review step."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What is live account balance sync and why does it matter?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "MT4/MT5 import via MetaApi includes real-time account balance sync — SignalDeck reads your live equity so Kelly Criterion sizing and prop firm drawdown headroom always reflect what's actually in your account. After a drawdown, your sizing adjusts automatically. IBKR integration includes an EOD balance card. Other integrations import trade history; MT4/MT5 is the only one with real-time balance sync."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I import from Robinhood, Schwab, Fidelity, or Coinbase?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. SignalDeck integrates with SnapTrade, an aggregator covering 30+ brokers across the US, Canada, Europe, and Australia. US brokers include Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Alpaca, Moomoo, Public, and eToro. Canadian brokers include Questrade and Wealthsimple. European brokers include Trading 212, DEGIRO, and AJ Bell. Connect once through SnapTrade's hosted portal and trades import automatically. Available on all plans."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What CSV formats does SignalDeck support?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity Statement CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. Futures are supported with automatic contract multiplier resolution for correct P&L. CSV import is free and ungated on all plans."
-                }
-            }
-        ]
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What brokers does SignalDeck support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For prop firm and forex traders: MT4/MT5 via MetaApi with live balance sync (Elite — works with FTMO, Apex, MyFundedFX, Topstep, The5ers), and cTrader via OAuth covering IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets and 250+ brokers (all plans, free). Also: Interactive Brokers via Flex Web Service (all plans), SnapTrade for US/Canada/Europe/Australia retail and crypto brokers including Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Questrade, Trading 212, and DEGIRO (all plans), and CSV upload in 8 formats including Tradovate and NinjaTrader (all plans)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the stop loss import automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your fills, P&L, volume, and execution prices import automatically. Adding your stop loss takes about 10 seconds in the post-trade review — it's what powers your R-Multiple. Broker feeds return execution data, not order-level SL/TP, so the stop and your trade rationale come from your own review. This keeps your R-Multiple based on the stop you actually intended, not a moved one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is live balance sync and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MT4/MT5 import via MetaApi reads your live account equity in real time. Kelly Criterion sizing and prop firm drawdown headroom always reflect your actual current balance — not a number you typed in last month. After a drawdown, your sizing adjusts automatically. This is exclusive to the MT4/MT5 integration and the Elite plan. Interactive Brokers includes an end-of-day (EOD) balance card; the other integrations import trade history only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does IBKR Flex import work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set up a Flex Query in IBKR Account Management (Flex Web Service is free), then either paste your Flex token into SignalDeck's guided connect wizard or upload a Flex XML file directly. SignalDeck handles FIFO round-trip reconstruction for scale-in/out and flip-through-zero positions. Opt-in auto-sync keeps your journal current. Available on all plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I import from Robinhood, Schwab, Fidelity, or Coinbase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck integrates with SnapTrade, an aggregator covering 30+ brokers across the US, Canada, Europe, and Australia. US brokers include Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Alpaca, Moomoo, Public, and eToro. Canadian brokers include Questrade and Wealthsimple. European brokers include Trading 212, DEGIRO, and AJ Bell, and CommSec covers Australia. Connect once through SnapTrade's hosted portal and trades import with FIFO round-trip reconstruction. Available on all plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What CSV formats does SignalDeck support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. Futures get automatic contract multiplier resolution for correct P&L. CSV import is free on all plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I import NinjaTrader or Tradovate trades?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen."
+          }
+        }
+      ]
     }
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b' },
-                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
-                        emerald: { 500: '#10b981' },
-                        rose: { 500: '#f43f5e' },
-                    },
-                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://sgnldk.com/#app", "name": "SignalDeck", "url": "https://sgnldk.com/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://sgnldk.com/#org"}, "subjectOf": {"@type": "WebPage", "@id": "https://sgnldk.com/broker-import/", "name": "Multi-Broker Trade Import"}}
+    </script>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Multi-Broker Trade Import", "item": "https://sgnldk.com/broker-import/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
 
@@ -121,11 +121,11 @@
                 <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                 <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
             </div>
         </div>
     </nav>
@@ -516,15 +516,23 @@
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">What is live balance sync and why does it matter?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">MT4/MT5 import via MetaApi reads your live account equity in real time. Kelly Criterion sizing and prop firm drawdown headroom always reflect your actual current balance — not a number you typed in last month. After a drawdown, your sizing adjusts automatically. This is exclusive to the MT4/MT5 integration and the Elite plan.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">MT4/MT5 import via MetaApi reads your live account equity in real time. Kelly Criterion sizing and prop firm drawdown headroom always reflect your actual current balance — not a number you typed in last month. After a drawdown, your sizing adjusts automatically. This is exclusive to the MT4/MT5 integration and the Elite plan. Interactive Brokers includes an end-of-day (EOD) balance card; the other integrations import trade history only.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">How does IBKR Flex import work?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Set up a Flex Query in IBKR Account Management (Flex Web Service is free), then either paste your Flex token into SignalDeck's guided connect wizard or upload a Flex XML file directly. SignalDeck handles FIFO round-trip reconstruction for scale-in/out and flip-through-zero positions. Opt-in auto-sync keeps your journal current.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Set up a Flex Query in IBKR Account Management (Flex Web Service is free), then either paste your Flex token into SignalDeck's guided connect wizard or upload a Flex XML file directly. SignalDeck handles FIFO round-trip reconstruction for scale-in/out and flip-through-zero positions. Opt-in auto-sync keeps your journal current. Available on all plans.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">Can I import from Robinhood, Schwab, Fidelity, or Coinbase?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes. SignalDeck integrates with SnapTrade, an aggregator covering 30+ brokers across the US, Canada, Europe, and Australia. US brokers include Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase, Alpaca, Moomoo, Public, and eToro. Canadian brokers include Questrade and Wealthsimple. European brokers include Trading 212, DEGIRO, and AJ Bell, and CommSec covers Australia. Connect once through SnapTrade's hosted portal and trades import with FIFO round-trip reconstruction. Available on all plans.</p>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                    <p class="text-white font-semibold mb-2">What CSV formats does SignalDeck support?</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. Futures get automatic contract multiplier resolution for correct P&amp;L. CSV import is free on all plans.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Can I import NinjaTrader or Tradovate trades?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&amp;L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen.</p>
                 </div>
             </div>
         </div>
@@ -557,7 +565,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Your imported trades, ready for your AI assistant.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">Once trades sync from IBKR, cTrader, SnapTrade, MT5 or CSV, a connected assistant can review them, add notes, tags and post-mortems, and fill in the stop that imports don't carry. If it edits a broker-synced field, it warns you that the next re-import will overwrite it.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'broker-import'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'broker-import'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -585,10 +593,24 @@
                 <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
-            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
-                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a></p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/" class="hover:text-zinc-400">Futures</a></p>
             <p class="mt-1"><a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
-            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
         </div>
     </footer>
 </body>

@@ -16,33 +16,56 @@
 <meta property="og:title" content="Drawdown Recovery Calculator — Break-Even Gain | SignalDeck">
 <meta property="og:description" content="Enter a drawdown % → the gain needed to break even. Free, instant.">
 <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Drawdown Recovery Calculator — Break-Even Gain | SignalDeck">
-<meta property="twitter:description" content="Enter a drawdown % → the gain needed to break even. Free, instant.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sgnldk">
+<meta name="twitter:title" content="Drawdown Recovery Calculator — Break-Even Gain | SignalDeck">
+<meta name="twitter:description" content="Enter a drawdown % → the gain needed to break even. Free, instant.">
 <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Drawdown Recovery Calculator","url":"https://sgnldk.com/tools/drawdown-recovery-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free drawdown recovery calculator: enter a drawdown percentage and see the exact gain needed to get back to break-even. Losses and recoveries are not symmetric.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
-</script>
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Drawdown Recovery Calculator",
+    "url": "https://sgnldk.com/tools/drawdown-recovery-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "description": "Free drawdown recovery calculator: enter a drawdown percentage and see the exact gain needed to get back to break-even. Losses and recoveries are not symmetric.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com/",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
+    </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "Why does a bigger drawdown need a disproportionately larger gain?", "acceptedAnswer": {"@type": "Answer", "text": "Because the gain is calculated on the smaller, post-loss balance. Lose 50% and you have half left \u2014 you now need to double (+100%) just to get back to even. The deeper the hole, the steeper the climb."}}, {"@type": "Question", "name": "What is drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "Drawdown is the peak-to-trough decline in your account, usually expressed as a percentage of the peak. It's the single most important risk number a prop firm \u2014 and your own survival \u2014 cares about."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does a bigger drawdown need a disproportionately larger gain?", "acceptedAnswer": {"@type": "Answer", "text": "Because the gain is calculated on the smaller, post-loss balance. Lose 50% and you have half left — you now need to double (+100%) just to get back to even. The deeper the hole, the steeper the climb."}}, {"@type": "Question", "name": "What is drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "Drawdown is the peak-to-trough decline in your account, usually expressed as a percentage of the peak. It's the single most important risk number a prop firm — and your own survival — cares about."}}, {"@type": "Question", "name": "How much gain do I need to recover a 20% drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "You need a 25% gain to recover a 20% drawdown. A $10,000 account down 20% is at $8,000, and $8,000 has to grow by $2,000 — 25% of $8,000 — to get back to $10,000."}}, {"@type": "Question", "name": "What drawdown is too big to recover from?", "acceptedAnswer": {"@type": "Answer", "text": "There is no hard cutoff, but the required gain accelerates sharply past 30–40%: a 30% drawdown needs +42.86%, a 40% drawdown needs +66.67%, and a 50% drawdown needs +100%. That is why most risk plans and prop firms cap drawdown at around 5–10%, where the recovery gain (+5.26% to +11.11%) stays close to the loss."}}, {"@type": "Question", "name": "How does risk per trade affect drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "Lower risk per trade makes every losing streak shallower. Ten losses in a row at 1% risk per trade (compounded) leave you down about 9.6%, which needs roughly +10.6% to recover; the same streak at 5% risk leaves you down about 40.1%, which needs roughly +67% to recover."}}]}
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../assets/css/site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>body{font-family:Inter,system-ui,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://sgnldk.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "Drawdown Recovery Calculator — Break-Even Gain", "item": "https://sgnldk.com/tools/drawdown-recovery-calculator/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-blue-500 selection:text-white">
 <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="../../index.html" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
+    <a href="../../" class="flex items-center gap-2"><img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'font-bold text-white',textContent:'SignalDeck'}))"></a>
     <div class="flex items-center gap-4">
-      <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
+      <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white">All tools</a>
       <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer" onclick="if(!navigator.webdriver) gtag('event','cta_click',{'event_category':'engagement','event_label':'Beta Signup - Drawdown Recovery Calculator'});" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">Try Free</a>
     </div>
   </div>
 </header>
 <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
-  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../index.html" class="hover:text-blue-300">Tools</a> · free</p>
+  <p class="text-xs mono uppercase tracking-widest text-blue-400 mb-2"><a href="../" class="hover:text-blue-300">Tools</a> · free</p>
   <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Drawdown Recovery Calculator</h1>
   <p class="text-zinc-400 text-lg mb-8">A loss and its recovery are <strong class="text-zinc-200">not symmetric</strong>. Enter how far you're down and see the gain you actually need to get back to break-even — the math every risk manager respects.</p>
   <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7 space-y-5">
@@ -51,6 +74,15 @@
     <div id="out"></div>
   </div>
   <p class="text-xs text-zinc-600 mt-3">Estimate only, not financial advice.</p>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-white mb-4">How it's calculated</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 mono text-sm text-white leading-relaxed">Gain needed (%) = D ÷ (100 − D) × 100</div>
+    <ul class="mt-4 space-y-1.5 text-sm text-zinc-400"><li><span class="mono text-zinc-200">D</span> — your current drawdown, as a percentage of the peak balance (between 0 and 100)</li><li><span class="mono text-zinc-200">100 − D</span> — the percentage of the peak balance you have left</li><li><span class="mono text-zinc-200">Gain needed</span> — the percentage return on the reduced balance required to get back to the peak</li></ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-2xl font-bold text-white mb-4">Worked example</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-5 text-sm text-zinc-400 space-y-2"><p>Your account peaked at <span class="mono text-zinc-200">$10,000</span> and is now down <span class="mono text-zinc-200">25%</span>, at <span class="mono text-zinc-200">$7,500</span>.</p><p>Gain needed = 25 ÷ (100 − 25) × 100 = 25 ÷ 75 × 100 = <span class="mono text-emerald-400">+33.33%</span>.</p><p>Check: $7,500 × 1.3333 ≈ $10,000. A 25% loss needs a 33.33% gain to break even — not 25%.</p></div>
+  </section>
   <section class="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-950/40 to-zinc-900/30 p-6 sm:p-8">
     <h2 class="text-2xl font-bold text-white mb-2">Run it on your real trades</h2>
     <p class="text-zinc-400 mb-5">SignalDeck computes all of this automatically from your journaled trades — R-multiple, expectancy, SQN, Kelly, drawdown. Free during beta.</p>
@@ -59,21 +91,28 @@
   <section class="mt-10">
     <h2 class="text-xl font-bold text-white mb-3">More tools</h2>
     <div class="flex flex-wrap gap-3 text-sm">
-      <a href="../../position-sizing/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
-      <a href="../r-multiple-calculator/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
-      <a href="../../would-i-pass/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
-      <a href="../index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
+      <a href="../../position-sizing/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📐 Position Size</a>
+      <a href="../r-multiple-calculator/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">📊 R-Multiple</a>
+      <a href="../../would-i-pass/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">✅ Would I Pass?</a>
+      <a href="../" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300">All tools →</a>
     </div>
   </section>
   <section class="mt-12">
-    <h2 class="text-2xl font-bold text-white mb-4">FAQ</h2>
-    <div class="space-y-4 text-sm"><div><h3 class="font-bold text-white">Why does a bigger drawdown need a disproportionately larger gain?</h3><p class="text-zinc-400">Because the gain is calculated on the smaller, post-loss balance. Lose 50% and you have half left — you now need to double (+100%) just to get back to even. The deeper the hole, the steeper the climb.</p></div><div><h3 class="font-bold text-white">What is drawdown?</h3><p class="text-zinc-400">Drawdown is the peak-to-trough decline in your account, usually expressed as a percentage of the peak. It's the single most important risk number a prop firm — and your own survival — cares about.</p></div></div>
+    <h2 class="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-4 text-sm">
+      <div><h3 class="font-bold text-white">Why does a bigger drawdown need a disproportionately larger gain?</h3><p class="text-zinc-400">Because the gain is calculated on the smaller, post-loss balance. Lose 50% and you have half left — you now need to double (+100%) just to get back to even. The deeper the hole, the steeper the climb.</p></div>
+      <div><h3 class="font-bold text-white">What is drawdown?</h3><p class="text-zinc-400">Drawdown is the peak-to-trough decline in your account, usually expressed as a percentage of the peak. It's the single most important risk number a prop firm — and your own survival — cares about.</p></div>
+      <div><h3 class="font-bold text-white">How much gain do I need to recover a 20% drawdown?</h3><p class="text-zinc-400">You need a 25% gain to recover a 20% drawdown. A $10,000 account down 20% is at $8,000, and $8,000 has to grow by $2,000 — 25% of $8,000 — to get back to $10,000.</p></div>
+      <div><h3 class="font-bold text-white">What drawdown is too big to recover from?</h3><p class="text-zinc-400">There is no hard cutoff, but the required gain accelerates sharply past 30–40%: a 30% drawdown needs +42.86%, a 40% drawdown needs +66.67%, and a 50% drawdown needs +100%. That is why most risk plans and prop firms cap drawdown at around 5–10%, where the recovery gain (+5.26% to +11.11%) stays close to the loss.</p></div>
+      <div><h3 class="font-bold text-white">How does risk per trade affect drawdown?</h3><p class="text-zinc-400">Lower risk per trade makes every losing streak shallower. Ten losses in a row at 1% risk per trade (compounded) leave you down about 9.6%, which needs roughly +10.6% to recover; the same streak at 5% risk leaves you down about 40.1%, which needs roughly +67% to recover.</p></div>
+    </div>
+    <p class="mt-6 text-sm text-zinc-400">Watch your drawdown in real time instead of after the fact: <a href="../../live-drawdown-monitor/" class="text-blue-400 hover:text-blue-300">SignalDeck Live Drawdown Monitor</a> tracks it against your prop-firm limits, and <a href="../../analytics/" class="text-blue-400 hover:text-blue-300">SignalDeck Analytics</a> charts it across your whole journal.</p>
   </section>
 </main>
 <footer class="border-t border-zinc-800 mt-16">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 py-10 text-xs text-zinc-600 mono space-y-2">
     <p>&copy; 2026 SignalDeck · sgnldk.com</p>
-    <p><a href="../index.html" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/index.html" class="hover:text-zinc-400">Blog</a> · <a href="../../index.html" class="hover:text-zinc-400">Home</a></p>
+    <p><a href="../" class="hover:text-zinc-400">Tools</a> · <a href="../../blog/" class="hover:text-zinc-400">Blog</a> · <a href="../../" class="hover:text-zinc-400">Home</a></p>
   </div>
 </footer>
 <script>

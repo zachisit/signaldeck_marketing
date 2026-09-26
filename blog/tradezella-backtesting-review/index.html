@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TradeZella Backtesting Review: Replay, Not Rules | SignalDeck</title>
+    <title>TradeZella Backtesting Review: Replay, Not Rules</title>
     <meta name="description" content="TradeZella's backtesting is trade replay, not strategy testing. Here is the difference, why it matters, and what real rule-based backtesting looks like.">
     <meta name="keywords" content="tradezella backtesting, does tradezella have backtesting, tradezella review 2026, tradezella vs signaldeck, trade replay vs backtesting, rule-based backtesting, trading journal backtester, tradezella alternative">
     <meta name="author" content="SignalDeck">
@@ -29,35 +29,38 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/tradezella-backtesting-review/">
-    <meta property="twitter:title" content="TradeZella Backtesting Review: Replay, Not Rules | SignalDeck">
-    <meta property="twitter:description" content="TradeZella's backtesting is trade replay, not strategy testing. Here is the difference, why it matters, and what real rule-based backtesting looks like.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/tradezella-backtesting-review/">
+    <meta name="twitter:title" content="TradeZella Backtesting Review: Replay, Not Rules | SignalDeck">
+    <meta name="twitter:description" content="TradeZella's backtesting is trade replay, not strategy testing. Here is the difference, why it matters, and what real rule-based backtesting looks like.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01e-monte-carlo.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "TradeZella Backtesting Review: Replay vs. Rule-Based Testing Explained",
-        "description": "TradeZella's backtesting is trade replay — it replays your closed trades, not a rule set on historical data. This article explains the difference and why it matters before risking real capital.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://sgnldk.com/blog/tradezella-backtesting-review/"
-        },
-        "datePublished": "2026-06-30",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01e-monte-carlo.png"
-    }
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TradeZella Backtesting Review: Replay vs. Rule-Based Testing Explained",
+    "description": "TradeZella's backtesting is trade replay — it replays your closed trades, not a rule set on historical data. This article explains the difference and why it matters before risking real capital.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/tradezella-backtesting-review/"
+    },
+    "datePublished": "2026-06-30",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01e-monte-carlo.png"
+}
     </script>
 
     <script type="application/ld+json">
@@ -123,7 +126,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #09090b; color: #e4e4e7; }
         .mono { font-family: 'JetBrains Mono', monospace; }
@@ -145,14 +148,14 @@
     <nav class="sticky top-0 z-50 bg-zinc-950/95 backdrop-blur border-b border-zinc-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <a href="../../" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
                     <img src="../../img/logo-horizontal-light.svg" alt="SignalDeck" class="h-7">
                 </a>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../free/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../free/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Free</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
                     <a href="https://app.sgnldk.com/register" onclick="gtag('event','cta_click',{cta_location:'nav_desktop',page:'blog-tradezella-backtesting'})" class="inline-flex items-center px-4 py-2 border border-blue-500/30 text-sm font-medium rounded-md text-blue-400 hover:bg-blue-500/10 transition-colors duration-200">
                         Start Free
@@ -164,10 +167,10 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../free/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../free/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Free</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
             <a href="https://app.sgnldk.com/register" onclick="gtag('event','cta_click',{cta_location:'nav_mobile',page:'blog-tradezella-backtesting'})" class="block py-2.5 text-sm font-medium text-blue-400 hover:text-blue-300">Start Free</a>
         </div>
@@ -177,7 +180,7 @@
     <header class="border-b border-zinc-800/60 py-14">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="flex items-center gap-2 mb-5">
-                <a href="../index.html" class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">Blog</a>
+                <a href="../" class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">Blog</a>
                 <span class="text-zinc-700">›</span>
                 <span class="text-xs text-zinc-500">Comparison</span>
             </div>
@@ -296,7 +299,7 @@
 
             <h2>Walk-Forward Analysis: The Test Trade Replay Cannot Run</h2>
             <p>
-                <a href="../walk-forward-analysis/index.html">Walk-Forward Analysis (WFA)</a> is the industry-standard method for detecting overfitting before going live. It works by splitting your historical data into two windows:
+                <a href="../walk-forward-analysis/">Walk-Forward Analysis (WFA)</a> is the industry-standard method for detecting overfitting before going live. It works by splitting your historical data into two windows:
             </p>
             <ul>
                 <li><strong>In-sample (80%):</strong> the data used to develop and optimize the strategy</li>
@@ -342,10 +345,10 @@
 
             <h2>Monte Carlo: Knowing Your Worst Case Before the Account Finds It</h2>
             <p>
-                Even a strategy with strong WFA results has unknown sequence risk. The same 200 trades, in a different order, produce a different equity curve — sometimes dramatically worse. <a href="../monte-carlo-simulation-trading/index.html">Monte Carlo simulation</a> addresses this by randomly reshuffling your trade sequence 1,000 times and plotting every resulting equity curve.
+                Even a strategy with strong WFA results has unknown sequence risk. The same 200 trades, in a different order, produce a different equity curve — sometimes dramatically worse. <a href="../monte-carlo-simulation-trading/">Monte Carlo simulation</a> addresses this by randomly reshuffling your trade sequence 1,000 times and plotting every resulting equity curve.
             </p>
             <p>
-                The output is a probability distribution of outcomes: 5th percentile (worst 5% of paths), 25th, 50th (median), 75th, and 95th percentile. If the 5th-percentile path hits a 15% drawdown, you know there's a 5% chance of that scenario occurring even if your edge is real — and you can size accordingly using <a href="../kelly-criterion-position-sizing/index.html">Kelly Criterion</a>.
+                The output is a probability distribution of outcomes: 5th percentile (worst 5% of paths), 25th, 50th (median), 75th, and 95th percentile. If the 5th-percentile path hits a 15% drawdown, you know there's a 5% chance of that scenario occurring even if your edge is real — and you can size accordingly using <a href="../kelly-criterion-position-sizing/">Kelly Criterion</a>.
             </p>
             <p>
                 TradeZella's replay cannot run this simulation. It would require a rule-based system generating hundreds of trades to sample from.
@@ -356,7 +359,7 @@
                 TradeZella journals trades primarily in P&L (dollars and pips). This creates a comparison problem: a $500 winner on a 0.1-lot trade and a $500 winner on a 1.0-lot trade look identical in dollar terms but are completely different trade qualities. The 0.1-lot trade earned 5R; the 1.0-lot trade earned 0.5R.
             </p>
             <p>
-                SignalDeck uses <a href="../what-is-r-multiple/index.html">R-Multiple</a> as its core metric. Every trade outcome is expressed as a multiple of the initial risk — which means you can aggregate statistics across different instruments, account sizes, and timeframes without the numbers lying to you.
+                SignalDeck uses <a href="../what-is-r-multiple/">R-Multiple</a> as its core metric. Every trade outcome is expressed as a multiple of the initial risk — which means you can aggregate statistics across different instruments, account sizes, and timeframes without the numbers lying to you.
             </p>
             <p>
                 From R-Multiple, SignalDeck automatically calculates expectancy, SQN, Kelly Criterion, and profit factor — all normalized to risk. TradeZella's P&L-based analytics don't support this normalization.
@@ -379,7 +382,7 @@
                 <li><strong>Kelly Criterion sizing</strong> calibrated to your actual win rate and average R — not a YouTube rule of thumb</li>
             </ul>
             <p>
-                <a href="../../trade-replay/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Trade replay</a> can support the journaling habit. It cannot validate a strategy. If you're preparing for a prop firm evaluation or scaling up position size, you need the quantitative validation layer — and that requires rule-based backtesting with overfitting detection.
+                <a href="../../trade-replay/" class="text-blue-400 hover:text-blue-300 transition-colors">Trade replay</a> can support the journaling habit. It cannot validate a strategy. If you're preparing for a prop firm evaluation or scaling up position size, you need the quantitative validation layer — and that requires rule-based backtesting with overfitting detection.
             </p>
 
         </article>
@@ -388,7 +391,7 @@
         <div class="mt-16 border-t border-zinc-800 pt-12">
             <h2 class="text-xl font-bold text-white mb-2">SignalDeck vs TradeZella</h2>
             <p class="text-zinc-500 text-sm mb-6">Full feature comparison — backtesting, analytics, broker import, and pricing.</p>
-            <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-xl p-6 transition-colors">
+            <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-xl p-6 transition-colors">
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                 <p class="text-white font-semibold group-hover:text-blue-400 transition-colors leading-snug">SignalDeck vs TradeZella — Full Comparison</p>
                 <p class="text-zinc-500 text-sm mt-2">Walk-Forward Analysis, Monte Carlo, grid-search, R-Multiple framework, live MT5 sync — all the features TradeZella doesn't have, side by side.</p>
@@ -426,22 +429,22 @@
         <div class="mt-16 border-t border-zinc-800 pt-12">
             <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
             <div class="grid sm:grid-cols-2 gap-4">
-                <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                <a href="../walk-forward-analysis/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                     <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Backtesting</span>
                     <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
                     <p class="text-zinc-500 text-xs mt-2">June 2, 2026</p>
                 </a>
-                <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                <a href="../monte-carlo-simulation-trading/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                     <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Backtesting</span>
                     <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst Case Before Your Account Finds It</p>
                     <p class="text-zinc-500 text-xs mt-2">April 29, 2026</p>
                 </a>
-                <a href="../what-is-r-multiple/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                <a href="../what-is-r-multiple/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                     <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
                     <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">What Is R-Multiple? The Risk-Normalized Metric That Changes How You Measure Trading Performance</p>
                     <p class="text-zinc-500 text-xs mt-2">April 7, 2026</p>
                 </a>
-                <a href="../kelly-criterion-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                <a href="../kelly-criterion-position-sizing/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                     <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
                     <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Kelly Criterion: Let Your Own Data Tell You How Much to Risk Per Trade</p>
                     <p class="text-zinc-500 text-xs mt-2">May 13, 2026</p>
@@ -461,7 +464,7 @@
                     class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                     Try SignalDeck Free
                 </a>
-                <a href="../../compare/tradezella/index.html"
+                <a href="../../compare/tradezella/"
                     class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                     Full Comparison &rarr;
                 </a>
@@ -482,6 +485,19 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is Walk-Forward Analysis and why does TradeZella not have it?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Walk-Forward Analysis is a validation method that splits your historical data into an in-sample optimization window and an out-of-sample test window. You optimize your strategy on the in-sample data, then measure performance on the unseen out-of-sample data. If performance collapses on the out-of-sample window, the strategy is curve-fitted to past data and will not work live. Walk-Forward Analysis requires rule-based backtesting. Because TradeZella only has trade replay, it cannot offer Walk-Forward Analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-2xl mx-auto px-4 text-center">
             <p class="mt-12 text-xs text-zinc-600 font-mono">
@@ -498,10 +514,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -511,7 +541,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -521,6 +551,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

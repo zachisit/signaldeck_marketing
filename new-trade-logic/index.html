@@ -27,10 +27,11 @@
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/new-trade-logic/">
-    <meta property="twitter:title" content="Pre-Trade Planning Journal | New Trade Logic | SignalDeck">
-    <meta property="twitter:description" content="Log your setup, bias, and entry criteria before you place the trade. Enforce discipline before execution — not just after.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/new-trade-logic/">
+    <meta name="twitter:title" content="Pre-Trade Planning Journal | New Trade Logic | SignalDeck">
+    <meta name="twitter:description" content="Log your setup, bias, and entry criteria before you place the trade. Enforce discipline before execution — not just after.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01g-distribution.png">
 
     <script type="application/ld+json">
@@ -85,20 +86,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b' },
-                    },
-                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://sgnldk.com/#app", "name": "SignalDeck", "url": "https://sgnldk.com/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://sgnldk.com/#org"}, "subjectOf": {"@type": "WebPage", "@id": "https://sgnldk.com/new-trade-logic/", "name": "New Trade Logic: Pre-Trade Planning Journal"}}
+    </script>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "New Trade Logic: Pre-Trade Planning Journal", "item": "https://sgnldk.com/new-trade-logic/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
 
@@ -109,11 +104,11 @@
                 <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
-                <a href="../backtester/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Backtester</a>
-                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../backtester/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Backtester</a>
+                <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
             </div>
         </div>
     </nav>
@@ -249,7 +244,7 @@
             <p class="text-zinc-400 leading-relaxed mb-6">Most traders know their win rate. Very few know which specific setup type drives that win rate. A trader with 60% win rate and three setup types might find that one produces 78% wins and the other two produce 48%. Eliminating the underperforming setups is one of the highest-leverage improvements available — but only once you can see the data broken out.</p>
             <p class="text-zinc-400 leading-relaxed">New Trade Logic creates that dataset automatically. Log the setup before entry, attach to the outcome, and the analytics tab shows performance by setup type, signal type, and checklist completion rate.</p>
             <div class="mt-8">
-                <a href="../analytics/index.html" class="text-violet-400 hover:text-violet-300 transition-colors text-sm">See how SignalDeck's analytics layer uses this data →</a>
+                <a href="../analytics/" class="text-violet-400 hover:text-violet-300 transition-colors text-sm">See how SignalDeck's analytics layer uses this data →</a>
             </div>
         </div>
     </section>
@@ -300,21 +295,46 @@
         <div class="max-w-4xl mx-auto px-6">
             <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest text-center mb-6">Related SignalDeck Features</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="../post-mortem/index.html" class="bg-zinc-900/50 border border-sky-500/20 rounded-lg p-4 hover:border-sky-500/40 transition-colors">
+                <a href="../post-mortem/" class="bg-zinc-900/50 border border-sky-500/20 rounded-lg p-4 hover:border-sky-500/40 transition-colors">
                     <div class="text-sky-400 font-mono text-[10px] uppercase tracking-widest mb-2">Post-Trade</div>
                     <div class="text-white text-sm font-semibold mb-1">Post Mortem</div>
                     <div class="text-zinc-500 text-xs">AI-powered structured trade review. Compare actual execution against your pre-trade plan.</div>
                 </a>
-                <a href="../backtester/index.html" class="bg-zinc-900/50 border border-amber-500/20 rounded-lg p-4 hover:border-amber-500/40 transition-colors">
+                <a href="../backtester/" class="bg-zinc-900/50 border border-amber-500/20 rounded-lg p-4 hover:border-amber-500/40 transition-colors">
                     <div class="text-amber-400 font-mono text-[10px] uppercase tracking-widest mb-2">Backtester</div>
                     <div class="text-white text-sm font-semibold mb-1">Strategy Backtester</div>
                     <div class="text-zinc-500 text-xs">Validate a setup's edge on historical data before you commit live capital to it.</div>
                 </a>
-                <a href="../analytics/index.html" class="bg-zinc-900/50 border border-blue-500/20 rounded-lg p-4 hover:border-blue-500/40 transition-colors">
+                <a href="../analytics/" class="bg-zinc-900/50 border border-blue-500/20 rounded-lg p-4 hover:border-blue-500/40 transition-colors">
                     <div class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-2">Analytics</div>
                     <div class="text-white text-sm font-semibold mb-1">Trade Analytics</div>
                     <div class="text-zinc-500 text-xs">SQN, expectancy, and MAE/MFE broken out by setup type, signal, and checklist completion.</div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Why should I plan trades before entering them?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Pre-trade planning forces you to commit to entry criteria, target, and stop before emotions are involved. When the trade moves against you, you have a written record of the original thesis — either the thesis is still valid and you hold, or it's invalid and you exit. Without a written plan, most traders change their stop mid-trade, exit winners too early, and hold losers too long. Planning before entry is the structural fix for all three.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is a trade setup library?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">A trade setup library is a searchable archive of your pre-trade plans linked to their actual outcomes. Each entry captures your setup name, bias, signal, screenshot, and checklist at entry time — then the actual trade data is attached when the position closes. Over 50+ trades, you can filter by setup type and see which setups have positive expectancy and which don't. This is how you build an evidence-based edge rather than relying on pattern recognition memory alone.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How is New Trade Logic different from just adding notes to a trade?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Adding notes after the trade is influenced by the outcome. If you won, your notes will rationalize why it was a good entry. If you lost, your notes will highlight what went wrong. New Trade Logic captures the pre-entry state — your setup, bias, screenshot, and checklist — before you know the result. This gives you unbiased data: you can later see if your pre-trade thesis was correct, regardless of whether the trade was profitable.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Does New Trade Logic work with prop firm challenge accounts?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Prop firm traders benefit particularly from pre-trade checklists because challenge rules (daily loss limit, max drawdown, consistency rules) require disciplined execution — not just a profitable edge. Adding a checklist item for 'within daily loss limit headroom' before every entry adds a mechanical gate that forces you to check the drawdown monitor before placing a trade. SignalDeck's Risk Profile settings let you configure these limits per account.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -332,9 +352,23 @@
                 <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
-            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> | <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a></p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> | <a href="../futures/" class="hover:text-zinc-400">Futures</a></p>
             <p class="mt-1"><a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
-            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
         </div>
     </footer>
 

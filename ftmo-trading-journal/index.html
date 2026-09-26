@@ -29,10 +29,11 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/ftmo-trading-journal/">
-    <meta property="twitter:title" content="FTMO Trading Journal | MT4/MT5 Import | SignalDeck">
-    <meta property="twitter:description" content="SignalDeck integrates with FTMO MT4/MT5 accounts via MetaApi. R-Multiple framework mirrors FTMO drawdown rules. Walk-Forward Analysis validates your edge before the challenge fee.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/ftmo-trading-journal/">
+    <meta name="twitter:title" content="FTMO Trading Journal | MT4/MT5 Import | SignalDeck">
+    <meta name="twitter:description" content="SignalDeck integrates with FTMO MT4/MT5 accounts via MetaApi. R-Multiple framework mirrors FTMO drawdown rules. Walk-Forward Analysis validates your edge before the challenge fee.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01f-drawdown.png">
 
     <script type="application/ld+json">
@@ -116,28 +117,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
-                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
-                        purple: { 500: '#a855f7', 400: '#c084fc' },
-                        emerald: { 500: '#10b981', 400: '#34d399' },
-                        rose: { 500: '#f43f5e' },
-                        amber: { 400: '#fbbf24' },
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -157,12 +138,12 @@
                     <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
                 </div>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
-                    <a href="../prop-firm/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Prop Firm</a>
+                    <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../prop-firm/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Prop Firm</a>
                     <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -170,12 +151,12 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
-            <a href="../prop-firm/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Prop Firm</a>
+            <a href="../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../prop-firm/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Prop Firm</a>
             <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -208,7 +189,7 @@
                     class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-emerald-900/20">
                     Start Free — Beta Access
                 </a>
-                <a href="../prop-firm/index.html"
+                <a href="../prop-firm/"
                     class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
                     Full Prop Firm Features
                 </a>
@@ -263,7 +244,7 @@
                             <span class="text-zinc-500">Stop loss requires manual entry after import for R-Multiple calculation</span>
                         </li>
                     </ul>
-                    <a href="../broker-import/index.html" class="text-blue-400 hover:text-blue-300 text-sm mt-5 inline-block transition-colors">Full import details and how MetaApi connects &rarr;</a>
+                    <a href="../broker-import/" class="text-blue-400 hover:text-blue-300 text-sm mt-5 inline-block transition-colors">Full import details and how MetaApi connects &rarr;</a>
                 </div>
 
                 <!-- Visual: import feed -->
@@ -385,10 +366,10 @@
                         <span class="text-emerald-400">R-value enforces them automatically.</span>
                     </h2>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        FTMO's trading objectives — 10% profit target, 5% daily loss limit, 10% maximum drawdown — are all percentage-of-equity constraints (our <a href="../blog/ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules explained</a> guide breaks each one down). R-Multiple thinking enforces the same constraints as your position sizing methodology. When 1R is defined as 1% of your current funded equity, your daily loss limit becomes a simple R count. No dollar-amount monitoring alongside your sizing decisions.
+                        FTMO's trading objectives — 10% profit target, 5% daily loss limit, 10% maximum drawdown — are all percentage-of-equity constraints (our <a href="../blog/ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO challenge rules explained</a> guide breaks each one down). R-Multiple thinking enforces the same constraints as your position sizing methodology. When 1R is defined as 1% of your current funded equity, your daily loss limit becomes a simple R count. No dollar-amount monitoring alongside your sizing decisions.
                     </p>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        After a losing sequence, your funded equity decreases. Because SignalDeck syncs your live FTMO balance, your 1R dollar amount decreases with it -- you're automatically de-sizing after drawdown without changing any settings. This is what <a href="../blog/journal-account-balance/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">live balance sync</a> makes possible. For an MT5-specific walkthrough of how this fits together with drawdown tracking and Kelly sizing, see the <a href="../blog/mt5-prop-firm-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal guide</a>.
+                        After a losing sequence, your funded equity decreases. Because SignalDeck syncs your live FTMO balance, your 1R dollar amount decreases with it -- you're automatically de-sizing after drawdown without changing any settings. This is what <a href="../blog/journal-account-balance/" class="text-blue-400 hover:text-blue-300 transition-colors">live balance sync</a> makes possible. For an MT5-specific walkthrough of how this fits together with drawdown tracking and Kelly sizing, see the <a href="../blog/mt5-prop-firm-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">MT5 prop firm journal guide</a>.
                     </p>
                     <div class="grid grid-cols-2 gap-3">
                         <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-3">
@@ -426,10 +407,10 @@
                         An FTMO Challenge costs $155–$1,080+ depending on account size. Most traders pay to find out whether their strategy works under prop firm conditions. SignalDeck lets you find that out first.
                     </p>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        <a href="../blog/walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> splits your backtest data into in-sample and out-of-sample windows, returns a Pass or Likely Overfitted verdict, and shows the walk-forward efficiency ratio. A passing strategy has demonstrated that its parameters hold up on data they were never fit to — which is the closest thing to a live test you can run before you're live.
+                        <a href="../blog/walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">Walk-Forward Analysis</a> splits your backtest data into in-sample and out-of-sample windows, returns a Pass or Likely Overfitted verdict, and shows the walk-forward efficiency ratio. A passing strategy has demonstrated that its parameters hold up on data they were never fit to — which is the closest thing to a live test you can run before you're live.
                     </p>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        <a href="../blog/monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> reruns your trade sequence 1,000 times in randomized order. The 5th percentile result is your worst-case drawdown under bad luck conditions — the drawdown your historical sequence happened to avoid. Know whether your system can survive FTMO's 10% max drawdown under adverse trade sequences before you submit.
+                        <a href="../blog/monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> reruns your trade sequence 1,000 times in randomized order. The 5th percentile result is your worst-case drawdown under bad luck conditions — the drawdown your historical sequence happened to avoid. Know whether your system can survive FTMO's 10% max drawdown under adverse trade sequences before you submit.
                     </p>
                     <ul class="space-y-3 text-sm text-zinc-400">
                         <li class="flex items-start gap-3">
@@ -592,7 +573,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Run the FTMO rules check from Claude or ChatGPT.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">Connected to SignalDeck, your assistant can check a planned trade against the FTMO preset and your current open positions, then log it for you if it passes. It uses the same rules engine as the app, reached from the conversation you're already having.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'ftmo-trading-journal'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'ftmo-trading-journal'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -621,11 +602,25 @@
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
                 <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
-                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a>
+                <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../alerts/" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |
@@ -634,7 +629,7 @@
                 <a href="../discord.html" class="hover:text-zinc-400">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>

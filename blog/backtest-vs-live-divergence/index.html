@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Backtest vs Live Results: Diagnosing Backtest-to-Live Divergence | SignalDeck</title>
-    <meta name="description" content="A 2.1 SQN backtest and a 0.6 SQN live run are not automatically two different strategies. Rule out sample variance first, then rank the six real causes of divergence, and reconcile the curves within tolerance.">
+    <title>Backtest vs Live Results: Diagnosing the Divergence</title>
+    <meta name="description" content="A 2.1 SQN backtest and a 0.6 SQN live run aren't automatically different strategies. Rule out variance, then rank the six real causes.">
     <meta name="keywords" content="backtest vs live results, why does my strategy work in backtest but not live, live trading underperforms backtest, algo trading slippage, EA live vs backtest, forward testing divergence">
     <meta name="author" content="SignalDeck">
 
@@ -28,24 +28,38 @@
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/backtest-vs-live-divergence/">
-    <meta property="twitter:title" content="Backtest vs Live Results: Diagnosing Backtest-to-Live Divergence | SignalDeck">
-    <meta property="twitter:description" content="A 2.1 SQN backtest and a 0.6 SQN live run are not automatically two different strategies. Rule out sample variance first, then rank the six real causes of divergence, and reconcile the curves within tolerance.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/backtest-vs-live-divergence/">
+    <meta name="twitter:title" content="Backtest vs Live Results: Diagnosing Backtest-to-Live Divergence | SignalDeck">
+    <meta name="twitter:description" content="A 2.1 SQN backtest and a 0.6 SQN live run are not automatically two different strategies. Rule out sample variance first, then rank the six real causes of divergence, and reconcile the curves within tolerance.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01aa-divergence.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Your Backtest Said 2.1 SQN and Live Says 0.6: Diagnosing Backtest-to-Live Divergence",
-        "description": "Why a live trading run underperforms its backtest is rarely one mystery cause. First, rule out sample variance with a standard-error check on your live R-multiples. If the gap survives that, work through the six real causes in the order they tend to matter - slippage and spread, commission modeling, look-ahead bias, survivorship and data quality, regime change, and execution latency - then measure your actual slippage, retroactively test for overfitting with walk-forward analysis, separate regime change from a broken edge using rolling expectancy, and reconcile the two curves by re-running the backtest with your measured live costs.",
-        "author": { "@type": "Organization", "name": "SignalDeck" },
-        "publisher": { "@type": "Organization", "name": "SignalDeck", "url": "https://sgnldk.com" },
-        "datePublished": "2026-08-14",
-        "dateModified": "2026-08-14",
-        "image": "https://sgnldk.com/assets/banner-01aa-divergence.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Your Backtest Said 2.1 SQN and Live Says 0.6: Diagnosing Backtest-to-Live Divergence",
+    "description": "Why a live trading run underperforms its backtest is rarely one mystery cause. First, rule out sample variance with a standard-error check on your live R-multiples. If the gap survives that, work through the six real causes in the order they tend to matter - slippage and spread, commission modeling, look-ahead bias, survivorship and data quality, regime change, and execution latency - then measure your actual slippage, retroactively test for overfitting with walk-forward analysis, separate regime change from a broken edge using rolling expectancy, and reconcile the two curves by re-running the backtest with your measured live costs.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-08-14",
+    "dateModified": "2026-08-14",
+    "image": "https://sgnldk.com/assets/banner-01aa-divergence.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/backtest-vs-live-divergence/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -113,28 +127,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
-                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
-                        purple: { 500: '#a855f7', 400: '#c084fc' },
-                        emerald: { 500: '#10b981' },
-                        rose: { 500: '#f43f5e' },
-                        teal: { 400: '#2dd4bf' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -158,11 +152,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -170,11 +164,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -183,7 +177,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-08-14" class="text-xs font-mono text-zinc-500">August 14, 2026</time>
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Strategy</span>
@@ -288,7 +282,7 @@
                 There is one cause worth checking before all six of the above, and it is the least comfortable: if the 2,000-trade backtest was optimized in-sample and never validated on a genuine out-of-sample segment, the live divergence is not a mystery to be solved. It is the out-of-sample test the strategy never took, arriving three months late and at real cost instead of on a spreadsheet.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The tell is usually visible in the build history rather than the trade log: parameters chosen by scanning a grid for the best-performing combination over the full dataset, no reserved holdout period, and an equity curve that looks unusually smooth for the instrument being traded. If that describes your process, run <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward analysis</a> retroactively on the same history — chop it into rolling in-sample and out-of-sample windows and check whether the out-of-sample segments were already decaying before you ever went live. It is uncomfortable to find that they were, but far cheaper to find out on historical data than to keep re-discovering it one live quarter at a time. If the strategy's parameters came from a wide sweep in the first place, the mechanics of exactly how that sweep can manufacture an in-sample edge that was never real are covered in the piece on <a href="../what-is-grid-search-parameter-optimization/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">grid search parameter optimization</a>.
+                The tell is usually visible in the build history rather than the trade log: parameters chosen by scanning a grid for the best-performing combination over the full dataset, no reserved holdout period, and an equity curve that looks unusually smooth for the instrument being traded. If that describes your process, run <a href="../walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward analysis</a> retroactively on the same history — chop it into rolling in-sample and out-of-sample windows and check whether the out-of-sample segments were already decaying before you ever went live. It is uncomfortable to find that they were, but far cheaper to find out on historical data than to keep re-discovering it one live quarter at a time. If the strategy's parameters came from a wide sweep in the first place, the mechanics of exactly how that sweep can manufacture an in-sample edge that was never real are covered in the piece on <a href="../what-is-grid-search-parameter-optimization/" class="text-blue-400 hover:text-blue-300 transition-colors">grid search parameter optimization</a>.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">5. Regime Change vs. Broken Strategy</h2>
@@ -296,7 +290,7 @@
                 If the overfitting check comes back clean and the measured-cost reconciliation still leaves a gap, the remaining question is whether the market changed or the edge did. These produce similar-looking equity curves and call for opposite responses, which is what makes misdiagnosing them expensive in either direction.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The distinguishing tool is a rolling expectancy or rolling SQN — computed over your most recent trailing window of trades — set against the lifetime figure for the same strategy. A strategy in regime change typically shows a lifetime figure that is still intact, a rolling figure that has dropped, and a decline that lines up with something observable in the market itself: volatility compressing or expanding outside its historical range, a correlation that used to hold breaking down, a session's typical range shifting. A strategy that is actually broken shows the same rolling decline with no such correlate, or one that started immediately after a period of re-optimization against the same data now being traded — which is really the overfitting tell from the previous section resurfacing under a new name. <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">The rolling-versus-lifetime comparison</a> is the same diagnostic either way; what differs is what you find alongside it.
+                The distinguishing tool is a rolling expectancy or rolling SQN — computed over your most recent trailing window of trades — set against the lifetime figure for the same strategy. A strategy in regime change typically shows a lifetime figure that is still intact, a rolling figure that has dropped, and a decline that lines up with something observable in the market itself: volatility compressing or expanding outside its historical range, a correlation that used to hold breaking down, a session's typical range shifting. A strategy that is actually broken shows the same rolling decline with no such correlate, or one that started immediately after a period of re-optimization against the same data now being traded — which is really the overfitting tell from the previous section resurfacing under a new name. <a href="../how-to-know-when-your-strategy-is-dying/" class="text-blue-400 hover:text-blue-300 transition-colors">The rolling-versus-lifetime comparison</a> is the same diagnostic either way; what differs is what you find alongside it.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 The response has to match the diagnosis, and getting it backwards is the costly failure mode. Regime change calls for reducing size and waiting for the environment to normalize, because the edge is still there and re-optimizing against a temporary condition just fits new noise on top of the old kind. A broken strategy calls for stopping, not waiting — there is no environment to wait out, and every trade taken while "giving it more time" is capital spent confirming a conclusion you already have reasonable evidence for.
@@ -310,7 +304,7 @@
                 Then compare the corrected backtest curve to the live curve, and judge the residual against a tolerance band rather than expecting an exact match — the confidence interval from step one, recomputed on the corrected numbers, is the right width for that band. If the gap has shrunk into that interval, the reconciliation is done: the strategy is behaving as expected once its real costs are accounted for. If a residual gap remains outside the band, it is telling you something specific — most often that one of the six causes was under-corrected — and the loop runs again: refine the measurement, re-run, re-compare.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                This is also where <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo resampling</a> earns its keep beyond the initial variance check: resampling the corrected backtest's trade sequence gives you a distribution of plausible equity paths rather than one line, and a live curve that sits inside that distribution's typical range is a stronger form of reconciliation than a single side-by-side comparison.
+                This is also where <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo resampling</a> earns its keep beyond the initial variance check: resampling the corrected backtest's trade sequence gives you a distribution of plausible equity paths rather than one line, and a live curve that sits inside that distribution's typical range is a stronger form of reconciliation than a single side-by-side comparison.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">7. What to Log So This Is Answerable at All</h2>
@@ -364,12 +358,12 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-2">Backtesting depth and whether strategy-tagged live trades link back to it</p>
                     </a>
-                    <a href="../../compare/tradesviz/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradesviz/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradesViz</p>
                         <p class="text-zinc-500 text-xs mt-2">Sync claims, cost fields and analytics depth</p>
@@ -381,22 +375,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../walk-forward-analysis/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../walk-forward-analysis/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs</p>
                         <p class="text-zinc-500 text-xs mt-2">May 20, 2026</p>
                     </a>
-                    <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../how-to-know-when-your-strategy-is-dying/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Know When Your Trading Strategy Is Dying (Before It Kills Your Account)</p>
                         <p class="text-zinc-500 text-xs mt-2">April 13, 2026</p>
                     </a>
-                    <a href="../what-is-grid-search-parameter-optimization/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../what-is-grid-search-parameter-optimization/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Grid Search Parameter Optimization in Trading: How It Works and Why It Overfits</p>
                         <p class="text-zinc-500 text-xs mt-2">Jun 15, 2026</p>
                     </a>
-                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../monte-carlo-simulation-trading/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
                         <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
@@ -416,7 +410,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta &mdash; Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans &rarr;
                     </a>
@@ -456,10 +450,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -469,7 +477,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -479,6 +487,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

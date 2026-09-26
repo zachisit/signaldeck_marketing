@@ -27,10 +27,11 @@
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01j-perspective.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/psychology/">
-    <meta property="twitter:title" content="Trading Psychology Journal | SignalDeck">
-    <meta property="twitter:description" content="Behavioral tagging, R-value per psychology pattern, and a structured Post Mortem on every trade. Free during beta.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/psychology/">
+    <meta name="twitter:title" content="Trading Psychology Journal | SignalDeck">
+    <meta name="twitter:description" content="Behavioral tagging, R-value per psychology pattern, and a structured Post Mortem on every trade. Free during beta.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01j-perspective.png">
 
     <script type="application/ld+json">
@@ -69,23 +70,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b' },
-                        rose: { 500: '#f43f5e', 400: '#fb7185' },
-                        emerald: { 500: '#10b981' },
-                        purple: { 500: '#a855f7' },
-                    },
-                    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <style>::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}</style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://sgnldk.com/#app", "name": "SignalDeck", "url": "https://sgnldk.com/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://sgnldk.com/#org"}, "subjectOf": {"@type": "WebPage", "@id": "https://sgnldk.com/psychology/", "name": "Trading Psychology Journal — Behavioral Tagging"}}
+    </script>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Trading Psychology Journal — Behavioral Tagging", "item": "https://sgnldk.com/psychology/"}]}
+    </script>
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-rose-500 selection:text-white">
 
@@ -96,11 +88,11 @@
                 <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                 <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
             </div>
         </div>
     </nav>
@@ -207,7 +199,7 @@
                 </div>
             </div>
             <div class="mt-6">
-                <a href="../post-mortem/index.html" class="text-sm text-rose-400 hover:text-rose-300 transition-colors">Learn more about the 5-step Post Mortem protocol →</a>
+                <a href="../post-mortem/" class="text-sm text-rose-400 hover:text-rose-300 transition-colors">Learn more about the 5-step Post Mortem protocol →</a>
             </div>
         </div>
     </section>
@@ -242,22 +234,22 @@
         <div class="max-w-4xl mx-auto px-6">
             <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest text-center mb-6">What else is in SignalDeck</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="../plans/index.html" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
+                <a href="../plans/" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
                     <div class="text-rose-400 font-mono text-[10px] uppercase tracking-widest mb-2">Backtester</div>
                     <div class="text-white text-sm font-semibold mb-1">Walk-Forward Analysis</div>
                     <div class="text-zinc-500 text-xs">Detect strategy overfitting before you risk real capital. The only journal with this.</div>
                 </a>
-                <a href="../plans/index.html" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
+                <a href="../plans/" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
                     <div class="text-rose-400 font-mono text-[10px] uppercase tracking-widest mb-2">Risk Modeling</div>
                     <div class="text-white text-sm font-semibold mb-1">1,000-Path Monte Carlo</div>
                     <div class="text-zinc-500 text-xs">Worst-case drawdown at the 5th percentile — before you trade live.</div>
                 </a>
-                <a href="../plans/index.html" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
+                <a href="../plans/" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
                     <div class="text-rose-400 font-mono text-[10px] uppercase tracking-widest mb-2">Optimization</div>
                     <div class="text-white text-sm font-semibold mb-1">Grid-Search Optimizer</div>
                     <div class="text-zinc-500 text-xs">Test 500 parameter combinations per backtest. Ranked by Sharpe, SQN, or profit factor.</div>
                 </a>
-                <a href="../plans/index.html" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
+                <a href="../plans/" class="bg-zinc-900/50 border border-rose-500/20 rounded-lg p-4 hover:border-rose-500/40 transition-colors">
                     <div class="text-rose-400 font-mono text-[10px] uppercase tracking-widest mb-2">Framework</div>
                     <div class="text-white text-sm font-semibold mb-1">R-Multiple System</div>
                     <div class="text-zinc-500 text-xs">Every metric — expectancy, SQN, Kelly Criterion — flows from risk-normalized R-value.</div>
@@ -278,6 +270,34 @@
         </div>
     </section>
 
+    <!-- Further reading -->
+    <section class="py-12 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-xl font-bold text-white mb-6">Further reading</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <a href="../blog/trading-coach-student-tracking/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors"><span class="text-xs font-mono text-blue-400">Blog</span><p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug mt-2">What Trading Coaches Should Track for Their Students</p></a>
+                <a href="../blog/trading-consistency/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors"><span class="text-xs font-mono text-blue-400">Blog</span><p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug mt-2">Trading Consistency Is a Number, Not a Virtue</p></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How does behavioral tagging work in SignalDeck?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">When logging or reviewing a trade, you tag it with the psychological driver that influenced the decision. Over time, SignalDeck shows you the average R-multiple per tag — so you can see that your FOMO trades average -0.8R while your plan-following trades average +0.6R. The data makes the cost of each behavioral pattern explicit and quantifiable.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">How is SignalDeck different from Edgewonk for psychology tracking?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Edgewonk is the most recognized psychology-focused trading journal. It uses a diary and emotion-tagging approach. SignalDeck takes a data-first approach: behavioral tags are tied to R-multiples so you can quantify the cost of each psychological pattern, not just describe it. SignalDeck also adds the 5-step Post Mortem protocol — a structured diagnostic review for every trade — which goes further than diary-style entries by separating process quality from outcome.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Assistant (MCP) callout -->
     <section class="py-16 border-t border-zinc-900 bg-zinc-950">
         <div class="max-w-5xl mx-auto px-6">
@@ -291,7 +311,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Talk it out. Your assistant writes the journal entry.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">With write access, Claude or ChatGPT can add a daily journal entry with your mood, and read back past entries and your goals, so patterns in how you felt and how you traded are one question away.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'psychology'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'psychology'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -319,10 +339,24 @@
                 <a href="../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
-            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/index.html" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/index.html" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
-                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a></p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2"><a href="../release-history.html" class="hover:text-zinc-400">Release History</a> | <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> | <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> | <a href="../alerts/" title="Position alerts" class="hover:text-zinc-400">Alerts</a> | <a href="../tools/" title="Free Trading Tools" class="hover:text-zinc-400">Tools</a> | <a href="../blog/" class="hover:text-zinc-400">Blog</a> | <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/" class="hover:text-zinc-400">Futures</a></p>
             <p class="mt-1"><a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> | <a href="https://www.youtube.com/@SignalDeck" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Youtube</a> | <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">LinkedIn</a> | <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">Bluesky</a> | <a href="../discord.html" class="hover:text-zinc-400">Discord</a></p>
-            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono"><a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> | <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> | <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a></p>
         </div>
     </footer>
 </body>

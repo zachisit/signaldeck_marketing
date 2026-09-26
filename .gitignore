@@ -7,3 +7,6 @@ seo_audit.csv
 
 # Claude Code session state and worktrees — never site content
 .claude/
+
+# Tailwind build tooling
+node_modules/

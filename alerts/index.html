@@ -21,13 +21,26 @@
     <meta property="og:title" content="Trade Alerts on Your Open Positions | SignalDeck">
     <meta property="og:description" content="Price, stop-level &amp; break-even alerts on the trades you actually hold — inside your journal. Most journals don't alert on open positions.">
     <meta property="og:image" content="https://sgnldk.com/assets/og-image.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Trade Alerts on Your Open Positions | SignalDeck">
-    <meta property="twitter:description" content="Price, stop-level &amp; break-even alerts on the trades you actually hold — inside your journal.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:title" content="Trade Alerts on Your Open Positions | SignalDeck">
+    <meta name="twitter:description" content="Price, stop-level &amp; break-even alerts on the trades you actually hold — inside your journal.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/og-image.png">
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"Trade Alerts on Your Open Positions","url":"https://sgnldk.com/alerts/","description":"SignalDeck's live alerts on open positions — price, stop-level, and break-even alerts delivered inside the journal, futures gated to CME Globex hours.","publisher":{"@type":"Organization","name":"SignalDeck","url":"https://sgnldk.com/"}}
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trade Alerts on Your Open Positions",
+    "url": "https://sgnldk.com/alerts/",
+    "description": "SignalDeck's live alerts on open positions — price, stop-level, and break-even alerts delivered inside the journal, futures gated to CME Globex hours.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com/",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -46,44 +59,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -103,6 +80,9 @@
             .desktop-row-reverse { flex-direction: row-reverse; }
         }
     </style>
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://sgnldk.com/#app", "name": "SignalDeck", "url": "https://sgnldk.com/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://sgnldk.com/#org"}, "subjectOf": {"@type": "WebPage", "@id": "https://sgnldk.com/alerts/", "name": "Position Alerts — Price, Stop & Break-Even"}}
+    </script>
 </head>
 
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
@@ -111,16 +91,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2">
-                    <a href="../index.html"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
+                    <a href="../"><img src="../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck"></a>
                     <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
                 </div>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
-                    <a href="../tools/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
+                    <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../tools/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Tools</a>
                     <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -128,12 +108,12 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
-            <a href="../tools/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
+            <a href="../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../tools/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Tools</a>
             <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -185,7 +165,7 @@
                     Request Beta Access — Free
                 </a>
             </div>
-            <p class="mt-4 text-sm text-zinc-500">Or try the free tools first — <a href="../tools/index.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">all trading tools →</a></p>
+            <p class="mt-4 text-sm text-zinc-500">Or try the free tools first — <a href="../tools/" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">all trading tools →</a></p>
         </div>
     </section>
 
@@ -514,7 +494,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-xs text-zinc-600 mt-3">Competitor features change — verify current specs on their sites. <a href="../compare/index.html" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
+            <p class="text-xs text-zinc-600 mt-3">Competitor features change — verify current specs on their sites. <a href="../compare/" class="text-blue-400 hover:text-blue-300">See full comparisons →</a></p>
         </div>
     </section>
 
@@ -577,16 +557,29 @@
     <section class="py-12 border-t border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex flex-wrap gap-3 text-sm">
-                <a href="../prop-firm/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Prop-firm traders →</a>
-                <a href="../tools/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Free tools →</a>
-                <a href="../plans/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Plans →</a>
-                <a href="../futures/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Futures journal →</a>
-                <a href="../forex/index.html" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Forex journal →</a>
+                <a href="../prop-firm/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Prop-firm traders →</a>
+                <a href="../tools/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Free tools →</a>
+                <a href="../plans/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Plans →</a>
+                <a href="../futures/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Futures journal →</a>
+                <a href="../forex/" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-blue-500/50 text-zinc-300 transition-colors">Forex journal →</a>
             </div>
         </div>
     </section>
 
     </div>
+
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Can I set a custom alert at any price level from the chart?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Every open trade has a full interactive chart in the trade-details view. Right-click anywhere on the chart to add an alert at that exact price with an optional title. You can also drag any existing alert line to a new price and confirm to save instantly. This is in addition to the automatic position-based alerts for break-even, stop proximity, and pip-distance targets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- AI Assistant (MCP) callout -->
     <section class="py-16 border-t border-zinc-900 bg-zinc-950">
@@ -601,7 +594,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Set and manage alerts from Claude or ChatGPT.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">With write access, your assistant can create, adjust, pause and list price and pip-distance alerts on your open trades. It's the same alerts described on this page, set by asking.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'alerts'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'alerts'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -639,13 +632,27 @@
                 <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../release-history.html" class="hover:text-zinc-400">Release History</a> |
                 <a href="../clubs.html" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../jobs/index.html" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../tools/index.html" class="hover:text-zinc-400">Tools</a> |
-                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a> |
-                <a href="../prop-firm/index.html" class="hover:text-zinc-400">Prop Firm</a> |
-                <a href="../futures/index.html" class="hover:text-zinc-400">Futures</a>
+                <a href="../jobs/" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../tools/" class="hover:text-zinc-400">Tools</a> |
+                <a href="../blog/" class="hover:text-zinc-400">Blog</a> |
+                <a href="../prop-firm/" class="hover:text-zinc-400">Prop Firm</a> |
+                <a href="../futures/" class="hover:text-zinc-400">Futures</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer">X</a> |
@@ -655,7 +662,7 @@
                 <a href="../discord.html">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -665,6 +672,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../yup.js"></script>
 </body>
 </html>

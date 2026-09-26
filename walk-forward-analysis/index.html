@@ -28,10 +28,11 @@
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/walk-forward-analysis/">
-    <meta property="twitter:title" content="Walk-Forward Analysis Software — Test Your Edge | SignalDeck">
-    <meta property="twitter:description" content="Run walk-forward analysis on your own trade history: in-sample vs out-of-sample windows, WFE scoring and curve-fit detection, automatic inside SignalDeck.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/walk-forward-analysis/">
+    <meta name="twitter:title" content="Walk-Forward Analysis Software — Test Your Edge | SignalDeck">
+    <meta name="twitter:description" content="Run walk-forward analysis on your own trade history: in-sample vs out-of-sample windows, WFE scoring and curve-fit detection, automatic inside SignalDeck.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01m-walk-forward.png">
 
     <script type="application/ld+json">
@@ -46,32 +47,44 @@
     }
     </script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
         {
-          "@type": "Question",
-          "name": "What is Walk-Forward Analysis in trading?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Walk-Forward Analysis (WFA) is a backtesting method that splits historical data into an in-sample window (used for optimization) and an out-of-sample window (never seen during optimization). The strategy is optimized on in-sample data, then tested on out-of-sample data. If the strategy profits on both, it has demonstrated real generalization. If it only works in-sample, it is likely curve-fitted and will fail live. WFA is the standard test for overfit detection in quantitative trading." }
+            "@type": "Question",
+            "name": "What is Walk-Forward Analysis in trading?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Walk-Forward Analysis (WFA) is a backtesting method that splits historical data into an in-sample window (used for optimization) and an out-of-sample window (never seen during optimization). The strategy is optimized on in-sample data, then tested on out-of-sample data. If the strategy profits on both, it has demonstrated real generalization. If it only works in-sample, it is likely curve-fitted and will fail live. WFA is the standard test for overfit detection in quantitative trading."
+            }
         },
         {
-          "@type": "Question",
-          "name": "How does SignalDeck run Walk-Forward Analysis?",
-          "acceptedAnswer": { "@type": "Answer", "text": "SignalDeck splits your backtest data 80% in-sample and 20% out-of-sample. It optimizes strategy parameters on the in-sample window using grid search, then tests the best parameters on the out-of-sample window. The result is a Pass or Likely Overfitted verdict plus a Walk-Forward Efficiency ratio (out-of-sample R / in-sample R). A WFE above 0.6 is a strong result." }
+            "@type": "Question",
+            "name": "How does SignalDeck run Walk-Forward Analysis?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SignalDeck splits your backtest data 80% in-sample and 20% out-of-sample. It optimizes strategy parameters on the in-sample window using grid search, then tests the best parameters on the out-of-sample window. The result is a Pass or Likely Overfitted verdict plus a Walk-Forward Efficiency ratio (out-of-sample R / in-sample R). A WFE above 0.6 is a strong result."
+            }
         },
         {
-          "@type": "Question",
-          "name": "What is curve-fitting in trading strategies?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Curve-fitting (also called overfit) occurs when a strategy is tuned so precisely to historical data that it no longer generalizes to new data. The strategy appears profitable in backtesting because its parameters were chosen to match past price action, but fails in live trading because future price action is different. Walk-Forward Analysis is the standard test to detect curve-fitting before you risk capital." }
+            "@type": "Question",
+            "name": "What is curve-fitting in trading strategies?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Curve-fitting (also called overfit) occurs when a strategy is tuned so precisely to historical data that it no longer generalizes to new data. The strategy appears profitable in backtesting because its parameters were chosen to match past price action, but fails in live trading because future price action is different. Walk-Forward Analysis is the standard test to detect curve-fitting before you risk capital."
+            }
         },
         {
-          "@type": "Question",
-          "name": "Is Walk-Forward Analysis available in other trading journals?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Walk-Forward Analysis with automated out-of-sample testing and a Pass/Fail verdict is exclusive to SignalDeck among trading journal platforms. Other journals (TradesViz, Tradervue, Trademetria, Edgewonk, TradeZella) offer basic trade statistics but do not run WFA, Monte Carlo simulation, or grid-search parameter optimization." }
+            "@type": "Question",
+            "name": "Is Walk-Forward Analysis available in other trading journals?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not as of 2026. Walk-Forward Analysis with automated out-of-sample testing and a Pass or Likely Overfitted verdict is built into SignalDeck. Other journals (TradesViz, Tradervue, Edgewonk, TradeZella) offer trade statistics, and some offer basic backtesting or replay, but none runs Walk-Forward Analysis, Monte Carlo simulation and grid-search parameter optimization together."
+            }
         }
-      ]
-    }
+    ]
+}
     </script>
     <script type="application/ld+json">
     {
@@ -87,27 +100,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
-                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
-                        purple: { 500: '#a855f7', 400: '#c084fc' },
-                        emerald: { 500: '#10b981', 400: '#34d399' },
-                        rose: { 500: '#f43f5e' },
-                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <style>
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #09090b; }
@@ -126,11 +119,11 @@
                     <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide">Beta</span>
                 </div>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../backtester/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Backtester</a>
-                    <a href="../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../backtester/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Backtester</a>
+                    <a href="../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
                     <a href="../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -138,11 +131,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../backtester/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Backtester</a>
-            <a href="../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../backtester/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Backtester</a>
+            <a href="../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
             <a href="../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -166,7 +159,7 @@
                     class="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-purple-900/20">
                     Run WFA Free — Beta Access
                 </a>
-                <a href="../backtester/index.html" class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
+                <a href="../backtester/" class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-all border border-zinc-700">
                     Full Backtester →
                 </a>
             </div>
@@ -406,6 +399,23 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is curve-fitting in trading strategies?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Curve-fitting (also called overfit) occurs when a strategy is tuned so precisely to historical data that it no longer generalizes to new data. The strategy appears profitable in backtesting because its parameters were chosen to match past price action, but fails in live trading because future price action is different. Walk-Forward Analysis is the standard test to detect curve-fitting before you risk capital.</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">Is Walk-Forward Analysis available in other trading journals?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Not as of 2026. Walk-Forward Analysis with automated out-of-sample testing and a Pass or Likely Overfitted verdict is built into SignalDeck. Other journals (TradesViz, Tradervue, Edgewonk, TradeZella) offer trade statistics, and some offer basic backtesting or replay, but none runs Walk-Forward Analysis, Monte Carlo simulation and grid-search parameter optimization together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Assistant (MCP) callout -->
     <section class="py-16 border-t border-zinc-900 bg-zinc-950">
         <div class="max-w-5xl mx-auto px-6">
@@ -419,7 +429,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-white mb-3">Have your assistant read the walk-forward verdict with you.</h2>
                         <p class="text-zinc-400 text-sm leading-relaxed mb-5">A connected assistant can read your backtest results, including Walk-Forward and Monte Carlo sections on plans that include them, and explain which parameters held up out-of-sample and which look curve-fitted.</p>
-                        <a href="../mcp/index.html" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'walk-forward-analysis'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
+                        <a href="../mcp/" onclick="if(!navigator.webdriver) gtag('event','cta_click',{cta_location:'mcp_callout',page:'walk-forward-analysis'});" class="inline-flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors">
                             Connect Claude or ChatGPT to SignalDeck
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -438,11 +448,11 @@
         <div class="max-w-2xl mx-auto px-4 text-center">
             <p class="text-xs text-zinc-600 font-mono">&copy; 2026 SignalDeck | All systems operational</p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
-                <a href="../backtester/index.html" class="hover:text-zinc-400">Backtester</a> |
-                <a href="../r-multiple-trading/index.html" class="hover:text-zinc-400">R-Multiple</a> |
-                <a href="../mt5-trading-journal/index.html" class="hover:text-zinc-400">MT5 Journal</a> |
-                <a href="../compare/index.html" class="hover:text-zinc-400">Compare</a> |
-                <a href="../blog/index.html" class="hover:text-zinc-400">Blog</a>
+                <a href="../backtester/" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../r-multiple-trading/" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../mt5-trading-journal/" class="hover:text-zinc-400">MT5 Journal</a> |
+                <a href="../compare/" class="hover:text-zinc-400">Compare</a> |
+                <a href="../blog/" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-400">X</a> |
@@ -452,7 +462,7 @@
                 <a href="../discord.html" class="hover:text-zinc-400">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -462,6 +472,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../yup.js"></script>
 </body>
 </html>

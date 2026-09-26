@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Journal Trades at All? Net P&amp;L Hides the Loser | SignalDeck</title>
-    <meta name="description" content="One strategy: 343 trades, -$11,516. Another: 22 trades, +$9,748. Combined they read as a quiet -$1,768. Why your balance cannot name the strategy that is losing.">
+    <title>Why Journal Trades at All? Net P&amp;L Hides the Loser</title>
+    <meta name="description" content="One strategy: 343 trades, -$11,516. Another: 22 trades, +$9,748. Together, a quiet -$1,768. Why your balance can't name the loser.">
     <meta name="keywords" content="why journal trades, trading strategy attribution, which strategy is making money, is a trading journal worth it, per strategy performance, strategy tagging trades, forward testing trading strategies">
     <meta name="author" content="SignalDeck">
 
@@ -29,30 +29,42 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/why-journal-trades/">
-    <meta property="twitter:title" content="Why Journal Trades at All? Net P&amp;L Hides the Loser | SignalDeck">
-    <meta property="twitter:description" content="One strategy: 343 trades, -$11,516. Another: 22 trades, +$9,748. Combined they read as a quiet -$1,768. Why your balance cannot name the strategy that is losing.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/why-journal-trades/">
+    <meta name="twitter:title" content="Why Journal Trades at All? Net P&amp;L Hides the Loser | SignalDeck">
+    <meta name="twitter:description" content="One strategy: 343 trades, -$11,516. Another: 22 trades, +$9,748. Combined they read as a quiet -$1,768. Why your balance cannot name the strategy that is losing.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01ad-strategy-attribution.png">
 
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Why Journal Trades at All? Because Net P&L Cannot Name the Strategy That Is Losing",
-      "description": "The case against journaling is that your account balance already tells you whether you are making money. It does. It cannot tell you what is making it. A worked example from our own forward-testing scoreboard: a flagship strategy down $11,516 over 343 trades, funded by a 22-trade strategy up $9,748, with a combined figure that reads as an unremarkable -$1,768.",
-      "author": { "@type": "Organization", "name": "SignalDeck" },
-      "publisher": {
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Journal Trades at All? Because Net P&L Cannot Name the Strategy That Is Losing",
+    "description": "The case against journaling is that your account balance already tells you whether you are making money. It does. It cannot tell you what is making it. A worked example from our own forward-testing scoreboard: a flagship strategy down $11,516 over 343 trades, funded by a 22-trade strategy up $9,748, with a combined figure that reads as an unremarkable -$1,768.",
+    "author": {
         "@type": "Organization",
         "name": "SignalDeck",
-        "logo": { "@type": "ImageObject", "url": "https://sgnldk.com/img/mark-blue-512.png" }
-      },
-      "datePublished": "2026-08-31",
-      "dateModified": "2026-09-11",
-      "image": "https://sgnldk.com/assets/banner-01ad-strategy-attribution.png",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sgnldk.com/blog/why-journal-trades/" }
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        },
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-08-31",
+    "dateModified": "2026-09-11",
+    "image": "https://sgnldk.com/assets/banner-01ad-strategy-attribution.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/why-journal-trades/"
     }
+}
     </script>
 
     <script type="application/ld+json">
@@ -120,44 +132,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -181,11 +157,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -193,11 +169,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -206,7 +182,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-08-31" class="text-xs font-mono text-zinc-500">August 31, 2026</time>
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Journaling</span>
@@ -236,7 +212,7 @@
                 The first is that <span class="font-semibold text-white">the balance is the scoreboard</span>. If the number goes up you are doing something right, and if it goes down you are not, so the reporting layer is decoration. The second is that <span class="font-semibold text-white">journaling is a diary, not work</span>: screenshots, mood ratings, and a paragraph about discipline, filed somewhere and never read again. The third is that <span class="font-semibold text-white">a mechanical system does not need a journal</span>, because the rules are fixed and the historical testing already told you what to expect.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                We concede the second one entirely. A log that is never queried is a hobby. If what you have is a folder of chart screenshots and some notes about feeling impatient, the people calling that a waste of time are correct, and adding software to it does not change the verdict. We would also concede a piece of the third: if the system genuinely is fixed, mechanical, and singular, and you have already validated it out of sample with <a href="../walk-forward-analysis/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward analysis</a>, then the incremental value of a manual log is small. That is a narrower case than the people making the argument usually occupy.
+                We concede the second one entirely. A log that is never queried is a hobby. If what you have is a folder of chart screenshots and some notes about feeling impatient, the people calling that a waste of time are correct, and adding software to it does not change the verdict. We would also concede a piece of the third: if the system genuinely is fixed, mechanical, and singular, and you have already validated it out of sample with <a href="../walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward analysis</a>, then the incremental value of a manual log is small. That is a narrower case than the people making the argument usually occupy.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 The first one is where the argument breaks, and it breaks on arithmetic rather than on psychology.
@@ -301,10 +277,10 @@
                 Read from SignalDeck's Strategy Performance screen on August 27, 2026, and shown in full on the stream. The third row reports net P&amp;L as a percentage rather than a dollar figure, which is a presentation inconsistency on our side, not a different kind of measurement.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The first row is the one that matters. High-Tight Flag Breakout was the flagship: the pattern the whole approach was built around, the one worth naming a strategy after. Over 343 trades it lost $11,516 with a <a href="../profit-factor-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">profit factor</a> of 0.85, meaning it returned 85 cents of gross profit for every dollar of gross loss. His summary on the stream was that it "has not done well, and there is no way to argue with 343 trades."
+                The first row is the one that matters. High-Tight Flag Breakout was the flagship: the pattern the whole approach was built around, the one worth naming a strategy after. Over 343 trades it lost $11,516 with a <a href="../profit-factor-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">profit factor</a> of 0.85, meaning it returned 85 cents of gross profit for every dollar of gross loss. His summary on the stream was that it "has not done well, and there is no way to argue with 343 trades."
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The maximum drawdown is worth a second look: at $69,057 it is roughly six times the size of the final net loss. The strategy did not bleed quietly down to minus eleven thousand. It went a very long way underwater and came most of the way back, and a trader watching only a period-end figure would have experienced that path without ever having a number for it. Whether you could have survived that sequence with real size on is exactly the question <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> exists to ask, and it needs the trade sequence to ask it.
+                The maximum drawdown is worth a second look: at $69,057 it is roughly six times the size of the final net loss. The strategy did not bleed quietly down to minus eleven thousand. It went a very long way underwater and came most of the way back, and a trader watching only a period-end figure would have experienced that path without ever having a number for it. Whether you could have survived that sequence with real size on is exactly the question <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> exists to ask, and it needs the trade sequence to ask it.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 Now put the first two rows together, which is what an account balance does automatically. Minus $11,516 and plus $9,748 net to <span class="font-semibold text-white">minus $1,768</span>. A quiet stretch. Slightly disappointing, nothing alarming, the sort of number that produces a resolution to be more disciplined and no change to what you actually trade. The blended figure is not wrong. It is just the one presentation of these results that contains none of the information.
@@ -330,7 +306,7 @@
                 One honest note about our own product while we are here: SignalDeck computes these metrics on whatever sample exists and does not currently suppress or flag them below a minimum trade count, so a Sharpe ratio calculated on three trades will render as confidently as one calculated on three hundred. Read the trade count column first. That guard is a known gap on our side rather than a design choice, and until it ships the discipline has to come from you.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                For the general version of this problem, our post on <a href="../why-win-rate-is-lying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">why win rate lies</a> covers which statistics stabilise quickly and which ones do not, and <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is explicitly a sample-size-aware alternative to reading raw returns.
+                For the general version of this problem, our post on <a href="../why-win-rate-is-lying/" class="text-blue-400 hover:text-blue-300 transition-colors">why win rate lies</a> covers which statistics stabilise quickly and which ones do not, and <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is explicitly a sample-size-aware alternative to reading raw returns.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Four Fields That Make Attribution Possible</h2>
@@ -339,7 +315,7 @@
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
                 <li><span class="font-semibold text-white">A strategy label, applied at entry.</span> The load-bearing field. Without it there is nothing to group by and every other number in this article is uncomputable.</li>
-                <li><span class="font-semibold text-white">Planned risk at entry</span> — your intended stop distance expressed in money. This is what converts every outcome into an <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiple</a>, so that results are comparable across instruments and position sizes instead of being dominated by whichever trade happened to be biggest.</li>
+                <li><span class="font-semibold text-white">Planned risk at entry</span> — your intended stop distance expressed in money. This is what converts every outcome into an <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiple</a>, so that results are comparable across instruments and position sizes instead of being dominated by whichever trade happened to be biggest.</li>
                 <li><span class="font-semibold text-white">Entry and exit, with timestamps.</span> Available from your broker, and the one part of this a statement genuinely does give you.</li>
                 <li><span class="font-semibold text-white">The realised result.</span> Also from the broker.</li>
             </ul>
@@ -364,7 +340,7 @@
                 <span class="font-semibold text-white">You are under about 20 trades.</span> There is nothing to attribute yet. Log them, because you cannot retroactively create the record later, but do not compute anything from them and do not make decisions off a per-strategy breakdown of a handful of results.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                <span class="font-semibold text-white">The logging is displacing the trading.</span> If the record has become the ritual — an hour of formatting, a screenshot library, notes nobody rereads — then the sceptics are describing you accurately, and the fix is to cut the practice down to the four fields rather than to defend it. Our earlier post on <a href="../do-you-need-a-trading-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">whether a profitable trader needs a journal at all</a> works through that decision in more detail, including a ten-minute test you can run on a broker statement without adopting anything.
+                <span class="font-semibold text-white">The logging is displacing the trading.</span> If the record has become the ritual — an hour of formatting, a screenshot library, notes nobody rereads — then the sceptics are describing you accurately, and the fix is to cut the practice down to the four fields rather than to defend it. Our earlier post on <a href="../do-you-need-a-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">whether a profitable trader needs a journal at all</a> works through that decision in more detail, including a ten-minute test you can run on a broker statement without adopting anything.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 And the largest concession, which no amount of tooling changes: a log does not create an edge. It cannot make a losing strategy profitable, it will not stop you re-entering something the data told you to abandon, and there is no credible study we can cite showing that journaling improves returns by some specific percentage. Anyone quoting you such a figure made it up. What a log does is narrower and still worth having — it makes claims about your own trading falsifiable, and the number that says a strategy has lost money over 343 trades is a number you can act on precisely because you could not have argued with it.
@@ -407,7 +383,7 @@
                 </table>
             </div>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The last two rows have posts of their own: <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">how to know when your strategy is dying</a> and <a href="../backtest-vs-live-divergence/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">diagnosing backtest-to-live divergence</a>. Both of them presuppose exactly the thing this article is arguing for, which is a record where results are grouped by the decision that produced them.
+                The last two rows have posts of their own: <a href="../how-to-know-when-your-strategy-is-dying/" class="text-blue-400 hover:text-blue-300 transition-colors">how to know when your strategy is dying</a> and <a href="../backtest-vs-live-divergence/" class="text-blue-400 hover:text-blue-300 transition-colors">diagnosing backtest-to-live divergence</a>. Both of them presuppose exactly the thing this article is arguing for, which is a record where results are grouped by the decision that produced them.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 What happened after the August 27 scoreboard is the honest version of the payoff. Nothing dramatic: no epiphany, no rebuild. The strategies that were passing became the input to a signal pipeline, and the flagship stopped being treated as the flagship. That is what this kind of measurement actually buys — not a better trader, just an allocation that follows the results instead of the conviction.
@@ -421,11 +397,11 @@
                 <li><span class="font-semibold text-white">Strategy tagging on the trade</span>, applied when the trade is created rather than backfilled once the outcome is known.</li>
                 <li><span class="font-semibold text-white">Strategy Performance</span> — the screen in the table above. Expectancy, profit factor, Sharpe, maximum drawdown and trade count per strategy rather than per account.</li>
                 <li><span class="font-semibold text-white">The automated forward-testing scanner (Pro, $30/mo)</span>, which scores a strategy you have defined but have not committed capital to on live signals, alongside the ones you have traded. This is how the Bollinger Band Fade row exists at all.</li>
-                <li><span class="font-semibold text-white">R-multiples and <a href="../trading-expectancy/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy</a></span> computed from planned risk, so a strategy traded at two different sizes is still one comparable series. Basic R-value analytics are on the Free tier; the fuller layer (SQN, Kelly, Monte Carlo drawdown) is Pro.</li>
+                <li><span class="font-semibold text-white">R-multiples and <a href="../trading-expectancy/" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy</a></span> computed from planned risk, so a strategy traded at two different sizes is still one comparable series. Basic R-value analytics are on the Free tier; the fuller layer (SQN, Kelly, Monte Carlo drawdown) is Pro.</li>
                 <li><span class="font-semibold text-white">Monte Carlo (Pro, $30/mo)</span> — 1,000-path resampling of your logged sequence, which is the correct next step after a per-strategy number looks good and before you size up on it.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Two limits worth knowing before you sign up. The sample-size guard described earlier is not built yet, so small-sample metrics display without warning. And whether your trades arrive automatically depends on your platform: MT4/MT5 live sync is Elite ($50/mo), several platforms are CSV import only, and our <a href="../trading-journal-platform-support/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">platform support guide</a> lists exactly which is which. Check it against your own setup rather than assuming. Worth knowing before you plan around it: the Free tier carries unlimited trades and basic R-value analytics but caps you at 3 strategies and 10 tags, which is a real constraint on exactly the kind of attribution described here — unlimited strategies and tags are Pro. Everything is unlocked at no cost during beta.
+                Two limits worth knowing before you sign up. The sample-size guard described earlier is not built yet, so small-sample metrics display without warning. And whether your trades arrive automatically depends on your platform: MT4/MT5 live sync is Elite ($50/mo), several platforms are CSV import only, and our <a href="../trading-journal-platform-support/" class="text-blue-400 hover:text-blue-300 transition-colors">platform support guide</a> lists exactly which is which. Check it against your own setup rather than assuming. Worth knowing before you plan around it: the Free tier carries unlimited trades and basic R-value analytics but caps you at 3 strategies and 10 tags, which is a real constraint on exactly the kind of attribution described here — unlimited strategies and tags are Pro. Everything is unlocked at no cost during beta.
             </p>
 
             <!-- FAQ Section -->
@@ -460,12 +436,12 @@
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-500 text-sm mb-6">Per-strategy statistics are common. Scoring a strategy on live signals before you have traded it is not.</p>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/edgewonk/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/edgewonk/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs Edgewonk</p>
                         <p class="text-zinc-500 text-xs mt-1">Custom tagging and variables are a genuine Edgewonk strength. The differences are forward testing on live signals and Monte Carlo resampling of your actual trade sequence.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-1">Both break results down by setup. SignalDeck adds R-multiple normalisation from planned risk, SQN, and 1,000-path Monte Carlo on the sequence behind the headline number.</p>
@@ -477,22 +453,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../do-you-need-a-trading-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../do-you-need-a-trading-journal/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Journaling</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Do You Need a Trading Journal If You're Already Profitable?</p>
                         <p class="text-zinc-500 text-xs mt-2">July 31, 2026</p>
                     </a>
-                    <a href="../backtest-vs-live-divergence/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../backtest-vs-live-divergence/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Your Backtest Said 2.1 SQN and Live Says 0.6: Diagnosing Backtest-to-Live Divergence</p>
                         <p class="text-zinc-500 text-xs mt-2">August 14, 2026</p>
                     </a>
-                    <a href="../trading-expectancy/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../trading-expectancy/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Trading Expectancy: The Only Number That Tells You If a Strategy Makes Money</p>
                         <p class="text-zinc-500 text-xs mt-2">June 12, 2026</p>
                     </a>
-                    <a href="../why-win-rate-is-lying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../why-win-rate-is-lying/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Win Rate Is Lying to You</p>
                         <p class="text-zinc-500 text-xs mt-2">March 30, 2026</p>
@@ -512,7 +488,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta — Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans →
                     </a>
@@ -553,10 +529,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -566,7 +556,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -576,6 +566,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Multiple Trading Accounts Journal: How to Track Three Funded Accounts and a Personal One | SignalDeck</title>
-    <meta name="description" content="Summing P&amp;L across four accounts hides the one that just breached. Why edge lives at the strategy level and risk lives at the account level, how R makes different account sizes comparable, and the correlation math behind running one strategy across four firms.">
+    <title>Multiple Trading Accounts Journal: Funded + Personal</title>
+    <meta name="description" content="Summing P&amp;L across four accounts hides the one that just breached. Track edge per strategy, risk per account, and compare in R.">
     <meta name="keywords" content="multiple trading accounts journal, track multiple prop firm accounts, multiple funded accounts management, copy trading journal, trading multiple accounts same strategy, aggregate trading performance">
     <meta name="author" content="SignalDeck">
 
@@ -28,24 +28,38 @@
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/multi-account-trading-journal/">
-    <meta property="twitter:title" content="Multiple Trading Accounts Journal: How to Track Three Funded Accounts and a Personal One | SignalDeck">
-    <meta property="twitter:description" content="Summing P&amp;L across four accounts hides the one that just breached. Why edge lives at the strategy level and risk lives at the account level, how R makes different account sizes comparable, and the correlation math behind running one strategy across four firms.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/multi-account-trading-journal/">
+    <meta name="twitter:title" content="Multiple Trading Accounts Journal: How to Track Three Funded Accounts and a Personal One | SignalDeck">
+    <meta name="twitter:description" content="Summing P&amp;L across four accounts hides the one that just breached. Why edge lives at the strategy level and risk lives at the account level, how R makes different account sizes comparable, and the correlation math behind running one strategy across four firms.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01ab-multi-account.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Running Three Funded Accounts and a Personal One: How to Journal Multiple Accounts Without Losing the Plot",
-        "description": "A single blended P&L figure is the wrong output for a multi-account trader, because each account carries its own size, its own rulebook and its own drawdown clock. This piece separates strategy-level truth from account-level truth, shows why R-multiples are the only unit that makes a 20K evaluation comparable to a 150K funded account, works through the correlation math of running one strategy across four firms, tabulates what actually differs between rulebooks, covers the lot-rounding and slippage divergence that copy trading introduces, and gives a readiness test for whether the next account adds expected income or just expected fee spend.",
-        "author": { "@type": "Organization", "name": "SignalDeck" },
-        "publisher": { "@type": "Organization", "name": "SignalDeck", "url": "https://sgnldk.com" },
-        "datePublished": "2026-08-21",
-        "dateModified": "2026-08-21",
-        "image": "https://sgnldk.com/assets/banner-01ab-multi-account.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Running Three Funded Accounts and a Personal One: How to Journal Multiple Accounts Without Losing the Plot",
+    "description": "A single blended P&L figure is the wrong output for a multi-account trader, because each account carries its own size, its own rulebook and its own drawdown clock. This piece separates strategy-level truth from account-level truth, shows why R-multiples are the only unit that makes a 20K evaluation comparable to a 150K funded account, works through the correlation math of running one strategy across four firms, tabulates what actually differs between rulebooks, covers the lot-rounding and slippage divergence that copy trading introduces, and gives a readiness test for whether the next account adds expected income or just expected fee spend.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-08-21",
+    "dateModified": "2026-08-21",
+    "image": "https://sgnldk.com/assets/banner-01ab-multi-account.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/multi-account-trading-journal/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -114,28 +128,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 950: '#09090b', 900: '#18181b', 850: '#202023' },
-                        blue: { 500: '#3b82f6', 400: '#60a5fa' },
-                        purple: { 500: '#a855f7', 400: '#c084fc' },
-                        emerald: { 500: '#10b981' },
-                        rose: { 500: '#f43f5e' },
-                        teal: { 400: '#2dd4bf' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -159,11 +153,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -171,11 +165,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -184,7 +178,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-08-21" class="text-xs font-mono text-zinc-500">August 21, 2026</time>
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Prop Firms</span>
@@ -280,7 +274,7 @@
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6 marker:text-blue-400">
                 <li><span class="text-white font-medium">Account-scoped view</span> &mdash; equity curve, current and maximum drawdown, distance to limit, days to reset, progress toward a payout threshold. Always one account at a time. Never summed.</li>
-                <li><span class="text-white font-medium">Strategy-scoped view</span> &mdash; expectancy, <a href="../profit-factor-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">profit factor</a>, <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a>, win rate by setup and session. Always pooled across accounts, and only ever in R.</li>
+                <li><span class="text-white font-medium">Strategy-scoped view</span> &mdash; expectancy, <a href="../profit-factor-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">profit factor</a>, <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a>, win rate by setup and session. Always pooled across accounts, and only ever in R.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 The practical requirement this creates is a single field, populated on every trade, that says which account it belongs to &mdash; captured at import rather than reconstructed later. Everything above is a filter on that one field. Without it, both views are unavailable, and what you have instead is the blended number from section 1.
@@ -319,13 +313,13 @@
             </div>
 
             <p class="text-zinc-300 leading-relaxed mb-6">
-                In dollars, the larger account appears to be running the better strategy by a 50% margin. In <a href="../what-is-r-multiple/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> both trades are identical: +2.0R. The dollar gap is a sizing artifact and carries no information about edge whatsoever. Rank your accounts by dollar P&amp;L and you will reliably conclude that your biggest account holds your best strategy, which is a tautology dressed up as an insight.
+                In dollars, the larger account appears to be running the better strategy by a 50% margin. In <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a> both trades are identical: +2.0R. The dollar gap is a sizing artifact and carries no information about edge whatsoever. Rank your accounts by dollar P&amp;L and you will reliably conclude that your biggest account holds your best strategy, which is a tautology dressed up as an insight.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 Once R is the unit, a second and more useful diagnostic appears. If the same setup produces <span class="font-mono text-white">+0.42R</span> average on one account and <span class="font-mono text-white">+0.11R</span> on another over a comparable number of trades, that gap is not edge &mdash; the signals were the same. It is execution: different fills, wider spreads at one broker, a slower copier, or a lot size that had to be rounded (section 6). <span class="text-white font-medium">Divergence in R across accounts running one strategy is a mechanical fault report, and it is invisible in dollars</span> because the account sizes differ anyway.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                One caution on computing 1R correctly across accounts: R is the cash you risked on <em class="text-zinc-300">that trade on that account</em>, not a fixed percentage you intended to risk. If a stop was moved, or a fill was worse than the signal price, or a lot size was rounded up, the real 1R differs from the planned one. See <a href="../fixed-r-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> for the sizing side of this.
+                One caution on computing 1R correctly across accounts: R is the cash you risked on <em class="text-zinc-300">that trade on that account</em>, not a fixed percentage you intended to risk. If a stop was moved, or a fill was worse than the signal price, or a lot size was rounded up, the real 1R differs from the planned one. See <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a> for the sizing side of this.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">4. Correlated Blowups: Four Accounts Is One Bet</h2>
@@ -343,7 +337,7 @@
                 The expected value is unchanged and the spread roughly doubles &mdash; it scales with the square root of the number of accounts. This is the honest description of what stacking accounts does: it is a leverage decision, not a diversification decision. That can be a perfectly rational trade, and plenty of good traders make it deliberately. It is only dangerous when it is made accidentally, by someone who believed the accounts were hedging each other.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The fee arithmetic follows the same shape. Four evaluations paid for at once are not four independent lottery tickets; on the bad path they are lost in the same week, along with the reset fees to get back. Whatever the current promotional price of the evaluations, budget them as a single correlated line item rather than four small ones. Modelling this properly is what <a href="../prop-firm-monte-carlo-readiness/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo readiness testing</a> is for, with the modification described in section 7.
+                The fee arithmetic follows the same shape. Four evaluations paid for at once are not four independent lottery tickets; on the bad path they are lost in the same week, along with the reset fees to get back. Whatever the current promotional price of the evaluations, budget them as a single correlated line item rather than four small ones. Modelling this properly is what <a href="../prop-firm-monte-carlo-readiness/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo readiness testing</a> is for, with the modification described in section 7.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">5. Per-Account Rule Tracking</h2>
@@ -362,7 +356,7 @@
                     <tbody class="text-zinc-400">
                         <tr class="border-b border-zinc-800">
                             <td class="px-4 py-3 text-xs text-white font-medium">Drawdown model</td>
-                            <td class="px-4 py-3 text-xs">Static floors sit still; trailing floors follow your high-water mark and can move up after a good day, tightening your headroom precisely when you feel safest. Some trail and then lock at a threshold. <a href="../ftmo-trailing-vs-static-drawdown/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Trailing vs static</a> covers the mechanics.</td>
+                            <td class="px-4 py-3 text-xs">Static floors sit still; trailing floors follow your high-water mark and can move up after a good day, tightening your headroom precisely when you feel safest. Some trail and then lock at a threshold. <a href="../ftmo-trailing-vs-static-drawdown/" class="text-blue-400 hover:text-blue-300 transition-colors">Trailing vs static</a> covers the mechanics.</td>
                         </tr>
                         <tr class="border-b border-zinc-800">
                             <td class="px-4 py-3 text-xs text-white font-medium">Drawdown basis</td>
@@ -389,7 +383,7 @@
             </div>
 
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Rules vary by firm, by account configuration, and they change &mdash; treat the categories above as a checklist to verify rather than as a statement about any particular firm, and read each firm's current rulebook directly before trading. The journaling implication is that every trade needs its account recorded, so that when a rule changes you can immediately see which positions and which strategies are affected instead of reconstructing it from memory. Our <a href="../apex-trader-funding-rules/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Apex</a> and <a href="../ftmo-challenge-rules-explained/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO</a> breakdowns work through two firms in detail and are useful mainly as illustrations of how differently two rulebooks can be built.
+                Rules vary by firm, by account configuration, and they change &mdash; treat the categories above as a checklist to verify rather than as a statement about any particular firm, and read each firm's current rulebook directly before trading. The journaling implication is that every trade needs its account recorded, so that when a rule changes you can immediately see which positions and which strategies are affected instead of reconstructing it from memory. Our <a href="../apex-trader-funding-rules/" class="text-blue-400 hover:text-blue-300 transition-colors">Apex</a> and <a href="../ftmo-challenge-rules-explained/" class="text-blue-400 hover:text-blue-300 transition-colors">FTMO</a> breakdowns work through two firms in detail and are useful mainly as illustrations of how differently two rulebooks can be built.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">6. The Copy-Trading Wrinkle</h2>
@@ -441,7 +435,7 @@
                 An account selector in the top navigation scopes the whole application to one account: dashboard statistics, the equity and drawdown figures, the calendar and year heatmap, the economic-calendar view, and CSV and report exports all respect it. Clear it and you are back to the pooled, strategy-level reading. On MetaTrader imports, the risk percentage on each trade is computed against that connection's own balance as read at import time, so a trade on the $20K account is scored against $20K rather than against a single global figure.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Two limits worth stating plainly, because knowing them is the difference between a journal you can trust and one you assume too much of. First, the risk profile &mdash; account size and maximum risk percent per trade &mdash; is currently a single user-level setting rather than one per funding account, so pre-trade risk prompts are not yet per-account. Second, SignalDeck does not encode each firm's specific drawdown rule: you get that account's real equity curve, maximum drawdown and current drawdown, not "your trailing threshold is $412 away." The firm's own dashboard remains the authoritative number for headroom, and reconciling the two is its own discipline &mdash; see <a href="../prop-dashboard-vs-journal/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">why your journal and the firm's dashboard disagree</a>. What the journal is for is the part the dashboard cannot tell you: whether the strategy underneath all four accounts is actually worth running.
+                Two limits worth stating plainly, because knowing them is the difference between a journal you can trust and one you assume too much of. First, the risk profile &mdash; account size and maximum risk percent per trade &mdash; is currently a single user-level setting rather than one per funding account, so pre-trade risk prompts are not yet per-account. Second, SignalDeck does not encode each firm's specific drawdown rule: you get that account's real equity curve, maximum drawdown and current drawdown, not "your trailing threshold is $412 away." The firm's own dashboard remains the authoritative number for headroom, and reconciling the two is its own discipline &mdash; see <a href="../prop-dashboard-vs-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">why your journal and the firm's dashboard disagree</a>. What the journal is for is the part the dashboard cannot tell you: whether the strategy underneath all four accounts is actually worth running.
             </p>
 
             <!-- FAQ Section -->
@@ -480,12 +474,12 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Compare SignalDeck</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradersync/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TraderSync</p>
                         <p class="text-zinc-500 text-xs mt-2">Per-account scoping, multi-connection imports and how R is computed</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs. TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-2">Account filtering, prop-firm workflows and validation tooling</p>
@@ -497,22 +491,22 @@
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../best-trading-journal-prop-firm/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../best-trading-journal-prop-firm/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firms</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Best Trading Journal for Prop Firm Traders 2026</p>
                         <p class="text-zinc-500 text-xs mt-2">May 31, 2026</p>
                     </a>
-                    <a href="../prop-dashboard-vs-journal/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../prop-dashboard-vs-journal/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Prop Firms</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Why Your Prop Firm Dashboard and Your Journal Disagree (and Which One to Trust)</p>
                         <p class="text-zinc-500 text-xs mt-2">August 10, 2026</p>
                     </a>
-                    <a href="../prop-firm-monte-carlo-readiness/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../prop-firm-monte-carlo-readiness/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Quant</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Use Monte Carlo Simulation to Decide If You Are Ready for a Prop Firm Challenge</p>
                         <p class="text-zinc-500 text-xs mt-2">July 24, 2026</p>
                     </a>
-                    <a href="../what-is-r-multiple/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../what-is-r-multiple/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">R-Value</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">What Is R-Multiple in Trading? The Risk Unit That Unifies Every Metric</p>
                         <p class="text-zinc-500 text-xs mt-2">June 1, 2026</p>
@@ -532,7 +526,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta &mdash; Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans &rarr;
                     </a>
@@ -572,10 +566,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -585,7 +593,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -595,6 +603,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

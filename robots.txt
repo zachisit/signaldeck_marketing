@@ -9,6 +9,8 @@ Disallow: /logo-concepts*.html
 Disallow: /cat-logo-variants.html
 Disallow: /jobs/assets/
 Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
 Disallow: /tmp-x-content-grid-search.txt
 Sitemap: https://sgnldk.com/sitemap.xml
 
@@ -19,29 +21,128 @@ Sitemap: https://sgnldk.com/sitemap.xml
 # AI Crawlers
 User-agent: GPTBot
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 # Training/dataset + other AI crawlers (Common Crawl feeds most LLMs)
 User-agent: CCBot
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /assets/banner-01*.html
+Disallow: /assets/cat-*.html
+Disallow: /assets/logo-concepts.html
+Disallow: /twitter-banners*.html
+Disallow: /logo-concepts*.html
+Disallow: /cat-logo-variants.html
+Disallow: /jobs/assets/
+Disallow: /NAV_CHANGES_TODO.md
+Disallow: /CLAUDE.md
+Disallow: /implementation_handoffs/
+Disallow: /tmp-x-content-grid-search.txt
 

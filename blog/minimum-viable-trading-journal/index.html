@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>The Five-Field Trading Journal: What to Log When You Hate Journaling | SignalDeck</title>
-    <meta name="description" content="Four fields make results analysable and a fifth explains the path. What every other field has to prove before it earns a place, what to drop without guilt, and the honest cost per trade.">
+    <title>The Five-Field Trading Journal for Traders Who Hate Logging</title>
+    <meta name="description" content="Four fields make results analysable and a fifth explains the path. What else earns a place in your journal, and what to drop.">
     <meta name="keywords" content="minimum trading journal fields, what to log in a trading journal, simple trading journal, trading journal template, minimum viable trading journal, how long should journaling take, MAE trading journal">
     <meta name="author" content="SignalDeck">
 
@@ -29,30 +29,42 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/minimum-viable-trading-journal/">
-    <meta property="twitter:title" content="The Five-Field Trading Journal: What to Log When You Hate Journaling | SignalDeck">
-    <meta property="twitter:description" content="Four fields make results analysable and a fifth explains the path. What every other field has to prove before it earns a place, what to drop without guilt, and the honest cost per trade.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/minimum-viable-trading-journal/">
+    <meta name="twitter:title" content="The Five-Field Trading Journal: What to Log When You Hate Journaling | SignalDeck">
+    <meta name="twitter:description" content="Four fields make results analysable and a fifth explains the path. What every other field has to prove before it earns a place, what to drop without guilt, and the honest cost per trade.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01ah-five-fields.png">
 
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The Five-Field Trading Journal: What to Log When You Hate Journaling",
-      "description": "The concession post that closes the series. A field earns its place only if it changes a decision and survives aggregation. Four fields make results analysable, a fifth explains the path, everything else is optional, and the cost is roughly ten seconds a trade on top of an import.",
-      "author": { "@type": "Organization", "name": "SignalDeck" },
-      "publisher": {
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Five-Field Trading Journal: What to Log When You Hate Journaling",
+    "description": "The concession post that closes the series. A field earns its place only if it changes a decision and survives aggregation. Four fields make results analysable, a fifth explains the path, everything else is optional, and the cost is roughly ten seconds a trade on top of an import.",
+    "author": {
         "@type": "Organization",
         "name": "SignalDeck",
-        "logo": { "@type": "ImageObject", "url": "https://sgnldk.com/img/mark-blue-512.png" }
-      },
-      "datePublished": "2026-09-11",
-      "dateModified": "2026-09-11",
-      "image": "https://sgnldk.com/assets/banner-01ah-five-fields.png",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sgnldk.com/blog/minimum-viable-trading-journal/" }
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        },
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-09-11",
+    "dateModified": "2026-09-11",
+    "image": "https://sgnldk.com/assets/banner-01ah-five-fields.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/minimum-viable-trading-journal/"
     }
+}
     </script>
 
     <script type="application/ld+json">
@@ -112,44 +124,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -173,11 +149,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -185,17 +161,17 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
     <header class="pt-16 pb-4">
         <div class="max-w-3xl mx-auto px-4">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-xs font-mono text-zinc-500">2026-09-11</span>
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Journaling</span>
@@ -490,12 +466,12 @@
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-400 text-sm mb-6">Five fields that feed a number, against tools built around a fuller form.</p>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <a href="../../compare/edgewonk/index.html" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                    <a href="../../compare/edgewonk/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
                         <div class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</div>
                         <h3 class="text-white font-semibold mb-1">SignalDeck vs Edgewonk</h3>
                         <p class="text-sm text-zinc-400">Custom variables and a Tiltmeter on the desktop, against a short form that feeds R-based analytics.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                    <a href="../../compare/tradezella/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
                         <div class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</div>
                         <h3 class="text-white font-semibold mb-1">SignalDeck vs TradeZella</h3>
                         <p class="text-sm text-zinc-400">Replay-driven review against rule-driven measurement.</p>
@@ -538,7 +514,7 @@
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta &mdash; Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans &rarr;
                     </a>
@@ -576,10 +552,24 @@
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -589,7 +579,7 @@
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -599,6 +589,5 @@
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

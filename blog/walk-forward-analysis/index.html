@@ -29,31 +29,38 @@
     <meta property="og:image:height" content="750">
     <meta property="og:site_name" content="SignalDeck">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sgnldk.com/blog/walk-forward-analysis/">
-    <meta property="twitter:title" content="Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs | SignalDeck">
-    <meta property="twitter:description" content="Walk-forward analysis tests whether your optimized strategy actually works on data it has never seen — or whether your backtest just memorized the past.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/walk-forward-analysis/">
+    <meta name="twitter:title" content="Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs | SignalDeck">
+    <meta name="twitter:description" content="Walk-forward analysis tests whether your optimized strategy actually works on data it has never seen — or whether your backtest just memorized the past.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01m-walk-forward.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs",
-        "description": "Walk-forward analysis tests whether your optimized strategy works on data it has never seen — or whether your backtest just memorized the past. Learn how it works, what the efficiency ratio tells you, and how many periods you need.",
-        "author": {
-            "@type": "Organization",
-            "name": "SignalDeck"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "SignalDeck",
-            "url": "https://sgnldk.com"
-        },
-        "datePublished": "2026-05-20",
-        "dateModified": "2026-08-06",
-        "image": "https://sgnldk.com/assets/banner-01m-walk-forward.png"
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Walk-Forward Analysis: The Overfitting Detector Every Backtester Needs",
+    "description": "Walk-forward analysis tests whether your optimized strategy works on data it has never seen — or whether your backtest just memorized the past. Learn how it works, what the efficiency ratio tells you, and how many periods you need.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "url": "https://sgnldk.com",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-05-20",
+    "dateModified": "2026-08-06",
+    "image": "https://sgnldk.com/assets/banner-01m-walk-forward.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/walk-forward-analysis/"
     }
+}
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
 
@@ -113,44 +120,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/site.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b',
-                            900: '#18181b',
-                            850: '#202023',
-                        },
-                        blue: {
-                            500: '#3b82f6',
-                            400: '#60a5fa',
-                        },
-                        purple: {
-                            500: '#a855f7',
-                            400: '#c084fc',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        },
-                        rose: {
-                            500: '#f43f5e',
-                        },
-                        teal: {
-                            400: '#2dd4bf',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         ::-webkit-scrollbar { width: 8px; }
@@ -174,11 +145,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="../../demo/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
-                    <a href="../../plans/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
-                    <a href="../../compare/index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
                     <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
-                    <a href="../../index.html" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -186,11 +157,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
-            <a href="../../demo/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
-            <a href="../../plans/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
-            <a href="../../compare/index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
             <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
-            <a href="../../index.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
         </div>
     </nav>
 
@@ -199,7 +170,7 @@
     <!-- Article Header -->
     <section class="relative pt-24 pb-8 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6">
-            <a href="../index.html" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-05-20" class="text-xs font-mono text-zinc-500">May 20, 2026</time>
                 <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Strategy</span>
@@ -234,7 +205,7 @@
                 When you optimize a strategy on a dataset and then evaluate its performance on that same dataset, you've created a closed loop. The optimization process will always find parameters that score well on data it had access to — that's what it's designed to do. Evaluating the result on the same data tells you nothing about whether those parameters mean anything going forward.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The more parameters you optimize, the worse this gets. A strategy with 10 free parameters and 500 data points can almost always be fit to look profitable in-sample — even if the underlying system is pure noise. With enough degrees of freedom, you're not discovering an edge; you're constructing a description of the past. This is exactly the trap that exhaustive <a href="../what-is-grid-search-parameter-optimization/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">grid-search parameter optimization</a> falls into when it isn't validated out-of-sample.
+                The more parameters you optimize, the worse this gets. A strategy with 10 free parameters and 500 data points can almost always be fit to look profitable in-sample — even if the underlying system is pure noise. With enough degrees of freedom, you're not discovering an edge; you're constructing a description of the past. This is exactly the trap that exhaustive <a href="../what-is-grid-search-parameter-optimization/" class="text-blue-400 hover:text-blue-300 transition-colors">grid-search parameter optimization</a> falls into when it isn't validated out-of-sample.
             </p>
             <blockquote class="border-l-2 border-blue-500/50 pl-4 italic text-zinc-400 mb-6">
                 "With four parameters I can fit an elephant, and with five I can make him wiggle his trunk." — John von Neumann
@@ -358,22 +329,22 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
                 Walk-forward analysis doesn't end when you go live. The same logic applies to ongoing performance monitoring. As your live trade journal accumulates data, your live results function as a continuously growing OOS window — one where you know exactly when the in-sample optimization ended and the real test began.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                If your <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">live performance starts degrading relative to your backtest benchmark</a>, that's your WFE declining in real time. The right response is the same as in testing: investigate whether parameters have drifted, whether market regime has changed, and whether re-optimization is warranted — followed by another forward test before increasing position size.
+                If your <a href="../how-to-know-when-your-strategy-is-dying/" class="text-blue-400 hover:text-blue-300 transition-colors">live performance starts degrading relative to your backtest benchmark</a>, that's your WFE declining in real time. The right response is the same as in testing: investigate whether parameters have drifted, whether market regime has changed, and whether re-optimization is warranted — followed by another forward test before increasing position size.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                This is also where <a href="../monte-carlo-simulation-trading/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> complements walk-forward analysis. WFA tells you whether your edge is real. Monte Carlo tells you the worst-case drawdown profile of that edge across different trade sequences. Run both before deploying capital.
+                This is also where <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo simulation</a> complements walk-forward analysis. WFA tells you whether your edge is real. Monte Carlo tells you the worst-case drawdown profile of that edge across different trade sequences. Run both before deploying capital.
             </p>
 
             <!-- Relationship to SQN -->
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">How Walk-Forward Analysis Connects to SQN</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                A walk-forward test produces a combined OOS equity curve. One of the best ways to evaluate that curve is with <a href="../how-to-calculate-sqn-score/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">SQN (System Quality Number)</a> — calculated from the OOS trades only, not the IS trades.
+                A walk-forward test produces a combined OOS equity curve. One of the best ways to evaluate that curve is with <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN (System Quality Number)</a> — calculated from the OOS trades only, not the IS trades.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 An IS SQN of 3.5 that drops to 0.8 in OOS is a clear red flag. An IS SQN of 2.5 that holds at 2.0 in OOS is a strong signal of genuine robustness. The SQN measures consistency of the edge — exactly what you want to evaluate in the OOS window, where the strategy is no longer benefiting from parameter selection.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                A practical framework: use walk-forward analysis to verify the edge is real, SQN to measure how consistent that edge is, and then <a href="../kelly-criterion-position-sizing/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly Criterion</a> to determine how much capital to allocate to it. Each step is a prerequisite for the next.
+                A practical framework: use walk-forward analysis to verify the edge is real, SQN to measure how consistent that edge is, and then <a href="../kelly-criterion-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">Kelly Criterion</a> to determine how much capital to allocate to it. Each step is a prerequisite for the next.
             </p>
 
             <!-- How SignalDeck -->
@@ -417,27 +388,27 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
                 <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
                 <p class="text-zinc-500 text-sm mb-6">Walk-Forward Analysis is built into SignalDeck. TraderSync, Edgewonk, TradeZella, Tradervue, and TradesViz don't offer it.</p>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../../compare/tradersync/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradersync/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TraderSync</p>
                         <p class="text-zinc-500 text-xs mt-1">TraderSync has no Walk-Forward Analysis, no SQN scoring, no Kelly Criterion.</p>
                     </a>
-                    <a href="../../compare/edgewonk/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/edgewonk/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs Edgewonk</p>
                         <p class="text-zinc-500 text-xs mt-1">Edgewonk has no Walk-Forward Analysis and no automated Monte Carlo simulation.</p>
                     </a>
-                    <a href="../../compare/tradezella/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradezella/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradeZella</p>
                         <p class="text-zinc-500 text-xs mt-1">TradeZella's "backtesting" is trade replay — it replays closed trades, it doesn't test rules on historical data.</p>
                     </a>
-                    <a href="../../compare/tradervue/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradervue/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs Tradervue</p>
                         <p class="text-zinc-500 text-xs mt-1">Tradervue has 80+ broker imports but no backtester, no Walk-Forward Analysis, and no overfitting detection.</p>
                     </a>
-                    <a href="../../compare/tradesviz/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../../compare/tradesviz/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">SignalDeck vs TradesViz</p>
                         <p class="text-zinc-500 text-xs mt-1">TradesViz has Monte Carlo on its Platinum plan but no Walk-Forward Analysis and no WFE ratio for overfitting detection.</p>
@@ -449,27 +420,27 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
             <div class="mt-16 border-t border-zinc-800 pt-12">
                 <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
-                    <a href="../monte-carlo-simulation-trading/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../monte-carlo-simulation-trading/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Risk Management</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Monte Carlo Simulation for Traders: Know Your Worst-Case Before Your Account Finds It</p>
                         <p class="text-zinc-500 text-xs mt-2">April 28, 2026</p>
                     </a>
-                    <a href="../how-to-calculate-sqn-score/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../how-to-calculate-sqn-score/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Analytics</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Calculate Your Trading System Quality Number (SQN)</p>
                         <p class="text-zinc-500 text-xs mt-2">March 20, 2026</p>
                     </a>
-                    <a href="../how-to-know-when-your-strategy-is-dying/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../how-to-know-when-your-strategy-is-dying/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">How to Know When Your Trading Strategy Is Dying (Before It Kills Your Account)</p>
                         <p class="text-zinc-500 text-xs mt-2">April 13, 2026</p>
                     </a>
-                    <a href="../kelly-criterion-position-sizing/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../kelly-criterion-position-sizing/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Position Sizing</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Kelly Criterion: Let Your Own Data Tell You How Much to Risk Per Trade</p>
                         <p class="text-zinc-500 text-xs mt-2">May 13, 2026</p>
                     </a>
-                    <a href="../backtest-vs-live-divergence/index.html" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
+                    <a href="../backtest-vs-live-divergence/" class="group block bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 rounded-lg p-5 transition-colors">
                         <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Strategy</span>
                         <p class="text-white font-semibold group-hover:text-blue-400 transition-colors text-sm leading-snug">Your Backtest Said 2.1 SQN and Live Says 0.6: Diagnosing Backtest-to-Live Divergence</p>
                         <p class="text-zinc-500 text-xs mt-2">August 14, 2026</p>
@@ -489,7 +460,7 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
                         class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
                         Join the Beta — Free
                     </a>
-                    <a href="../../plans/index.html"
+                    <a href="../../plans/"
                         class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
                         See Plans →
                     </a>
@@ -513,6 +484,19 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="py-20 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">More Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
+                    <h3 class="text-base font-bold text-white mb-2">What is walk-forward efficiency ratio?</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">The walk-forward efficiency ratio (WFE) is the ratio of out-of-sample performance to in-sample performance, expressed as a percentage. For example, if your strategy returns 40% annualised in-sample and 28% annualised out-of-sample, the WFE is 70%. A WFE above 50% generally indicates a robust strategy. Below 30% suggests significant overfitting — the strategy worked on the training data but degraded substantially when exposed to unseen data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-2xl mx-auto px-4 text-center">
             <p class="mt-12 text-xs text-zinc-600 font-mono">
@@ -529,10 +513,24 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
                 <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
             </p>
             <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
                 <a href="../../release-history.html" title="Release History">Release History</a> |
                 <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
-                <a href="../../jobs/index.html" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
-                <a href="../index.html" title="Blog" class="hover:text-zinc-400">Blog</a>
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
             </p>
             <p class="mt-1 text-xs text-zinc-600 font-mono">
                 <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
@@ -542,7 +540,7 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
                 <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
             </p>
             <p class="mt-1 text-[10px] text-zinc-700 font-mono">
-                <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
                 <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
                 <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
             </p>
@@ -552,6 +550,5 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
     <script>
     (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
     </script>
-    <script src="../../yup.js"></script>
 </body>
 </html>

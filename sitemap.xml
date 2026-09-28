@@ -776,4 +776,11 @@
     <changefreq>monthly</changefreq>
   </url>
 
+  <url>
+    <loc>https://sgnldk.com/blog/crypto-trading-journal/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>

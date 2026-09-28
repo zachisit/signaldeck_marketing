@@ -33,6 +33,15 @@
     ================================================================ -->
 
     <item>
+      <title>Crypto Trading Journal: What to Track When the Market Never Closes</title>
+      <link>https://sgnldk.com/blog/crypto-trading-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/crypto-trading-journal/</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 +0000</pubDate>
+      <description>Crypto has no overnight gap, but fees taken in the coin, thin weekend books and wildly different volatilities break a dollar P&amp;L journal. In one 20-trade sample the altcoins made more money and were 4x worse per trade.</description>
+      <content:encoded>A crypto trading journal explainer, written as the mirror image of the stock trading journal post. Crypto trades 24/7, so a stop can fire at any hour and the overnight gap mostly disappears, but three other problems take its place. Fees charged in the coin: buying $10,000 of SOL at $150 with a 0.1% fee taken in SOL receives 66.60 SOL, not 66.67, and a journal that logs the order as placed overstates the profit and keeps a phantom open position. Fee cost in R is the round-trip fee divided by the stop distance, so a 0.2% round trip costs 0.13R on a 1.5% stop and turns a +0.20R intraday edge into about +0.07R. Thin hours: slippage concentrates when books are shallow, so record times in UTC and the price you intended. Volatility: with equal $5,000 positions, ten BTC trades made +$1,200 at +0.80R per trade and ten altcoin trades made +$1,500 at +0.20R per trade - more money, four times worse, because each altcoin trade carried five times the risk. Plus the field table of what an exchange export can and cannot give back, importing from Coinbase through SnapTrade, and what SignalDeck does and does not do for crypto traders, including that its R-multiples are calculated before fees.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01al-coin-normalize.png" length="0" type="image/png"/>
+    </item>
+    <item>
       <title>Stock Trading Journal: What to Track When Your Stop Can Gap</title>
       <link>https://sgnldk.com/blog/stock-trading-journal/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/stock-trading-journal/</guid>

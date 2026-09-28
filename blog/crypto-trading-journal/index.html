@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crypto Trading Journal: What to Track When It Never Closes</title>
+    <meta name="description" content="Crypto has no overnight gap, but fees paid in the coin, thin weekend books and 20 different volatilities break a dollar P&amp;L journal. What to track instead.">
+    <meta name="keywords" content="crypto trading journal, crypto trading journal what to track, bitcoin trading journal, crypto trade log, crypto fees paid in coin, crypto r-multiple, compare crypto trades, crypto weekend liquidity, import coinbase trades">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/crypto-trading-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/crypto-trading-journal/">
+    <meta property="og:title" content="Crypto Trading Journal: What to Track When the Market Never Closes | SignalDeck">
+    <meta property="og:description" content="Crypto removes the overnight gap and adds three problems stocks do not have: fees paid in the coin that shrink the position you think you hold, thin hours where the slippage lives, and volatility so different across coins that dollar P&amp;L cannot compare them. What a crypto trading journal has to record, with worked numbers.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01al-coin-normalize.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/crypto-trading-journal/">
+    <meta name="twitter:title" content="Crypto Trading Journal: What to Track When the Market Never Closes | SignalDeck">
+    <meta name="twitter:description" content="Crypto removes the overnight gap and adds three problems stocks do not have: fees paid in the coin that shrink the position you think you hold, thin hours where the slippage lives, and volatility so different across coins that dollar P&amp;L cannot compare them. What a crypto trading journal has to record, with worked numbers.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01al-coin-normalize.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Crypto Trading Journal: What to Track When the Market Never Closes",
+    "description": "A crypto trading journal does not have to deal with the overnight gap that dominates stock journaling, because crypto trades around the clock and a stop can fire at any hour. It has three different problems instead: fees charged in the coin, which make the quantity you sell smaller than the quantity you ordered; thin hours, where slippage concentrates; and volatility that differs so much between coins that dollar P&L cannot compare a BTC trade with an altcoin trade. This covers a worked fee example, the fee cost of a trade expressed in R for different stop distances, a 20-trade BTC-versus-altcoin sample where dollars and R-multiples give opposite verdicts, the fields a crypto journal must capture at entry, how crypto trades get imported, and what SignalDeck does and does not do for crypto traders.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        },
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-09-28",
+    "dateModified": "2026-09-28",
+    "image": "https://sgnldk.com/assets/banner-01al-coin-normalize.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/crypto-trading-journal/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should I track in a crypto trading journal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beyond entry, exit, quantity and fees, which an exchange export already contains, record what only exists at the moment of entry: the planned stop, so every result can be measured in R-multiples; the setup or strategy the trade belongs to; the price you intended to get, so slippage can be measured; and the entry time in a fixed timezone, so you can compare weekend and weekday or thin-hour and busy-hour results. Record the quantity you actually received rather than the quantity you ordered, because many exchanges take the fee out of the coin, and record every fee in one currency. The R-multiple matters more on crypto than on most markets, because coins differ so much in volatility that dollar P&L cannot compare a bitcoin trade with an altcoin trade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a trading journal if I only hold crypto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You need less of one, but not none. A long-term holder does not need entry-time or slippage fields. What a holder does need is the reason for each buy and the condition that would make them sell, written down at the time of purchase, because after a large drawdown it is very hard to remember honestly why a position was bought. A record of each buy, its fees, and that one-line thesis is enough, and it is also the record that tells you later whether your buying and selling added anything compared with simply holding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I record fees paid in crypto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Convert the fee into your account currency at the price of the fill it was charged on, and record the quantity you actually received after the fee. For example, if you buy 10,000 dollars of SOL at 150 and the exchange takes a 0.1% fee in SOL, you receive 66.60 SOL rather than 66.67. Record the position as 66.60 SOL with a 10.00 dollar entry fee. Logging the 66.67 you ordered overstates the profit on the trade and leaves a small quantity of coin that can never be closed, which will sit in your records as an open position."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I import crypto trades from Coinbase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SignalDeck connects to Coinbase, along with Robinhood, Schwab and other brokers, through SnapTrade, which reads your account activity and rebuilds completed trades from the individual buys and sells, with the fees attached to the entry and the exit. The connection is read-only and SignalDeck never places orders. Account activity refreshes about once a day rather than in real time. For exchanges that SnapTrade does not cover, a generic CSV importer takes any export that lists trades or fills. Imported trades still need a planned stop added, because no exchange export contains one, and without it results cannot be expressed in R-multiples."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sgnldk.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://sgnldk.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Crypto Trading Journal",
+          "item": "https://sgnldk.com/blog/crypto-trading-journal/"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-09-28</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Crypto</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Crypto Trading Journal: What to Track When the Market Never Closes
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                A stock journal has to deal with the overnight gap. Crypto mostly does not have one, because the market never closes. It has three other problems instead, and each of them makes a journal that records only dollar P&amp;L tell you something that is not true.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">No Gap, Different Risk</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">In our
+            <a href="../stock-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">stock trading journal</a> piece, the central
+            problem was that a stop loss on a stock only fires while the market is open, so an earnings report after
+            the close can turn a planned 1R loss into 2.6R by the next morning. Crypto trades around the clock, seven
+            days a week, so a stop resting on an exchange can trigger at 3am on a Sunday. The stock-style gap, where
+            price jumps from one session's close to the next session's open with nothing in between, mostly does not
+            happen.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">That does not make crypto risk simpler. It moves it. Three things take the gap's place, and none of
+            them shows up in a trade log that records only what you made or lost in dollars:</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">Fees charged in the coin</strong>, which make the position you hold smaller
+                than the one you ordered.</li>
+                <li><strong class="text-white">Thin hours</strong>, when order books are shallower and a stop that fires
+                can fill some distance past its trigger.</li>
+                <li><strong class="text-white">Volatility that varies enormously from coin to coin</strong>, so the same
+                dollar result means completely different things on bitcoin and on a small altcoin.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Fees in the Coin: Why Your Position Is Smaller Than You Think</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">On many exchanges, and depending on the order type and your settings, the trading fee on a buy is
+            taken out of the coin you receive rather than charged separately in dollars. The order says one quantity; the
+            wallet holds a slightly smaller one. Here is a round trip at an illustrative 0.1% fee per side. Fee levels
+            vary widely by exchange, account tier and whether you take or provide liquidity, so treat 0.1% as a round
+            number, not a quote:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Step</th>
+                            <th class="px-4 py-3 text-left font-semibold">SOL</th>
+                            <th class="px-4 py-3 text-left font-semibold">Dollars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Buy $10,000 of SOL at $150.00</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">66.6667 ordered</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">-$10,000.00</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-400">0.1% fee taken in SOL</td>
+                            <td class="px-4 py-3 font-mono text-rose-400">-0.0667</td>
+                            <td class="px-4 py-3 font-mono text-zinc-400">(worth $10.00)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Received</td>
+                            <td class="px-4 py-3 font-mono text-white font-semibold">66.6000</td>
+                            <td class="px-4 py-3 font-mono text-zinc-400">-</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-400">Sell all of it at $165.00, 0.1% fee in dollars</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">-66.6000</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">+$10,989.00 - $10.99</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-semibold">Actual profit</td>
+                            <td class="px-4 py-3 font-mono text-zinc-400">-</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400 font-semibold">+$978.01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">A journal that records the order as placed, 66.6667 SOL from $150 to $165 with no fees, shows
+            +$1,000.00. That is $21.99 too high, which is small on one trade, and it creates a second problem that is not
+            small: the journal now believes you still hold 0.0667 SOL. Anything that matches buys against sells by
+            quantity, whether that is your spreadsheet or an importer, will carry that sliver as an open position
+            indefinitely. Across a few hundred trades those slivers become a phantom portfolio.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The correct record is the quantity you received, 66.60 SOL, with the coin fee converted to dollars at the
+            fill price, $10.00, as the entry fee, and $10.99 as the exit fee. That reproduces the cash result exactly:
+            (165 - 150) x 66.60 = $999.00, minus $20.99 in fees, is $978.01.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The bigger reason to get fees right is what they do to your edge. A round-trip fee is a fixed percentage
+            of the position, and one R is also a percentage of the position: the distance to your stop. So the cost of
+            fees in R is simply the round-trip fee divided by the stop distance:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Stop distance</th>
+                            <th class="px-4 py-3 text-left font-semibold">Typical style</th>
+                            <th class="px-4 py-3 text-left font-semibold">0.2% round-trip fee, in R</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">10%</td>
+                            <td class="px-4 py-3 text-zinc-400">Position trade</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">0.02R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">5%</td>
+                            <td class="px-4 py-3 text-zinc-400">Swing trade</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">0.04R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">3%</td>
+                            <td class="px-4 py-3 text-zinc-400">Short swing</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">0.07R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">1.5%</td>
+                            <td class="px-4 py-3 text-zinc-400">Intraday</td>
+                            <td class="px-4 py-3 font-mono text-amber-400 font-semibold">0.13R</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">0.75%</td>
+                            <td class="px-4 py-3 text-zinc-400">Scalp</td>
+                            <td class="px-4 py-3 font-mono text-rose-400 font-semibold">0.27R</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">A position trader can round fees away. An intraday trader with 1.5% stops and an
+            <a href="../trading-expectancy/" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy</a> of +0.20R before fees keeps about
+            +0.07R after them, so two-thirds of the edge goes to the exchange. That is why fees belong in the journal as
+            numbers, not as a line in your head that says "fees are small". If you trade perpetual futures, funding
+            payments are a second recurring cost of the same kind, and they belong in the record for the same reason.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Thin Hours</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">A market that never closes is not equally liquid at every hour. Depth on most pairs is commonly
+            thinner at weekends and in the hours when the major financial centres are all quiet, and a stop that
+            triggers into a thin book fills wherever the next resting orders are. On a stock, the gap is the loss beyond
+            your stop. On crypto, this slippage is, and it concentrates in exactly the hours when you are least likely to
+            be watching.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">How much this costs you depends on the pairs you trade and the size you trade them in, and the honest
+            answer is to measure it rather than assume it. Two fields make that possible:</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">Entry and exit time, in one fixed timezone.</strong> UTC is the simplest,
+                since crypto has no home exchange and no official session. With times recorded, you can split results into
+                weekday and weekend, or by hour of the day.</li>
+                <li><strong class="text-white">The price you intended to get.</strong> An exchange export records fills,
+                not intentions. The difference between your stop level and your actual stop-out price is the slippage, and
+                only you can write down the first number.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">After a couple of months, compare average R on weekend trades with weekday trades, and average stop-out
+            slippage by hour. If the weekend trades are worse, you have a rule to consider, such as smaller size, wider
+            stops sized down to match, or no new positions after Friday. If they are not, you can stop worrying about it.
+            Either way it is a number rather than folklore.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">One Journal, Twenty Volatilities: Why Dollars Can't Compare Coins</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The problem that breaks the most crypto journals is the one that looks least like a problem. Bitcoin and
+            a small altcoin can differ several times over in how far they typically move in a day, so a sensible stop on
+            one is a meaningless stop on the other. If you size by dollars, putting the same $5,000 into each trade, the
+            risk you actually take varies with the coin:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold"></th>
+                            <th class="px-4 py-3 text-left font-semibold">BTC</th>
+                            <th class="px-4 py-3 text-left font-semibold">Altcoin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Entry / stop</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$60,000 / $58,200 (3%)</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$2.00 / $1.70 (15%)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-400">Position for $5,000</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">0.0833 BTC</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">2,500 coins</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-zinc-400">Risk if stopped (1R)</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">$150</td>
+                            <td class="px-4 py-3 font-mono text-rose-400 font-semibold">$750</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 text-zinc-400">A 2R winner pays</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">+$300</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">+$1,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Now run ten trades of each. Every winner is +2R and every loser is -1R. The bitcoin trades win six
+            times out of ten; the altcoin trades win four:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">10 trades each</th>
+                            <th class="px-4 py-3 text-left font-semibold">Wins / losses</th>
+                            <th class="px-4 py-3 text-left font-semibold">Net in R</th>
+                            <th class="px-4 py-3 text-left font-semibold">Expectancy</th>
+                            <th class="px-4 py-3 text-left font-semibold">Net in dollars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-400">BTC</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">6 / 4</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400 font-semibold">+8.0R</td>
+                            <td class="px-4 py-3 font-mono text-emerald-400 font-semibold">+0.80R</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">+$1,200</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-400">Altcoin</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">4 / 6</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">+2.0R</td>
+                            <td class="px-4 py-3 font-mono text-zinc-300">+0.20R</td>
+                            <td class="px-4 py-3 font-mono text-white font-semibold">+$1,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">In dollars, the altcoin trades made more money, and a trader reading a P&amp;L column would conclude
+            that altcoins are where their edge is. In <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a>, the
+            bitcoin trades are four times better per trade. The altcoin trades only made more because each one carried
+            five times the risk. Put the same five-times risk behind the bitcoin setup and it would have made $6,000.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Ten trades is far too few to conclude anything about a real strategy, and the point here is not that
+            bitcoin beats altcoins. It is that dollar P&amp;L cannot answer the question at all, because it mixes the
+            quality of the trade with the size of the bet. The R-multiple separates them, which is what
+            <a href="../xauusd-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">normalising gold against EURUSD</a> does for forex
+            traders, and it points to the fix on the sizing side as well:
+            <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">size every trade to the same dollar risk</a>, so
+            a 15% stop gets a position one-fifth the size of a 3% stop.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Fields, and Which Ones an Export Can Give You Back</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Exchanges keep good records of what happened. They keep no record of what you meant to happen. That is
+            the dividing line between what a crypto journal can import later and what it has to capture at the time:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">Field</th>
+                            <th class="px-4 py-3 text-left font-semibold">Why it matters on crypto</th>
+                            <th class="px-4 py-3 text-left font-semibold">In an exchange export later?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Entry, exit, quantity, time</td>
+                            <td class="px-4 py-3 text-zinc-400">The P&amp;L itself, and the weekend and hour-of-day splits</td>
+                            <td class="px-4 py-3 text-emerald-400 font-semibold">Yes</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Fees</td>
+                            <td class="px-4 py-3 text-zinc-400">Can cost a third of the edge or more on tight stops</td>
+                            <td class="px-4 py-3 text-amber-400 font-semibold">Yes, but possibly in the coin</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Planned stop</td>
+                            <td class="px-4 py-3 text-zinc-400">Defines 1R; the only way to compare BTC with an altcoin</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">No</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Intended price</td>
+                            <td class="px-4 py-3 text-zinc-400">Slippage in thin hours</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">No - fills only</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Setup / strategy</td>
+                            <td class="px-4 py-3 text-zinc-400">Expectancy per setup, not per coin or per account</td>
+                            <td class="px-4 py-3 text-rose-400 font-semibold">No</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800 bg-zinc-900/50">
+                            <td class="px-4 py-3 font-mono text-zinc-300">Buy and sell on different exchanges</td>
+                            <td class="px-4 py-3 text-zinc-400">One trade split across two records</td>
+                            <td class="px-4 py-3 text-amber-400 font-semibold">Each side only, never paired</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The three "no" rows are the case for journaling at the moment of the trade. If you only have time for
+            a few fields, the <a href="../minimum-viable-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">minimum viable journal</a> is
+            the right starting set, and on crypto the planned stop is the one never to skip, because without it nothing
+            you trade can be compared with anything else you trade.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Getting Crypto Trades In</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">For the mechanical fields, import rather than type. SignalDeck connects to Coinbase, along with Robinhood,
+            Schwab and other brokers, through SnapTrade. The connection is read-only: it reads your account activity and
+            never places orders. Because an exchange reports individual buys and sells rather than trades, the importer
+            rebuilds completed round trips from them, averaging the entry price when you scaled in and attaching fees to
+            the entry and the exit. Activity refreshes roughly once a day, not in real time. For any exchange SnapTrade
+            does not cover, the generic CSV importer takes an export of trades or fills and walks you through mapping the
+            columns. Moving coins between exchanges is the one case an importer cannot pair for you: a buy on one venue
+            and a sell on another arrive as two unrelated halves, so log those trades by hand. What connects live and what
+            imports from a file across every platform is in
+            <a href="../trading-journal-platform-support/" class="text-blue-400 hover:text-blue-300 transition-colors">our platform support write-up</a>.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What SignalDeck Does for Crypto Traders, and What It Does Not</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">What it does.</strong> Crypto is its own instrument type, with pair
+            search, and quantities and prices recorded to eight decimal places, so fractional positions and sub-cent coins
+            are stored exactly. Results are measured in R-multiples against the stop recorded at entry, so a bitcoin trade
+            and an altcoin trade land on the same scale. Dollar P&amp;L is recorded net of entry and exit fees, long and
+            short. There are no market-hours restrictions on logging, and open crypto positions are re-priced by a
+            background worker around the clock, weekends included, so unrealised P&amp;L stays current, and price alerts on
+            open positions work at any hour. Maximum favourable and adverse excursion are computed when a trade closes.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">Limits worth knowing before you rely on it:</strong></p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">R-multiples are calculated from prices, before fees.</strong> The fees are
+                in the dollar P&amp;L but not in the R figure. For wide stops the difference is negligible. For tight
+                stops, subtract the fee cost from the table above, or compare R with dollar P&amp;L per trade to see it.</li>
+                <li><strong class="text-white">Fees are recorded in dollars.</strong> A fee charged in the coin has to be
+                converted at the fill price, and the quantity should be the amount you received, as in the SOL example.</li>
+                <li><strong class="text-white">No funding or leverage fields on crypto trades.</strong> If you trade
+                perpetuals, fold funding payments into fees so they reach your P&amp;L, and note the leverage in the trade
+                notes.</li>
+                <li><strong class="text-white">Excursion comes from daily bars.</strong> MAE and MFE use the high and low of
+                each day you held the position, so on an intraday trade they cover the whole day's range and are an upper
+                bound on what you experienced rather than a measurement of it.</li>
+                <li><strong class="text-white">The pre-trade concentration check covers stocks only.</strong> Several
+                altcoins that move together are one bet, and SignalDeck does not flag that for crypto today.</li>
+                <li><strong class="text-white">It is not a tax tool.</strong> It does not compute cost basis, tax lots or
+                tax reports. Your exchange's reports are the record for that.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">For what the crypto side of the product looks like overall, see the
+            <a href="../../crypto/" class="text-blue-400 hover:text-blue-300 transition-colors">crypto trading journal overview</a>.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Do With This</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Starting with your next trade, write down the stop you planned before you enter, record the quantity
+            you actually received, and put every fee in dollars. Those three habits fix the phantom-position problem, make
+            fees visible in R, and let you compare every coin you trade on one scale. None of it needs new software.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">After a couple of months, run three comparisons: expectancy in R by coin or by setup, rather than P&amp;L
+            by coin; weekend against weekday; and your average R before and after fees. Each one answers a question that a
+            dollar P&amp;L column cannot, and at least one of them is likely to change how you trade.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What should I track in a crypto trading journal?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Beyond entry, exit, quantity and fees, which an exchange export already contains, record what only exists at the moment of entry: the planned stop, so every result can be measured in R-multiples; the setup or strategy the trade belongs to; the price you intended to get, so slippage can be measured; and the entry time in a fixed timezone, so you can compare weekend and weekday or thin-hour and busy-hour results. Record the quantity you actually received rather than the quantity you ordered, because many exchanges take the fee out of the coin, and record every fee in one currency. The R-multiple matters more on crypto than on most markets, because coins differ so much in volatility that dollar P&amp;L cannot compare a bitcoin trade with an altcoin trade.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Do I need a trading journal if I only hold crypto?</h3>
+                    <p class="text-zinc-400 leading-relaxed">You need less of one, but not none. A long-term holder does not need entry-time or slippage fields. What a holder does need is the reason for each buy and the condition that would make them sell, written down at the time of purchase, because after a large drawdown it is very hard to remember honestly why a position was bought. A record of each buy, its fees, and that one-line thesis is enough, and it is also the record that tells you later whether your buying and selling added anything compared with simply holding.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">How do I record fees paid in crypto?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Convert the fee into your account currency at the price of the fill it was charged on, and record the quantity you actually received after the fee. For example, if you buy 10,000 dollars of SOL at 150 and the exchange takes a 0.1% fee in SOL, you receive 66.60 SOL rather than 66.67. Record the position as 66.60 SOL with a 10.00 dollar entry fee. Logging the 66.67 you ordered overstates the profit on the trade and leaves a small quantity of coin that can never be closed, which will sit in your records as an open position.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Can I import crypto trades from Coinbase?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Yes. SignalDeck connects to Coinbase, along with Robinhood, Schwab and other brokers, through SnapTrade, which reads your account activity and rebuilds completed trades from the individual buys and sells, with the fees attached to the entry and the exit. The connection is read-only and SignalDeck never places orders. Account activity refreshes about once a day rather than in real time. For exchanges that SnapTrade does not cover, a generic CSV importer takes any export that lists trades or fills. Imported trades still need a planned stop added, because no exchange export contains one, and without it results cannot be expressed in R-multiples.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
+                <p class="text-zinc-400 text-sm mb-6">Two widely used journals, set against R-normalised results across coins of very different volatility.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../../compare/tradesviz/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <div class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</div>
+                        <h3 class="text-white font-semibold mb-1">SignalDeck vs TradesViz</h3>
+                        <p class="text-sm text-zinc-400">Broad charting and import coverage against R-multiple and expectancy analytics.</p>
+                    </a>
+                    <a href="../../compare/tradezella/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <div class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</div>
+                        <h3 class="text-white font-semibold mb-1">SignalDeck vs TradeZella</h3>
+                        <p class="text-sm text-zinc-400">A popular all-round journal against setup-level expectancy measured in R.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../stock-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Stock Trading Journal: What to Track When Your Stop Can Gap</h3>
+                        <p class="text-sm text-zinc-400">The mirror image of this piece: a market that closes, and what that does to a stop.</p>
+                    </a>
+                    <a href="../what-is-r-multiple/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">What Is an R-Multiple?</h3>
+                        <p class="text-sm text-zinc-400">The unit that puts a bitcoin trade and an altcoin trade on the same scale.</p>
+                    </a>
+                    <a href="../fixed-r-position-sizing/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Fixed-R Position Sizing</h3>
+                        <p class="text-sm text-zinc-400">Turning a dollar risk and a stop distance into a position size, on any coin.</p>
+                    </a>
+                    <a href="../trading-expectancy/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Trading Expectancy</h3>
+                        <p class="text-sm text-zinc-400">The per-trade number that fees quietly eat into.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Put every coin on the same scale</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Import your crypto trades, add the stop you planned, and every
+                result is measured in R, so a bitcoin trade and an altcoin trade can finally be compared. Free during beta;
+                Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'crypto-trading-journal'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

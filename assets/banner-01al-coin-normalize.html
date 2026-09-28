@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AL · Coin Normalize</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(245,158,11,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Dollars Can't<br>Compare Coins.<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">R Can.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Fees in the Coin &middot; Thin Hours &middot; 24/7 &middot; Volatility</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">The crypto trading journal &middot; What to track when it never closes</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(x, y, s, size, fill, extra) {
+    const t = el(svg, 'text', Object.assign({ x: x, y: y, 'font-family': 'JetBrains Mono, monospace',
+      'font-size': String(size), fill: fill, 'letter-spacing': '0.07em' }, extra || {}));
+    t.textContent = s; return t;
+  }
+
+  /* faint grid */
+  for (let gy = 90; gy <= 430; gy += 68) {
+    el(svg, 'line', { x1: 0, y1: gy, x2: 1500, y2: gy, stroke: '#18181b', 'stroke-width': 1 });
+  }
+
+  /* ---------------------------------------------------------------
+     The post's exhibit, fully deterministic (no randomness needed).
+     20 trades, interleaved BTC / ALT, both with 2R winners and 1R losers.
+       BTC: 6 wins, 4 losses, $150 risk  -> +8R  = +$1,200
+       ALT: 4 wins, 6 losses, $750 risk  -> +2R  = +$1,500
+     LEFT: bars in dollars (ALT dwarfs BTC). RIGHT: the same trades in R.
+     --------------------------------------------------------------- */
+  const btc = [2, 2, -1, 2, -1, 2, 2, -1, 2, -1];
+  const alt = [-1, -1, 2, -1, 2, -1, -1, 2, -1, 2];
+  const trades = [];
+  for (let i = 0; i < 10; i++) {
+    trades.push({ c: 'BTC', r: btc[i], risk: 150 });
+    trades.push({ c: 'ALT', r: alt[i], risk: 750 });
+  }
+  const COL = { BTC: '#f59e0b', ALT: '#a855f7' };
+  const base = 262;
+
+  /* ---- LEFT: dollars ---- */
+  const pxPerDollar = 0.105, lx0 = 62, lw = 13, lgap = 7.5;
+  el(svg, 'line', { x1: 50, y1: base, x2: 486, y2: base, stroke: '#3f3f46', 'stroke-width': 1.4 });
+  trades.forEach((t, i) => {
+    const d = t.r * t.risk, h = Math.abs(d) * pxPerDollar;
+    const x = lx0 + i * (lw + lgap);
+    el(svg, 'rect', { x: x, y: d > 0 ? base - h : base, width: lw, height: Math.max(h, 1.5), rx: 2,
+      fill: COL[t.c], opacity: d > 0 ? 0.95 : 0.45 });
+  });
+  txt(62, 92, 'P&L IN DOLLARS', 14, '#a1a1aa', { 'font-weight': '700', 'letter-spacing': '0.09em' });
+  txt(62, 438, 'BTC  +$1,200', 13, '#fbbf24', { 'font-weight': '700' });
+  txt(232, 438, 'ALT  +$1,500', 13, '#c084fc', { 'font-weight': '700' });
+  txt(62, 458, 'the alt looks like the better strategy', 11, '#52525b');
+
+  /* ---- divider ---- */
+  const xNorm = 520;
+  el(svg, 'line', { x1: xNorm, y1: 74, x2: xNorm, y2: 452, stroke: '#f59e0b', 'stroke-width': 1.6, 'stroke-dasharray': '3 4', opacity: 0.85 });
+  txt(xNorm + 12, 88, 'NORMALIZE TO R', 12, '#fbbf24', { 'font-weight': '700', 'letter-spacing': '0.08em' });
+
+  /* ---- RIGHT: R ---- */
+  const rStep = 40, rx0 = 606, rw = 12, rgap = 6.5;
+  for (let v = 2; v >= -1; v--) {
+    const y = base - v * rStep;
+    el(svg, 'line', { x1: 590, y1: y, x2: 990, y2: y, stroke: v === 0 ? '#3f3f46' : '#1f1f23', 'stroke-width': v === 0 ? 1.4 : 1 });
+    txt(582, y + 4, (v > 0 ? '+' : '') + v + 'R', 11, v === 0 ? '#71717a' : '#52525b', { 'text-anchor': 'end', 'font-weight': '700', 'letter-spacing': '0' });
+  }
+  trades.forEach((t, i) => {
+    const h = Math.abs(t.r) * rStep;
+    const x = rx0 + i * (rw + rgap);
+    el(svg, 'rect', { x: x, y: t.r > 0 ? base - h : base, width: rw, height: h, rx: 2,
+      fill: COL[t.c], opacity: t.r > 0 ? 0.95 : 0.45 });
+  });
+  txt(606, 438, 'BTC  +0.8R / trade', 13, '#fbbf24', { 'font-weight': '700' });
+  txt(606, 458, 'ALT  +0.2R / trade', 13, '#c084fc', { 'font-weight': '700' });
+})();
+</script>
+</body>
+</html>

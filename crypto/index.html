@@ -69,7 +69,7 @@
           "name": "Does SignalDeck support 24/7 crypto trading hours?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. There are no market-hours restrictions — log a Saturday BTC breakout, a Sunday ETH reversal, or a 3AM altcoin scalp at any time. The calendar view shows your full 7-day trading week, and day-of-week and time-of-day filters work across the full 24/7 schedule so you can find your real edge window."
+            "text": "Yes. There are no market-hours restrictions — log a Saturday BTC breakout, a Sunday ETH reversal, or a 3AM altcoin scalp at any time. The calendar view shows your full 7-day trading week, and open crypto positions are re-priced around the clock, weekends included, so unrealized P&L and price alerts stay current at any hour."
           }
         },
         {
@@ -77,7 +77,7 @@
           "name": "Can I track trades from multiple exchanges in one journal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Each trade can be tagged with an exchange (Binance, Coinbase, Kraken, Bybit, and others). You can then filter your dashboard, SQN score, and R-multiple analytics by exchange to see which venue produces the best fills and where your edge is strongest."
+            "text": "Yes. Create a tag or a separate account for each exchange (Binance, Coinbase, Kraken, Bybit, and others), then filter your dashboard, SQN score, and R-multiple analytics by that tag or account to see which venue produces the best fills and where your edge is strongest."
           }
         },
         {
@@ -85,7 +85,7 @@
           "name": "Can I journal leveraged crypto positions and fractional coin amounts?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck logs both spot and leveraged positions in R-terms. Enter fractional coin amounts, tag the exchange, and log your leverage factor alongside the entry. Leverage multiplies P&L but doesn't change the risk framework — the 1R you define before entry is what your analytics measure."
+            "text": "Yes, with one limit. SignalDeck logs both spot and leveraged positions in R-terms, and fractional coin amounts are recorded to eight decimal places. Leverage multiplies P&L but doesn't change the risk framework — the 1R you define before entry is what your analytics measure. There is no dedicated leverage or funding-rate field on crypto trades, so note the leverage in the trade notes and fold perpetual funding payments into fees so they reach your P&L."
           }
         }
       ]
@@ -251,7 +251,7 @@
                         Crypto doesn't stop on Friday afternoon. Saturday BTC breakout, Sunday ETH reversal, 3AM altcoin scalp — every trade logs cleanly with no market-hours gate, no forced session constraints, and no missing data for off-hours entries.
                     </p>
                     <p class="text-zinc-400 leading-relaxed">
-                        The calendar view shows your full 7-day trading week. The daily notes system lets you log pre-session context for any day of the week. Filters by day-of-week and time-of-day work across the full 24/7 schedule so you can find your real edge window.
+                        The calendar view shows your full 7-day trading week. The daily notes system lets you log pre-session context for any day of the week. Open positions are re-priced around the clock, weekends included, so unrealized P&amp;L is current whenever you look.
                     </p>
                 </div>
 
@@ -316,7 +316,7 @@
                     <div class="relative bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 shadow-2xl">
                         <div class="flex justify-between items-center mb-6 border-b border-zinc-800/50 pb-4">
                             <span class="text-xs font-mono text-zinc-400">POSITION DETAIL — BTC/USD</span>
-                            <span class="text-[10px] font-mono text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded">3× LEVERAGE</span>
+                            <span class="text-[10px] font-mono text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded">LONG</span>
                         </div>
 
                         <div class="space-y-3">
@@ -356,7 +356,7 @@
                         Whether you're buying spot BTC or trading a leveraged perpetual, SignalDeck logs the position in R-terms. Leverage multiplies P&amp;L but it doesn't change the risk framework — if you defined your risk as 1R before entry, that number is what matters regardless of notional size.
                     </p>
                     <p class="text-zinc-400 leading-relaxed">
-                        Log fractional coin amounts. Tag by exchange. Log your leverage factor alongside the entry. The Post Mortem will ask the same questions it asks for any trade: was the setup sound, was the stop held, was the management disciplined?
+                        Log fractional coin amounts to eight decimal places. Tag by exchange, or give each exchange its own account. There is no dedicated leverage field on crypto trades, so note leverage in the trade notes and fold perpetual funding into fees. The Post Mortem will ask the same questions it asks for any trade: was the setup sound, was the stop held, was the management disciplined?
                     </p>
                 </div>
 
@@ -553,17 +553,17 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck support 24/7 crypto trading hours?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. There are no market-hours restrictions — log a Saturday BTC breakout, a Sunday ETH reversal, or a 3AM altcoin scalp at any time. The calendar view shows your full 7-day trading week, and day-of-week and time-of-day filters work across the full 24/7 schedule so you can find your real edge window.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. There are no market-hours restrictions — log a Saturday BTC breakout, a Sunday ETH reversal, or a 3AM altcoin scalp at any time. The calendar view shows your full 7-day trading week, and open crypto positions are re-priced around the clock, weekends included, so unrealized P&amp;L and price alerts stay current at any hour.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Can I track trades from multiple exchanges in one journal?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Each trade can be tagged with an exchange (Binance, Coinbase, Kraken, Bybit, and others). You can then filter your dashboard, SQN score, and R-multiple analytics by exchange to see which venue produces the best fills and where your edge is strongest.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. Create a tag or a separate account for each exchange (Binance, Coinbase, Kraken, Bybit, and others), then filter your dashboard, SQN score, and R-multiple analytics by that tag or account to see which venue produces the best fills and where your edge is strongest.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Can I journal leveraged crypto positions and fractional coin amounts?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. SignalDeck logs both spot and leveraged positions in R-terms. Enter fractional coin amounts, tag the exchange, and log your leverage factor alongside the entry. Leverage multiplies P&amp;L but doesn't change the risk framework — the 1R you define before entry is what your analytics measure.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes, with one limit. SignalDeck logs both spot and leveraged positions in R-terms, and fractional coin amounts are recorded to eight decimal places. Leverage multiplies P&amp;L but doesn't change the risk framework — the 1R you define before entry is what your analytics measure. There is no dedicated leverage or funding-rate field on crypto trades, so note the leverage in the trade notes and fold perpetual funding payments into fees so they reach your P&amp;L.</p>
                 </div>
 
             </div>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Connect Claude or ChatGPT to Your Trading Journal | SignalDeck</title>
+    <meta name="description" content="Connect Claude or ChatGPT to SignalDeck through MCP. What the assistant can read, what it can change and how it asks, what it can delete only if you opt in, and what it can never touch.">
+    <meta name="keywords" content="trading journal mcp, chatgpt trading journal, claude trading journal, connect chatgpt to trading journal, ai trading journal, mcp server trading, claude connector trading journal, ai assistant trade log">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/">
+    <meta property="og:title" content="Connect Claude or ChatGPT to Your Trading Journal | SignalDeck">
+    <meta property="og:description" content="Pasting a CSV into a chatbot gives it a stale snapshot. Connecting it gives it your actual records. What a connected assistant can read in SignalDeck, what it can change and how it asks first, what it can delete only if you opt in, and what it can never do.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01am-three-layers.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/">
+    <meta name="twitter:title" content="Connect Claude or ChatGPT to Your Trading Journal | SignalDeck">
+    <meta name="twitter:description" content="Pasting a CSV into a chatbot gives it a stale snapshot. Connecting it gives it your actual records. What a connected assistant can read in SignalDeck, what it can change and how it asks first, what it can delete only if you opt in, and what it can never do.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01am-three-layers.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Connect Claude or ChatGPT to Your Trading Journal",
+    "description": "SignalDeck runs an MCP server, so Claude (claude.ai, Claude Desktop, Claude Code) and ChatGPT can connect to a trader's own SignalDeck account. This explains what an MCP connection is and how it differs from pasting a CSV into a chatbot; the four layers of access: what the assistant can read (trades, R-multiple stats, strategy performance, backtests, risk checks, journal), what it can change and how it is instructed to confirm first (logging, editing and closing trades, notes, tags, post-mortems, alerts, screenshots, journal entries), what it can delete only if the user opts in (with symbol confirmation for trades, and no restore), and what it can never do (place broker orders, touch billing or settings, see another user's data, change scanner-managed positions). It includes three illustrative example exchanges, setup steps for each client, the honest limits, and plan and rate limits.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        },
+        "@id": "https://sgnldk.com/#org"
+    },
+    "datePublished": "2026-10-02",
+    "dateModified": "2026-10-02",
+    "image": "https://sgnldk.com/assets/banner-01am-three-layers.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an MCP server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MCP, the Model Context Protocol, is an open standard that lets an AI assistant call tools inside another application. An MCP server is the part of that application that offers the tools. SignalDeck runs one at https://app.sgnldk.com/api/mcp, so a connected assistant such as Claude or ChatGPT can look up your trades and statistics when you ask a question, and, if you grant write access, record changes in your journal for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ChatGPT see my trades?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you connect it, and only your own. ChatGPT and claude.ai connect through a sign-in to SignalDeck and a consent screen that lists what you are granting. After that, the assistant can read your own trades, statistics, journal and backtests when a question needs them. It cannot see any other user's data, because every tool acts only as the account that signed in. What it reads becomes part of your conversation with that assistant, so it is handled under the assistant provider's data terms as well as SignalDeck's."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to connect an AI assistant to my trading journal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The connection is built to limit what can go wrong. Read access is the default, write access is a separate permission, and delete access is a further opt-in that is unticked unless you tick it. The assistant works inside your journal only: it cannot place orders at your broker, change billing or settings, or see another user's data. Writes are capped per hour, you can revoke any connection in Settings under AI assistants (MCP), and changing your password cuts off every connection. The one limit to understand is that the assistant is instructed to show you each change and ask first, and most apps prompt before a write, but SignalDeck's server cannot force an app to ask. If that matters to you, connect read-only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it cost extra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The connection is available on every SignalDeck plan, including Free, and SignalDeck does not charge for it. Your plan's normal limits still apply through the assistant: on Free, for example, SQN and the Kelly figure stay hidden and each trade can hold one screenshot. You use your own Claude or ChatGPT account, and adding a custom connector may need a paid plan or developer mode with that provider, so check their current terms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which apps work with SignalDeck's MCP server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "claude.ai and ChatGPT connect with a SignalDeck sign-in and a consent screen. Claude Code and Claude Desktop connect with a personal access token created in SignalDeck under Settings, AI assistants (MCP). Any other MCP client that supports remote HTTP servers with OAuth or a bearer token can connect to the same server address."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sgnldk.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://sgnldk.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Connect Claude or ChatGPT to Your Trading Journal",
+          "item": "https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-10-02</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Product</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Connect Claude or ChatGPT to Your Trading Journal
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                Most traders who use an AI assistant on their trading do it the same way: export a CSV, paste it into a chat, and ask a question. The assistant answers from a snapshot that was out of date before the paste finished, and nothing it works out ever makes it back into the journal. SignalDeck now lets Claude and ChatGPT connect to your journal directly. This explains what that connection can read, what it can change, what it can delete only if you allow it, and what it can never do.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What an MCP Connection Is</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">MCP, the Model Context Protocol, is an open standard for letting an AI assistant use tools in another
+            application. The application publishes a list of tools, each with a name, a description and the inputs it takes. When
+            you ask the assistant something that needs one, it calls the tool, gets the result back, and answers from it.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">SignalDeck runs an MCP server with 54 tools. Connect Claude or ChatGPT to it once, and from then on a question
+            like "which of my setups is losing money?" is answered from your actual trades, at the moment you ask, using the same
+            code that produces the numbers on your dashboard. The assistant does not get a copy of your database. It gets the
+            answer to each tool call it makes, and only for your own account.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A Paste Versus a Connection</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Pasting an export into a chatbot works, up to a point. These are the differences that matter once you rely
+            on it:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold"></th>
+                            <th class="px-4 py-3 text-left font-semibold">Pasted CSV</th>
+                            <th class="px-4 py-3 text-left font-semibold">Connected journal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">How current</td>
+                            <td class="px-4 py-3">As of the export</td>
+                            <td class="px-4 py-3">As of the question</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Open positions</td>
+                            <td class="px-4 py-3">Usually missing, or frozen at export prices</td>
+                            <td class="px-4 py-3">Included, with unrealized P&amp;L from the latest price update</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">R-multiples</td>
+                            <td class="px-4 py-3">Only if the export has a stop column, which broker exports do not</td>
+                            <td class="px-4 py-3">Computed from the planned stop you recorded</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Notes, tags, post-mortems</td>
+                            <td class="px-4 py-3">Not in a broker export</td>
+                            <td class="px-4 py-3">Available per trade</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Arithmetic</td>
+                            <td class="px-4 py-3">Done by the model, which can get it wrong</td>
+                            <td class="px-4 py-3">Done by the app's own code; the model reads the result</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Size</td>
+                            <td class="px-4 py-3">Limited by what fits in one message</td>
+                            <td class="px-4 py-3">Fetched in filtered pieces as needed</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Results flow back</td>
+                            <td class="px-4 py-3">No; you copy them into the journal by hand</td>
+                            <td class="px-4 py-3">Yes, if you grant write access</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The arithmetic row is the one that gets underrated. A language model asked to compute a profit factor from
+            300 pasted rows will usually produce a plausible number, and sometimes a wrong one. A connected assistant calls a tool
+            that returns the profit factor the app already computed, so the figure in the chat matches the figure on your
+            dashboard.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What the Assistant Can See</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Every connection includes read access. With it, the assistant can look up:</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">Trades.</strong> Your trade list, filtered by status, symbol, strategy, date range or
+                instrument type; full detail on any trade, including its notes, post-mortem, tags and change history; and every open
+                position.</li>
+                <li><strong class="text-white">Statistics.</strong> The dashboard numbers for the last 7, 30 or 90 days, the last
+                year or all time: win rate, profit factor, average R, drawdown, expectancy, SQN. Also per-strategy performance, and
+                monthly and yearly calendar summaries.</li>
+                <li><strong class="text-white">Review.</strong> The review queue of trades that still need a note, a post-mortem or a
+                stop, and your journaling and P&amp;L goals.</li>
+                <li><strong class="text-white">Risk checks.</strong> Portfolio heat across your open positions, a compliance check
+                that projects a new trade against an FTMO preset, a generic preset or your own rules, and a concentration check by
+                symbol and strategy. These only calculate. Nothing is logged.</li>
+                <li><strong class="text-white">Backtests and strategies.</strong> Your backtest history and full results, your live
+                strategies, and how each promoted strategy is tracking against its backtest.</li>
+                <li><strong class="text-white">Journal and market.</strong> Your daily journal entries and mood, your tags, brokers
+                and funding accounts, and the daily market review.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">Each tool runs the same code as the matching screen in the app. A connected assistant on the Free plan sees
+            what a Free user sees in the app, so SQN and the Kelly figure come back empty, exactly as they do on the dashboard.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What It Can Change, and How It Asks</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Write access is a separate permission. You grant it when you connect, on the consent screen for claude.ai
+            and ChatGPT or with a checkbox when you create a token for Claude Code, and you can connect without it. With it, the
+            assistant can do the journal's data entry:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold">What</th>
+                            <th class="px-4 py-3 text-left font-semibold">Examples</th>
+                            <th class="px-4 py-3 text-left font-semibold">Hourly limit</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Trades</td>
+                            <td class="px-4 py-3">Log a new trade; edit size, stop, target, strategy or fees; close it with an exit price and reason; close a connected group in one step</td>
+                            <td class="px-4 py-3 font-mono">60</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Trade details and journal</td>
+                            <td class="px-4 py-3">Notes, tags, signals, entry checklist, post-mortem, price and pip-distance alerts, daily journal entries and mood</td>
+                            <td class="px-4 py-3 font-mono">30</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Screenshots</td>
+                            <td class="px-4 py-3">Attach a chart to a trade, or get a one-time 15-minute upload link for a file on disk</td>
+                            <td class="px-4 py-3 font-mono">20</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Three details matter here. First, a trade the assistant closes is computed by the same code as a trade you
+            close by hand, so its P&amp;L, R-multiple and slippage are identical. Second, if you edit a field on a trade that came
+            from a broker sync, the assistant is told which fields came from the broker and warns you that the next forced
+            re-import will overwrite them. Third, the hourly limits exist so that an assistant that misunderstands an instruction
+            cannot rewrite your whole journal in one go.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">On asking first: every write tool carries an instruction telling the assistant to show you the exact change and
+            get your confirmation before making it, and most assistant apps also prompt you before running a tool that writes.
+            Those are two layers, and in practice you see the change before it happens. But they live in the assistant and its
+            app, not on SignalDeck's server, which cannot force an app to ask. That is the reason the permissions and the hourly
+            limits exist as hard limits underneath. If you want a connection that cannot change anything, connect it read-only.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What It Can Delete, Only If You Opt In</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Deleting is a third permission, on top of write. On the claude.ai and ChatGPT consent screen it is a checkbox
+            that starts unticked, and for a Claude Code token you tick it when you create the token. Without it, the assistant
+            has no way to delete anything. With it, it can delete trades, notes, tags, alerts, screenshots and journal entries,
+            and each delete is limited further:</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li>Deleting a trade requires the assistant to pass back the trade's symbol. If it does not match, nothing is
+                deleted. This guards against the assistant acting on the wrong trade id.</li>
+                <li><strong class="text-white">A deleted trade cannot be restored.</strong> The assistant is instructed to name
+                exactly what it will delete and to get your explicit confirmation.</li>
+                <li>A tag that is still on a trade cannot be deleted, the same rule as in the app.</li>
+                <li>Deletes count against the same 60-per-hour budget as trade writes.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">Most people do not need delete access. Leave it off unless you have a specific cleanup job in mind, and
+            revoke the connection afterwards if you only needed it once.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What It Can Never Do</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">No permission unlocks any of the following, because the tools for them do not exist:</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">Place, change or cancel an order at your broker.</strong> The assistant works on
+                your journal, not your brokerage account. Logging a trade in SignalDeck records it; it does not execute it.</li>
+                <li><strong class="text-white">Touch billing, account settings or broker connections.</strong></li>
+                <li><strong class="text-white">See or change another user's data.</strong> No tool takes a user id. Every tool acts
+                only as the account that signed in, so there is nothing to point at someone else.</li>
+                <li><strong class="text-white">Change positions managed by the automated scanner.</strong> Those are refused even
+                with write and delete access.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Three Things to Ask It First</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The exchanges below are illustrative: the account and its numbers are invented, but the tool names are the
+            real ones the assistant calls, and the answers use the fields those tools return. Your assistant's wording will
+            differ.</p>
+
+            <h3 class="text-lg font-semibold text-white mt-8 mb-3">1. Find out which setup is paying for the others</h3>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6 text-sm space-y-3">
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>Which of my strategies actually makes money, and which just feels like it does?</p>
+                <p class="font-mono text-xs text-teal-400">&#9656; tool get_strategy_performance</p>
+                <p class="text-zinc-300"><span class="font-mono text-xs text-blue-400 mr-2">ASSISTANT</span>One of your three strategies is carrying the account. Pullback: 41 closed trades, 44% win rate, profit factor 1.9, about +$118 a trade. Breakout: 87 closed trades, 52% win rate, but profit factor 0.88 and about -$19 a trade, so it wins more often and still loses money because the losers are bigger. Opening Range: 9 closed trades, which is too few to judge. Breakout is also where most of your trades go. Want me to compare its losing trades' stops against its winners'?</p>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">This is the question a single net P&amp;L hides, and the reason
+            <a href="../why-win-rate-is-lying/" class="text-blue-400 hover:text-blue-300 transition-colors">win rate on its own is misleading</a>.
+            The follow-up is where a connection earns its keep: the assistant can pull the Breakout trades and check them, rather
+            than asking you to export again.</p>
+
+            <h3 class="text-lg font-semibold text-white mt-8 mb-3">2. Clear the review queue</h3>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6 text-sm space-y-3">
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>What's in my review queue?</p>
+                <p class="font-mono text-xs text-teal-400">&#9656; tool get_review_queue</p>
+                <p class="text-zinc-300"><span class="font-mono text-xs text-blue-400 mr-2">ASSISTANT</span>Four closed trades have no post-mortem, and two open stock positions, MSFT and COST, have no stop, so their risk can't be measured in R. Want to start with the stops? Tell me where you'd exit each one and I'll show you the change before saving it.</p>
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>MSFT 402, COST 905.</p>
+                <p class="text-zinc-300"><span class="font-mono text-xs text-blue-400 mr-2">ASSISTANT</span>I'll set MSFT's stop to 402.00 and COST's to 905.00. Go ahead?</p>
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>Yes.</p>
+                <p class="font-mono text-xs text-amber-400">&#9656; write update_trade &middot; MSFT stop 402.00<br>&#9656; write update_trade &middot; COST stop 905.00</p>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Journaling usually fails as data entry, not as analysis. A review queue you can clear by answering
+            questions gets cleared. Adding a planned stop that you really did plan is fine. Moving a stop after the fact to make
+            a loss look smaller is not, and the journal keeps a change history either way.</p>
+
+            <h3 class="text-lg font-semibold text-white mt-8 mb-3">3. Check a trade before you take it, then log it</h3>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6 text-sm space-y-3">
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>Thinking about buying 200 AMD at 151.20, stop 147. How much am I already risking?</p>
+                <p class="font-mono text-xs text-teal-400">&#9656; tool get_portfolio_heat<br>&#9656; tool list_open_trades</p>
+                <p class="text-zinc-300"><span class="font-mono text-xs text-blue-400 mr-2">ASSISTANT</span>Your three open positions are risking $1,950 combined to their stops. This trade risks $840 (4.20 a share on 200 shares), so the total would be $2,790 across four positions. Two of the three open positions are already on Breakout, so this would make three of four on one strategy. Nothing is logged yet. Which strategy is this on?</p>
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>Pullback. Do it at 150 shares instead.</p>
+                <p class="text-zinc-300"><span class="font-mono text-xs text-blue-400 mr-2">ASSISTANT</span>I'll log AMD long, 150 shares at 151.20, stop 147.00, strategy Pullback. That's a 1R of $630. Go ahead?</p>
+                <p class="text-zinc-400"><span class="font-mono text-xs text-zinc-500 mr-2">YOU</span>Yes.</p>
+                <p class="font-mono text-xs text-amber-400">&#9656; write create_trade &middot; AMD &middot; LONG &middot; 150 @ 151.20 &middot; stop 147.00</p>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The checks are read-only. Only the final step writes anything, and it records a trade you have already
+            placed, or are about to place, at your broker yourself. For how the stop turns into a 1R, see
+            <a href="../fixed-r-position-sizing/" class="text-blue-400 hover:text-blue-300 transition-colors">fixed-R position sizing</a>.
+            Prop-firm traders can ask for the same check against an FTMO preset or their own firm's rules.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Honest Limits</h2>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">The numbers are the app's. The reading of them is the model's.</strong> A tool
+                returns a correct profit factor, and the assistant can still draw a weak conclusion from nine trades. If an answer
+                matters, ask it which tool it used and what came back.</li>
+                <li><strong class="text-white">What the assistant reads goes to its provider.</strong> Tool results become part of
+                your conversation with Claude or ChatGPT and are handled under that provider's data terms, as well as SignalDeck's.</li>
+                <li><strong class="text-white">Asking first is not enforced by our server,</strong> as covered above. Read-only is
+                the setting for anyone who wants a guarantee.</li>
+                <li><strong class="text-white">Large requests are split.</strong> A single result is capped in size, so "show me
+                every trade I've ever taken" comes back in pages, or with a request to narrow the filter.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Setting It Up</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">You need a SignalDeck account; the Free plan works. The server address is the same for every client:</p>
+            <pre class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-6 text-sm font-mono text-teal-400 overflow-x-auto">https://app.sgnldk.com/api/mcp</pre>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">claude.ai or ChatGPT.</strong> In the assistant's settings, add a custom connector
+                and paste the address. Sign in to SignalDeck when prompted, choose read, write and, if you want it, delete on the
+                consent screen, and approve. Custom connectors may need a paid plan or developer mode, depending on the provider
+                and your plan with them.</li>
+                <li><strong class="text-white">Claude Code.</strong> In SignalDeck, go to Settings, then AI assistants (MCP), and
+                create a token, ticking write or delete if you want them. Then run:
+                <pre class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mt-3 text-xs font-mono text-zinc-300 overflow-x-auto">claude mcp add --transport http \
+  signaldeck https://app.sgnldk.com/api/mcp \
+  --header "Authorization: Bearer sd_pat_..."</pre></li>
+                <li><strong class="text-white">Claude Desktop.</strong> Create a token the same way, and copy the ready-made config
+                snippet shown next to it into Claude Desktop's config, then restart the app.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">Whichever you use, ask the assistant to run <code class="font-mono text-sm text-teal-400">whoami</code> first.
+            It returns the account and permissions the connection has, which confirms you connected the account you meant to.
+            For a step-by-step walkthrough, there is a short
+            <a href="https://www.youtube.com/watch?v=9hPoNTpcJbk" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">video on connecting Claude to SignalDeck</a>,
+            and the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300 transition-colors">AI assistant page</a> has
+            the setup for each client and the full tool list.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">To disconnect, go to Settings, then AI assistants (MCP). Revoke a token, or disconnect an app under Connected
+            apps, and access stops at once. Changing or resetting your password also cuts off every connection. Logging out of
+            the web app does not. Sign-in connections use short-lived access tokens that renew in the background, and a token
+            for Claude Code is shown once, when you create it.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Plans and Limits</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The connection is on every plan, including Free, and SignalDeck does not charge for it. Your assistant runs
+            on your own Claude or ChatGPT account. Your SignalDeck plan's limits apply through the assistant the same way they
+            apply in the app:</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li>On Free, SQN and the Kelly figure come back empty, and a trade can hold one screenshot.</li>
+                <li>Plan-gated features, such as price alerts and the number of tags, stay gated. The assistant gets the same
+                upgrade message the app shows.</li>
+                <li>Screenshots can be JPEG, PNG, GIF or WebP up to 5 MB. iPhone HEIC files are not accepted, so export them as
+                JPEG first.</li>
+                <li>Each account can make up to 120 requests a minute, plus the hourly write limits above.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">SignalDeck is free during beta. When billing launches, the plans are Free, Pro at $30/mo and Elite at $50/mo;
+            see <a href="../../plans/" class="text-blue-400 hover:text-blue-300 transition-colors">plans</a>.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Do With This</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Connect read-only first. Ask the three questions above and check the answers against your dashboard. When you
+            trust what you see, reconnect with write access and let the assistant clear your review queue. That is the part of
+            journaling most traders skip, and it is what makes every later question answerable in R.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What is an MCP server?</h3>
+                    <p class="text-zinc-400 leading-relaxed">MCP, the Model Context Protocol, is an open standard that lets an AI assistant call tools inside another application. An MCP server is the part of that application that offers the tools. SignalDeck runs one at https://app.sgnldk.com/api/mcp, so a connected assistant such as Claude or ChatGPT can look up your trades and statistics when you ask a question, and, if you grant write access, record changes in your journal for you.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Can ChatGPT see my trades?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Only if you connect it, and only your own. ChatGPT and claude.ai connect through a sign-in to SignalDeck and a consent screen that lists what you are granting. After that, the assistant can read your own trades, statistics, journal and backtests when a question needs them. It cannot see any other user's data, because every tool acts only as the account that signed in. What it reads becomes part of your conversation with that assistant, so it is handled under the assistant provider's data terms as well as SignalDeck's.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Is it safe to connect an AI assistant to my trading journal?</h3>
+                    <p class="text-zinc-400 leading-relaxed">The connection is built to limit what can go wrong. Read access is the default, write access is a separate permission, and delete access is a further opt-in that is unticked unless you tick it. The assistant works inside your journal only: it cannot place orders at your broker, change billing or settings, or see another user's data. Writes are capped per hour, you can revoke any connection in Settings under AI assistants (MCP), and changing your password cuts off every connection. The one limit to understand is that the assistant is instructed to show you each change and ask first, and most apps prompt before a write, but SignalDeck's server cannot force an app to ask. If that matters to you, connect read-only.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Does it cost extra?</h3>
+                    <p class="text-zinc-400 leading-relaxed">No. The connection is available on every SignalDeck plan, including Free, and SignalDeck does not charge for it. Your plan's normal limits still apply through the assistant: on Free, for example, SQN and the Kelly figure stay hidden and each trade can hold one screenshot. You use your own Claude or ChatGPT account, and adding a custom connector may need a paid plan or developer mode with that provider, so check their current terms.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Which apps work with SignalDeck's MCP server?</h3>
+                    <p class="text-zinc-400 leading-relaxed">claude.ai and ChatGPT connect with a SignalDeck sign-in and a consent screen. Claude Code and Claude Desktop connect with a personal access token created in SignalDeck under Settings, AI assistants (MCP). Any other MCP client that supports remote HTTP servers with OAuth or a bearer token can connect to the same server address.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-2">How SignalDeck Compares</h2>
+                <p class="text-zinc-400 text-sm mb-6">Two widely used journals, set against a journal your own AI assistant can work in directly.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../../compare/tradezella/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <div class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</div>
+                        <h3 class="text-white font-semibold mb-1">SignalDeck vs TradeZella</h3>
+                        <p class="text-sm text-zinc-400">A popular all-round journal against setup-level expectancy measured in R.</p>
+                    </a>
+                    <a href="../../compare/tradervue/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <div class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded mb-3 inline-block">Compare</div>
+                        <h3 class="text-white font-semibold mb-1">SignalDeck vs Tradervue</h3>
+                        <p class="text-sm text-zinc-400">A long-running trade log against R-multiple analytics and pre-trade risk checks.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../broker-statement-vs-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Broker Statement vs Trading Journal</h3>
+                        <p class="text-sm text-zinc-400">Why an export alone cannot answer the questions worth asking an assistant.</p>
+                    </a>
+                    <a href="../what-is-r-multiple/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">What Is an R-Multiple?</h3>
+                        <p class="text-sm text-zinc-400">The unit a connected assistant can report in, once your trades carry a planned stop.</p>
+                    </a>
+                    <a href="../minimum-viable-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">The Minimum Viable Trading Journal</h3>
+                        <p class="text-sm text-zinc-400">The five fields worth recording, now something you can say out loud instead of type.</p>
+                    </a>
+                    <a href="../trading-journal-platform-support/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Trading Journal Platform Support</h3>
+                        <p class="text-sm text-zinc-400">How trades get into SignalDeck in the first place, by broker and platform.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Give your assistant the real journal</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Connect Claude or ChatGPT to SignalDeck in about two minutes, read-only to start.
+                Available on every plan, including Free. Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'connect-claude-chatgpt-trading-journal'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../mcp/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        How the Connection Works &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AM · Three Layers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(45,212,191,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Your Journal,<br>Inside Claude<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">&amp; ChatGPT.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Reads &middot; Writes, asks first &middot; Deletes only if you opt in</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">Connect your AI assistant &middot; MCP &middot; Every plan</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) {
+    const e = document.createElementNS(NS, t);
+    for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
+    p.appendChild(e); return e;
+  }
+  function txt(x, y, s, size, fill, extra) {
+    const t = el(svg, 'text', Object.assign({ x: x, y: y, 'font-family': 'JetBrains Mono, monospace',
+      'font-size': String(size), fill: fill, 'letter-spacing': '0.07em' }, extra || {}));
+    t.textContent = s; return t;
+  }
+  function chip(x, y, w, h, label, stroke, fill, tcol) {
+    el(svg, 'rect', { x: x, y: y, width: w, height: h, rx: 8, fill: fill, stroke: stroke, 'stroke-width': 1.4 });
+    txt(x + w / 2, y + h / 2 + 5, label, 13, tcol, { 'text-anchor': 'middle', 'font-weight': '700' });
+  }
+
+  /* faint grid */
+  for (let gy = 90; gy <= 430; gy += 68) {
+    el(svg, 'line', { x1: 0, y1: gy, x2: 1500, y2: gy, stroke: '#18181b', 'stroke-width': 1 });
+  }
+
+  /* ---- assistants (left) ---- */
+  chip(40, 150, 150, 46, 'CLAUDE', '#3f3f46', '#111114', '#e4e4e7');
+  chip(40, 304, 150, 46, 'CHATGPT', '#3f3f46', '#111114', '#e4e4e7');
+
+  /* ---- hub ---- */
+  const hx = 300, hy = 250;
+  el(svg, 'path', { d: 'M190 173 C 240 173, 250 ' + hy + ', ' + (hx - 44) + ' ' + hy, fill: 'none', stroke: '#52525b', 'stroke-width': 1.6 });
+  el(svg, 'path', { d: 'M190 327 C 240 327, 250 ' + hy + ', ' + (hx - 44) + ' ' + hy, fill: 'none', stroke: '#52525b', 'stroke-width': 1.6 });
+  el(svg, 'circle', { cx: hx, cy: hy, r: 44, fill: '#0f172a', stroke: '#3b82f6', 'stroke-width': 2 });
+  txt(hx, hy - 3, 'SIGNAL', 11, '#93c5fd', { 'text-anchor': 'middle', 'font-weight': '700' });
+  txt(hx, hy + 13, 'DECK', 11, '#93c5fd', { 'text-anchor': 'middle', 'font-weight': '700' });
+  txt(hx, hy + 70, 'MCP', 11, '#52525b', { 'text-anchor': 'middle', 'font-weight': '700' });
+
+  /* ---- the four layers ---- */
+  const lanes = [
+    { y: 112, label: 'READ',            sub: 'trades · R · stats · backtests', col: '#2dd4bf', dash: null,  op: 1 },
+    { y: 202, label: 'WRITE',           sub: 'shows the change, asks first',   col: '#60a5fa', dash: null,  op: 1 },
+    { y: 292, label: 'DELETE',          sub: 'off unless you opt in',          col: '#f59e0b', dash: '6 6', op: 1 },
+    { y: 382, label: 'NEVER',           sub: 'broker orders · billing · other users', col: '#f43f5e', dash: '2 6', op: 0.9 },
+  ];
+  lanes.forEach(function (L) {
+    const x1 = hx + 44, x2 = 560;
+    const path = 'M' + x1 + ' ' + hy + ' C ' + (x1 + 70) + ' ' + hy + ', ' + (x2 - 90) + ' ' + L.y + ', ' + x2 + ' ' + L.y;
+    const a = { d: path, fill: 'none', stroke: L.col, 'stroke-width': 2, opacity: L.op };
+    if (L.dash) a['stroke-dasharray'] = L.dash;
+    el(svg, 'path', a);
+    if (L.label === 'NEVER') {
+      /* blocked: an X where the line meets the panel */
+      el(svg, 'line', { x1: x2 - 10, y1: L.y - 10, x2: x2 + 10, y2: L.y + 10, stroke: L.col, 'stroke-width': 2.4 });
+      el(svg, 'line', { x1: x2 - 10, y1: L.y + 10, x2: x2 + 10, y2: L.y - 10, stroke: L.col, 'stroke-width': 2.4 });
+    } else {
+      el(svg, 'circle', { cx: x2, cy: L.y, r: 5, fill: L.col });
+    }
+    el(svg, 'rect', { x: 580, y: L.y - 28, width: 360, height: 56, rx: 8, fill: '#0c0c0f',
+      stroke: L.col, 'stroke-opacity': 0.55, 'stroke-width': 1.2, 'stroke-dasharray': L.dash || 'none' });
+    txt(598, L.y - 4, L.label, 15, L.col, { 'font-weight': '700', 'letter-spacing': '0.1em' });
+    txt(598, L.y + 16, L.sub, 11, '#71717a');
+  });
+})();
+</script>
+</body>
+</html>

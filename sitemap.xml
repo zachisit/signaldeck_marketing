@@ -782,5 +782,11 @@
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
 </urlset>

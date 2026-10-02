@@ -33,6 +33,15 @@
     ================================================================ -->
 
     <item>
+      <title>Connect Claude or ChatGPT to Your Trading Journal</title>
+      <link>https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Pasting a CSV into ChatGPT gives it a stale snapshot. You can now connect Claude or ChatGPT to your SignalDeck journal instead. What it can read, what it changes only after asking, and what it can never do.</description>
+      <content:encoded>SignalDeck's launch post for its MCP server, which lets Claude (claude.ai, Claude Desktop, Claude Code) and ChatGPT connect to a trader's own journal. It compares a pasted CSV with a live connection (current data, open positions, R-multiples from the planned stop, notes and post-mortems, arithmetic done by the app rather than the model, results that flow back into the journal). It sets out four layers of access: read (trades, dashboard stats, strategy performance, review queue, portfolio heat and compliance checks, backtests, journal); write, a separate permission, covering trade create, edit and close plus notes, tags, post-mortems, alerts, screenshots and journal entries, with hourly limits of 60 trade writes, 30 other writes and 20 screenshots; delete, an unticked opt-in on top of write, where deleting a trade needs its symbol confirmed and cannot be undone; and never - no broker orders, billing, settings, other users' data or scanner-managed positions. It is honest that confirm-before-write is an instruction to the assistant plus client prompting, not something the server can enforce, so read-only is the setting for a guarantee. Three illustrative exchanges, setup for each client, and plan limits: every plan including Free, SignalDeck does not charge for it.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01am-three-layers.png" length="0" type="image/png"/>
+    </item>
+    <item>
       <title>Crypto Trading Journal: What to Track When the Market Never Closes</title>
       <link>https://sgnldk.com/blog/crypto-trading-journal/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/crypto-trading-journal/</guid>

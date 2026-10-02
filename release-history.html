@@ -144,12 +144,44 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.117 -->
+            <div class="pl-8 relative" id="v1-0-117">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.117-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Oct 1, 2026 9:27PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Your international trades now speak their own currency. Yen, pounds, euros and Canadian, Australian, Hong Kong and Singapore dollars show up as themselves, with no dollar sign in front.</p>
+
+                    <div>
+                        <h3 class="text-white font-bold mb-2">What&rsquo;s new</h3>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Every trade in its own currency.</strong> Prices, fees, P&amp;L, stops and risk on a Tokyo or London trade are shown in yen or pounds. Where an exact conversion is available, a USD equivalent appears next to them.</li>
+                            <li><strong class="text-zinc-200">Know before you trade whether a listing is priced.</strong> The New Trade listing card now says when a listing has delayed quotes, or none at all.</li>
+                            <li><strong class="text-zinc-200">More Canadian exchanges.</strong> Cboe Canada (<code>.NE</code>) and TSX Venture (<code>.V</code>) listings are now recognised.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-bold mb-2">Fixes</h3>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">More accurate IBKR imports.</strong> Forex P&amp;L is captured correctly. Commissions charged in another currency are converted, and non-USD stocks and futures keep their real currency. A re-import no longer undoes a listing that was already resolved.</li>
+                            <li><strong class="text-zinc-200">Risk totals no longer mix currencies.</strong> Open Risk, Portfolio Heat, prop-firm checks and Execution Quality keep non-USD risk separate instead of adding it as dollars.</li>
+                            <li><strong class="text-zinc-200">Planned risk stays put.</strong> Moving your stop to breakeven no longer wipes out the planned risk and R shown in Trade Details.</li>
+                            <li><strong class="text-zinc-200">Cleaner handling of instruments that stop trading.</strong> Expired futures, delisted stocks and index CFDs such as AUS200 are now recognised. SignalDeck flags them instead of leaving them stale.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.116 -->
             <div class="pl-8 relative" id="v1-0-116">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.116-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Sep 30, 2026 5:39AM</span>
                 </div>
 

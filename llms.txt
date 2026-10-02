@@ -388,6 +388,10 @@ A: TradesViz is feature-rich with AI Q&A, a free tier, and a rule-based strategy
 - URL: https://sgnldk.com/jobs/short-form-video-editor.html
 - Content: Open role at SignalDeck, listed on the careers index at https://sgnldk.com/jobs/. Early-stage startup position working directly with the founder. See the role page for scope, time commitment, compensation basis and the application link.
 
+### Jobs: Forex Trading Associate
+- URL: https://sgnldk.com/jobs/forex-trading-associate.html
+- Content: Twelve-week, unpaid, remote volunteer role (20 hours a week) for a genuine forex beginner. The associate learns one vetted strategy from an established trading community until they can state its setup, entry trigger, stop placement and invalidation from memory; trades it on a demo account only, in a fixed session of 07:00-10:00 ET on weekdays, on three pairs (EUR/USD, GBP/USD, USD/CAD); journals every trade in SignalDeck with entry, stop, target, screenshot and a post-mortem; writes a weekly public review on LinkedIn and X; and reports what is confusing or broken in the product as a beginner. Benefits: weekly founder review of the journal, a comped SignalDeck Elite account, a demo broker account, the Forex Trading Associate title on SignalDeck's LinkedIn company page, a written reference and first refusal on a paid version of the role. The page is explicit that it is unpaid with no stipend or equity, has no guaranteed paid role at the end, cannot make money (demo only, no funded account), runs a full twelve weeks under a non-binding pledge, and never involves giving trading advice, signals or calls. The affiliation with SignalDeck is public and disclosed. No CV; apply through a written form, reply within seven days. Posted 2026-08-25, valid through 2026-12-31.
+
 ### Release History
 - URL: https://sgnldk.com/release-history.html
 - Content: Changelog of product updates

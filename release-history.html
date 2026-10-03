@@ -144,12 +144,43 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.118 -->
+            <div class="pl-8 relative" id="v1-0-118">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.118-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Oct 2, 2026 8:20PM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>More of your international trades are priced, charted on the right exchange, and show the P&amp;L you actually made.</p>
+
+                    <div>
+                        <h3 class="text-white font-bold mb-2">What&rsquo;s new</h3>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Charts open on the right exchange.</strong> The TradingView link on a Tokyo, London or Hong Kong trade now opens that listing, for example <code>TSE:6702</code>, instead of a US ticker that happens to share the symbol.</li>
+                            <li><strong class="text-zinc-200">Hong Kong stocks are priced.</strong> Short Hong Kong codes such as <code>700</code> are now recognised as <code>0700</code>, so their live prices come through.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-bold mb-2">Fixes</h3>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">The P&amp;L you see matches your dashboard.</strong> A closed IBKR trade that was imported with a zero P&amp;L now shows its real result, the same figure your stats use.</li>
+                            <li><strong class="text-zinc-200">Correct index CFD values.</strong> Pip values for NAS100, US500, GER40 and other index CFDs now match your broker&rsquo;s own P&amp;L, so excursions and open P&amp;L are no longer overstated.</li>
+                            <li><strong class="text-zinc-200">No more borrowed prices.</strong> A foreign position moved to its real listing no longer shows a US namesake&rsquo;s price. Charts for listings without data now say so instead of failing.</li>
+                            <li><strong class="text-zinc-200">Steadier international pricing.</strong> Fewer quote fetches fail when several international listings refresh at once.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.117 -->
             <div class="pl-8 relative" id="v1-0-117">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.117-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Oct 1, 2026 9:27PM</span>
                 </div>
 

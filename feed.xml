@@ -33,6 +33,15 @@
     ================================================================ -->
 
     <item>
+      <title>How to Journal International Stock Trades in Their Own Currency</title>
+      <link>https://sgnldk.com/blog/international-stock-trading-journal/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/international-stock-trading-journal/</guid>
+      <pubDate>Mon, 05 Oct 2026 12:00:00 +0000</pubDate>
+      <description>A yen profit logged with a dollar sign is 150x too big. Pence read as pounds is 100x. SignalDeck now journals stocks on 22 non-US exchanges in their own currency, with USD at the exit-date rate.</description>
+      <content:encoded>A guide to journaling stocks traded on non-US exchanges, written for SignalDeck's international listings release. It names three units errors that wreck an international trade in most journals: pricing the position off a US stock that shares the ticker letters, showing a yen profit with a dollar sign (about 150 times too large at USD/JPY 150), and reading a London price quoted in pence as pounds (100 times too large; Johannesburg quotes in cents the same way). An international trade needs two extra fields, the listing and the quote currency, plus a fixed rule for USD values. A worked Tokyo example (100 shares of 7203.T, entry 2,800 yen, stop 2,660, exit 3,080) gives 1R = 14,000 yen and +28,000 yen = +2.0R with no exchange rate involved; in USD it is about $186.67 at an exit-date rate of 150 but $200.00 at a later rate of 140, which is why SignalDeck fixes each closed trade's USD value at the exit-date rate. It covers how SignalDeck records these trades (listing kept per trade via suffix, prefix or picker; never a borrowed US price; prices, stops, fees and P&amp;L in the quote currency; pence and cents normalized; open non-USD positions kept out of USD totals; charts and hours follow the exchange), a table of the 22 non-US exchanges with suffixes, currencies and pricing status (20 delayed, Cboe Canada and Abu Dhabi not priced), logging by hand, via Interactive Brokers Flex or SnapTrade, and the limits: no live international quotes, no currency attribution, stocks only and no options.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01an-native-currency.png" length="0" type="image/png"/>
+    </item>
+    <item>
       <title>Connect Claude or ChatGPT to Your Trading Journal</title>
       <link>https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/</guid>

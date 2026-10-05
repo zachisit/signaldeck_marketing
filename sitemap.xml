@@ -788,5 +788,11 @@
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://sgnldk.com/blog/international-stock-trading-journal/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
 </urlset>

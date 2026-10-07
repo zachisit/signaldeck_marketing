@@ -58,7 +58,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-10-05",
-    "dateModified": "2026-10-05",
+    "dateModified": "2026-10-07",
     "image": "https://sgnldk.com/assets/banner-01an-native-currency.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -215,6 +215,10 @@
             <p class="text-zinc-300 leading-relaxed mb-6">Each of these is a units mistake, not a judgment call. A journal that makes one of them gives you statistics that are wrong before you start interpreting anything.</p>
             <h3 class="text-lg font-semibold text-white mt-8 mb-3">1. The wrong listing</h3>
             <p class="text-zinc-300 leading-relaxed mb-6">Many short tickers exist on more than one exchange, often as unrelated companies. A journal that only knows US tickers takes the letters you typed, finds the US stock with the same symbol, and prices your position off it. The chart, the unrealized P&amp;L and the excursion figures are then measuring a company you do not own. Numeric codes in Tokyo and Hong Kong avoid the clash, but a journal that does not recognise them has nothing to price at all.</p>
+            <figure class="my-8 max-w-md">
+                <img src="../../assets/screenshot-intl-listing-picker.webp" width="1136" height="954" loading="lazy" decoding="async" alt="SignalDeck New Trade form with SAP typed in the symbol field and the listing menu open, showing SAP on the US listing, SAP.DE on Xetra in euros, SAP.TO on the TSX for Saputo Inc. in Canadian dollars, and SAP.NE on NEO marked Not priced" class="w-full h-auto rounded-xl border border-zinc-800">
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Typing SAP in New Trade. The same three letters are SAP SE in New York and Frankfurt, and Saputo, a Canadian dairy company, in Toronto, so SignalDeck asks which listing you mean before it fetches a price.</figcaption>
+            </figure>
             <h3 class="text-lg font-semibold text-white mt-8 mb-3">2. The wrong currency symbol</h3>
             <p class="text-zinc-300 leading-relaxed mb-6">A journal that assumes dollars takes a profit of &yen;28,000 and shows it as $28,000. At a USD/JPY rate of 150, the real figure is about $187, so the trade is overstated 150 times. One of those in a month of US trades swamps everything else in the total. The same applies, at smaller multiples, to pounds, euros, francs and every other currency.</p>
             <h3 class="text-lg font-semibold text-white mt-8 mb-3">3. Pence read as pounds</h3>
@@ -279,6 +283,18 @@
                 <li><strong class="text-white">Open positions stay in their own currency.</strong> They are kept out of USD totals until they close. Open Risk, Portfolio Heat and the prop-firm checks list non-USD risk separately instead of adding yen to dollars.</li>
                 <li><strong class="text-white">Charts and hours follow the exchange.</strong> Charts use the listing's own price history, the TradingView link opens that listing (for example <code class="font-mono text-sm text-teal-400">TSE:6702</code>), and open positions are repriced only while that exchange is in session.</li>
             </ul>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-intl-trade-log.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-intl-trade-log.webp" width="2432" height="840" loading="lazy" decoding="async" alt="SignalDeck trade log with seven international trades: Tencent on HKEX in HKD, First Abu Dhabi Bank on ADX in AED marked Not priced, Reliance on NSE in INR, SAP on Xetra in EUR, Royal Bank of Canada on TSX in CAD, Barclays on LSE in GBP, and Toyota 7203 on TYO in JPY" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The trade log. Each row carries its exchange, its quote currency and whether its prices are Delayed or Not priced, and the exit price stays in that currency. Screenshots in this article come from a demo account, with trades entered at real closing prices.</figcaption>
+            </figure>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-intl-tokyo-trade.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-intl-tokyo-trade.webp" width="2556" height="1600" loading="lazy" decoding="async" alt="SignalDeck trade details for a closed Toyota 7203 trade on the Tokyo Stock Exchange: fill price ¥3,019, stop ¥2,935, planned risk ¥8,360, and a final P/L of ¥17,011 shown as approximately $106.18, with a result of 2.03R" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">A closed Tokyo trade. The fill, stop, 1R and P&amp;L are all in yen. The dollar figure is fixed at the exit-date rate, and the 2.03R result needed no conversion at all.</figcaption>
+            </figure>
+            <figure class="my-8 max-w-xl">
+                <img src="../../assets/screenshot-intl-open-risk.webp" width="1328" height="292" loading="lazy" decoding="async" alt="SignalDeck Open Risk card reading $0.00 and 2.0R open, with the line: plus AED 250.00 and HK$3,200.00 in other currencies, not included" class="w-full h-auto rounded-xl border border-zinc-800">
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Open Risk with a Hong Kong and an Abu Dhabi position open. Their risk is listed in Hong Kong dollars and dirhams beside the dollar figure instead of being added to it.</figcaption>
+            </figure>
             <p class="text-zinc-300 leading-relaxed mb-6">R-multiples, win rate and trade counts include every closed trade whatever its currency, because none of them needs an exchange rate.</p>
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Supported Exchanges</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">The six US exchanges are covered as before. These are the 22 non-US exchanges SignalDeck records today:</p>

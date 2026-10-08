@@ -144,12 +144,46 @@
 
         <div class="relative border-l border-zinc-800 ml-4 space-y-16">
 
+            <!-- v1.0.122 -->
+            <div class="pl-8 relative" id="v1-0-122">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-white">v1.0.122-Beta</h2>
+                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
+                    <span class="text-sm font-mono text-zinc-500">Oct 8, 2026 7:37AM</span>
+                </div>
+
+                <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
+                    <p>Scale out of a position the way you actually trade it: close part of a trade and keep the rest running. Claude can now do much more of your journal housekeeping for you, and pasted charts attach in a couple of clicks.</p>
+
+                    <div>
+                        <h3 class="text-white font-bold mb-2">What&rsquo;s new</h3>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">Partial closes.</strong> In Close Trade, enter how many shares you sold. Those shares are recorded as their own closed trade with the right P&amp;L, the rest stays open, and both stay linked in the same campaign.</li>
+                            <li><strong class="text-zinc-200">Claude can manage more of your setup.</strong> Through the SignalDeck connector, Claude can now create and edit strategies, checklist items and signals, set your calendar goals and risk limits, add brokers and funding accounts, pause or resume live strategies, and partially close a trade. It always confirms before changing anything.</li>
+                            <li><strong class="text-zinc-200">Attach pasted charts from Claude.</strong> When you paste a chart into Claude and ask it to attach it to a trade, you now get a simple upload link. Open it on desktop or phone and attach the image in one tap.</li>
+                            <li><strong class="text-zinc-200">Cleaner Live Strategies.</strong> A tidier table, a &ldquo;Last run&rdquo; column that reads &ldquo;3 hours ago&rdquo;, and a View strategy button that opens the full strategy detail.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-bold mb-2">Fixes</h3>
+                        <ul class="list-disc list-outside pl-5 space-y-1">
+                            <li><strong class="text-zinc-200">More realistic trailing stops in the Backtester.</strong> A percentage trailing stop is no longer moved and triggered by the same bar.</li>
+                            <li><strong class="text-zinc-200">Optimize matches a single run.</strong> Optimization now uses the same slippage settings as a normal backtest.</li>
+                            <li><strong class="text-zinc-200">Backtester on phones.</strong> Tapping a recent backtest now scrolls you to its results, with readable trade dates.</li>
+                            <li><strong class="text-zinc-200">Trailing-stop exits are labelled correctly.</strong> A position closed by its trailing stop is recorded as a trailing-stop exit, not a stop loss.</li>
+                            <li><strong class="text-zinc-200">Tidier stop values.</strong> Stops on Live Strategies read &ldquo;7%&rdquo;, not long decimals.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- v1.0.121 -->
             <div class="pl-8 relative" id="v1-0-121">
                 <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
                     <h2 class="text-2xl font-bold text-white">v1.0.121-Beta</h2>
-                    <span class="px-2 py-1 rounded text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">LATEST</span>
                     <span class="text-sm font-mono text-zinc-500">Oct 6, 2026 12:21PM</span>
                 </div>
 

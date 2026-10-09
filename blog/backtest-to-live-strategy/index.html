@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>From Backtest to Live Strategy: What Has to Be True Before You Promote | SignalDeck</title>
+    <meta name="description" content="How to take a backtest live without fooling yourself: the six checks a backtest must pass before SignalDeck will promote it, the four ways live results will differ, what promotion actually does, and how to read the live record against the backtest.">
+    <meta name="keywords" content="backtest to live trading, forward testing a strategy, promote backtest, paper trading a backtest, backtest vs live results, strategy scanner, walk-forward analysis, overfitting, rule builder, RSI strategy backtest, ATR stop, systematic trading journal">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/backtest-to-live-strategy/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/backtest-to-live-strategy/">
+    <meta property="og:title" content="From Backtest to Live Strategy: What Has to Be True Before You Promote | SignalDeck">
+    <meta property="og:description" content="A backtest is a question, not an answer. What SignalDeck checks before it lets a backtest go live, the four differences it makes you read first, and why 10 live trades at 80% against a 64% backtest tells you almost nothing yet.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-backtest-to-live.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/backtest-to-live-strategy/">
+    <meta name="twitter:title" content="From Backtest to Live Strategy: What Has to Be True Before You Promote | SignalDeck">
+    <meta name="twitter:description" content="A backtest is a question, not an answer. What SignalDeck checks before it lets a backtest go live, the four differences it makes you read first, and why 10 live trades at 80% against a 64% backtest tells you almost nothing yet.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-backtest-to-live.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "From Backtest to Live Strategy: What Has to Be True Before You Promote",
+    "description": "How to take a backtest live without fooling yourself: the six checks a backtest must pass before SignalDeck will promote it, the four ways live results will differ, what promotion actually does, and how to read the live record against the backtest.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        }
+    },
+    "datePublished": "2026-10-09",
+    "dateModified": "2026-10-09",
+    "image": "https://sgnldk.com/assets/banner-backtest-to-live.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/backtest-to-live-strategy/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Can I promote any backtest to a live strategy?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. A backtest can be promoted only if it ran a rule strategy you built in the Rule Builder, on stocks, on the daily timeframe, with at least 10 closed trades over at least 180 days of history, every symbol inside one of the scanner's universes, and a stop the live scanner can run: a fixed percentage stop, an ATR stop or a trailing ATR stop. Built-in strategies cannot be promoted. When a backtest fails, SignalDeck lists every reason at once so you can fix them in one pass."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does promoting a backtest place orders with my broker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. A promoted strategy runs on SignalDeck's scanner after each session and opens and closes positions in its own tracked record, which you see in Runs and on the strategy's Strategy Detail page. Those trades are system-managed and account-agnostic: they do not appear under any broker account and are kept out of your own Today cards and risk checks. SignalDeck's automation can close a position on the strategy's stop without any action from you."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does a bad walk-forward result block promotion?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Walk-forward analysis is advisory. If the backtest has a Likely Overfitted verdict, the promotion panel shows it as a warning, but it never blocks the promotion. The checks that do block it are the strategy type, instrument, timeframe, trade count, history length, universe and stop."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why will my live results not match the backtest?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Four reasons, which SignalDeck shows before you confirm. The backtest fills at the signal bar's close, while the live position opens at the next session's open. Costs are modelled differently. Trades the backtest force-closed at its end date have no live equivalent. And the live strategy scans its whole universe, including symbols the backtest never tested. The comparison view exists to make that gap visible, not to grade the strategy."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How many live trades do I need before the comparison means anything?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "More than most people expect. With 10 closed trades, a win rate has a margin of error of roughly 25 percentage points either way, so 80% live against a 64% backtest is well inside the noise. Treat the first few dozen live trades as a check that the strategy behaves as designed, not as a verdict on its edge."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which plan includes live strategies?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Promoting a backtest to a live strategy is part of Pro and Elite. Pausing, resuming and revoking a strategy you have already promoted always stays available, and resuming checks your plan's live-strategy limit the same way promoting does."
+            }
+        }
+    ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sgnldk.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sgnldk.com/blog/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "From Backtest to Live Strategy: What Has to Be True Before You Promote",
+            "item": "https://sgnldk.com/blog/backtest-to-live-strategy/"
+        }
+    ]
+}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-10-09</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Product</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                From Backtest to Live Strategy: What Has to Be True Before You Promote
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                A backtest that works is a question, not an answer. The answer is what the same rules do on prices they have never seen. SignalDeck can now take a backtest and run it live on its scanner, and the useful part is not the button. It is what has to be true before the button works, what it makes you read before you confirm, and how to read the live record afterwards without fooling yourself in either direction.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Most Backtests Should Not Go Live As They Are</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">A backtest is a simulation with every decision made in advance. That is its strength, and it is also why it flatters. The rules are applied at exactly the bar they fire on, the costs are whatever the inputs say, and the symbol list is whatever you typed. None of those hold once real sessions start arriving one at a time. Running the same rules forward is the cheapest honest test there is, and it only means something if what goes forward is the same strategy the backtest measured.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">So SignalDeck does two things before it lets a backtest run live. It refuses backtests that cannot be run the same way live, and it tells you, in plain words, where the live run will differ from the backtest even when it can.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Six Checks a Backtest Has to Pass</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Every completed backtest shows a promotion panel under its results. It either says <strong class="text-white">Eligible for promotion</strong>, or it says <strong class="text-white">Not eligible</strong> and lists every reason at once, so you can fix them in one pass instead of discovering them one at a time.</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">A rule strategy you built.</strong> Only strategies written in the Rule Builder can be promoted. The 16 built-in strategies cannot, because the live scanner runs your declared rules, not a library implementation.</li>
+                <li><strong class="text-white">Stocks, on the daily timeframe.</strong> Live strategies scan stock universes after each session closes. Intraday, forex, futures and crypto backtests stay backtests for now.</li>
+                <li><strong class="text-white">At least 10 closed trades.</strong> Trades the backtest force-closed at its end date do not count, because they never hit an exit rule.</li>
+                <li><strong class="text-white">At least 180 days of history.</strong> Measured from the backtest's start date to its end date, not inferred from how many trades it took.</li>
+                <li><strong class="text-white">Every symbol inside a scanner universe.</strong> The symbols you tested must all belong to one of the scanner's named universes, such as TechGiants, Nasdaq 100 Tech or the S&amp;P 500. A symbol outside every universe is named in the reason.</li>
+                <li><strong class="text-white">A stop the scanner can run.</strong> A fixed percentage stop, an ATR stop or a trailing ATR stop carries over. A backtest with no stop, or a trailing percentage stop, is refused. Leverage above 1 combined with equal-weight sizing is refused too.</li>
+            </ul>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-promote-not-eligible.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-promote-not-eligible.webp" width="973" height="343" loading="lazy" decoding="async" alt="SignalDeck backtest results for Bollinger Band Fade on AAPL, MSFT and NVDA with the promotion panel reading Not eligible for promotion: only rule strategies can be promoted, and a disabled Promote to Live Strategy button" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">A built-in strategy is refused, with the reason and what to do about it. The results above the panel are fine; the strategy type is the problem.</figcaption>
+            </figure>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-promote-eligible.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-promote-eligible.webp" width="973" height="343" loading="lazy" decoding="async" alt="SignalDeck backtest results for a rule strategy called RSI Pullback on AAPL, MSFT and NVDA, total return +91.09%, with the promotion panel reading Eligible for promotion and an enabled Promote to Live Strategy button" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The same symbols and dates with a rule strategy: RSI(14) under 40 to enter, over 60 to exit, a 3&times; ATR stop. 69 closed trades over four and a half years, so it clears every check.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">Two things about these checks are deliberate. First, the floor is low on purpose. Ten trades over six months does not prove anything; the checks exist to reject the degenerate cases, not to certify an edge. Second, <a href="../walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward analysis</a> is advisory. If the backtest has a <em>Likely Overfitted</em> verdict, the panel shows it as a warning, and the decision stays yours.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Four Things That Will Differ</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Clicking <strong class="text-white">Promote to Live Strategy</strong> opens a confirmation that is written to lower your expectations, not raise them. It lists four differences before you can confirm.</p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">Execution timing.</strong> The backtest fills at the signal bar's own close. Live, the scanner signals on the last completed session and the position opens the next morning, so every entry absorbs an overnight gap.</li>
+                <li><strong class="text-white">Costs.</strong> The backtest models commission, slippage, spread, leverage and liquidation. The live record does not reproduce the same cost model.</li>
+                <li><strong class="text-white">End-of-backtest exits.</strong> Trades the backtest force-closed at its end date have no live equivalent, so even the trade counts do not line up directly.</li>
+                <li><strong class="text-white">The universe.</strong> The live strategy scans its whole universe, not just the symbols you tested.</li>
+            </ul>
+            <figure class="my-8 max-w-md">
+                <a href="../../assets/screenshot-promote-confirm.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-promote-confirm.webp" width="520" height="752" loading="lazy" decoding="async" alt="SignalDeck Promote to Live Strategy confirmation listing execution timing, cost model, end-of-backtest exits and a universe line saying the backtest tested 3 symbols while the live strategy will scan the full TechGiants universe of 6, a Live universe selector, a Fixed ATR(14) x 3 stop, and a note that the trades are account-agnostic" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The confirmation. The stop carries over exactly as the backtest used it, and the universe can be widened here if you want the strategy to scan more names.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">The fourth difference is the one people miss. In the example above the backtest tested three symbols, Apple, Microsoft and Nvidia. Promoted into the TechGiants universe, it scans six, so half of what it trades live is a symbol it was never tested on. That can be what you want, since a rule that only works on the three names you happened to test is not much of a rule. But it means the live record is measuring a slightly different strategy, and you should know that before you compare the two.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Promoting Actually Does</h2>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">It does not place orders with your broker.</strong> The strategy runs on SignalDeck's scanner after each session and keeps its own record of positions, entries and exits.</li>
+                <li><strong class="text-white">Its trades are system-managed.</strong> SignalDeck's automation opens them and can close a position on the strategy's stop without any action from you.</li>
+                <li><strong class="text-white">They stay out of your own book.</strong> The trades are account-agnostic, so they do not appear under a broker account, and they are kept out of your Today cards and your own risk checks. Your daily review stays about the trades you placed.</li>
+                <li><strong class="text-white">You keep the controls.</strong> In Runs, <em>Pause</em> takes the strategy off the scanner, <em>Resume</em> puts it back, and <em>Revoke</em> ends it.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Reading the Live Record</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The live strategy appears in <strong class="text-white">Runs</strong>, under Live Strategies. On the day you promote it the row reads <em>Never run</em> and zero trades, which is exactly what it should say. The screenshots below show the same strategy four months later.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-runs-live-strategy.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-runs-live-strategy.webp" width="1492" height="170" loading="lazy" decoding="async" alt="SignalDeck Runs screen, Live Strategies table: RSI Pullback, TechGiants, Fixed ATR x 3, live since 2026-06-05, status Active, last run 17 hours ago with 0 signals, 2 open and 12 total trades, performance +9.6% with an 80% win rate, best +26% and worst -9.3%, with View strategy, Compare, Backtest, Pause and Revoke buttons" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The Runs row: universe, stop, the day it went live, when the scanner last ran it, open and total trades, and a percentage-only performance summary.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">View strategy</strong> opens the full record: return on capital, win rate, profit factor, Sharpe and maximum drawdown, the equity curve, when the scanner last ran and what it signalled, and every trade the strategy has taken, with open positions marked live.</p>
+            <figure class="my-8 max-w-2xl">
+                <a href="../../assets/screenshot-live-strategy-detail.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-live-strategy-detail.webp" width="908" height="902" loading="lazy" decoding="async" alt="SignalDeck Strategy Detail for the RSI Pullback live strategy, marked Forward-testing: return on capital +9.6%, 10 trades, 80% win rate, profit factor 6.19, Sharpe 5.73, max drawdown $922.87, an equity curve, the last run on Oct 8, 2026, and a recent trades table with AMZN and GOOG still live and closed trades in META, NVDA, GOOG, AMZN and MSFT" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Strategy Detail for the promoted strategy. Screenshots in this article come from a demo account. Its four months of live history were generated by running the strategy's own rules over real daily prices since 5 June 2026, so every entry and exit price is a real price on a real date, but no real account traded them.</figcaption>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Live Against the Backtest: Read the Gap, Do Not Grade It</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">Compare</strong> puts the live record next to the backtest sample, metric by metric, with the reasons the two will never match written underneath it.</p>
+            <figure class="my-8 max-w-xl">
+                <a href="../../assets/screenshot-live-vs-backtest.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-live-vs-backtest.webp" width="680" height="686" loading="lazy" decoding="async" alt="SignalDeck Live vs backtest comparison for RSI Pullback: backtest sample 2022-01-01 to 2026-06-01 with 69 comparable trades, live since promotion 2026-06-05 to 2026-10-09 with 10 closed trades; win rate 64% backtest vs 80% live, average return +3.3% vs +9.6%, best trade +31.2% vs +26%, worst trade -21.3% vs -9.3%, followed by a section titled Why these numbers won't match exactly" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Four months live against four and a half years of backtest. The panel under the table repeats the timing, cost, end-of-backtest and denominator differences.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">It is tempting to read that table as good news. Live is winning 80% of the time against 64% in the backtest, and its average trade is three times larger. Here is why that reading is premature.</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                            <th class="px-4 py-3 text-left font-semibold"></th>
+                            <th class="px-4 py-3 text-left font-semibold">Backtest</th>
+                            <th class="px-4 py-3 text-left font-semibold">Live</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Closed trades</td>
+                            <td class="px-4 py-3">69</td>
+                            <td class="px-4 py-3">10</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Win rate</td>
+                            <td class="px-4 py-3">64%</td>
+                            <td class="px-4 py-3">80%</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800">
+                            <td class="px-4 py-3 text-white font-medium">Rough 95% range for the win rate</td>
+                            <td class="px-4 py-3">52% to 76%</td>
+                            <td class="px-4 py-3">55% to 100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Those ranges use the simple binomial approximation, about two standard errors either side, and they are only a rough guide at ten trades. The point survives the approximation: the live range swallows the backtest's win rate whole. Ten trades cannot distinguish an 80% strategy from a 64% one, and the average trade is larger partly because the live record does not carry the backtest's cost model. The same arithmetic applies in the other direction. If the first ten live trades had come in at 50%, that would not have shown the strategy was broken either.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">So treat the first few dozen live trades as a check that the strategy behaves as designed: it signals on the names and days you expect, the stops sit where the backtest put them, and nothing fires that should not. Save the verdict on the edge for a sample that can carry it. When the gap does get large and stays large, <a href="../backtest-vs-live-divergence/" class="text-blue-400 hover:text-blue-300 transition-colors">diagnosing backtest versus live divergence</a> walks through the causes in the order they usually turn out to be the culprit.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What It Does Not Do</h2>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-300 leading-relaxed mb-6">
+                <li><strong class="text-white">No broker orders.</strong> Promotion tracks the strategy; it does not trade your account.</li>
+                <li><strong class="text-white">Stocks on the daily timeframe only.</strong> Intraday, forex, futures and crypto strategies cannot be promoted yet.</li>
+                <li><strong class="text-white">Rule strategies only.</strong> The built-in strategies are for backtesting. Rebuild one in the Rule Builder if you want to run it live.</li>
+                <li><strong class="text-white">Named universes only.</strong> The whole-market universes are excluded, because their membership cannot be checked against a fixed list.</li>
+                <li><strong class="text-white">No live cost model.</strong> The live record does not reproduce the backtest's commission and slippage, so compare like with like inside each column rather than across them.</li>
+                <li><strong class="text-white">Not a certificate.</strong> Passing the checks means the strategy can be run the same way live. It says nothing about whether it will make money.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Watch the Walkthrough</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The <a href="https://youtu.be/nqMfKYFlFl0" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">three-minute walkthrough</a> on the SignalDeck YouTube channel goes through the whole path on screen: a backtest that is refused, one that passes, the confirmation, and the live record in Runs. It is part of the <a href="https://www.youtube.com/playlist?list=PLTWW_X25z2bE" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">How SignalDeck Works playlist</a>.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Do With This</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Open the backtest you trust most and look at its promotion panel. If it is not eligible, the reasons are a useful audit in themselves: a backtest with no stop, or one tested on a handful of names you picked by hand, is telling you something about how far it can be trusted live. If it is eligible, read the four differences before you confirm, then leave it alone long enough for the live record to say something.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Can I promote any backtest to a live strategy?</h3>
+                    <p class="text-zinc-400 leading-relaxed">No. A backtest can be promoted only if it ran a rule strategy you built in the Rule Builder, on stocks, on the daily timeframe, with at least 10 closed trades over at least 180 days of history, every symbol inside one of the scanner's universes, and a stop the live scanner can run: a fixed percentage stop, an ATR stop or a trailing ATR stop. Built-in strategies cannot be promoted. When a backtest fails, SignalDeck lists every reason at once so you can fix them in one pass.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Does promoting a backtest place orders with my broker?</h3>
+                    <p class="text-zinc-400 leading-relaxed">No. A promoted strategy runs on SignalDeck's scanner after each session and opens and closes positions in its own tracked record, which you see in Runs and on the strategy's Strategy Detail page. Those trades are system-managed and account-agnostic: they do not appear under any broker account and are kept out of your own Today cards and risk checks. SignalDeck's automation can close a position on the strategy's stop without any action from you.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Does a bad walk-forward result block promotion?</h3>
+                    <p class="text-zinc-400 leading-relaxed">No. Walk-forward analysis is advisory. If the backtest has a Likely Overfitted verdict, the promotion panel shows it as a warning, but it never blocks the promotion. The checks that do block it are the strategy type, instrument, timeframe, trade count, history length, universe and stop.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Why will my live results not match the backtest?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Four reasons, which SignalDeck shows before you confirm. The backtest fills at the signal bar's close, while the live position opens at the next session's open. Costs are modelled differently. Trades the backtest force-closed at its end date have no live equivalent. And the live strategy scans its whole universe, including symbols the backtest never tested. The comparison view exists to make that gap visible, not to grade the strategy.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">How many live trades do I need before the comparison means anything?</h3>
+                    <p class="text-zinc-400 leading-relaxed">More than most people expect. With 10 closed trades, a win rate has a margin of error of roughly 25 percentage points either way, so 80% live against a 64% backtest is well inside the noise. Treat the first few dozen live trades as a check that the strategy behaves as designed, not as a verdict on its edge.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Which plan includes live strategies?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Promoting a backtest to a live strategy is part of Pro and Elite. Pausing, resuming and revoking a strategy you have already promoted always stays available, and resuming checks your plan's live-strategy limit the same way promoting does.</p>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../backtest-vs-live-divergence/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Backtest vs Live Results: Diagnosing the Divergence</h3>
+                        <p class="text-sm text-zinc-400">The causes of a backtest-to-live gap, ranked by how often they are the culprit.</p>
+                    </a>
+                    <a href="../backtest-vs-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">What a Backtest Cannot Tell You About Your Trading</h3>
+                        <p class="text-sm text-zinc-400">What happens between the signal and the fill, and why only a journal records it.</p>
+                    </a>
+                    <a href="../walk-forward-analysis/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Walk-Forward Analysis: The Overfitting Detector</h3>
+                        <p class="text-sm text-zinc-400">The test that warns you, before promotion, that a backtest may be curve-fit.</p>
+                    </a>
+                    <a href="../what-is-grid-search-parameter-optimization/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">What Is Grid Search Parameter Optimization?</h3>
+                        <p class="text-sm text-zinc-400">Why the best parameters on history are rarely the ones to take live.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Take a backtest live, and keep it honest</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Backtest a rule strategy, promote it to the live scanner, and compare what it does against what it promised.
+                Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'backtest-to-live-strategy'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../backtester/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See the Backtester &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

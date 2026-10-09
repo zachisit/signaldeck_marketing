@@ -54,7 +54,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-06-01",
-    "dateModified": "2026-08-06",
+    "dateModified": "2026-10-09",
     "image": "https://sgnldk.com/assets/banner-01c-candlestick.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -74,7 +74,7 @@
                 "name": "What is R-Multiple in trading?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "R-Multiple is a way of measuring trade outcomes relative to your initial risk. Before you enter a trade, you define your stop loss — the maximum dollar amount you're willing to lose. That amount is 1R. If the trade wins twice that amount, the outcome is +2R. If it loses, it's -1R. R-Multiple converts every trade into a risk-normalized unit, so you can compare outcomes across different instruments, position sizes, and account sizes without the dollar amounts distorting the comparison."
+                    "text": "R-Multiple is a way of measuring trade outcomes relative to your initial risk. Before you enter a trade, you define your stop loss — the maximum dollar amount you're willing to lose. That amount is 1R. If the trade wins twice that amount, the outcome is +2R. If it loses, it's -1R. R-Multiple converts every trade into a risk-normalized unit, so you can compare outcomes across different instruments, position sizes, and account sizes."
                 }
             },
             {
@@ -82,7 +82,7 @@
                 "name": "How do you calculate R-Multiple?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "R-Multiple = Trade P&L ÷ Initial Risk (in dollars). If you risk $200 on a trade and it wins $500, the R-Multiple is +2.5R. If it loses $150 of a $200 stop (early exit), the R-Multiple is -0.75R. The key is that 1R is always defined at trade entry by your stop loss distance — not by a percentage rule applied after the fact."
+                    "text": "R-Multiple = Trade P&L ÷ Initial Risk (in dollars). If you risk $200 on a trade and it wins $500, the R-Multiple is +2.5R. If it loses $150 of a $200 stop, the R-Multiple is -0.75R. The key is that 1R is always defined at trade entry by your stop loss distance — not applied after the fact."
                 }
             },
             {
@@ -90,7 +90,7 @@
                 "name": "What is a good R-Multiple for a trade?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "There is no universal 'good' R-Multiple in isolation — it depends on your win rate. A strategy with 40% win rate needs an average winning trade above +2.5R to be profitable after losses. A strategy with 65% win rate can be profitable with average wins of +1.2R. What matters is expectancy: (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the strategy earns money per trade on average."
+                    "text": "There is no universal 'good' R-Multiple in isolation — it depends on your win rate. A strategy with 40% win rate needs average winning trades above +2.5R to be profitable. What matters is expectancy: (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the strategy earns money per trade on average."
                 }
             },
             {
@@ -98,7 +98,7 @@
                 "name": "How does R-Multiple relate to SQN?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SQN (System Quality Number) is calculated from your R-Multiple distribution. The formula is: SQN = (Mean R × √N) ÷ Standard Deviation of R. R-Multiples are the raw input data. Without consistent R-Multiple tracking, you cannot calculate SQN. A higher mean R with lower standard deviation (consistent outcomes) produces a better SQN score."
+                    "text": "SQN is calculated from your R-Multiple distribution: SQN = (Mean R × √N) ÷ Standard Deviation of R. R-Multiples are the raw input data. Without consistent R-Multiple tracking, you cannot calculate SQN. A higher mean R with lower standard deviation produces a better SQN score."
                 }
             },
             {
@@ -106,7 +106,7 @@
                 "name": "Why does SignalDeck use R-Multiple as its core metric?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "R-Multiple is the only metric that makes trade outcomes comparable across different instruments, position sizes, and account sizes. It's the foundation for expectancy, SQN, Kelly Criterion, and Monte Carlo simulation. Without normalizing trades to R, you can't meaningfully aggregate statistics across a multi-instrument journal. SignalDeck uses R as its organizing principle so that every downstream metric — from expectancy to walk-forward analysis — is measuring the same thing."
+                    "text": "R-Multiple is the only metric that makes trade outcomes comparable across different instruments, position sizes, and account sizes. It's the foundation for expectancy, SQN, Kelly Criterion, and Monte Carlo simulation. Without normalizing trades to R, you can't meaningfully aggregate statistics across a multi-instrument journal."
                 }
             }
         ]

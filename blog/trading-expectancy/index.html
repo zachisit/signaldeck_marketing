@@ -66,7 +66,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-06-12",
-    "dateModified": "2026-06-12"
+    "dateModified": "2026-10-09"
 }
     </script>
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
@@ -81,7 +81,7 @@
                 "name": "What is trading expectancy?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Trading expectancy is the average amount you earn or lose per trade, expressed as a multiple of your initial risk (R). The formula is: Expectancy = (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the system makes money over a large enough sample. A negative expectancy means it loses money regardless of short-term results."
+                    "text": "Trading expectancy is the average amount you earn or lose per trade, expressed as a multiple of your initial risk (R). Formula: Expectancy = (Win Rate × Average Win R) − (Loss Rate × Average Loss R). A positive expectancy means the system makes money over a large enough sample. A negative expectancy means it loses money regardless of short-term results. It is equivalent to expected value (EV) in probability theory."
                 }
             },
             {
@@ -89,7 +89,7 @@
                 "name": "What is the expectancy formula in trading?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Expectancy = (Win Rate × Average Win in R) − (Loss Rate × Average Loss in R). Example: Win Rate 45%, Average Win +2.2R, Average Loss -1.0R. Expectancy = (0.45 × 2.2) − (0.55 × 1.0) = 0.99 − 0.55 = +0.44R per trade. This system earns 0.44R per trade on average, which is profitable."
+                    "text": "Expectancy = (Win Rate × Average Win in R) − (Loss Rate × Average Loss in R). Example: Win Rate 45%, Average Win +2.2R, Average Loss -1.0R. Expectancy = (0.45 × 2.2) − (0.55 × 1.0) = 0.99 − 0.55 = +0.44R per trade."
                 }
             },
             {
@@ -97,7 +97,7 @@
                 "name": "What is a good expectancy for a trading system?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Any positive expectancy means the system is theoretically profitable given enough trades. Above +0.5R per trade is excellent. +0.2R to +0.5R is solid and tradable. 0 to +0.2R is marginal — transaction costs and slippage may erode the edge in live trading. Negative expectancy means the system loses money regardless of short-term streaks. Sample size also matters: expectancy based on fewer than 30 trades is statistically unreliable; 100+ trades is preferable for a stable reading."
+                    "text": "Any positive expectancy is theoretically profitable. Above +0.5R per trade is excellent. +0.2R to +0.5R is solid and tradable. 0 to +0.2R is marginal — transaction costs and slippage may erase the edge live. Negative expectancy means the system loses money. Sample size matters: expectancy based on fewer than 30 trades is unreliable; 100+ is preferable for a stable reading."
                 }
             },
             {
@@ -105,7 +105,7 @@
                 "name": "How is expectancy different from win rate?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Win rate only tells you how often you win. It says nothing about how much you win or lose on each trade. A 70% win rate sounds impressive, but if your wins average 0.3R and your losses average 1.5R, the system loses -0.24R per trade on average. Expectancy combines win rate, average win size, and average loss size into a single number that tells you the full picture."
+                    "text": "Win rate only tells you how often you win. A 70% win rate with 0.4R average wins and 1.5R average losses loses \u22120.17R per trade on average. Expectancy combines win rate, average win size, and average loss size into a single number that tells you the full picture."
                 }
             },
             {
@@ -113,7 +113,7 @@
                 "name": "How does expectancy relate to position sizing?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Positive expectancy is a prerequisite for position sizing to matter. If your expectancy is negative, risking more money per trade makes you lose faster. Kelly Criterion and Fixed-R sizing only make sense for systems with positive expectancy — they determine how much of your edge to extract, not whether an edge exists. Calculate expectancy first, then optimize position sizing."
+                    "text": "Positive expectancy is a prerequisite for position sizing decisions to matter. Kelly Criterion and Fixed-R sizing only make sense for systems with positive expectancy — they determine how much of your edge to extract, not whether an edge exists. Calculate expectancy first, then optimize sizing."
                 }
             },
             {
@@ -121,7 +121,7 @@
                 "name": "How many trades do I need to calculate expectancy accurately?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Fewer than 30 trades produces an expectancy estimate with very wide confidence intervals — a genuinely profitable system can look negative by chance, and vice versa. Treat it as directional only. With 30–100 trades, expectancy is usable but noisy; monitor the trend rather than the point estimate. At 100+ trades the reading stabilizes enough to base position sizing decisions on. For Kelly Criterion calculations, 200+ trades is recommended."
+                    "text": "Fewer than 30 trades produces a very wide confidence interval — treat the result as directional only. With 30–100 trades, expectancy is usable but noisy; monitor the trend rather than the point estimate. At 100+ trades, the reading is stable enough to base position sizing decisions on. For Kelly Criterion input, 200+ trades is recommended."
                 }
             },
             {
@@ -129,7 +129,7 @@
                 "name": "What is the difference between trading expectancy and profit factor?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Profit factor equals gross profit divided by gross loss. It tells you how much you earn back for every dollar lost. Expectancy equals (Win Rate × Average Win R) minus (Loss Rate × Average Loss R). It tells you how much you earn per trade on average. Profit factor ignores trade count and per-trade magnitude — one outsized winner can inflate it. Expectancy normalizes by trade, making it more useful for system design and position sizing decisions. Use both: profit factor for a quick sanity check; expectancy for system evaluation."
+                    "text": "Profit factor equals gross profit divided by gross loss. Expectancy equals (Win Rate × Average Win R) minus (Loss Rate × Average Loss R). Profit factor ignores per-trade magnitude — one large outlier can inflate it. Expectancy normalizes by trade, making it more reliable for system design. Use profit factor as a quick sanity check; use expectancy for evaluation and sizing decisions."
                 }
             },
             {
@@ -137,7 +137,7 @@
                 "name": "Can trading expectancy be calculated in dollars instead of R?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Dollar expectancy = (Win Rate × Average $ Win) − (Loss Rate × Average $ Loss). Equivalently, Dollar Expectancy = R-Expectancy × Dollar Risk Per Trade. If your R-expectancy is +0.40R and you risk $200 per trade, your dollar expectancy is +$80 per trade. However, dollar expectancy changes every time you adjust position size, making it unsuitable for comparing systems. Use R-expectancy for system evaluation and dollar expectancy for P&L projections only."
+                    "text": "Yes. Dollar Expectancy = R-Expectancy × Dollar Risk Per Trade. Alternatively: (Win Rate × Avg $ Win) − (Loss Rate × Avg $ Loss). If your R-expectancy is +0.40R and you risk $200 per trade, your dollar expectancy is +$80 per trade. Use dollar expectancy for P&L projections; use R-expectancy for system comparison, since dollar expectancy changes with position size."
                 }
             }
         ]

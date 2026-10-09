@@ -54,7 +54,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-07-10",
-    "dateModified": "2026-08-06",
+    "dateModified": "2026-10-09",
     "image": "https://sgnldk.com/assets/banner-01f-drawdown.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -74,7 +74,7 @@
                 "name": "Why do I keep failing prop firm challenges?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Almost always a risk-process failure, not a strategy failure. The five most common causes are: attempting the challenge without validating your edge on out-of-sample data, not knowing your real-time distance to the drawdown limit before you enter, position sizing calibrated to hit the profit target fast instead of to survive the rules, trading differently under real capital pressure than you did in your backtest, and having no pre-trade check that answers whether you can take the trade given where you stand right now. Each of these is fixable before you pay another fee."
+                    "text": "Almost always a risk-process failure, not a strategy failure. The five most common causes are attempting without validating your edge on out-of-sample data, not knowing your real-time distance to the drawdown limit before you enter, position sizing calibrated to hit the target fast instead of to survive the rules, trading differently under real capital pressure than you did in your backtest, and having no pre-trade check that answers whether you can take the trade given where you stand right now. Each one is fixable before you pay another fee."
                 }
             },
             {
@@ -82,7 +82,7 @@
                 "name": "Is it my strategy or my risk management that keeps blowing my funded account?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In the large majority of cases it is risk management and process, not the strategy. A system with a genuine positive expectancy can still fail a challenge if the position size is too large for the drawdown rules, or if the trader breaches the daily loss limit because they did not know how close they were before entering. The fastest way to confirm which one is your problem is to run a Monte Carlo simulation on your own trade history: if the worst-case path across 1,000 runs breaches the firm's drawdown limit, the issue is sizing and rules, not edge."
+                    "text": "In the large majority of cases it is risk management and process, not the strategy. A system with a genuine positive expectancy can still fail if the position size is too large for the drawdown rules, or if the trader breaches the daily loss limit because they did not know how close they were. The fastest way to confirm which is your problem is a Monte Carlo simulation on your own trade history: if the worst-case path across 1,000 runs breaches the drawdown limit, the issue is sizing and rules, not edge."
                 }
             },
             {
@@ -90,7 +90,7 @@
                 "name": "How do I know if my edge is good enough for a funded challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Set a minimum bar before you pay: at least 100 closed trades, a positive expectancy (average R-multiple above zero), a profit factor above 1.5, and an SQN score above 2.0. Then run a Walk-Forward Analysis to confirm the edge holds on data it was not optimized on, and a Monte Carlo simulation to see whether the worst-case sequence of your own trades survives the firm's drawdown limit. Meeting the metrics on historical data is necessary but not sufficient; the out-of-sample and worst-case checks are what tell you the edge is real."
+                    "text": "Set a minimum bar before you pay: at least 100 closed trades, positive expectancy, a profit factor above 1.5, and an SQN above 2.0. Then run a Walk-Forward Analysis to confirm the edge holds on data it was not optimized on, and a Monte Carlo simulation to see whether the worst-case sequence of your own trades survives the firm's drawdown limit. Meeting the metrics on historical data is necessary but not sufficient; the out-of-sample and worst-case checks are what tell you the edge is real."
                 }
             },
             {
@@ -98,7 +98,7 @@
                 "name": "What is the number one reason traders blow funded accounts?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Drawdown violations driven by not knowing live headroom. The daily loss limit is calculated on open equity, so a floating loss on a position you have not closed can breach it mid-session. Most traders track their P&L from closed trades after the fact, which is too slow. They enter a trade without knowing how close they already are to the limit, and a single stop-out ends the account. The second most common reason is position sizing that is too aggressive for the rules, which turns a normal losing streak into a violation even on a profitable system."
+                    "text": "Drawdown violations driven by not knowing live headroom. The daily loss limit is calculated on open equity, so a floating loss on a position you have not closed can breach it mid-session. Most traders track P&L from closed trades after the fact, which is too slow. They enter without knowing how close they already are, and a single stop-out ends the account. The second most common reason is position sizing that is too aggressive for the rules."
                 }
             },
             {
@@ -106,7 +106,7 @@
                 "name": "Can a trading journal actually help me stop failing challenges?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, if it does two things a spreadsheet cannot. Before the challenge, it validates your edge with Walk-Forward Analysis and Monte Carlo simulation so you are not paying to find out whether your system works. During the challenge, it connects live to your MT4 or MT5 terminal and shows your real-time distance to both the daily loss limit and the maximum drawdown, calculated on open equity, so you can run a pre-trade check before every entry. The failure modes that blow evaluations are process failures, and a journal is the process tool."
+                    "text": "Yes, if it does two things a spreadsheet cannot. Before the challenge it validates your edge with Walk-Forward Analysis and Monte Carlo simulation so you are not paying to find out whether your system works. During the challenge it connects live to your MT4 or MT5 terminal and shows your real-time distance to both the daily loss limit and the maximum drawdown, calculated on open equity, so you can run a pre-trade check before every entry. The failure modes that blow evaluations are process failures, and a journal is the process tool."
                 }
             }
         ]

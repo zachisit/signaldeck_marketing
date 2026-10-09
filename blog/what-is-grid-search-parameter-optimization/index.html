@@ -54,7 +54,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-06-15",
-    "dateModified": "2026-08-06",
+    "dateModified": "2026-10-09",
     "image": "https://sgnldk.com/assets/banner-01k-interference.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -74,7 +74,7 @@
                 "name": "What is grid search in trading?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Grid search is a parameter optimization method that tests every possible combination of strategy parameters within a defined range. For example, if you're optimizing a moving average crossover with fast MA values from 5 to 20 and slow MA values from 20 to 60, grid search runs every combination (5/20, 5/21, 5/22... 20/60) and returns the one with the best historical performance. The danger is that this best-performing combination may be best because it happened to fit the specific historical data tested, not because it captures a durable market edge."
+                    "text": "Grid search is a parameter optimization method that tests every possible combination of strategy parameters within a defined range. For example, testing all combinations of fast MA from 5\u201320 and slow MA from 20\u201360. The combination with the best historical performance is selected. The danger is that this may fit the historical data specifically rather than capture a durable market edge."
                 }
             },
             {
@@ -82,7 +82,7 @@
                 "name": "Why does grid search cause overfitting?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Grid search evaluates and selects parameters based on in-sample performance. The selected parameters are, by definition, the ones that performed best on the data the search was run on. This creates a circular problem: the evaluation data is the same as the selection data. With enough parameters and enough combinations, grid search will always find a parameter set that looks excellent historically — even if the underlying strategy has no real edge. This is overfitting: the parameters describe the past rather than predicting the future."
+                    "text": "Grid search evaluates and selects parameters based on in-sample performance. The selected parameters are, by definition, the ones that performed best on the data the search ran on. With enough combinations, grid search will always find a set that looks excellent historically — even on noise. This is overfitting: the parameters describe the past rather than predicting the future."
                 }
             },
             {
@@ -90,7 +90,7 @@
                 "name": "How does Walk-Forward Analysis fix grid search overfitting?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Walk-Forward Analysis runs grid search on a rolling in-sample window, then applies the selected parameters to an out-of-sample window that the optimization never saw. This separates the selection data from the evaluation data. If the parameters found by grid search are genuinely robust, they will perform well on the out-of-sample data. If they were overfit, they will degrade significantly on unseen data — which is exactly what you want to detect before risking real capital."
+                    "text": "Walk-Forward Analysis runs grid search on a rolling in-sample window, then applies the selected parameters to an out-of-sample window the optimization never saw. If the parameters are genuinely robust, they will perform well on unseen data. If they were overfit, they will degrade significantly — which is exactly what you want to detect before risking real capital."
                 }
             },
             {
@@ -98,7 +98,7 @@
                 "name": "What is parameter stability and why does it matter?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Parameter stability refers to how consistently the optimal parameters cluster across different optimization windows. If grid search finds fast MA = 9 as optimal in most rolling windows, that's a stable parameter. If the optimal fast MA value jumps from 5 to 17 to 8 across successive windows, the parameter is unstable — meaning the optimization is finding noise, not signal. Stable parameters across multiple walk-forward windows are strong evidence of genuine edge. Unstable parameters suggest overfitting."
+                    "text": "Parameter stability refers to how consistently the optimal parameters cluster across different optimization windows. If the optimal value jumps wildly across successive windows, the optimization is finding noise, not signal. Stable parameters across multiple walk-forward windows are strong evidence of genuine edge."
                 }
             },
             {
@@ -106,7 +106,7 @@
                 "name": "How many parameter combinations does SignalDeck's optimizer test?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SignalDeck's grid-search optimizer tests up to 500 parameter combinations per optimization run across its 16 built-in backtest strategies. Each combination is evaluated on the in-sample period, and the selected parameters are then validated on the out-of-sample period via Walk-Forward Analysis. This means you see both the optimized result and its out-of-sample validation in a single workflow."
+                    "text": "SignalDeck's grid-search optimizer tests up to 500 parameter combinations per run across its 16 built-in backtest strategies. Each combination is evaluated on the in-sample period, and the selected parameters are then validated on the out-of-sample period via Walk-Forward Analysis \u2014 so you see both the optimized result and its validation in a single workflow."
                 }
             }
         ]

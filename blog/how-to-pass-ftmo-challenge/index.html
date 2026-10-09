@@ -54,7 +54,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-06-26",
-    "dateModified": "2026-08-06",
+    "dateModified": "2026-10-09",
     "image": "https://sgnldk.com/assets/banner-01k-interference.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -74,7 +74,7 @@
                 "name": "Do I need a proven edge before attempting an FTMO challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Attempting a challenge without a validated edge is expensive trial and error. You need at least 100 closed trades with a positive expectancy (average R-multiple above zero), a profit factor above 1.5, and ideally a Walk-Forward Analysis showing the edge holds on data it was not optimized on. An SQN score above 2.0 is a useful minimum threshold. Running a Monte Carlo simulation on your trade history before you pay the fee is the fastest way to estimate your challenge pass probability."
+                    "text": "Yes. Attempting a challenge without a validated edge is expensive trial and error. You need at least 100 closed trades with a positive expectancy, a profit factor above 1.5, and ideally a Walk-Forward Analysis showing the edge holds on data it was not optimized on. An SQN score above 2.0 is a useful minimum threshold. Running a Monte Carlo simulation on your trade history before you pay the fee is the fastest way to estimate your challenge pass probability."
                 }
             },
             {
@@ -82,7 +82,7 @@
                 "name": "What position size should I use for the FTMO challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Use Fixed-R position sizing, where 1R equals a fixed percentage of your account equity on every trade. For most traders on an FTMO challenge, 0.5% to 1.0% per trade is appropriate. Higher R values increase your chance of hitting the profit target faster but also increase your chance of a single losing streak ending the challenge via the daily loss limit. Your SQN score and Monte Carlo worst-case drawdown should inform where you set 1R before you start."
+                    "text": "Use Fixed-R position sizing, where 1R equals a fixed percentage of your account equity on every trade. For most traders on an FTMO challenge, 0.5% to 1.0% per trade is appropriate. Run Monte Carlo at multiple R percentages and pick the highest R where the worst-case path across 1,000 simulations still clears the 10% maximum drawdown limit with a buffer you are comfortable with."
                 }
             },
             {
@@ -90,7 +90,7 @@
                 "name": "How do I track my daily loss limit in real time during an FTMO challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You need a live connection from your journal to your MT4 or MT5 terminal. A journal that syncs directly from the terminal shows you your running P&L, distance to the daily 5% loss limit, and distance to the 10% maximum drawdown as a live number during the session. A spreadsheet updated after trades close is too slow: the daily loss limit can be breached mid-session by an open floating loss on a position you have not yet closed."
+                    "text": "You need a live connection from your journal to your MT4 or MT5 terminal. A journal that syncs directly from the terminal shows you your running equity, distance to the daily 5% loss limit, and distance to the 10% maximum drawdown as live numbers during the session. A spreadsheet updated after trades close is too slow: the daily loss limit can be breached mid-session by a floating loss on an open position you have not yet closed."
                 }
             },
             {
@@ -98,7 +98,7 @@
                 "name": "What is the most common reason traders fail the FTMO challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Drawdown violations, not a losing strategy. Most traders who fail FTMO challenges do not fail because their edge stopped working. They fail because they did not know their real-time distance to the daily loss limit before entering a trade that pushed them over it. The second most common reason is position sizing that is too large for the challenge rules, which turns a normal losing streak into a violation even on a system with a genuine positive expectancy."
+                    "text": "Drawdown violations, not a losing strategy. Most traders who fail FTMO challenges do not fail because their edge stopped working. They fail because they did not know their real-time distance to the daily loss limit before entering a trade that pushed them over it. The second most common cause is position sizing that is too large for the challenge rules, which turns a normal losing streak into a violation even on a system with genuine positive expectancy."
                 }
             },
             {

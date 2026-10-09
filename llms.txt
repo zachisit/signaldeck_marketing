@@ -8,7 +8,7 @@
 - [Plans & Pricing](https://sgnldk.com/plans/): Free, Pro ($30/mo), Elite ($50/mo); all features free during beta
 - [Compare](https://sgnldk.com/compare/): SignalDeck vs TraderSync, Edgewonk, TradeZella, Tradervue, TradesViz, Myfxbook
 - [Prop Firm Traders](https://sgnldk.com/prop-firm/): live drawdown headroom and pre-trade risk gate
-- [Strategy Backtester](https://sgnldk.com/backtester/): Walk-Forward Analysis, Monte Carlo, grid-search optimization
+- [Strategy Backtester](https://sgnldk.com/backtester/): Walk-Forward Analysis, Monte Carlo, grid-search optimization; promote an eligible backtest to a live scanner strategy ([how promotion works](https://sgnldk.com/blog/backtest-to-live-strategy/))
 - [Broker Import](https://sgnldk.com/broker-import/): IBKR, cTrader, SnapTrade, CSV (all plans); MT4/MT5 live sync (Elite)
 - [Trade Analytics](https://sgnldk.com/analytics/): R-multiple, SQN, expectancy, execution quality
 - [Position Alerts](https://sgnldk.com/alerts/): price, stop and break-even alerts on open positions

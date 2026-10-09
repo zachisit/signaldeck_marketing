@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From Backtest to Live Strategy: What Has to Be True Before You Promote | SignalDeck</title>
-    <meta name="description" content="How to take a backtest live without fooling yourself: the six checks a backtest must pass before SignalDeck will promote it, the four ways live results will differ, what promotion actually does, and how to read the live record against the backtest.">
+    <title>Backtest to Live Strategy: 6 Checks First | SignalDeck</title>
+    <meta name="description" content="The six checks a backtest must pass before SignalDeck runs it live, the four ways live results differ, and how to read the live record against the backtest.">
     <meta name="keywords" content="backtest to live trading, forward testing a strategy, promote backtest, paper trading a backtest, backtest vs live results, strategy scanner, walk-forward analysis, overfitting, rule builder, RSI strategy backtest, ATR stop, systematic trading journal">
     <meta name="author" content="SignalDeck">
 
@@ -22,19 +22,21 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sgnldk.com/blog/backtest-to-live-strategy/">
-    <meta property="og:title" content="From Backtest to Live Strategy: What Has to Be True Before You Promote | SignalDeck">
-    <meta property="og:description" content="A backtest is a question, not an answer. What SignalDeck checks before it lets a backtest go live, the four differences it makes you read first, and why 10 live trades at 80% against a 64% backtest tells you almost nothing yet.">
-    <meta property="og:image" content="https://sgnldk.com/assets/banner-backtest-to-live.png">
+    <meta property="og:title" content="Backtest to Live Strategy: 6 Checks First | SignalDeck">
+    <meta property="og:description" content="What SignalDeck checks before a backtest can go live, the four differences it makes you read first, and why 10 live trades at 80% vs a 64% backtest proves nothing yet.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-backtest-to-live.jpg">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="720">
+    <meta property="og:image:alt" content="SignalDeck: Backtest to live, and what it refuses. Strategy Detail tiles showing return on capital, trades, win rate, profit factor, Sharpe and max drawdown.">
     <meta property="og:site_name" content="SignalDeck">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@sgnldk">
     <meta name="twitter:url" content="https://sgnldk.com/blog/backtest-to-live-strategy/">
-    <meta name="twitter:title" content="From Backtest to Live Strategy: What Has to Be True Before You Promote | SignalDeck">
-    <meta name="twitter:description" content="A backtest is a question, not an answer. What SignalDeck checks before it lets a backtest go live, the four differences it makes you read first, and why 10 live trades at 80% against a 64% backtest tells you almost nothing yet.">
-    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-backtest-to-live.png">
+    <meta name="twitter:title" content="Backtest to Live Strategy: 6 Checks First | SignalDeck">
+    <meta name="twitter:description" content="What SignalDeck checks before a backtest can go live, the four differences it makes you read first, and why 10 live trades at 80% vs a 64% backtest proves nothing yet.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-backtest-to-live.jpg">
+    <meta name="twitter:image:alt" content="SignalDeck: Backtest to live, and what it refuses. Strategy Detail tiles showing return on capital, trades, win rate, profit factor, Sharpe and max drawdown.">
 
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
     <script type="application/ld+json">
@@ -42,7 +44,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "From Backtest to Live Strategy: What Has to Be True Before You Promote",
-    "description": "How to take a backtest live without fooling yourself: the six checks a backtest must pass before SignalDeck will promote it, the four ways live results will differ, what promotion actually does, and how to read the live record against the backtest.",
+    "description": "The six checks a backtest must pass before SignalDeck runs it live, the four ways live results differ, and how to read the live record against the backtest.",
     "author": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -59,7 +61,7 @@
     },
     "datePublished": "2026-10-09",
     "dateModified": "2026-10-09",
-    "image": "https://sgnldk.com/assets/banner-backtest-to-live.png",
+    "image": "https://sgnldk.com/assets/banner-backtest-to-live.jpg",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://sgnldk.com/blog/backtest-to-live-strategy/"
@@ -67,6 +69,24 @@
 }
     </script>
 
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "How to Take a Backtest Live in SignalDeck: Promotion, the Eligibility Gate, and Runs",
+    "description": "A backtest refused by SignalDeck's promotion gate, a rule strategy that passes it, the confirmation that lists four ways live results will differ, and the promoted strategy's live record in Runs, Strategy Detail and the live-versus-backtest comparison.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/nqMfKYFlFl0/maxresdefault.jpg",
+    "uploadDate": "2026-10-09",
+    "duration": "PT3M17S",
+    "contentUrl": "https://www.youtube.com/watch?v=nqMfKYFlFl0",
+    "embedUrl": "https://www.youtube.com/embed/nqMfKYFlFl0",
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    }
+}
+    </script>
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -327,6 +347,9 @@
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Watch the Walkthrough</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">The <a href="https://youtu.be/nqMfKYFlFl0" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">three-minute walkthrough</a> on the SignalDeck YouTube channel goes through the whole path on screen: a backtest that is refused, one that passes, the confirmation, and the live record in Runs. It is part of the <a href="https://www.youtube.com/playlist?list=PLTWW_X25z2bE" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">How SignalDeck Works playlist</a>.</p>
+            <div class="aspect-video w-full rounded-xl border border-zinc-800 bg-zinc-950 overflow-hidden mb-6">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/nqMfKYFlFl0?rel=0" title="How to Take a Backtest Live in SignalDeck: Promotion, the Eligibility Gate, and Runs" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Do With This</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">Open the backtest you trust most and look at its promotion panel. If it is not eligible, the reasons are a useful audit in themselves: a backtest with no stop, or one tested on a handful of names you picked by hand, is telling you something about how far it can be trusted live. If it is eligible, read the four differences before you confirm, then leave it alone long enough for the live record to say something.</p>
@@ -382,7 +405,7 @@
             <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
                 <h3 class="text-xl font-bold text-white mb-3">Take a backtest live, and keep it honest</h3>
                 <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Backtest a rule strategy, promote it to the live scanner, and compare what it does against what it promised.
-                Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                Backtesting is on every plan; promoting a backtest to a live strategy is part of Pro ($30/mo) and Elite ($50/mo).</p>
                 <div class="flex flex-wrap gap-3 justify-center">
                     <a href="https://app.sgnldk.com"
                         target="_blank"

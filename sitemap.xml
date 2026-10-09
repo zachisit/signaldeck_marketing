@@ -8,7 +8,7 @@
 
   <url>
     <loc>https://sgnldk.com/mcp/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -109,7 +109,7 @@
 
   <url>
     <loc>https://sgnldk.com/backtester/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -288,13 +288,13 @@
 
   <url>
     <loc>https://sgnldk.com/stocks/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/crypto/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.90</priority>
   </url>
 
@@ -426,7 +426,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/stock-trading-journal/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -461,7 +461,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/backtest-vs-journal/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -482,7 +482,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/topstep-the5ers-rules-explained/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -510,7 +510,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/backtest-vs-live-divergence/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -531,7 +531,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/trading-journal-platform-support/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -545,7 +545,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/apex-trader-funding-rules/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -559,7 +559,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/edgewonk-alternative/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -587,53 +587,53 @@
 
   <url>
     <loc>https://sgnldk.com/blog/how-to-pass-ftmo-challenge/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/why-prop-firm-traders-blow-evaluations/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/liquidity-hunt-trading/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/mae-mfe-execution-metrics/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/profit-factor-explained/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/walk-forward-analysis/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/kelly-criterion-position-sizing/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/journal-account-balance/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -651,58 +651,58 @@
 
   <url>
     <loc>https://sgnldk.com/blog/how-to-know-when-your-strategy-is-dying/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/monte-carlo-simulation-trading/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/fixed-r-position-sizing/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/what-is-r-multiple/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/what-is-grid-search-parameter-optimization/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/trading-expectancy/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/ftmo-challenge-rules-explained/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/best-forex-trading-journal/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://sgnldk.com/blog/best-trading-journal-prop-firm/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -757,7 +757,7 @@
 
   <url>
     <loc>https://sgnldk.com/blog/tradezella-backtesting-review/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -784,7 +784,7 @@
   </url>
   <url>
     <loc>https://sgnldk.com/blog/connect-claude-chatgpt-trading-journal/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -796,7 +796,7 @@
   </url>
   <url>
     <loc>https://sgnldk.com/blog/international-stock-trading-journal/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>

@@ -54,7 +54,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-05-20",
-    "dateModified": "2026-08-06",
+    "dateModified": "2026-10-09",
     "image": "https://sgnldk.com/assets/banner-01m-walk-forward.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -74,7 +74,7 @@
                 "name": "What is walk-forward analysis in trading?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Walk-forward analysis is a backtesting validation method that divides your historical data into alternating in-sample (IS) optimization windows and out-of-sample (OOS) test windows. A strategy is optimized on the IS period, then applied untouched to the OOS period. This is repeated across multiple non-overlapping OOS windows. The combined OOS performance gives you a realistic estimate of how the strategy would have performed on data it was never fit to — exposing overfitting that a standard backtest hides."
+                    "text": "Walk-forward analysis is a backtesting validation method that divides your historical data into alternating in-sample optimization windows and out-of-sample test windows. A strategy is optimized on the IS period, then applied untouched to the OOS period. This process repeats across multiple non-overlapping OOS windows. The combined OOS performance gives you a realistic estimate of how the strategy would have performed on data it was never fit to — exposing overfitting that a standard backtest hides."
                 }
             },
             {
@@ -90,7 +90,7 @@
                 "name": "What is the difference between walk-forward analysis and backtesting?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "A standard backtest applies your strategy to historical data and reports a single performance number — but if you optimized the strategy on that same data, the result is circular. Walk-forward analysis breaks this by always testing on data the strategy was never exposed to during optimization. It's the difference between memorizing exam answers and genuinely understanding the material."
+                    "text": "A standard backtest applies your strategy to historical data and reports performance — but if you optimized the strategy on that same data, the result is circular. Walk-forward analysis breaks this by always testing on data the strategy was never exposed to during optimization. It's the difference between memorizing exam answers and genuinely understanding the material."
                 }
             },
             {
@@ -98,7 +98,7 @@
                 "name": "How many walk-forward periods do I need?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Most practitioners recommend a minimum of 8 to 12 out-of-sample periods for the result to be statistically meaningful. Fewer than 5 periods and you can't distinguish a robust strategy from a lucky one. The exact number depends on your OOS window length — if each OOS period is 3 months, 12 periods gives you 3 years of out-of-sample data, which is a credible sample across different market conditions."
+                    "text": "Most practitioners recommend a minimum of 8 to 12 out-of-sample periods for the result to be statistically meaningful. Fewer than 5 periods and you can't distinguish a robust strategy from a lucky one. The exact number depends on your OOS window length — if each OOS period is 3 months, 12 periods gives you 3 years of out-of-sample data across different market conditions."
                 }
             }
         ]
@@ -477,6 +477,7 @@ WFE = 27 / 42 = 0.64  &rarr;  64% efficiency
         <div class="max-w-2xl mx-auto px-4">
             <h2 class="text-lg font-bold text-white mb-5">Related reading</h2>
             <ul class="space-y-3 text-sm">
+                <li><a href="../backtest-to-live-strategy/" class="text-blue-400 hover:text-blue-300 transition-colors">From Backtest to Live Strategy: What Has to Be True Before You Promote</a></li>
                 <li><a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo Trading: Know Your Worst-Case Drawdown</a></li>
                 <li><a href="../what-is-grid-search-parameter-optimization/" class="text-blue-400 hover:text-blue-300 transition-colors">Grid Search Parameter Optimization in Trading</a></li>
                 <li><a href="../backtest-vs-live-divergence/" class="text-blue-400 hover:text-blue-300 transition-colors">Backtest vs Live Results: Diagnosing Backtest-to-Live Divergence</a></li>

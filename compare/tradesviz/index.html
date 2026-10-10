@@ -74,7 +74,7 @@
           "name": "Which is cheaper — SignalDeck or TradesViz?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Both have free access. SignalDeck is free during beta with all features fully unlocked — Walk-Forward Analysis, Monte Carlo, full backtester. TradesViz has a free tier but with limitations. SignalDeck's paid plans launch after beta: Pro starts at $30/month vs TradesViz's $14.99–$29.99/month. Existing beta testers were grandfathered."
+            "text": "Both have free access. SignalDeck is free during beta with every feature except futures unlocked — Walk-Forward Analysis, Monte Carlo, full backtester. TradesViz has a limited free tier. SignalDeck's paid plans launch after beta with Pro starting at $30/month vs TradesViz at $14.99–$29.99/month. Existing beta testers were grandfathered."
           }
         },
         {
@@ -354,21 +354,16 @@
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
                         <tr class="border-t-2 border-orange-500/30">
-                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — Since v1.0.59</td>
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — Futures plan (invite-only)</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-orange-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Native Futures (ES/NQ/CL/GC)</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Tick Math + Globex</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Futures plan (invite-only)</td>
                             <td class="px-4 py-3 text-center text-yellow-500">⚠️ Via broker import (P&L from broker data)</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-orange-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Tick-Aligned P&L Math</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Auto Contract Spec</td>
-                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
-                        </tr>
-                        <tr class="border-t border-zinc-800 bg-orange-500/5">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">CME Globex Session Monitoring</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Contracts × Ticks</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
@@ -428,18 +423,20 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — Since v1.0.59</span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — Futures plan · Invite only</span>
                     </div>
                     <h2 class="text-xl font-bold text-white mb-3">SignalDeck vs TradesViz: Futures Support</h2>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">TradesViz supports futures through broker imports and has a broad indicator library for analysis once data is in. If your broker sends correct futures fill data, TradesViz can surface it. But TradesViz has no native tick-based P&L engine — the calculation accuracy is entirely broker-dependent. There is no contract-spec fetching (no automatic knowledge that ES is 50 × $0.25/tick = $12.50/tick), no CME Globex session gating for alert evaluation, and no front-month contract search. SignalDeck computes futures P&L from first principles, validates tick alignment on every price, and gates alert evaluation to Globex hours — whether you import from a broker or log manually.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">TradesViz supports futures through broker imports and has a broad indicator library for analysis once data is in. If your broker sends correct futures fill data, TradesViz can surface it. But TradesViz has no native tick-based P&L engine — the calculation accuracy is entirely broker-dependent. SignalDeck computes futures P&L from first principles (ES is 50 × $0.25/tick = $12.50/tick; P&L is contracts × ticks × tick value) for every fill imported from Tradovate, NinjaTrader CSV or IBKR. Futures journaling is on SignalDeck's invite-only Futures plan, which includes everything in Elite — request access on Discord.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ES · $12.50/tick</span>
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQ · $5.00/tick</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Auto Contract Spec</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Globex Session Gate</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Tradovate Connection</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">NinjaTrader CSV</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Futures plan</span>
                     </div>
                     <a href="../../futures/" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Full Futures page →</a>
+                    <span class="text-zinc-600"> · </span>
+                    <a href="https://discord.gg/77XqR8W7U8" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Request access on Discord →</a>
                 </div>
                 <div class="flex-shrink-0 w-full md:w-56 bg-zinc-900 border border-orange-500/20 rounded-xl p-5">
                     <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-3">SignalDeck · ESU6 long</div>
@@ -481,7 +478,7 @@
             <div class="space-y-6">
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does TradesViz support futures trading?</h3>
-                    <p class="text-zinc-400 text-sm">TradesViz supports futures through broker imports and can display imported P&L and trade data. It does not have native tick-aligned P&L math — the accuracy depends on what the broker delivers. It also has no CME Globex session monitoring or front-month contract search. SignalDeck fetches the contract spec automatically for ES, NQ, CL, and GC and computes P&L natively from tick data, regardless of whether you have a broker import. See the <a href="../../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a>.</p>
+                    <p class="text-zinc-400 text-sm">TradesViz supports futures through broker imports and can display imported P&L and trade data. It does not have native tick-aligned P&L math — the accuracy depends on what the broker delivers. SignalDeck computes P&L for ES, NQ, CL, and GC natively (contracts × ticks × tick value) for fills imported from Tradovate, NinjaTrader CSV or IBKR, micros like MES and MNQ included, on its invite-only Futures plan. See the <a href="../../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a>.</p>
                 </div>
                                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does SignalDeck or TradesViz have better backtesting?</h3>
@@ -501,7 +498,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Which is cheaper — SignalDeck or TradesViz?</h3>
-                    <p class="text-zinc-400 text-sm">Both have free access. SignalDeck is free during beta with all features fully unlocked — Walk-Forward Analysis, Monte Carlo, full backtester. TradesViz has a limited free tier. SignalDeck's paid plans launch after beta with Pro starting at $30/month vs TradesViz at $14.99–$29.99/month. Existing beta testers were grandfathered.</p>
+                    <p class="text-zinc-400 text-sm">Both have free access. SignalDeck is free during beta with every feature except futures unlocked — Walk-Forward Analysis, Monte Carlo, full backtester. TradesViz has a limited free tier. SignalDeck's paid plans launch after beta with Pro starting at $30/month vs TradesViz at $14.99–$29.99/month. Existing beta testers were grandfathered.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Is TradesViz hard to learn?</h3>
@@ -554,7 +551,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-2xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Try SignalDeck Free.</h2>
-            <p class="text-zinc-400 mb-8">All features unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework, MT4/MT5 import — no subscription. Paid plans launch after beta: Pro $30/mo, Elite $50/mo.</p>
+            <p class="text-zinc-400 mb-8">All features except futures unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework, MT4/MT5 import — no subscription. Paid plans launch after beta: Pro $30/mo, Elite $50/mo.</p>
             <a href="https://app.sgnldk.com" target="_blank" rel="noopener noreferrer"
                 onclick="if(!navigator.webdriver) gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Beta Signup' });"
                 class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors">

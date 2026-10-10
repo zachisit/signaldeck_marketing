@@ -58,7 +58,7 @@
             "name": "Does SignalDeck have broker import like TraderSync?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SignalDeck supports MT4/MT5 via MetaApi (with real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV upload in 8 broker formats including Tradovate and NinjaTrader. TraderSync leads on raw breadth with 900+ broker integrations. Both platforms return fill data without stop loss — R-Multiple requires manual entry after import in both cases."
+                "text": "SignalDeck supports MT4/MT5 via MetaApi (with real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV upload in 8 broker formats including Tradovate and NinjaTrader (futures rows need the invite-only Futures plan). TraderSync leads on raw breadth with 900+ broker integrations. Both platforms return fill data without stop loss — R-Multiple requires manual entry after import in both cases."
             }
         },
         {
@@ -74,7 +74,7 @@
             "name": "Which is cheaper, SignalDeck or TraderSync?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SignalDeck is free during beta with all features unlocked, including the strategy backtester. TraderSync is $30–$80 per month depending on the plan. SignalDeck's paid plans launch after beta at Pro $30/mo, Elite $50/mo — existing beta testers were grandfathered."
+                "text": "SignalDeck is free during beta with every feature except futures unlocked. TraderSync is $30–$80/month. SignalDeck paid plans launch after beta at Pro $30/mo, Elite $50/mo — existing beta testers were grandfathered."
             }
         }
     ]
@@ -183,12 +183,12 @@
                     <ul class="space-y-2 text-sm text-zinc-300">
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on MT4 or MT5 and want automatic import with real-time live balance sync</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade on Interactive Brokers, cTrader, Robinhood, Schwab, Fidelity, E*TRADE, or Coinbase</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You use NinjaTrader or Tradovate and want CSV import with correct futures P&L</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You trade futures on NinjaTrader or Tradovate and want correct contract P&L (invite-only Futures plan)</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want backtesting with Walk-Forward Analysis and Monte Carlo</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> R-Multiple is how you think about risk — not just one metric</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want a structured 5-step Post Mortem on every trade</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You need SQN scoring to validate your statistical edge</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You're looking for free beta access with all features unlocked</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You're looking for free beta access with every feature except futures unlocked</li>
                         <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> You want 1:1 Discord support — direct access to the founder, not a ticket queue</li>
                     </ul>
                 </div>
@@ -350,22 +350,17 @@
                             <td class="px-4 py-3 text-center text-emerald-500 font-bold">✅</td>
                         </tr>
                         <tr class="border-t-2 border-orange-500/30">
-                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — Since v1.0.59</td>
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — Futures plan (invite-only)</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-orange-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Native Futures (ES/NQ/CL/GC)</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Tick Math + Globex</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Futures plan (invite-only)</td>
                             <td class="px-4 py-3 text-center text-yellow-500">⚠️ Via Tradovate / NinjaTrader / Rithmic import</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-orange-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Tick-Aligned P&L Math</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Auto Contract Spec</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Contracts × Ticks</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌ P&L from broker data</td>
-                        </tr>
-                        <tr class="border-t border-zinc-800 bg-orange-500/5">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">CME Globex Session Monitoring</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
-                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Broadest Broker Coverage (900+)</td>
@@ -439,18 +434,20 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — Since v1.0.59</span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — Futures plan · Invite only</span>
                     </div>
                     <h2 class="text-xl font-bold text-white mb-3">SignalDeck vs TraderSync: Futures Support</h2>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">TraderSync connects to Tradovate, NinjaTrader, and Rithmic — all futures-native platforms. If your broker sends clean fill data, TraderSync surfaces it and P&L shows up correctly. But that P&L is broker-derived: TraderSync displays what the import delivers, not what a contract-spec engine computes. Log an ES trade manually without a broker connection and TraderSync has no way to know it's 2 contracts × $12.50/tick — it treats it like a stock position. SignalDeck fetches the contract spec automatically, computes tick-aligned P&L from first principles, and gates stop-alert evaluation to CME Globex hours. Both work for futures traders using supported brokers — SignalDeck additionally works correctly without any broker import.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">TraderSync connects to Tradovate, NinjaTrader, and Rithmic — all futures-native platforms. If your broker sends clean fill data, TraderSync surfaces it and P&L shows up correctly. But that P&L is broker-derived: TraderSync displays what the import delivers, not what a contract-spec engine computes. Log an ES trade manually without a broker connection and TraderSync has no way to know it's 2 contracts × $12.50/tick — it treats it like a stock position. SignalDeck computes tick-aligned P&L from first principles (contracts × ticks × tick value). Both depend on importing your fills. SignalDeck brings them in from Tradovate, NinjaTrader CSV or IBKR and recomputes P&L from the contract spec, micros like MES and MNQ included. Futures journaling is on SignalDeck's invite-only Futures plan, which includes everything in Elite — request access on Discord.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ES · $12.50/tick</span>
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQ · $5.00/tick</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Auto Contract Spec</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Globex Session Gate</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Tradovate Connection</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">NinjaTrader CSV</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Futures plan</span>
                     </div>
                     <a href="../../futures/" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Full Futures page →</a>
+                    <span class="text-zinc-600"> · </span>
+                    <a href="https://discord.gg/77XqR8W7U8" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Request access on Discord →</a>
                 </div>
                 <div class="flex-shrink-0 w-full md:w-56 bg-zinc-900 border border-orange-500/20 rounded-xl p-5">
                     <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-3">SignalDeck · ESU6 long</div>
@@ -525,7 +522,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does TraderSync support futures trading?</h3>
-                    <p class="text-zinc-400 text-sm">TraderSync can import futures trades from Tradovate, NinjaTrader, and Rithmic and displays the P&L and fill data from those imports. It does not have native tick-aligned P&L math, so manual futures entry or trades from unsupported brokers will use equity-style calculation. SignalDeck fetches the contract spec (tick size, tick value, contract size) automatically for ES, NQ, CL, and GC and computes P&L from first principles — with or without a broker import. CME Globex session monitoring and front-month contract search are also native to SignalDeck. See the <a href="../../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a> for full details.</p>
+                    <p class="text-zinc-400 text-sm">TraderSync can import futures trades from Tradovate, NinjaTrader, and Rithmic and displays the P&L and fill data from those imports. It does not have native tick-aligned P&L math, so manual futures entry or trades from unsupported brokers will use equity-style calculation. SignalDeck computes P&L for ES, NQ, CL, and GC from first principles (contracts × ticks × tick value) for every fill imported from Tradovate, NinjaTrader CSV or IBKR, micros like MES and MNQ included. Futures journaling is on SignalDeck's invite-only Futures plan. See the <a href="../../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a> for full details.</p>
                 </div>
                                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does SignalDeck have broker import now?</h3>
@@ -533,7 +530,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Which is cheaper, SignalDeck or TraderSync?</h3>
-                    <p class="text-zinc-400 text-sm">SignalDeck is free during beta with all features unlocked. TraderSync is $30–$80/month. SignalDeck paid plans launch after beta at Pro $30/mo, Elite $50/mo — existing beta testers were grandfathered.</p>
+                    <p class="text-zinc-400 text-sm">SignalDeck is free during beta with every feature except futures unlocked. TraderSync is $30–$80/month. SignalDeck paid plans launch after beta at Pro $30/mo, Elite $50/mo — existing beta testers were grandfathered.</p>
                 </div>
             </div>
         </div>
@@ -582,7 +579,7 @@
             <div class="space-y-6">
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does SignalDeck have broker import like TraderSync?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports MT4/MT5 via MetaApi (with real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV upload in 8 broker formats including Tradovate and NinjaTrader. TraderSync leads on raw breadth with 900+ broker integrations. Both platforms return fill data without stop loss — R-Multiple requires manual entry after import in both cases.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports MT4/MT5 via MetaApi (with real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV upload in 8 broker formats including Tradovate and NinjaTrader (futures rows need the invite-only Futures plan). TraderSync leads on raw breadth with 900+ broker integrations. Both platforms return fill data without stop loss — R-Multiple requires manual entry after import in both cases.</p>
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">How does TraderSync's AI coaching compare to SignalDeck?</h3>
@@ -595,7 +592,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-2xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Try SignalDeck Free.</h2>
-            <p class="text-zinc-400 mb-8">All features unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework — no subscription required. Paid plans launch after beta: Pro $30/mo, Elite $50/mo.</p>
+            <p class="text-zinc-400 mb-8">All features except futures unlocked during beta. Walk-Forward Analysis, Monte Carlo, R-Multiple framework — no subscription required. Paid plans launch after beta: Pro $30/mo, Elite $50/mo.</p>
             <a href="https://app.sgnldk.com"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -355,11 +355,11 @@
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
                 <li><span class="font-semibold text-white">MT4 and MT5:</span> live sync via MetaApi, including account balance, so open positions and equity are current rather than reconstructed at end of day. See <a href="../mt5-live-sync-vs-ea-import/" class="text-blue-400 hover:text-blue-300 transition-colors">live sync versus EA import</a> for why that distinction matters.</li>
-                <li><span class="font-semibold text-white">Tradovate:</span> supported for futures traders, which covers a good share of Apex and Topstep accounts but not all of them — check your own platform.</li>
+                <li><span class="font-semibold text-white">Tradovate:</span> supported for futures traders on the invite-only Futures plan. Personal accounts connect directly; prop-firm and evaluation accounts (Apex, Topstep and similar) get no outside API access from Tradovate, so those come in by CSV export.</li>
                 <li><span class="font-semibold text-white">Everything else:</span> CSV import. NinjaTrader exports, Rithmic-based setups, and most broker statements work. Plainly: if your desk runs a proprietary in-house terminal, CSV is the only path, and if that desk already has its own analytics you are in the "genuinely no" category above.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                On top of whichever import applies, the analytics are the point: expectancy and R-distribution per setup, rolling performance against lifetime so decay surfaces early, and Monte Carlo (Pro, $30/mo) to convert your logged R-sequence into a drawdown distribution instead of a single lived worst case. For funded-account traders there is a balance-aware layer that tracks distance to your drawdown limit as a live number, covered in the <a href="../best-trading-journal-prop-firm/" class="text-blue-400 hover:text-blue-300 transition-colors">prop firm journal comparison</a>. The Free tier covers journaling and core stats; everything is free during beta.
+                On top of whichever import applies, the analytics are the point: expectancy and R-distribution per setup, rolling performance against lifetime so decay surfaces early, and Monte Carlo (Pro, $30/mo) to convert your logged R-sequence into a drawdown distribution instead of a single lived worst case. For funded-account traders there is a balance-aware layer that tracks distance to your drawdown limit as a live number, covered in the <a href="../best-trading-journal-prop-firm/" class="text-blue-400 hover:text-blue-300 transition-colors">prop firm journal comparison</a>. The Free tier covers journaling and core stats; everything except futures is free during beta.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 None of which changes the answer if you ran the concentration test, know your per-setup expectancy, and can say which way your edge is trending. If you can, you have already been journaling. You just did not need software to do it.
@@ -440,7 +440,7 @@
             <!-- Bottom CTA Banner -->
             <div class="mt-16 bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center">
                 <h3 class="text-xl font-bold text-white mb-3">Your broker already has the data. The log should build itself.</h3>
-                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck syncs MT4/MT5 and Tradovate directly, imports CSV from everything else, and turns the result into per-setup expectancy, rolling edge-decay checks, and Monte Carlo drawdown distributions. Free tier available, Pro $30/mo — free during beta.</p>
+                <p class="text-zinc-400 mb-6 max-w-lg mx-auto">SignalDeck syncs MT4/MT5 directly, connects personal Tradovate accounts (Futures plan), imports CSV from everything else, and turns the result into per-setup expectancy, rolling edge-decay checks, and Monte Carlo drawdown distributions. Free tier available, Pro $30/mo — free during beta.</p>
                 <div class="flex flex-wrap justify-center gap-3">
                     <a href="https://app.sgnldk.com"
                         target="_blank"

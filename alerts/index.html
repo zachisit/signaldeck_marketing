@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../img/mark-blue-512.png">
     <title>Position Alerts — Price, Stop &amp; Break-Even | SignalDeck</title>
-    <meta name="description" content="Price, stop-level, and break-even alerts on your open positions, delivered inside your journal. Futures gated to CME Globex hours.">
+    <meta name="description" content="Price, stop-level, and break-even alerts on your open positions, delivered inside your journal.">
     <meta name="keywords" content="trade alerts, price alerts on positions, stop loss alert, break-even alert, trading journal alerts, position alerts, stop alert trading journal, move stop to break even alert">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://sgnldk.com/alerts/">
@@ -33,7 +33,7 @@
     "@type": "WebPage",
     "name": "Trade Alerts on Your Open Positions",
     "url": "https://sgnldk.com/alerts/",
-    "description": "SignalDeck's live alerts on open positions — price, stop-level, and break-even alerts delivered inside the journal, futures gated to CME Globex hours.",
+    "description": "SignalDeck's live alerts on open positions — price, stop-level, and break-even alerts delivered inside the journal.",
     "publisher": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -46,7 +46,6 @@
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Do trading journals have price alerts on open positions?","acceptedAnswer":{"@type":"Answer","text":"Most don't. Trading journals (TraderSync, Tradervue, Edgewonk) are post-trade analytics tools — they journal trades after the fact and have no live alerts. A few have related features (TradesViz has a market screener; TradeZella has rule alerts), but those scan the market or your rules, not the specific positions you're holding. SignalDeck alerts on your open positions directly, inside the journal."}},
     {"@type":"Question","name":"What is a break-even alert?","acceptedAnswer":{"@type":"Answer","text":"A break-even alert pings you the moment price reaches your entry on an open trade, so you can move your stop to break-even and make the position risk-free. It turns a discipline rule you'd otherwise have to remember into an automatic prompt."}},
-    {"@type":"Question","name":"How do futures alerts handle market hours?","acceptedAnswer":{"@type":"Answer","text":"Stop-level and price alerts on futures positions (ES, NQ, CL, GC) are evaluated only within CME Globex trading hours (Sun 6PM–Fri 5PM ET with the daily halt, DST-aware), so you don't get spurious alerts when the market is closed."}},
     {"@type":"Question","name":"Are the alerts inside the journal or a separate tool?","acceptedAnswer":{"@type":"Answer","text":"Inside the journal. You don't need a separate charting platform open to watch your stops — the alerts live in the same place you journal and analyze your trades, so the loop from 'price hit my level' to 'log the action' is one ecosystem."}},
     {"@type":"Question","name":"Can I set a custom alert at any price level from the chart?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every open trade has a full interactive chart in the trade-details view. Right-click anywhere on the chart to add an alert at that exact price with an optional title. You can also drag any existing alert line to a new price and confirm to save instantly. This is in addition to the automatic position-based alerts for break-even, stop proximity, and pip-distance targets."}}
     ]}
@@ -141,7 +140,7 @@
                     <span class="text-blue-400 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    <span><strong class="text-white">Stop-level monitoring</strong> — live watch on your open positions, Globex-gated for futures.</span>
+                    <span><strong class="text-white">Stop-level monitoring</strong> — live watch on your open positions.</span>
                 </div>
                 <div class="flex items-start gap-2">
                     <span class="text-blue-400 mt-0.5">
@@ -196,16 +195,16 @@
                             <div class="bg-zinc-900 border border-amber-500/20 rounded-lg p-4">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-xs font-mono text-amber-400 font-bold uppercase">Stop Proximity</span>
-                                    <span class="text-[10px] font-mono text-zinc-500">ES · CME</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">US500</span>
                                 </div>
-                                <p class="text-sm text-zinc-300">Price within <span class="text-white font-bold">4 ticks</span> of your stop at 5,201.25</p>
+                                <p class="text-sm text-zinc-300">Price within <span class="text-white font-bold">3 points</span> of your stop at 6,412.0</p>
                             </div>
                             <div class="bg-zinc-900 border border-emerald-500/20 rounded-lg p-4">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-xs font-mono text-emerald-400 font-bold uppercase">Target Reached</span>
-                                    <span class="text-[10px] font-mono text-zinc-500">NQ</span>
+                                    <span class="text-[10px] font-mono text-zinc-500">NAS100</span>
                                 </div>
-                                <p class="text-sm text-zinc-300">Price target <span class="text-white font-bold">18,450</span> hit — log the action now.</p>
+                                <p class="text-sm text-zinc-300">Price target <span class="text-white font-bold">23,450</span> hit — log the action now.</p>
                             </div>
                         </div>
                     </div>
@@ -222,51 +221,6 @@
                     <p class="text-zinc-400 leading-relaxed">
                         Most journals are post-trade analytics tools: they see the trade only after it closes. SignalDeck watches your live positions so you aren't relying on a separate charting tab to enforce your own rules.
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-6">
-                        Futures alerts that respect<br>
-                        <span class="text-emerald-500">market hours.</span>
-                    </h2>
-                    <p class="text-zinc-400 leading-relaxed mb-6">
-                        Stop-level and price alerts on futures positions (ES, NQ, CL, GC) are evaluated only within CME Globex trading hours — Sunday 6PM through Friday 5PM ET, with the daily 60-minute halt, DST-aware.
-                    </p>
-                    <p class="text-zinc-400 leading-relaxed">
-                        No spurious alerts when the market is closed. No waking up at 3AM because a trigger fired on a price that doesn't count.
-                    </p>
-                </div>
-
-                <!-- Mock UI: Globex gate -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:opacity-100 transition duration-1000 opacity-50"></div>
-                    <div class="relative bg-zinc-950 rounded-xl border border-zinc-800 shadow-2xl overflow-hidden p-6">
-                        <div class="flex items-center gap-2 mb-6 border-b border-zinc-800 pb-4">
-                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Globex Session Monitor</span>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="bg-zinc-900 rounded-lg p-4 flex items-center justify-between">
-                                <span class="text-sm text-zinc-300 font-mono">ES · E-mini S&P 500</span>
-                                <span class="px-2 py-1 text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded font-mono">MARKET OPEN</span>
-                            </div>
-                            <div class="bg-zinc-900 rounded-lg p-4 flex items-center justify-between">
-                                <span class="text-sm text-zinc-300 font-mono">NQ · Nasdaq-100</span>
-                                <span class="px-2 py-1 text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded font-mono">MARKET OPEN</span>
-                            </div>
-                            <div class="bg-zinc-900 rounded-lg p-4">
-                                <div class="text-[10px] font-mono text-zinc-500 mb-1 uppercase">Alert evaluation</div>
-                                <div class="text-sm text-zinc-300">Stop alerts on futures positions <span class="text-white font-bold">active</span> — paused outside Globex hours automatically.</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -373,7 +327,7 @@
     <section class="py-24 bg-zinc-900/20 border-t border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">
             <h3 class="text-3xl font-bold text-white mb-4 text-center">Four ways to set alerts. One journal.</h3>
-            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">Position-attached alerts, chart-drawn custom levels, Globex-aware futures monitoring — all in the same place you journal and review your trades.</p>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16">Position-attached alerts, chart-drawn custom levels, live stop monitoring — all in the same place you journal and review your trades.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -403,12 +357,12 @@
                             <h4 class="text-xl font-bold text-white">Live Stop Monitoring</h4>
                         </div>
                         <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
-                            Your stop levels are watched in real time on open positions — including futures (ES/NQ/CL/GC) gated to CME Globex hours, so no spurious alerts when the market's closed.
+                            Your stop levels are watched in real time on your open positions, so you know the moment price closes in on your stop.
                         </p>
                         <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
                             <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Position watch</div>
-                            <div class="text-sm text-white font-bold mb-1">Stop: 5,201.25 · ES</div>
-                            <div class="text-xs text-emerald-400">Globex session active</div>
+                            <div class="text-sm text-white font-bold mb-1">Stop: 1.08420 · EURUSD</div>
+                            <div class="text-xs text-emerald-400">Watching live</div>
                         </div>
                     </div>
                 </div>
@@ -532,11 +486,6 @@
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What is a break-even alert?</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed">It pings you when price reaches your entry so you can move your stop to break-even and make the trade risk-free — the discipline rule, automated.</p>
-                </div>
-
-                <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
-                    <h3 class="text-base font-bold text-white mb-2">How do futures alerts handle market hours?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Futures stop/price alerts are evaluated only within CME Globex hours (DST-aware), so you don't get false triggers when the market's closed.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">

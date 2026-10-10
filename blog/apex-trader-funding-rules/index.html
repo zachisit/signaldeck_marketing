@@ -380,10 +380,10 @@
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">How SignalDeck Supports Futures Prop Traders</h2>
             <p class="text-zinc-300 leading-relaxed mb-4">
-                A note on platform honesty first, because Apex is futures and much of the journaling market is forex-first. Apex accounts run on platforms like Tradovate, Rithmic, and NinjaTrader — not MetaTrader. SignalDeck's import support reflects that mixed reality:
+                A note on platform honesty first, because Apex is futures and much of the journaling market is forex-first. Apex accounts run on platforms like Tradovate, Rithmic, and NinjaTrader — not MetaTrader. SignalDeck's import support reflects that mixed reality (futures journaling is on our invite-only Futures plan):
             </p>
             <ul class="list-disc list-inside space-y-2 text-zinc-300 mb-6">
-                <li><span class="font-semibold text-white">Tradovate sync:</span> if your Apex account runs on Tradovate, your fills can sync into SignalDeck directly. Many Apex traders use Tradovate — but not all, so confirm your own platform.</li>
+                <li><span class="font-semibold text-white">Tradovate:</span> Tradovate gives prop-firm and evaluation accounts no outside API access, so an Apex account on Tradovate comes into SignalDeck through a CSV export rather than a direct connection. The direct Tradovate connection is for personal accounts.</li>
                 <li><span class="font-semibold text-white">NinjaTrader and universal CSV import:</span> NinjaTrader exports and a general CSV importer cover the platforms we do not sync natively, including Rithmic-based setups. CSV is the universal fallback — any platform that can export trade history can be journaled.</li>
                 <li><span class="font-semibold text-white">Live MT4/MT5 sync</span> exists for the forex/CFD side of our audience via MetaApi, but that is not the Apex path — we call that out so you are not misled into expecting MetaTrader sync for a futures account.</li>
             </ul>

@@ -73,7 +73,7 @@
                 "name": "Does SignalDeck work with Tradovate?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Tradovate accounts sync directly for futures trade import. There is one carve-out worth knowing: many, but not all, Apex and Topstep evaluation accounts run on Tradovate under terms that restrict outside API access, in which case CSV export is the path instead of a live connection. Check with your specific firm and account type — the underlying platform being Tradovate does not automatically mean a live connection is available for that account."
+                    "text": "Yes, on the invite-only Futures plan. Connect a personal Tradovate account and import its fills on demand; Tradovate's API only returns the current and previous trading day, so older history comes in through a CSV export. The carve-out worth knowing: Tradovate gives prop-firm and evaluation accounts (Apex, Topstep, Take Profit Trader and similar) no outside API access at all, so for those accounts CSV export is the path. The platform name on your login screen is not enough — what matters is whether the account is personal or a prop-firm account."
                 }
             },
             {
@@ -81,7 +81,7 @@
                 "name": "Can I use a trading journal with Rithmic or NinjaTrader?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, through CSV export rather than a live connection. NinjaTrader has a named CSV format in SignalDeck's importer with automatic futures contract multiplier resolution for correct P&L. Rithmic-based setups export through NinjaTrader or a Rithmic-provided statement and import as CSV. Neither gives live open-position visibility or real-time balance today — that is honest, not a workaround."
+                    "text": "Yes, through CSV export rather than a live connection, on the invite-only Futures plan. NinjaTrader has a named CSV format in SignalDeck's importer with automatic futures contract multiplier resolution for correct P&L. Rithmic-based setups export through NinjaTrader or a Rithmic-provided statement and import as CSV. Neither gives live open-position visibility or real-time balance today — that is honest, not a workaround."
                 }
             },
             {
@@ -226,10 +226,10 @@
                 This is where precision matters most, because the three names get used almost interchangeably by traders and almost never mean the same integration.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                <span class="text-white font-medium">Tradovate</span> accounts sync directly. <span class="text-white font-medium">NinjaTrader</span> and <span class="text-white font-medium">Rithmic-based setups</span> go through CSV export — NinjaTrader has a named format in SignalDeck's importer with automatic futures contract multiplier resolution so P&L calculates correctly without manual math.
+                Futures journaling is on the invite-only Futures plan. Personal <span class="text-white font-medium">Tradovate</span> accounts connect directly and import fills on demand; Tradovate only exposes the current and previous trading day that way, so older history comes in by CSV export. <span class="text-white font-medium">NinjaTrader</span> and <span class="text-white font-medium">Rithmic-based setups</span> go through CSV export — NinjaTrader has a named format in SignalDeck's importer with automatic futures contract multiplier resolution so P&L calculates correctly without manual math.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                The carve-out that trips people up: many, but not all, <a href="../apex-trader-funding-rules/" class="text-blue-400 hover:text-blue-300 transition-colors">Apex</a> and Topstep evaluation accounts run on Tradovate under terms that restrict outside API access. If that is your account, a live connection is not available regardless of the underlying platform, and CSV is the path. The platform name on your login screen is not enough information — check with your specific firm and account type before assuming either way.
+                The carve-out that trips people up: Tradovate gives prop-firm and evaluation accounts — <a href="../apex-trader-funding-rules/" class="text-blue-400 hover:text-blue-300 transition-colors">Apex</a>, Topstep and similar — no outside API access at all. If that is your account, a direct connection is not available regardless of the underlying platform, and CSV export is the path. The platform name on your login screen is not enough information — what matters is whether the account is personal or a prop-firm account.
             </p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Everything Else: cTrader, IBKR, SnapTrade, Indian F&amp;O Brokers, In-House Dealer Terminals</h2>
@@ -341,12 +341,12 @@
                 <div class="space-y-6">
                     <div>
                         <p class="text-white font-semibold mb-2">Does SignalDeck work with Tradovate?</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes. Tradovate accounts sync directly for futures trade import. There is one carve-out worth knowing: many, but not all, Apex and Topstep evaluation accounts run on Tradovate under terms that restrict outside API access, in which case CSV export is the path instead of a live connection. Check with your specific firm and account type — the underlying platform being Tradovate does not automatically mean a live connection is available for that account.</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes, on the invite-only Futures plan. Connect a personal Tradovate account and import its fills on demand; Tradovate's API only returns the current and previous trading day, so older history comes in through a CSV export. The carve-out worth knowing: Tradovate gives prop-firm and evaluation accounts (Apex, Topstep, Take Profit Trader and similar) no outside API access at all, so for those accounts CSV export is the path. The platform name on your login screen is not enough — what matters is whether the account is personal or a prop-firm account.</p>
                     </div>
 
                     <div>
                         <p class="text-white font-semibold mb-2">Can I use a trading journal with Rithmic or NinjaTrader?</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes, through CSV export rather than a live connection. NinjaTrader has a named CSV format in SignalDeck's importer with automatic futures contract multiplier resolution for correct P&L. Rithmic-based setups export through NinjaTrader or a Rithmic-provided statement and import as CSV. Neither gives live open-position visibility or real-time balance today — that is honest, not a workaround.</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Yes, through CSV export rather than a live connection, on the invite-only Futures plan. NinjaTrader has a named CSV format in SignalDeck's importer with automatic futures contract multiplier resolution for correct P&L. Rithmic-based setups export through NinjaTrader or a Rithmic-provided statement and import as CSV. Neither gives live open-position visibility or real-time balance today — that is honest, not a workaround.</p>
                     </div>
 
                     <div>

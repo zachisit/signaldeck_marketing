@@ -68,7 +68,7 @@
             "name": "Which prop firms does the drawdown monitor support?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SignalDeck's drawdown monitor is firm-agnostic — you configure the daily loss limit % and max drawdown % for your specific firm's rules. This covers FTMO (5% daily / 10% max), Apex Trader Funding (trailing drawdown model), Topstep, E8 Funding, and any other firm that publishes its drawdown rules. The monitor then tracks your live account against those thresholds."
+                "text": "SignalDeck's drawdown monitor is firm-agnostic — you configure the daily loss limit % and max drawdown % for your specific firm's rules. This covers FTMO (5% daily / 10% max), Apex Trader Funding (trailing drawdown model), Topstep, E8 Funding, and any other firm that publishes its drawdown rules. Live tracking comes from a connected MT5 or cTrader account. Futures firms such as Apex and Topstep need the invite-only Futures plan, and futures trades come in by import, so their numbers update when you import rather than live."
             }
         },
         {
@@ -239,7 +239,7 @@
     <section class="py-20 border-b border-zinc-900">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-white mb-4">Start Tracking Your Prop Firm Drawdown</h2>
-            <p class="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed">Connect your MT5, cTrader, or IBKR account and see your live drawdown numbers alongside your journal. Free during beta — every feature included.</p>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed">Connect your MT5, cTrader, or IBKR account and see your live drawdown numbers alongside your journal. Free during beta — everything except futures included.</p>
             <a href="https://app.sgnldk.com" onclick="if(!navigator.webdriver) gtag('event','ldm_cta_click',{'button_location':'body'});" target="_blank" rel="noopener noreferrer"
                 class="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors">
                 Connect your broker — Free
@@ -262,7 +262,7 @@
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Which brokers and prop firm accounts does SignalDeck support?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck connects via MT5 Elite (MetaApi), cTrader OAuth (IC Markets, Pepperstone, FxPro, 250+ brokers), IBKR Flex Web Service, and SnapTrade (30+ brokers). Prop firm challenge accounts on any of these platforms are supported — including FTMO, Apex Trader Funding, E8 Funding, The Funded Trader, and others that run on MT5 or cTrader infrastructure.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck connects via MT5 Elite (MetaApi), cTrader OAuth (IC Markets, Pepperstone, FxPro, 250+ brokers), IBKR Flex Web Service, and SnapTrade (30+ brokers). Prop firm challenge accounts on any of these platforms are supported — including FTMO, E8 Funding, The Funded Trader, and others that run on MT5 or cTrader infrastructure. Futures firm accounts (Apex, Topstep) need the invite-only Futures plan and come in by CSV import.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Do I have to manually enter my drawdown limits?</p>
@@ -315,7 +315,7 @@
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Which prop firms does the drawdown monitor support?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck's drawdown monitor is firm-agnostic — you configure the daily loss limit % and max drawdown % for your specific firm's rules. This covers FTMO (5% daily / 10% max), Apex Trader Funding (trailing drawdown model), Topstep, E8 Funding, and any other firm that publishes its drawdown rules. The monitor then tracks your live account against those thresholds.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck's drawdown monitor is firm-agnostic — you configure the daily loss limit % and max drawdown % for your specific firm's rules. This covers FTMO (5% daily / 10% max), Apex Trader Funding (trailing drawdown model), Topstep, E8 Funding, and any other firm that publishes its drawdown rules. Live tracking comes from a connected MT5 or cTrader account. Futures firms such as Apex and Topstep need the invite-only Futures plan, and futures trades come in by import, so their numbers update when you import rather than live.</p>
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What happens when I'm close to the daily loss limit?</h3>

@@ -85,7 +85,7 @@
           "name": "What CSV formats does SignalDeck support?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. Futures get automatic contract multiplier resolution for correct P&L. CSV import is free on all plans."
+            "text": "SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. CSV import is free on all plans; futures rows (from Tradovate, NinjaTrader or IBKR) import on the invite-only Futures plan, with contract multiplier resolution for correct P&L."
           }
         },
         {
@@ -93,7 +93,7 @@
           "name": "Can I import NinjaTrader or Tradovate trades?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen."
+            "text": "Yes, on the Futures plan. Futures journaling is invite-only: request access on Discord and we set it up with you. Both are supported via CSV import with fill-level FIFO reconstruction and contract multiplier resolution for correct futures P&L, and Tradovate can also be connected directly."
           }
         }
       ]
@@ -273,7 +273,7 @@
                                 <h3 class="text-white font-bold text-lg">CSV Upload — 8 Broker Formats</h3>
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 uppercase tracking-wide">All Plans · Free</span>
                             </div>
-                            <p class="text-zinc-400 text-sm leading-relaxed">Upload a CSV export from your broker and SignalDeck parses it with broker-aware logic — preambles, footers, multi-section statements, and quoted tokenization handled per format. Futures get automatic contract multiplier resolution (Tradovate and NinjaTrader) for correct P&L. Fill-level FIFO reconstruction for platforms that export individual fills rather than completed round-trips.</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Upload a CSV export from your broker and SignalDeck parses it with broker-aware logic — preambles, footers, multi-section statements, and quoted tokenization handled per format. Futures rows (Tradovate and NinjaTrader) need the invite-only Futures plan and get contract multiplier resolution for correct P&L. Fill-level FIFO reconstruction for platforms that export individual fills rather than completed round-trips.</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-2 text-xs font-mono">
@@ -477,7 +477,7 @@
                             <td class="py-3 px-4 text-center text-emerald-400">✓</td>
                             <td class="py-3 px-4 text-center text-emerald-400">✓</td>
                             <td class="py-3 px-4 text-center text-emerald-400">✓</td>
-                            <td class="py-3 px-4 text-center text-emerald-400">✓ (NinjaTrader/Tradovate)</td>
+                            <td class="py-3 px-4 text-center text-emerald-400">✓ (NinjaTrader/Tradovate, Futures plan)</td>
                         </tr>
                         <tr>
                             <td class="py-3 px-4 text-zinc-400">Idempotent re-import</td>
@@ -528,11 +528,11 @@
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">What CSV formats does SignalDeck support?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. Futures get automatic contract multiplier resolution for correct P&amp;L. CSV import is free on all plans.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">SignalDeck's CSV importer supports 8 broker formats: Schwab, TD Ameritrade, IBKR Activity CSV, MetaTrader, Vanguard, Tradovate, NinjaTrader, and Generic. CSV import is free on all plans; futures rows (from Tradovate, NinjaTrader or IBKR) import on the invite-only Futures plan, with contract multiplier resolution for correct P&amp;L.</p>
                 </div>
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
                     <p class="text-white font-semibold mb-2">Can I import NinjaTrader or Tradovate trades?</p>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Yes — both are supported via CSV import with fill-level FIFO reconstruction and automatic contract multiplier resolution for correct futures P&amp;L. Export your trade history from NinjaTrader or Tradovate and upload it directly in the import screen.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Yes, on the Futures plan. Futures journaling is invite-only: request access on <a href="https://discord.gg/77XqR8W7U8" class="text-emerald-400 hover:text-emerald-300" target="_blank" rel="noopener">Discord</a> and we set it up with you. Both are supported via CSV import with fill-level FIFO reconstruction and contract multiplier resolution for correct futures P&amp;L, and Tradovate can also be connected directly.</p>
                 </div>
             </div>
         </div>

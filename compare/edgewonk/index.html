@@ -69,7 +69,7 @@
           "name": "Which is cheaper, SignalDeck or Edgewonk?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck is free during beta with all features unlocked including the strategy backtester. Edgewonk is approximately $16.42/month (billed $197/yr). SignalDeck's paid plans launch after beta at Pro $30/mo — existing beta testers were grandfathered."
+            "text": "SignalDeck is free during beta with every feature except futures unlocked including the strategy backtester. Edgewonk is approximately $16.42/month (billed $197/yr). SignalDeck's paid plans launch after beta at Pro $30/mo — existing beta testers were grandfathered."
           }
         },
         {
@@ -93,7 +93,7 @@
           "name": "How much does Edgewonk cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Edgewonk is billed at $197/year (approximately $16.42/month). There is no monthly billing option and no free tier. SignalDeck is free during beta with all features unlocked. Paid plans launch when it ends at Pro $30/mo, Elite $50/mo."
+            "text": "Edgewonk is $197/year billed annually — approximately $16.42/month. There is no monthly billing option and no free tier. SignalDeck is free during beta with every feature except futures unlocked. Paid plans launch when it ends at Pro $30/mo, Elite $50/mo — existing beta users are grandfathered."
           }
         },
         {
@@ -389,21 +389,16 @@
                             <td class="px-4 py-3 text-center text-rose-500 font-bold">❌</td>
                         </tr>
                         <tr class="border-t-2 border-orange-500/30">
-                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — Since v1.0.59</td>
+                            <td colspan="3" class="px-4 py-2 text-[10px] font-mono uppercase tracking-wider text-orange-400 bg-orange-500/5 font-bold">⚡ Futures Trading (ES/NQ/CL/GC) — Futures plan (invite-only)</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-orange-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Native Futures (ES/NQ/CL/GC)</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Tick Math + Globex</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Futures plan (invite-only)</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌ No futures support</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-orange-500/5">
                             <td class="px-4 py-3 text-zinc-300 font-medium">Tick-Aligned P&L Math</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Auto Contract Spec</td>
-                            <td class="px-4 py-3 text-center text-zinc-600">❌</td>
-                        </tr>
-                        <tr class="border-t border-zinc-800 bg-orange-500/5">
-                            <td class="px-4 py-3 text-zinc-300 font-medium">CME Globex Session Monitoring</td>
-                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ DST-Aware</td>
+                            <td class="px-4 py-3 text-center bg-orange-500/10 text-emerald-500 font-bold">✅ Contracts × Ticks</td>
                             <td class="px-4 py-3 text-center text-zinc-600">❌</td>
                         </tr>
                         <tr class="border-t border-zinc-800 bg-zinc-900/50">
@@ -456,18 +451,20 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — Since v1.0.59</span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-orange-400">Futures Trading — Futures plan · Invite only</span>
                     </div>
                     <h2 class="text-xl font-bold text-white mb-3">SignalDeck vs Edgewonk: Futures Support</h2>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">Edgewonk has no futures support. The platform was built for equities and forex and treats every trade as a share or lot position. There is no concept of contract size, tick value, or CME Globex session windows. A manually-entered ES trade in Edgewonk would calculate P&L as shares × price delta — wrong by a factor of 50x contract size. SignalDeck knows that ES is 50 × $0.25/tick = $12.50/tick, validates every entry and stop against tick size, and gates alert evaluation to Globex hours. For futures traders, this isn't a minor difference in polish — it's the difference between correct and incorrect P&L on every trade.</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">Edgewonk has no futures support. The platform was built for equities and forex and treats every trade as a share or lot position. There is no concept of contract size, tick value, or CME Globex session windows. A manually-entered ES trade in Edgewonk would calculate P&L as shares × price delta — wrong by a factor of 50x contract size. SignalDeck knows that ES is 50 × $0.25/tick = $12.50/tick and computes P&L as contracts × ticks × tick value. For futures traders, this isn't a minor difference in polish — it's the difference between correct and incorrect P&L on every trade. Futures journaling is on SignalDeck's invite-only Futures plan, which includes everything in Elite — request access on Discord.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">ES · $12.50/tick</span>
                         <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-orange-300 border border-orange-500/20">NQ · $5.00/tick</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Auto Contract Spec</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Globex Session Gate</span>
-                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Front-Month Search</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Tradovate Connection</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">NinjaTrader CSV</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-mono bg-zinc-900 text-zinc-400 border border-zinc-700">Futures plan</span>
                     </div>
                     <a href="../../futures/" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Full Futures page →</a>
+                    <span class="text-zinc-600"> · </span>
+                    <a href="https://discord.gg/77XqR8W7U8" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors">Request access on Discord →</a>
                 </div>
                 <div class="flex-shrink-0 w-full md:w-56 bg-zinc-900 border border-orange-500/20 rounded-xl p-5">
                     <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-wider mb-3">SignalDeck · ESU6 long</div>
@@ -494,7 +491,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div class="flex items-start gap-3 bg-zinc-900/50 border border-amber-500/30 rounded-xl p-5">
                 <span class="text-amber-400 mt-0.5 text-sm font-bold flex-shrink-0">Price</span>
-                <p class="text-zinc-400 text-sm leading-relaxed">Edgewonk is <strong class="text-white">$197/year billed annually (~$16.42/month)</strong> with no monthly option and no free tier. Edgewonk offers a 14-day money-back guarantee, but no free tier to try it long-term. SignalDeck is free during the entire beta period with all features accessible, and paid plans launch at Pro $30/mo and Elite $50/mo — with grandfathering for existing beta users.</p>
+                <p class="text-zinc-400 text-sm leading-relaxed">Edgewonk is <strong class="text-white">$197/year billed annually (~$16.42/month)</strong> with no monthly option and no free tier. Edgewonk offers a 14-day money-back guarantee, but no free tier to try it long-term. SignalDeck is free during the entire beta period with every feature except futures unlocked, and paid plans launch at Pro $30/mo and Elite $50/mo — with grandfathering for existing beta users.</p>
             </div>
             <div class="flex items-start gap-3 bg-zinc-900/50 border border-amber-500/30 rounded-xl p-5">
                 <span class="text-amber-400 mt-0.5 text-sm font-bold flex-shrink-0">Note</span>
@@ -525,7 +522,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does Edgewonk support futures trading?</h3>
-                    <p class="text-zinc-400 text-sm">No. Edgewonk does not support futures instruments. The platform treats all trades as equity or forex positions — there is no contract-spec engine, no tick-aligned P&L calculation, and no CME Globex session awareness. A futures trader logging ES or NQ trades in Edgewonk would get incorrect P&L unless they manually pre-convert everything. SignalDeck natively supports ES, NQ, CL, and GC with automatic contract spec fetching, tick-aligned P&L math, and Globex session monitoring. See the <a href="../../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a> for full details.</p>
+                    <p class="text-zinc-400 text-sm">No. Edgewonk does not support futures instruments. The platform treats all trades as equity or forex positions — there is no contract-spec engine, no tick-aligned P&L calculation, and no CME Globex session awareness. A futures trader logging ES or NQ trades in Edgewonk would get incorrect P&L unless they manually pre-convert everything. SignalDeck natively supports ES, NQ, CL, and GC with tick-aligned P&L math on its invite-only Futures plan. See the <a href="../../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">SignalDeck Futures page</a> for full details.</p>
                 </div>
                                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does Edgewonk support crypto?</h3>
@@ -533,7 +530,7 @@
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">How much does Edgewonk cost?</h3>
-                    <p class="text-zinc-400 text-sm">Edgewonk is $197/year billed annually — approximately $16.42/month. There is no monthly billing option and no free tier. SignalDeck is free during beta with all features unlocked. Paid plans launch when it ends at Pro $30/mo, Elite $50/mo — existing beta users are grandfathered.</p>
+                    <p class="text-zinc-400 text-sm">Edgewonk is $197/year billed annually — approximately $16.42/month. There is no monthly billing option and no free tier. SignalDeck is free during beta with every feature except futures unlocked. Paid plans launch when it ends at Pro $30/mo, Elite $50/mo — existing beta users are grandfathered.</p>
                 </div>
                 <div class="border-b border-zinc-800 pb-6">
                     <h3 class="text-white font-semibold mb-2">Does Edgewonk have live or chat support?</h3>
@@ -590,7 +587,7 @@
             <div class="space-y-6">
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Which is cheaper, SignalDeck or Edgewonk?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck is free during beta with all features unlocked including the strategy backtester. Edgewonk is approximately $16.42/month (billed $197/yr). SignalDeck's paid plans launch after beta at Pro $30/mo — existing beta testers were grandfathered.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck is free during beta with every feature except futures unlocked including the strategy backtester. Edgewonk is approximately $16.42/month (billed $197/yr). SignalDeck's paid plans launch after beta at Pro $30/mo — existing beta testers were grandfathered.</p>
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Does Edgewonk have real-time analytics?</h3>
@@ -607,7 +604,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-2xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Try SignalDeck Free.</h2>
-            <p class="text-zinc-400 mb-8">All features unlocked during beta. A real backtester with Walk-Forward Analysis, R-Multiple framework, and structured Post Mortems — no subscription required. Paid plans launch after beta: Pro $30/mo, Elite $50/mo.</p>
+            <p class="text-zinc-400 mb-8">All features except futures unlocked during beta. A real backtester with Walk-Forward Analysis, R-Multiple framework, and structured Post Mortems — no subscription required. Paid plans launch after beta: Pro $30/mo, Elite $50/mo.</p>
             <a href="https://app.sgnldk.com"
                 target="_blank"
                 rel="noopener noreferrer"

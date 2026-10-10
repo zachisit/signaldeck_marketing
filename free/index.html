@@ -46,7 +46,7 @@
           "name": "Is SignalDeck really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SignalDeck is completely free during beta — no credit card required, no trial period, no feature restrictions. Every feature (Walk-Forward Analysis, Monte Carlo simulation, SQN scoring, Kelly Criterion, MT4/MT5 import, structured Post Mortem) is fully unlocked. Paid plans launch after beta: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo). Existing beta testers were grandfathered."
+            "text": "Yes. SignalDeck is free during beta — no credit card required, no trial period. Every feature except futures (Walk-Forward Analysis, Monte Carlo simulation, SQN scoring, Kelly Criterion, MT4/MT5 import, structured Post Mortem) is fully unlocked; futures is on the invite-only Futures plan. Paid plans launch after beta: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo). Existing beta testers were grandfathered."
           }
         },
         {
@@ -78,7 +78,7 @@
           "name": "What brokers can I import from with the free version?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All five import methods are included during beta. Four are on every plan: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with live balance sync is Elite ($50/mo) but fully unlocked during beta. See sgnldk.com/broker-import/ for the full list."
+            "text": "All five import methods are included during beta. Four are on every plan: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with live balance sync is Elite ($50/mo) but fully unlocked during beta. Futures rows in any import need the invite-only Futures plan. See sgnldk.com/broker-import/ for the full list."
           }
         },
         {
@@ -94,7 +94,7 @@
           "name": "What free trading journal supports futures (ES, NQ)?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck supports ES (E-mini S&P 500), NQ (E-mini Nasdaq-100), CL (Crude Oil), and GC (Gold) futures and is free during beta. Futures support is currently in Beta — tick-aligned P&L math (contract size × ticks × tick value), CME Globex session monitoring (Sun 6PM–Fri 5PM ET), and front-month contract search are all built in. No other free trading journal includes native futures contract spec math. New accounts join paid tiers (Free / $30 / $50) when billing launches."
+            "text": "SignalDeck supports ES (E-mini S&P 500), NQ (E-mini Nasdaq-100), CL (Crude Oil), and GC (Gold) futures, but futures journaling is not part of the free plan. It is on the Futures plan, which is invite-only: request access on Discord and we set it up with you. The Futures plan includes everything in Elite plus tick-aligned P&L math (contract size × ticks × tick value), the Tradovate connection, and futures rows in NinjaTrader, Tradovate and IBKR imports. Everything except futures is free during beta."
           }
         }
       ]
@@ -196,8 +196,8 @@
     <!-- What you get free -->
     <section class="py-16 border-b border-zinc-900">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold text-white mb-3 text-center">Everything unlocked. Nothing held back.</h2>
-            <p class="text-center text-zinc-500 text-sm mb-10 font-mono">Every feature SignalDeck offers is free during beta — including the ones competitors charge $50/mo for.</p>
+            <h2 class="text-2xl font-bold text-white mb-3 text-center">Everything except futures, unlocked.</h2>
+            <p class="text-center text-zinc-500 text-sm mb-10 font-mono">Everything except futures is free during beta — including the features competitors charge $50/mo for.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
                 <div class="bg-zinc-900/50 border border-blue-500/30 rounded-xl p-6">
@@ -380,11 +380,11 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                        <span class="text-xs font-mono uppercase tracking-widest text-blue-400">Everything Unlocked</span>
+                        <span class="text-xs font-mono uppercase tracking-widest text-blue-400">Everything Except Futures Unlocked</span>
                     </div>
                     <h2 class="text-2xl font-bold text-white mb-4">Free during beta.<br>Start now, no credit card.</h2>
                     <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        SignalDeck is building this alongside serious traders. Every feature — Walk-Forward Analysis, Monte Carlo, grid-search optimizer, multi-broker import (IBKR, cTrader, SnapTrade, MT4/MT5), R-value framework, Post Mortem protocol — is fully unlocked at no cost during beta.
+                        SignalDeck is building this alongside serious traders. Every feature except futures — Walk-Forward Analysis, Monte Carlo, grid-search optimizer, multi-broker import (IBKR, cTrader, SnapTrade, MT4/MT5), R-value framework, Post Mortem protocol — is fully unlocked at no cost during beta.
                     </p>
                     <p class="text-zinc-500 text-sm leading-relaxed">
                         Paid plans launch after beta: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo). Early beta testers were grandfathered. New accounts join one of these tiers at launch.
@@ -440,7 +440,7 @@
 
                 <div class="bg-zinc-900/40 border border-emerald-500/30 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Is SignalDeck really free?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Yes — completely. No credit card, no trial period, no feature restrictions. Everything (Walk-Forward Analysis, Monte Carlo, SQN, Kelly, MT4/MT5 import, Post Mortem) is fully unlocked during beta. Active testers who provide feedback receive Founder Status: free access to the entire platform for life, even after beta ends.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Yes. SignalDeck is free during beta — no credit card required, no trial period. Every feature except futures (Walk-Forward Analysis, Monte Carlo simulation, SQN scoring, Kelly Criterion, MT4/MT5 import, structured Post Mortem) is fully unlocked; futures is on the invite-only Futures plan. Paid plans launch after beta: Free (unlimited trades), Pro ($30/mo), Elite ($50/mo). Existing beta testers were grandfathered.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -460,7 +460,7 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What brokers can I import from?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">All five import methods are included during beta. Four are available on every plan including the post-beta Free tier: IBKR via Flex Web Service, cTrader via OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade aggregator (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with real-time live balance sync is the Elite plan ($50/mo). During beta all five methods are fully unlocked. <a href="../broker-import/" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">See all supported brokers →</a></p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">All five import methods are included during beta. Four are available on every plan including the post-beta Free tier: IBKR via Flex Web Service, cTrader via OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade aggregator (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with real-time live balance sync is the Elite plan ($50/mo). During beta all five methods are fully unlocked; futures rows in any import need the invite-only Futures plan. <a href="../broker-import/" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">See all supported brokers →</a></p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
@@ -470,7 +470,7 @@
 
                 <div class="bg-zinc-900/40 border border-orange-500/20 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What free trading journal supports futures (ES, NQ)?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports ES (E-mini S&amp;P 500), NQ (E-mini Nasdaq-100), CL (Crude Oil), and GC (Gold) futures during beta (currently in early-access Beta). Tick-aligned P&amp;L math, CME Globex session monitoring, and front-month contract search are built in. No other free trading journal includes native futures contract-spec math. <a href="../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">See the Futures Beta page →</a></p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">SignalDeck supports ES (E-mini S&amp;P 500), NQ (E-mini Nasdaq-100), CL (Crude Oil), and GC (Gold) futures, but futures journaling is not part of the free plan. It is on the <a href="../futures/" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">Futures plan</a>, which is invite-only: request access on <a href="https://discord.gg/77XqR8W7U8" class="text-orange-400 hover:text-orange-300 underline underline-offset-2" target="_blank" rel="noopener">Discord</a> and we set it up with you. The Futures plan includes everything in Elite plus tick-aligned P&amp;L math (contract size × ticks × tick value), the Tradovate connection, and futures rows in NinjaTrader, Tradovate and IBKR imports. Everything except futures is free during beta.</p>
                 </div>
 
             </div>
@@ -508,7 +508,7 @@
             <div class="space-y-6">
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">What brokers can I import from with the free version?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">All five import methods are included during beta. Four are on every plan: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with live balance sync is Elite ($50/mo) but fully unlocked during beta. See sgnldk.com/broker-import/ for the full list.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">All five import methods are included during beta. Four are on every plan: IBKR via Flex Web Service, cTrader OAuth (IC Markets, Pepperstone, FP Markets, FxPro, Fusion Markets + 250 more), SnapTrade (Robinhood, Schwab, Questrade, Trading 212, DEGIRO + 30 more), and CSV in 8 formats. MT4/MT5 via MetaApi with live balance sync is Elite ($50/mo) but fully unlocked during beta. Futures rows in any import need the invite-only Futures plan. See sgnldk.com/broker-import/ for the full list.</p>
                 </div>
             </div>
         </div>
@@ -545,7 +545,7 @@
     <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
         <div class="max-w-2xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Audit Your Edge.</h2>
-            <p class="text-zinc-400 mb-8">SignalDeck is free during beta — every feature unlocked, no credit card required. Paid plans (Free / Pro $30 / Elite $50) launch when it ends.</p>
+            <p class="text-zinc-400 mb-8">SignalDeck is free during beta — everything except futures unlocked, no credit card required. Paid plans (Free / Pro $30 / Elite $50) launch when it ends.</p>
 
             <a href="https://app.sgnldk.com"
                 target="_blank"

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L30T1BW9L8');</script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Trading Brief in ChatGPT, With SignalDeck | SignalDeck</title>
+    <meta name="description" content="Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.">
+    <meta name="keywords" content="ChatGPT trading brief, AI trading journal, SignalDeck MCP, daily trading routine, portfolio risk, trade review">
+    <meta name="author" content="SignalDeck">
+    <link rel="canonical" href="https://sgnldk.com/blog/chatgpt-daily-trading-brief/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/chatgpt-daily-trading-brief/">
+    <meta property="og:title" content="Your Trading Brief in ChatGPT, With SignalDeck | SignalDeck">
+    <meta property="og:description" content="Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.">
+    <meta property="og:image" content="https://sgnldk.com/assets/chatgpt-daily-brief-video.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:site_name" content="SignalDeck">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:title" content="Your Trading Brief in ChatGPT, With SignalDeck | SignalDeck">
+    <meta name="twitter:description" content="Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/chatgpt-daily-brief-video.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Your Trading Brief in ChatGPT, With SignalDeck", "description": "Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.", "author": {"@type": "Organization", "name": "SignalDeck", "@id": "https://sgnldk.com/#org"}, "publisher": {"@type": "Organization", "name": "SignalDeck", "@id": "https://sgnldk.com/#org"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12", "image": "https://sgnldk.com/assets/chatgpt-daily-brief-video.png", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://sgnldk.com/blog/chatgpt-daily-trading-brief/"}, "video": {"@type": "VideoObject", "name": "ChatGPT + SignalDeck: Your Trading Brief in One Question", "description": "A SignalDeck demo account answers one trading brief request in ChatGPT through the read-only get_daily_brief MCP tool.", "thumbnailUrl": "https://sgnldk.com/assets/chatgpt-daily-brief-video.png", "uploadDate": "2026-10-12", "duration": "PT1M26S", "embedUrl": "https://www.youtube.com/embed/LRAW1DeYzxY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Your Trading Brief in ChatGPT, With SignalDeck", "item": "https://sgnldk.com/blog/chatgpt-daily-trading-brief/"}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <time datetime="2026-10-12" class="text-xs font-mono text-zinc-500">2026-10-12</time>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Product preview</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Your Trading Brief in ChatGPT, With SignalDeck</h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">Before your next trade, you need to know what you already hold, how much is at risk, what might affect those positions, and what you still owe your journal. In this preview, one question in ChatGPT pulls those threads together from a connected SignalDeck demo account.</p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="relative w-full overflow-hidden rounded-xl border border-zinc-800 mb-3" style="aspect-ratio:16/9">
+                <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/LRAW1DeYzxY?rel=0" title="ChatGPT + SignalDeck: Your Trading Brief in One Question" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="text-sm text-zinc-500 mb-10">Watch the 86-second walkthrough. The account and positions shown are demo data; the ChatGPT and SignalDeck screens are real captures.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The question to ask</h2>
+            <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-6 mb-6 text-zinc-100 leading-relaxed">“Give me my SignalDeck trading brief for today. What positions need attention, what events affect them, and what should I review? Keep it short.”</div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The new <code class="text-blue-300">get_daily_brief</code> MCP tool gathers a snapshot for ChatGPT to summarize. It includes open positions and portfolio risk, triggered alerts, high-impact economic events mapped to those positions over the next 48 hours, and trades with missing review work. The tool reads your SignalDeck account; asking for a brief does not place an order or edit a trade.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What the demo brief found</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The filmed demo account holds two open positions, Apple and Microsoft, with $542.80 in open risk. There are no triggered alerts and no high-impact events mapped to either position in the next 48 hours. That absence belongs in the brief too: it tells you the tool checked, rather than leaving you to wonder whether events were omitted.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-chatgpt-daily-brief-summary.png" target="_blank" rel="noopener" aria-label="Open full-size ChatGPT daily brief screenshot"><img src="../../assets/screenshot-chatgpt-daily-brief-summary.png" width="1440" height="729" loading="lazy" decoding="async" alt="ChatGPT SignalDeck Trading Brief showing two open positions, $542.80 in portfolio risk, zero triggered alerts, AAPL and MSFT positions, and no mapped high-impact events in the next 48 hours" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">ChatGPT's answer puts the account snapshot first: two positions, $542.80 in open risk and no triggered alerts. Select the image to read it at full size.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">The unfinished work is in the journal. Two open trades need entry notes, and twelve closed trades still need post-mortems. No open trade is missing a stop. The practical next step is to check the positions in SignalDeck, then work through the review queue. The answer gives you a starting order; it does not decide whether to buy or sell.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-chatgpt-daily-brief-review.png" target="_blank" rel="noopener" aria-label="Open full-size ChatGPT trade review screenshot"><img src="../../assets/screenshot-chatgpt-daily-brief-review.png" width="1440" height="729" loading="lazy" decoding="async" alt="ChatGPT Trades needing review section listing AAPL and MSFT entry notes, twelve closed trades missing post-mortems, no missing stops, and $542.80 in risk" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The same answer closes with the work to do in the journal: entry notes for both open trades and twelve post-mortems.</figcaption>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Check the answer against the source</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">In the video, we move from ChatGPT to SignalDeck’s Today page to check the open positions and risk against the account itself. That is the habit we recommend for any assistant-generated brief. The assistant makes the daily scan easier to read, while the journal remains the source for the trade records and calculations.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-signaldeck-today-daily-brief.png" target="_blank" rel="noopener" aria-label="Open full-size SignalDeck Today screenshot"><img src="../../assets/screenshot-signaldeck-today-daily-brief.png" width="1440" height="729" loading="lazy" decoding="async" alt="SignalDeck Today page for the demo account showing two trades needing notes, twelve post-mortems due, $542.80 in open risk and two positions with stops" class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">SignalDeck's Today page shows the underlying review cards and open-risk figure for this demo account.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">The connection uses <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300">SignalDeck’s MCP server</a>. You connect ChatGPT through a SignalDeck sign-in and consent flow. This particular request is read-only, even if other SignalDeck tools can write when separately authorized. Read-only access is a useful starting choice if you want the assistant to answer questions without changing the journal.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A working preview of the Daily Brief tool</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">We built <code class="text-blue-300">get_daily_brief</code> as an additional read-only MCP tool. The walkthrough shows it working against a demo account with the extended read feature enabled for filming. Its fields and production availability may change before release. The broader SignalDeck MCP connection already lets you ask ChatGPT questions about your journal; this brief is a faster way to start the day with the positions, event context, and review work in one response.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">If you want to try the existing connection, start with the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300">SignalDeck MCP guide</a>. Once the Daily brief tool is available in your account, the prompt above will give you the same kind of starting point using your own data.</p>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h2 class="text-xl font-bold text-white mb-3">Put your journal in the conversation</h2>
+                <p class="text-zinc-400 mb-6">Connect ChatGPT to SignalDeck, then ask questions grounded in your own trading records.</p>
+                <a href="../../mcp/" class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">Learn how the connection works &rarr;</a>
+            </div>
+        </div>
+    </article>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

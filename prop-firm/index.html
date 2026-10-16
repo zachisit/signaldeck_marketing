@@ -64,7 +64,7 @@
                 "name": "What is the best trading journal for prop firm traders?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SignalDeck is built around R-Multiple as its core organizing principle — the same risk framework that prop firm rules are designed around. Daily loss limits and max drawdown rules become natural guardrails when every trade is sized in R. SignalDeck syncs your live MT5 account in real time so you see remaining daily drawdown headroom before placing a trade — not after the violation. Also includes MT4/MT5 auto-import via MetaApi, SQN edge scoring, Walk-Forward Analysis to validate edge before risking funded capital, and native CFD instruments (NAS100, XAUUSD, GER40, US500). Free plan available."
+                    "text": "SignalDeck syncs your live MT5 account in real time so you see daily drawdown headroom and daily loss limit remaining before every trade — not after the violation. Built around R-Multiple as its core organizing principle, it also includes MT4/MT5 auto-import via MetaApi, live account balance sync, SQN edge scoring, Walk-Forward Analysis, and native CFD instruments (NAS100, XAUUSD, GER40, US500). Free plan included."
                 }
             },
             {
@@ -88,7 +88,7 @@
                 "name": "Can I validate my edge before a prop firm challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. SignalDeck's strategy backtester includes Walk-Forward Analysis — it splits historical data 80% in-sample and 20% out-of-sample and returns a Pass or Likely Overfitted verdict. A prop firm challenge costs $200–$1,000+. Running Walk-Forward Analysis before you pay tells you whether your edge is genuinely predictive or just curve-fitted to your own trade history. SQN scoring gives you the same signal from live journal data: above 2.0 means a tradable edge exists."
+                    "text": "Yes. SignalDeck's strategy backtester includes Walk-Forward Analysis — it splits historical data 80% in-sample and 20% out-of-sample and returns a Pass or Likely Overfitted verdict. A prop firm challenge costs $200–$1,000+. Running Walk-Forward Analysis before you pay tells you whether your edge is genuinely predictive or just curve-fitted. Monte Carlo simulation shows your worst-case drawdown across 1,000 trade-sequence scenarios — know what you're up against before you submit."
                 }
             },
             {
@@ -96,7 +96,7 @@
                 "name": "How does R-value help with prop firm daily loss limits?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Prop firm daily loss limits are risk-based rules — typically 4–5% of account equity. R-Multiple thinking enforces the same constraint structurally. When every trade is sized as a fixed fraction of your account (1R), you can never accidentally risk 3% on a single high-conviction trade and breach your daily limit. The R-framework and the prop firm rules align by design — you're never manually monitoring a dollar limit alongside your position sizing."
+                    "text": "Prop firm daily loss limits — typically 4–5% of account equity — are risk-based rules. R-Multiple thinking enforces the same constraint structurally. When every trade is sized as a fixed fraction of your account (1R), you can never accidentally risk 3% on a single high-conviction trade and breach your daily limit. The framework and the rules align by design — you're never monitoring a dollar limit separately from your position sizing."
                 }
             },
             {
@@ -104,7 +104,7 @@
                 "name": "Can I track challenge and funded account trades separately?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Use strategy and broker tags to separate challenge account trades from funded account trades. Compare SQN scores between phases to see whether your edge held up under real funded-account pressure, or whether you traded differently once real capital was involved. If your SQN drops when you go funded, you've identified a psychology problem before it becomes an account breach."
+                    "text": "Yes. Use strategy and broker tags to separate challenge account trades from funded account trades. Compare SQN scores between phases to see whether your edge held up under real funded-account pressure. If your SQN drops from challenge to funded, you've identified a psychology problem before it becomes a breach."
                 }
             },
             {

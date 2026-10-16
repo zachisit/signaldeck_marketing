@@ -42,7 +42,7 @@
           "name": "Does SignalDeck or TradesViz have better backtesting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Both have rule-based strategy backtesting. The key gap is Walk-Forward Analysis and Monte Carlo simulation — TradesViz has neither. Walk-Forward Analysis is the only way to detect whether your strategy parameters are overfitted to historical data before going live. SignalDeck's backtesting workflow (Walk-Forward Analysis + 1,000-path Monte Carlo + grid-search optimization + backtest-to-journal overlay) is more complete than TradesViz, despite TradesViz having more indicators (70+) and tickers (30,000+)."
+            "text": "Both have rule-based backtesting. SignalDeck adds Walk-Forward Analysis, 1,000-path Monte Carlo simulation, grid-search parameter optimization (500 combos), and backtest-to-journal equity overlay — none of which TradesViz offers. TradesViz has 70+ indicators and 30,000+ tickers. The trade-off is depth vs breadth: SignalDeck's workflow detects overfitting before you trade; TradesViz lets you test more strategies on more symbols."
           }
         },
         {
@@ -50,7 +50,7 @@
           "name": "Does TradesViz have Walk-Forward Analysis?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. TradesViz has a rule-based backtester with 70+ indicators but no Walk-Forward Analysis and no Monte Carlo simulation. SignalDeck is the only trading journal with Walk-Forward Analysis built in — it splits historical data 80% in-sample and 20% out-of-sample and returns a Pass or Likely Overfitted verdict. Without Walk-Forward Analysis, you have no way to tell if a backtest result is real edge or parameter overfitting."
+            "text": "No. TradesViz has a rule-based backtester with 70+ indicators but no Walk-Forward Analysis and no Monte Carlo simulation. SignalDeck is the only trading journal with Walk-Forward Analysis built in. Without it, you can't tell if a backtest result is genuine edge or parameter overfitting to historical noise."
           }
         },
         {
@@ -58,7 +58,7 @@
           "name": "Does TradesViz have R-Multiple tracking?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TradesViz does not have R-Multiple as an organizing principle. SignalDeck is built around R-Multiple as its core — every metric (expectancy, SQN score, Kelly Criterion, equity curves, Post Mortem reviews) flows from risk-normalized R-value. TradesViz has P&L analytics and a same-symbol buy-and-hold comparison metric, but not an R-value framework."
+            "text": "TradesViz does not have R-Multiple as an organizing principle. It has P&L analytics and a same-symbol buy-and-hold comparison, but not an R-value framework. SignalDeck is built around R-Multiple as its core — every metric (expectancy, SQN, Kelly Criterion, equity curves, Post Mortem) flows from risk-normalized R-value."
           }
         },
         {
@@ -66,7 +66,7 @@
           "name": "Does SignalDeck or TradesViz have better broker import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck supports MT4/MT5 via MetaApi (real-time live balance sync), Interactive Brokers via Flex Web Service, cTrader via OAuth, SnapTrade aggregator for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV in 8 broker formats. TradesViz has broader platform coverage across legacy and niche integrations. SignalDeck's live balance sync for MT4/MT5 is a differentiator TradesViz does not offer."
+            "text": "SignalDeck now supports MT4/MT5 (real-time live balance sync via MetaApi), IBKR via Flex Web Service, cTrader via OAuth, SnapTrade for US retail and crypto brokers (Robinhood, Webull, Schwab, Fidelity, E*TRADE, Coinbase), and CSV in 8 formats. TradesViz has broader coverage across legacy and niche platforms. The live balance sync for MT4/MT5 remains exclusive to SignalDeck."
           }
         },
         {
@@ -82,7 +82,7 @@
           "name": "Is TradesViz hard to learn?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TradesViz is feature-dense with 70+ indicators and a wide range of analytics views. New users frequently report a steep learning curve before getting value from the platform. SignalDeck is designed around a smaller set of high-signal analytics (R-Multiple, SQN, Kelly, Post Mortem) with direct Discord onboarding support — founder access means setup questions get answered on the same day."
+            "text": "TradesViz is feature-dense with 70+ indicators and multiple analytics views that take time to configure. New users commonly report needing several sessions before getting reliable value. SignalDeck is organized around a smaller set of high-signal analytics. Onboarding is done through Discord — direct access to the founder means setup questions get answered same-day."
           }
         }
       ]

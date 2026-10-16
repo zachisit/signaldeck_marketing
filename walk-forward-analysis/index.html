@@ -56,7 +56,7 @@
             "name": "What is Walk-Forward Analysis in trading?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Walk-Forward Analysis (WFA) is a backtesting method that splits historical data into an in-sample window (used for optimization) and an out-of-sample window (never seen during optimization). The strategy is optimized on in-sample data, then tested on out-of-sample data. If the strategy profits on both, it has demonstrated real generalization. If it only works in-sample, it is likely curve-fitted and will fail live. WFA is the standard test for overfit detection in quantitative trading."
+                "text": "WFA splits your historical data into an in-sample optimization window and an out-of-sample validation window. Parameters are optimized on in-sample data, then run unchanged on out-of-sample data. If the strategy profits on both, the edge generalizes. If it fails out-of-sample, it was curve-fitted to the past and will likely fail live."
             }
         },
         {
@@ -64,7 +64,7 @@
             "name": "How does SignalDeck run Walk-Forward Analysis?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SignalDeck splits your backtest data 80% in-sample and 20% out-of-sample. It optimizes strategy parameters on the in-sample window using grid search, then tests the best parameters on the out-of-sample window. The result is a Pass or Likely Overfitted verdict plus a Walk-Forward Efficiency ratio (out-of-sample R / in-sample R). A WFE above 0.6 is a strong result."
+                "text": "SignalDeck splits your backtest data 80% in-sample and 20% out-of-sample. Grid-search optimization runs on the in-sample window to find the best parameters. Those same parameters are then tested on the out-of-sample window. The result is a Pass or Likely Overfitted verdict plus a WFE ratio. WFE above 0.60 is a strong result."
             }
         },
         {

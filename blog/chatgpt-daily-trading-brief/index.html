@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Trading Brief in ChatGPT, With SignalDeck | SignalDeck</title>
-    <meta name="description" content="Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.">
+    <meta name="description" content="Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events and trades awaiting review, answered from your SignalDeck journal.">
     <meta name="keywords" content="ChatGPT trading brief, AI trading journal, SignalDeck MCP, daily trading routine, portfolio risk, trade review">
     <meta name="author" content="SignalDeck">
     <link rel="canonical" href="https://sgnldk.com/blog/chatgpt-daily-trading-brief/">
@@ -25,7 +25,7 @@
     <meta name="twitter:title" content="Your Trading Brief in ChatGPT, With SignalDeck | SignalDeck">
     <meta name="twitter:description" content="Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/chatgpt-daily-brief-video.png">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Your Trading Brief in ChatGPT, With SignalDeck", "description": "Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.", "author": {"@type": "Organization", "name": "SignalDeck", "@id": "https://sgnldk.com/#org"}, "publisher": {"@type": "Organization", "name": "SignalDeck", "@id": "https://sgnldk.com/#org"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12", "image": "https://sgnldk.com/assets/chatgpt-daily-brief-video.png", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://sgnldk.com/blog/chatgpt-daily-trading-brief/"}, "video": {"@type": "VideoObject", "name": "ChatGPT + SignalDeck: Your Trading Brief in One Question", "description": "A SignalDeck demo account answers one trading brief request in ChatGPT through the read-only get_daily_brief MCP tool.", "thumbnailUrl": "https://sgnldk.com/assets/chatgpt-daily-brief-video.png", "uploadDate": "2026-10-12", "duration": "PT1M26S", "embedUrl": "https://www.youtube.com/embed/LRAW1DeYzxY"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Your Trading Brief in ChatGPT, With SignalDeck", "description": "Ask ChatGPT one question for open positions, portfolio risk, alerts, upcoming events, and trades awaiting review. See a real SignalDeck demo and where each answer comes from.", "author": {"@type": "Organization", "name": "SignalDeck", "@id": "https://sgnldk.com/#org"}, "publisher": {"@type": "Organization", "name": "SignalDeck", "@id": "https://sgnldk.com/#org"}, "datePublished": "2026-10-12", "dateModified": "2026-10-16", "image": "https://sgnldk.com/assets/chatgpt-daily-brief-video.png", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://sgnldk.com/blog/chatgpt-daily-trading-brief/"}, "video": {"@type": "VideoObject", "name": "ChatGPT + SignalDeck: Your Trading Brief in One Question", "description": "A SignalDeck demo account answers one trading brief request in ChatGPT through the read-only get_daily_brief MCP tool.", "thumbnailUrl": "https://sgnldk.com/assets/chatgpt-daily-brief-video.png", "uploadDate": "2026-10-12", "duration": "PT1M26S", "embedUrl": "https://www.youtube.com/embed/LRAW1DeYzxY"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sgnldk.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sgnldk.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Your Trading Brief in ChatGPT, With SignalDeck", "item": "https://sgnldk.com/blog/chatgpt-daily-trading-brief/"}]}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,10 +67,10 @@
             <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
             <div class="flex items-center gap-3 mb-4">
                 <time datetime="2026-10-12" class="text-xs font-mono text-zinc-500">2026-10-12</time>
-                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Product preview</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Product</span>
             </div>
             <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Your Trading Brief in ChatGPT, With SignalDeck</h1>
-            <p class="text-lg text-zinc-400 leading-relaxed">Before your next trade, you need to know what you already hold, how much is at risk, what might affect those positions, and what you still owe your journal. In this preview, one question in ChatGPT pulls those threads together from a connected SignalDeck demo account.</p>
+            <p class="text-lg text-zinc-400 leading-relaxed">Before your next trade, you need to know what you already hold, how much is at risk, what might affect those positions, and what you still owe your journal. One question in ChatGPT pulls those threads together from a connected SignalDeck account. The walkthrough uses a demo account.</p>
         </div>
     </header>
 
@@ -105,9 +105,9 @@
             </figure>
             <p class="text-zinc-300 leading-relaxed mb-6">The connection uses <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300">SignalDeck’s MCP server</a>. You connect ChatGPT through a SignalDeck sign-in and consent flow. This particular request is read-only, even if other SignalDeck tools can write when separately authorized. Read-only access is a useful starting choice if you want the assistant to answer questions without changing the journal.</p>
 
-            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A working preview of the Daily Brief tool</h2>
-            <p class="text-zinc-300 leading-relaxed mb-6">We built <code class="text-blue-300">get_daily_brief</code> as an additional read-only MCP tool. The walkthrough shows it working against a demo account with the extended read feature enabled for filming. Its fields and production availability may change before release. The broader SignalDeck MCP connection already lets you ask ChatGPT questions about your journal; this brief is a faster way to start the day with the positions, event context, and review work in one response.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">If you want to try the existing connection, start with the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300">SignalDeck MCP guide</a>. Once the Daily brief tool is available in your account, the prompt above will give you the same kind of starting point using your own data.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Daily Brief tool</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6"><code class="text-blue-300">get_daily_brief</code> is a read-only MCP tool that any connected assistant can call; sections that depend on a paid feature, such as news, follow your plan. The broader SignalDeck MCP connection already lets you ask ChatGPT questions about your journal; this brief is a faster way to start the day with the positions, event context, and review work in one response.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">To set up the connection, start with the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300">SignalDeck MCP guide</a>. Once ChatGPT is connected, the prompt above gives you the same kind of starting point using your own data.</p>
 
             <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
                 <h2 class="text-xl font-bold text-white mb-3">Put your journal in the conversation</h2>

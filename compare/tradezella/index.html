@@ -42,7 +42,7 @@
           "name": "Does SignalDeck or TradeZella have better backtesting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SignalDeck has a fully automated rule-based strategy backtester with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization. TradeZella's 'backtesting' is manual bar-by-bar trade replay — you place trades yourself on historical charts interactively. These are fundamentally different tools. TradeZella replay builds screen-time muscle memory; SignalDeck backtesting validates whether a rule-based strategy has a statistically real edge."
+            "text": "SignalDeck has a fully automated rule-based strategy backtester with Walk-Forward Analysis, 1,000-path Monte Carlo simulation, and grid-search parameter optimization. TradeZella's \"backtesting\" is manual bar-by-bar trade replay — you place trades yourself on historical charts. These are different tools. Replay builds discretionary trader intuition; SignalDeck's backtester validates rule-based edges and detects overfitting."
           }
         },
         {
@@ -58,7 +58,7 @@
           "name": "Does TradeZella have R-Multiple tracking?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TradeZella does not have a native R-Multiple framework. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN score, Kelly Criterion, equity curves, Post Mortem reviews) flows from risk-normalized R-value. R-Multiple normalizes results across different position sizes, making metrics comparable across your entire trade history."
+            "text": "TradeZella does not have a native R-Multiple framework. SignalDeck is built around R-Multiple as its core organizing principle — every metric (expectancy, SQN, Kelly Criterion, Post Mortem reviews) flows from risk-normalized R-value. TradeZella mixes replayed trades with live trades in the same journal, which conflates simulated and real performance data."
           }
         },
         {
@@ -90,7 +90,7 @@
           "name": "Does TradeZella have sync issues?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Some TradeZella users have reported intermittent broker sync delays, particularly when using connections through third-party data providers. The accuracy of imported trade data depends on the reliability of those connections. SignalDeck's MT4/MT5 import via MetaApi includes a live balance sync that provides real-time equity data — not just periodic snapshots."
+            "text": "Some TradeZella users have reported intermittent broker sync delays depending on their connected broker and data provider. SignalDeck's MT4/MT5 import via MetaApi includes real-time balance sync — not just periodic snapshots — so Kelly Criterion sizing is always based on current equity."
           }
         }
       ]

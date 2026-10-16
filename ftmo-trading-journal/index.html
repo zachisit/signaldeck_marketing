@@ -64,7 +64,7 @@
                 "name": "Does SignalDeck work with FTMO MT4 and MT5 accounts?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. SignalDeck connects to FTMO MT4 and MT5 accounts via MetaApi. Once connected, trades import automatically — fills, P&L, symbol, volume, and execution price sync without manual entry. Live account balance syncs in real time so your Kelly Criterion and 1R sizing always reflect your actual FTMO funded account equity. Stop loss requires manual entry after import for R-Multiple calculation — MetaApi history-deals returns fills, not order-level SL data."
+                    "text": "Yes. SignalDeck connects to FTMO MT4 and MT5 accounts via MetaApi. Trades import automatically — fills, P&L, symbol, volume, and execution price sync without manual entry. Live account balance syncs in real time. Stop loss requires manual entry after import for R-Multiple calculation."
                 }
             },
             {
@@ -72,7 +72,7 @@
                 "name": "How does R-Multiple tracking help with FTMO drawdown rules?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "FTMO's daily loss limit (typically 5% of account balance) and maximum drawdown rule (typically 10%) are risk-based constraints. R-Multiple thinking enforces the same constraints structurally. When every trade is sized as a fixed fraction of your funded account (1R = 1% of equity), a 5% daily loss limit becomes a 'stop after -5R today' rule — no separate dollar monitoring required. The R-framework and FTMO's rules align by design, which is why SignalDeck uses R as its core metric."
+                    "text": "FTMO's daily loss limit (typically 5%) and maximum drawdown (typically 10%) are percentage-of-equity constraints. When 1R is defined as 1% of your FTMO account equity, a 5% daily loss limit becomes a \"stop after −5R today\" rule. No separate dollar monitoring. The framework and the rules align by design — and live balance sync keeps your 1R dollar value current as your FTMO equity changes."
                 }
             },
             {
@@ -80,7 +80,7 @@
                 "name": "Can I validate my edge before an FTMO challenge?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. SignalDeck's Walk-Forward Analysis splits your historical data 80% in-sample and 20% out-of-sample and returns a Pass or Likely Overfitted verdict. An FTMO Challenge costs $155–$1,080+ depending on account size. Running Walk-Forward Analysis before you pay tells you whether your edge is genuinely out-of-sample valid or just curve-fitted to your trade history. Monte Carlo simulation shows your worst-case drawdown across 1,000 randomized trade sequences — know your risk before you risk it."
+                    "text": "Yes. Walk-Forward Analysis splits your historical data into in-sample and out-of-sample windows and returns a Pass or Likely Overfitted verdict. Monte Carlo simulation shows your worst-case drawdown across 1,000 randomized trade sequences — know whether your system can survive FTMO's 10% max drawdown under adverse conditions before you submit the challenge."
                 }
             },
             {
@@ -88,7 +88,7 @@
                 "name": "Which instruments does SignalDeck support for FTMO traders?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SignalDeck natively supports the instruments most commonly traded on FTMO: XAUUSD (Gold), NAS100, GER40, US500, US30, XAGUSD, and all major forex pairs (EURUSD, GBPUSD, USDJPY, etc.). Enter tickers exactly as FTMO's MT4/MT5 displays them — SignalDeck routes to the correct live price feed automatically."
+                    "text": "XAUUSD (Gold), NAS100, GER40, US500, US30, XAGUSD, and all major forex pairs — natively. Enter tickers exactly as FTMO's MT4/MT5 displays them. SignalDeck routes to the correct live price feed automatically."
                 }
             },
             {
@@ -96,7 +96,7 @@
                 "name": "Does SignalDeck track the FTMO daily loss limit in real time?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SignalDeck tracks your running R-loss for the day and alerts you when open positions approach your pre-set daily R limit. Because live balance sync keeps your 1R dollar value current, the daily R limit translates directly to your FTMO percentage-based daily loss rule. Live stop monitoring on open CFD and forex positions alerts you before a stop is hit — so you know your risk before the trade closes."
+                    "text": "Yes. SignalDeck tracks your running R-loss for the day and provides live stop monitoring on open positions so you know your risk before trades close. Because live balance sync keeps your 1R dollar value current, the daily R limit translates directly to FTMO's percentage-based daily loss rule."
                 }
             }
         ]

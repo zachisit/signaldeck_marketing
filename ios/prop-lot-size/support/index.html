@@ -45,27 +45,27 @@
             {
                 "@type": "Question",
                 "name": "What does Prop Lot Size do?",
-                "acceptedAnswer": { "@type": "Answer", "text": "You enter your account balance, risk (as a percentage or a fixed dollar amount), stop distance, and instrument, and the app calculates your position size in lots. When you also pick your prop firm and account configuration, it checks the trade against that firm's daily-loss and maximum-drawdown limits and shows a clear green (within limits), amber (close to the limit), or red (would breach) verdict, plus the largest lot size that still fits." }
+                "acceptedAnswer": { "@type": "Answer", "text": "You enter your account balance, risk (as a percentage or a fixed dollar amount), stop distance, and instrument, and the app calculates your position size in lots. Pick your prop firm and account configuration too, and it checks the trade against that firm's daily-loss and maximum-drawdown limits — showing a clear green (within limits), amber (close), or red (would breach) verdict, plus the largest lot size that still fits." }
             },
             {
                 "@type": "Question",
                 "name": "How does the firm breach check work?",
-                "acceptedAnswer": { "@type": "Answer", "text": "The app computes how much loss room your firm's rules leave you — the tighter of your daily-loss allowance and your maximum-drawdown floor — and compares your trade's risk against it. It handles static, end-of-day-trailing, and intraday-trailing drawdown types. You can enter today's loss so far and your drawdown anchor for an accurate reading, and lot sizes are always rounded down to the 0.01 broker step so you never exceed the risk you asked for." }
+                "acceptedAnswer": { "@type": "Answer", "text": "The app computes how much loss room your firm's rules leave you — the tighter of your daily-loss allowance and your maximum-drawdown floor — and compares your trade's risk against it. It handles static, end-of-day-trailing, and intraday-trailing drawdown types. Enter today's loss so far and your drawdown anchor for an exact reading. Lot sizes are always rounded down to the 0.01 broker step, so you never exceed the risk you asked for." }
             },
             {
                 "@type": "Question",
                 "name": "Are the prop-firm rules accurate and up to date?",
-                "acceptedAnswer": { "@type": "Answer", "text": "The app ships researched rule sets for 15+ major prop firms, each labeled with the date it was last reviewed. Prop firms change their rules often and some let you configure limits at checkout, so the app lets you enter your own daily-loss and drawdown limits, which always take precedence over the bundled values. Treat the bundled rules as a starting point and confirm your actual limits with your firm." }
+                "acceptedAnswer": { "@type": "Answer", "text": "The app ships researched rule sets for 15+ major prop firms, each labeled with the date it was last reviewed. Firms change rules often and some let you configure limits at checkout — so the app lets you enter your own limits, which always take precedence over the bundled values. Treat the shipped rules as a starting point and confirm your real limits with your firm; the app never claims to know a firm's current published rules, only that a trade fits the rule set you selected or entered." }
             },
             {
                 "@type": "Question",
                 "name": "What's the difference between Free, Pro, and Pro+ Live?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Free includes the calculator with a starter set of USD-quoted instruments and firms and one saved account, and is ad-supported. Pro ($8.99/mo or $59.99/yr) unlocks every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, and trade-card export, and removes ads. Pro+ Live ($14.99/mo) adds a live MetaTrader 5 connection through SignalDeck that auto-fills your balance, equity, and drawdown for a real-time remaining-room guard. Your calculator inputs stay on your device on every tier." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Free — the calculator with a starter set of USD-quoted instruments and firms and one saved account, ad-supported. Pro ($8.99/mo or $59.99/yr) — every instrument and prop firm, unlimited saved accounts, breach warnings, custom firm rules, and trade-card export, with no ads. Pro+ Live ($14.99/mo) — adds a live MetaTrader 5 connection through SignalDeck that auto-fills your balance, equity, and drawdown for a real-time remaining-room guard. Your calculator inputs stay on your device on every tier." }
             },
             {
                 "@type": "Question",
                 "name": "How do I connect my MetaTrader 5 account?",
-                "acceptedAnswer": { "@type": "Answer", "text": "The live connection is part of the Pro+ Live tier. You sign in with your SignalDeck account, and the app reads your linked MT5 account's balance, equity, and drawdown through SignalDeck's backend to fill the calculator automatically. The app never asks for your broker login and never contacts your broker directly — everything goes through SignalDeck." }
+                "acceptedAnswer": { "@type": "Answer", "text": "The live connection is part of the Pro+ Live tier. You sign in with your SignalDeck account, and the app reads your linked MT5 account's balance, equity, and drawdown through SignalDeck's backend to fill the calculator automatically. The app never asks for your broker login and never contacts your broker directly — everything routes through SignalDeck, which owns the MetaTrader integration." }
             },
             {
                 "@type": "Question",

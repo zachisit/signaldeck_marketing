@@ -42,7 +42,7 @@
           "name": "Is Myfxbook a trading journal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not in the working sense. Myfxbook is a track-record verifier and analytics dashboard: it connects to your MT4/MT5 account, publishes a verified performance page, and reports gain, pips, drawdown and profit factor. It has no structured post-mortem, no behavioral tagging, no per-trade screenshots and no risk plan for the next trade. SignalDeck is a journal built around the decision: every trade carries a planned risk (1R), a 5-step Post Mortem, behavioral tags, entry and exit screenshots, and an execution quality score."
+            "text": "Not in the working sense. Myfxbook is a track-record verifier and analytics dashboard: it connects to your MT4/MT5 account, publishes a verified performance page, and reports gain, pips, drawdown and profit factor. There's no structured post-mortem, no behavioral tagging, no per-trade screenshots, and no risk plan for the next trade. SignalDeck is built around the decision instead of the record — every trade carries a planned risk (1R), a 5-step Post Mortem, behavioral tags, entry and exit screenshots, and an execution quality score."
           }
         },
         {
@@ -50,7 +50,7 @@
           "name": "Does Myfxbook show prop firm drawdown limits?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Myfxbook shows your equity, floating P&L and historical maximum drawdown, but it has no concept of your prop firm's rule set. It does not know your daily loss limit, your maximum drawdown threshold or whether that threshold trails. SignalDeck applies your firm's rules to a live MT5 balance and shows the headroom you have left before the next entry — so the number you trade against is how much you can lose right now, not how much you already lost."
+            "text": "It shows equity, floating P&L and historical maximum drawdown, but it has no concept of your firm's rule set — not your daily loss limit, not your maximum drawdown threshold, and not whether that threshold trails your high-water mark. SignalDeck applies those rules to a live MT5 balance and shows the headroom left before the next entry. See the live drawdown monitor."
           }
         },
         {
@@ -58,7 +58,7 @@
           "name": "Does Myfxbook have backtesting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Myfxbook reports on trades that already happened; it has no strategy backtester. SignalDeck includes an automated rule-based backtester with Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for worst-case drawdown, and grid-search parameter optimization across up to 500 combinations — plus a backtest-to-journal overlay that compares the theoretical equity curve against your real one."
+            "text": "No — Myfxbook reports on trades that already happened. SignalDeck includes an automated rule-based backtester with Walk-Forward Analysis for overfitting detection, 1,000-path Monte Carlo simulation for worst-case drawdown, and grid-search parameter optimization across up to 500 combinations, plus a backtest-to-journal overlay that puts the theoretical equity curve next to your real one."
           }
         },
         {
@@ -66,7 +66,7 @@
           "name": "Does Myfxbook track R-Multiple?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Myfxbook reports results in pips, currency and percentage gain. Pips are not comparable across instruments — 40 pips on EURUSD, XAUUSD and BTCUSD are three different amounts of risk — and percentage gain hides how much you risked to get it. SignalDeck normalizes every trade to R (result divided by planned risk), so a mean-reversion setup on gold and one on EURUSD can be compared, ranked and scored in the same expectancy and SQN calculation."
+            "text": "No. Results come back in pips, currency and percentage gain. Pips aren't comparable across instruments — 40 pips on EURUSD, XAUUSD and BTCUSD are three different amounts of risk — and percentage gain hides how much you risked to get it. SignalDeck normalizes every trade to R, so setups on gold, majors and crypto land in the same expectancy and SQN calculation."
           }
         },
         {
@@ -82,7 +82,7 @@
           "name": "Can I use SignalDeck and Myfxbook together?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, and many funded traders do. Both connect read-only to the same MT4/MT5 account. Myfxbook keeps publishing the verified public track record you show to prop firms, investors or an audience. SignalDeck runs the private side: drawdown headroom before entry, R-Multiple analytics, structured post-mortems and edge validation. They do not conflict — one is your shop window, the other is your workshop."
+            "text": "Yes, and many funded traders do. Both connect read-only to the same MT4/MT5 account. Myfxbook keeps publishing the verified track record you show to prop firms, investors or an audience; SignalDeck runs the private side — headroom before entry, R-Multiple analytics, post-mortems and edge validation. One is your shop window, the other is your workshop."
           }
         },
         {
@@ -98,7 +98,7 @@
           "name": "Is SignalDeck a good Myfxbook alternative for prop firm traders?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For the part of the job that decides whether you keep a funded account, yes. Prop firm evaluations are lost to rule breaches — daily loss limits and maximum drawdown — not to a lack of reporting. SignalDeck's live MT5 sync shows remaining headroom against those rules before you take the trade, sizes each position as a fixed fraction of current equity, and scores whether your edge is statistically real with SQN and Walk-Forward Analysis. If what you actually want is a verified public track record page, Myfxbook remains the category standard and SignalDeck does not replace it."
+            "text": "For the part of the job that decides whether you keep a funded account, yes. Evaluations are lost to rule breaches — daily loss limits and maximum drawdown — not to a shortage of reporting. SignalDeck shows remaining headroom against those rules before you take the trade, sizes each position from current equity, and scores whether your edge is statistically real with SQN and Walk-Forward Analysis. If what you want is a verified public track record page, Myfxbook remains the category standard and SignalDeck doesn't replace it."
           }
         }
       ]

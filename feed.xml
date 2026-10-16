@@ -33,6 +33,15 @@
     ================================================================ -->
 
     <item>
+      <title>Why Your Trading Spreadsheet Stops Working at the Second Strategy</title>
+      <link>https://sgnldk.com/blog/trading-journal-spreadsheet/</link>
+      <guid isPermaLink="true">https://sgnldk.com/blog/trading-journal-spreadsheet/</guid>
+      <pubDate>Fri, 16 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Your trading spreadsheet works for one strategy. At the second, labels drift, drawdown needs a formula block per strategy, screenshots live in a folder nobody opens, and one cell holds every note.</description>
+      <content:encoded>Argues that a spreadsheet is a fine trading journal for one strategy but hits a ceiling at the second, and walks through where it breaks in order: the strategy column drifts into several spellings that split per-strategy numbers (a dropdown fixes typing but not history); per-strategy win rate, expectancy and profit factor need a SUMIFS block per strategy, and per-strategy max drawdown needs a filtered running sum and running peak per strategy that must be copied and repaired whenever a strategy is added, renamed or retired; entry and exit screenshots live as links to files that break or never get saved; one notes cell has to hold a pre-entry thesis, mid-trade observations and an exit reason; many-per-trade tags do not fit a column; and a sheet can record a checklist but cannot enforce it. For each, it describes what SignalDeck does: strategies are records trades point at, so a rename propagates; Strategy Performance computes per-strategy net P&amp;L, trade count, win rate, profit factor, expectancy, Sharpe, max drawdown, average win and loss, best and worst trade, average hold, long/short split and an equity curve; every trade carries an entry and an exit screenshot, attachable on New Trade, Edit Trade, a broker-import row before import, and Close Trade; timestamped trade notes, a structured post-mortem (setup quality, stop management, verdict, training gaps, mentor feedback) and daily journal entries; many-per-trade tags editable after import; signals and entry-checklist completion on each trade, with an optional hard gate that disables Log Trade until every checklist item is checked. A worked drill (is a flat breakout strategy failing, or is the trader?) compares the spreadsheet workflow with SignalDeck's, and notes the same question can be asked of Claude or ChatGPT over MCP. It concedes what a spreadsheet does better (flexibility, cost) and points to CSV export on Pro for custom analysis.</content:encoded>
+      <enclosure url="https://sgnldk.com/assets/banner-01ao-spreadsheet-ceiling.png" length="0" type="image/png"/>
+    </item>
+    <item>
       <title>How to Journal International Stock Trades in Their Own Currency</title>
       <link>https://sgnldk.com/blog/international-stock-trading-journal/</link>
       <guid isPermaLink="true">https://sgnldk.com/blog/international-stock-trading-journal/</guid>

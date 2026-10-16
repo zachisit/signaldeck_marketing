@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AO · Spreadsheet Ceiling</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 68%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Your Sheet<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Has A Ceiling.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Strategies &middot; Screenshots &middot; Notes &middot; Drawdown</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">It breaks at the second strategy</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p.appendChild(e); return e; }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+  const MONO = 'JetBrains Mono, monospace';
+  const X0 = 60, Y0 = 50, RH = 38;
+  const COLS = [['', 34], ['DATE', 92], ['STRATEGY', 168], ['P&L', 86], ['SCREENSHOT', 176], ['NOTES', 260]];
+  const W = COLS.reduce((s, c) => s + c[1], 0);
+  const ROWS = [
+    ['10/01', 'Bull Flag',       '+412', 'drive/charts/1001.png', 'entered on retest, held'],
+    ['10/02', 'bull flag',       '-180', '#REF!',                 ''],
+    ['10/03', 'BF',              '+95',  '',                      'moved stop?? check'],
+    ['10/06', 'Bull Flag (A+)',  '-260', 'charts_old/IMG_2231',   'see screenshot folder'],
+    ['10/07', 'ORB',             '+330', '',                      'thesis: gap fill into VWAP, scaled out at 1R then held the rest because'],
+    ['10/08', 'Flag - early',    '-140', 'link broken',           ''],
+    ['10/09', 'orb v2',          '+75',  '',                      'same as 10/03'],
+    ['10/10', 'Mean Rev',        '-410', '???',                   'revenge? (dont do this)'],
+    ['10/13', '',                '+60',  '',                      ''],
+  ];
+  const BAD = new Set(['#REF!', 'link broken', '???', '']);
+  /* header row */
+  let x = X0;
+  COLS.forEach(([h, w]) => {
+    el(svg, 'rect', { x, y: Y0, width: w, height: RH, fill: '#18181b', stroke: '#27272a' });
+    txt(svg, { x: x + 10, y: Y0 + 24, 'font-family': MONO, 'font-size': 12, 'font-weight': 700, fill: '#71717a', 'letter-spacing': '0.08em' }, h);
+    x += w;
+  });
+  ROWS.forEach((r, i) => {
+    const y = Y0 + RH * (i + 1);
+    let x = X0;
+    const cells = [String(i + 2)].concat(r);
+    cells.forEach((c, j) => {
+      const w = COLS[j][1];
+      el(svg, 'rect', { x, y, width: w, height: RH, fill: j === 0 ? '#111114' : '#0c0c0f', stroke: '#1f1f23' });
+      let fill = '#a1a1aa';
+      if (j === 0) fill = '#3f3f46';
+      if (j === 2) fill = i === 0 ? '#e4e4e7' : '#c4b5fd';
+      if (j === 3) fill = c.startsWith('-') ? '#f43f5e' : '#34d399';
+      if (j === 4 && (c === '#REF!' || c === 'link broken' || c === '???')) fill = '#f43f5e';
+      if (j === 4 && c.includes('/')) fill = '#60a5fa';
+      const clip = 'c' + i + '_' + j;
+      const cp = el(svg, 'clipPath', { id: clip });
+      el(cp, 'rect', { x: x + 2, y, width: j === 5 ? w + 40 : w - 4, height: RH });
+      txt(svg, { x: x + 10, y: y + 24, 'font-family': MONO, 'font-size': 13, fill, 'clip-path': 'url(#' + clip + ')' }, c);
+      if (j === 2 && i > 0 && c !== '') {
+        el(svg, 'rect', { x: x + 1, y: y + 1, width: w - 2, height: RH - 2, fill: 'none', stroke: '#a855f7', 'stroke-opacity': 0.35, 'stroke-dasharray': '3 3' });
+      }
+      if (j === 2 && c === '') {
+        el(svg, 'rect', { x: x + 1, y: y + 1, width: w - 2, height: RH - 2, fill: 'rgba(244,63,94,0.08)', stroke: '#f43f5e', 'stroke-opacity': 0.5 });
+      }
+      x += w;
+    });
+  });
+  txt(svg, { x: X0, y: Y0 + RH * 10 + 34, 'font-family': MONO, 'font-size': 12, fill: '#52525b' },
+      'THREE STRATEGIES  ·  EIGHT LABELS  ·  ONE BLANK  ·  THREE DEAD LINKS');
+})();
+</script>
+
+</body>
+</html>

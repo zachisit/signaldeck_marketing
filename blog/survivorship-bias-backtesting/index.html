@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Survivorship Bias &amp; Splits in Backtesting | SignalDeck</title>
+    <meta name="description" content="Survivorship bias, stock splits, cash takeovers and delistings each make a backtest or live track record lie. Real 2026 examples and how to guard against each.">
+    <meta name="keywords" content="survivorship bias backtesting, survivorship bias trading, stock split backtest, split adjusted data, adjusted vs unadjusted prices, delisted stocks backtest, point in time universe, backtest corporate actions, cash acquisition stock, stop loss stock split, forward testing">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/survivorship-bias-backtesting/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/survivorship-bias-backtesting/">
+    <meta property="og:title" content="Survivorship Bias, Splits and Delistings: Why Your Backtest Lies | SignalDeck">
+    <meta property="og:description" content="A 4-for-1 split looks like a 72% loss to a stop that does not know about it, and a third of the 2016 S&amp;P 500 is no longer in the index. Real 2026 examples, and the checks that catch each one.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01ap-survivors.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/survivorship-bias-backtesting/">
+    <meta name="twitter:title" content="Survivorship Bias, Splits and Delistings: Why Your Backtest Lies | SignalDeck">
+    <meta name="twitter:description" content="A 4-for-1 split looks like a 72% loss to a stop that does not know about it, and a third of the 2016 S&amp;P 500 is no longer in the index. Real 2026 examples, and the checks that catch each one.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01ap-survivors.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Survivorship Bias, Splits and Delistings: Why Your Backtest Lies",
+    "description": "Survivorship bias, stock splits, all-cash takeovers and delistings each make a stock backtest or a live strategy's track record wrong in a different way. Real 2026 examples (CrowdStrike's 4-for-1 split, Amphenol's 2-for-1, Crinetics' cash-deal price pattern and delisting), point-in-time S&P 500 membership numbers, and the checks that catch each problem.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        }
+    },
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "image": "https://sgnldk.com/assets/banner-01ap-survivors.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/survivorship-bias-backtesting/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is survivorship bias in backtesting?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is what happens when a backtest only includes stocks that still exist today. If you take the current S&P 500 or Nasdaq 100 and test it over ten years, every company that was dropped, went bankrupt or was taken over during those ten years is missing from the test. The test is run only on companies that survived, which were mostly the winners, so the results usually look better than anything you could have traded at the time. The fix is a point-in-time universe: the list of members as it stood on each date, including companies that no longer trade."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I backtest on split-adjusted or unadjusted prices?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use split-adjusted prices for the price series a backtest runs on, so a split does not look like a crash. The trap is mixing the two. A stop, an entry or a cached series recorded in one basis and compared against bars in the other produces false stop-outs and nonsense returns. Note that split-adjusted is not the same as total-return adjusted: most split-adjusted feeds, including Polygon's, do not add dividends back, so the results are price returns."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What happens to a stop loss when a stock is taken over for cash?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Usually nothing, and that is the problem. After an all-cash deal is announced the price jumps toward the offer and then trades in a very narrow band until the deal closes. Crinetics Pharmaceuticals (CRNX) gapped 99% on July 7, 2026, in a pattern consistent with a cash deal, and closed between $83.49 and $84.95 for the 40 sessions from the jump to its last bar. A stop placed under the pre-deal price will not be hit, and when the deal closes the ticker stops trading, so there is never another bar to exit on. The position has to be settled at the deal terms, not left open on the last price."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does SignalDeck handle stock splits and delistings?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In the backtester, stock bars are split-adjusted, and cached price history is rebuilt from scratch once it is 30 days old; until then new bars are appended, so a split in the last 30 days can leave a cached series on two scales. Positions held by the scanner's live strategies keep their real entry price: stops are checked against unadjusted bars on each bar's own split basis, and return and R are reported on the entry basis, so a split never reads as a loss. Since v1.0.129, an entry for a ticker that delists right after the signal is cancelled, and since v1.0.130 a live position whose price looks pinned by a pending cash deal, or whose ticker is reported delisted, is flagged for review rather than left open on a frozen price. The backtester tests the symbols you choose, so building a survivorship-free symbol list is still up to you."
+            }
+        }
+    ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sgnldk.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sgnldk.com/blog/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Survivorship Bias, Splits and Delistings: Why Your Backtest Lies",
+            "item": "https://sgnldk.com/blog/survivorship-bias-backtesting/"
+        }
+    ]
+}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-10-20</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Strategy</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                Survivorship Bias, Splits and Delistings: Why Your Backtest Lies
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                A stock backtest assumes every company keeps trading, at one price scale, until the test ends. Real companies split their shares, get bought out for cash, and stop trading. Each of those events breaks a backtest, or a live strategy's track record, in a different way. Here are four of them, with real examples from 2026, and the check that catches each one.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">1. Survivorship Bias: The Stocks That Are Not in Your List</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The most common way to build a stock backtest is to take an index you know, say the S&amp;P 500 or the Nasdaq 100, download its current members and run the strategy over the last ten years. The problem is the word <em>current</em>. Today's members are the companies that grew into the index or stayed in it. The ones that were dropped, went bankrupt or were acquired along the way are not on the list, so the strategy never gets a chance to buy them.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The effect is larger than most traders expect. Using a point-in-time membership history of the S&amp;P 500 (the list of members as it stood on each date, not as it stands today), with June 1, 2026 as the latest verified date in the dataset:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">S&amp;P 500 tickers on</th><th class="px-4 py-3 text-right font-semibold">Members</th><th class="px-4 py-3 text-right font-semibold">Still in on June 1, 2026</th><th class="px-4 py-3 text-right font-semibold">Not in it</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">January 1, 2016</td><td class="px-4 py-3 text-right font-mono">502</td><td class="px-4 py-3 text-right font-mono">329</td><td class="px-4 py-3 text-right font-mono text-red-400">173 (34%)</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">January 1, 2006</td><td class="px-4 py-3 text-right font-mono">497</td><td class="px-4 py-3 text-right font-mono">235</td><td class="px-4 py-3 text-right font-mono text-red-400">262 (53%)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">These are matched by ticker, so a company that only changed its symbol counts as not in the index, which overstates the turnover a little. So does a company that was moved down to a smaller index and still trades. It does not change the conclusion. A ten-year test on today's S&amp;P 500 is missing about a third of the stocks you could actually have bought ten years ago, and a twenty-year test is missing about half of them.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">It usually flatters the results, because the missing companies include the ones that collapsed. Not always, though. Takeover targets also leave the index, and they often leave on a big up day (see section 3). Either way the test is answering the wrong question. It tells you how the strategy would have done on a list of companies you could only have picked with hindsight.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">The check:</strong> build the universe from point-in-time membership, and use a data source that still has bars for tickers that no longer trade. If you hand-pick symbols, write down why each one is on the list and whether you could have known that at the start of the test.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">2. Stock Splits: Same Company, Two Price Scales</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">When NVIDIA split 10-for-1 in June 2024, it closed at $1,208.88 on Friday, June 7 and opened at $120.37 on Monday, June 10. Nobody lost 90%. Each share became ten shares worth a tenth as much. But raw price data, the prices as they actually traded, shows a 90% drop over a weekend.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Data vendors fix this with <strong class="text-white">split-adjusted</strong> prices. Every bar before the split is divided by the split ratio, so NVIDIA's June 7 close shows as $120.89 and the chart is continuous. For the price series a backtest runs on, split-adjusted is what you want. The trouble starts when two price scales meet:</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">A stop or entry recorded in raw prices, checked against adjusted bars</strong> (or the other way round). This is the classic live-trading version, and the worked example below.</li>
+                <li><strong class="text-white">A cached price series that straddles a new split.</strong> If you downloaded adjusted bars last month and append new ones today, the old ones are still on the pre-split scale. The series now has a cliff in it that never happened.</li>
+                <li><strong class="text-white">A journal entry at your real fill price, compared with today's adjusted chart.</strong> Your entry at $686 next to a chart that now reads $228 looks like a typo.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">One more thing that catches people out: split-adjusted is not total-return adjusted. Most split-adjusted feeds, Polygon's included, do not add dividends back. A backtest on them measures price return, which understates high-dividend stocks against growth stocks.</p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Worked example: CrowdStrike's 4-for-1, July 2026</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">CrowdStrike (CRWD) split 4-for-1 effective July 2, 2026. It closed at $772.74 on July 1 and opened at $191.26 on July 2. Take a long position entered at the June 26 open of $686.20 with a fixed 8% stop at $631.30, and compare a system that checks the stop against raw bars without knowing about the split with one that does.</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">CRWD long, entry $686.20, stop $631.30</th><th class="px-4 py-3 text-left font-semibold">Split-blind</th><th class="px-4 py-3 text-left font-semibold">Split-aware</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">July 2 low</td><td class="px-4 py-3">$190.61, under the $631.30 stop</td><td class="px-4 py-3">$190.61 &times; 4 = $762.44 on the entry basis, 21% above the stop</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">What happens</td><td class="px-4 py-3 text-red-400">Stopped out at the $191.26 open</td><td class="px-4 py-3 text-green-400">Position held</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Recorded result</td><td class="px-4 py-3 text-red-400">&minus;72.1%, &minus;9.0R</td><td class="px-4 py-3 text-green-400">Still open on Oct 19: $228.10 &times; 4 = $912.40, +33.0%, +4.1R</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The split-blind version does not just get one trade wrong. It books a &minus;9R loss that never happened, which wrecks the strategy's drawdown, expectancy and profit factor, and it exits a position that went on to gain a third. Any strategy that holds stocks for weeks at a time will run into one sooner or later. Amphenol (APH) split 2-for-1 on September 3, 2026, for example: a position entered at $155.00 on August 24 is up 3.6% at Monday's $80.28 close, not down 48%.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">The check:</strong> keep the entry price as it was actually filled, and convert each later bar to the entry's basis with the cumulative split factor since entry before comparing it with the stop or computing a return. Rebuild cached adjusted series from scratch, never append across a split.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">3. Cash Takeovers: The Stock That Stops Moving</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">When a company agrees to be bought for cash, its share price jumps most of the way to the offer and then barely moves until the deal closes. The only thing left to trade is the chance that the deal falls through.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Crinetics Pharmaceuticals (CRNX) shows what that pattern looks like in the data. It closed at $42.03 on July 6, 2026 and opened at $83.58 the next morning, up 99%. In the 40 sessions from the jump to its last bar, every close landed between $83.49 and $84.95. Its median daily range fell from 4.9% in the 20 sessions before the jump to 0.18% after it. The last bar was August 31. Polygon lists the ticker as delisted on September 2.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">For a long entered before the announcement, that is a windfall. A position bought at the June 22 open of $35.91 is up 137% at the last close. But a few things go wrong around it:</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">The stop will never be hit.</strong> It sits under a pre-deal price the stock will not see again. Price-based exits have nothing to act on, so the position sits there tying up capital until the deal closes.</li>
+                <li><strong class="text-white">Anything measuring volatility is measuring a deal spread.</strong> A 0.18% daily range is not a quiet stock. It is a stock whose price is now set by the deal terms and the closing date.</li>
+                <li><strong class="text-white">After the close, the ticker is gone.</strong> A backtest built from today's symbol list never contains CRNX at all, so a strategy that would have caught this 99% day gets no credit for it. This is survivorship bias working against you.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">The check:</strong> look for a large one-day move followed by a range that collapses and closes held in a narrow band. When you find one, stop treating the position as a chart trade. Read the deal terms and book the exit at the settlement price when it closes.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">4. Delistings: There Is No Next Bar</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Every exit rule in a backtest assumes there will be another bar to act on. After a delisting there is not. A cash deal closes, a merger completes, or an exchange removes a company that no longer meets its rules, and the price history simply ends.</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">An open position freezes.</strong> Its last price is marked forever, so the equity curve shows a flat line where the position actually turned into cash or, after a bankruptcy, close to nothing.</li>
+                <li><strong class="text-white">A signal on the last session cannot fill.</strong> A strategy that signals after the close and enters at the next open will generate entries for a ticker that will never open again. A backtest that fills them anyway has invented a trade.</li>
+                <li><strong class="text-white">The loss is silently missing.</strong> If bankrupt companies drop out of your data, every position held into a bankruptcy disappears from the record. That is survivorship bias inside a single position.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6"><strong class="text-white">The check:</strong> after a few sessions with no bars, look up whether the ticker was delisted rather than assuming a data gap. Cancel entries that could never have filled, and close held positions at the settlement or last tradeable price instead of leaving them open.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What SignalDeck Does About Each One</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">SignalDeck has two places where this matters: the <a href="../../backtester/" class="text-blue-400 hover:text-blue-300 transition-colors">backtester</a>, which replays history, and the scanner's live strategies, which run a strategy forward one session at a time. The two handle these events differently and have different limits.</p>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">In the backtester</h3>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">Stock bars are split-adjusted,</strong> so a split that is already in the data does not show up as a crash.</li>
+                <li><strong class="text-white">Cached price history is rebuilt from scratch once it is 30 days old.</strong> Until then, new bars are appended to the cached series, so for up to 30 days after a split a cached series can mix the two scales. If a symbol you are testing split in the last month, treat results around the split date with suspicion.</li>
+                <li><strong class="text-white">Returns are price returns.</strong> Dividends are not added back.</li>
+                <li><strong class="text-white">It tests the symbols you choose.</strong> There is no point-in-time universe in the backtester yet, so if you test a list of today's large caps, survivorship bias is in the result. The <a href="../walk-forward-analysis/" class="text-blue-400 hover:text-blue-300 transition-colors">walk-forward</a> and <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo</a> checks guard against overfitting, not against a biased symbol list.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-white mt-8 mb-3">In live strategies</h3>
+            <p class="text-zinc-300 leading-relaxed mb-6">A live strategy cannot suffer from survivorship bias, because it does not know the future: it scans the universe as it exists each day. That is the best argument for forward-testing a backtest before you trust it. But a forward record is only honest if splits, takeovers and delistings are handled while positions are open, which is what the last two releases changed.</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">Splits (v1.0.129).</strong> The entry price and stored stops are never rewritten. Stops are checked against as-traded bars on each bar's own split basis, and return and R are reported on the entry basis, exactly as in the CrowdStrike example above.</li>
+                <li><strong class="text-white">Possible cash deals (v1.0.130).</strong> A position is flagged when its stock moves 15% or more in one session and then, for at least three sessions, its median daily range is 1% or less and under 0.35&times; what it was before the jump, with every close within 3% of the median close.</li>
+                <li><strong class="text-white">Delistings (v1.0.130).</strong> When a held symbol has had no bars for two trading days, SignalDeck checks Polygon's ticker reference and flags the position if the ticker is reported delisted.</li>
+                <li><strong class="text-white">Entries that cannot fill (v1.0.129).</strong> An entry for a ticker that delists right after the signal is cancelled rather than filled at a price that never traded.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">The flags do not close or reprice anything. They mark the position for review, with a &#9888; next to its P&amp;L, so the settlement can be booked at the deal terms rather than leaving the position open on a frozen price.</p>
+
+            <figure class="my-8">
+                <a href="../../assets/screenshot-corp-open-positions.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-corp-open-positions.webp" width="1792" height="840" loading="lazy" decoding="async" alt="SignalDeck Open Positions for a live strategy called Momentum Breakout, seven long positions. CRWD shows entry $686.20, current $228.10 and unrealized P&amp;L plus 32.96%. APH shows entry $155.00, current $80.28, plus 3.59%. CRNX shows entry $35.91, current $84.95, plus 136.56%. GOOGL, AMZN, MSFT and AAPL show ordinary moves between minus 1.88% and plus 6.38%." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">A live strategy's open positions. The Entry and Current columns are real traded prices, so CRWD reads $686.20 then $228.10 and APH $155.00 then $80.28. The P&amp;L column is on the entry basis: +32.96% and +3.59%, not &minus;67% and &minus;48%. Screenshots in this article come from a demo account holding these positions at real opening prices, marked at the real October 19, 2026 closes (CRNX at its last bar, August 31).</figcaption>
+            </figure>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-corp-crwd-split.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-corp-crwd-split.webp" width="1706" height="1420" loading="lazy" decoding="async" alt="SignalDeck trade details for the CRWD position: fill price $686.20 on June 26, 2026, current price $228.10, unrealized P/L 32.96% with a yellow warning sign, R multiple 4.12R, original stop $631.30." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The CRWD position: filled at $686.20, stop at $631.30, current price $228.10 after the 4-for-1, and still reported as +32.96% and +4.12R. The &#9888; next to the P&amp;L reads: &ldquo;A stock split or corporate action occurred since entry. Managed Polygon stock P/L uses executed split factors; review other actions and sources.&rdquo;</figcaption>
+            </figure>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-corp-crnx-cash-deal.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-corp-crnx-cash-deal.webp" width="1706" height="1420" loading="lazy" decoding="async" alt="SignalDeck trade details for the CRNX position: fill price $35.91 on June 22, 2026, current price $84.95 last updated 49 days ago, unrealized P/L 136.56% with a yellow warning sign, R multiple 17.09R, original stop $33.04." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The CRNX position, flagged as a possible cash deal. Its stop at $33.04 is meaningless after the jump to $84, and the price has not updated in 49 days because the ticker no longer trades. The &#9888; reads: &ldquo;Possible cash acquisition: the price jumped and has been pinned in a narrow band since, as it is after an all-cash deal. A pinned position may never hit its stop; review the deal and book the settlement when it closes.&rdquo;</figcaption>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A Checklist Before You Trust a Stock Backtest</h2>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Question</th><th class="px-4 py-3 text-left font-semibold">If the answer is no</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Was the symbol list knowable at the start of the test?</td><td class="px-4 py-3">Survivorship bias. Use point-in-time membership, or shorten the test so today's list is closer to the list you would have had.</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Does the data still have bars for companies that no longer trade?</td><td class="px-4 py-3">Takeovers and bankruptcies are missing. Expect the result to be too kind on the downside and to miss deal-day gains.</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Are prices, entries and stops all on one split basis?</td><td class="px-4 py-3">False stop-outs and fake &minus;70% trades around splits. Check every symbol that split during the test.</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Do you know whether returns include dividends?</td><td class="px-4 py-3">Comparisons with a total-return benchmark are off by the dividend yield.</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Are signals on a ticker's last session cancelled, and held positions settled?</td><td class="px-4 py-3">The test contains trades that could not have happened, and positions frozen at a stale price.</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Has the strategy run forward on live data?</td><td class="px-4 py-3">Nothing above has been tested against a period the strategy has not seen. <a href="../backtest-vs-live-divergence/" class="text-blue-400 hover:text-blue-300 transition-colors">Compare the forward record with the backtest</a> before sizing up.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What to Do With This</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Open your best stock backtest and list every symbol in it that split, was taken over or stopped trading during the test window. For each split, check that no trade shows a loss larger than its stop allowed. For each company that is gone, ask whether it should have been in the list at all and what the strategy would have done with it. Then ask the question survivorship bias hides: which companies are not in the list because you already knew how their story ended? If the edge survives all of that, run it forward before you trust it with size.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What is survivorship bias in backtesting?</h3>
+                    <p class="text-zinc-400 leading-relaxed">It is what happens when a backtest only includes stocks that still exist today. If you take the current S&amp;P 500 or Nasdaq 100 and test it over ten years, every company that was dropped, went bankrupt or was taken over during those ten years is missing from the test. The test is run only on companies that survived, which were mostly the winners, so the results usually look better than anything you could have traded at the time. The fix is a point-in-time universe: the list of members as it stood on each date, including companies that no longer trade.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Should I backtest on split-adjusted or unadjusted prices?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Use split-adjusted prices for the price series a backtest runs on, so a split does not look like a crash. The trap is mixing the two. A stop, an entry or a cached series recorded in one basis and compared against bars in the other produces false stop-outs and nonsense returns. Note that split-adjusted is not the same as total-return adjusted: most split-adjusted feeds, including Polygon&#x27;s, do not add dividends back, so the results are price returns.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What happens to a stop loss when a stock is taken over for cash?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Usually nothing, and that is the problem. After an all-cash deal is announced the price jumps toward the offer and then trades in a very narrow band until the deal closes. Crinetics Pharmaceuticals (CRNX) gapped 99% on July 7, 2026, in a pattern consistent with a cash deal, and closed between $83.49 and $84.95 for the 40 sessions from the jump to its last bar. A stop placed under the pre-deal price will not be hit, and when the deal closes the ticker stops trading, so there is never another bar to exit on. The position has to be settled at the deal terms, not left open on the last price.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">How does SignalDeck handle stock splits and delistings?</h3>
+                    <p class="text-zinc-400 leading-relaxed">In the backtester, stock bars are split-adjusted, and cached price history is rebuilt from scratch once it is 30 days old; until then new bars are appended, so a split in the last 30 days can leave a cached series on two scales. Positions held by the scanner's live strategies keep their real entry price: stops are checked against unadjusted bars on each bar&#x27;s own split basis, and return and R are reported on the entry basis, so a split never reads as a loss. Since v1.0.129, an entry for a ticker that delists right after the signal is cancelled, and since v1.0.130 a live position whose price looks pinned by a pending cash deal, or whose ticker is reported delisted, is flagged for review rather than left open on a frozen price. The backtester tests the symbols you choose, so building a survivorship-free symbol list is still up to you.</p>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../backtest-to-live-strategy/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">From Backtest to Live Strategy</h3>
+                        <p class="text-sm text-zinc-400">What has to be true before you promote a backtest to run forward.</p>
+                    </a>
+                    <a href="../backtest-vs-live-divergence/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Backtest vs Live Results: Diagnosing the Divergence</h3>
+                        <p class="text-sm text-zinc-400">Why live results drift from the backtest, and how to tell noise from a broken edge.</p>
+                    </a>
+                    <a href="../walk-forward-analysis/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Walk-Forward Analysis: The Overfitting Detector</h3>
+                        <p class="text-sm text-zinc-400">Test on data the optimiser never saw.</p>
+                    </a>
+                    <a href="../stock-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Stock Trading Journal: When Your Stop Can Gap</h3>
+                        <p class="text-sm text-zinc-400">Planned R versus realised R when a stock opens through your stop.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Backtest it, then run it forward</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Build a rule strategy, backtest it on split-adjusted data, and see how the scanner's live strategies hold up across splits, takeovers and delistings.
+                Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'survivorship-bias-backtesting'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../backtester/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See the Backtester &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

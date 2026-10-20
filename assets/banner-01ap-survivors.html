@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AP · Survivors</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 52%,rgba(9,9,11,0.5) 64%,rgba(9,9,11,0.97) 80%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:64px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Your Backtest<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Only Met Survivors.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Splits &middot; Takeovers &middot; Delistings</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">A 4-for-1 split is not a 72% loss</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); p.appendChild(e); return e; }
+  function txt(p, a, s) { const e = el(p, 'text', a); e.textContent = s; return e; }
+  const MONO = 'JetBrains Mono, monospace';
+  /* CRWD daily closes, Jun 1 - Oct 19 2026 (Polygon). [raw as-traded close, split-adjusted close]. 4-for-1 executed Jul 2. */
+  const D = [[782.17, 195.54], [768.95, 192.24], [747.61, 186.9], [719.09, 179.77], [671.02, 167.75], [658.79, 164.7], [644.93, 161.23], [647.74, 161.94], [691.53, 172.88], [682.8, 170.7], [692.91, 173.23], [679.49, 169.87], [682.96, 170.74], [684.86, 171.22], [675.44, 168.86], [680.92, 170.23], [673.02, 168.25], [678.65, 169.66], [701.09, 175.27], [742.91, 185.73], [763.14, 190.78], [772.74, 193.19], [193.98, 193.98], [199.38, 199.38], [194.62, 194.62], [191.12, 191.12], [198.4, 198.4], [187.18, 187.18], [187.91, 187.91], [210.73, 210.73], [206.77, 206.77], [203.76, 203.76], [203.08, 203.08], [198.49, 198.49], [191.15, 191.15], [188.42, 188.42], [183.42, 183.42], [183.28, 183.28], [180.11, 180.11], [181.8, 181.8], [179.38, 179.38], [185.22, 185.22], [190.86, 190.86], [202.54, 202.54], [211.22, 211.22], [209.86, 209.86], [207.39, 207.39], [214.42, 214.42], [225.16, 225.16], [221.9, 221.9], [221.78, 221.78], [225.53, 225.53], [216.95, 216.95], [213.9, 213.9], [212.92, 212.92], [201.63, 201.63], [190.34, 190.34], [191.95, 191.95], [190.68, 190.68], [185.38, 185.38], [189.18, 189.18], [227.96, 227.96], [218.4, 218.4], [231, 231.0], [215.07, 215.07], [203.42, 203.42], [214.97, 214.97], [213.1, 213.1], [210.02, 210.02], [207.8, 207.8], [208.86, 208.86], [206.74, 206.74], [235.38, 235.38], [242.49, 242.49], [241.36, 241.36], [245.7, 245.7], [237.65, 237.65], [249.35, 249.35], [250.06, 250.06], [262.49, 262.49], [259.67, 259.67], [252.13, 252.13], [259.25, 259.25], [262.74, 262.74], [264.75, 264.75], [266.09, 266.09], [270.04, 270.04], [272.67, 272.67], [278.86, 278.86], [265.44, 265.44], [263.01, 263.01], [275.04, 275.04], [263.01, 263.01], [261.21, 261.21], [249.29, 249.29], [244.57, 244.57], [227.39, 227.39], [228.1, 228.1]];
+  const SPLIT = D.findIndex((r, i) => i > 0 && r[0] < D[i - 1][0] * 0.5);
+  const X0 = 70, X1 = 860, Y0 = 60, Y1 = 430, LO = 0, HI = 1200;
+  const x = i => X0 + (X1 - X0) * i / (D.length - 1), y = v => Y1 - (Y1 - Y0) * (v - LO) / (HI - LO);
+  for (const v of [200, 400, 600, 800, 1000]) {
+    el(svg, 'line', { x1: X0, x2: X1, y1: y(v), y2: y(v), stroke: '#18181b' });
+    txt(svg, { x: X0 - 12, y: y(v) + 4, 'text-anchor': 'end', 'font-family': MONO, 'font-size': 11, fill: '#3f3f46' }, '$' + v);
+  }
+  const path = (f, from, to) => D.slice(from, to).map((r, k) => (k ? 'L' : 'M') + x(from + k).toFixed(1) + ' ' + y(f(r, from + k)).toFixed(1)).join(' ');
+  /* entry basis: raw before the split, raw x 4 after it */
+  const basis = (r, i) => i >= SPLIT ? r[0] * 4 : r[0];
+  el(svg, 'path', { d: path(basis, 0, D.length), fill: 'none', stroke: '#60a5fa', 'stroke-width': 3 });
+  el(svg, 'path', { d: path(r => r[0], 0, SPLIT) + ' L' + x(SPLIT).toFixed(1) + ' ' + y(D[SPLIT][0]).toFixed(1) + path(r => r[0], SPLIT, D.length).replace(/^M/, ' L'), fill: 'none', stroke: '#f43f5e', 'stroke-width': 2.5, 'stroke-dasharray': '7 5', 'stroke-opacity': 0.9 });
+  const sx = x(SPLIT);
+  el(svg, 'line', { x1: sx, x2: sx, y1: Y0 - 10, y2: Y1, stroke: '#a855f7', 'stroke-opacity': 0.5, 'stroke-dasharray': '3 4' });
+  txt(svg, { x: sx + 10, y: Y0 + 4, 'font-family': MONO, 'font-size': 12, 'font-weight': 700, fill: '#c4b5fd', 'letter-spacing': '0.06em' }, '4-FOR-1 \u00b7 JUL 2');
+  /* stop line at 631.30 */
+  el(svg, 'line', { x1: x(D.findIndex(r => r[0] === 701.09) || 0), x2: X1, y1: y(631.3), y2: y(631.3), stroke: '#f59e0b', 'stroke-opacity': 0.55, 'stroke-dasharray': '2 4' });
+  txt(svg, { x: X0 + 6, y: y(631.3) + 18, 'font-family': MONO, 'font-size': 11, fill: '#f59e0b', 'fill-opacity': 0.8 }, 'STOP $631.30');
+  const last = D.length - 1;
+  txt(svg, { x: x(last) - 4, y: y(basis(D[last], last)) + 64, 'text-anchor': 'end', 'font-family': MONO, 'font-size': 12, 'font-weight': 700, fill: '#60a5fa' }, 'ON THE ENTRY BASIS  $912 \u00b7 +33%');
+  txt(svg, { x: x(last) - 4, y: y(D[last][0]) + 24, 'text-anchor': 'end', 'font-family': MONO, 'font-size': 12, 'font-weight': 700, fill: '#f43f5e' }, 'AS TRADED  $228');
+  txt(svg, { x: X0, y: Y1 + 34, 'font-family': MONO, 'font-size': 12, fill: '#52525b' }, 'CRWD  \u00b7  JUN 1 \u2013 OCT 19, 2026  \u00b7  DAILY CLOSES (POLYGON)');
+})();
+</script>
+
+</body>
+</html>

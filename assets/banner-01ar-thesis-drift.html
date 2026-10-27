@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AR · Thesis Drift</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 58%,rgba(9,9,11,0.55) 70%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:70px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Write the<br>Sell Rule<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">First.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Investment Journal &middot; Long-Term Holders</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">ORCL daily closes &middot; demo journal</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a, txt) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt) e.textContent = txt; p.appendChild(e); return e; }
+  const P = [["2025-08-01", 244.42], ["2025-08-04", 252.53], ["2025-08-05", 255.67], ["2025-08-06", 256.43], ["2025-08-07", 249.39], ["2025-08-08", 250.05], ["2025-08-11", 252.68], ["2025-08-12", 253.86], ["2025-08-13", 244.18], ["2025-08-14", 244.96], ["2025-08-15", 248.28], ["2025-08-18", 249.07], ["2025-08-19", 234.62], ["2025-08-20", 235.06], ["2025-08-21", 233.16], ["2025-08-22", 236.37], ["2025-08-25", 235.41], ["2025-08-26", 234.21], ["2025-08-27", 235.81], ["2025-08-28", 240.32], ["2025-08-29", 226.13], ["2025-09-02", 225.3], ["2025-09-03", 223.45], ["2025-09-04", 223], ["2025-09-05", 232.8], ["2025-09-08", 238.48], ["2025-09-09", 241.51], ["2025-09-10", 328.33], ["2025-09-11", 307.86], ["2025-09-12", 292.18], ["2025-09-15", 302.14], ["2025-09-16", 306.65], ["2025-09-17", 301.41], ["2025-09-18", 296.62], ["2025-09-19", 308.66], ["2025-09-22", 328.15], ["2025-09-23", 313.83], ["2025-09-24", 308.46], ["2025-09-25", 291.33], ["2025-09-26", 283.46], ["2025-09-29", 282.76], ["2025-09-30", 281.24], ["2025-10-01", 289.01], ["2025-10-02", 288.78], ["2025-10-03", 286.14], ["2025-10-06", 291.59], ["2025-10-07", 284.24], ["2025-10-08", 288.63], ["2025-10-09", 296.96], ["2025-10-10", 292.96], ["2025-10-13", 308.01], ["2025-10-14", 299], ["2025-10-15", 303.62], ["2025-10-16", 313], ["2025-10-17", 291.31], ["2025-10-20", 277.18], ["2025-10-21", 275.15], ["2025-10-22", 272.66], ["2025-10-23", 280.07], ["2025-10-24", 283.33], ["2025-10-27", 281.4], ["2025-10-28", 280.83], ["2025-10-29", 275.3], ["2025-10-30", 256.89], ["2025-10-31", 262.61], ["2025-11-03", 257.85], ["2025-11-04", 248.17], ["2025-11-05", 250.31], ["2025-11-06", 243.8], ["2025-11-07", 239.26], ["2025-11-10", 240.83], ["2025-11-11", 236.15], ["2025-11-12", 226.99], ["2025-11-13", 217.57], ["2025-11-14", 222.85], ["2025-11-17", 219.86], ["2025-11-18", 220.49], ["2025-11-19", 225.53], ["2025-11-20", 210.69], ["2025-11-21", 198.76], ["2025-11-24", 200.28], ["2025-11-25", 197.03], ["2025-11-26", 204.96], ["2025-11-28", 201.95], ["2025-12-01", 200.94], ["2025-12-02", 201.1], ["2025-12-03", 207.73], ["2025-12-04", 214.33], ["2025-12-05", 217.58], ["2025-12-08", 220.54], ["2025-12-09", 221.53], ["2025-12-10", 223.01], ["2025-12-11", 198.85], ["2025-12-12", 189.97], ["2025-12-15", 184.92], ["2025-12-16", 188.65], ["2025-12-17", 178.46], ["2025-12-18", 180.03], ["2025-12-19", 191.97], ["2025-12-22", 198.38], ["2025-12-23", 195.34], ["2025-12-24", 197.49], ["2025-12-26", 197.99], ["2025-12-29", 195.38], ["2025-12-30", 197.21], ["2025-12-31", 194.91], ["2026-01-02", 195.71], ["2026-01-05", 192.59], ["2026-01-06", 193.75], ["2026-01-07", 192.84], ["2026-01-08", 189.65], ["2026-01-09", 198.52], ["2026-01-12", 204.68], ["2026-01-13", 202.29], ["2026-01-14", 193.61], ["2026-01-15", 189.85], ["2026-01-16", 191.09], ["2026-01-20", 179.92], ["2026-01-21", 173.88], ["2026-01-22", 178.18], ["2026-01-23", 177.16], ["2026-01-26", 182.44], ["2026-01-27", 174.9], ["2026-01-28", 172.8], ["2026-01-29", 169.01], ["2026-01-30", 164.58], ["2026-02-02", 160.06], ["2026-02-03", 154.67], ["2026-02-04", 146.67], ["2026-02-05", 136.48], ["2026-02-06", 142.82], ["2026-02-09", 156.59], ["2026-02-10", 159.89], ["2026-02-11", 157.16], ["2026-02-12", 156.48], ["2026-02-13", 160.14], ["2026-02-17", 153.97], ["2026-02-18", 156.17], ["2026-02-19", 156.54], ["2026-02-20", 148.08], ["2026-02-23", 141.31], ["2026-02-24", 146.14], ["2026-02-25", 147.89], ["2026-02-26", 150.31], ["2026-02-27", 145.4], ["2026-03-02", 149.25], ["2026-03-03", 149.01], ["2026-03-04", 152.37], ["2026-03-05", 154.79], ["2026-03-06", 152.96], ["2026-03-09", 151.56], ["2026-03-10", 149.4], ["2026-03-11", 163.12], ["2026-03-12", 159.16], ["2026-03-13", 155.11], ["2026-03-16", 155.97], ["2026-03-17", 154.69], ["2026-03-18", 152.9], ["2026-03-19", 155.52], ["2026-03-20", 149.68], ["2026-03-23", 154.34], ["2026-03-24", 147.09], ["2026-03-25", 146.02], ["2026-03-26", 142.81], ["2026-03-27", 139.66], ["2026-03-30", 138.8], ["2026-03-31", 147.11], ["2026-04-01", 145.23], ["2026-04-02", 146.38], ["2026-04-06", 145.54], ["2026-04-07", 143.17], ["2026-04-08", 143.66], ["2026-04-09", 137.86], ["2026-04-10", 138.09], ["2026-04-13", 155.62], ["2026-04-14", 163], ["2026-04-15", 169.81], ["2026-04-16", 178.34], ["2026-04-17", 175.06], ["2026-04-20", 177.58], ["2026-04-21", 181.17], ["2026-04-22", 187.5], ["2026-04-23", 176.28], ["2026-04-24", 173.28], ["2026-04-27", 172.96], ["2026-04-28", 165.96], ["2026-04-29", 163.83], ["2026-04-30", 161.39], ["2026-05-01", 171.83], ["2026-05-04", 180.29], ["2026-05-05", 185.35], ["2026-05-06", 194.03], ["2026-05-07", 194.59], ["2026-05-08", 195.95], ["2026-05-11", 193.84], ["2026-05-12", 186.83], ["2026-05-13", 189.76], ["2026-05-14", 195.61], ["2026-05-15", 192.95], ["2026-05-18", 186.61], ["2026-05-19", 181.46], ["2026-05-20", 188.16], ["2026-05-21", 189.77], ["2026-05-22", 192.08], ["2026-05-26", 193.06], ["2026-05-27", 190.96], ["2026-05-28", 203.7], ["2026-05-29", 225.78], ["2026-06-01", 248.15], ["2026-06-02", 244.58], ["2026-06-03", 230.33], ["2026-06-04", 236.34], ["2026-06-05", 213.68], ["2026-06-08", 211.82], ["2026-06-09", 205.81], ["2026-06-10", 201.26], ["2026-06-11", 184.1], ["2026-06-12", 184.13], ["2026-06-15", 192.64], ["2026-06-16", 188.33], ["2026-06-17", 183.53], ["2026-06-18", 184.29], ["2026-06-22", 175.07], ["2026-06-23", 165.16], ["2026-06-24", 157.53], ["2026-06-25", 152.46], ["2026-06-26", 148.53], ["2026-06-29", 147.76], ["2026-06-30", 146.55], ["2026-07-01", 142.5], ["2026-07-02", 140.27], ["2026-07-06", 143.76], ["2026-07-07", 141.6], ["2026-07-08", 140.49], ["2026-07-09", 144.22], ["2026-07-10", 140.64], ["2026-07-13", 131.54], ["2026-07-14", 127.94], ["2026-07-15", 132.49], ["2026-07-16", 124.21], ["2026-07-17", 126.41], ["2026-07-20", 121.38], ["2026-07-21", 127.05], ["2026-07-22", 125.84], ["2026-07-23", 120.04], ["2026-07-24", 114.99], ["2026-07-27", 119.9], ["2026-07-28", 119.96], ["2026-07-29", 117.74]];   // real ORCL daily closes, 2025-08-01 to 2026-07-29 (Polygon)
+  const x0 = 50, x1 = 1000, lo = 100, hi = 350, yTop = 40, yBot = 470;
+  const X = i => x0 + i / (P.length - 1) * (x1 - x0);
+  const Y = v => yTop + (hi - v) / (hi - lo) * (yBot - yTop);
+  const idx = d => P.findIndex(p => p[0] >= d);
+  const defs = el(svg, 'defs', {});
+  const g = el(defs, 'linearGradient', { id: 'gl', x1: 0, y1: 0, x2: 1, y2: 0 });
+  el(g, 'stop', { offset: '0%', 'stop-color': '#3b82f6' }); el(g, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+  const gf = el(defs, 'linearGradient', { id: 'gf', x1: 0, y1: 0, x2: 0, y2: 1 });
+  el(gf, 'stop', { offset: '0%', 'stop-color': '#3b82f6', 'stop-opacity': 0.18 }); el(gf, 'stop', { offset: '100%', 'stop-color': '#3b82f6', 'stop-opacity': 0 });
+  for (let gy = 90; gy <= 430; gy += 68) el(svg, 'line', { x1: 0, y1: gy, x2: 1500, y2: gy, stroke: '#18181b', 'stroke-width': 1 });
+  const d = P.map((p, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join(' ');
+  el(svg, 'path', { d: d + ` L${x1} ${yBot + 30} L${x0} ${yBot + 30} Z`, fill: 'url(#gf)' });
+  const mono = { 'font-family': 'JetBrains Mono, monospace' };
+  // the 230 line, set at purchase, and the 200 line it was moved to
+  const iBuy = idx('2025-09-11'), iB = idx('2025-11-12'), iA = idx('2025-12-11');
+  el(svg, 'line', { x1: X(iBuy), y1: Y(230), x2: x1, y2: Y(230), stroke: '#f59e0b', 'stroke-width': 2, 'stroke-dasharray': '10 8', opacity: 0.8 });
+  el(svg, 'text', { ...mono, x: X(iBuy) + 8, y: Y(230) - 10, 'font-size': 13, 'font-weight': 700, fill: '#fbbf24', 'letter-spacing': '0.06em' }, 'WRONG IF < 230  (1R)');
+  el(svg, 'line', { x1: X(iB), y1: Y(200), x2: x1, y2: Y(200), stroke: '#f43f5e', 'stroke-width': 1.5, 'stroke-dasharray': '3 6', opacity: 0.7 });
+  el(svg, 'text', { ...mono, x: 880, y: Y(200) - 8, 'font-size': 12, fill: '#fb7185' }, 'moved to 200');
+  el(svg, 'path', { d, fill: 'none', stroke: 'url(#gl)', 'stroke-width': 3, 'stroke-linejoin': 'round' });
+  // pinned note cards
+  function card(i, v, dx, dy, lines, struck) {
+    const cx = X(i) + dx, cy = Y(v) + dy, w = 236, h = 22 + lines.length * 19;
+    el(svg, 'line', { x1: X(i), y1: Y(v), x2: cx + w / 2, y2: cy + h, stroke: struck ? '#f43f5e' : '#60a5fa', 'stroke-width': 1, opacity: 0.6 });
+    el(svg, 'rect', { x: cx, y: cy, width: w, height: h, rx: 8, fill: '#111113', stroke: struck ? '#f43f5e' : '#3b82f6', 'stroke-width': 1.3, opacity: 0.96 });
+    lines.forEach((t, k) => {
+      el(svg, 'text', { ...mono, x: cx + 14, y: cy + 25 + k * 19, 'font-size': 13, 'font-weight': k ? 400 : 700, fill: struck ? '#a1a1aa' : (k ? '#d4d4d8' : '#93c5fd') }, t);
+      if (struck && k) el(svg, 'line', { x1: cx + 12, y1: cy + 20 + k * 19, x2: cx + 14 + t.length * 7.7, y2: cy + 20 + k * 19, stroke: '#f43f5e', 'stroke-width': 1.8 });
+    });
+    el(svg, 'circle', { cx: X(i), cy: Y(v), r: 5, fill: struck ? '#f43f5e' : '#60a5fa' });
+  }
+  card(iBuy, P[iBuy][1], 26, -22, ['SEP 11 · BOUGHT 330.34', 'thesis: backlog becomes', 'cloud revenue on schedule'], false);
+  card(iA, P[iA][1], 50, -170, ['DEC 11 · REWRITTEN', '"long-term believer"'], true);
+  const iM = idx('2026-03-02');
+  card(iM, P[iM][1], -60, -150, ['MAR 2 · REWRITTEN', '"a five-year story"'], true);
+  const iE = P.length - 1;
+  el(svg, 'circle', { cx: X(iE), cy: Y(P[iE][1]), r: 5.5, fill: '#f43f5e' });
+  el(svg, 'text', { ...mono, x: X(iE) - 300, y: Y(P[iE][1]) + 6, 'font-size': 14, 'font-weight': 700, fill: '#fb7185' }, 'SOLD 119.42 · -2.10R');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-AS · Concentration Drift</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 58%,rgba(9,9,11,0.55) 70%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:70px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Nobody<br>Chose<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">38%.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">Portfolio Concentration &middot; Holders</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">5 stocks &middot; real prices &middot; Jan 2024 &rarr; Oct 2026</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a, txt) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt) e.textContent = txt; p.appendChild(e); return e; }
+  const mono = { 'font-family': 'JetBrains Mono, monospace' };
+  // market-value weights, % of book: bought ~$20,000 each at the 2024-01-02 open; Oct 30, 2026 close (Polygon, split-adjusted)
+  const BUY = [['NVDA', 20.1, 1], ['MSFT', 19.9, 1], ['AAPL', 19.9, 1], ['JPM', 20.0, 0], ['KO', 20.1, 0]];
+  const NOW = [['NVDA', 37.9, 1], ['MSFT', 12.6, 1], ['AAPL', 16.7, 1], ['JPM', 18.2, 0], ['KO', 14.6, 0]];
+  const base = 420, k = 8.4;   // px per percentage point
+  const defs = el(svg, 'defs', {});
+  const g = el(defs, 'linearGradient', { id: 'gt', x1: 0, y1: 1, x2: 0, y2: 0 });
+  el(g, 'stop', { offset: '0%', 'stop-color': '#3b82f6' }); el(g, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+  for (let gy = 90; gy <= 430; gy += 68) el(svg, 'line', { x1: 0, y1: gy, x2: 1500, y2: gy, stroke: '#18181b', 'stroke-width': 1 });
+  function group(x0, rows, title) {
+    const w = 62, gap = 18;
+    el(svg, 'text', { ...mono, x: x0, y: 58, 'font-size': 13, 'font-weight': 700, fill: '#71717a', 'letter-spacing': '0.12em' }, title);
+    rows.forEach(([s, v, tech], i) => {
+      const x = x0 + i * (w + gap), h = v * k;
+      el(svg, 'rect', { x, y: base - h, width: w, height: h, rx: 5, fill: tech ? 'url(#gt)' : '#3f3f46', opacity: tech ? 0.95 : 0.9 });
+      el(svg, 'text', { ...mono, x: x + w / 2, y: base - h - 10, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 700, fill: i === 0 && v > 30 ? '#fbbf24' : '#d4d4d8' }, v.toFixed(1) + '%');
+      el(svg, 'text', { ...mono, x: x + w / 2, y: base + 24, 'text-anchor': 'middle', 'font-size': 13, fill: '#a1a1aa' }, s);
+    });
+    el(svg, 'line', { x1: x0 - 10, y1: base, x2: x0 + 5 * (w + gap) - 8, y2: base, stroke: '#3f3f46', 'stroke-width': 1.5 });
+  }
+  group(60, BUY, 'JAN 2, 2024 · BOUGHT EQUAL');
+  // arrow
+  el(svg, 'path', { d: 'M 470 300 L 535 300', stroke: '#52525b', 'stroke-width': 2.5, fill: 'none' });
+  el(svg, 'path', { d: 'M 527 292 L 537 300 L 527 308', stroke: '#52525b', 'stroke-width': 2.5, fill: 'none' });
+  group(570, NOW, 'OCT 30, 2026 · NOBODY TRADED');
+  // the 30% cap line across the right group
+  const yc = base - 30 * k;
+  el(svg, 'line', { x1: 555, y1: yc, x2: 990, y2: yc, stroke: '#f59e0b', 'stroke-width': 2, 'stroke-dasharray': '10 8', opacity: 0.8 });
+  el(svg, 'text', { ...mono, x: 990, y: yc - 8, 'text-anchor': 'end', 'font-size': 12, 'font-weight': 700, fill: '#fbbf24', 'letter-spacing': '0.06em' }, 'A 30% CAP');
+  // legend + caption
+  el(svg, 'rect', { x: 60, y: 462, width: 12, height: 12, rx: 3, fill: 'url(#gt)' });
+  el(svg, 'text', { ...mono, x: 80, y: 473, 'font-size': 12, fill: '#a1a1aa' }, 'TECHNOLOGY  60% → 67%');
+  el(svg, 'text', { ...mono, x: 570, y: 473, 'font-size': 14, 'font-weight': 700, fill: '#93c5fd', 'letter-spacing': '0.04em' }, '5.0 → 4.1 EFFECTIVE POSITIONS');
+})();
+</script>
+</body>
+</html>

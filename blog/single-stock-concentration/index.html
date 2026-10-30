@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Concentration Risk: When One Stock Is 40% of Your Portfolio | SignalDeck</title>
+    <meta name="description" content="How a winning stock grows into 40% of a portfolio nobody rebalanced: a five-stock book on real prices from Jan 2024, the effective-number-of-positions formula, sector concentration, and a written trim rule.">
+    <meta name="keywords" content="portfolio concentration risk, too much in one stock, concentrated stock position, effective number of positions, Herfindahl index portfolio, sector concentration, should I trim a winning stock, rebalancing a winner">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/single-stock-concentration/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/single-stock-concentration/">
+    <meta property="og:title" content="When One Stock Is 40% of Your Portfolio: Measuring Concentration You Didn’t Choose | SignalDeck">
+    <meta property="og:description" content="Five stocks bought equal in Jan 2024. Nobody traded, and NVDA became 38% of the book. How to measure concentration you never chose, and write the rule before it matters.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01as-concentration-drift.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/single-stock-concentration/">
+    <meta name="twitter:title" content="When One Stock Is 40% of Your Portfolio: Measuring Concentration You Didn’t Choose | SignalDeck">
+    <meta name="twitter:description" content="Five stocks bought equal in Jan 2024. Nobody traded, and NVDA became 38% of the book. How to measure concentration you never chose, and write the rule before it matters.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01as-concentration-drift.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "When One Stock Is 40% of Your Portfolio: Measuring Concentration You Didn’t Choose",
+    "description": "How concentration arrives by drift rather than decision, measured on a hypothetical five-stock book on real prices bought equal-weight on January 2, 2024 (NVDA from 20.1% to 37.9% by October 30, 2026), the effective number of positions formula, sector concentration as the second layer, written trim, hold and hedge rules, and what SignalDeck's sector check does and does not cover.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        }
+    },
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "image": "https://sgnldk.com/assets/banner-01as-concentration-drift.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/single-stock-concentration/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What percentage of my portfolio should one stock be?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no single right number, and anyone who gives you one doesn’t know your situation. Two frameworks help. First, the loss you could live with: a position’s weight times a fall it could plausibly take is what it would cost the whole portfolio, so a 40% position that halves costs you 20% of everything. Second, the decision: whatever the number, set a cap and a target below it in writing before a winner reaches it, so the size is something you chose rather than something that happened."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is effective number of positions?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is how many equal-sized positions your portfolio behaves like: 1 divided by the sum of each position’s squared weight. Five equal positions give 5.0. If one of five grows to half the portfolio while the rest stay flat, it falls to 3.2. The same formula applied to sector weights gives effective sectors, which is often lower than people expect."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I trim a winning stock?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only you can decide, but decide it deliberately. Trimming locks in part of a gain and lowers the damage a single reversal can do; it may also cost tax in a taxable account and gives up some upside if the stock keeps running. A useful test is whether you would buy the position at today’s size and price with fresh money. If not, a written trim rule is the honest answer. If so, write down why, and what would change your mind."
+            }
+        }
+    ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sgnldk.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sgnldk.com/blog/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "When One Stock Is 40% of Your Portfolio: Measuring Concentration You Didn’t Choose",
+            "item": "https://sgnldk.com/blog/single-stock-concentration/"
+        }
+    ]
+}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-10-30</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Equities</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                When One Stock Is 40% of Your Portfolio: Measuring Concentration You Didn&rsquo;t Choose
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                Few holders decide to put 40% of their money in one stock. They buy five names in equal amounts, one of them runs, and the portfolio rebalances itself toward the winner without a single order being placed. This post measures that drift on a five-stock book bought at real prices on January 2, 2024, shows the one formula that turns &ldquo;feels concentrated&rdquo; into a number, covers the second layer most holders miss (sector), and ends with the rule to write down before the next review. The screenshots come from a SignalDeck demo account holding the same five positions.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Concentration by Drift</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Start with the clean version. You put $20,000 into each of five stocks, $100,000 in all. Four of them go nowhere. The fifth quadruples. You now hold $80,000 of the winner and $80,000 of everything else: one stock is <strong class="text-white">50% of the book</strong>, and you never bought a share after day one.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Real portfolios are messier, because the other four don&rsquo;t sit still, but the drift is the same. Here is a hypothetical holder who bought about $20,000 each of NVDA, MSFT, AAPL, JPM and KO at the January 2, 2024 open, then did nothing for almost three years. Prices are real Polygon daily bars, adjusted for NVDA&rsquo;s June 2024 10-for-1 split.</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm font-mono">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Stock</th><th class="px-4 py-3 text-right font-semibold">Shares</th><th class="px-4 py-3 text-right font-semibold">Cost (Jan 2, 2024)</th><th class="px-4 py-3 text-right font-semibold">Weight then</th><th class="px-4 py-3 text-right font-semibold">Value (Oct 30, 2026)</th><th class="px-4 py-3 text-right font-semibold">Weight now</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800 bg-blue-500/10"><td class="px-4 py-3 text-white font-semibold">NVDA</td><td class="px-4 py-3 text-right">406</td><td class="px-4 py-3 text-right">$19,993</td><td class="px-4 py-3 text-right">20.1%</td><td class="px-4 py-3 text-right">$83,084</td><td class="px-4 py-3 text-right text-white font-semibold">37.9%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">MSFT</td><td class="px-4 py-3 text-right">53</td><td class="px-4 py-3 text-right">$19,815</td><td class="px-4 py-3 text-right">19.9%</td><td class="px-4 py-3 text-right">$27,661</td><td class="px-4 py-3 text-right">12.6%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">AAPL</td><td class="px-4 py-3 text-right">106</td><td class="px-4 py-3 text-right">$19,838</td><td class="px-4 py-3 text-right">19.9%</td><td class="px-4 py-3 text-right">$36,531</td><td class="px-4 py-3 text-right">16.7%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">JPM</td><td class="px-4 py-3 text-right">118</td><td class="px-4 py-3 text-right">$19,953</td><td class="px-4 py-3 text-right">20.0%</td><td class="px-4 py-3 text-right">$39,771</td><td class="px-4 py-3 text-right">18.2%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">KO</td><td class="px-4 py-3 text-right">340</td><td class="px-4 py-3 text-right">$19,992</td><td class="px-4 py-3 text-right">20.1%</td><td class="px-4 py-3 text-right">$31,987</td><td class="px-4 py-3 text-right">14.6%</td></tr>
+                        <tr class="border-t border-zinc-700 text-white"><td class="px-4 py-3 font-semibold">Total</td><td class="px-4 py-3"></td><td class="px-4 py-3 text-right">$99,590</td><td class="px-4 py-3 text-right">100%</td><td class="px-4 py-3 text-right">$219,034</td><td class="px-4 py-3 text-right">100%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">NVDA rose 4.16x (up 316%). Everything else rose too, by 1.4x to 2.0x, which is why NVDA is 37.9% of the book and not the clean example&rsquo;s 50%. The speed is the part people underestimate. Run the same book day by day and NVDA crossed 25% of it on <strong class="text-white">February 5, 2024</strong>, five weeks after purchase, and 30% on March 6, 2024. It passed 40% in July 2025 and peaked at <strong class="text-white">45.2% on May 14, 2026</strong>. At no point did the holder choose any of those numbers.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">This is also why concentration by drift feels fine. It arrives as good news. The position that grew is the one you were right about, and trimming it feels like punishing the best decision you made. That feeling is real, and it is also not a measurement. A stock that is 38% of your money moves your whole account by 3.8% for every 10% it moves, whether you were right to buy it or not.</p>
+
+            <figure class="my-8">
+                <a href="../../assets/screenshot-concentration-book.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-concentration-book.webp" width="2512" height="858" loading="lazy" decoding="async" alt="SignalDeck trade history with five open long positions, all entered Jan 2, 2024: KO at $94.22, up 60.23%; JPM at $338.02, up 99.91%; AAPL at $344.85, up 84.26%; MSFT at $522.00, up 39.62%; NVDA at $205.01, up 316.31%." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The same five positions in a SignalDeck demo account, marked at the app&rsquo;s live quotes on the evening of October 30, 2026, so they differ by up to about a dollar from the closing prices in the table. The list shows how far each holding has run. It does not show what share of the book each one now is: that number you work out yourself, as below.</figcaption>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Effective Number of Positions</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">&ldquo;I own five stocks&rdquo; stops being true the moment the weights move apart. The standard way to say how many positions you <em>effectively</em> own is the inverse of the sum of the squared weights:</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-6 text-center font-mono text-white text-lg">
+                Effective positions = 1 &divide; (w<sub>1</sub>&sup2; + w<sub>2</sub>&sup2; + &hellip; + w<sub>n</sub>&sup2;)
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Each weight is a fraction of the book (37.9% is 0.379). The sum underneath is the Herfindahl index economists use for market concentration. With five equal weights of 0.2 it gives 1 &divide; (5 &times; 0.04) = <strong class="text-white">5.0</strong>, as it should. One position at 100% gives 1.0.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The clean example, one name at 0.5 and four at 0.125:</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-6 font-mono text-sm text-zinc-300 leading-loose">
+                0.5&sup2; + 4 &times; 0.125&sup2; = 0.25 + 0.0625 = 0.3125<br>
+                1 &divide; 0.3125 = <span class="text-white font-semibold">3.2 effective positions</span>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The real book on October 30, 2026:</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-6 font-mono text-sm text-zinc-300 leading-loose">
+                0.379&sup2; + 0.126&sup2; + 0.167&sup2; + 0.182&sup2; + 0.146&sup2;<br>
+                = 0.144 + 0.016 + 0.028 + 0.033 + 0.021 = 0.242<br>
+                1 &divide; 0.242 = <span class="text-white font-semibold">4.13 effective positions</span>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">At NVDA&rsquo;s May 2026 peak the same calculation gave 3.55. Five stocks, owned like three and a half. The number is useful because it is one figure you can track between reviews, and because it falls for any kind of concentration, not just the one you&rsquo;re watching. It is a spreadsheet job: five weights, five squares, one division.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Sector Is the Second Layer</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Look at the book again, by what the companies do. NVDA, MSFT and AAPL are three names, but on a bad day for large-cap technology they tend to fall together. Group the weights by sector and run the same formula:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm font-mono">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Sector</th><th class="px-4 py-3 text-left font-semibold">Names</th><th class="px-4 py-3 text-right font-semibold">At purchase</th><th class="px-4 py-3 text-right font-semibold">Oct 30, 2026</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800 bg-blue-500/10"><td class="px-4 py-3 text-white font-semibold">Technology</td><td class="px-4 py-3">NVDA, MSFT, AAPL</td><td class="px-4 py-3 text-right">59.9%</td><td class="px-4 py-3 text-right text-white font-semibold">67.2%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Financials</td><td class="px-4 py-3">JPM</td><td class="px-4 py-3 text-right">20.0%</td><td class="px-4 py-3 text-right">18.2%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Consumer Staples</td><td class="px-4 py-3">KO</td><td class="px-4 py-3 text-right">20.1%</td><td class="px-4 py-3 text-right">14.6%</td></tr>
+                        <tr class="border-t border-zinc-700 text-white"><td class="px-4 py-3 font-semibold">Effective sectors</td><td class="px-4 py-3"></td><td class="px-4 py-3 text-right">2.28</td><td class="px-4 py-3 text-right">1.97</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The drift didn&rsquo;t create the sector problem. It was there on the day of purchase: an &ldquo;equal-weight, five-stock&rdquo; book that was 60% one sector from the first trade. Drift only made it worse. By October 2026 the holder owns five stocks, about four effective positions, and <strong class="text-white">fewer than two effective sectors</strong>.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The way this usually gets worse is at the next purchase. The holder notices NVDA is too big, wants to &ldquo;diversify,&rdquo; and buys another chip or software company they understand. Different ticker, same bet. The trap at the stock level is drift you didn&rsquo;t choose; the trap at the sector level is a purchase you did choose that feels like diversification.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Sector is a coarse label, and there is no single correct classification: different sources group companies differently, and two companies in one sector can behave very differently. Treat it as a first check, not a correlation model.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Trim, Hold or Hedge: Writing the Rule Down Before It Matters</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">There is no correct concentration. Plenty of investors hold a 40% position on purpose and know exactly why. The problem is a 40% position nobody decided on. So the fix is not a number; it is a decision written down in advance, while the position is not in front of you moving. Three honest options:</p>
+            <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-6">
+                <li><strong class="text-white">Trim to a cap.</strong> Pick a ceiling and a target below it, and a moment to check: &ldquo;at a month-end close, any name over 30% is trimmed back to 25%.&rdquo; The gap between the two numbers stops you trading every wiggle. In a taxable account a trim realizes a gain, and that cost is real. Put it in the rule (a higher cap, or trimming only in tax-advantaged accounts) rather than letting it become the reason the rule never fires.</li>
+                <li><strong class="text-white">Hold on purpose.</strong> Keep the position, but write down why it deserves its size today, as if you were buying it at today&rsquo;s price, and what would make you trim. The <a href="../investment-thesis-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">investment thesis journal</a> covers how to write that so it can be checked later.</li>
+                <li><strong class="text-white">Hedge.</strong> Offsetting a position with options or a short in a related fund keeps the shares but costs money and adds a second position with its own rules. If you go this way, write the hedge&rsquo;s exit down too.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">Two more rules cost nothing and catch most of the damage. A <strong class="text-white">no-adds rule</strong>: no new name in a sector while that sector is above a set share of the book. And a <strong class="text-white">giveback check</strong>: if you set a sell line when you bought, see what it means now. In the demo book NVDA&rsquo;s line is $37, set about 25% below the 2024 purchase. At $204.64 a fall to that line would cost $68,062, or <strong class="text-white">31% of the whole book</strong>. A line that capped the risk at 5% of the account in 2024 no longer caps it at anything like 5%. Whether to raise it is your call, but it should be a call, not something you never looked at.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">A rule written at the review is only half the job. The other half is the note that says what you saw when you wrote it, so the next review compares against numbers rather than a feeling:</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-concentration-rule-note.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-concentration-rule-note.webp" width="2492" height="388" loading="lazy" decoding="async" alt="A SignalDeck trade note dated Oct 30, 2026, 5:42 PM EDT. CONCENTRATION REVIEW, Oct 30 close. Book $219,034. NVDA $83,084 = 37.9% (bought at 20.1%). Peak was 45.2% on May 14, 2026. Technology (NVDA + MSFT + AAPL) = 67.2%. It was 59.9% the day I bought. Effective positions: 4.13 of 5. Effective sectors: 1.97. RULE, written before the next review: at a month-end close, any single name over 30% is trimmed back to 25%, and no new Technology name is added while the sector is over 50%." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The review and the rule, saved as a dated note on the NVDA position. The 30% and 25% figures are this hypothetical holder&rsquo;s choice, not a recommendation.</figcaption>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What SignalDeck Checks</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">SignalDeck checks the sector layer at the moment it usually goes wrong: when you log a new stock position. Suppose the holder above, keen to diversify away from NVDA, starts logging a $19,891 purchase of AVGO (61 shares at $326.08, sell line at $245). Before they save it, the New Trade form shows this:</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-concentration-correlated-exposure.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-concentration-correlated-exposure.webp" width="2296" height="466" loading="lazy" decoding="async" alt="SignalDeck New Trade form panels. Open risk: $24,942.16, 5.0R open, 11.39% of account; with this trade $29,888.04, 6.0R open, 13.65%. Correlated exposure: NVDA + MSFT + AAPL + AVGO = 4 Technology positions, 9% combined exposure, correlated cluster. A bar shows Technology at 9% and the rest at 91%." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Logging AVGO into the demo book. The warning appears as you fill in the form, and it is advisory: the trade can still be saved.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">&ldquo;4 Technology positions&rdquo; is the sector point made for you, at the right moment. The &ldquo;9%&rdquo; needs reading carefully, because it is not the 67% from the table above. The two numbers answer different questions:</p>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Number</th><th class="px-4 py-3 text-left font-semibold">What it measures</th><th class="px-4 py-3 text-left font-semibold">Technology here</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">Market-value weight</td><td class="px-4 py-3">What share of your money sits in the sector today.</td><td class="px-4 py-3 font-mono">67.2% (3 names)</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3 text-white font-medium">SignalDeck&rsquo;s combined exposure</td><td class="px-4 py-3">Shares &times; the distance from your entry price to your stop (your sell line), added up across the sector and divided by the account size you set in your Risk Profile.</td><td class="px-4 py-3 font-mono">6.8% (3 names)<br>9% with AVGO</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Exposure measured from entry to stop is the right number for a trader deciding how much a new position can lose. It is the wrong number for drift, because it is set by your entry and your stop, not by today&rsquo;s price: NVDA&rsquo;s risk in that figure is still 406 shares &times; ($49.24 &minus; $37), about $5,000, however far the stock has run since. That is why the market-value weights and the effective-positions number above are worth keeping by hand next to it.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">What the check does and doesn&rsquo;t cover, stated plainly:</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">Stocks only.</strong> It groups your open stock positions. Crypto, forex and futures positions are not included. ETFs are grouped together in a bucket of their own rather than by sector.</li>
+                <li><strong class="text-white">It follows the strategy you pick.</strong> If you choose a strategy on the New Trade form, only open positions in that strategy are compared. Keep your holdings under one strategy, or leave it unset, if you want the whole book checked.</li>
+                <li><strong class="text-white">Sector comes from the industry code, not from you.</strong> Each stock is classified from its SIC code in market reference data. A stock whose code isn&rsquo;t in SignalDeck&rsquo;s sector map joins no group, and in this demo book JPM was one, so the check can under-count. Stocks priced from a non-US exchange aren&rsquo;t grouped either.</li>
+                <li><strong class="text-white">It warns from the second name.</strong> A new trade that would make two or more open positions in one sector shows the warning.</li>
+                <li><strong class="text-white">The percentage needs an account size and stops.</strong> Without an account size in your Risk Profile you get the names and count but no percentage. A position with no stop still counts as a name in its sector but adds no dollars.</li>
+                <li><strong class="text-white">No portfolio weights.</strong> SignalDeck doesn&rsquo;t compute market-value weights or effective positions for you. The arithmetic in this post is the five-minute version you do yourself.</li>
+                <li><strong class="text-white">No tax lots.</strong> It doesn&rsquo;t track cost-basis methods or what a trim would cost in tax.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">For what else to record on a stock position, see the <a href="../stock-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">stock trading journal</a> guide. For the risk-first view of a whole equity book, <a href="../equity-prop-desk-metrics/" class="text-blue-400 hover:text-blue-300 transition-colors">equity prop desk metrics</a> covers what to track instead of win rate.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The portfolio is hypothetical: a demo account, not a real holding, and not a recommendation to buy, hold or sell any of these stocks. Prices are Polygon daily bars, split-adjusted: entries at the January 2, 2024 open, values at the October 30, 2026 close. The dates NVDA crossed 25%, 30% and its peak weight are from daily closes. The note was saved on October 30, 2026; the trade-history screenshot uses the app&rsquo;s live quotes from the same evening.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">FAQ</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What percentage of my portfolio should one stock be?</h3>
+                    <p class="text-zinc-400 leading-relaxed">There is no single right number, and anyone who gives you one doesn&rsquo;t know your situation. Two frameworks help. First, the loss you could live with: a position&rsquo;s weight times a fall it could plausibly take is what it would cost the whole portfolio, so a 40% position that halves costs you 20% of everything. Second, the decision: whatever the number, set a cap and a target below it in writing before a winner reaches it, so the size is something you chose rather than something that happened.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What is effective number of positions?</h3>
+                    <p class="text-zinc-400 leading-relaxed">It is how many equal-sized positions your portfolio behaves like: 1 divided by the sum of each position&rsquo;s squared weight. Five equal positions give 5.0. If one of five grows to half the portfolio while the rest stay flat, it falls to 3.2. The same formula applied to sector weights gives effective sectors, which is often lower than people expect.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Should I trim a winning stock?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Only you can decide, but decide it deliberately. Trimming locks in part of a gain and lowers the damage a single reversal can do; it may also cost tax in a taxable account and gives up some upside if the stock keeps running. A useful test is whether you would buy the position at today&rsquo;s size and price with fresh money. If not, a written trim rule is the honest answer. If so, write down why, and what would change your mind.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../investment-thesis-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Write Your Sell Rule Before You Buy</h3>
+                        <p class="text-sm text-zinc-400">The investment journal for long-term holders.</p>
+                    </a>
+                    <a href="../stock-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Stock Trading Journal</h3>
+                        <p class="text-sm text-zinc-400">What to record on a stock position, and why gaps matter.</p>
+                    </a>
+                    <a href="../equity-prop-desk-metrics/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Equity Prop Desk Metrics</h3>
+                        <p class="text-sm text-zinc-400">What to track on an equity book instead of win rate.</p>
+                    </a>
+                    <a href="../fixed-r-position-sizing/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Fixed-R Position Sizing</h3>
+                        <p class="text-sm text-zinc-400">Sizing every position from the risk you agree to take.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Decide your position sizes before a winner decides them</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Log your holdings, get a sector warning before you add another name to a crowded sector, and keep each review and rule as a dated note.
+                Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'single-stock-concentration'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

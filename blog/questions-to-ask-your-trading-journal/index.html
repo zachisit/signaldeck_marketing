@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Questions to Ask Your Trading Journal: 20 AI Prompts, Tested | SignalDeck</title>
-    <meta name="description" content="A prompt library for asking Claude or ChatGPT about your trading journal: 20 questions for holders, active traders and crypto, each run against a demo account with the tools it called, the real answer, and three questions it cannot answer.">
+    <meta name="description" content="A prompt library for asking Claude or ChatGPT about your trading journal, tested with Claude Code: 20 questions for holders, active traders and crypto, each run on a demo account with the tools it called and the real answer, plus three it cannot answer.">
     <meta name="keywords" content="chatgpt prompts for trading, ai trading journal prompts, claude trading journal, questions to ask your trading journal, analyze trades with ai, trading journal mcp, expectancy by tag, trading journal review questions">
     <meta name="author" content="SignalDeck">
 
@@ -23,7 +23,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sgnldk.com/blog/questions-to-ask-your-trading-journal/">
     <meta property="og:title" content="20 Questions to Ask Your Trading Journal (Now That It Can Answer) | SignalDeck">
-    <meta property="og:description" content="20 questions for your trading journal, each asked to a real AI assistant on a demo account: the tools it called, the answer it gave, the one it got wrong, and three it should not answer.">
+    <meta property="og:description" content="20 questions for your trading journal, each asked to a real AI assistant on a demo account: the tools it called, the answer it gave, the one it got wrong, and three it cannot answer.">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01at-ask-the-journal.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
@@ -33,7 +33,7 @@
     <meta name="twitter:site" content="@sgnldk">
     <meta name="twitter:url" content="https://sgnldk.com/blog/questions-to-ask-your-trading-journal/">
     <meta name="twitter:title" content="20 Questions to Ask Your Trading Journal (Now That It Can Answer) | SignalDeck">
-    <meta name="twitter:description" content="20 questions for your trading journal, each asked to a real AI assistant on a demo account: the tools it called, the answer it gave, the one it got wrong, and three it should not answer.">
+    <meta name="twitter:description" content="20 questions for your trading journal, each asked to a real AI assistant on a demo account: the tools it called, the answer it gave, the one it got wrong, and three it cannot answer.">
     <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01at-ask-the-journal.png">
 
     <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
@@ -85,7 +85,7 @@
             "name": "Can ChatGPT or Claude analyze my trades accurately?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "When it is connected to your journal it reads your records through tools instead of a pasted file, and in this test its figures matched an independent calculation. It still makes mistakes. In one answer here it filtered trades by entry date and missed every position bought the year before. Check which tools it called and with what filters, and spot-check one number in the app."
+                "text": "When it is connected to your journal it reads your records through tools instead of a pasted file. In this test, run with Claude Code, most of its figures matched an independent calculation, but not all. One answer filtered trades by entry date and missed every position bought the year before, and a few others had smaller counting slips. ChatGPT reaches the same tools but was not tested here. Check which tools it called and with what filters, and spot-check one number in the app."
             }
         },
         {
@@ -93,7 +93,7 @@
             "name": "Can an AI assistant connected to my journal place trades?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not through SignalDeck. SignalDeck is a journal and has no tool that sends orders to a broker. With write access, an assistant can record trades, notes and journal entries in your journal, and the write tools tell it to show you the change and ask first. Most clients also ask permission before a write. A read-only connection can’t change anything."
+                "text": "Not through SignalDeck. SignalDeck is a journal and has no tool that sends orders to a broker. With write access, an assistant can change your journal and settings (record trades, notes and journal entries, edit strategies, alerts and risk settings), and the write tools tell it to show you the change and ask first. Deleting needs a separate permission. Most clients also ask permission before a write. A read-only connection can’t change anything."
             }
         }
     ]
@@ -188,7 +188,7 @@
                 20 Questions to Ask Your Trading Journal (Now That It Can Answer)
             </h1>
             <p class="text-lg text-zinc-400 leading-relaxed">
-                Once Claude or ChatGPT is connected to your trading journal, the hard part is no longer getting an answer. It is knowing what to ask. This is a prompt library for three kinds of account: long-term holders, active traders and crypto. Every question was put to a real assistant against a SignalDeck demo account, and every sample answer below comes from that run, checked against the numbers worked out separately. One answer got a fact wrong, and it is marked as wrong, along with three questions it can&rsquo;t answer at all.
+                Once Claude or ChatGPT is connected to your trading journal, the hard part is no longer getting an answer. It is knowing what to ask. This is a prompt library for three kinds of account: long-term holders, active traders and crypto. Every question was put to a real assistant against a SignalDeck demo account, and every sample answer below was checked against the numbers worked out separately. Most held up. One got a headline fact wrong and is marked as wrong; several others had smaller slips, which we did not repeat as fact. There are also three questions it can&rsquo;t answer at all.
             </p>
         </div>
     </header>
@@ -203,12 +203,12 @@
                 <li><strong class="text-white">The account is a demo, and hypothetical.</strong> One person with three habits: six long-term holdings (NVDA, MSFT, AAPL, AVGO, COST, KO) bought at the January 2, 2025 open, about $16,000 each, each with a sell line 25% under the buy; 47 stock swing trades from January to October 2026 under two strategies, Breakout and Pullback, risking $400 each; and 20 crypto swing trades in BTC, ETH and SOL, risking $500 each with 0.10% fees each way. There are three journal entries.</li>
                 <li><strong class="text-white">The prices are real.</strong> Every entry and exit is taken from real daily bars. Which trades were taken was a random pick; how they turned out is whatever the market did.</li>
                 <li><strong class="text-white">Tags follow a fixed rule, not hindsight.</strong> &ldquo;Gap Up Entry&rdquo; means the stock opened at least 1% above the prior close, &ldquo;Chased Entry&rdquo; means it had already risen 5% over the previous three days, and &ldquo;A+ Setup&rdquo; means neither, with the stock above its 20-day average.</li>
-                <li><strong class="text-white">The assistant is Claude Code (Claude Opus 5.5), asked on November 2, 2026.</strong> Each question ran in a fresh session, so no answer could lean on an earlier one. It was connected with a personal access token, with read tools allowed and write tools left to ask permission.</li>
+                <li><strong class="text-white">The assistant is Claude Code (Claude Opus 5.5), asked on November 2, 2026.</strong> Each question ran in a fresh session, so no answer could lean on an earlier one. There were two runs: a headless batch for every question, and an interactive run for the screenshots, so a screenshot and its summary can differ slightly in wording. It was connected with a personal access token. In the batch run only SignalDeck&rsquo;s read tools were allowed; in the interactive run, write tools asked permission first. Web search, file and shell tools were off in both, so answers came from SignalDeck&rsquo;s tools and the model&rsquo;s general knowledge, not from a web search. The demo account is on the Elite plan; the news tool used in one answer below needs Pro or above.</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">Before trusting any of it, check one number against the app. Several answers quoted the account&rsquo;s net P&amp;L, win rate, profit factor and drawdown. This is the same account&rsquo;s Analytics page:</p>
             <figure class="my-8">
                 <a href="../../assets/screenshot-ask-analytics-kpis.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-analytics-kpis.webp" width="2502" height="360" loading="lazy" decoding="async" alt="SignalDeck Analytics overview for the demo account: Open Risk $23,732.25 (15.8% of account), Net P&amp;L -$1,259.22 on 67 closed trades, win rate 45%, profit factor 0.98, average hold 7.7 days." class="w-full h-auto rounded-xl border border-zinc-800"></a>
-                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The figures the assistant quoted (&minus;$1,259.22, 45%, 0.98) match the app. The same page lists the maximum drawdown as $6,588.07, the number the assistant gave in question 12.</figcaption>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The figures the assistant quoted (&minus;$1,259.22, 45%, 0.98) match the app.</figcaption>
             </figure>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Holder Questions</h2>
@@ -222,7 +222,7 @@
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">2. &ldquo;Are any of my long-term holdings below the sell line I set when I bought them? How far is each one from its line?&rdquo;</p>
-                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, get_trade (once per holding)</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, list_tags, get_trade (once per holding)</p>
                 <p class="text-zinc-300 leading-relaxed">No. The closest is COST, which would have to fall about 32% to reach its line. The answer took the line to be the stop saved on each trade, checked that none had been moved, and pointed out that the notes say &ldquo;a close below the line&rdquo; while the prices it had were intraday quotes.</p>
             </div>
             <figure class="my-8">
@@ -232,7 +232,7 @@
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">3. &ldquo;Since I bought my long-term holdings, has any of them ever closed below its sell line, even if it&rsquo;s back above now?&rdquo;</p>
-                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, get_trade, get_price_bars (once per holding)</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, list_tags, get_trade and get_price_bars (once per holding)</p>
                 <p class="text-zinc-300 leading-relaxed">Yes, three of them, all in the April 2025 selloff. AVGO closed below its line on 15 trading days (lowest 146.29 on April 4, against a 177.12 line), NVDA on 7 (lowest 94.31, line 102.00) and AAPL on 2 (lowest 172.42, line 186.70). &ldquo;By that rule, AVGO, NVDA and AAPL all signalled a sell in April 2025, and you held through it.&rdquo;</p>
             </div>
             <p class="text-zinc-300 leading-relaxed mb-6">Questions 2 and 3 are the same question about different moments, and they get opposite answers. Question 2 says the rule is fine today. Question 3 says the rule fired 19 months ago and nobody acted on it. We counted the daily closes independently and got the same 15, 7 and 2. That gap between the rule you wrote and the one you followed is the subject of <a href="../investment-thesis-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">writing your sell rule before you buy</a>, and it is the kind of thing you only find by asking the second question.</p>
@@ -240,7 +240,7 @@
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">4. &ldquo;How much have I paid in fees on closed trades, and how big is that next to my net P&amp;L?&rdquo;</p>
                 <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_dashboard_stats, list_trades, get_trade (two spot checks)</p>
-                <p class="text-zinc-300 leading-relaxed">About <strong class="text-white">$342</strong> on 67 closed trades, against a net loss of $1,259.22, so fees are about 27% of the loss. Crypto paid 72% of the fees on less than a third of the trades. The trade list has no fee column, so the assistant backed the fees out of price change, size and realized P&amp;L, then opened two trades to check the stored fee fields. The exact figure is $341.76.</p>
+                <p class="text-zinc-300 leading-relaxed">About <strong class="text-white">$342</strong> on 67 closed trades, against a net loss of $1,259.22, so fees are about 27% of the loss. Crypto paid 72% of the fees on less than a third of the trades. The trade list has no fee column, so the assistant backed the fees out of price change, size and realized P&amp;L, then opened two trades to check the stored fee fields. (Our own recount: $341.76.)</p>
             </div>
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
@@ -261,7 +261,7 @@
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">7. &ldquo;Which of my strategies actually makes money, and which one is costing me?&rdquo;</p>
                 <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_strategy_performance</p>
-                <p class="text-zinc-300 leading-relaxed">Pullback makes money: <strong class="text-white">+$2,201.60</strong> over 20 trades, a 60% win rate and a profit factor of 1.88. Breakout is down $982.85 over 27 trades, and Crypto Swing is down $2,477.97 over 20, with a profit factor of 0.54. The answer added that 20 to 27 trades per strategy point in a direction without proving it.</p>
+                <p class="text-zinc-300 leading-relaxed">Pullback makes money: <strong class="text-white">+$2,201.60</strong> over 20 trades, a 60% win rate and a profit factor of 1.88. Breakout is down $982.85 over 27 trades, and Crypto Swing is down $2,477.97 over 20, with a profit factor of 0.54. The answer added that 20 to 27 trades per strategy is a small sample, then recommended pausing or sharply cutting Crypto Swing anyway. A caveat followed by a confident recommendation is common; decide for yourself whether the sample supports the action.</p>
             </div>
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
@@ -290,7 +290,7 @@
             </div>
             <figure class="my-8">
                 <a href="../../assets/screenshot-ask-entry-weekday.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-entry-weekday.webp" width="1600" height="1954" loading="lazy" decoding="async" alt="Claude Code answering whether entry weekday matters. A table of 47 closed stock trades by entry day: Monday 4 trades, 25% win rate, +0.08R average; Tuesday 12, 58%, +0.33R; Wednesday 9, 11%, -0.66R; Thursday 12, 75%, +0.50R; Friday 10, 50%, -0.06R. It explains that going 1 for 9 by chance is about 2% for one day but closer to 1 in 10 across five days, and suggests testing with a tag before acting." class="w-full h-auto rounded-xl border border-zinc-800"></a>
-                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Every row matches a separate recount of the 47 trades, and so does the detail that six of the eight Wednesday losers hit the full stop.</figcaption>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The interactive run of question 9. Every row matches a separate recount of the 47 trades, and so does the detail that six of the eight Wednesday losers hit the full stop. (The headless run of the same question said seven, which was wrong.)</figcaption>
             </figure>
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
@@ -308,7 +308,7 @@
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">12. &ldquo;What was my worst losing streak this year, and what was my largest drawdown?&rdquo;</p>
                 <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades, get_dashboard_stats</p>
-                <p class="text-zinc-300 leading-relaxed">Nine losses in a row from February 4 to March 2, every one a full &minus;1R, and a <strong class="text-white">$6,588.07</strong> drawdown to July 17. It noted that a loss and a win both closed on March 2, and that the streak is 8 rather than 9 if the win came first. It flagged the tie instead of picking an order silently.</p>
+                <p class="text-zinc-300 leading-relaxed">Nine losses in a row from February 4 to March 2, every one a full &minus;1R, and a <strong class="text-white">$6,588.07</strong> drawdown to July 17. It noted that a loss and a win both closed on March 2, and that the streak is 8 rather than 9 if the win came first. It flagged the tie instead of picking an order silently. (The stored exit times put the loss first, so 9 is right.)</p>
             </div>
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
@@ -319,8 +319,8 @@
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">14. &ldquo;Which of my trades closed since September 1 still need a post-mortem?&rdquo;</p>
-                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_review_queue, list_trades, get_trade</p>
-                <p class="text-zinc-300 leading-relaxed">All 16 of them, listed with exit reason, P&amp;L and R. The first version of this question, &ldquo;which of my trades still need a note or a post-mortem?&rdquo;, failed. On an account with 67 un-reviewed trades the result was too large for the client to show, and the assistant said so rather than guessing. Put a date range in any question that could return everything.</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_review_queue, list_trades, get_trade (once per trade)</p>
+                <p class="text-zinc-300 leading-relaxed">All 16 of them, listed with exit reason, P&amp;L and R. Getting there took a workaround. The review-queue tool takes no date filter, and on an account with 67 un-reviewed trades its result was too large for the client to show inline. In the first version of this question, &ldquo;which of my trades still need a note or a post-mortem?&rdquo;, the assistant said so and stopped (with file tools switched on, it could have read the saved result). With the date in the question, it listed the trades closed since September 1 and opened each one instead. When a question could return your whole history, narrow it in the question itself.</p>
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Crypto Questions</h2>
@@ -344,14 +344,14 @@
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">17. &ldquo;How much of my crypto loss is fees?&rdquo;</p>
-                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (crypto only)</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (crypto only), get_trade (once per trade, to read the stored fees)</p>
                 <p class="text-zinc-300 leading-relaxed">About 10%: <strong class="text-white">$247.76</strong> of a $2,477.97 loss. Without fees the account would still be down $2,230. The loss comes from the trades, not the fees.</p>
             </div>
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">18. &ldquo;Compare my crypto trading with my stock swing trading in R, not dollars.&rdquo;</p>
                 <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (twice), list_strategies</p>
-                <p class="text-zinc-300 leading-relaxed">Crypto &minus;0.22R a trade against +0.08R for stocks. The losses are the same size in both books. The crypto problem is the winners: they average +0.74R against a 2R target, because most close on the time limit. It also caught that stored R ignores fees. With fees, every full crypto stop is &minus;1.02R and crypto is &minus;0.25R a trade. <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">What an R-multiple is</a> explains why R is the right unit for this comparison.</p>
+                <p class="text-zinc-300 leading-relaxed">Crypto &minus;0.22R a trade against +0.08R for stocks. The losses are the same size in both books. The crypto problem is the winners: they average under 1R against a 2R target, because most close on the time limit. It also caught that stored R ignores fees. With fees, every full crypto stop is &minus;1.02R and crypto is &minus;0.25R a trade. <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">What an R-multiple is</a> explains why R is the right unit for this comparison.</p>
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Journal Questions, and an Answer That Was Wrong</h2>
@@ -360,14 +360,14 @@
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">19. &ldquo;What have I written in my journal this year, and does my trade data back up what I wrote?&rdquo;</p>
                 <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_journal_entries, list_trades, get_risk_settings, get_price_bars</p>
-                <p class="text-zinc-300 leading-relaxed mb-3">The March entry said: &ldquo;I keep buying breakouts on a Wednesday after a strong Monday and Tuesday.&rdquo; The answer confirmed half of it. All five Wednesday Breakout entries hit the full stop, while the 22 on other days won half the time. It pulled the price bars and found the other half was wrong: Monday had closed lower before every one of those entries. Both findings check out.</p>
-                <p class="text-zinc-300 leading-relaxed">Then it got the August entry wrong. That entry says &ldquo;tech is most of my book now: NVDA, MSFT, AAPL and AVGO all ran.&rdquo; The answer listed what was held on August 28 and told the user &ldquo;NVDA wasn&rsquo;t open.&rdquo; It was: 117 shares held since January 2025. The assistant had asked for trades with an <em>entry</em> date in 2026, which quietly left out everything bought in 2025, the whole long-term book included.</p>
+                <p class="text-zinc-300 leading-relaxed mb-3">The March entry said: &ldquo;I keep buying breakouts on a Wednesday after a strong Monday and Tuesday.&rdquo; The answer confirmed half of it. All five Wednesday Breakout entries hit the full stop, while the 22 on other days won half the time. It pulled the price bars and found the other half was wrong: Monday had closed lower before four of the five entries, and the fifth followed a holiday Monday with no session. Both findings check out.</p>
+                <p class="text-zinc-300 leading-relaxed">Then it got the August entry wrong. That entry says &ldquo;tech is most of my book now: NVDA, MSFT, AAPL and AVGO all ran.&rdquo; The answer listed what was held on August 28 and told the user &ldquo;NVDA wasn&rsquo;t open,&rdquo; and that AAPL hadn&rsquo;t been held since June. Both were held: 117 NVDA shares and 64 AAPL shares, since January 2025. The assistant had asked for trades with an <em>entry</em> date in 2026, which quietly left out everything bought in 2025, the whole long-term book included.</p>
             </div>
             <p class="text-zinc-300 leading-relaxed mb-6">The answer was confident, specific and fluent, and it was wrong because of a filter. You can only catch that by reading which tools were called with which arguments: <code class="text-blue-300 font-mono text-sm">list_trades</code> with <code class="text-blue-300 font-mono text-sm">date_from: 2026-01-01</code> filters on entry date. When an answer is about positions held at a point in time, ask it to include trades opened earlier, or ask question 20 directly.</p>
 
             <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
                 <p class="font-mono text-sm text-blue-300 mb-2">20. &ldquo;I wrote a trim rule for my long-term holdings. Am I breaking it right now?&rdquo;</p>
-                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_strategies, list_journal_entries, list_open_trades, get_risk_settings</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_strategies, list_journal_entries, list_tags, list_entry_checklist, list_open_trades, get_risk_settings</p>
                 <p class="text-zinc-300 leading-relaxed">It found the rule in the strategy notes (&ldquo;if any one name passes 30% of the book, sell back to 20%&rdquo;) and answered no, because the largest name is 18.7%. Then it went back to the August journal entry. The four tech names together are about 68% of the book, but the rule is written per name, so nothing triggers. &ldquo;If you meant to cap the tech group as a whole, you&rsquo;d need a separate rule for that.&rdquo;</p>
             </div>
 
@@ -391,7 +391,7 @@
                 <p class="text-zinc-300 leading-relaxed">It refused, and gave the right reason. SignalDeck is a journal, so no tool sends an order to a broker. The journal&rsquo;s own &ldquo;create trade&rdquo; tool records a trade you have already made, and no shares are bought. It offered to log the trade once it fills.</p>
             </div>
             <figure class="my-8">
-                <a href="../../assets/screenshot-ask-buy-refusal.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-buy-refusal.webp" width="1600" height="502" loading="lazy" decoding="async" alt="Claude Code replying to 'Buy 10 shares of AAPL for me at market': I can't buy those shares for you. None of the tools I have can send an order to a broker. SignalDeck is a trading journal; its create_trade tool just records a trade in your journal. Place the order in your brokerage's app, and once it fills I can log it." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <a href="../../assets/screenshot-ask-buy-refusal.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-buy-refusal.webp" width="1600" height="502" loading="lazy" decoding="async" alt="Claude Code replying to 'Buy 10 shares of AAPL for me at market': I can't place that order. SignalDeck is a trading journal, and nothing I have access to can send orders to a broker. Its create_trade tool only adds a trade record to your journal; using it would show a 10-share AAPL position that you don't actually own. Place the market order yourself in your brokerage app; once it fills, I can log it." class="w-full h-auto rounded-xl border border-zinc-800"></a>
             </figure>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Turning an Answer Into a Rule</h2>
@@ -403,11 +403,11 @@
             </figure>
             <figure class="my-8">
                 <a href="../../assets/screenshot-ask-journal-rule.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-journal-rule.webp" width="2488" height="696" loading="lazy" decoding="async" alt="The SignalDeck Trading Journal page. The newest card, dated 2026-11-02, holds the rule: No Wednesday Breakout entries, with the five trades listed. Beside it are the earlier entries from 2026-08-28 about tech becoming most of the book, and 2026-05-15 about crypto costing more than it makes." class="w-full h-auto rounded-xl border border-zinc-800"></a>
-                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The rule in the journal, next to the entries it was checked against. The earlier entries were written into the demo account when it was set up, so their times show the setup time, not a real time of day.</figcaption>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The rule in the journal, next to the two most recent earlier entries. The earlier entries were written into the demo account when it was set up, so their times show the setup time, not a real time of day.</figcaption>
             </figure>
             <p class="text-zinc-300 leading-relaxed mb-6">Two details are easy to miss. First, the rule has an expiry condition: it is a test with a review date, not a permanent law built on five trades. Second, look at where the confirmation came from. The assistant didn&rsquo;t ask in the chat first. It went straight to the tool, and Claude Code stopped it with a permission prompt. SignalDeck&rsquo;s write tools instruct the assistant to show the change and confirm first, and most clients also prompt before a write tool runs, but the server cannot force a client to ask. If you only want answers, connect with read-only access and nothing can be written.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">To set up a connection, see <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">connecting Claude or ChatGPT to your trading journal</a> or the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300 transition-colors">AI assistant page</a>. The connection and its core tools are included on every plan, including Free; your plan&rsquo;s normal limits still apply, and Market News and intraday data follow the same plan rules as in the app.</p>
-            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a hypothetical demo, not anyone&rsquo;s real trading, and nothing here is a recommendation to buy or sell anything. Prices are real daily bars; holdings were marked at the app&rsquo;s quotes on November 2, 2026. Answers were produced by Claude Code with Claude Opus 5.5 on November 2, 2026 against a SignalDeck demo account on the current release, with the same price and news tools as production. Answers are summarised, with the assistant&rsquo;s own words in quotation marks; the screenshots are unedited apart from cropping. ChatGPT reaches the same tools through the same connector, but its answers weren&rsquo;t tested for this post and will differ in wording. Every figure quoted was checked against a separate calculation from the same trades, and the one answer that got a fact wrong (question 19) is marked as wrong.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a hypothetical demo, not anyone&rsquo;s real trading, and nothing here is a recommendation to buy or sell anything. Prices are real daily bars; holdings were marked at the app&rsquo;s quotes on November 2, 2026. Answers were produced by Claude Code with Claude Opus 5.5 on November 2, 2026 against a SignalDeck demo account on the current release, with the same price and news tools as production. Answers are summarised, with the assistant&rsquo;s own words in quotation marks; the screenshots are unedited apart from cropping. ChatGPT reaches the same tools through the same connector, but its answers weren&rsquo;t tested for this post and will differ in wording. Every figure quoted was checked against a separate calculation from the same trades. Question 19 is marked as wrong. Smaller slips in other answers, such as a crypto win rate given as 40% instead of 35% in question 18, were left out of the quotes rather than repeated.</p>
 
             <div class="border-t border-zinc-800 pt-12 mt-16">
                 <h2 class="text-2xl font-bold text-white mb-8">FAQ</h2>
@@ -417,11 +417,11 @@
                 </div>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">Can ChatGPT or Claude analyze my trades accurately?</h3>
-                    <p class="text-zinc-400 leading-relaxed">When it is connected to your journal it reads your records through tools instead of a pasted file, and in this test its figures matched an independent calculation. It still makes mistakes. In one answer here it filtered trades by entry date and missed every position bought the year before. Check which tools it called and with what filters, and spot-check one number in the app.</p>
+                    <p class="text-zinc-400 leading-relaxed">When it is connected to your journal it reads your records through tools instead of a pasted file. In this test, run with Claude Code, most of its figures matched an independent calculation, but not all. One answer filtered trades by entry date and missed every position bought the year before, and a few others had smaller counting slips. ChatGPT reaches the same tools but was not tested here. Check which tools it called and with what filters, and spot-check one number in the app.</p>
                 </div>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">Can an AI assistant connected to my journal place trades?</h3>
-                    <p class="text-zinc-400 leading-relaxed">Not through SignalDeck. SignalDeck is a journal and has no tool that sends orders to a broker. With write access, an assistant can record trades, notes and journal entries in your journal, and the write tools tell it to show you the change and ask first. Most clients also ask permission before a write. A read-only connection can&rsquo;t change anything.</p>
+                    <p class="text-zinc-400 leading-relaxed">Not through SignalDeck. SignalDeck is a journal and has no tool that sends orders to a broker. With write access, an assistant can change your journal and settings (record trades, notes and journal entries, edit strategies, alerts and risk settings), and the write tools tell it to show you the change and ask first. Deleting needs a separate permission. Most clients also ask permission before a write. A read-only connection can&rsquo;t change anything.</p>
                 </div>
             </div>
 

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Questions to Ask Your Trading Journal: 20 AI Prompts, Tested | SignalDeck</title>
+    <meta name="description" content="A prompt library for asking Claude or ChatGPT about your trading journal: 20 questions for holders, active traders and crypto, each run against a demo account with the tools it called, the real answer, and three questions it cannot answer.">
+    <meta name="keywords" content="chatgpt prompts for trading, ai trading journal prompts, claude trading journal, questions to ask your trading journal, analyze trades with ai, trading journal mcp, expectancy by tag, trading journal review questions">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/questions-to-ask-your-trading-journal/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/questions-to-ask-your-trading-journal/">
+    <meta property="og:title" content="20 Questions to Ask Your Trading Journal (Now That It Can Answer) | SignalDeck">
+    <meta property="og:description" content="20 questions for your trading journal, each asked to a real AI assistant on a demo account: the tools it called, the answer it gave, the one it got wrong, and three it should not answer.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01at-ask-the-journal.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/questions-to-ask-your-trading-journal/">
+    <meta name="twitter:title" content="20 Questions to Ask Your Trading Journal (Now That It Can Answer) | SignalDeck">
+    <meta name="twitter:description" content="20 questions for your trading journal, each asked to a real AI assistant on a demo account: the tools it called, the answer it gave, the one it got wrong, and three it should not answer.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01at-ask-the-journal.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "20 Questions to Ask Your Trading Journal (Now That It Can Answer)",
+    "description": "A tested prompt library for a trading journal connected to Claude or ChatGPT: six holder questions, eight trader questions, four crypto questions and two journal questions, each run with Claude Code against a hypothetical SignalDeck demo account on real prices, showing the tools called and the answer, with one wrong answer explained, three questions an assistant cannot answer, and how to turn an answer into a dated rule.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        }
+    },
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02",
+    "image": "https://sgnldk.com/assets/banner-01at-ask-the-journal.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/questions-to-ask-your-trading-journal/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What are good questions to ask an AI about my trading?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Questions your records can answer: which strategy or tag has positive expectancy per trade, whether a pattern you suspect (a weekday, weekend crypto entries, holding losers) shows up in the data, how much fees cost, how concentrated your holdings are, and whether your own written rules have ever been broken. Ask for the sample size with every split, and put a date range on anything that could return your whole history."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can ChatGPT or Claude analyze my trades accurately?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When it is connected to your journal it reads your records through tools instead of a pasted file, and in this test its figures matched an independent calculation. It still makes mistakes. In one answer here it filtered trades by entry date and missed every position bought the year before. Check which tools it called and with what filters, and spot-check one number in the app."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can an AI assistant connected to my journal place trades?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not through SignalDeck. SignalDeck is a journal and has no tool that sends orders to a broker. With write access, an assistant can record trades, notes and journal entries in your journal, and the write tools tell it to show you the change and ask first. Most clients also ask permission before a write. A read-only connection can’t change anything."
+            }
+        }
+    ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sgnldk.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sgnldk.com/blog/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "20 Questions to Ask Your Trading Journal (Now That It Can Answer)",
+            "item": "https://sgnldk.com/blog/questions-to-ask-your-trading-journal/"
+        }
+    ]
+}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-11-02</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Analytics</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                20 Questions to Ask Your Trading Journal (Now That It Can Answer)
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                Once Claude or ChatGPT is connected to your trading journal, the hard part is no longer getting an answer. It is knowing what to ask. This is a prompt library for three kinds of account: long-term holders, active traders and crypto. Every question was put to a real assistant against a SignalDeck demo account, and every sample answer below comes from that run, checked against the numbers worked out separately. One answer got a fact wrong, and it is marked as wrong, along with three questions it can&rsquo;t answer at all.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">How the Assistant Answers (Tools, Not Memory)</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">A connected assistant doesn&rsquo;t remember your trades. When you ask a question, it calls a tool on your SignalDeck account, such as <code class="text-blue-300 font-mono text-sm">list_trades</code>, <code class="text-blue-300 font-mono text-sm">get_strategy_performance</code> or <code class="text-blue-300 font-mono text-sm">get_price_bars</code>, reads the result, and works out the answer from it. Under each prompt below are the tools it actually called. That list is the useful part: it tells you whether an answer came from your records, from arithmetic on your records, or from somewhere else.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The setup for this post:</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">The account is a demo, and hypothetical.</strong> One person with three habits: six long-term holdings (NVDA, MSFT, AAPL, AVGO, COST, KO) bought at the January 2, 2025 open, about $16,000 each, each with a sell line 25% under the buy; 47 stock swing trades from January to October 2026 under two strategies, Breakout and Pullback, risking $400 each; and 20 crypto swing trades in BTC, ETH and SOL, risking $500 each with 0.10% fees each way. There are three journal entries.</li>
+                <li><strong class="text-white">The prices are real.</strong> Every entry and exit is taken from real daily bars. Which trades were taken was a random pick; how they turned out is whatever the market did.</li>
+                <li><strong class="text-white">Tags follow a fixed rule, not hindsight.</strong> &ldquo;Gap Up Entry&rdquo; means the stock opened at least 1% above the prior close, &ldquo;Chased Entry&rdquo; means it had already risen 5% over the previous three days, and &ldquo;A+ Setup&rdquo; means neither, with the stock above its 20-day average.</li>
+                <li><strong class="text-white">The assistant is Claude Code (Claude Opus 5.5), asked on November 2, 2026.</strong> Each question ran in a fresh session, so no answer could lean on an earlier one. It was connected with a personal access token, with read tools allowed and write tools left to ask permission.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">Before trusting any of it, check one number against the app. Several answers quoted the account&rsquo;s net P&amp;L, win rate, profit factor and drawdown. This is the same account&rsquo;s Analytics page:</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-analytics-kpis.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-analytics-kpis.webp" width="2502" height="360" loading="lazy" decoding="async" alt="SignalDeck Analytics overview for the demo account: Open Risk $23,732.25 (15.8% of account), Net P&amp;L -$1,259.22 on 67 closed trades, win rate 45%, profit factor 0.98, average hold 7.7 days." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The figures the assistant quoted (&minus;$1,259.22, 45%, 0.98) match the app. The same page lists the maximum drawdown as $6,588.07, the number the assistant gave in question 12.</figcaption>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Holder Questions</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Holders don&rsquo;t have many trades to analyse. Their questions are about size, about the rules they wrote at purchase, and about what the portfolio has quietly turned into.</p>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">1. &ldquo;What percentage of my portfolio is my biggest holding right now?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, get_portfolio_heat</p>
+                <p class="text-zinc-300 leading-relaxed">NVDA, at about <strong class="text-white">18.7%</strong> of the $128,930 in open positions, with KO only $35 behind it. Against the $150,000 account size in the Risk Profile, NVDA is about 16%. All six sit between 13% and 19%. SignalDeck doesn&rsquo;t store portfolio weights, so the assistant worked them out itself, from each position&rsquo;s entry price, share count and unrealized P&amp;L, and said so.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">2. &ldquo;Are any of my long-term holdings below the sell line I set when I bought them? How far is each one from its line?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, get_trade (once per holding)</p>
+                <p class="text-zinc-300 leading-relaxed">No. The closest is COST, which would have to fall about 32% to reach its line. The answer took the line to be the stop saved on each trade, checked that none had been moved, and pointed out that the notes say &ldquo;a close below the line&rdquo; while the prices it had were intraday quotes.</p>
+            </div>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-holdings-sell-lines.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-holdings-sell-lines.webp" width="1600" height="1393" loading="lazy" decoding="async" alt="Claude Code answering whether any long-term holdings are below their sell line. None are. A table lists each holding's entry, sell line, current price and the drop needed to hit the line: COST 32.4%, MSFT 39.3%, AAPL 45.8%, AVGO 46.3%, KO 50.3%, NVDA 50.8%. Notes follow: every line is still 25% under its entry, the rule is about a daily close, and the business reasons in the notes were not checked." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The interactive run of question 2. The prices are a few cents different from the batch run because quotes moved between the two.</figcaption>
+            </figure>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">3. &ldquo;Since I bought my long-term holdings, has any of them ever closed below its sell line, even if it&rsquo;s back above now?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_open_trades, get_trade, get_price_bars (once per holding)</p>
+                <p class="text-zinc-300 leading-relaxed">Yes, three of them, all in the April 2025 selloff. AVGO closed below its line on 15 trading days (lowest 146.29 on April 4, against a 177.12 line), NVDA on 7 (lowest 94.31, line 102.00) and AAPL on 2 (lowest 172.42, line 186.70). &ldquo;By that rule, AVGO, NVDA and AAPL all signalled a sell in April 2025, and you held through it.&rdquo;</p>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Questions 2 and 3 are the same question about different moments, and they get opposite answers. Question 2 says the rule is fine today. Question 3 says the rule fired 19 months ago and nobody acted on it. We counted the daily closes independently and got the same 15, 7 and 2. That gap between the rule you wrote and the one you followed is the subject of <a href="../investment-thesis-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">writing your sell rule before you buy</a>, and it is the kind of thing you only find by asking the second question.</p>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">4. &ldquo;How much have I paid in fees on closed trades, and how big is that next to my net P&amp;L?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_dashboard_stats, list_trades, get_trade (two spot checks)</p>
+                <p class="text-zinc-300 leading-relaxed">About <strong class="text-white">$342</strong> on 67 closed trades, against a net loss of $1,259.22, so fees are about 27% of the loss. Crypto paid 72% of the fees on less than a third of the trades. The trade list has no fee column, so the assistant backed the fees out of price change, size and realized P&amp;L, then opened two trades to check the stored fee fields. The exact figure is $341.76.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">5. &ldquo;Of my total realized profit on winning trades, what share came from my three biggest winners?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades</p>
+                <p class="text-zinc-300 leading-relaxed"><strong class="text-white">24.1%</strong>: $3,103.13 of $12,883.84, from CAT (+$1,323.04), ETH (+$986.49) and AMD (+$793.60). It also flagged an edge case: one ETH trade closed slightly above its entry but lost $10.79 after fees, so it counted that trade as a loss.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">6. &ldquo;If I bought $10,000 more NVDA at today&rsquo;s price with a stop 25% below, how concentrated would my open book get?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_price, list_open_trades, get_portfolio_heat, check_trade_concentration</p>
+                <p class="text-zinc-300 leading-relaxed">At $206.31 that is 48 shares, about $2,476 at risk. Technology risk would rise from 10.6% to 12.2% of the account and become about 70% of all open risk, and SignalDeck&rsquo;s check flags it as a correlated cluster. These percentages measure the distance from entry to stop, not market value, which is why they look small next to question 1. <a href="../single-stock-concentration/" class="text-blue-400 hover:text-blue-300 transition-colors">Measuring concentration you didn&rsquo;t choose</a> explains both views.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Trader Questions</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">An active trader has enough trades to slice. The useful questions split the results by strategy, tag, day and exit, and the useful answers say how many trades each slice holds.</p>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">7. &ldquo;Which of my strategies actually makes money, and which one is costing me?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_strategy_performance</p>
+                <p class="text-zinc-300 leading-relaxed">Pullback makes money: <strong class="text-white">+$2,201.60</strong> over 20 trades, a 60% win rate and a profit factor of 1.88. Breakout is down $982.85 over 27 trades, and Crypto Swing is down $2,477.97 over 20, with a profit factor of 0.54. The answer added that 20 to 27 trades per strategy point in a direction without proving it.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">8. &ldquo;What is my expectancy by tag?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_dashboard_stats, list_trades</p>
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden text-sm font-mono">
+                        <thead>
+                            <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Tag</th><th class="px-4 py-3 text-right font-semibold">Trades</th><th class="px-4 py-3 text-right font-semibold">Win rate</th><th class="px-4 py-3 text-right font-semibold">Expectancy</th></tr>
+                        </thead>
+                        <tbody class="text-zinc-300">
+                            <tr class="border-t border-zinc-800"><td class="px-4 py-3">Chased Entry</td><td class="px-4 py-3 text-right">4</td><td class="px-4 py-3 text-right">75%</td><td class="px-4 py-3 text-right">+0.75R</td></tr>
+                            <tr class="border-t border-zinc-800"><td class="px-4 py-3">Gap Up Entry</td><td class="px-4 py-3 text-right">6</td><td class="px-4 py-3 text-right">67%</td><td class="px-4 py-3 text-right">+0.60R</td></tr>
+                            <tr class="border-t border-zinc-800"><td class="px-4 py-3">A+ Setup</td><td class="px-4 py-3 text-right">14</td><td class="px-4 py-3 text-right">57%</td><td class="px-4 py-3 text-right">+0.09R</td></tr>
+                            <tr class="border-t border-zinc-800"><td class="px-4 py-3">No tag</td><td class="px-4 py-3 text-right">43</td><td class="px-4 py-3 text-right">35%</td><td class="px-4 py-3 text-right">&minus;0.20R</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-zinc-300 leading-relaxed">The two tags that sound like mistakes beat &ldquo;A+ Setup&rdquo;. The assistant didn&rsquo;t turn that into advice: &ldquo;4 and 6 trades are far too few to rely on,&rdquo; and two +2R winners account for nearly all of Chased Entry. Expectancy per trade is the number to ask for, because the dashboard&rsquo;s tag chart shows total R per tag. See <a href="../trading-expectancy/" class="text-blue-400 hover:text-blue-300 transition-colors">trading expectancy</a> for the formula.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">9. &ldquo;Does the day of the week I enter a stock swing trade make a difference to my results?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades</p>
+                <p class="text-zinc-300 leading-relaxed">Wednesday stands out: 1 win in 9, averaging &minus;0.66R. The answer then judged its own finding. Going 1 for 9 by chance is about a 2% event, but it had looked at five days, which makes it closer to 1 in 10. It called that &ldquo;suggestive, not conclusive.&rdquo;</p>
+            </div>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-entry-weekday.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-entry-weekday.webp" width="1600" height="1954" loading="lazy" decoding="async" alt="Claude Code answering whether entry weekday matters. A table of 47 closed stock trades by entry day: Monday 4 trades, 25% win rate, +0.08R average; Tuesday 12, 58%, +0.33R; Wednesday 9, 11%, -0.66R; Thursday 12, 75%, +0.50R; Friday 10, 50%, -0.06R. It explains that going 1 for 9 by chance is about 2% for one day but closer to 1 in 10 across five days, and suggests testing with a tag before acting." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">Every row matches a separate recount of the 47 trades, and so does the detail that six of the eight Wednesday losers hit the full stop.</figcaption>
+            </figure>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">10. &ldquo;Do I hold my losing trades longer than my winners?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades</p>
+                <p class="text-zinc-300 leading-relaxed">No: winners average 8.5 days and losers 6.7. The more useful part was the split it found without being asked. Hold time follows how decisive a trade is rather than whether it won: stop-outs and target hits close fast, and trades going nowhere drift to the time limit whether they are slightly up or slightly down.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">11. &ldquo;My win rate is under 50%. Does that make me a losing trader?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_dashboard_stats</p>
+                <p class="text-zinc-300 leading-relaxed">Not by itself. With wins and losses about the same size, this account needs about a 48.7% win rate to break even and has 44.8%. The answer then split the record in time: down to &minus;$6,588 by mid-July, with $5,329 of that recovered since. One all-time number was hiding two different periods. <a href="../why-win-rate-is-lying/" class="text-blue-400 hover:text-blue-300 transition-colors">Why win rate is lying</a> covers the general case.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">12. &ldquo;What was my worst losing streak this year, and what was my largest drawdown?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades, get_dashboard_stats</p>
+                <p class="text-zinc-300 leading-relaxed">Nine losses in a row from February 4 to March 2, every one a full &minus;1R, and a <strong class="text-white">$6,588.07</strong> drawdown to July 17. It noted that a loss and a win both closed on March 2, and that the streak is 8 rather than 9 if the win came first. It flagged the tie instead of picking an order silently.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">13. &ldquo;How do my trades that ran out of time compare with the ones that hit their target or their stop?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades, get_trade (17 spot checks)</p>
+                <p class="text-zinc-300 leading-relaxed">Targets: 10 trades, +$7,856. Stops: 29 trades, &minus;$12,789. Time stops: 28 trades, <strong class="text-white">+$3,674</strong>, winning 71% of the time. The time limit is what keeps the account near flat. The answer was open about its method: the list has no exit-reason column, so it opened 17 trades to read the field and sorted the other 50 by the pattern those showed.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">14. &ldquo;Which of my trades closed since September 1 still need a post-mortem?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_review_queue, list_trades, get_trade</p>
+                <p class="text-zinc-300 leading-relaxed">All 16 of them, listed with exit reason, P&amp;L and R. The first version of this question, &ldquo;which of my trades still need a note or a post-mortem?&rdquo;, failed. On an account with 67 un-reviewed trades the result was too large for the client to show, and the assistant said so rather than guessing. Put a date range in any question that could return everything.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Crypto Questions</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Crypto has two habits worth questioning: trading every day of the week, and paying percentage fees that look small per trade.</p>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">15. &ldquo;Break down my crypto P&amp;L by coin.&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (crypto only)</p>
+                <p class="text-zinc-300 leading-relaxed">BTC &minus;$1,858.65 over 10 trades, SOL &minus;$957.86 over 5, ETH +$338.54 over 5. It pointed out that ETH&rsquo;s profit is a single +2R trade, without which ETH is down about $648.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">16. &ldquo;Do my weekend crypto entries do worse than my weekday ones?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (crypto only)</p>
+                <p class="text-zinc-300 leading-relaxed">A little: &minus;0.42R a trade on weekends against &minus;0.14R on weekdays, but with only six weekend trades. One ETH trade explains most of the gap, and the losses cluster in time (six stops in a row, January 22 to February 16) rather than by day of the week.</p>
+            </div>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-crypto-weekend.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-crypto-weekend.webp" width="1600" height="1360" loading="lazy" decoding="async" alt="Claude Code answering whether weekend crypto entries do worse. Weekend: 6 trades, 33% win rate, -$1,340, -0.42R average. Weekday: 14 trades, 36%, -$1,138, -0.14R. It explains why this isn't a real edge yet: one +2R ETH trade drives most of the gap, six trades is very few, the losses cluster in January and February, and Monday entries did worse than weekends." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The interactive run of question 16. The Monday and Saturday figures it added check out against the trades: &minus;0.75R and &minus;0.13R.</figcaption>
+            </figure>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">17. &ldquo;How much of my crypto loss is fees?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (crypto only)</p>
+                <p class="text-zinc-300 leading-relaxed">About 10%: <strong class="text-white">$247.76</strong> of a $2,477.97 loss. Without fees the account would still be down $2,230. The loss comes from the trades, not the fees.</p>
+            </div>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">18. &ldquo;Compare my crypto trading with my stock swing trading in R, not dollars.&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades (twice), list_strategies</p>
+                <p class="text-zinc-300 leading-relaxed">Crypto &minus;0.22R a trade against +0.08R for stocks. The losses are the same size in both books. The crypto problem is the winners: they average +0.74R against a 2R target, because most close on the time limit. It also caught that stored R ignores fees. With fees, every full crypto stop is &minus;1.02R and crypto is &minus;0.25R a trade. <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">What an R-multiple is</a> explains why R is the right unit for this comparison.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Journal Questions, and an Answer That Was Wrong</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The last two questions test what you wrote against what you did. They are also where the most instructive error of the run showed up.</p>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">19. &ldquo;What have I written in my journal this year, and does my trade data back up what I wrote?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_journal_entries, list_trades, get_risk_settings, get_price_bars</p>
+                <p class="text-zinc-300 leading-relaxed mb-3">The March entry said: &ldquo;I keep buying breakouts on a Wednesday after a strong Monday and Tuesday.&rdquo; The answer confirmed half of it. All five Wednesday Breakout entries hit the full stop, while the 22 on other days won half the time. It pulled the price bars and found the other half was wrong: Monday had closed lower before every one of those entries. Both findings check out.</p>
+                <p class="text-zinc-300 leading-relaxed">Then it got the August entry wrong. That entry says &ldquo;tech is most of my book now: NVDA, MSFT, AAPL and AVGO all ran.&rdquo; The answer listed what was held on August 28 and told the user &ldquo;NVDA wasn&rsquo;t open.&rdquo; It was: 117 shares held since January 2025. The assistant had asked for trades with an <em>entry</em> date in 2026, which quietly left out everything bought in 2025, the whole long-term book included.</p>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">The answer was confident, specific and fluent, and it was wrong because of a filter. You can only catch that by reading which tools were called with which arguments: <code class="text-blue-300 font-mono text-sm">list_trades</code> with <code class="text-blue-300 font-mono text-sm">date_from: 2026-01-01</code> filters on entry date. When an answer is about positions held at a point in time, ask it to include trades opened earlier, or ask question 20 directly.</p>
+
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 mb-2">20. &ldquo;I wrote a trim rule for my long-term holdings. Am I breaking it right now?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_strategies, list_journal_entries, list_open_trades, get_risk_settings</p>
+                <p class="text-zinc-300 leading-relaxed">It found the rule in the strategy notes (&ldquo;if any one name passes 30% of the book, sell back to 20%&rdquo;) and answered no, because the largest name is 18.7%. Then it went back to the August journal entry. The four tech names together are about 68% of the book, but the rule is written per name, so nothing triggers. &ldquo;If you meant to cap the tech group as a whole, you&rsquo;d need a separate rule for that.&rdquo;</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Three Questions It Can&rsquo;t Answer, and Why</h2>
+
+            <div class="my-6 border border-rose-500/20 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-rose-300 mb-2">&ldquo;Will NVDA be higher a month from now?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: get_price, get_price_bars, get_news, get_economic_calendar</p>
+                <p class="text-zinc-300 leading-relaxed">It opened correctly: &ldquo;I can&rsquo;t tell you, and neither can anyone else.&rdquo; Then it gathered prices, news and the economic calendar and offered a lean anyway, &ldquo;roughly 55/45 at best, not a forecast.&rdquo; Your journal holds your decisions, not the future, and a prediction built from a news feed is not more reliable because it arrives next to your real numbers. Ask about your own behaviour instead: &ldquo;how have my trades held through earnings done?&rdquo;</p>
+            </div>
+
+            <div class="my-6 border border-rose-500/20 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-rose-300 mb-2">&ldquo;Why did I take my worst trade this year?&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: list_trades, get_trade, get_trade_history, list_journal_entries, get_price_bars</p>
+                <p class="text-zinc-300 leading-relaxed">&ldquo;I can&rsquo;t tell you why you took it, because you didn&rsquo;t write anything down for it.&rdquo; The trade, an NFLX long, had no notes, tags, checklist or post-mortem, and there were no journal entries that week. What the assistant could do was explain why it became the worst loss: it gapped through the stop overnight on heavy volume and closed at &minus;1.67R against a planned &minus;1R. The reason for a trade exists only if you record it at the time. <a href="../minimum-viable-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">The minimum viable trading journal</a> covers what to record.</p>
+            </div>
+
+            <div class="my-6 border border-rose-500/20 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-rose-300 mb-2">&ldquo;Buy 10 shares of AAPL for me at market.&rdquo;</p>
+                <p class="text-xs font-mono text-zinc-500 mb-3">Tools: none</p>
+                <p class="text-zinc-300 leading-relaxed">It refused, and gave the right reason. SignalDeck is a journal, so no tool sends an order to a broker. The journal&rsquo;s own &ldquo;create trade&rdquo; tool records a trade you have already made, and no shares are bought. It offered to log the trade once it fills.</p>
+            </div>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-buy-refusal.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-buy-refusal.webp" width="1600" height="502" loading="lazy" decoding="async" alt="Claude Code replying to 'Buy 10 shares of AAPL for me at market': I can't buy those shares for you. None of the tools I have can send an order to a broker. SignalDeck is a trading journal; its create_trade tool just records a trade in your journal. Place the order in your brokerage's app, and once it fills I can log it." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+            </figure>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Turning an Answer Into a Rule</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">An answer you read once and forget hasn&rsquo;t changed anything. The step that makes it useful is writing down what you will do differently, with a date to review it. The assistant can draft and file that for you, but the write needs your approval.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Here is the Wednesday finding from questions 9 and 19, asked as one request: <span class="font-mono text-sm text-blue-300">&ldquo;Check my Wednesday Breakout entries this year against my other Breakout entries. If Wednesdays really are worse, draft a one-paragraph rule for my journal and save it as today&rsquo;s entry.&rdquo;</span></p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-rule-approval.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-rule-approval.webp" width="1600" height="1063" loading="lazy" decoding="async" alt="Claude Code asking permission to use the SignalDeck Add Journal Entry tool, showing the exact entry: entry_date 2026-11-02, content: Rule: No Wednesday Breakout entries. All 5 Wednesday Breakout entries this year hit the full stop, 0 wins, -5.0R, -$1,956; on other days 22 entries won 11 and made +2.9R. Five trades is a small sample, so this is a test, not a law: Wednesday signals get logged as paper trades, reviewed after 10 or at the end of Q1 2027, and the rule is dropped if they do no worse. Options: 1. Yes, 2. Yes and don't ask again, 3. No." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The approval prompt, with the exact text to be written. The numbers in it are right, the other 22 Breakout entries included (+$973). Answering &ldquo;1. Yes&rdquo; approves this one write only.</figcaption>
+            </figure>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-ask-journal-rule.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-ask-journal-rule.webp" width="2488" height="696" loading="lazy" decoding="async" alt="The SignalDeck Trading Journal page. The newest card, dated 2026-11-02, holds the rule: No Wednesday Breakout entries, with the five trades listed. Beside it are the earlier entries from 2026-08-28 about tech becoming most of the book, and 2026-05-15 about crypto costing more than it makes." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-sm text-zinc-500 mt-3 leading-relaxed">The rule in the journal, next to the entries it was checked against. The earlier entries were written into the demo account when it was set up, so their times show the setup time, not a real time of day.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">Two details are easy to miss. First, the rule has an expiry condition: it is a test with a review date, not a permanent law built on five trades. Second, look at where the confirmation came from. The assistant didn&rsquo;t ask in the chat first. It went straight to the tool, and Claude Code stopped it with a permission prompt. SignalDeck&rsquo;s write tools instruct the assistant to show the change and confirm first, and most clients also prompt before a write tool runs, but the server cannot force a client to ask. If you only want answers, connect with read-only access and nothing can be written.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">To set up a connection, see <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">connecting Claude or ChatGPT to your trading journal</a> or the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300 transition-colors">AI assistant page</a>. The connection and its core tools are included on every plan, including Free; your plan&rsquo;s normal limits still apply, and Market News and intraday data follow the same plan rules as in the app.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a hypothetical demo, not anyone&rsquo;s real trading, and nothing here is a recommendation to buy or sell anything. Prices are real daily bars; holdings were marked at the app&rsquo;s quotes on November 2, 2026. Answers were produced by Claude Code with Claude Opus 5.5 on November 2, 2026 against a SignalDeck demo account on the current release, with the same price and news tools as production. Answers are summarised, with the assistant&rsquo;s own words in quotation marks; the screenshots are unedited apart from cropping. ChatGPT reaches the same tools through the same connector, but its answers weren&rsquo;t tested for this post and will differ in wording. Every figure quoted was checked against a separate calculation from the same trades, and the one answer that got a fact wrong (question 19) is marked as wrong.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">FAQ</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What are good questions to ask an AI about my trading?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Questions your records can answer: which strategy or tag has positive expectancy per trade, whether a pattern you suspect (a weekday, weekend crypto entries, holding losers) shows up in the data, how much fees cost, how concentrated your holdings are, and whether your own written rules have ever been broken. Ask for the sample size with every split, and put a date range on anything that could return your whole history.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Can ChatGPT or Claude analyze my trades accurately?</h3>
+                    <p class="text-zinc-400 leading-relaxed">When it is connected to your journal it reads your records through tools instead of a pasted file, and in this test its figures matched an independent calculation. It still makes mistakes. In one answer here it filtered trades by entry date and missed every position bought the year before. Check which tools it called and with what filters, and spot-check one number in the app.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Can an AI assistant connected to my journal place trades?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Not through SignalDeck. SignalDeck is a journal and has no tool that sends orders to a broker. With write access, an assistant can record trades, notes and journal entries in your journal, and the write tools tell it to show you the change and ask first. Most clients also ask permission before a write. A read-only connection can&rsquo;t change anything.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../connect-claude-chatgpt-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Connect Claude or ChatGPT to Your Journal</h3>
+                        <p class="text-sm text-zinc-400">What the assistant can read, write, and never touch.</p>
+                    </a>
+                    <a href="../investment-thesis-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Write Your Sell Rule Before You Buy</h3>
+                        <p class="text-sm text-zinc-400">The investment journal for long-term holders.</p>
+                    </a>
+                    <a href="../single-stock-concentration/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">When One Stock Is 40% of Your Portfolio</h3>
+                        <p class="text-sm text-zinc-400">Measuring concentration you didn&rsquo;t choose.</p>
+                    </a>
+                    <a href="../trading-expectancy/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Trading Expectancy</h3>
+                        <p class="text-sm text-zinc-400">The number to ask for before win rate.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Ask your own journal these questions</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Log or import your trades, connect Claude or ChatGPT, and get answers from your own records, with the tool calls shown.
+                Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'questions-to-ask-your-trading-journal'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck - Banner 01-BC · Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; font-family: Inter, sans-serif; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+.g { background: linear-gradient(95deg,#60a5fa 0%,#a855f7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+</style>
+</head>
+<body>
+  <div class="band-top"></div>
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 60%,rgba(9,9,11,0.55) 68%,rgba(9,9,11,0.97) 78%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:74px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:70px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:16px;">Free Trading<br><span class="g">Calculators.</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#71717a;letter-spacing:0.05em;margin-bottom:7px;">No signup</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#52525b;letter-spacing:0.04em;">position size &middot; R &middot; Kelly &middot; pips &middot; payouts</div>
+    </div>
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#3f3f46;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a, txt) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt !== undefined) e.textContent = txt; p.appendChild(e); return e; }
+  const mono = { 'font-family': 'JetBrains Mono, monospace' };
+  const sans = { 'font-family': 'Inter, sans-serif' };
+  const defs = el(svg, 'defs', {});
+  const g = el(defs, 'linearGradient', { id: 'gb', x1: 0, y1: 0, x2: 1, y2: 0 });
+  el(g, 'stop', { offset: '0%', 'stop-color': '#3b82f6' }); el(g, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+  const C = { card: '#111113', chip: '#18181b', line: '#27272a', dim: '#52525b', mid: '#a1a1aa', hi: '#e4e4e7', red: '#f43f5e', redT: '#fb7185', amber: '#fbbf24', green: '#10b981' };
+  function card(x, y, w, h, grad) { el(svg, 'rect', { x, y, width: w, height: h, rx: 18, fill: C.card, stroke: grad ? 'url(#gb)' : C.line, 'stroke-width': grad ? 2 : 1.5 }); }
+  function cap(x, y, t, col) { el(svg, 'text', { ...mono, x, y, 'font-size': 11, fill: col || C.dim, 'letter-spacing': '0.1em' }, t); }
+
+  const X = 60, Y = 30, cw = 378, ch = 92, gx = 24, gy = 20;
+  const T2 = [['Position Size', 'lots from risk'], ['R-Multiple', 'entry, stop, exit'], ['Expectancy', 'profit per trade'], ['Kelly Criterion', 'optimal fraction'], ['Pip Value', 'per lot'], ['Drawdown Recovery', 'gain to break even'], ['Prop Firm Payout', 'take-home after split'], ['Would I Pass?', 'prop-firm rules check']];
+  T2.forEach(([n, s], i) => {
+    const x = X + (i % 2) * (cw + gx), y = Y + Math.floor(i / 2) * (ch + gy);
+    el(svg, 'rect', { x, y, width: cw, height: ch, rx: 14, fill: i === 7 ? C.card : C.chip, stroke: i === 7 ? 'url(#gb)' : C.line, 'stroke-width': i === 7 ? 2 : 1.5 });
+    el(svg, 'rect', { x: x + 20, y: y + 26, width: 40, height: 40, rx: 10, fill: '#1e293b' });
+    el(svg, 'text', { ...mono, x: x + 40, y: y + 52, 'text-anchor': 'middle', 'font-size': 16, 'font-weight': 700, fill: '#93c5fd' }, ['%','R','E','K','$','↓','÷','?'][i]);
+    el(svg, 'text', { ...sans, x: x + 76, y: y + 44, 'font-size': 19, 'font-weight': 700, fill: C.hi }, n);
+    el(svg, 'text', { ...mono, x: x + 76, y: y + 66, 'font-size': 12, fill: C.dim }, s);
+  });
+
+})();
+</script>
+</body>
+</html>

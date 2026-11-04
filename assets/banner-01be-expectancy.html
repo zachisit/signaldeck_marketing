@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck - Banner 01-BE · Expectancy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; font-family: Inter, sans-serif; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+.g { background: linear-gradient(95deg,#60a5fa 0%,#a855f7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+</style>
+</head>
+<body>
+  <div class="band-top"></div>
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 60%,rgba(9,9,11,0.55) 68%,rgba(9,9,11,0.97) 78%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:60px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:68px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:16px;">Expectancy:<br>Profit<br><span class="g">Per Trade.</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#71717a;letter-spacing:0.05em;margin-bottom:7px;">Trading Expectancy Calculator</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#52525b;letter-spacing:0.04em;">win rate &middot; avg win &middot; avg loss &rarr; R</div>
+    </div>
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#3f3f46;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a, txt) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt !== undefined) e.textContent = txt; p.appendChild(e); return e; }
+  const mono = { 'font-family': 'JetBrains Mono, monospace' };
+  const sans = { 'font-family': 'Inter, sans-serif' };
+  const defs = el(svg, 'defs', {});
+  const g = el(defs, 'linearGradient', { id: 'gb', x1: 0, y1: 0, x2: 1, y2: 0 });
+  el(g, 'stop', { offset: '0%', 'stop-color': '#3b82f6' }); el(g, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+  const C = { card: '#111113', chip: '#18181b', line: '#27272a', dim: '#52525b', mid: '#a1a1aa', hi: '#e4e4e7', red: '#f43f5e', redT: '#fb7185', amber: '#fbbf24', green: '#10b981' };
+  function card(x, y, w, h, grad) { el(svg, 'rect', { x, y, width: w, height: h, rx: 18, fill: C.card, stroke: grad ? 'url(#gb)' : C.line, 'stroke-width': grad ? 2 : 1.5 }); }
+  function cap(x, y, t, col) { el(svg, 'text', { ...mono, x, y, 'font-size': 11, fill: col || C.dim, 'letter-spacing': '0.1em' }, t); }
+
+  const X = 60, Y = 34, W = 780;
+  card(X, Y, W, 432, true);
+  cap(X + 28, Y + 38, 'EXAMPLE: 40% WIN RATE, +2R WINS, −1R LOSSES');
+  function term(x, y, top, bot, col) {
+    el(svg, 'rect', { x, y, width: 196, height: 128, rx: 14, fill: C.chip, stroke: C.line });
+    el(svg, 'text', { ...sans, x: x + 98, y: y + 58, 'text-anchor': 'middle', 'font-size': 34, 'font-weight': 800, fill: col }, top);
+    el(svg, 'text', { ...mono, x: x + 98, y: y + 98, 'text-anchor': 'middle', 'font-size': 13, fill: C.dim }, bot);
+  }
+  term(X + 28, Y + 80, '0.40 × 2R', 'WINS', '#93c5fd');
+  el(svg, 'text', { ...sans, x: X + 262, y: Y + 158, 'text-anchor': 'middle', 'font-size': 40, 'font-weight': 800, fill: C.mid }, '−');
+  term(X + 300, Y + 80, '0.60 × 1R', 'LOSSES', C.redT);
+  el(svg, 'text', { ...sans, x: X + 534, y: Y + 158, 'text-anchor': 'middle', 'font-size': 40, 'font-weight': 800, fill: C.mid }, '=');
+  el(svg, 'rect', { x: X + 568, y: Y + 80, width: 184, height: 128, rx: 14, fill: '#1e1b4b', stroke: 'url(#gb)', 'stroke-width': 2 });
+  el(svg, 'text', { ...sans, x: X + 660, y: Y + 160, 'text-anchor': 'middle', 'font-size': 40, 'font-weight': 900, fill: '#fff' }, '+0.20R');
+  // 10 trades strip
+  cap(X + 28, Y + 262, 'TEN TRADES AT THIS EXPECTANCY');
+  [1,0,0,1,0,1,0,0,1,0].forEach((w, i) => {
+    const x = X + 28 + i * 72, h = w ? 100 : 50;
+    el(svg, 'rect', { x, y: w ? Y + 382 - h : Y + 382 - 50, width: 52, height: h, rx: 6, fill: w ? 'url(#gb)' : C.red, opacity: 0.9 });
+  });
+  el(svg, 'text', { ...mono, x: X + W - 28, y: Y + 410, 'text-anchor': 'end', 'font-size': 13, fill: C.amber }, '4 × 2R − 6 × 1R = +2R');
+
+})();
+</script>
+</body>
+</html>

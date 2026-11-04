@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck - Banner 01-AU · MCP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; font-family: Inter, sans-serif; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+.g { background: linear-gradient(95deg,#60a5fa 0%,#a855f7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+</style>
+</head>
+<body>
+  <div class="band-top"></div>
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 60%,rgba(9,9,11,0.55) 68%,rgba(9,9,11,0.97) 78%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:58px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:62px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:16px;">Your Journal,<br>Inside Claude<br><span class="g">&amp; ChatGPT.</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#71717a;letter-spacing:0.05em;margin-bottom:7px;">AI Trading Journal (MCP)</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#52525b;letter-spacing:0.04em;">every plan &middot; read-only option</div>
+    </div>
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#3f3f46;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a, txt) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt !== undefined) e.textContent = txt; p.appendChild(e); return e; }
+  const mono = { 'font-family': 'JetBrains Mono, monospace' };
+  const sans = { 'font-family': 'Inter, sans-serif' };
+  const defs = el(svg, 'defs', {});
+  const g = el(defs, 'linearGradient', { id: 'gb', x1: 0, y1: 0, x2: 1, y2: 0 });
+  el(g, 'stop', { offset: '0%', 'stop-color': '#3b82f6' }); el(g, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+  const C = { card: '#111113', chip: '#18181b', line: '#27272a', dim: '#52525b', mid: '#a1a1aa', hi: '#e4e4e7', red: '#f43f5e', redT: '#fb7185', amber: '#fbbf24', green: '#10b981' };
+  function card(x, y, w, h, grad) { el(svg, 'rect', { x, y, width: w, height: h, rx: 18, fill: C.card, stroke: grad ? 'url(#gb)' : C.line, 'stroke-width': grad ? 2 : 1.5 }); }
+  function cap(x, y, t, col) { el(svg, 'text', { ...mono, x, y, 'font-size': 11, fill: col || C.dim, 'letter-spacing': '0.1em' }, t); }
+
+  const X = 60, Y = 34, W = 780;
+  card(X, Y, W, 432, true);
+  cap(X + 28, Y + 38, 'CONNECTED TO SIGNALDECK');
+  cap(X + W - 28, Y + 38, 'DEMO ACCOUNT'); svg.lastChild.setAttribute('text-anchor', 'end');
+  el(svg, 'line', { x1: X, y1: Y + 58, x2: X + W, y2: Y + 58, stroke: C.line });
+  const q = 'Which of my strategies makes money?';
+  el(svg, 'rect', { x: X + W - 28 - 470, y: Y + 80, width: 470, height: 52, rx: 26, fill: '#3b82f6' });
+  el(svg, 'text', { ...sans, x: X + W - 28 - 448, y: Y + 113, 'font-size': 20, 'font-weight': 700, fill: '#fff' }, q);
+  el(svg, 'text', { ...mono, x: X + 28, y: Y + 176, 'font-size': 14, 'font-weight': 700, fill: '#22d3ee' }, '> get_strategy_performance');
+  el(svg, 'text', { ...sans, x: X + 28, y: Y + 214, 'font-size': 21, 'font-weight': 700, fill: C.hi }, 'Pullback is the only one in the green.');
+  const R = [['Pullback', 2202, '20 trades'], ['Breakout', -983, '27 trades'], ['Crypto Swing', -2478, '20 trades']];
+  const zx = X + 470, k = 0.1;
+  el(svg, 'line', { x1: zx, y1: Y + 240, x2: zx, y2: Y + 410, stroke: '#3f3f46', 'stroke-width': 1.5 });
+  R.forEach(([n, v, t], i) => {
+    const y = Y + 262 + i * 52;
+    el(svg, 'text', { ...sans, x: X + 28, y: y + 14, 'font-size': 18, 'font-weight': 700, fill: C.hi }, n);
+    el(svg, 'text', { ...mono, x: X + 28, y: y + 32, 'font-size': 11, fill: C.dim }, t.toUpperCase());
+    const w = Math.abs(v) * k;
+    el(svg, 'rect', { x: v >= 0 ? zx : zx - w, y: y, width: w, height: 22, rx: 4, fill: v >= 0 ? 'url(#gb)' : C.red });
+    el(svg, 'text', { ...mono, x: v >= 0 ? zx + w + 10 : zx + 10, y: y + 17, 'font-size': 14, 'font-weight': 700, fill: v >= 0 ? '#93c5fd' : C.redT }, (v >= 0 ? '+$' : '−$') + Math.abs(v).toLocaleString());
+  });
+
+})();
+</script>
+</body>
+</html>

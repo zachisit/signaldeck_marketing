@@ -69,13 +69,13 @@ body { position: relative; }
       cx += w + 10;
     }
   });
-  // write-budget meter: 19 writes used of the 30-per-hour budget (2 create_tag + 17 set_trade_tags)
+  // write-budget meter: 19 writes used of production's 120-per-hour budget (2 create_tag + 17 set_trade_tags)
   const MY = Y + 22 + ROWS.length * RH + 6;
   el(svg, 'text', { ...mono, x: X, y: MY + 14, 'font-size': 12, 'font-weight': 700, fill: '#fbbf24', 'letter-spacing': '0.1em' }, 'WRITE BUDGET');
   const BX = X + 128, BW = 420;
   el(svg, 'rect', { x: BX, y: MY, width: BW, height: 18, rx: 9, fill: '#18181b', stroke: '#3f3f46', 'stroke-width': 1 });
-  el(svg, 'rect', { x: BX, y: MY, width: BW * 19 / 30, height: 18, rx: 9, fill: '#f59e0b', 'fill-opacity': 0.85 });
-  el(svg, 'text', { ...mono, x: BX + BW + 14, y: MY + 14, 'font-size': 13, 'font-weight': 700, fill: '#fbbf24' }, '19 / 30 per hr');
+  el(svg, 'rect', { x: BX, y: MY, width: BW * 19 / 120, height: 18, rx: 9, fill: '#f59e0b', 'fill-opacity': 0.85 });
+  el(svg, 'text', { ...mono, x: BX + BW + 14, y: MY + 14, 'font-size': 13, 'font-weight': 700, fill: '#fbbf24' }, '19 / 120 per hr');
 })();
 </script>
 </body>

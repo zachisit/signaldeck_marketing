@@ -69,7 +69,7 @@ body { position: relative; }
   // 4) trade note chip
   const NY = CY + 214;
   el(svg, 'rect', { x: CX, y: NY, width: 420, height: 44, rx: 10, fill: '#141418', stroke: '#14b8a6', 'stroke-width': 1.2 });
-  el(svg, 'text', { ...mono, x: CX + 18, y: NY + 28, 'font-size': 13, 'font-weight': 700, fill: '#5eead4' }, 'NOTE → NVDA · +0.33R · “fear exit”');
+  el(svg, 'text', { ...mono, x: CX + 18, y: NY + 28, 'font-size': 13, 'font-weight': 700, fill: '#5eead4' }, 'NOTE → NVDA · +0.33R · “felt rushed”');
   // 5) the pattern it found
   el(svg, 'text', { ...mono, x: X, y: 420, 'font-size': 12, 'font-weight': 700, fill: '#fbbf24', 'letter-spacing': '0.1em' }, 'EARLY CUTS FOUND');
   [['AUG 4', 'META', '+0.28R'], ['SEP 24', 'MSFT', '+0.14R'], ['NOV 9', 'NVDA', '+0.33R']].forEach(([d, s, r], i) => {

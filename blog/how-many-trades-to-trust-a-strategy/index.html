@@ -77,7 +77,7 @@
             "name": "How many trades do I need to know if my trading strategy works?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "It depends on how big your edge is and how much your trades vary. Roughly, N = (2 x standard deviation of R / average R) squared. For a system with a 1R stop and a 2R target (standard deviation about 1.4R), showing a +0.5R edge takes about 30 trades, +0.3R about 90, +0.2R about 200 and +0.1R about 780. Systems with bigger, rarer winners need more."
+                "text": "It depends on how big your edge is and how much your trades vary. For a system with a 1R stop and a 2R target (standard deviation about 1.4R), a strategy delivering exactly a +0.5R edge clears zero by two standard errors at about 30 trades, +0.3R at about 90, +0.2R at about 200 and +0.1R at about 780. Those are minimums: to catch a real edge about four times in five takes roughly twice as many (about 60, 170, 390 and 1,540). Systems with bigger, rarer winners usually need more."
             }
         },
         {
@@ -85,7 +85,7 @@
             "name": "Is 30 trades enough to judge a strategy?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Only if the edge is exceptional, around +0.5R a trade or more. In our test, four of eight strategies with zero edge were in profit after 20 trades, and the best showed a profit factor of 1.57. Under 30 trades, treat every statistic as a rumour."
+                "text": "Only if the edge is exceptional, around +0.5R a trade or more, and even then 30 trades catches it only about half the time. In our test, four of eight strategies with zero edge were in profit after 20 trades, and the best showed a profit factor of 1.57. Under 30 trades, treat every statistic as a rumour."
             }
         },
         {
@@ -93,7 +93,7 @@
             "name": "How do I calculate a confidence interval for my trading expectancy?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Put your R-multiples in a column. The 95% range is the average R plus or minus 2 x STDEV(R) / SQRT(COUNT(R)). If the range includes zero, you have not shown an edge yet. A 20-trade strategy averaging +0.30R with a standard deviation of 1.43R has a range of about -0.32R to +0.93R."
+                "text": "Put your R-multiples in a column. A rough 95% range is the average R plus or minus 2 x STDEV(R) / SQRT(COUNT(R)). If the range includes zero, you have not shown an edge yet. A 20-trade strategy averaging +0.30R with a standard deviation of 1.43R has a range of about -0.34R to +0.94R. The range assumes independent trades from an unchanged strategy, and it is too optimistic if you picked this strategy as the best of several."
             }
         },
         {
@@ -101,7 +101,7 @@
             "name": "Why does a strategy look great at first and then stop working?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Often it never worked. If you try several setups and keep the best-looking one, chance alone makes the best one look good. In 20,000 simulated runs of eight zero-edge strategies at 20 trades each, the best one had a profit factor of 1.5 or more 81% of the time. Traded on, it drifts back to its true edge."
+                "text": "Often it never worked. If you try several setups and keep the best-looking one, chance alone makes the best one look good. In our simulation of eight independent zero-edge strategies at 20 trades each, run 20,000 times, the best one had a profit factor of 1.5 or more 81% of the time. Traded on, it drifts back to its true edge."
             }
         },
         {
@@ -109,7 +109,7 @@
             "name": "Does SignalDeck warn about small sample sizes?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Partly. Every strategy card shows its trade count, and the Sharpe ratio is hidden below 10 closed trades or when results are too uniform for it to mean anything. Net P&L, profit factor, expectancy and win rate show on any sample, and there is no confidence range next to them yet, so read the trade count first."
+                "text": "Partly. Every strategy card shows its trade count, and the Sharpe ratio is hidden below 10 closed trades or when results are too uniform for it to mean anything. Net P&L, profit factor and win rate show on any sample, and there is no confidence range next to them yet, so read the trade count first."
             }
         }
     ]
@@ -214,13 +214,13 @@
         <div class="max-w-3xl mx-auto px-4">
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Eight Strategies, Zero Edge, 20 Trades Each</h2>
-            <p class="text-zinc-300 leading-relaxed mb-6">Every trade risks $250, or 1R. One in three trades wins between 1.6R and 2.4R, averaging +2R. The other two lose between 0.85R and 1.15R, averaging &minus;1R. That works out to (1/3 &times; 2) &minus; (2/3 &times; 1) = 0R per trade. This is a strategy that can never make money over time, and we gave it eight different names. We drew 20 trades for each one, logged them in a SignalDeck demo account, and opened the Strategy Performance screen.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Every trade is measured against 1R of planned risk, about $250 in the demo account (whole-share sizing makes it vary by a few dollars). One in three trades wins between 1.6R and 2.4R, averaging +2R. The other two lose between 0.85R and 1.15R, averaging &minus;1R. That works out to (1/3 &times; 2) &minus; (2/3 &times; 1) = 0R per trade. This strategy has no positive expected return, though any finite run of it can finish up or down. We gave it eight different names. We drew 20 trades for each one, logged them in a SignalDeck demo account, and opened the Strategy Performance screen.</p>
             <figure class="my-8">
                 <a href="../../assets/screenshot-samplesize-grid-20.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-samplesize-grid-20.webp" width="2512" height="1482" loading="lazy" decoding="async" alt="SignalDeck's Strategy Performance screen with eight cards, Rule Set A to Rule Set H, 20 trades each. A: net +$1,492, Sharpe 1.87, max drawdown -$1,149, profit factor 1.57. B: -$1,219, Sharpe -1.59, PF 0.68. C: +$1,019, Sharpe 1.19, PF 1.33. D: +$719, Sharpe 0.84, PF 1.23. E: -$3,418, Sharpe -6.79, PF 0.22. F: -$611, Sharpe -0.75, PF 0.83. G: -$1,179, Sharpe -1.50, PF 0.69. H: +$77, Sharpe 0.10, PF 1.02." class="w-full h-auto rounded-xl border border-zinc-800"></a>
                 <figcaption class="text-xs text-zinc-500 mt-2 text-center">Eight cards, one distribution. None of these has an edge.</figcaption>
             </figure>
             <p class="text-zinc-300 leading-relaxed mb-6">If you didn&rsquo;t know where these came from, you would read this screen as four working strategies and four broken ones. Rule Set A looks ready for more size. Rule Set E, at &minus;$3,418 and a Sharpe of &minus;6.79, looks like it should be deleted today. Both are the same strategy. E is not broken, and A is not working. E drew two winners in twenty, A drew nine, and that is all that separates them.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">This is the problem with reading performance stats on a small sample. Every number on a card can look sure of itself, but at 20 trades none of them can tell an edge from luck.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">This is the problem with reading performance stats on a small sample. Every number on a card can look sure of itself, but for a system like this one, 20 trades can&rsquo;t tell an edge from luck.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">We Kept Trading the Winner</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">Picking the best-looking strategy and trading more of it is what most of us would do next, so we did it. Here is Rule Set A after its first 20 trades:</p>
@@ -242,7 +242,7 @@
                 <li><strong class="text-white">One strategy on its own</strong> showed a profit factor of 1.5 or better after 20 trades <strong class="text-white">19% of the time</strong>. About one in five tries at a no-edge idea looks good enough to keep.</li>
                 <li><strong class="text-white">The best of eight</strong> reached a profit factor of 1.5 or better <strong class="text-white">81% of the time</strong>, and 2.0 or better 42% of the time. The median best-of-eight had a profit factor of 1.92 and an expectancy of +0.47R a trade.</li>
             </ul>
-            <p class="text-zinc-300 leading-relaxed mb-6">So our Rule Set A, at 1.57, was a mild result. If you try eight setups and keep the best one, the usual outcome is a profit factor near 2 from a strategy with no edge at all. The more ideas you test, the better the best one will look by chance alone. That is why the number of things you tried matters as much as how good the winner looks.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">So our Rule Set A, at 1.57, was a mild result. In this simulation, trying eight independent zero-edge setups and keeping the best one usually produced a profit factor near 2. Real setups are often correlated, which shrinks that effect, but it never makes it go away. The more ideas you test, the better the best one will look by chance alone. That is why the number of things you tried matters as much as how good the winner looks.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">The One Formula That Answers the Question</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">Measure every trade in <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a>. Your <a href="../trading-expectancy/" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy</a> is the average R. How far you can trust that average depends on two things: how much your trades vary, and how many you have.</p>
@@ -250,24 +250,25 @@
                 standard error = StdDev(R) &divide; &radic;N<br>
                 95% range &asymp; average R &plusmn; 2 &times; standard error
             </div>
-            <p class="text-zinc-300 leading-relaxed mb-6">In a spreadsheet with your R-multiples in column R, that is <code class="text-blue-300 bg-zinc-900 px-1 rounded">=AVERAGE(R:R)</code> plus or minus <code class="text-blue-300 bg-zinc-900 px-1 rounded">=2*STDEV(R:R)/SQRT(COUNT(R:R))</code>. If the range includes zero, you haven&rsquo;t shown an edge yet.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">Rule Set A at 20 trades averaged +0.30R with a standard deviation of 1.43R. The standard error is 1.43 &divide; &radic;20 = 0.32R, so the 95% range runs from about <strong class="text-white">&minus;0.32R to +0.93R a trade</strong>. That covers zero, a decent edge and a spectacular one. At 200 trades the range narrows to about <strong class="text-white">&minus;0.29R to +0.09R</strong>, which still includes zero (the true answer) and now rules out the big edge the first 20 trades seemed to show.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">Turn the formula around and you get the number of trades you need. For the range to clear zero, your average has to be about twice its standard error, so N &asymp; (2 &times; StdDev &divide; edge)&sup2;. A system with a 1R stop and a 2R target has a standard deviation around 1.4R. For that system:</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">In a spreadsheet with your R-multiples in column R, that is <code class="text-blue-300 bg-zinc-900 px-1 rounded">=AVERAGE(R:R)</code> plus or minus <code class="text-blue-300 bg-zinc-900 px-1 rounded">=2*STDEV(R:R)/SQRT(COUNT(R:R))</code>. If the range includes zero, you haven&rsquo;t shown an edge yet. This is a rough guide: it assumes your trades are independent and the strategy hasn&rsquo;t changed, and it gets less reliable on small, lopsided samples.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Rule Set A at 20 trades averaged +0.30R with a standard deviation of 1.43R. The standard error is 1.43 &divide; &radic;20 = 0.32R, so the range runs from about <strong class="text-white">&minus;0.34R to +0.94R a trade</strong>. That covers zero, a decent edge and a spectacular one. At 200 trades it narrows to about <strong class="text-white">&minus;0.29R to +0.10R</strong>, which still includes zero (the true answer) and now rules out the big edge the first 20 trades seemed to show.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Turn the formula around and you get a sample size. A system with a 1R stop and a 2R target has a standard deviation around 1.4R. The first column below is the point where a strategy that delivers exactly its true edge would clear zero by two standard errors: N &asymp; (2 &times; StdDev &divide; edge)&sup2;. That is a minimum, not a guarantee. Results scatter around the true edge, so at that count a real edge clears the bar only about half the time. The second column is the count where it clears the bar about four times in five.</p>
             <div class="my-8 overflow-x-auto rounded-xl border border-zinc-800">
                 <table class="w-full text-sm">
                     <thead>
-                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">True edge per trade</th><th class="px-4 py-3 text-right font-semibold">Trades needed to show it (about)</th></tr>
+                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">True edge per trade</th><th class="px-4 py-3 text-right font-semibold">Clears zero on average</th><th class="px-4 py-3 text-right font-semibold">Clears zero 4 times in 5</th></tr>
                     </thead>
                     <tbody class="text-zinc-300">
-                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.5R (exceptional)</td><td class="px-4 py-3 text-right">30</td></tr>
-                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.3R</td><td class="px-4 py-3 text-right">90</td></tr>
-                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.2R</td><td class="px-4 py-3 text-right">200</td></tr>
-                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.1R</td><td class="px-4 py-3 text-right">780</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.5R (exceptional)</td><td class="px-4 py-3 text-right">30</td><td class="px-4 py-3 text-right">60</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.3R</td><td class="px-4 py-3 text-right">90</td><td class="px-4 py-3 text-right">170</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.2R</td><td class="px-4 py-3 text-right">200</td><td class="px-4 py-3 text-right">390</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.1R</td><td class="px-4 py-3 text-right">780</td><td class="px-4 py-3 text-right">1,540</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p class="text-zinc-300 leading-relaxed mb-6">Two things follow from this table. Smaller edges need many more trades, because halving the edge quadruples the sample. And a system with bigger, rarer winners has a larger standard deviation, so it needs more trades than this table shows. A trend-following system that wins one trade in five has to be judged over hundreds of trades, not dozens.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">If this ratio looks familiar, it is because <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is built from it: &radic;N &times; average R &divide; StdDev(R) is the same &ldquo;average divided by its standard error.&rdquo; An SQN above 2 is roughly the point where the 95% range stops including zero.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">Approximate trade counts, assuming a standard deviation of 1.4R and independent trades. The second column is the standard 80%-power sample size at a 5% significance level. Neither column accounts for picking the best of several strategies, which needs more.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Two things follow from this table. Smaller edges need many more trades, because halving the edge quadruples the sample. And the count depends on how much your results vary, not just on win rate. A system whose profit comes from rare, large winners usually has a bigger standard deviation, so it often needs hundreds of trades rather than dozens.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">If this ratio looks familiar, it is because <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is built from it: &radic;N &times; average R &divide; StdDev(R) is the same &ldquo;average divided by its standard error&rdquo; (before SQN&rsquo;s usual cap at 100 trades). An uncapped SQN above 2 is roughly where that range stops including zero. Like every other statistic here, it carries no adjustment for how many strategies you tried before this one.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Win Rate and Profit Factor Are Just as Shaky</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">The same small-sample problem applies to every number on the card, including the two that traders quote most.</p>
@@ -277,13 +278,13 @@
                         <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Rule Set A</th><th class="px-4 py-3 text-right font-semibold">After 20 trades</th><th class="px-4 py-3 text-right font-semibold">After 200 trades</th><th class="px-4 py-3 text-right font-semibold">True value</th></tr>
                     </thead>
                     <tbody class="text-zinc-300">
-                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Expectancy</td><td class="px-4 py-3 text-right">+0.30R<br><span class="text-xs text-zinc-500">&minus;0.32 to +0.93</span></td><td class="px-4 py-3 text-right">&minus;0.10R<br><span class="text-xs text-zinc-500">&minus;0.29 to +0.09</span></td><td class="px-4 py-3 text-right">0R</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Expectancy</td><td class="px-4 py-3 text-right">+0.30R<br><span class="text-xs text-zinc-500">&minus;0.34 to +0.94</span></td><td class="px-4 py-3 text-right">&minus;0.10R<br><span class="text-xs text-zinc-500">&minus;0.29 to +0.10</span></td><td class="px-4 py-3 text-right">0R</td></tr>
                         <tr class="border-t border-zinc-800"><td class="px-4 py-3">Win rate</td><td class="px-4 py-3 text-right">45%<br><span class="text-xs text-zinc-500">26% to 66%</span></td><td class="px-4 py-3 text-right">30%<br><span class="text-xs text-zinc-500">24% to 37%</span></td><td class="px-4 py-3 text-right">33%</td></tr>
                         <tr class="border-t border-zinc-800"><td class="px-4 py-3">Profit factor</td><td class="px-4 py-3 text-right">1.58<br><span class="text-xs text-zinc-500">0.61 to 3.84</span></td><td class="px-4 py-3 text-right">0.86<br><span class="text-xs text-zinc-500">0.62 to 1.15</span></td><td class="px-4 py-3 text-right">1.0</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p class="text-zinc-500 text-sm leading-relaxed mb-6">95% ranges. Expectancy from the standard error, win rate from the Wilson interval, profit factor from 20,000 bootstrap resamples of the trades. Figures are computed from the simulated R-multiples. The app rounds through dollar fills, so its card shows 1.57 where the raw R gives 1.58.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">Approximate 95% ranges, unadjusted. Expectancy is the average &plusmn; 2 standard errors, win rate uses the Wilson interval, and profit factor comes from 20,000 bootstrap resamples of the trades. Rule Set A was picked as the best of eight, and these ranges ignore that, so its 20-trade ranges are too optimistic. The honest test of a strategy you picked is fresh trades after you picked it, which is what the next 180 trades were. Figures are computed from the simulated R-multiples. The app rounds through dollar fills, so its card shows 1.57 where the raw R gives 1.58.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">A 45% win rate on 20 trades is consistent with anything from about one win in four to two wins in three. A profit factor of 1.58 on 20 trades is consistent with a strategy that wins back only 61 cents for every dollar it loses, and with one that makes almost four dollars for every dollar lost. <a href="../why-win-rate-is-lying/" class="text-blue-400 hover:text-blue-300 transition-colors">Win rate has other problems too</a>, but sample size comes first. Profit factor also has a failure of its own: with no losing trades it is undefined, and many tools show it as infinite. Three wins in a row shows as the best profit factor possible.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">A Real Edge Can Look Broken Too</h2>
@@ -301,8 +302,8 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-zinc-300 leading-relaxed mb-6">One trader in four with a genuinely good strategy is down after 20 trades. If they quit and switch setups, they throw away the edge they were looking for. Rule Set E in the screenshot shows the same thing from the other side. It had zero edge, not a negative one, and still looked like a disaster at 20 trades.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">A long losing record is different. When our founder&rsquo;s flagship strategy lost money with a profit factor of 0.85 over 343 trades (<a href="../why-journal-trades/" class="text-blue-400 hover:text-blue-300 transition-colors">the full story is here</a>), the verdict was believable because of the 343, not because of the 0.85. The same ratio on 20 trades would have meant nothing.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Under this +0.2R model, about one 20-trade run in four finishes down. If they quit and switch setups, they throw away the edge they were looking for. Rule Set E in the screenshot shows the same thing from the other side. It had zero edge, not a negative one, and still looked like a disaster at 20 trades.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">A long losing record is different. When our founder&rsquo;s flagship strategy lost money with a profit factor of 0.85 over 343 trades (<a href="../why-journal-trades/" class="text-blue-400 hover:text-blue-300 transition-colors">the full story is here</a>), the 343 is what made it worth acting on. On its own, a profit factor of 0.85 over 343 trades is a strong warning rather than proof, since whether the range clears zero depends on how much those trades varied. The same ratio on 20 trades would have meant almost nothing.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Rules You Can Actually Use</h2>
             <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-6">
@@ -317,29 +318,29 @@
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">What SignalDeck Shows, and What It Doesn&rsquo;t</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">Every card on the Strategy Performance screen puts the trade count next to the strategy name. When we covered our founder&rsquo;s live-stream scoreboard in August, the app would show a Sharpe ratio calculated on three trades. That has since changed. SignalDeck now hides Sharpe (it shows a dash) when a strategy has fewer than 10 closed trades, or when its results are so uniform that the ratio stops meaning anything. Profit factor shows as &infin; when there are no losing trades.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">Net P&amp;L, profit factor, expectancy and win rate still show on any sample, including a single trade, and SignalDeck doesn&rsquo;t yet show a confidence range next to them. Until it does, the trade count on the card is your guard. The formula above takes a minute in a spreadsheet, using the R-multiple column in SignalDeck&rsquo;s trade export, or you can ask an assistant <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">connected to your journal</a> to work it out for each strategy.</p>
-            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a simulated demo, not anyone&rsquo;s real trading. Each trade&rsquo;s R-multiple was drawn at random from the zero-edge distribution described above (seed fixed before the first run). Symbols, dates and prices were generated to carry those R-multiples at $250 risk a trade and are not real fills, so no trade-level screenshot is shown. Screenshots are from SignalDeck&rsquo;s current release on a local test server, November 13, 2026, unedited apart from cropping. Nothing here is a recommendation to buy or sell anything.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a simulated demo, not anyone&rsquo;s real trading. Each trade&rsquo;s R-multiple was drawn at random from the zero-edge distribution described above (seed fixed before the first run). Symbols, dates and prices were generated to carry those R-multiples at about $250 of risk a trade (whole shares) and are not real fills, so no trade-level screenshot is shown. Screenshots are from SignalDeck&rsquo;s current release on a local test server, November 13, 2026, unedited apart from cropping. Nothing here is a recommendation to buy or sell anything.</p>
 
             <div class="border-t border-zinc-800 pt-12 mt-16">
                 <h2 class="text-2xl font-bold text-white mb-8">FAQ</h2>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">How many trades do I need to know if my trading strategy works?</h3>
-                    <p class="text-zinc-400 leading-relaxed">It depends on how big your edge is and how much your trades vary. Roughly, N = (2 x standard deviation of R / average R) squared. For a system with a 1R stop and a 2R target (standard deviation about 1.4R), showing a +0.5R edge takes about 30 trades, +0.3R about 90, +0.2R about 200 and +0.1R about 780. Systems with bigger, rarer winners need more.</p>
+                    <p class="text-zinc-400 leading-relaxed">It depends on how big your edge is and how much your trades vary. For a system with a 1R stop and a 2R target (standard deviation about 1.4R), a strategy delivering exactly a +0.5R edge clears zero by two standard errors at about 30 trades, +0.3R at about 90, +0.2R at about 200 and +0.1R at about 780. Those are minimums: to catch a real edge about four times in five takes roughly twice as many (about 60, 170, 390 and 1,540). Systems with bigger, rarer winners usually need more.</p>
                 </div>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">Is 30 trades enough to judge a strategy?</h3>
-                    <p class="text-zinc-400 leading-relaxed">Only if the edge is exceptional, around +0.5R a trade or more. In our test, four of eight strategies with zero edge were in profit after 20 trades, and the best showed a profit factor of 1.57. Under 30 trades, treat every statistic as a rumour.</p>
+                    <p class="text-zinc-400 leading-relaxed">Only if the edge is exceptional, around +0.5R a trade or more, and even then 30 trades catches it only about half the time. In our test, four of eight strategies with zero edge were in profit after 20 trades, and the best showed a profit factor of 1.57. Under 30 trades, treat every statistic as a rumour.</p>
                 </div>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">How do I calculate a confidence interval for my trading expectancy?</h3>
-                    <p class="text-zinc-400 leading-relaxed">Put your R-multiples in a column. The 95% range is the average R plus or minus 2 x STDEV(R) / SQRT(COUNT(R)). If the range includes zero, you have not shown an edge yet. A 20-trade strategy averaging +0.30R with a standard deviation of 1.43R has a range of about -0.32R to +0.93R.</p>
+                    <p class="text-zinc-400 leading-relaxed">Put your R-multiples in a column. A rough 95% range is the average R plus or minus 2 x STDEV(R) / SQRT(COUNT(R)). If the range includes zero, you have not shown an edge yet. A 20-trade strategy averaging +0.30R with a standard deviation of 1.43R has a range of about -0.34R to +0.94R. The range assumes independent trades from an unchanged strategy, and it is too optimistic if you picked this strategy as the best of several.</p>
                 </div>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">Why does a strategy look great at first and then stop working?</h3>
-                    <p class="text-zinc-400 leading-relaxed">Often it never worked. If you try several setups and keep the best-looking one, chance alone makes the best one look good. In 20,000 simulated runs of eight zero-edge strategies at 20 trades each, the best one had a profit factor of 1.5 or more 81% of the time. Traded on, it drifts back to its true edge.</p>
+                    <p class="text-zinc-400 leading-relaxed">Often it never worked. If you try several setups and keep the best-looking one, chance alone makes the best one look good. In our simulation of eight independent zero-edge strategies at 20 trades each, run 20,000 times, the best one had a profit factor of 1.5 or more 81% of the time. Traded on, it drifts back to its true edge.</p>
                 </div>
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-white mb-2">Does SignalDeck warn about small sample sizes?</h3>
-                    <p class="text-zinc-400 leading-relaxed">Partly. Every strategy card shows its trade count, and the Sharpe ratio is hidden below 10 closed trades or when results are too uniform for it to mean anything. Net P&amp;L, profit factor, expectancy and win rate show on any sample, and there is no confidence range next to them yet, so read the trade count first.</p>
+                    <p class="text-zinc-400 leading-relaxed">Partly. Every strategy card shows its trade count, and the Sharpe ratio is hidden below 10 closed trades or when results are too uniform for it to mean anything. Net P&amp;L, profit factor and win rate show on any sample, and there is no confidence range next to them yet, so read the trade count first.</p>
                 </div>
             </div>
 
@@ -352,7 +353,7 @@
                     </a>
                     <a href="../why-journal-trades/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
                         <h3 class="text-white font-semibold mb-1">Why Journal Trades at All?</h3>
-                        <p class="text-sm text-zinc-400">343 trades, PF 0.85: what a real verdict looks like.</p>
+                        <p class="text-sm text-zinc-400">343 trades at PF 0.85, and what one net number hides.</p>
                     </a>
                     <a href="../why-win-rate-is-lying/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
                         <h3 class="text-white font-semibold mb-1">Why Your Win Rate Is Lying</h3>
@@ -367,7 +368,7 @@
 
             <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
                 <h3 class="text-xl font-bold text-white mb-3">Count the trades before you trust the numbers</h3>
-                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">SignalDeck scores every strategy in R and puts the trade count on every card. Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">SignalDeck calculates R-based statistics for every trade with a recorded stop and puts the trade count on every strategy card. Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
                 <div class="flex flex-wrap gap-3 justify-center">
                     <a href="https://app.sgnldk.com"
                         target="_blank"

@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>How Many Trades Before Your Stats Mean Anything? | SignalDeck</title>
-    <meta name="description" content="We built eight trading strategies with zero edge. After 20 trades, four were profitable and the best showed a 1.57 profit factor. How many trades you need before win rate, profit factor and expectancy mean anything, with the formula.">
+    <meta name="description" content="Eight zero-edge strategies, 20 trades each: four finished in profit. How many trades your win rate, profit factor and expectancy need, with the formula.">
     <meta name="keywords" content="how many trades to test a strategy, trading sample size, how many trades is enough, statistical significance trading, trading strategy confidence interval, expectancy standard error, profit factor sample size, is 30 trades enough, trading journal statistics">
     <meta name="author" content="SignalDeck">
 
@@ -268,7 +268,7 @@
             </div>
             <p class="text-zinc-500 text-sm leading-relaxed mb-6">Approximate trade counts, assuming a standard deviation of 1.4R and independent trades. The second column is the standard 80%-power sample size at a 5% significance level. Neither column accounts for picking the best of several strategies, which needs more.</p>
             <p class="text-zinc-300 leading-relaxed mb-6">Two things follow from this table. Smaller edges need many more trades, because halving the edge quadruples the sample. And the count depends on how much your results vary, not just on win rate. A system whose profit comes from rare, large winners usually has a bigger standard deviation, so it often needs hundreds of trades rather than dozens.</p>
-            <p class="text-zinc-300 leading-relaxed mb-6">If this ratio looks familiar, it is because <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is built from it: &radic;N &times; average R &divide; StdDev(R) is the same &ldquo;average divided by its standard error&rdquo; (before SQN&rsquo;s usual cap at 100 trades; SignalDeck&rsquo;s SQN divides by N rather than N&minus;1 when it measures variation, so its figure sits slightly further from zero than a spreadsheetso its figure runs slightly higher than a spreadsheet&rsquo;srsquo;s). An uncapped SQN above 2 is roughly where that range stops including zero. Like every other statistic here, it carries no adjustment for how many strategies you tried before this one.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">If this ratio looks familiar, it is because <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is built from it: &radic;N &times; average R &divide; StdDev(R) is the same &ldquo;average divided by its standard error&rdquo; (before SQN&rsquo;s usual cap at 100 trades; SignalDeck&rsquo;s SQN divides by N rather than N&minus;1 when it measures variation, so its figure sits slightly further from zero than a spreadsheet&rsquo;s). An uncapped SQN above 2 is roughly where that range stops including zero. Like every other statistic here, it carries no adjustment for how many strategies you tried before this one.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-4">Win Rate and Profit Factor Are Just as Shaky</h2>
             <p class="text-zinc-300 leading-relaxed mb-6">The same small-sample problem applies to every number on the card, including the two that traders quote most.</p>

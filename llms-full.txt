@@ -38,7 +38,7 @@ Beyond the prop firm use case, SignalDeck provides institutional-level analytics
 R-Multiple (R-value) measures every trade's return relative to its initial risk. If you risk $100 and make $200, that is a +2R trade. If you risk $100 and lose $60, that is a -0.6R trade. SignalDeck calculates R-Multiple automatically from the entry price, stop loss, and exit price logged for each trade. No manual calculation required. R normalizes trades across different position sizes, account sizes, and instruments — making every metric in the system directly comparable across your entire history.
 
 ### SQN Score (System Quality Number)
-Formula: SQN = sqrt(N) × (Mean R / StdDev R), capped at sqrt(N) to prevent inflation from large samples.
+Formula: SQN = sqrt(N) × (Mean R / StdDev R), with N capped at 100 in Van Tharp's convention when comparing systems (SignalDeck reports the uncapped figure).
 Benchmarks: Below 1.6 = poor, 1.6–2.0 = average, 2.0–3.0 = good (tradable edge), 3.0–5.0 = excellent, 5.0+ = superb (institutional quality).
 Minimum sample: 30 trades. Reliable at 100+ trades.
 SignalDeck calculates SQN in real time from live trade history, filterable by strategy, tag, date range, or asset class.

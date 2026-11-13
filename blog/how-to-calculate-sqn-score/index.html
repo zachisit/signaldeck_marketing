@@ -53,7 +53,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-03-20",
-    "dateModified": "2026-09-14",
+    "dateModified": "2026-11-13",
     "image": "https://sgnldk.com/assets/banner-01i-scatter.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -89,7 +89,7 @@
                 "name": "What is the SQN formula?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SQN equals the square root of the number of trades, multiplied by the average R-multiple of all trades, divided by the standard deviation of R-multiples. In notation: SQN = sqrt(N) × (Mean R / StdDev R). The result is capped at sqrt(N) to prevent inflated scores from large sample sizes."
+                    "text": "SQN equals the square root of the number of trades, multiplied by the average R-multiple of all trades, divided by the standard deviation of R-multiples. In notation: SQN = sqrt(N) × (Mean R / StdDev R). Van Tharp caps N at 100 when comparing systems so large samples cannot inflate the score; SignalDeck reports the uncapped figure."
                 }
             }
         ]
@@ -210,7 +210,7 @@
                 <li><span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">StdDev R</span> = the standard deviation of all R-multiples (how consistent your results are)</li>
             </ul>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                Van Tharp caps the final SQN at <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">&radic;N</span> to prevent inflated scores from very large sample sizes. Without this cap, a system with 10,000 trades would score artificially high just because of volume, not because of edge quality.
+                Van Tharp&rsquo;s convention caps <span class="font-mono text-blue-400 bg-zinc-900 px-1.5 py-0.5 rounded text-sm">N</span> at 100 when comparing systems, so the &radic;N term never exceeds 10. Without that cap, a system with 10,000 trades would score high just because of volume, not because of edge quality. SignalDeck reports the uncapped figure, so on very large samples its SQN reads higher than the capped convention.
             </p>
 
             <!-- SQN Benchmarks -->
@@ -304,7 +304,7 @@ SQN = &radic;40 &times; (0.8 / 1.5)
 
                     <div>
                         <p class="text-white font-semibold mb-2">What is the SQN formula?</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">SQN equals the square root of the number of trades, multiplied by the average R-multiple of all trades, divided by the standard deviation of R-multiples. In notation: SQN = sqrt(N) &times; (Mean R / StdDev R). The result is capped at sqrt(N) to prevent inflated scores from large sample sizes.</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">SQN equals the square root of the number of trades, multiplied by the average R-multiple of all trades, divided by the standard deviation of R-multiples. In notation: SQN = sqrt(N) &times; (Mean R / StdDev R). Van Tharp caps N at 100 when comparing systems so large samples cannot inflate the score; SignalDeck reports the uncapped figure.</p>
                     </div>
                 </div>
             </div>

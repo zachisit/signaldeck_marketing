@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How Many Trades Before Your Stats Mean Anything? | SignalDeck</title>
+    <meta name="description" content="We built eight trading strategies with zero edge. After 20 trades, four were profitable and the best showed a 1.57 profit factor. How many trades you need before win rate, profit factor and expectancy mean anything, with the formula.">
+    <meta name="keywords" content="how many trades to test a strategy, trading sample size, how many trades is enough, statistical significance trading, trading strategy confidence interval, expectancy standard error, profit factor sample size, is 30 trades enough, trading journal statistics">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/how-many-trades-to-trust-a-strategy/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/how-many-trades-to-trust-a-strategy/">
+    <meta property="og:title" content="How Many Trades Before Your Stats Mean Anything? | SignalDeck">
+    <meta property="og:description" content="Eight strategies with no edge, 20 trades each: four finished in profit. We kept trading the best one for 180 more trades. How many trades your stats need before you can trust them.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01bl-zero-edge.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/how-many-trades-to-trust-a-strategy/">
+    <meta name="twitter:title" content="How Many Trades Before Your Stats Mean Anything? | SignalDeck">
+    <meta name="twitter:description" content="Eight strategies with no edge, 20 trades each: four finished in profit. We kept trading the best one for 180 more trades. How many trades your stats need before you can trust them.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01bl-zero-edge.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Many Trades Before Your Stats Mean Anything?",
+    "description": "An experiment on a SignalDeck demo account: eight strategies drawn from one zero-edge distribution (1R stop, 2R target, one winner in three), 20 trades each, then the best one traded to 200. Shows confidence ranges for expectancy, win rate and profit factor, the formula for how many trades you need, and what SignalDeck does and does not guard against.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        }
+    },
+    "datePublished": "2026-11-13",
+    "dateModified": "2026-11-13",
+    "image": "https://sgnldk.com/assets/banner-01bl-zero-edge.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/how-many-trades-to-trust-a-strategy/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How many trades do I need to know if my trading strategy works?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It depends on how big your edge is and how much your trades vary. Roughly, N = (2 x standard deviation of R / average R) squared. For a system with a 1R stop and a 2R target (standard deviation about 1.4R), showing a +0.5R edge takes about 30 trades, +0.3R about 90, +0.2R about 200 and +0.1R about 780. Systems with bigger, rarer winners need more."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is 30 trades enough to judge a strategy?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only if the edge is exceptional, around +0.5R a trade or more. In our test, four of eight strategies with zero edge were in profit after 20 trades, and the best showed a profit factor of 1.57. Under 30 trades, treat every statistic as a rumour."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I calculate a confidence interval for my trading expectancy?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Put your R-multiples in a column. The 95% range is the average R plus or minus 2 x STDEV(R) / SQRT(COUNT(R)). If the range includes zero, you have not shown an edge yet. A 20-trade strategy averaging +0.30R with a standard deviation of 1.43R has a range of about -0.32R to +0.93R."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why does a strategy look great at first and then stop working?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Often it never worked. If you try several setups and keep the best-looking one, chance alone makes the best one look good. In 20,000 simulated runs of eight zero-edge strategies at 20 trades each, the best one had a profit factor of 1.5 or more 81% of the time. Traded on, it drifts back to its true edge."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does SignalDeck warn about small sample sizes?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Partly. Every strategy card shows its trade count, and the Sharpe ratio is hidden below 10 closed trades or when results are too uniform for it to mean anything. Net P&L, profit factor, expectancy and win rate show on any sample, and there is no confidence range next to them yet, so read the trade count first."
+            }
+        }
+    ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sgnldk.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sgnldk.com/blog/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "How Many Trades Before Your Stats Mean Anything?",
+            "item": "https://sgnldk.com/blog/how-many-trades-to-trust-a-strategy/"
+        }
+    ]
+}
+    </script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-11-13</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Analytics</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                How Many Trades Before Your Stats Mean Anything?
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                We set up eight trading strategies with no edge at all. Every trade in all eight came from the same random draw: a 1R stop, a 2R target, and one winner in three, so the true expectancy is exactly zero. After 20 trades each, four of them were in profit. The best one showed a profit factor of 1.57 and a Sharpe ratio of 1.87, and an equity curve that was rising. We kept trading it for another 180 trades. Here is what happened, and how to tell how many trades your own numbers need before you believe them.
+            </p>
+        </div>
+    </header>
+
+    <article class="pb-24">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Eight Strategies, Zero Edge, 20 Trades Each</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Every trade risks $250, or 1R. One in three trades wins between 1.6R and 2.4R, averaging +2R. The other two lose between 0.85R and 1.15R, averaging &minus;1R. That works out to (1/3 &times; 2) &minus; (2/3 &times; 1) = 0R per trade. This is a strategy that can never make money over time, and we gave it eight different names. We drew 20 trades for each one, logged them in a SignalDeck demo account, and opened the Strategy Performance screen.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-samplesize-grid-20.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-samplesize-grid-20.webp" width="2512" height="1482" loading="lazy" decoding="async" alt="SignalDeck's Strategy Performance screen with eight cards, Rule Set A to Rule Set H, 20 trades each. A: net +$1,492, Sharpe 1.87, max drawdown -$1,149, profit factor 1.57. B: -$1,219, Sharpe -1.59, PF 0.68. C: +$1,019, Sharpe 1.19, PF 1.33. D: +$719, Sharpe 0.84, PF 1.23. E: -$3,418, Sharpe -6.79, PF 0.22. F: -$611, Sharpe -0.75, PF 0.83. G: -$1,179, Sharpe -1.50, PF 0.69. H: +$77, Sharpe 0.10, PF 1.02." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">Eight cards, one distribution. None of these has an edge.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">If you didn&rsquo;t know where these came from, you would read this screen as four working strategies and four broken ones. Rule Set A looks ready for more size. Rule Set E, at &minus;$3,418 and a Sharpe of &minus;6.79, looks like it should be deleted today. Both are the same strategy. E is not broken, and A is not working. E drew two winners in twenty, A drew nine, and that is all that separates them.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">This is the problem with reading performance stats on a small sample. Every number on a card can look sure of itself, but at 20 trades none of them can tell an edge from luck.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">We Kept Trading the Winner</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Picking the best-looking strategy and trading more of it is what most of us would do next, so we did it. Here is Rule Set A after its first 20 trades:</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-samplesize-winner-20.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-samplesize-winner-20.webp" width="1790" height="1012" loading="lazy" decoding="async" alt="Rule Set A's strategy detail after 20 trades: return on capital +0.6%, 20 trades, win rate 45%, profit factor 1.57, Sharpe 1.87, max drawdown $1,149.12. Expectancy +$74.62, average win +$455.39, average loss -$236.93. The equity curve rises, gives some back, and ends in profit." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">Rule Set A at 20 trades: 45% winners, +$74.62 expectancy, about +0.30R a trade.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">And here is the same strategy after 180 more trades, drawn from the same distribution:</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-samplesize-winner-200.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-samplesize-winner-200.webp" width="1790" height="1012" loading="lazy" decoding="async" alt="Rule Set A's strategy detail after 200 trades: return on capital -0.2%, 200 trades, win rate 30%, profit factor 0.86, Sharpe -1.11, max drawdown $9,246.21. Expectancy -$24.93, average win +$498.84, average loss -$249.40. The equity curve rises briefly at the start, then grinds lower and goes sideways near its low." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">The same Rule Set A at 200 trades: 30% winners, &minus;$24.93 expectancy, about &minus;0.10R a trade.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">The win rate fell from 45% to 30%, close to the true one in three. Profit factor went from 1.57 to 0.86, and Sharpe from 1.87 to &minus;1.11. The drawdown grew from $1,149 to $9,246, about 37R at $250 a trade. At 200 trades the strategy is now slightly <em>below</em> its true value of zero. That is luck too, just smaller, because 200 trades leave less room for it.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Nothing about the strategy changed. The first 20 trades were just a lucky stretch, and that stretch is the reason we picked it.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">This Was Not a Rigged Draw</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">We fixed the random seed before the first run and used the first draw we got. To check that it was typical, we ran the same experiment 20,000 times: eight zero-edge strategies, 20 trades each.</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">One strategy on its own</strong> showed a profit factor of 1.5 or better after 20 trades <strong class="text-white">19% of the time</strong>. About one in five tries at a no-edge idea looks good enough to keep.</li>
+                <li><strong class="text-white">The best of eight</strong> reached a profit factor of 1.5 or better <strong class="text-white">81% of the time</strong>, and 2.0 or better 42% of the time. The median best-of-eight had a profit factor of 1.92 and an expectancy of +0.47R a trade.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">So our Rule Set A, at 1.57, was a mild result. If you try eight setups and keep the best one, the usual outcome is a profit factor near 2 from a strategy with no edge at all. The more ideas you test, the better the best one will look by chance alone. That is why the number of things you tried matters as much as how good the winner looks.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The One Formula That Answers the Question</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Measure every trade in <a href="../what-is-r-multiple/" class="text-blue-400 hover:text-blue-300 transition-colors">R-multiples</a>. Your <a href="../trading-expectancy/" class="text-blue-400 hover:text-blue-300 transition-colors">expectancy</a> is the average R. How far you can trust that average depends on two things: how much your trades vary, and how many you have.</p>
+            <div class="my-8 p-5 bg-zinc-900/60 border border-zinc-800 rounded-xl font-mono text-sm text-zinc-200 overflow-x-auto">
+                standard error = StdDev(R) &divide; &radic;N<br>
+                95% range &asymp; average R &plusmn; 2 &times; standard error
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">In a spreadsheet with your R-multiples in column R, that is <code class="text-blue-300 bg-zinc-900 px-1 rounded">=AVERAGE(R:R)</code> plus or minus <code class="text-blue-300 bg-zinc-900 px-1 rounded">=2*STDEV(R:R)/SQRT(COUNT(R:R))</code>. If the range includes zero, you haven&rsquo;t shown an edge yet.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Rule Set A at 20 trades averaged +0.30R with a standard deviation of 1.43R. The standard error is 1.43 &divide; &radic;20 = 0.32R, so the 95% range runs from about <strong class="text-white">&minus;0.32R to +0.93R a trade</strong>. That covers zero, a decent edge and a spectacular one. At 200 trades the range narrows to about <strong class="text-white">&minus;0.29R to +0.09R</strong>, which still includes zero (the true answer) and now rules out the big edge the first 20 trades seemed to show.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Turn the formula around and you get the number of trades you need. For the range to clear zero, your average has to be about twice its standard error, so N &asymp; (2 &times; StdDev &divide; edge)&sup2;. A system with a 1R stop and a 2R target has a standard deviation around 1.4R. For that system:</p>
+            <div class="my-8 overflow-x-auto rounded-xl border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">True edge per trade</th><th class="px-4 py-3 text-right font-semibold">Trades needed to show it (about)</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.5R (exceptional)</td><td class="px-4 py-3 text-right">30</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.3R</td><td class="px-4 py-3 text-right">90</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.2R</td><td class="px-4 py-3 text-right">200</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">+0.1R</td><td class="px-4 py-3 text-right">780</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">Two things follow from this table. Smaller edges need many more trades, because halving the edge quadruples the sample. And a system with bigger, rarer winners has a larger standard deviation, so it needs more trades than this table shows. A trend-following system that wins one trade in five has to be judged over hundreds of trades, not dozens.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">If this ratio looks familiar, it is because <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is built from it: &radic;N &times; average R &divide; StdDev(R) is the same &ldquo;average divided by its standard error.&rdquo; An SQN above 2 is roughly the point where the 95% range stops including zero.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Win Rate and Profit Factor Are Just as Shaky</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The same small-sample problem applies to every number on the card, including the two that traders quote most.</p>
+            <div class="my-8 overflow-x-auto rounded-xl border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Rule Set A</th><th class="px-4 py-3 text-right font-semibold">After 20 trades</th><th class="px-4 py-3 text-right font-semibold">After 200 trades</th><th class="px-4 py-3 text-right font-semibold">True value</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Expectancy</td><td class="px-4 py-3 text-right">+0.30R<br><span class="text-xs text-zinc-500">&minus;0.32 to +0.93</span></td><td class="px-4 py-3 text-right">&minus;0.10R<br><span class="text-xs text-zinc-500">&minus;0.29 to +0.09</span></td><td class="px-4 py-3 text-right">0R</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Win rate</td><td class="px-4 py-3 text-right">45%<br><span class="text-xs text-zinc-500">26% to 66%</span></td><td class="px-4 py-3 text-right">30%<br><span class="text-xs text-zinc-500">24% to 37%</span></td><td class="px-4 py-3 text-right">33%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">Profit factor</td><td class="px-4 py-3 text-right">1.58<br><span class="text-xs text-zinc-500">0.61 to 3.84</span></td><td class="px-4 py-3 text-right">0.86<br><span class="text-xs text-zinc-500">0.62 to 1.15</span></td><td class="px-4 py-3 text-right">1.0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">95% ranges. Expectancy from the standard error, win rate from the Wilson interval, profit factor from 20,000 bootstrap resamples of the trades. Figures are computed from the simulated R-multiples. The app rounds through dollar fills, so its card shows 1.57 where the raw R gives 1.58.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">A 45% win rate on 20 trades is consistent with anything from about one win in four to two wins in three. A profit factor of 1.58 on 20 trades is consistent with a strategy that wins back only 61 cents for every dollar it loses, and with one that makes almost four dollars for every dollar lost. <a href="../why-win-rate-is-lying/" class="text-blue-400 hover:text-blue-300 transition-colors">Win rate has other problems too</a>, but sample size comes first. Profit factor also has a failure of its own: with no losing trades it is undefined, and many tools show it as infinite. Three wins in a row shows as the best profit factor possible.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">A Real Edge Can Look Broken Too</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Luck works in both directions. We ran the reverse test: a strategy with a real edge of +0.2R a trade (the same 1R stop and 2R target, winning two trades in five), traded 20,000 times over. This is how often it was still down overall:</p>
+            <div class="my-8 overflow-x-auto rounded-xl border border-zinc-800">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-zinc-800 text-xs uppercase tracking-wider text-zinc-400"><th class="px-4 py-3 text-left font-semibold">Trades taken</th><th class="px-4 py-3 text-right font-semibold">Chance a +0.2R strategy is net negative</th></tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">20</td><td class="px-4 py-3 text-right">26%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">50</td><td class="px-4 py-3 text-right">17%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">100</td><td class="px-4 py-3 text-right">8%</td></tr>
+                        <tr class="border-t border-zinc-800"><td class="px-4 py-3">200</td><td class="px-4 py-3 text-right">3%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">One trader in four with a genuinely good strategy is down after 20 trades. If they quit and switch setups, they throw away the edge they were looking for. Rule Set E in the screenshot shows the same thing from the other side. It had zero edge, not a negative one, and still looked like a disaster at 20 trades.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">A long losing record is different. When our founder&rsquo;s flagship strategy lost money with a profit factor of 0.85 over 343 trades (<a href="../why-journal-trades/" class="text-blue-400 hover:text-blue-300 transition-colors">the full story is here</a>), the verdict was believable because of the 343, not because of the 0.85. The same ratio on 20 trades would have meant nothing.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Rules You Can Actually Use</h2>
+            <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-6">
+                <li><strong class="text-white">Read the trade count before any other number.</strong> Win rate, profit factor and Sharpe mean nothing until you know the sample. Under 30 trades, treat every figure as a rumour.</li>
+                <li><strong class="text-white">Decide the sample size before you start.</strong> Write it down: &ldquo;I will judge this setup after 100 trades at fixed risk.&rdquo; If you decide when to stop by watching the equity curve, you&rsquo;ll stop on a high or quit on a low, and either way the result is biased.</li>
+                <li><strong class="text-white">Count everything you tried.</strong> If the winner is the best of eight setups, it needs a bigger margin than a single idea tested alone. Keep the losers in your journal under their own strategy label rather than deleting them, so you can see how many you tried.</li>
+                <li><strong class="text-white">Use the range, not the point.</strong> Report expectancy as &ldquo;+0.3R, somewhere between &minus;0.3R and +0.9R.&rdquo; If that range includes zero, size the strategy as if the edge might be zero.</li>
+                <li><strong class="text-white">Test fewer ideas for longer.</strong> Three setups at 100 trades each tell you more than ten setups at 30.</li>
+                <li><strong class="text-white">Stress-test the path, too.</strong> Even a real edge can have long drawdowns. <a href="../monte-carlo-simulation-trading/" class="text-blue-400 hover:text-blue-300 transition-colors">Monte Carlo resampling</a> of your actual trades shows how bad a run you should expect at your size.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What SignalDeck Shows, and What It Doesn&rsquo;t</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Every card on the Strategy Performance screen puts the trade count next to the strategy name. When we covered our founder&rsquo;s live-stream scoreboard in August, the app would show a Sharpe ratio calculated on three trades. That has since changed. SignalDeck now hides Sharpe (it shows a dash) when a strategy has fewer than 10 closed trades, or when its results are so uniform that the ratio stops meaning anything. Profit factor shows as &infin; when there are no losing trades.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">Net P&amp;L, profit factor, expectancy and win rate still show on any sample, including a single trade, and SignalDeck doesn&rsquo;t yet show a confidence range next to them. Until it does, the trade count on the card is your guard. The formula above takes a minute in a spreadsheet, using the R-multiple column in SignalDeck&rsquo;s trade export, or you can ask an assistant <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">connected to your journal</a> to work it out for each strategy.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a simulated demo, not anyone&rsquo;s real trading. Each trade&rsquo;s R-multiple was drawn at random from the zero-edge distribution described above (seed fixed before the first run). Symbols, dates and prices were generated to carry those R-multiples at $250 risk a trade and are not real fills, so no trade-level screenshot is shown. Screenshots are from SignalDeck&rsquo;s current release on a local test server, November 13, 2026, unedited apart from cropping. Nothing here is a recommendation to buy or sell anything.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">FAQ</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">How many trades do I need to know if my trading strategy works?</h3>
+                    <p class="text-zinc-400 leading-relaxed">It depends on how big your edge is and how much your trades vary. Roughly, N = (2 x standard deviation of R / average R) squared. For a system with a 1R stop and a 2R target (standard deviation about 1.4R), showing a +0.5R edge takes about 30 trades, +0.3R about 90, +0.2R about 200 and +0.1R about 780. Systems with bigger, rarer winners need more.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Is 30 trades enough to judge a strategy?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Only if the edge is exceptional, around +0.5R a trade or more. In our test, four of eight strategies with zero edge were in profit after 20 trades, and the best showed a profit factor of 1.57. Under 30 trades, treat every statistic as a rumour.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">How do I calculate a confidence interval for my trading expectancy?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Put your R-multiples in a column. The 95% range is the average R plus or minus 2 x STDEV(R) / SQRT(COUNT(R)). If the range includes zero, you have not shown an edge yet. A 20-trade strategy averaging +0.30R with a standard deviation of 1.43R has a range of about -0.32R to +0.93R.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Why does a strategy look great at first and then stop working?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Often it never worked. If you try several setups and keep the best-looking one, chance alone makes the best one look good. In 20,000 simulated runs of eight zero-edge strategies at 20 trades each, the best one had a profit factor of 1.5 or more 81% of the time. Traded on, it drifts back to its true edge.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Does SignalDeck warn about small sample sizes?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Partly. Every strategy card shows its trade count, and the Sharpe ratio is hidden below 10 closed trades or when results are too uniform for it to mean anything. Net P&amp;L, profit factor, expectancy and win rate show on any sample, and there is no confidence range next to them yet, so read the trade count first.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../how-to-calculate-sqn-score/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">How to Calculate SQN</h3>
+                        <p class="text-sm text-zinc-400">The sample-size-aware score built on the same ratio.</p>
+                    </a>
+                    <a href="../why-journal-trades/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Why Journal Trades at All?</h3>
+                        <p class="text-sm text-zinc-400">343 trades, PF 0.85: what a real verdict looks like.</p>
+                    </a>
+                    <a href="../why-win-rate-is-lying/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Why Your Win Rate Is Lying</h3>
+                        <p class="text-sm text-zinc-400">The metrics that matter more than hit rate.</p>
+                    </a>
+                    <a href="../monte-carlo-simulation-trading/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Monte Carlo Simulation for Traders</h3>
+                        <p class="text-sm text-zinc-400">How bad can a run get with the edge you have?</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Count the trades before you trust the numbers</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">SignalDeck scores every strategy in R and puts the trade count on every card. Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'how-many-trades-to-trust-a-strategy'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

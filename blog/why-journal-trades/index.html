@@ -58,7 +58,7 @@
         "@id": "https://sgnldk.com/#org"
     },
     "datePublished": "2026-08-31",
-    "dateModified": "2026-09-11",
+    "dateModified": "2026-11-13",
     "image": "https://sgnldk.com/assets/banner-01ad-strategy-attribution.png",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -303,7 +303,7 @@
                 The third row deserves the most scepticism despite having the best-looking numbers. A profit factor of 36.91 comes from an average win of $1,243 against an average loss of $25.76, over 30 trades that were all long, with an average hold of 33 days. That is not a description of a strategy with a huge edge. It is a description of a payoff profile whose losses have not happened yet: a rule set that exits losers almost immediately has, so far, never been caught in the gap-through-your-stop scenario that defines its real risk, and 30 long-only trades have not yet met a market that goes down. We are not saying it is bad. We are saying that 30 trades cannot tell you, and a number like 36.91 is a signal to check the sample rather than to allocate.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
-                One honest note about our own product while we are here: SignalDeck computes these metrics on whatever sample exists and does not currently suppress or flag them below a minimum trade count, so a Sharpe ratio calculated on three trades will render as confidently as one calculated on three hundred. Read the trade count column first. That guard is a known gap on our side rather than a design choice, and until it ships the discipline has to come from you.
+                One honest note about our own product while we are here: when this was filmed, SignalDeck computed these metrics on whatever sample existed, so a Sharpe ratio calculated on three trades rendered as confidently as one calculated on three hundred. Sharpe is now hidden below 10 closed trades, but net P&amp;L, profit factor and win rate still show on any sample. Read the trade count column first; <a href="../how-many-trades-to-trust-a-strategy/" class="text-blue-400 hover:text-blue-300 transition-colors">how many trades a statistic needs</a> has the arithmetic.
             </p>
             <p class="text-zinc-300 leading-relaxed mb-6">
                 For the general version of this problem, our post on <a href="../why-win-rate-is-lying/" class="text-blue-400 hover:text-blue-300 transition-colors">why win rate lies</a> covers which statistics stabilise quickly and which ones do not, and <a href="../how-to-calculate-sqn-score/" class="text-blue-400 hover:text-blue-300 transition-colors">SQN</a> is explicitly a sample-size-aware alternative to reading raw returns.

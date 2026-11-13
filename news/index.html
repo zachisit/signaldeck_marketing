@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgnldk.com/news/">
     <meta property="og:title" content="Market News on the Symbols You Trade | SignalDeck">
-    <meta property="og:description" content="Symbol-specific news inside your journal — and the headlines from around the time you entered each trade. Stocks, CFD indices, metals &amp; crypto (forex &amp; futures coming soon).">
+    <meta property="og:description" content="Symbol-specific news inside your journal — and the headlines from around the time you entered each trade. Stocks, CFD indices, metals, crypto &amp; forex (futures by invitation on paid plans).">
     <meta property="og:image" content="https://sgnldk.com/assets/banner-01ba-news.png">
     <meta property="og:image:width" content="1500">
     <meta property="og:image:height" content="750">
@@ -35,7 +35,7 @@
     "@type": "WebPage",
     "name": "Market News on the Symbols You Trade",
     "url": "https://sgnldk.com/news/",
-    "description": "SignalDeck's in-journal market news — symbol-specific headlines for stocks, CFD indices, metals and crypto (forex and futures coming soon), plus the news from around the time you entered each trade, sentiment-tagged. Elite plan feature.",
+    "description": "SignalDeck's in-journal market news — headlines for stocks, CFD indices, metals, crypto and forex (futures by invitation on paid plans), plus the news from around the time you entered each trade, sentiment-tagged. Elite plan feature.",
     "publisher": {
         "@type": "Organization",
         "name": "SignalDeck",
@@ -48,7 +48,7 @@
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Do trading journals show news on the symbols you trade?","acceptedAnswer":{"@type":"Answer","text":"Almost none do — most journals are post-trade analytics with no news layer, so you keep a separate news tab or terminal open. SignalDeck pulls market news for the exact symbol on each trade, inside the journal, and archives the headlines from around your entry so you can review what the tape was reacting to."}},
     {"@type":"Question","name":"What is news at trade entry?","acceptedAnswer":{"@type":"Answer","text":"When you review a closed trade, SignalDeck shows the headlines published in the window around your entry timestamp — 24 hours either side by default, adjustable up to 7 days. It answers \"what was the market reacting to when I got in?\" from your own archived news, so your post-mortem includes the context, not just the price action."}},
-    {"@type":"Question","name":"Which asset classes get news coverage?","acceptedAnswer":{"@type":"Answer","text":"Live today: stocks and equity ETFs get symbol-specific headlines; CFD indices map to a liquid proxy (US500 → SPY, US100 → QQQ) for index-level news; metals like XAUUSD map to GLD; and crypto gets per-coin news. Forex and futures coverage is coming soon. Where no symbol-specific source exists, you get honest market/macro headlines — never the wrong symbol's news."}},
+    {"@type":"Question","name":"Which asset classes get news coverage?","acceptedAnswer":{"@type":"Answer","text":"Live today: stocks and equity ETFs get symbol-specific headlines; CFD indices map to a liquid proxy (US500 → SPY, US100 → QQQ) for index-level news; metals like XAUUSD map to GLD; and crypto gets per-coin news. Forex pairs get currency and macro headlines. Futures coverage is available by invitation on paid plans. Where no symbol-specific source exists, you get honest market/macro headlines — never the wrong symbol's news."}},
     {"@type":"Question","name":"Are the headlines sentiment-tagged?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each headline is tagged positive, neutral or negative where the source provides sentiment, so you can scan the tone of the tape on a symbol at a glance rather than reading every article."}},
     {"@type":"Question","name":"Which plan includes Market News?","acceptedAnswer":{"@type":"Answer","text":"Market News is an Elite plan feature ($50/mo when billing launches), and it's free for everyone during the beta. The live news feed, the per-trade News tab, the dedicated News screen, and news-at-entry are all included on Elite."}}
     ]}
@@ -121,7 +121,7 @@
                 <span class="text-teal-400">you're actually trading.</span>
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-zinc-400 font-mono">
-                Open any trade and see the headlines for that exact symbol — and the news from around the time you entered. Stocks, CFD indices, metals and crypto, sentiment-tagged, inside the journal you already work in. Forex and futures coming soon.
+                Open any trade and see the headlines for that exact symbol — and the news from around the time you entered. Stocks, CFD indices, metals, crypto and forex, sentiment-tagged, inside the journal you already work in. Futures by invitation on paid plans.
             </p>
             <div class="mt-6 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-sm text-zinc-400">
                 <div class="flex items-start gap-2">
@@ -140,7 +140,7 @@
                     <span class="text-teal-400 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </span>
-                    <span><strong class="text-white">Multi-asset</strong> — stocks, CFD indices, metals &amp; crypto live · forex &amp; futures coming soon.</span>
+                    <span><strong class="text-white">Multi-asset</strong> — stocks, CFD indices, metals, crypto &amp; forex live · futures by invitation on paid plans.</span>
                 </div>
                 <div class="flex items-start gap-2">
                     <span class="text-teal-400 mt-0.5">
@@ -213,7 +213,7 @@
                         Open any trade and switch to the News tab — SignalDeck pulls the latest headlines for that exact symbol, sentiment-tagged so you can read the tone of the tape at a glance. No second terminal, no copy-pasting tickers into a news site.
                     </p>
                     <p class="text-zinc-400 leading-relaxed">
-                        It works the same whether you're holding AAPL, US500, XAUUSD or BTC — the journal resolves the right source for each instrument so the news matches the symbol you're actually in. Forex and futures coverage is coming soon.
+                        It works the same whether you're holding AAPL, US500, XAUUSD or BTC — the journal resolves the right source for each instrument so the news matches the symbol you're actually in. Futures coverage is available by invitation on paid plans.
                     </p>
                 </div>
             </div>
@@ -347,8 +347,12 @@
                             <span><strong class="text-white">Crypto</strong> — per-coin news (BTC, ETH and more)</span>
                         </li>
                         <li class="flex items-start gap-2">
+                            <span class="text-teal-400 mt-0.5">></span>
+                            <span><strong class="text-white">Forex</strong> — currency-pair and macro headlines</span>
+                        </li>
+                        <li class="flex items-start gap-2">
                             <span class="text-zinc-600 mt-0.5">></span>
-                            <span class="text-zinc-500"><strong class="text-zinc-400">Forex &amp; futures</strong> — coming soon</span>
+                            <span class="text-zinc-500"><strong class="text-zinc-400">Futures</strong> — by invitation on paid plans</span>
                         </li>
                     </ul>
                 </div>
@@ -409,7 +413,7 @@
                             <h4 class="text-xl font-bold text-white">Filterable News Feed</h4>
                         </div>
                         <p class="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">
-                            A dedicated News screen across stocks, crypto, CFD indices and macro — multi-filter it down to just the markets you trade. Forex and futures coming soon.
+                            A dedicated News screen across stocks, crypto, forex, CFD indices and macro — multi-filter it down to just the markets you trade. Futures by invitation on paid plans.
                         </p>
                         <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-xl">
                             <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Filters active</div>
@@ -523,7 +527,7 @@
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">
                     <h3 class="text-base font-bold text-white mb-2">Which asset classes get news coverage?</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Live today: stocks and equity ETFs get symbol-specific headlines; CFD indices map to a liquid proxy (US500 → SPY, US100 → QQQ) for index-level news; metals like XAUUSD map to GLD; and crypto gets per-coin news. <strong class="text-white">Forex and futures coverage is coming soon.</strong> Where no symbol-specific source exists, you get honest market/macro headlines — never the wrong symbol's news.</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Live today: stocks and equity ETFs get symbol-specific headlines; CFD indices map to a liquid proxy (US500 → SPY, US100 → QQQ) for index-level news; metals like XAUUSD map to GLD; and crypto gets per-coin news. Forex pairs get currency and macro headlines. <strong class="text-white">Futures coverage is available by invitation on paid plans.</strong> Where no symbol-specific source exists, you get honest market/macro headlines — never the wrong symbol's news.</p>
                 </div>
 
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-6">

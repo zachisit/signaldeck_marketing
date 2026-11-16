@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L30T1BW9L8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L30T1BW9L8');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../img/mark-blue-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Monthly Portfolio Review Template, Run by AI | SignalDeck</title>
+    <meta name="description" content="A copy-paste monthly portfolio review for stock and crypto holders. We ran it with a real AI assistant on a demo book: concentration, a sell rule ignored, and every number checked.">
+    <meta name="keywords" content="monthly portfolio review, monthly trading review template, portfolio review checklist, ai portfolio review, claude portfolio review, chatgpt portfolio review, crypto portfolio review, investment thesis review, position concentration">
+    <meta name="author" content="SignalDeck">
+
+    <link rel="canonical" href="https://sgnldk.com/blog/monthly-portfolio-review-ai/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sgnldk.com/blog/monthly-portfolio-review-ai/">
+    <meta property="og:title" content="A 15-Minute Monthly Review for Stock and Crypto Holders, Run by Your AI Assistant | SignalDeck">
+    <meta property="og:description" content="One prompt, a five-part format, and a real run against a demo book of stocks and crypto: what moved, what drifted over its cap, which sell rule fired and was ignored, and what last month’s question turned out to be worth.">
+    <meta property="og:image" content="https://sgnldk.com/assets/banner-01bm-monthly-review.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="750">
+    <meta property="og:site_name" content="SignalDeck">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sgnldk">
+    <meta name="twitter:url" content="https://sgnldk.com/blog/monthly-portfolio-review-ai/">
+    <meta name="twitter:title" content="A 15-Minute Monthly Review for Stock and Crypto Holders, Run by Your AI Assistant | SignalDeck">
+    <meta name="twitter:description" content="One prompt, a five-part format, and a real run against a demo book of stocks and crypto: what moved, what drifted over its cap, which sell rule fired and was ignored, and what last month’s question turned out to be worth.">
+    <meta name="twitter:image" content="https://sgnldk.com/assets/banner-01bm-monthly-review.png">
+
+    <!-- SEO CONVENTION: update dateModified above whenever this article is edited -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A 15-Minute Monthly Review for Stock and Crypto Holders, Run by Your AI Assistant",
+    "description": "A copy-paste monthly portfolio review prompt for holders of stocks and crypto, run by Claude or ChatGPT connected to SignalDeck. It covers the period since the last review: what moved, each position's share of the book against a cap, whether any sell condition written at purchase fired and what was done, last month's question, and one question for next month, then files the review as a journal entry after approval. Tested with Claude Code on a hypothetical demo account on real prices on November 16, 2026, with every figure checked.",
+    "author": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "SignalDeck",
+        "@id": "https://sgnldk.com/#org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sgnldk.com/img/mark-blue-512.png"
+        }
+    },
+    "datePublished": "2026-11-16",
+    "dateModified": "2026-11-16",
+    "image": "https://sgnldk.com/assets/banner-01bm-monthly-review.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sgnldk.com/blog/monthly-portfolio-review-ai/"
+    }
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What should a monthly portfolio review include?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Five things, in the same order every month: what moved in dollars, plus any realized gains or losses from sales; each position’s share of the book, checked against your own cap; whether any sell condition you wrote at purchase fired, and what you did about it; the question you asked yourself at the last review and what actually happened; and one question to carry into the next. A fixed format matters more than a long one, because the value is in comparing one month with the next."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can ChatGPT or Claude run a monthly portfolio review?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, if it can read your holdings. Connected to SignalDeck, Claude or ChatGPT can read your open positions, the notes you wrote when you bought, your journal, your closed trades and current and historical prices, then write the review and file it as a journal entry. We tested the prompt in this post with Claude Code on November 16, 2026. ChatGPT reaches the same tools through the same connector, but we did not test it and its answers will differ."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will the AI tell me what to buy or sell?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The prompt in this post tells it not to, and in our run it didn’t. It reported what the account’s own written rules said and what was actually done, for example that a sell condition fired and the position was not sold, without recommending a trade. Whether to act on a broken rule is your decision."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why do 30-day stats show no trades for a long-term holder?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SignalDeck’s dashboard date ranges select trades by entry date, so 30-day stats only count positions opened in the last 30 days. A holder who sells a position bought last year sees that sale in the trade list, not in 30-day stats. The prompt in this post avoids the problem by paging through closed trades and filtering on the exit date."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How long does an AI-run monthly review take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In our test the assistant gathered the data (29 read calls) and wrote the review in under two minutes. Budget about 15 minutes in all, so there is time to read it and check the figures you would act on before you approve the journal entry. Don’t skip the check: in an earlier test run, one total was wrong."
+            }
+        }
+    ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sgnldk.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sgnldk.com/blog/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "A 15-Minute Monthly Review for Stock and Crypto Holders, Run by Your AI Assistant",
+            "item": "https://sgnldk.com/blog/monthly-portfolio-review-ai/"
+        }
+    ]
+}
+    </script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/site.css">
+
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <img src="../../img/logo-horizontal-light.svg" class="h-7 w-auto" alt="SignalDeck">
+                    <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-bold bg-blue-900/50 text-blue-200 border border-blue-700/50 uppercase tracking-wide" aria-label="Platform currently in beta testing phase">Beta</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="../../demo/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Demo</a>
+                    <a href="../../plans/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Plans</a>
+                    <a href="../../compare/" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Compare</a>
+                    <a href="../../discord.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Discord</a>
+                    <a href="../../" title="Home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Back to Home</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-zinc-400 hover:text-white" aria-label="Toggle navigation menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-3 space-y-1">
+            <a href="../../demo/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Demo</a>
+            <a href="../../plans/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Plans</a>
+            <a href="../../compare/" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Compare</a>
+            <a href="../../discord.html" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white border-b border-zinc-800/50">Discord</a>
+            <a href="../../" class="block py-2.5 text-sm font-medium text-zinc-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+
+    <header class="pt-16 pb-4">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="../" class="text-xs font-mono text-zinc-500 hover:text-blue-400 transition-colors mb-6 inline-block">&larr; Back to Blog</a>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-zinc-500">2026-11-16</span>
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">Process</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                A 15-Minute Monthly Review for Stock and Crypto Holders, Run by Your AI Assistant
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed">
+                Holders don&rsquo;t get a daily verdict from the market the way traders do, so the monthly review is where the rules you wrote at purchase either get checked or quietly lapse. This post gives you one prompt to paste into Claude or ChatGPT once a month. It asks for the same five-part review every time and files it in your journal. We ran it this morning, November 16, 2026, on a demo book of stocks and coins at real prices. It found two positions over their cap, a sell rule that fired and wasn&rsquo;t followed, and the answer to the question the holder asked themselves a month ago. We checked every number it gave.
+            </p>
+        </div>
+    </header>
+
+    <article class="py-12">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Monthly, and Why the Same Format Every Time</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">A holder&rsquo;s mistakes are slow. A position drifts from 17% of the book to 23% without you buying a share (see <a href="../single-stock-concentration/" class="text-blue-400 hover:text-blue-300 transition-colors">concentration by drift</a>). A price line you wrote at purchase gets crossed on a Friday night, and by Monday you have a reason to wait (see <a href="../investment-thesis-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">writing the sell rule first</a>). No single day looks like a decision. A monthly review is the date on which those slow things get looked at on purpose.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The format matters more than the length. If every review has the same five sections, this month&rsquo;s can be read against last month&rsquo;s, and each review can end with a question that the next one has to answer. Fifteen minutes is a fair budget if something else does the gathering and the arithmetic. That is the part an assistant connected to your journal is good at, and the part you still need to spot-check.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Prompt</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">Copy this into a new chat with SignalDeck connected. The words in brackets are SignalDeck&rsquo;s tool names. The assistant would understand you without them, but naming them makes it far more likely to fetch the same data every month.</p>
+            <pre class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6 text-sm font-mono text-zinc-200 leading-relaxed" style="white-space:pre-wrap;overflow-wrap:anywhere;">Run my monthly portfolio review from my SignalDeck account. Describe what happened; don't tell me what to buy or sell.
+
+Find my last monthly review in my journal (list_journal_entries). The review period runs from that date to today.
+
+Gather:
+- every open position (list_open_trades), and each one's purchase note (get_trade)
+- every trade closed during the period (list_trades, status CLOSED). Its date filter is the ENTRY date, so page through all closed trades and filter on exit date yourself.
+- my journal entries during the period (list_journal_entries)
+- my rules, in my strategy's notes (list_strategies)
+- each open position's close on the start date (get_price_bars) and its current price (get_price)
+
+Then write the review in exactly this format, short:
+1. WHAT MOVED: the three biggest moves in dollars during the period, and realized P&amp;L from sales.
+2. CONCENTRATION: each position's share of the book (the market value of my open positions), largest first. Flag anything over my cap. Effective number of positions (1 / sum of squared weights).
+3. RULE CHECK: for each position, did its WRONG IF fire during the period? If it did, what did I do and what did I write? For each sale, did it follow its note?
+4. LAST MONTH'S QUESTION: what I asked, and what actually happened.
+5. ONE QUESTION FOR NEXT MONTH.
+
+Show your numbers, and tell me if any list came back cut off. Then show me the journal entry you would file for today, mood neutral, and don't file it until I say yes.</pre>
+            <p class="text-zinc-300 leading-relaxed mb-6">Four lines in it do most of the work:</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">&ldquo;From that date to today.&rdquo;</strong> The period runs from your last review, not a rolling 30 days, so last month&rsquo;s review is always inside it and each review picks up where the previous one ended. Run it at the same time of day each month so the periods line up.</li>
+                <li><strong class="text-white">&ldquo;Page through all closed trades and filter on exit date yourself.&rdquo;</strong> SignalDeck&rsquo;s trade list filters dates on the entry date, and returns 50 trades at a time. A holder&rsquo;s sales are of positions bought months or years ago, so without this line a month&rsquo;s sales can drop out of the review. More on this <a href="#dashboard" class="text-blue-400 hover:text-blue-300 transition-colors">below</a>.</li>
+                <li><strong class="text-white">&ldquo;Show your numbers, and tell me if any list came back cut off.&rdquo;</strong> An answer with its working shown can be checked in a minute. A bare total can&rsquo;t.</li>
+                <li><strong class="text-white">&ldquo;Don&rsquo;t file it until I say yes.&rdquo;</strong> The review becomes a journal entry, and next month&rsquo;s review reads it. You want the version you checked on file.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">One gap the prompt leaves: SignalDeck returns at most 100 journal entries per request. If you write more than that in a month, add &ldquo;ask for my journal a week at a time&rdquo; to the prompt.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">The prompt assumes two habits. Each purchase has a note with a <strong class="text-white">WRONG IF</strong> line: the condition that means the reason you bought is gone. And your rules, including a cap on any one position, are written down where the assistant can read them, here in the strategy&rsquo;s notes. If you use different headings, change the words in section 3 to match. If you have no written sell conditions, the rule check will have nothing to check, which is worth knowing too.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">The Test Account</h2>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">A hypothetical holder, on real prices.</strong> Six stocks bought at the May 1, 2025 open (NVDA, MSFT, LLY, COST, JPM, V) and three coins bought at the September 1, 2026 open (BTC, ETH, SOL), each at that day&rsquo;s real opening price. Every purchase has a note with WHY, WRONG IF and BY WHEN lines. The stock notes have a business condition and a price line; the coin notes have a price line only. No line was crossed before the month under review.</li>
+                <li><strong class="text-white">The holder&rsquo;s rules,</strong> in the strategy notes: a WRONG IF price is a daily close (for crypto, the 00:00 UTC close, which is 7 p.m. in New York in November); if it prints, sell at the next open, whatever the story. No position above 20% of the book, meaning the market value of open positions; at each monthly review, trim anything over 20% back to 15%. Reviews started in October 2026.</li>
+                <li><strong class="text-white">The month, October 16 to November 16, 2026.</strong> V reached the 420 limit in its note for the first time on November 2 and was sold there. SOL closed under its 90 line on November 5 and was sold at the next daily open (modeled at that bar&rsquo;s opening price). BTC closed under its 70,000 line on November 13 and was <strong class="text-white">not</strong> sold; that evening&rsquo;s journal entry says why. NVDA fell 27%.</li>
+                <li><strong class="text-white">Last month&rsquo;s review,</strong> filed October 16 in the same five sections, said NVDA was 24% of the book and wasn&rsquo;t trimmed, and ended with this question: <em>&ldquo;BTC is about 16% above its 70,000 line. If it closes under, do I sell at the next open like the note says, or do I find a reason?&rdquo;</em> We wrote that entry, and the other four journal entries, for this test.</li>
+                <li><strong class="text-white">The assistant is Claude Code (Claude Opus 5.5), run at about 7:20 a.m. ET on November 16, 2026,</strong> before the US market opened. So &ldquo;now&rdquo; for the stocks means pre-market quotes, and for the coins, that minute&rsquo;s price. It was connected with a token that can read and write but not delete. SignalDeck&rsquo;s read tools were pre-allowed and its write tools were not, so Claude Code asked before the write. Web, file and shell tools were off.</li>
+            </ul>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What Came Back</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The prompt was pasted in as written. The assistant made 29 read calls: the journal, the positions and all nine purchase notes, the closed trades, the strategy, prices and daily bars. It went back for two extra sets of bars on its own, to check the two sales against their notes. In under two minutes it returned the review. It began by stating the period and answering the &ldquo;cut off&rdquo; question, list by list.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-monthlyreview-review-moved.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-monthlyreview-review-moved.webp" width="1568" height="1422" loading="lazy" decoding="async" alt="Claude Code: Monthly review, Oct 16 to Nov 16, 2026. Period: the last review was filed on 2026-10-16 (journal 95), so this one covers Oct 16 to today. Start means the Oct 16 close, the 00:00 UTC close for crypto; now is the live get_price; the last stock bar is Friday Nov 13 and today&#x27;s crypto bar is still open. Were any lists cut off? No: open trades 7 of 7, closed trades 2 of 2, both exited in the period, journal 5 of 5; the price bars say truncated true only because they stopped at the number of bars requested. Data caveat: every journal entry and the strategy record show an updated or created time of today at 12:20, which looks like a bulk import; the trade notes&#x27; own timestamps are intact. 1. WHAT MOVED, start to now and dollar move: NVDA 168 shares, 214.13 to 156.65, minus 9,656.64; LLY 20, 1,257.03 to 1,456.57, plus 3,990.80; BTC 0.15, 81,500.04 to 63,910.90, minus 2,638.37; ETH 3, minus 1,885.92; COST 15, plus 1,847.85; SOL sold, 40, 104.32 to the 89.21 exit, minus 604.40; V sold, 26, 402.61 to the 420.00 exit, plus 452.14; JPM plus 318.50; MSFT minus 215.20. Realized P&amp;L from sales: V plus 1,934.92 and SOL minus 556.00, net plus 1,378.92, measured from each entry date. Period total minus 8,391.24 across all nine names, or minus 8,238.98 on the seven still open." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">Section 1, with the period, the completeness check and an unprompted data caveat first.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">Two things here are worth noticing before the numbers. It separated the period&rsquo;s moves (from the October 16 close) from realized P&amp;L (the profit or loss a sale locked in, measured from each purchase), which are different questions and easy to blur. And it flagged something we hadn&rsquo;t asked about: the journal entries had all been updated on the same morning, &ldquo;which looks like a bulk import.&rdquo; It was right. We created them for this test that morning, backdated to the days they describe. An assistant that tells you when the records themselves look odd is worth more than one that doesn&rsquo;t.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">NVDA&rsquo;s fall is the month: 168 shares from 214.13 to about 157 is &minus;$9,657, more than everything else put together. The two sales came out where their notes said they would. Taking one unit of risk (1R) as the gap between the purchase price and the WRONG IF line, times the quantity held, V made +0.98R at its target and SOL lost &minus;1.06R at its line.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-monthlyreview-review-rules.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-monthlyreview-review-rules.webp" width="1568" height="2115" loading="lazy" decoding="async" alt="2. CONCENTRATION. The book is 125,005.16 dollars in market value. Share of book: LLY 23.3%, over the 20% cap; NVDA 21.1%, over the 20% cap; MSFT 16.8%; JPM 13.6%; COST 13.3%; BTC 7.7%; ETH 4.3%. Effective number of positions 1 divided by 0.1707 equals 5.86. The strategy notes say to trim anything over 20% back to 15% at the monthly review; last month NVDA was at 24% and wasn&#x27;t trimmed. 3. RULE CHECK. BTC: the WRONG IF fired. The first close under 70,000 was Nov 13 at 68,324; the close before was 71,370.70. The next open was 68,237.40 and it wasn&#x27;t sold. It also closed under the line on Nov 14 (64,118.79) and Nov 15 (65,315.35). It&#x27;s at 63,910.90 now, minus 648.98 dollars compared with selling at that open. On Nov 13 you wrote: Everyone is calling it capitulation and funding is negative. Selling the bottom is how you lose. Giving it until the end of the month. The other price lines did not fire: a table of lowest close in the period against each line, ETH 1,768.41 against 1,600, NVDA 162.85 against 85, LLY 1,240.34 against 600, MSFT 507.12 against 330, JPM 331.58 against 190, COST 982.73 against 800. It couldn&#x27;t check the business-condition parts of the WRONG IF lines from SignalDeck data. Both sales followed their notes: SOL first closed under 90 on Nov 5 at 89.20 and sold at the next open, 89.21, one minute after the UTC close; V&#x27;s 420 limit filled on Nov 2, the first day V traded at 420, the high before that being 417 on Oct 30." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">Sections 2 and 3: the concentration and the rule check, with the working shown.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">Three things in this part are worth more than the numbers:</p>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">It found NVDA over the cap at both reviews.</strong> NVDA was 24% at the October review, and that entry says &ldquo;did not trim, it is the best idea I have.&rdquo; Today it is still over 20% even after losing more than a quarter of its value, and LLY has joined it. That is measured against open positions, as the rules define the book. Count the cash from the two sales as well and LLY is about 21% and NVDA about 19%, so how you define the book matters, and it is worth writing down.</li>
+                <li><strong class="text-white">It put the BTC note and the BTC journal entry side by side.</strong> The note says sell at the next open, whatever the story. The journal gives a story and a deadline that appears nowhere in the note. The assistant quoted both and measured the cost of waiting so far: another $649 since the open it should have sold at. It didn&rsquo;t say what to do. In R terms, selling at that open would have realized about &minus;1.21R (a daily-close rule can&rsquo;t promise a fill at the line itself); the position now stands at about &minus;1.71R.</li>
+                <li><strong class="text-white">It said what it couldn&rsquo;t check.</strong> Each stock note also has a business condition: capex guidance, Azure growth, the renewal rate and so on. Those depend on company reports, which aren&rsquo;t in a trading journal, so it said so instead of guessing. Checking those lines each quarter is still your job.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">It also checked the two sales the way a skeptical reader would: SOL&rsquo;s sale came at the open right after the UTC close that crossed its line, and V&rsquo;s limit filled on the first day V had traded at 420 since it was bought, with the prior high at 417. A sale that &ldquo;followed its note&rdquo; only counts if the note&rsquo;s condition hadn&rsquo;t been met earlier.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-monthlyreview-review-draft.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-monthlyreview-review-draft.webp" width="1568" height="1191" loading="lazy" decoding="async" alt="4. LAST MONTH&#x27;S QUESTION. You asked: If BTC closes under 70,000, do I sell at the next open like the note says, or do I find a reason? It closed under on Nov 13. You didn&#x27;t sell. Instead you wrote a reason and set a new deadline of the end of the month. Eight days earlier, SOL hit its line and you sold at the open. 5. ONE QUESTION FOR NEXT MONTH. You set yourself an end-of-month deadline for BTC. If it&#x27;s still under 70,000 on Nov 30, will that deadline hold, or will it move again? Then a proposed journal entry, not filed, dated 2026-11-16, mood neutral, summarising all five sections, ending: Reply yes and I&#x27;ll file it." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">Sections 4 and 5, and the draft entry. Nothing has been written yet.</figcaption>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">This is why the review ends with a question. A month ago the holder asked, in writing, whether they would follow the BTC line or find a reason. This month the answer is on file: they found a reason, eight days after following the SOL line without one. Without last month&rsquo;s entry, the BTC decision would read as a judgement call. With it, it reads as the exact thing the holder was worried about. The new question gives that reason a date to be tested against: November 30.</p>
+            <h2 id="check" class="text-2xl font-bold text-white mt-12 mb-4">Check It Before You File It</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">We checked every figure in this run against the account and the price data: the nine dollar moves and their totals, the book value, the seven weights, the effective number of positions (5.86, roughly the concentration of six equal holdings), the realized P&amp;L, every lowest close and line, the BTC and SOL closes and opens, the cost of waiting on BTC, and V&rsquo;s first touch of 420. All of them were right.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">That is not guaranteed. In an earlier test run, with an earlier version of this prompt and a first version of this demo account, the assistant&rsquo;s seven position rows were right but the total under them was $440 off, and the wrong total went into the journal entry it filed. A neutral follow-up, without saying what was wrong, found and fixed it:</p>
+            <div class="my-6 border border-zinc-800 rounded-xl bg-zinc-900/60 p-5">
+                <p class="font-mono text-sm text-blue-300 leading-relaxed">&ldquo;before I rely on this: recheck the numbers in the entry you just filed against my data, and tell me if anything is wrong. if it is, show me the fix before changing anything&rdquo;</p>
+            </div>
+            <p class="text-zinc-300 leading-relaxed mb-6">It found the bad sum, showed the corrected arithmetic, proposed the corrected line, and edited the entry in place after approval. It did not catch a smaller mislabelled figure in its chat table, which wasn&rsquo;t in the entry. Two habits cover most of the risk: ask it to show its numbers, and before you say yes, check the one or two figures you would actually act on. Here that means the weights and the BTC line.</p>
+            <h2 id="dashboard" class="text-2xl font-bold text-white mt-12 mb-4">The Number a Holder&rsquo;s Dashboard Won&rsquo;t Show</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">This applies whether or not you use an assistant. SignalDeck&rsquo;s dashboard date ranges (7, 30 and 90 days, one year) select trades by when they were <em>opened</em>. For a swing trader that is nearly the same as when they were closed. For a holder it isn&rsquo;t: this account sold two positions in the month, and its 30-day stats show zero trades, because both were bought months earlier. The sales are in the trade list, with their realized P&amp;L; they just fall outside a window that starts from the purchase date.</p>
+            <p class="text-zinc-300 leading-relaxed mb-6">So for a holder&rsquo;s month, read realized results from closed trades by exit date, which is what the prompt asks for, and use the all-time stats for anything cumulative. The trade list&rsquo;s own date filter also works on the entry date, which is why the prompt tells the assistant to page through closed trades and filter exits itself. In this run it did, and it reported 2 of 2 closed trades returned.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Filing It</h2>
+            <p class="text-zinc-300 leading-relaxed mb-6">The review exists to be read next month, so it goes in the journal. After &ldquo;yes, file it&rdquo;, Claude Code showed its own permission prompt with the exact text, date and mood before the write. That prompt comes from the chat app, not from SignalDeck, so claude.ai, Claude Desktop and ChatGPT each handle it in their own way, and a setting can switch it off. SignalDeck&rsquo;s write tools also tell the assistant to show the text and get your confirmation first, but the server can&rsquo;t enforce that, which is why the prompt asks for it in words.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-monthlyreview-permission.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-monthlyreview-permission.webp" width="1568" height="1290" loading="lazy" decoding="async" alt="Claude Code asking permission to use the signaldeck Add Journal Entry tool with entry_date 2026-11-16, mood neutral, and the full review as content: MONTHLY REVIEW (Oct 16 - Nov 16), WHAT MOVED, CONCENTRATION, RULE CHECK, LAST MONTH&#x27;S QUESTION and QUESTION FOR NEXT MONTH. The tool description begins: WRITES a new daily journal entry to the user&#x27;s SignalDeck account. Show the user the exact text (and date/mood) and get their explicit confirmation. Options: 1. Yes, 2. Yes, and don&#x27;t ask again, 3. No." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+                <figcaption class="text-xs text-zinc-500 mt-2 text-center">The write, before it happened.</figcaption>
+            </figure>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-monthlyreview-filed.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-monthlyreview-filed.webp" width="1568" height="234" loading="lazy" decoding="async" alt="Claude Code: I filed the review in your journal as entry 100, dated 2026-11-16 with mood neutral. The text is exactly the draft you approved." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+            </figure>
+            <p class="text-zinc-300 leading-relaxed mb-6">Here it is on the Journal screen, next to the BTC and SOL entries it was built from. Last month&rsquo;s review is further down the same screen, which is where next month&rsquo;s review will find it.</p>
+            <figure class="my-8">
+                <a href="../../assets/screenshot-monthlyreview-app-journal.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot"><img src="../../assets/screenshot-monthlyreview-app-journal.webp" width="2494" height="1385" loading="lazy" decoding="async" alt="SignalDeck&#x27;s Journal screen, All Notes. The newest card, 2026-11-16 Neutral, holds the monthly review: NVDA minus 9,657, LLY plus 3,991, BTC minus 2,638; realized V plus 1,934.92, SOL minus 556.00; LLY 23.3% and NVDA 21.1% over the 20% cap of a 125,005 dollar book; BTC&#x27;s WRONG IF fired and it was not sold; the question for next month about the Nov 30 deadline. Beside it: 2026-11-13 Bad, BTC closed at 68,324 tonight, under the 70k line, giving it until the end of the month; and 2026-11-05 Bad, SOL closed at 89.20 at the UTC close tonight, under 90, sold at the open, as the rule says." class="w-full h-auto rounded-xl border border-zinc-800"></a>
+            </figure>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">Making It a Habit</h2>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">Pick a day and keep it.</strong> The holder here reviews on the 16th, and it is written into the rules. The prompt measures from the last review, so a late month doesn&rsquo;t leave a gap.</li>
+                <li><strong class="text-white">Run it before the open, or after the close.</strong> During market hours stock prices move while you read. This run used pre-market quotes for stocks, which is fine for a review, and worth knowing if you compare it with a statement priced at the close.</li>
+                <li><strong class="text-white">Keep the prompt the same.</strong> Change it when your rules change, not when you&rsquo;re curious. Ask follow-up questions in the same chat after the review is filed.</li>
+                <li><strong class="text-white">Read section 3 first.</strong> What moved is mostly the market. Whether you did what you wrote down is the part you control.</li>
+                <li><strong class="text-white">Answer last month&rsquo;s question honestly, even if the answer is &ldquo;I found a reason.&rdquo;</strong> That sentence in your own journal is worth more than any number in the review.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">For one-off questions between reviews, see <a href="../questions-to-ask-your-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">20 questions to ask your trading journal</a>. For the day-to-day entries a monthly review reads back, see <a href="../journal-by-chat/" class="text-blue-400 hover:text-blue-300 transition-colors">journaling by chat</a>.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4">What It Reads, What It Writes</h2>
+            <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-6">
+                <li><strong class="text-white">Reads:</strong> open and closed trades, each trade&rsquo;s notes, journal entries, strategies and their notes, and current and historical prices.</li>
+                <li><strong class="text-white">Writes, if you allow it:</strong> this review needs one write, a journal entry, plus an edit if you correct it. Writes count toward a per-user hourly budget, currently 120 an hour.</li>
+                <li><strong class="text-white">Doesn&rsquo;t see:</strong> your cash balance unless you record it, anything outside SignalDeck such as company filings, and anyone else&rsquo;s account.</li>
+                <li><strong class="text-white">No deleting by default:</strong> removing an entry needs a separate delete permission that is off unless you opt in when you connect.</li>
+            </ul>
+            <p class="text-zinc-300 leading-relaxed mb-6">To set up a connection, see <a href="../connect-claude-chatgpt-trading-journal/" class="text-blue-400 hover:text-blue-300 transition-colors">connecting Claude or ChatGPT to your trading journal</a> or the <a href="../../mcp/" class="text-blue-400 hover:text-blue-300 transition-colors">AI assistant page</a>. The connection is included on every plan, including Free. To get a book like this one in, see the <a href="../../stocks/" class="text-blue-400 hover:text-blue-300 transition-colors">stock</a> and <a href="../../crypto/" class="text-blue-400 hover:text-blue-300 transition-colors">crypto</a> journal pages.</p>
+            <p class="text-zinc-500 text-sm leading-relaxed mb-6">The account is a hypothetical demo, not anyone&rsquo;s real portfolio, and nothing here is a recommendation to buy or sell anything. Purchase prices and SOL&rsquo;s sale price are real Polygon daily opens (crypto bars are 00:00 UTC days; SOL&rsquo;s fill is modeled at its bar&rsquo;s opening price); V&rsquo;s sale is a hypothetical limit fill at 420 on the first day V&rsquo;s range reached it; period start values are real October 16, 2026 closes. Prices were retrieved November 16, 2026. Current prices are the live quotes SignalDeck returned at about 7:20 a.m. ET on November 16, 2026, pre-market for the stocks. The trades, notes, strategy and journal entries, including last month&rsquo;s review, were created for this test the same morning. Answers were produced by Claude Code with Claude Opus 5.5 against a SignalDeck demo account on the current release, with the hourly write limit at SignalDeck&rsquo;s current 120 writes an hour. The earlier test run quoted in &ldquo;Check It Before You File It&rdquo; used a first version of this account, rebuilt because some of its seeded price lines had been crossed before the review month. Screenshots are unedited apart from cropping, and on the Journal screen the time stamps on the cards are hidden. ChatGPT reaches the same tools through the same connector, but it wasn&rsquo;t tested for this post and its answers will differ. The journal write was checked in the database, and every figure in the answer was checked against the trades and the price data.</p>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-2xl font-bold text-white mb-8">FAQ</h2>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">What should a monthly portfolio review include?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Five things, in the same order every month: what moved in dollars, plus any realized gains or losses from sales; each position’s share of the book, checked against your own cap; whether any sell condition you wrote at purchase fired, and what you did about it; the question you asked yourself at the last review and what actually happened; and one question to carry into the next. A fixed format matters more than a long one, because the value is in comparing one month with the next.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Can ChatGPT or Claude run a monthly portfolio review?</h3>
+                    <p class="text-zinc-400 leading-relaxed">Yes, if it can read your holdings. Connected to SignalDeck, Claude or ChatGPT can read your open positions, the notes you wrote when you bought, your journal, your closed trades and current and historical prices, then write the review and file it as a journal entry. We tested the prompt in this post with Claude Code on November 16, 2026. ChatGPT reaches the same tools through the same connector, but we did not test it and its answers will differ.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Will the AI tell me what to buy or sell?</h3>
+                    <p class="text-zinc-400 leading-relaxed">The prompt in this post tells it not to, and in our run it didn’t. It reported what the account’s own written rules said and what was actually done, for example that a sell condition fired and the position was not sold, without recommending a trade. Whether to act on a broken rule is your decision.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">Why do 30-day stats show no trades for a long-term holder?</h3>
+                    <p class="text-zinc-400 leading-relaxed">SignalDeck’s dashboard date ranges select trades by entry date, so 30-day stats only count positions opened in the last 30 days. A holder who sells a position bought last year sees that sale in the trade list, not in 30-day stats. The prompt in this post avoids the problem by paging through closed trades and filtering on the exit date.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-2">How long does an AI-run monthly review take?</h3>
+                    <p class="text-zinc-400 leading-relaxed">In our test the assistant gathered the data (29 read calls) and wrote the review in under two minutes. Budget about 15 minutes in all, so there is time to read it and check the figures you would act on before you approve the journal entry. Don’t skip the check: in an earlier test run, one total was wrong.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-12 mt-16">
+                <h2 class="text-xl font-bold text-white mb-6">Related Articles</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="../investment-thesis-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Write the Sell Rule First</h3>
+                        <p class="text-sm text-zinc-400">The three lines to write at purchase, and how theses drift.</p>
+                    </a>
+                    <a href="../single-stock-concentration/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Portfolio Concentration Risk</h3>
+                        <p class="text-sm text-zinc-400">Nobody chose 38%: effective positions and trim rules.</p>
+                    </a>
+                    <a href="../questions-to-ask-your-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">20 Questions to Ask Your Trading Journal</h3>
+                        <p class="text-sm text-zinc-400">Real answers from an AI assistant, checked.</p>
+                    </a>
+                    <a href="../journal-by-chat/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">The Trading Journal You&rsquo;ll Actually Keep</h3>
+                        <p class="text-sm text-zinc-400">Logging notes and journal entries by chat.</p>
+                    </a>
+                    <a href="../connect-claude-chatgpt-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Connect Claude or ChatGPT to Your Journal</h3>
+                        <p class="text-sm text-zinc-400">What the assistant can read, write, and never touch.</p>
+                    </a>
+                    <a href="../crypto-trading-journal/" class="block border border-zinc-800 rounded-lg p-5 hover:border-blue-500/40 transition-colors">
+                        <h3 class="text-white font-semibold mb-1">Crypto Trading Journal</h3>
+                        <p class="text-sm text-zinc-400">What to track when the market never closes.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-8 text-center mt-16">
+                <h3 class="text-xl font-bold text-white mb-3">Review the month in fifteen minutes</h3>
+                <p class="text-zinc-400 mb-6 max-w-xl mx-auto">Import your stocks and crypto, write the sell rule when you buy, and let Claude or ChatGPT gather the month for you. The prompt asks for your approval before anything is filed.
+                Free during beta; Pro is $30/mo and Elite $50/mo when billing launches.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="https://app.sgnldk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="if(!navigator.webdriver) gtag('event', 'blog_cta_click', {'article': 'monthly-portfolio-review-ai'});"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                        Join the Beta &mdash; Free
+                    </a>
+                    <a href="../../plans/"
+                        class="inline-block px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium rounded-lg transition-all">
+                        See Plans &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+
+
+
+    <footer id="beta" class="border-t border-zinc-800 bg-zinc-950 py-16">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <p class="mt-12 text-xs text-zinc-600 font-mono">
+                &copy; 2026 SignalDeck | All systems operational
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../backtester/" title="Strategy Backtester" class="hover:text-zinc-400">Backtester</a> |
+                <a href="../../broker-import/" title="Broker Import" class="hover:text-zinc-400">Broker Import</a> |
+                <a href="../../analytics/" title="Trade Analytics" class="hover:text-zinc-400">Analytics</a> |
+                <a href="../../walk-forward-analysis/" title="Walk-Forward Analysis" class="hover:text-zinc-400">Walk-Forward</a> |
+                <a href="../../live-drawdown-monitor/" title="Live Drawdown Monitor" class="hover:text-zinc-400">Drawdown Monitor</a> |
+                <a href="../../trade-replay/" title="Trade Replay" class="hover:text-zinc-400">Trade Replay</a> |
+                <a href="../../mcp/" title="AI Assistant (MCP)" class="hover:text-zinc-400">AI Assistant</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../stocks/" title="Stock Trading Journal" class="hover:text-zinc-400">Stocks</a> |
+                <a href="../../forex/" title="Forex Trading Journal" class="hover:text-zinc-400">Forex</a> |
+                <a href="../../futures/" title="Futures Trading Journal" class="hover:text-zinc-400">Futures</a> |
+                <a href="../../crypto/" title="Crypto Trading Journal" class="hover:text-zinc-400">Crypto</a> |
+                <a href="../../cfd/" title="CFD &amp; Indices Journal" class="hover:text-zinc-400">CFD</a> |
+                <a href="../../day-trading/" title="Day Trading Journal" class="hover:text-zinc-400">Day Trading</a> |
+                <a href="../../psychology/" title="Trading Psychology Journal" class="hover:text-zinc-400">Psychology</a> |
+                <a href="../../new-trade-logic/" title="New Trade Logic" class="hover:text-zinc-400">Trade Logic</a> |
+                <a href="../../public-profile/" title="Public Trader Profile" class="hover:text-zinc-400">Public Profile</a> |
+                <a href="../../r-multiple-trading/" title="R-Multiple Trading" class="hover:text-zinc-400">R-Multiple</a> |
+                <a href="../../mt4-journal/" title="MT4 Trading Journal" class="hover:text-zinc-400">MT4</a> |
+                <a href="../../news/" title="Market News" class="hover:text-zinc-400">News</a>
+            </p>
+            <p class="mt-2 text-xs text-zinc-600 font-mono">
+                <a href="../../release-history.html" title="Release History">Release History</a> |
+                <a href="../../clubs.html" title="Clubs" class="hover:text-zinc-400">Clubs</a> |
+                <a href="../../jobs/" title="Jobs" class="hover:text-zinc-400">Jobs</a> |
+                <a href="../" title="Blog" class="hover:text-zinc-400">Blog</a>
+            </p>
+            <p class="mt-1 text-xs text-zinc-600 font-mono">
+                <a href="https://x.com/sgnldk" title="@sgnldk on X" target="_blank" rel="noopener noreferrer">X</a> |
+                <a href="https://www.youtube.com/@SignalDeck" title="SignalDeck Youtube" target="_blank" rel="noopener noreferrer">Youtube</a> |
+                <a href="https://www.linkedin.com/company/sgnldk" target="_blank" rel="noopener noreferrer" title="SignalDeck LinkedIn">LinkedIn</a> |
+                <a href="https://bsky.app/profile/sgnldk.com" title="SignalDeck Bluesky" target="_blank" rel="noopener noreferrer">Bluesky</a> |
+                <a href="../../discord.html" title="SignalDeck Discord">Discord</a>
+            </p>
+            <p class="mt-1 text-[10px] text-zinc-700 font-mono">
+                <a href="https://sgnldk.com/about/" class="hover:text-zinc-500">About</a> | <a href="https://sgnldk.com/contact.html" class="hover:text-zinc-500">Contact</a> |
+                <a href="https://sgnldk.com/privacy.html" class="hover:text-zinc-500">Privacy</a> |
+                <a href="https://sgnldk.com/terms.html" class="hover:text-zinc-500">Terms</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+    </script>
+</body>
+</html>

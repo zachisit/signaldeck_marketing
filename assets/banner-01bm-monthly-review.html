@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SignalDeck — Banner 01-BM · Monthly Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1500px; height: 750px; overflow: hidden; background: #09090b; }
+body { position: relative; }
+.band-top { position: absolute; top: 0; left: 0; right: 0; height: 125px; background: linear-gradient(to bottom, rgba(168,85,247,0.12) 0%, rgba(59,130,246,0.04) 55%, transparent 100%); }
+.band-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 123px; background: linear-gradient(105deg, #3b82f6 0%, #6366f1 45%, #a855f7 100%); }
+.stage { position: absolute; top: 125px; left: 0; width: 1500px; height: 500px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <div class="band-top"></div>
+
+  <div class="stage">
+    <svg id="svg" width="1500" height="500" style="position:absolute;top:0;left:0;"></svg>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent 58%,rgba(9,9,11,0.55) 70%,rgba(9,9,11,0.97) 84%);pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,11,0.5) 0%,transparent 20%,transparent 80%,rgba(9,9,11,0.5) 100%);pointer-events:none;"></div>
+
+    <div style="position:absolute;top:54px;right:68px;text-align:right;z-index:10;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;">SignalDeck</div>
+      <div style="font-size:70px;font-weight:900;letter-spacing:-0.038em;line-height:0.95;color:#fff;margin-bottom:14px;">
+        Once a Month,<br>Check Your<br>
+        <span style="background:linear-gradient(95deg,#60a5fa 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Own Rules.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#52525b;letter-spacing:0.05em;margin-bottom:7px;">A 15-Minute Monthly Review, by AI</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#3f3f46;letter-spacing:0.04em;">real tool calls &middot; demo account &middot; real prices</div>
+    </div>
+
+    <div style="position:absolute;bottom:26px;right:68px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#27272a;letter-spacing:0.1em;z-index:10;">sgnldk.com</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,#3b82f6,#a855f7);"></div>
+  </div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  function el(p, t, a, txt) { const e = document.createElementNS(NS, t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt) e.textContent = txt; p.appendChild(e); return e; }
+  const mono = { 'font-family': 'JetBrains Mono, monospace' };
+  // Real figures from the B8 v2 run (2026-11-16, demo account, real prices). November 2026 starts on a Sunday.
+  const X = 60, Y = 40, C = 44;
+  el(svg, 'text', { ...mono, x: X, y: Y, 'font-size': 12, 'font-weight': 700, fill: '#71717a', 'letter-spacing': '0.14em' }, 'NOVEMBER 2026');
+  ['S','M','T','W','T','F','S'].forEach((d, i) => el(svg, 'text', { ...mono, x: X + i * C + 16, y: Y + 30, 'text-anchor': 'middle', 'font-size': 11, fill: '#52525b' }, d));
+  const MARK = { 2: '#14b8a6', 5: '#14b8a6', 13: '#fb7185' };
+  for (let d = 1; d <= 30; d++) {
+    const i = d - 1, cx = X + (i % 7) * C, cy = Y + 44 + Math.floor(i / 7) * C;
+    const hi = d === 16;
+    el(svg, 'rect', { x: cx, y: cy, width: 34, height: 34, rx: 7, fill: hi ? '#3b82f6' : '#18181b', 'fill-opacity': hi ? 0.9 : 1, stroke: hi ? '#93c5fd' : '#27272a', 'stroke-width': hi ? 1.6 : 1 });
+    el(svg, 'text', { ...mono, x: cx + 17, y: cy + 22, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': hi ? 700 : 400, fill: hi ? '#fff' : '#a1a1aa' }, String(d));
+    if (MARK[d]) el(svg, 'circle', { cx: cx + 28, cy: cy + 7, r: 3.2, fill: MARK[d] });
+  }
+  el(svg, 'text', { ...mono, x: X, y: Y + 44 + 5 * C + 4, 'font-size': 10.5, fill: '#5eead4' }, '● sold per note');
+  el(svg, 'text', { ...mono, x: X + 140, y: Y + 44 + 5 * C + 4, 'font-size': 10.5, fill: '#fda4af' }, '● line crossed');
+  // arrow from day 16 (Monday, week 3), run along the gap under its row so it crosses no other day
+  const sx = X + 1 * C + 17, gy = Y + 44 + 2 * C + 39;
+  el(svg, 'path', { d: `M ${sx} ${gy - 5} L ${sx} ${gy} L 383 ${gy}`, fill: 'none', stroke: 'url(#gb)', 'stroke-width': 2.5, 'stroke-dasharray': '6 5' });
+  el(svg, 'path', { d: `M 377 ${gy - 7} L 389 ${gy} L 377 ${gy + 7}`, fill: 'none', stroke: '#a855f7', 'stroke-width': 2.5 });
+  // report card
+  const CX = 395, CY = 34, W = 520;
+  el(svg, 'rect', { x: CX, y: CY, width: W, height: 410, rx: 14, fill: '#1a1f2b', stroke: '#3f3f46', 'stroke-width': 1 });
+  el(svg, 'text', { ...mono, x: CX + 22, y: CY + 32, 'font-size': 13, 'font-weight': 700, fill: '#e4e4e7', 'letter-spacing': '0.06em' }, 'MONTHLY REVIEW · OCT 16 – NOV 16');
+  const rows = [
+    ['1 WHAT MOVED', 'NVDA −$9,657 · LLY +$3,991 · BTC −$2,638', '#d4d4d8'],
+    ['2 CONCENTRATION', 'LLY 23.3% · NVDA 21.1%  > 20% CAP', '#fcd34d'],
+    ['3 RULE CHECK', 'BTC closed < 70,000 · NOT SOLD', '#fda4af'],
+    ['', 'V at its target · SOL at its line  ✓', '#5eead4'],
+    ["4 LAST MONTH'S Q", 'closed under · no sale · “until the end of the month”', '#d4d4d8'],
+    ['5 NEXT MONTH', 'does the Nov 30 deadline hold?', '#93c5fd'],
+  ];
+  rows.forEach(([h, t, c], i) => {
+    const y = CY + 74 + i * 54;
+    if (h) el(svg, 'line', { x1: CX + 22, y1: y - 22, x2: CX + W - 22, y2: y - 22, stroke: '#27272a', 'stroke-width': 1 });
+    if (h) el(svg, 'text', { ...mono, x: CX + 22, y, 'font-size': 10.5, 'font-weight': 700, fill: '#71717a', 'letter-spacing': '0.1em' }, h);
+    el(svg, 'text', { ...mono, x: CX + 22, y: y + 22, 'font-size': 14.5, 'font-weight': 700, fill: c }, t);
+  });
+  const defs = el(svg, 'defs', {});
+  const g = el(defs, 'linearGradient', { id: 'gb', x1: 0, y1: 0, x2: 1, y2: 0 });
+  el(g, 'stop', { offset: '0%', 'stop-color': '#3b82f6' }); el(g, 'stop', { offset: '100%', 'stop-color': '#a855f7' });
+})();
+</script>
+</body>
+</html>
